@@ -1,0 +1,125 @@
+wh_id,project,concept,date,shot,paper_tables,is_projection,triple_product_kev_m3_s,triple_product_definition,temperature_kev,temperature_kind,q_sci,q_sci_basis,q_sci_comment,fuel_stated,inferred,new_or_changed_2025,references
+90,ZETA,Stabilized Pinch,1957,140 kA - 180kA discharges,II,False,9e+14,n_i0 T_i0 tau_E*,0.09,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Butt_1959
+42,Model C,Stellarator,1969,ICRH heated,II,False,1e+14,n_i0 T_i0 tau_E*,0.2,peak ion temperature T_i0,,,,,ion temperature inferred from electron temperature; ion density inferred from electron density,False,Young_1974
+78,T-3,Tokamak,1969,"$H_z=25$kOe, $I_z=85$kA discharges",I,False,2e+16,n_i0 T_i0 tau_E*,0.3,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Mirnov_1969 Peacock_1969 Mirnov_1970
+123,ST,Tokamak,1971,"10cm limiter, 42 kA",I,False,6.8e+16,n_i0 T_i0 tau_E*,0.5,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Dimock_1971
+148,ST,Tokamak,1972,12cm limiter,I,False,2.4e+17,n_i0 T_i0 tau_E*,0.4,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Stodiek_1985
+27,TFR,Tokamak,1974,Molybdenum limiter,I,False,1.3e+18,n_i0 T_i0 tau_E*,0.95,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,TFRGroup_1985
+132,PLT,Tokamak,1976,22149-231,I,False,3.2e+18,n_i0 T_i0 tau_E*,1.54,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Grove_1976
+124,ETA-BETA I,Reverse Field Pinch,1977,Summary,II,False,1e+13,n_i0 T_i0 tau_E*,0.01,peak ion temperature T_i0,,,,,,False,Ortolani_1985
+93,Alcator A,Tokamak,1978,8.7T discharge,I,False,2.4e+19,n_i0 T_i0 tau_E*,0.8,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Gondhalekar_1978
+68,W7-A,Stellarator,1980,Zero current,II,False,8.6e+17,n_i0 T_i0 tau_E*,0.545,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Bartlett_1980
+99,TFR,Tokamak,1981,Iconel limiter,I,False,5.2e+18,n_i0 T_i0 tau_E*,0.95,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,TFRGroup_1985
+149,TFR,Tokamak,1982,Carbon limiter,I,False,2.1e+18,n_i0 T_i0 tau_E*,0.95,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,TFRGroup_1985
+145,ETA-BETA II,Reverse Field Pinch,1984,59611,II,False,3.2e+15,n_i0 T_i0 tau_E*,0.09,peak ion temperature T_i0,,,,,ion temperature inferred from electron temperature; ion density inferred from electron density,False,Bassan_1985
+76,Alcator C,Tokamak,1984,Multiple pellet injection,I,False,1.2e+20,n_i0 T_i0 tau_E*,1.5,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Greenwald_1984
+138,TMX-U,Mirror,1984-02-02,2/2/84 S21,II,False,3e+14,n_i0 T_i0 tau_E*,0.15,peak ion temperature T_i0,,,,,,False,Dimonte_1987
+38,ZT-40M,Reverse Field Pinch,1987,330 kA discharge,II,False,2.2e+16,n_i0 T_i0 tau_E*,0.33,peak ion temperature T_i0,,,,,ion temperature inferred from electron temperature; ion density inferred from volume-averaged electron density,False,Cayton_1987
+75,ASDEX,Tokamak,1988,23349-57,I,False,7.2e+18,n_i0 T_i0 tau_E*,0.8,peak ion temperature T_i0,,,,,ion density inferred from volume-averaged electron density,False,Soldner_1998
+15,CTX,Spheromak,1990,Solid flux conserver,II,False,1.6e+15,n_i0 T_i0 tau_E*,0.18,peak ion temperature T_i0,,,,,ion density inferred from volume-averaged electron density,False,Jarboe_1990
+64,JET,Tokamak,1991-11-02,26087,I,False,6.1e+20,n_i0 T_i0 tau_E*,18.6,peak ion temperature T_i0,,,,,tau_E* inferred from measured tau_E,False,1992_Jet_Team
+82,JET,Tokamak,1991-11-04,26095,I,False,6e+20,n_i0 T_i0 tau_E*,22,peak ion temperature T_i0,,,,,tau_E* inferred from measured tau_E,False,1992_Jet_Team
+119,JET,Tokamak,1991-11-09,26148,I IV,False,2.7e+20,n_i0 T_i0 tau_E*,18.8,peak ion temperature T_i0,0.12,power (fusion power / heating power),"Power basis, instantanous",D-T,tau_E* inferred from measured tau_E,False,1992_Jet_Team
+88,TFTR,Tokamak,1992-10-29,68522,I IV,False,3.5e+20,n_i0 T_i0 tau_E*,29,peak ion temperature T_i0,0.0021,power (fusion power / heating power),,D-T,tau_E* inferred from measured tau_E,False,Hawryluk_1999
+142,LSX,Field Reversed Configuration,1993,s~2,II,False,7.1e+16,n_i0 T_i0 tau_E*,0.547,peak ion temperature T_i0,,,,,peak ion density inferred from volume average,False,Slough_1995
+22,JT-60U,Tokamak,1994,17110,I,False,4.7e+20,n_i0 T_i0 tau_E*,37,peak ion temperature T_i0,,,,,tau_E* inferred from measured tau_E,False,Mori_1994
+77,NOVA,Laser Indirect Drive,1994,100 atm fill,III,False,2.5e+20,n <T_i>_n tau_stag,0.9,burn-averaged ion temperature <T_i>_n,,,,,,False,Cable_1994
+81,TFTR,Tokamak,1994-05-27,76778,I IV,False,5.3e+20,n_i0 T_i0 tau_E*,44,peak ion temperature T_i0,0.28,power (fusion power / heating power),,D-T,tau_E* inferred from measured tau_E,False,Hawryluk_1999
+130,TFTR,Tokamak,1994-11-02,80539,I IV,False,4.1e+20,n_i0 T_i0 tau_E*,36,peak ion temperature T_i0,0.27,power (fusion power / heating power),,D-T,tau_E* inferred from measured tau_E,False,Hawryluk_1999
+6,TFTR,Tokamak,1995-02-17,83546,I IV,False,7.9e+20,n_i0 T_i0 tau_E*,43,peak ion temperature T_i0,0.16,power (fusion power / heating power),,D-T,tau_E* inferred from measured tau_E,False,Hawryluk_1999
+101,JT-60U,Tokamak,1996,E26939,I,False,5.1e+20,n_i0 T_i0 tau_E*,45,peak ion temperature T_i0,,,,,tau_E* inferred from measured tau_E,False,Ushigusa_1996
+140,JT-60U,Tokamak,1996,E26949,I,False,4.3e+20,n_i0 T_i0 tau_E*,35.5,peak ion temperature T_i0,,,,,tau_E* inferred from measured tau_E,False,Ushigusa_1996
+95,DIII-D,Tokamak,1997,87977,I,False,3.7e+20,n_i0 T_i0 tau_E*,18.1,peak ion temperature T_i0,,,,,tau_E* inferred from measured tau_E,False,Lazarus_1997
+135,JET,Tokamak,1997-10-31,42976,I IV,False,4.7e+20,n_i0 T_i0 tau_E*,28,peak ion temperature T_i0,0.63,power (fusion power / heating power),"Power basis, instantaneous",D-T,tau_E* inferred from measured tau_E,False,Keilhacker_1999
+150,JET,Tokamak,1997-10-31,42974,IV,False,,,,,0.62,power (fusion power / heating power),"Power basis, isntantaneous",D-T,,True,Keilhacker_1999
+24,JT-60U,Tokamak,1998,E31872,I,False,5.6e+20,n_i0 T_i0 tau_E*,16.8,peak ion temperature T_i0,,,,,tau_E* inferred from measured tau_E,False,Fujita_1999
+28,START,Spherical Tokamak,1998,35533,I,False,6.1e+16,n_i0 T_i0 tau_E*,0.2,peak ion temperature T_i0,,,,,ion temperature inferred from electron temperature; ion density inferred from volume-averaged electron density,False,Sykes_1999
+86,MST,Reverse Field Pinch,2001,390 kA discharge,II,False,3e+16,n_i0 T_i0 tau_E*,0.396,peak ion temperature T_i0,,,,,ion density inferred from volume-averaged electron density; tau_E* inferred from measured tau_E,False,Chapman_2002
+67,W7-AS,Stellarator,2002,H-NBI mode,II,False,1.5e+19,n_i0 T_i0 tau_E*,2.28,peak ion temperature T_i0,,,,,peak ion temperature inferred from volume average; ion density inferred from volume-averaged electron density,False,Wagner_2005
+19,ZaP,Z Pinch,2003,Unknown,II,False,3.3e+15,n_i0 T_i0 tau_E*,0.1,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Shumlak_2003
+20,FRX-L,Field Reversed Configuration,2003,2027,II,False,1.2e+16,n_i0 T_i0 tau_E*,0.09,peak ion temperature T_i0,,,,,,False,Intrator_2004
+105,FRX-L,Field Reversed Configuration,2005,3684,II,False,2.9e+16,n_i0 T_i0 tau_E*,0.185,peak ion temperature T_i0,,,,,peak ion temperature inferred from volume average; ion density inferred from volume-averaged electron density,False,Zhang_2006
+134,HSX,Stellarator,2005,QHS configuration,II,False,6.8e+14,n_i0 T_i0 tau_E*,0.45,peak ion temperature T_i0,,,,,ion temperature inferred from electron temperature; ion density inferred from electron density,False,Anderson_2006
+48,TCS,Field Reversed Configuration,2005,9018,II,False,6.5e+12,n_i0 T_i0 tau_E*,0.025,peak ion temperature T_i0,,,,,ion density inferred from volume-averaged electron density,False,Guo_2008
+73,MAST,Spherical Tokamak,2006,14626,I,False,4.5e+18,n_i0 T_i0 tau_E*,3,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Lloyd_2007
+14,GOL-3,Mirror,2007,Unknown,II,False,1.3e+18,n_i0 T_i0 tau_E*,2,peak ion temperature T_i0,,,,,,False,Burdakov_2007
+157,SSPX,Spheromak,2007,17524,II,False,1.1e+17,n_i0 T_i0 tau_E*,0.5,peak ion temperature T_i0,,,,,ion temperature inferred from electron temperature; ion density inferred from volume-averaged electron density,False,Hudson_2008
+106,OMEGA,Laser Direct Drive,2007-04-17,47210,III,False,3.6e+20,n <T_i>_n tau_stag,2,burn-averaged ion temperature <T_i>_n,,,,,"p*tau inferred from areal density, temperature and yield-over-clean (Betti 2010)",False,Sangster_2008 Sangster_2010
+94,OMEGA,Laser Direct Drive,2007-04-17,47206,III,False,3.9e+20,n <T_i>_n tau_stag,2,burn-averaged ion temperature <T_i>_n,,,,,"p*tau inferred from areal density, temperature and yield-over-clean (Betti 2010)",False,Sangster_2008 Sangster_2010
+116,TCSU,Field Reversed Configuration,2008,21214,II,False,9.7e+13,n_i0 T_i0 tau_E*,0.1,peak ion temperature T_i0,,,,,ion density inferred from volume-averaged electron density,False,Guo_2008
+54,LHD,Stellarator,2008,High triple product,II,False,5.2e+19,n_i0 T_i0 tau_E*,0.47,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Komori_2010
+65,RFX-mod,Reverse Field Pinch,2008,24063,II,False,7.5e+16,n_i0 T_i0 tau_E*,1,peak ion temperature T_i0,,,,,ion temperature inferred from electron temperature; ion density inferred from electron density,False,Valisa_2008
+114,MST,Reverse Field Pinch,2009,pellets,II,False,1.7e+17,n_i0 T_i0 tau_E*,0.6,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Chapman_2009
+31,OMEGA,Laser Direct Drive,2009,Unknown,III,False,4.1e+20,n <T_i>_n tau_stag,1.8,burn-averaged ion temperature <T_i>_n,,,,,"p*tau inferred from areal density, temperature and yield-over-clean (Betti 2010)",False,Sangster_2010
+56,MST,Reverse Field Pinch,2009,w/o pellets,II,False,1.9e+17,n_i0 T_i0 tau_E*,1.3,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Chapman_2009
+80,NSTX,Spherical Tokamak,2009,129041,I,False,4.8e+18,n_i0 T_i0 tau_E*,1.2,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Mansfield_2009
+71,OMEGA,Laser Direct Drive,2009-09-09,55468,III,False,4.9e+20,n <T_i>_n tau_stag,1.8,burn-averaged ion temperature <T_i>_n,,,,,"p*tau inferred from areal density, temperature and yield-over-clean (Betti 2010)",False,Sangster_2010
+72,IPA,Field Reversed Configuration,2010,Unknown,II,False,4.4e+16,n_i0 T_i0 tau_E*,0.85,peak ion temperature T_i0,,,,,peak ion temperature inferred from volume average; ion density inferred from volume-averaged electron density,False,Slough_2011
+125,EAST,Tokamak,2012,41079,I,False,9.6e+17,n_i0 T_i0 tau_E*,1.2,peak ion temperature T_i0,,,,,ion temperature inferred from electron temperature; ion density inferred from electron density,False,Hu_2015
+58,EAST,Tokamak,2012,41195,I,False,1.1e+18,n_i0 T_i0 tau_E*,0.9,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Gao_2021
+12,OMEGA,Laser Direct Drive,2013-04-03,69236,III,False,6.5e+20,n <T_i>_n tau_stag,2.8,burn-averaged ion temperature <T_i>_n,,,,,,False,Goncharov_2014
+127,NIF,Laser Indirect Drive,2013-09-27,N130927,IV,False,,,,,0.01,energy (fusion yield / laser energy),,D-T,,True,2014_Hurricane
+17,NIF,Laser Indirect Drive,2013-11-19,N131119,IV,False,,,,,0.01,energy (fusion yield / laser energy),,D-T,,True,2014_Hurricane
+112,EAST,Tokamak,2014,48068,I,False,2.7e+18,n_i0 T_i0 tau_E*,1.2,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Gao_2021
+158,KSTAR,Tokamak,2014,7081,I,False,9.6e+18,n_i0 T_i0 tau_E*,2,peak ion temperature T_i0,,,,,ion density inferred from volume-averaged electron density,False,Kim_2014
+30,NIF,Laser Indirect Drive,2014-03-04,N140304,III,False,1.1e+22,n <T_i>_n tau_stag,5.5,burn-averaged ion temperature <T_i>_n,,,,,,False,LePape_2018
+120,Z Facility,Magnetized Liner Inertial Fusion,2014-03-05,z2613,III,False,2.4e+20,n <T_i>_n tau_stag,2,burn-averaged ion temperature <T_i>_n,,,,D-D,,False,Gomez_2019
+160,EAST,Tokamak,2015,56933,I,False,9.6e+18,n_i0 T_i0 tau_E*,2.1,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Yang_2017 Gao_2021
+32,Yingguang-I,Field Reversed Configuration,2015,150910-01,II,False,9.6e+15,n_i0 T_i0 tau_E*,0.2,peak ion temperature T_i0,,,,,peak ion temperature inferred from volume average; ion density inferred from volume-averaged electron density,False,Sun_2017
+118,OMEGA,Laser Direct Drive,2015-04-28,77068,III,False,1.2e+21,n <T_i>_n tau_stag,3.6,burn-averaged ion temperature <T_i>_n,,,,,,False,Regan_2016
+107,Z Facility,Magnetized Liner Inertial Fusion,2015-09-15,z2850,III,False,3e+20,n <T_i>_n tau_stag,2.8,burn-averaged ion temperature <T_i>_n,,,,D-D,,False,Gomez_2019
+10,EAST,Tokamak,2016,71320,I,False,3.6e+18,n_i0 T_i0 tau_E*,1.8,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Gao_2018 Gao_2021
+137,C-Mod,Tokamak,2016,1160930033,I,False,7.4e+19,n_i0 T_i0 tau_E*,2.5,peak ion temperature T_i0,,,,,ion temperature inferred from electron temperature; ion density inferred from electron density,False,Hughes_2018
+62,ASDEX-U,Tokamak,2016,32305,I,False,2.2e+19,n_i0 T_i0 tau_E*,8,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Bock_2017
+85,C-Mod,Tokamak,2016,1160930042,I,False,6.5e+19,n_i0 T_i0 tau_E*,6,peak ion temperature T_i0,,,,,ion temperature inferred from electron temperature; ion density inferred from electron density,False,Hughes_2018
+29,C-2U,Field Reversed Configuration,2017,46366,II,False,4e+15,n_i0 T_i0 tau_E*,0.68,peak ion temperature T_i0,,,,,peak ion temperature inferred from volume average; ion density inferred from volume-averaged electron density,False,Gota_2017 Baltz_2017
+70,NIF,Laser Indirect Drive,2017-06-01,N170601,III IV,False,1.6e+22,n <T_i>_n tau_stag,4.5,burn-averaged ion temperature <T_i>_n,0.03,energy (fusion yield / laser energy),,D-T,,False,LePape_2018
+111,NIF,Laser Indirect Drive,2017-08-27,N170827,III IV,False,1.7e+22,n <T_i>_n tau_stag,4.5,burn-averaged ion temperature <T_i>_n,0.03,energy (fusion yield / laser energy),,D-T,,False,LePape_2018
+97,Z Facility,Magnetized Liner Inertial Fusion,2017-12-04,z3179,III,False,6.7e+20,n <T_i>_n tau_stag,3.3,burn-averaged ion temperature <T_i>_n,,,,D-D,,True,2022_Knapp
+44,W7-X,Stellarator,2017-12-07,W7X 20171207.006,II,False,6.2e+19,n_i0 T_i0 tau_E*,3.5,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Baldzuhn_2020 Wolf_2019 Bozhenkov_2020
+104,EAST,Tokamak,2018,78723,I,False,4.9e+18,n_i0 T_i0 tau_E*,1.94,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Gao_2021
+110,FuZE,Z Pinch,2018,Multiple identical shots,II,False,2.2e+17,n_i0 T_i0 tau_E*,1.8,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Zhang_2019
+37,GDT,Mirror,2018,Multiple identical shots,II,False,3e+15,n_i0 T_i0 tau_E*,0.45,peak ion temperature T_i0,,,,,ion temperature inferred from electron temperature; ion density inferred from electron density,False,Yakovlev_2018
+8,Z Facility,Magnetized Liner Inertial Fusion,2018-04-02,z3236,III,False,8.5e+20,n <T_i>_n tau_stag,2.9,burn-averaged ion temperature <T_i>_n,,,,D-D,,True,2022_Knapp
+21,PCS,Magnetized Target Fusion,2018-06-01,PCS-16 (pre-compression),II,False,6.3e+15,n_i0 T_i0 tau_E*,0.6,peak ion temperature T_i0,,,,,ion density inferred from electron density,True,2024_Howard
+49,PCS,Magnetized Target Fusion,2018-06-01,PCS-16 (post-compression),II,False,3.8e+16,n_i0 T_i0 tau_E*,0.629,peak ion temperature T_i0,,,,,ion density inferred from electron density,True,2024_Howard
+51,Z Facility,Magnetized Liner Inertial Fusion,2018-08-15,z3289,III,False,1.1e+21,n <T_i>_n tau_stag,2.6,burn-averaged ion temperature <T_i>_n,,,,D-D,,True,2022_Knapp
+100,C-2W,Field Reversed Configuration,2019,104989,II,False,3.9e+16,n_i0 T_i0 tau_E*,1,peak ion temperature T_i0,,,,,peak ion temperature inferred from volume average; ion density inferred from volume-averaged electron density,False,Gota_2019
+128,FIREX,Laser Direct Drive,2019,40558,III,False,2.5e+20,n <T_i>_n tau_stag,2.1,electron temperature (no ion temperature reported),,,,,,False,Matsuo_2020
+156,C-2W,Field Reversed Configuration,2019,107322,II,False,1.5e+16,n_i0 T_i0 tau_E*,0.6,peak ion temperature T_i0,,,,,peak ion temperature inferred from volume average; ion density inferred from volume-averaged electron density,False,Gota_2019
+9,Globus-M2,Spherical Tokamak,2019,37873,I,False,1.4e+18,n_i0 T_i0 tau_E*,1.2,peak ion temperature T_i0,,,,,ion density inferred from volume-averaged electron density,False,Bakharev_2019
+136,NIF,Laser Indirect Drive,2019-09-18,N190918,III IV,False,6.7e+21,n <T_i>_n tau_stag,4.43,burn-averaged ion temperature <T_i>_n,0.01,energy (fusion yield / laser energy),,D-T,,True,Zylstra_2021
+117,NIF,Laser Indirect Drive,2019-10-07,N191007,III IV,False,9.7e+21,n <T_i>_n tau_stag,4.52,burn-averaged ion temperature <T_i>_n,0.03,energy (fusion yield / laser energy),,D-T,,False,Zylstra_2021
+98,NIF,Laser Indirect Drive,2019-11-10,N191110,III IV,False,8.8e+21,n <T_i>_n tau_stag,4.54,burn-averaged ion temperature <T_i>_n,0.03,energy (fusion yield / laser energy),,D-T,,True,Zylstra_2021
+113,C-2W,Field Reversed Configuration,2020,114534,II,False,3.5e+16,n_i0 T_i0 tau_E*,1.8,peak ion temperature T_i0,,,,,peak ion temperature inferred from volume average; ion density inferred from volume-averaged electron density,False,Gota_2021
+34,NIF,Laser Indirect Drive,2020-11-01,N201101,III,False,1.2e+22,n <T_i>_n tau_stag,4.61,burn-averaged ion temperature <T_i>_n,,,,,,False,Zylstra_2022
+79,NIF,Laser Indirect Drive,2020-11-22,N201122,III,False,1.3e+22,n <T_i>_n tau_stag,4.65,burn-averaged ion temperature <T_i>_n,,,,,,False,Zylstra_2022
+126,PI3,Spherical Tokamak,2021,21 100,I,False,1.9e+17,n_i0 T_i0 tau_E*,0.4,peak ion temperature T_i0,,,,,ion density inferred from electron density,True,2025_Tancetti
+52,C-2W,Field Reversed Configuration,2021,118340,II,False,2.3e+17,n_i0 T_i0 tau_E*,3.5,peak ion temperature T_i0,,,,,peak ion temperature inferred from volume average; ion density inferred from volume-averaged electron density,False,Roche_2021
+152,NIF,Laser Indirect Drive,2021-02-07,N210207,III IV,False,1.3e+22,n <T_i>_n tau_stag,5.66,burn-averaged ion temperature <T_i>_n,0.09,energy (fusion yield / laser energy),,D-T,,True,2024_Abu-Shawareb
+96,NIF,Laser Indirect Drive,2021-02-20,N210220,III,False,1.6e+22,n <T_i>_n tau_stag,5.13,burn-averaged ion temperature <T_i>_n,,,,,,False,Zylstra_2022
+151,NIF,Laser Indirect Drive,2021-03-07,N210307,III IV,False,1.4e+22,n <T_i>_n tau_stag,5.55,burn-averaged ion temperature <T_i>_n,0.07,energy (fusion yield / laser energy),,D-T,,True,2024_Abu-Shawareb
+2,NIF,Laser Indirect Drive,2021-08-08,N210808,III IV,False,1.6e+22,n <T_i>_n tau_stag,10.9,burn-averaged ion temperature <T_i>_n,0.69,energy (fusion yield / laser energy),,D-T,,True,2024_Abu-Shawareb
+69,OMEGA,Laser Direct Drive,2021-10-14,102154,III IV,False,1.4e+21,n <T_i>_n tau_stag,4.6,burn-averaged ion temperature <T_i>_n,0.02,energy (fusion yield / laser energy),,D-T,,True,2024_Williams
+41,OMEGA,Laser Direct Drive,2021-11-02,102360,III IV,False,6.5e+20,n <T_i>_n tau_stag,6,burn-averaged ion temperature <T_i>_n,0.02,energy (fusion yield / laser energy),,D-T,,True,2024_Williams
+115,JET,Tokamak,2021-12-21,99971,IV,False,,,,,0.33,power (fusion power / heating power),"Power basis, averaged over 5 seconds",D-T,,True,2023_Maslov
+87,JET,Tokamak,2021-12-21,99972,I IV,False,2.2e+20,n_i0 T_i0 tau_E*,11,peak ion temperature T_i0,0.38,power (fusion power / heating power),"Power basis, averaged over 2 seconds",D-T,ion density inferred from electron density,True,2023_Maslov
+159,ST40,Spherical Tokamak,2022,10009,I,False,6.3e+18,n_i0 T_i0 tau_E*,9.6,peak ion temperature T_i0,,,,,,True,2023_McNamara
+43,FuZE,Z Pinch,2022,Multiple identical shots at 200psi,II,False,1.2e+18,n_i0 T_i0 tau_E*,2.4,peak ion temperature T_i0,,,,,ion temperature inferred from electron temperature; ion density inferred from electron density,True,2024_Goyon
+16,OMEGA,Laser Direct Drive,2022-04-14,103952,III IV,False,8.7e+20,n <T_i>_n tau_stag,5.8,burn-averaged ion temperature <T_i>_n,0.03,energy (fusion yield / laser energy),,D-T,,True,2024_Williams
+103,OMEGA,Laser Direct Drive,2022-07-14,104949,III IV,False,1.7e+21,n <T_i>_n tau_stag,4.6,burn-averaged ion temperature <T_i>_n,0.02,energy (fusion yield / laser energy),,D-T,,True,2024_Gopalaswamy
+46,NIF,Laser Indirect Drive,2022-09-19,N220919,IV,False,,,,,0.59,energy (fusion yield / laser energy),,D-T,,True,2024_Abu-Shawareb
+5,NIF,Laser Indirect Drive,2022-12-05,N221204,IV,False,,,,,1.51,energy (fusion yield / laser energy),,D-T,,True,2024_Abu-Shawareb
+40,C-2W,Field Reversed Configuration,2023,122588,II,False,3.4e+16,n_i0 T_i0 tau_E*,1,peak ion temperature T_i0,,,,,ion temperature inferred from electron temperature; ion density inferred from volume-averaged electron density,True,2024_Gota_Private 2024_Gota
+3,NIF,Laser Indirect Drive,2023-07-30,N230729,IV,False,,,,,1.89,energy (fusion yield / laser energy),,D-T,,True,2025_LLNL
+162,JET,Tokamak,2023-10-03,104522,IV,False,,,,,0.37,power (fusion power / heating power),,D-T,,True,2025_Kappatou
+141,NIF,Laser Indirect Drive,2023-10-08,N231007,IV,False,,,,,1.26,energy (fusion yield / laser energy),,D-T,,True,2025_LLNL
+163,JET,Tokamak,2023-10-09,104600,I IV,False,1.4e+20,n_i0 T_i0 tau_E*,7,peak ion temperature T_i0,0.11,power (fusion power / heating power),,D-T,ion temperature inferred from electron temperature; ion density inferred from electron density,True,2025_Kappatou 2024_Carvalho
+53,NIF,Laser Indirect Drive,2023-10-30,N231029,IV,False,,,,,1.55,energy (fusion yield / laser energy),,D-T,,True,2025_LLNL
+25,NIF,Laser Indirect Drive,2024-02-12,N240210,IV,False,,,,,2.36,energy (fusion yield / laser energy),,D-T,,True,2025_LLNL
+166,NIF,Laser Indirect Drive,2024-11-18,N241117,IV,False,,,,,1.86,energy (fusion yield / laser energy),,D-T,,True,2025_LLNL
+167,NIF,Laser Indirect Drive,2025-02-23,N250222,IV,False,,,,,2.44,energy (fusion yield / laser energy),,D-T,,True,2025_LLNL
+165,NIF,Laser Indirect Drive,2025-04-07,N250406,IV,False,,,,,4.13,energy (fusion yield / laser energy),,D-T,,True,2025_LLNL
+168,NIF,Laser Indirect Drive,2025-06-22,N250622,IV,False,,,,,1.17,energy (fusion yield / laser energy),,D-T,,True,2025_LLNL
+74,SPARC,Tokamak,2027,Projected,I,True,6.2e+21,n_i0 T_i0 tau_E*,20,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Rodriguez-Fernandez_2020 Creely_2020
+55,ITER,Tokamak,2039,Projected,I,True,7.4e+21,n_i0 T_i0 tau_E*,20,peak ion temperature T_i0,,,,,ion density inferred from electron density,False,Singh_2017 Meneghini_2016 Wagner_2009 Meneghini_2020 Mukhovatov_2003

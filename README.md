@@ -33,6 +33,7 @@ Every record carries a status: `claimed`, `peer_reviewed`, `confirmed` or `retra
 ## Data credits
 
 Each dataset folder has a NOTICE.md with its source's terms and the credit line the site must show. Solar cell records: data courtesy of the National Laboratory of the Rockies (U.S. Department of Energy / NLR / Alliance for Energy Innovation).
+Erdős problems: data from the Erdős problems database (github.com/teorth/erdosproblems), Erdős problems database contributors, maintained by Thomas Bloom and Terence Tao; problems from erdosproblems.com.
 
 ## How updates work
 
@@ -55,3 +56,13 @@ python scripts/validate.py
 Copy an existing file into `data/frontiers/<domain>/`, rename it to the new id, and fill it in. New frontiers start as `status: draft` and go `live` once their record history and reading list are complete.
 
 The full list of planned frontiers and the build order are in the planning doc.
+
+## The site
+
+The public site is in `site/`: one page (`index.html`), a stylesheet, a script that draws the pages and charts (`js/app.js`) and a photo. It reads everything from `site/js/data.js`, which is generated and not committed.
+
+- Build the data file: `python scripts/build_site_data.py`, then open `site/index.html` in a browser.
+- Every file under `data/frontiers/` becomes a page. Nothing in `site/` needs to change when a frontier is added or updated.
+- `site/config.json` holds the choices that are not data: the site name, which series each frontier features on the front page, and the "next in the queue" list.
+- The `Publish site` workflow rebuilds the data file and publishes `site/` to GitHub Pages on every push to `main`. In the repository settings, Pages must have its source set to "GitHub Actions".
+- Only the record chart shape is drawn so far. A frontier whose primary shape is something else still gets a record chart until that shape is built.
