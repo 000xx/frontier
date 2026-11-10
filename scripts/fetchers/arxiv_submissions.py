@@ -1,4 +1,8 @@
-"""Discovery stub: prints the arXiv monthly submissions CSV."""
+"""Discovery stub: prints yearly sums of the arXiv monthly submissions CSV."""
+import csv
+import io
+from collections import defaultdict
+
 from . import common
 
 FRONTIER = "data/frontiers/knowledge/arxiv-submissions.yaml"
@@ -7,10 +11,12 @@ URL = "https://arxiv.org/stats/get_monthly_submissions"
 
 def fetch():
     raw = common.get(URL).decode("utf-8", "replace")
-    lines = raw.splitlines()
-    print(f"DIAG lines={len(lines)} bytes={len(raw)}")
-    for line in lines[:4]:
-        print(f"DIAG head: {line}")
-    for line in lines[-3:]:
-        print(f"DIAG tail: {line}")
+    sums = defaultdict(int)
+    months = defaultdict(int)
+    for row in csv.DictReader(io.StringIO(raw)):
+        y = row["month"][:4]
+        sums[y] += int(row["submissions"])
+        months[y] += 1
+    for y in sorted(sums):
+        print(f"DIAG {y} months={months[y]} sum={sums[y]}")
     raise common.SourceError("discovery run")
