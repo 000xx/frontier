@@ -1,0 +1,198 @@
+# Records are transcribed by hand from paper abstracts; each value was read in this run.
+# Each record is the experiment's headline minimum limit, at the WIMP mass the abstract gives (stated in conditions).
+id: dark-matter-limits
+title: Dark matter WIMP search limits
+domain: physics
+subfield: Searches and limits
+status: live
+summary: How weakly a dark matter particle of the WIMP kind could interact with ordinary matter without having
+  been seen yet, from the best underground xenon detectors. Each new result rules out more of the space where
+  such particles could hide, and the limit has fallen about a thousandfold since 2012.
+metric:
+  name: Best spin-independent WIMP-nucleon cross-section upper limit (at its most sensitive mass, about 30 to 55 GeV/c²)
+  unit: cm²
+  direction: lower
+  scale: log
+  explainer: 'Most of the matter in the universe is invisible "dark matter". One long-favoured idea is that it is
+    made of weakly interacting massive particles, or WIMPs, which would very occasionally bump into an atomic
+    nucleus. Detectors buried deep underground to block cosmic rays watch tonnes of ultra-pure liquid xenon for
+    the tiny flash and electric charge that such a bump would make. No convincing signal has been seen, so each
+    experiment publishes an upper limit: the largest interaction strength (written as a cross section, in square
+    centimetres) that a WIMP of a given mass could have without the detector having seen it, usually at 90%
+    confidence. The limit is a curve across WIMP masses and is deepest for masses a few dozen times a proton''s.
+    This frontier tracks the bottom of that curve, which sits at slightly different masses for different
+    experiments, so neighbouring values are close but not exactly like for like. A lower number means more
+    ground ruled out. Below a certain level the detectors start to see neutrinos from the Sun and from cosmic
+    rays in the atmosphere, which mimic a WIMP; this "neutrino fog" makes further progress much harder.'
+chart:
+  primary: exclusion-map
+  secondary:
+  - record-chart
+series:
+- id: liquid-xenon
+  label: Liquid xenon detectors (XENON, LUX, PandaX, LZ)
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Values are the headline minimum limit in each abstract, at the mass the abstract gives. Dates are first
+    arXiv submission dates. A record is a minimum limit lower than every earlier one, whatever its mass; this
+    mixes masses from 30 to 55 GeV/c², so for the owner: (1) a strict comparison at one fixed mass (say 40 GeV/c²)
+    would need values read off each exclusion curve, which the abstracts do not give; (2) the LUX 2016 abstract
+    quotes 2.2×10^-46 cm² at 50 GeV/c², not at its minimum, and the PandaX-II 2017 abstract gives no confidence
+    level; (3) the schema cannot hold whole exclusion curves, which the exclusion-map chart would need, so only
+    the minimum is recorded. Exclusion limits are not replicated by other experiments, so every record is
+    peer_reviewed. Check LZ, XENONnT and PandaX-4T news and arXiv hep-ex for new results.'
+sources:
+- id: lz-2024
+  name: LZ, "Dark Matter Search Results from 4.2 Tonne-Years of Exposure of the LUX-ZEPLIN (LZ) Experiment", Phys.
+    Rev. Lett. 135, 011802 (2025), arXiv:2410.17036
+  url: https://arxiv.org/abs/2410.17036
+  kind: paper
+  primary: true
+  notes: Current record. Check LZ, XENONnT and PandaX-4T for newer results first.
+- id: lz-2022
+  name: LZ, "First Dark Matter Search Results from the LUX-ZEPLIN (LZ) Experiment", Phys. Rev. Lett. 131, 041002
+    (2023), arXiv:2207.03764
+  url: https://arxiv.org/abs/2207.03764
+  kind: paper
+- id: xenonnt-2023
+  name: XENON Collaboration, "First Dark Matter Search with Nuclear Recoils from the XENONnT Experiment"
+    (arXiv:2303.14729), DOI 10.1103/PhysRevLett.131.041003
+  url: https://arxiv.org/abs/2303.14729
+  kind: paper
+- id: xenonnt-2025
+  name: XENON Collaboration, "WIMP Dark Matter Search using a 3.1 Tonne-Year Exposure of the XENONnT Experiment"
+    (arXiv:2502.18005)
+  url: https://arxiv.org/abs/2502.18005
+  kind: paper
+- id: pandax4t-2021
+  name: PandaX-4T, "Dark Matter Search Results from the PandaX-4T Commissioning Run" (arXiv:2107.13438), DOI
+    10.1103/PhysRevLett.127.261802
+  url: https://arxiv.org/abs/2107.13438
+  kind: paper
+- id: xenon1t-2018
+  name: XENON Collaboration, "Dark Matter Search Results from a One Tonne×Year Exposure of XENON1T"
+    (arXiv:1805.12562), DOI 10.1103/PhysRevLett.121.111302
+  url: https://arxiv.org/abs/1805.12562
+  kind: paper
+- id: pandaxii-2017
+  name: PandaX-II, "Dark Matter Results From 54-Ton-Day Exposure of PandaX-II Experiment" (arXiv:1708.06917), DOI
+    10.1103/PhysRevLett.119.181302
+  url: https://arxiv.org/abs/1708.06917
+  kind: paper
+- id: lux-2016
+  name: LUX, "Results from a search for dark matter in the complete LUX exposure" (arXiv:1608.07648), DOI
+    10.1103/PhysRevLett.118.021303
+  url: https://arxiv.org/abs/1608.07648
+  kind: paper
+- id: pandaxii-2016
+  name: PandaX-II, "Dark Matter Results from First 98.7-day Data of PandaX-II Experiment" (arXiv:1607.07400), DOI
+    10.1103/PhysRevLett.117.121303
+  url: https://arxiv.org/abs/1607.07400
+  kind: paper
+- id: lux-2013
+  name: LUX, "First results from the LUX dark matter experiment at the Sanford Underground Research Facility"
+    (arXiv:1310.8214), DOI 10.1103/PhysRevLett.112.091303
+  url: https://arxiv.org/abs/1310.8214
+  kind: paper
+- id: xenon100-2012
+  name: XENON100, "Dark Matter Results from 225 Live Days of XENON100 Data" (arXiv:1207.5988), DOI
+    10.1103/PhysRevLett.109.181301
+  url: https://arxiv.org/abs/1207.5988
+  kind: paper
+- id: lz-status-2026
+  name: T. Fruth, "Status of the LUX-ZEPLIN dark matter experiment", conference talk abstract, 3 September 2026
+  url: https://indico.global/event/15267/contributions/157669/
+  kind: other
+records:
+- date: '2012-07-25'
+  value: 2.0e-45
+  series: liquid-xenon
+  holder: XENON100
+  conditions: 55 GeV/c² WIMP mass, 90% CL; 225 live days
+  status: peer_reviewed
+  source: xenon100-2012
+- date: '2013-10-30'
+  value: 7.6e-46
+  series: liquid-xenon
+  holder: LUX
+  conditions: 33 GeV/c² WIMP mass, 90% CL; first results
+  status: peer_reviewed
+  source: lux-2013
+- date: '2016-07-25'
+  value: 2.5e-46
+  series: liquid-xenon
+  holder: PandaX-II
+  conditions: 40 GeV/c² WIMP mass, 90% CL; first 98.7 days
+  status: peer_reviewed
+  source: pandaxii-2016
+- date: '2016-08-27'
+  value: 2.2e-46
+  series: liquid-xenon
+  holder: LUX
+  conditions: 50 GeV/c² WIMP mass, 90% CL; complete LUX exposure
+  status: peer_reviewed
+  source: lux-2016
+  note: The abstract quotes the limit at 50 GeV/c² rather than giving the minimum of the curve.
+- date: '2017-08-23'
+  value: 8.6e-47
+  series: liquid-xenon
+  holder: PandaX-II
+  conditions: 40 GeV/c² WIMP mass; 54 tonne-day exposure
+  status: peer_reviewed
+  source: pandaxii-2017
+  note: The abstract does not state the confidence level.
+- date: '2018-05-31'
+  value: 4.1e-47
+  series: liquid-xenon
+  holder: XENON1T
+  conditions: 30 GeV/c² WIMP mass, 90% CL; one tonne-year exposure
+  status: peer_reviewed
+  source: xenon1t-2018
+- date: '2021-07-28'
+  value: 3.8e-47
+  series: liquid-xenon
+  holder: PandaX-4T
+  conditions: 30 GeV/c² WIMP mass, 90% CL; commissioning run
+  status: peer_reviewed
+  source: pandax4t-2021
+- date: '2022-07-08'
+  value: 9.2e-48
+  series: liquid-xenon
+  holder: LZ (LUX-ZEPLIN)
+  conditions: 36 GeV/c² WIMP mass, 90% CL; first results
+  status: peer_reviewed
+  source: lz-2022
+- date: '2024-10-22'
+  value: 2.2e-48
+  series: liquid-xenon
+  holder: LZ (LUX-ZEPLIN)
+  conditions: 40 GeV/c² WIMP mass, 90% CL; 4.2 tonne-years
+  status: peer_reviewed
+  source: lz-2024
+events:
+- date: '2022-07-08'
+  kind: milestone
+  title: LZ's first run beats every earlier limit by about four times
+  why_it_matters: A new generation of multi-tonne detectors arrived, and the first one to report moved the frontier
+    further in one step than the previous four years had.
+  url: https://arxiv.org/abs/2207.03764
+- date: '2023-03-26'
+  kind: paper
+  title: XENONnT's first WIMP search finds nothing, at a weaker limit than LZ
+  why_it_matters: A second multi-tonne detector saw no WIMPs either, which supports the null result even though its
+    limit did not set a record.
+  url: https://arxiv.org/abs/2303.14729
+- date: '2025-02-25'
+  kind: paper
+  title: XENONnT reports 3.1 tonne-years with no WIMP signal
+  why_it_matters: The European experiment tightened its own limit to 1.7×10^-47 cm² at 30 GeV/c², still above LZ, so
+    the two now cross-check each other with large exposures.
+  url: https://arxiv.org/abs/2502.18005
+- date: '2026-09-03'
+  kind: news
+  title: LZ reports evidence of solar neutrinos scattering off xenon nuclei
+  why_it_matters: Seeing boron-8 neutrinos at more than 3σ shows the detectors have reached the neutrino fog, the
+    background that will make each further step down much harder.
+  url: https://indico.global/event/15267/contributions/157669/
+reading: []
