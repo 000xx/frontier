@@ -1,0 +1,177 @@
+# Records are transcribed by hand from the number-one entry on each Green500 list (top500.org/lists/green500/YYYY/MM/).
+# A record is a list whose number-one efficiency is above every earlier number-one in this file. The lists from 2007 to 2012
+# could not be opened in this run, so the record history starts with the June 2013 list.
+id: green500
+title: Most energy-efficient supercomputer (Green500 number one)
+domain: computing
+subfield: Chips and hardware
+status: live
+summary: The best performance per watt on the Green500 list, which ranks supercomputers by how many floating-point operations they complete for each watt of power. The top figure has risen from about 3 GFlops/W in 2013 to about 73 GFlops/W in 2025, more than twenty-fold.
+metric:
+  name: Efficiency of the number-one system
+  unit: GFlops/W
+  direction: higher
+  scale: linear
+  explainer: "The Green500 is a twice-yearly companion to the TOP500 list. It takes the same benchmark run, High Performance Linpack (HPL), and divides the speed the machine reaches by the power it draws while doing so. The result is counted in GFlops per watt, billions of floating-point operations per second for each watt. A machine that is fast but power-hungry can rank low, so the list is a measure of how much useful computing each unit of energy buys. This tracker follows only the number-one system on each list and adds a record only when the top score is higher than every earlier top score in the file. The source does not always give the same figure for the same machine from one list to the next, because power measurements and reporting rules have changed. So the line can go down on the source page even when the machine has not changed, and the tracker does not show those drops. A benchmark score on a single test is not a measure of how efficiently a machine runs real research code."
+chart:
+  primary: record-chart
+  secondary:
+  - reign-timeline
+sources:
+- id: green500-lists
+  name: Green500 lists (number-one entry per edition)
+  url: https://top500.org/lists/green500/2026/06/
+  kind: dataset
+  primary: true
+  notes: One edition each June and November, at /lists/green500/YYYY/MM/. The June 2026 and November 2025 editions show the same top system and score. Editions from 2007 to 2012 returned errors when opened in this run, and All editions were read through a page summariser rather than copied directly, so each value should be spot-checked against its page before it is treated as final. Pages show no reuse statement, so only the single number-one entry from each list is recorded, with a link. Opened 2026-11-09 for each edition from 2013-06 to 2026-06, except where noted.
+- id: wikipedia-green500
+  name: Wikipedia, Green500
+  url: https://en.wikipedia.org/wiki/Green500
+  kind: other
+  notes: Secondary. Used only as a cross-check. It gives the number-one for November 2012 (Beacon, 2.499 GFLOPS/W) and dates Shoubu's 7.032 GFLOPS/W to August 2015, which the June 2015 list does not match. It does not state a licence. Opened 2026-11-09.
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Lists come out in June and November, so a quarterly check catches each edition within three months. The November 2026 edition was not yet published when this was checked. Open points for the owner: (1) Shoubu appears at 7031.4 MFlops/W on the June 2015 and November 2015 lists, and at 6673.84 on June 2016, so the same machine can drop without any change in the machine; the tracker keeps the 2015 record and does not add the 2016 entry; (2) Shoubu system B is 18.404 on June 2018 and 17.604 on November 2018, so the November 2018 entry is not a record and is not added; (3) DGX SaturnV Volta (15.113 on June 2019) and A64FX prototype (16.876 on November 2019) are below the June 2018 record, so neither is added; (4) Henri scores 65.40 on November 2023 against 65.396 on June 2023, which is a rounding difference, so no new record is added; (5) JEDI reports 72.733 on June 2025 and KAIROS reports 73.282 on November 2025; (6) the November 2014 record is shown as ASUS ESC4000 FDR/G2S, the name the list gives, while Wikipedia calls it L-CSC at GSI Darmstadt; (7) the 2007 to 2012 editions are not added because the pages could not be opened in this run, so earlier records are missing; (8) all records are confirmed, which follows the supercomputers frontier, but the owner should decide whether the list counts as an independent registry.'
+records:
+- date: '2013-06'
+  value: 3.2088
+  holder: Eurotech Aurora HPC 10-20, CINECA
+  conditions: Xeon E5-2687W, NVIDIA K20; published as 3208.8 MFlops/W
+  status: confirmed
+  source: green500-lists
+  url: https://top500.org/lists/green500/2013/06/
+- date: '2013-11'
+  value: 4.5032
+  holder: TSUBAME-KFC (LX 1U-4GPU/104Re-1G cluster), Tokyo Institute of Technology
+  conditions: Xeon E5-2620v2, NVIDIA K20x; published as 4503.2 MFlops/W
+  status: confirmed
+  source: green500-lists
+  url: https://top500.org/lists/green500/2013/11/
+- date: '2014-11'
+  value: 5.2721
+  holder: ASUS ESC4000 FDR/G2S (L-CSC, GSI Darmstadt per Wikipedia)
+  conditions: Xeon E5-2690v2, AMD FirePro S9150; published as 5272.1 MFlops/W
+  status: confirmed
+  source: green500-lists
+  url: https://top500.org/lists/green500/2014/11/
+- date: '2015-06'
+  value: 7.0314
+  holder: Shoubu (ExaScaler-1.4 80Brick), RIKEN
+  conditions: Xeon E5-2618Lv3, PEZY-SC; published as 7031.4 MFlops/W; the same figure appears on the November 2015 list
+  status: confirmed
+  source: green500-lists
+  url: https://top500.org/lists/green500/2015/06/
+- date: '2016-11'
+  value: 9.4621
+  holder: DGX SATURNV (NVIDIA DGX-1), NVIDIA
+  conditions: Xeon E5-2698v4, NVIDIA Tesla P100; published as 9462.1 MFlops/W
+  status: confirmed
+  source: green500-lists
+  url: https://top500.org/lists/green500/2016/11/
+- date: '2017-06'
+  value: 14.110
+  holder: TSUBAME3.0
+  conditions: published as 14.110 GFlops/W
+  status: confirmed
+  source: green500-lists
+  url: https://top500.org/lists/green500/2017/06/
+- date: '2017-11'
+  value: 17.009
+  holder: Shoubu system B, RIKEN
+  conditions: published as 17.009 GFlops/W
+  status: confirmed
+  source: green500-lists
+  url: https://top500.org/lists/green500/2017/11/
+- date: '2018-06'
+  value: 18.404
+  holder: Shoubu system B, RIKEN
+  conditions: published as 18.404 GFlops/W
+  status: confirmed
+  source: green500-lists
+  url: https://top500.org/lists/green500/2018/06/
+- date: '2020-06'
+  value: 21.108
+  holder: MN-3
+  conditions: published as 21.108 GFlops/W
+  status: confirmed
+  source: green500-lists
+  url: https://top500.org/lists/green500/2020/06/
+- date: '2020-11'
+  value: 26.195
+  holder: NVIDIA DGX SuperPOD
+  conditions: published as 26.195 GFlops/W
+  status: confirmed
+  source: green500-lists
+  url: https://top500.org/lists/green500/2020/11/
+- date: '2021-06'
+  value: 29.70
+  holder: MN-3
+  conditions: published as 29.70 GFlops/W
+  status: confirmed
+  source: green500-lists
+  url: https://top500.org/lists/green500/2021/06/
+- date: '2021-11'
+  value: 39.379
+  holder: MN-3
+  conditions: published as 39.379 GFlops/W
+  status: confirmed
+  source: green500-lists
+  url: https://top500.org/lists/green500/2021/11/
+- date: '2022-06'
+  value: 62.684
+  holder: Frontier TDS, Oak Ridge National Laboratory
+  conditions: published as 62.684 GFlops/W
+  status: confirmed
+  source: green500-lists
+  url: https://top500.org/lists/green500/2022/06/
+- date: '2022-11'
+  value: 65.09
+  holder: Henri
+  conditions: published as 65.09 GFlops/W
+  status: confirmed
+  source: green500-lists
+  url: https://top500.org/lists/green500/2022/11/
+- date: '2023-06'
+  value: 65.396
+  holder: Henri
+  conditions: published as 65.396 GFlops/W
+  status: confirmed
+  source: green500-lists
+  url: https://top500.org/lists/green500/2023/06/
+- date: '2024-06'
+  value: 72.733
+  holder: JEDI (JUPITER Exascale Development Instrument), EuroHPC/FZJ, Germany
+  conditions: published as 72.733 GFlops/W
+  status: confirmed
+  source: green500-lists
+  url: https://top500.org/lists/green500/2024/06/
+- date: '2025-11'
+  value: 73.282
+  holder: KAIROS (BullSequana XH3000), CALMIP, University of Toulouse and CNRS
+  conditions: NVIDIA GH200 Superchip; published as 73.282 GFlops/W; Rmax 3.05 PFlop/s
+  status: confirmed
+  source: green500-lists
+  url: https://top500.org/lists/green500/2025/11/
+events:
+- date: '2015-06'
+  kind: milestone
+  title: Shoubu, a RIKEN system, takes the number-one efficiency score above 7 GFlops/W
+  why_it_matters: The top score more than doubled in two years, and the lead came from a machine built on PEZY-SC accelerator chips.
+  url: https://top500.org/lists/green500/2015/06/
+- date: '2016-06'
+  kind: setback
+  title: Shoubu's score falls on the June 2016 list
+  why_it_matters: The same machine is listed at 6673.84 MFlops/W in June 2016, below its 2015 figure, so the list's figures can move for reasons other than the hardware.
+  url: https://top500.org/lists/green500/2016/06/
+- date: '2018-11'
+  kind: setback
+  title: Shoubu system B drops from 18.404 to 17.604 GFlops/W
+  why_it_matters: The top system's score falls between two consecutive lists, which shows that a record can be lost in the reporting even when the hardware has not changed.
+  url: https://top500.org/lists/green500/2018/11/
+- date: '2025-11'
+  kind: milestone
+  title: KAIROS takes the top score at 73.282 GFlops/W
+  why_it_matters: JEDI held the top score at 72.733 GFlops/W on the June 2024 and June 2025 lists before KAIROS passed it.
+  url: https://top500.org/lists/green500/2025/11/
+reading: []
