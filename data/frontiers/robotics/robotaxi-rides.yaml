@@ -1,0 +1,72 @@
+id: robotaxi-rides
+title: Driverless robotaxi rides
+domain: robotics
+subfield: In the field
+status: draft
+summary: How many rides per week driverless taxis carry paying passengers, as reported by the companies that run them. It shows whether self-driving cars are moving from pilots to a service that many people use.
+metric:
+  name: Driverless robotaxi rides per week
+  unit: rides per week
+  direction: higher
+  scale: linear
+  explainer: 'A robotaxi is a taxi with no driver: the vehicle drives itself on public roads, and a passenger
+    pays for the ride. Weekly rides show how much of the service people actually use. The figures here are
+    company statements, not audited counts, and companies do not always say which kind of ride they count.
+    Some report paid rides, others report all fully autonomous rides, so the series are kept apart.
+    Cumulative totals are shown in the notes.'
+chart:
+  primary: record-chart
+series:
+- id: paid
+  label: Paid rides per week (reported)
+  group: Company reports
+- id: fully-autonomous
+  label: Fully autonomous rides per week (reported)
+  group: Company reports
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'No machine-readable source; values come from company statements reported in the news and in
+    Alphabet''s release. Two weekly figures and one cumulative figure have been checked, so the series
+    are thin. The 2026 figure counts fully autonomous rides, not paid rides, so it is kept in a separate
+    series. Still to add: Waymo''s own blog or filing for each figure, and other operators, such as Baidu
+    and Tesla, when they publish weekly or cumulative counts. Check after each quarterly results release.'
+sources:
+- id: alphabet-q1-2026
+  name: 'Alphabet Q1 2026 results, as quoted by jamessharp.co.uk (29 April 2026)'
+  url: https://www.jamessharp.co.uk/market-news/alphabet-q1-2026-earnings/
+  kind: press
+  primary: true
+  notes: Quotes Sundar Pichai from Alphabet''s release. The release itself was not opened, so check it before the value is trusted.
+- id: siliconangle-2026
+  name: 'SiliconANGLE: Alphabet first-quarter report, Waymo passes 500,000 rides (29 April 2026)'
+  url: https://siliconangle.com/?p=743811
+  kind: news
+  notes: Reports the same 500,000 fully autonomous rides per week figure. Does not give a speaker.
+- id: newsio-2025-05
+  name: 'Newsio, citing CNBC: Waymo says it reached 10 million robotaxi trips (20 May 2025)'
+  url: https://newsio.com/2025/05/20/waymo-says-it-reached-10-million-robotaxi-trips-doubling-in-five-months/?amp=1
+  kind: news
+  notes: Reports the 250,000 paid weekly rides from Alphabet''s April 2025 earnings and the co-CEO''s 10 million cumulative trips. Secondary source for both.
+observations:
+- date: '2025-04'
+  value: 250000
+  series: paid
+  source: newsio-2025-05
+  note: Reported as more than 250,000 paid robotaxi rides a week in Alphabet''s April 2025 earnings. A floor, not an exact count.
+- date: '2026-04-29'
+  value: 500000
+  series: fully-autonomous
+  source: alphabet-q1-2026
+  note: Pichai said Waymo had surpassed 500,000 fully autonomous rides a week. This is not stated as paid rides.
+events:
+- date: '2025-05-20'
+  kind: news
+  title: Waymo reports 10 million cumulative robotaxi trips
+  why_it_matters: A company total for everything it has carried, not a weekly rate, so it shows scale over time rather than current use.
+  url: https://newsio.com/2025/05/20/waymo-says-it-reached-10-million-robotaxi-trips-doubling-in-five-months/?amp=1
+- date: '2026-04-29'
+  kind: news
+  title: Alphabet reports Waymo above 500,000 fully autonomous rides a week
+  why_it_matters: The figure reported in Alphabet's first-quarter 2026 results, which is a company claim rather than an independent count.
+  url: https://www.jamessharp.co.uk/market-news/alphabet-q1-2026-earnings/
