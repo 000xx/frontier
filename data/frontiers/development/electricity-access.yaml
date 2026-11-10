@@ -29,7 +29,7 @@ sources:
     providers'' licence terms. The World rows were read by the fetcher (scripts/fetchers/electricity_access.py) from the
     CSV it names. The World series starts in 1998 in this copy.'
 - id: esmap-tracking-sdg7-2025
-  name: Tracking SDG 7: The Energy Progress Report 2025
+  name: "Tracking SDG 7, The Energy Progress Report 2025"
   url: https://www.esmap.org/publications/tracking-sdg7-progress-report-2025
   kind: report
   notes: 'Publisher page opened 2026-11-10. The report is produced by the five SDG 7 custodian agencies (IEA, IRENA, UN
