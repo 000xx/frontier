@@ -1,0 +1,188 @@
+# Observations are yearly world emissions of carbon dioxide from fossil fuels and cement, in billion tonnes, for 1900 onward.
+# They come from Our World in Data's copy of the Global Carbon Budget (annual-co2-emissions-per-country, World rows),
+# which is CC BY 4.0 with the Global Carbon Project as the original provider. The grapher CSV could not be opened by WebFetch
+# in this run (only its page), so the fetcher dry run read the CSV and reported every year.
+# which reads the same CSV; the observations were written from that log and the second dry run matched them.
+id: co2-emissions
+title: World fossil CO2 emissions
+domain: earth
+subfield: Climate and pollution
+status: live
+summary: The yearly carbon dioxide released by burning fossil fuels and making cement, summed over the world.
+  It is the main flow that adds to the atmospheric build-up, so it shows whether the climate problem is shrinking.
+metric:
+  name: Annual CO2 emissions from fossil fuels and cement, world
+  unit: Gt CO2
+  direction: lower
+  scale: linear
+  explainer: 'Each year, the carbon in coal, oil and gas burned, plus the carbon released when cement is made, is
+    converted to tonnes of carbon dioxide and added up for every country. The total excludes land-use change such as
+    forest clearing, which is tracked separately in the carbon budget. Emissions are territorial, so goods made in one
+    country and used in another count where they are made. The number has risen for most of the period since 1900, with
+    short dips in wars and recessions. Progress means emissions falling steadily, not only in one year.'
+chart:
+  primary: record-chart
+series:
+- id: world-fossil-co2
+  label: World fossil CO2 and cement
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'The Global Carbon Budget is published each November, and the Our World in Data copy follows it. Update by running
+    the co2_emissions fetcher once the new year appears in the World rows. Fossil CO2 for the latest year is revised in
+    later editions, so revised values are written and flagged for review.'
+sources:
+- id: owid-annual-co2-emissions
+  name: Our World in Data, annual CO2 emissions by country (World rows), from the Global Carbon Budget 2025
+  url: https://ourworldindata.org/grapher/annual-co2-emissions-per-country
+  kind: dataset
+  primary: true
+  notes: 'Page opened 2026-11-09. Data licence CC BY 4.0 (Our World in Data), with the Global Carbon Project as the original
+    provider. Credit line suggested: "Data: Global Carbon Budget (2025), processed by Our World in Data".'
+- id: gcp-2025-release
+  name: Global Carbon Project, Global Carbon Budget 2025 press release (hosted by NIES, Japan), 13 November 2025
+  url: https://cger.nies.go.jp/gcp/news/20251113.html
+  kind: press
+  notes: 'Opened 2026-11-10. Gives the projected 2025 rise and the 2024 comparison.'
+- id: carbonbrief-2025-record
+  name: 'Carbon Brief, Analysis: fossil-fuel CO2 emissions to set new record in 2025, as land sink recovers (13 November 2025)'
+  url: https://www.carbonbrief.org/analysis-fossil-fuel-co2-emissions-to-set-new-record-in-2025-as-land-sink-recovers/
+  kind: news
+  notes: 'Opened 2026-11-10. Analysis by a news outlet of the Global Carbon Budget; relayed figures, not read from the GCP dataset.'
+events:
+- date: '2025-11-13'
+  kind: milestone
+  title: The Global Carbon Project projects a further rise in fossil CO2 for 2025
+  why_it_matters: The year's projected rise of about one percent means the annual fossil total keeps climbing rather than turning down.
+  url: https://cger.nies.go.jp/gcp/news/20251113.html
+- date: '2025-11-13'
+  kind: milestone
+  title: Analysts expect 2025 to be a new record for fossil and cement CO2
+  why_it_matters: The projection puts the yearly total at a new peak of about 38 billion tonnes, which is the level the cuts have to bring down from.
+  url: https://www.carbonbrief.org/analysis-fossil-fuel-co2-emissions-to-set-new-record-in-2025-as-land-sink-recovers/
+observations:
+- {date: '1900', series: world-fossil-co2, value: 1.963, source: owid-annual-co2-emissions}
+- {date: '1901', series: world-fossil-co2, value: 2.026, source: owid-annual-co2-emissions}
+- {date: '1902', series: world-fossil-co2, value: 2.077, source: owid-annual-co2-emissions}
+- {date: '1903', series: world-fossil-co2, value: 2.265, source: owid-annual-co2-emissions}
+- {date: '1904', series: world-fossil-co2, value: 2.290, source: owid-annual-co2-emissions}
+- {date: '1905', series: world-fossil-co2, value: 2.441, source: owid-annual-co2-emissions}
+- {date: '1906', series: world-fossil-co2, value: 2.549, source: owid-annual-co2-emissions}
+- {date: '1907', series: world-fossil-co2, value: 2.905, source: owid-annual-co2-emissions}
+- {date: '1908', series: world-fossil-co2, value: 2.790, source: owid-annual-co2-emissions}
+- {date: '1909', series: world-fossil-co2, value: 2.907, source: owid-annual-co2-emissions}
+- {date: '1910', series: world-fossil-co2, value: 3.050, source: owid-annual-co2-emissions}
+- {date: '1911', series: world-fossil-co2, value: 3.097, source: owid-annual-co2-emissions}
+- {date: '1912', series: world-fossil-co2, value: 3.254, source: owid-annual-co2-emissions}
+- {date: '1913', series: world-fossil-co2, value: 3.525, source: owid-annual-co2-emissions}
+- {date: '1914', series: world-fossil-co2, value: 3.198, source: owid-annual-co2-emissions}
+- {date: '1915', series: world-fossil-co2, value: 3.148, source: owid-annual-co2-emissions}
+- {date: '1916', series: world-fossil-co2, value: 3.400, source: owid-annual-co2-emissions}
+- {date: '1917', series: world-fossil-co2, value: 3.556, source: owid-annual-co2-emissions}
+- {date: '1918', series: world-fossil-co2, value: 3.506, source: owid-annual-co2-emissions}
+- {date: '1919', series: world-fossil-co2, value: 3.041, source: owid-annual-co2-emissions}
+- {date: '1920', series: world-fossil-co2, value: 3.547, source: owid-annual-co2-emissions}
+- {date: '1921', series: world-fossil-co2, value: 3.115, source: owid-annual-co2-emissions}
+- {date: '1922', series: world-fossil-co2, value: 3.265, source: owid-annual-co2-emissions}
+- {date: '1923', series: world-fossil-co2, value: 3.703, source: owid-annual-co2-emissions}
+- {date: '1924', series: world-fossil-co2, value: 3.716, source: owid-annual-co2-emissions}
+- {date: '1925', series: world-fossil-co2, value: 3.741, source: owid-annual-co2-emissions}
+- {date: '1926', series: world-fossil-co2, value: 3.677, source: owid-annual-co2-emissions}
+- {date: '1927', series: world-fossil-co2, value: 4.013, source: owid-annual-co2-emissions}
+- {date: '1928', series: world-fossil-co2, value: 3.996, source: owid-annual-co2-emissions}
+- {date: '1929', series: world-fossil-co2, value: 4.288, source: owid-annual-co2-emissions}
+- {date: '1930', series: world-fossil-co2, value: 3.958, source: owid-annual-co2-emissions}
+- {date: '1931', series: world-fossil-co2, value: 3.539, source: owid-annual-co2-emissions}
+- {date: '1932', series: world-fossil-co2, value: 3.193, source: owid-annual-co2-emissions}
+- {date: '1933', series: world-fossil-co2, value: 3.363, source: owid-annual-co2-emissions}
+- {date: '1934', series: world-fossil-co2, value: 3.656, source: owid-annual-co2-emissions}
+- {date: '1935', series: world-fossil-co2, value: 3.836, source: owid-annual-co2-emissions}
+- {date: '1936', series: world-fossil-co2, value: 4.208, source: owid-annual-co2-emissions}
+- {date: '1937', series: world-fossil-co2, value: 4.497, source: owid-annual-co2-emissions}
+- {date: '1938', series: world-fossil-co2, value: 4.230, source: owid-annual-co2-emissions}
+- {date: '1939', series: world-fossil-co2, value: 4.470, source: owid-annual-co2-emissions}
+- {date: '1940', series: world-fossil-co2, value: 4.885, source: owid-annual-co2-emissions}
+- {date: '1941', series: world-fossil-co2, value: 4.999, source: owid-annual-co2-emissions}
+- {date: '1942', series: world-fossil-co2, value: 4.983, source: owid-annual-co2-emissions}
+- {date: '1943', series: world-fossil-co2, value: 5.075, source: owid-annual-co2-emissions}
+- {date: '1944', series: world-fossil-co2, value: 5.162, source: owid-annual-co2-emissions}
+- {date: '1945', series: world-fossil-co2, value: 4.289, source: owid-annual-co2-emissions}
+- {date: '1946', series: world-fossil-co2, value: 4.609, source: owid-annual-co2-emissions}
+- {date: '1947', series: world-fossil-co2, value: 5.165, source: owid-annual-co2-emissions}
+- {date: '1948', series: world-fossil-co2, value: 5.448, source: owid-annual-co2-emissions}
+- {date: '1949', series: world-fossil-co2, value: 5.204, source: owid-annual-co2-emissions}
+- {date: '1950', series: world-fossil-co2, value: 5.930, source: owid-annual-co2-emissions}
+- {date: '1951', series: world-fossil-co2, value: 6.382, source: owid-annual-co2-emissions}
+- {date: '1952', series: world-fossil-co2, value: 6.468, source: owid-annual-co2-emissions}
+- {date: '1953', series: world-fossil-co2, value: 6.651, source: owid-annual-co2-emissions}
+- {date: '1954', series: world-fossil-co2, value: 6.790, source: owid-annual-co2-emissions}
+- {date: '1955', series: world-fossil-co2, value: 7.444, source: owid-annual-co2-emissions}
+- {date: '1956', series: world-fossil-co2, value: 7.926, source: owid-annual-co2-emissions}
+- {date: '1957', series: world-fossil-co2, value: 8.186, source: owid-annual-co2-emissions}
+- {date: '1958', series: world-fossil-co2, value: 8.418, source: owid-annual-co2-emissions}
+- {date: '1959', series: world-fossil-co2, value: 8.855, source: owid-annual-co2-emissions}
+- {date: '1960', series: world-fossil-co2, value: 9.387, source: owid-annual-co2-emissions}
+- {date: '1961', series: world-fossil-co2, value: 9.415, source: owid-annual-co2-emissions}
+- {date: '1962', series: world-fossil-co2, value: 9.747, source: owid-annual-co2-emissions}
+- {date: '1963', series: world-fossil-co2, value: 10.267, source: owid-annual-co2-emissions}
+- {date: '1964', series: world-fossil-co2, value: 10.824, source: owid-annual-co2-emissions}
+- {date: '1965', series: world-fossil-co2, value: 11.311, source: owid-annual-co2-emissions}
+- {date: '1966', series: world-fossil-co2, value: 11.863, source: owid-annual-co2-emissions}
+- {date: '1967', series: world-fossil-co2, value: 12.237, source: owid-annual-co2-emissions}
+- {date: '1968', series: world-fossil-co2, value: 12.905, source: owid-annual-co2-emissions}
+- {date: '1969', series: world-fossil-co2, value: 13.762, source: owid-annual-co2-emissions}
+- {date: '1970', series: world-fossil-co2, value: 14.899, source: owid-annual-co2-emissions}
+- {date: '1971', series: world-fossil-co2, value: 15.504, source: owid-annual-co2-emissions}
+- {date: '1972', series: world-fossil-co2, value: 16.225, source: owid-annual-co2-emissions}
+- {date: '1973', series: world-fossil-co2, value: 17.077, source: owid-annual-co2-emissions}
+- {date: '1974', series: world-fossil-co2, value: 16.998, source: owid-annual-co2-emissions}
+- {date: '1975', series: world-fossil-co2, value: 16.988, source: owid-annual-co2-emissions}
+- {date: '1976', series: world-fossil-co2, value: 17.862, source: owid-annual-co2-emissions}
+- {date: '1977', series: world-fossil-co2, value: 18.358, source: owid-annual-co2-emissions}
+- {date: '1978', series: world-fossil-co2, value: 19.025, source: owid-annual-co2-emissions}
+- {date: '1979', series: world-fossil-co2, value: 19.509, source: owid-annual-co2-emissions}
+- {date: '1980', series: world-fossil-co2, value: 19.410, source: owid-annual-co2-emissions}
+- {date: '1981', series: world-fossil-co2, value: 18.880, source: owid-annual-co2-emissions}
+- {date: '1982', series: world-fossil-co2, value: 18.730, source: owid-annual-co2-emissions}
+- {date: '1983', series: world-fossil-co2, value: 18.902, source: owid-annual-co2-emissions}
+- {date: '1984', series: world-fossil-co2, value: 19.457, source: owid-annual-co2-emissions}
+- {date: '1985', series: world-fossil-co2, value: 20.145, source: owid-annual-co2-emissions}
+- {date: '1986', series: world-fossil-co2, value: 20.438, source: owid-annual-co2-emissions}
+- {date: '1987', series: world-fossil-co2, value: 21.106, source: owid-annual-co2-emissions}
+- {date: '1988', series: world-fossil-co2, value: 21.919, source: owid-annual-co2-emissions}
+- {date: '1989', series: world-fossil-co2, value: 22.200, source: owid-annual-co2-emissions}
+- {date: '1990', series: world-fossil-co2, value: 22.732, source: owid-annual-co2-emissions}
+- {date: '1991', series: world-fossil-co2, value: 23.206, source: owid-annual-co2-emissions}
+- {date: '1992', series: world-fossil-co2, value: 22.520, source: owid-annual-co2-emissions}
+- {date: '1993', series: world-fossil-co2, value: 22.750, source: owid-annual-co2-emissions}
+- {date: '1994', series: world-fossil-co2, value: 22.975, source: owid-annual-co2-emissions}
+- {date: '1995', series: world-fossil-co2, value: 23.517, source: owid-annual-co2-emissions}
+- {date: '1996', series: world-fossil-co2, value: 24.233, source: owid-annual-co2-emissions}
+- {date: '1997', series: world-fossil-co2, value: 24.380, source: owid-annual-co2-emissions}
+- {date: '1998', series: world-fossil-co2, value: 24.296, source: owid-annual-co2-emissions}
+- {date: '1999', series: world-fossil-co2, value: 24.838, source: owid-annual-co2-emissions}
+- {date: '2000', series: world-fossil-co2, value: 25.511, source: owid-annual-co2-emissions}
+- {date: '2001', series: world-fossil-co2, value: 25.693, source: owid-annual-co2-emissions}
+- {date: '2002', series: world-fossil-co2, value: 26.265, source: owid-annual-co2-emissions}
+- {date: '2003', series: world-fossil-co2, value: 27.653, source: owid-annual-co2-emissions}
+- {date: '2004', series: world-fossil-co2, value: 28.610, source: owid-annual-co2-emissions}
+- {date: '2005', series: world-fossil-co2, value: 29.599, source: owid-annual-co2-emissions}
+- {date: '2006', series: world-fossil-co2, value: 30.594, source: owid-annual-co2-emissions}
+- {date: '2007', series: world-fossil-co2, value: 31.499, source: owid-annual-co2-emissions}
+- {date: '2008', series: world-fossil-co2, value: 32.050, source: owid-annual-co2-emissions}
+- {date: '2009', series: world-fossil-co2, value: 31.513, source: owid-annual-co2-emissions}
+- {date: '2010', series: world-fossil-co2, value: 33.318, source: owid-annual-co2-emissions}
+- {date: '2011', series: world-fossil-co2, value: 34.480, source: owid-annual-co2-emissions}
+- {date: '2012', series: world-fossil-co2, value: 34.955, source: owid-annual-co2-emissions}
+- {date: '2013', series: world-fossil-co2, value: 35.276, source: owid-annual-co2-emissions}
+- {date: '2014', series: world-fossil-co2, value: 35.466, source: owid-annual-co2-emissions}
+- {date: '2015', series: world-fossil-co2, value: 35.404, source: owid-annual-co2-emissions}
+- {date: '2016', series: world-fossil-co2, value: 35.393, source: owid-annual-co2-emissions}
+- {date: '2017', series: world-fossil-co2, value: 35.975, source: owid-annual-co2-emissions}
+- {date: '2018', series: world-fossil-co2, value: 36.734, source: owid-annual-co2-emissions}
+- {date: '2019', series: world-fossil-co2, value: 37.087, source: owid-annual-co2-emissions}
+- {date: '2020', series: world-fossil-co2, value: 35.158, source: owid-annual-co2-emissions}
+- {date: '2021', series: world-fossil-co2, value: 36.867, source: owid-annual-co2-emissions}
+- {date: '2022', series: world-fossil-co2, value: 37.528, source: owid-annual-co2-emissions}
+- {date: '2023', series: world-fossil-co2, value: 38.094, source: owid-annual-co2-emissions}
+- {date: '2024', series: world-fossil-co2, value: 38.599, source: owid-annual-co2-emissions}
