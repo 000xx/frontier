@@ -11,7 +11,7 @@
 
 - id: astronomy
   name: Astronomy and cosmology
-  subfields: [The universe at large, Stars, black holes and signals, Planets and life]
+  subfields: [The universe at large, "Stars, black holes and signals", Planets and life]
 
 - id: space
   name: Space
@@ -27,7 +27,7 @@
 
 - id: energy
   name: Energy
-  subfields: [Solar, Fusion, Fission, Batteries and storage, Wind, heat and fuels, Grid and transition]
+  subfields: [Solar, Fusion, Fission, Batteries and storage, "Wind, heat and fuels", Grid and transition]
 
 - id: computing
   name: Computing
@@ -47,7 +47,7 @@
 
 - id: biology
   name: Biology
-  subfields: [Reading life, Predicting and designing, Writing and editing life, Cells, organisms and aging]
+  subfields: [Reading life, Predicting and designing, Writing and editing life, "Cells, organisms and aging"]
 
 - id: brain
   name: Brain and mind
@@ -87,4 +87,4 @@
 
 - id: extremes
   name: Extremes of research and engineering
-  subfields: [Physical extremes, Extreme materials and devices, Biggest, deepest, longest]
+  subfields: [Physical extremes, Extreme materials and devices, "Biggest, deepest, longest"]
