@@ -1,4 +1,4 @@
-"""Discovery stub: reads the Retraction Watch README tail, a sample date and yearly counts from Crossref's GitLab repo."""
+"""Discovery stub: prints the end of the Retraction Watch README and yearly counts of retraction notices."""
 import csv
 import io
 import re
@@ -13,18 +13,15 @@ BASE = "https://gitlab.com/crossref/retraction-watch-data/-/raw/main/"
 def fetch():
     raw = common.get(BASE + "README.md").decode("utf-8", "replace")
     flat = " ".join(raw.split())
-    print("DIAG readme tail: " + flat[1100:2600])
+    print("DIAG readme end: " + flat[-1300:])
     data = common.get(BASE + "retraction_watch.csv").decode("utf-8-sig", "replace")
     rows = list(csv.DictReader(io.StringIO(data)))
-    print("DIAG sample dates: " + " | ".join(r["RetractionDate"] for r in rows[:3]) + " | nature: " + " | ".join(r["RetractionNature"] for r in rows[:3]))
     years = Counter()
-    nature = Counter()
     for r in rows:
+        if r["RetractionNature"] != "Retraction":
+            continue
         m = re.search(r"(\d{4})", r["RetractionDate"])
-        years[m.group(1) if m else "none"] += 1
-        nature[r["RetractionNature"]] += 1
-    for y in sorted(years):
-        print(f"DIAG year {y}: {years[y]}")
-    for k, v in nature.most_common(8):
-        print(f"DIAG nature {k!r}: {v}")
+        if m:
+            years[m.group(1)] += 1
+    print("DIAG retraction-only: " + " ".join(f"{y}={years[y]}" for y in sorted(years) if y >= "1990"))
     raise common.SourceError("discovery run")
