@@ -45,7 +45,7 @@ sources:
   kind: press
   notes: 'Opened 2026-11-10. Gives the projected 2025 rise and the 2024 comparison.'
 - id: carbonbrief-2025-record
-  name: Carbon Brief, Analysis: fossil-fuel CO2 emissions to set new record in 2025, as land sink recovers (13 November 2025)
+  name: 'Carbon Brief, Analysis: fossil-fuel CO2 emissions to set new record in 2025, as land sink recovers (13 November 2025)'
   url: https://www.carbonbrief.org/analysis-fossil-fuel-co2-emissions-to-set-new-record-in-2025-as-land-sink-recovers/
   kind: news
   notes: 'Opened 2026-11-10. Analysis by a news outlet of the Global Carbon Budget; relayed figures, not read from the GCP dataset.'
