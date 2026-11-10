@@ -1,0 +1,132 @@
+# Battery pack cost: observations come from BloombergNEF's annual price survey, as stated in its public press releases.
+# Each value is the headline figure in the release for that year. BNEF restates earlier years in later releases;
+# the notes below record where the percentages it gives do not match the values it published.
+id: battery-pack-cost
+title: Battery pack cost
+domain: energy
+subfield: Batteries and storage
+status: draft
+summary: The average price of a lithium-ion battery pack, per kilowatt-hour of storage, as BloombergNEF tracks it each year.
+  Falling pack prices are a large part of why batteries now power electric cars and grid storage.
+metric:
+  name: Volume-weighted average lithium-ion battery pack price
+  unit: USD/kWh
+  direction: lower
+  scale: log
+  explainer: 'A battery pack price is what a buyer pays for the packaged battery, divided by its energy capacity, so
+    it is measured in dollars per kilowatt-hour. BloombergNEF''s headline figure weights each price by how many
+    packs are sold at it, so large volumes count for more than a few unusual deals. The series is a yearly
+    average across electric cars, buses, two- and three-wheelers and stationary storage. Each year it is set
+    against the cost of the materials in the pack, so a rise can come from metal prices rather than from
+    slower engineering. The scale is logarithmic because the price has fallen by about an order of magnitude
+    since 2010, and equal slopes on a log chart mean equal percentage changes.'
+chart:
+  primary: cost-curve
+series: []
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'BNEF publishes its battery price survey once a year, in early to mid December. Check whether a new press release
+    has appeared; if so, add its year and do not change earlier years unless the new release restates them, and record
+    any restatement in the observation note. The full survey, with chemistry, region and segment breakdowns, is paywalled.
+    Only figures stated in public BNEF pages are used here. Not yet sourced: values before 2019 (the 2021 release gives
+    the 2010 figure only as "above $1,200", and the 2019 release as "above $1,100"), so the 2010 to 2018 history is missing.
+    BNEF restates its series: the 2024 release gives a 20% fall from 2023, but $139 to $115 is about 17%; the 2025 release
+    gives an 8% fall from 2024, but $115 to $108 is about 6%; the 2023 release gives a 14% fall from 2022, but $151 to $139
+    is about 8%. The published figures for those years therefore appear to have been revised, and the observations keep
+    each year as first published. Real or nominal basis: see the observation notes.'
+sources:
+- id: bnef-2025-press
+  name: BloombergNEF, Lithium-ion battery pack prices fall to $108/kWh despite rising metal prices (press release, 9 December 2025)
+  url: https://about.bnef.com/insights/commodities/lithium-ion-battery-pack-prices-fall-to-108-per-kilowatt-hour-despite-rising-metal-prices/
+  kind: press
+  primary: true
+  notes: 'Headline 2025 figure. Releases that report the survey are free to read; the full report is for BNEF clients.
+    Page footer: "© 2026 Bloomberg Finance L.P. All rights reserved." The page links to Terms of Service and a Disclaimer, whose
+    text was not available to us, so no reuse licence is confirmed. Only the figures are stored, with this citation.'
+- id: bnef-2025-blog
+  name: BloombergNEF, New record lows for battery prices (blog, 19 December 2025)
+  url: https://about.bnef.com/insights/clean-energy/new-record-lows-for-battery-prices/
+  kind: press
+  notes: Repeats the 2025 headline and says headline figures are volume-weighted averages.
+- id: bnef-2024-press
+  name: BloombergNEF, Lithium-ion battery pack prices see largest drop since 2017, falling to $115/kWh (press release, 10 December 2024)
+  url: https://about.bnef.com/insights/clean-transport/lithium-ion-battery-pack-prices-see-largest-drop-since-2017-falling-to-115-per-kilowatt-hour/
+  kind: press
+  notes: Headline 2024 figure. The page does not state whether the figure is real or nominal.
+- id: bnef-2023-press
+  name: BloombergNEF, Lithium-ion battery pack prices hit record low of $139/kWh (press release, 27 November 2023)
+  url: https://about.bnef.com/blog/lithium-ion-battery-pack-prices-hit-record-low-of-139-kwh/
+  kind: press
+  notes: Headline 2023 figure. Volume-weighted basis is stated for battery electric vehicle packs only.
+- id: bnef-2022-press
+  name: BloombergNEF, Lithium-ion battery pack prices rise for first time to an average of $151/kWh (press release, 6 December 2022)
+  url: https://about.bnef.com/blog/lithium-ion-battery-pack-prices-rise-for-first-time-to-an-average-of-151-kwh/
+  kind: press
+  notes: Headline 2022 figure, stated as a volume-weighted average across all sectors and as a 7% rise in real terms.
+- id: bnef-2021-press
+  name: BloombergNEF, Battery pack prices fall to an average of $132/kWh, but rising commodity prices start to bite (press release, 30 November 2021)
+  url: https://about.bnef.com/blog/battery-pack-prices-fall-to-an-average-of-132-kwh-but-rising-commodity-prices-start-to-bite
+  kind: press
+  notes: Headline 2021 figure. States that all prices are in real 2021 dollars unless stated as nominal.
+- id: bnef-2020-press
+  name: BloombergNEF, Battery pack prices cited below $100/kWh for the first time in 2020, while market average sits at $137/kWh (press release, 16 December 2020)
+  url: https://about.bnef.com/insights/clean-energy/battery-pack-prices-cited-below-100-kwh-for-the-first-time-in-2020-while-market-average-sits-at-137-kwh/
+  kind: press
+  notes: Headline 2020 figure. The 2010 to 2020 decline is stated in real terms; the basis of the $137 figure is not stated.
+- id: bnef-2019-press
+  name: BloombergNEF, Battery pack prices fall as market ramps up, with market average at $156/kWh in 2019 (press release, 3 December 2019)
+  url: https://about.bnef.com/insights/clean-energy/battery-pack-prices-fall-as-market-ramps-up-with-market-average-at-156-kwh-in-2019/
+  kind: press
+  notes: Headline 2019 figure, called a market average. The decline since 2010 is stated in real terms; the basis of the $156 figure is not stated.
+records: []
+observations:
+- date: '2019'
+  value: 156
+  source: bnef-2019-press
+  note: Market average as published in the 2019 survey. Real or nominal basis not stated for this figure; the 2010 to 2019 decline is given in real terms. Volume-weighting not stated.
+- date: '2020'
+  value: 137
+  source: bnef-2020-press
+  note: Market average as published in the 2020 survey. Real or nominal basis not stated for this figure; the 2010 to 2020 decline is given in real terms. Volume-weighting not stated for the headline figure.
+- date: '2021'
+  value: 132
+  source: bnef-2021-press
+  note: Real 2021 dollars, per the release ("All prices are in real 2021 $, unless stated as nominal"). Headline volume-weighting not stated; the battery electric vehicle average of $118/kWh is described as volume-weighted.
+- date: '2022'
+  value: 151
+  source: bnef-2022-press
+  note: Volume-weighted average across all sectors, per the release. Described as a 7% rise in real terms, so the figure is treated as real. Restated later, since the 2023 release implies a 2022 value near $162.
+- date: '2023'
+  value: 139
+  source: bnef-2023-press
+  note: Real or nominal basis not stated for the headline figure. The same release gives its forecast in real 2023 dollars, so the series is treated as real. Volume-weighting stated for battery electric vehicle packs only.
+- date: '2024'
+  value: 115
+  source: bnef-2024-press
+  note: Real or nominal basis not stated in the release. Volume-weighting not stated. The release's 20% fall from 2023 does not match $139 to $115 (about 17%), which suggests a restated 2023 value.
+- date: '2025'
+  value: 108
+  source: bnef-2025-press
+  note: Headline figures are described as volume-weighted averages (2025 blog). The 93% fall since 2010 is given in real terms. Real or nominal basis of the $108 figure not stated. The release's 8% fall from 2024 does not match $115 to $108 (about 6%), which suggests a restated 2024 value.
+events:
+- date: '2025-12-09'
+  kind: milestone
+  title: BNEF's 2025 survey puts average pack prices at a new low of $108/kWh
+  why_it_matters: Average pack prices fell again and stationary storage packs, now at $70/kWh, became the cheapest segment, which means cheap batteries are increasingly being bought for the grid rather than for cars.
+  url: https://about.bnef.com/insights/commodities/lithium-ion-battery-pack-prices-fall-to-108-per-kilowatt-hour-despite-rising-metal-prices/
+- date: '2024-12-10'
+  kind: milestone
+  title: BNEF records the largest annual fall since 2017, to $115/kWh
+  why_it_matters: The drop came even as the metal prices in the pack were still high, showing that cuts in cell design and manufacturing can outweigh input costs.
+  url: https://about.bnef.com/insights/clean-transport/lithium-ion-battery-pack-prices-see-largest-drop-since-2017-falling-to-115-per-kilowatt-hour/
+- date: '2022-12-06'
+  kind: setback
+  title: BNEF records the first annual rise in average pack prices, to $151/kWh
+  why_it_matters: Higher raw material costs and inflation reversed years of falling prices, a reminder that the decline depends on input costs as well as engineering.
+  url: https://about.bnef.com/blog/lithium-ion-battery-pack-prices-rise-for-first-time-to-an-average-of-151-kwh/
+- date: '2020-12-16'
+  kind: milestone
+  title: First reported sub-$100/kWh battery packs, while the market average stands at $137/kWh
+  why_it_matters: Individual packs were now reported below the $100/kWh level that carmakers had long named as a target, even though the typical price was still well above it.
+  url: https://about.bnef.com/insights/clean-energy/battery-pack-prices-cited-below-100-kwh-for-the-first-time-in-2020-while-market-average-sits-at-137-kwh/
