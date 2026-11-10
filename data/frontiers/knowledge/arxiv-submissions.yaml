@@ -1,0 +1,28 @@
+id: arxiv-submissions
+title: arXiv submissions
+domain: knowledge
+subfield: How science is working
+status: draft
+summary: placeholder
+metric:
+  name: placeholder
+  unit: papers
+  direction: higher
+  scale: linear
+  explainer: placeholder
+chart:
+  primary: record-chart
+series:
+- id: all
+  label: All
+update:
+  cadence: monthly
+  last_checked: '2026-11-09'
+sources:
+- id: arxiv-stats
+  name: placeholder
+  url: https://arxiv.org/stats/monthly_submissions
+  kind: dataset
+  primary: true
+events: []
+observations: []
