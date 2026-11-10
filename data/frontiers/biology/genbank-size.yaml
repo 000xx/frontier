@@ -1,0 +1,564 @@
+# Observations are the size of GenBank, NCBI's archive of publicly shared nucleotide sequences, at each flat-file release
+# from December 1982 (release 3) to August 2026 (release 273). Each release is keyed by its month. Figures are read from the
+# release table on NCBI's GenBank statistics page, opened 2026-11-09 (the page was read through WebFetch, so the values are
+# checked against the refresh workflow's dry run before the status is set to live). The table covers traditional GenBank
+# records only. The fetcher is scripts/fetchers/genbank_size.py.
+id: genbank-size
+title: GenBank size
+domain: biology
+subfield: Reading life
+status: draft
+summary: How much DNA and RNA sequence data the NIH's GenBank archive holds, counted in bases and in sequence records
+  at each release. It is a simple measure of how much sequence biology has produced and shared in public.
+metric:
+  name: Bases in GenBank (traditional records)
+  unit: bases
+  direction: higher
+  scale: log
+  explainer: 'A base is one letter of DNA or RNA, one of A, C, G, T or U. GenBank is a public archive, run by the US National
+    Library of Medicine, where researchers deposit sequences and where the collection is published in numbered releases,
+    roughly every two months. The release table counts the bases and sequence records in the traditional part of the
+    archive. It leaves out the large batch-submitted sets, such as whole-genome shotgun assemblies, so the totals are lower
+    than the full archive. Growth is rapid, so the chart uses a log scale. Read the trend rather than a single release,
+    because some releases add whole projects at once, and some counts fall between releases as the archive is rebuilt. A
+    falling count is a fact of the source and is kept, not hidden.'
+chart:
+  primary: record-chart
+series:
+- id: bases
+  label: Bases
+- id: sequences
+  label: Sequence records
+update:
+  cadence: monthly
+  last_checked: '2026-11-09'
+  notes: 'Observations come from the release table on the GenBank statistics page. The fetcher adds new releases and
+    updates the last three when their figures change; older releases are kept, and changes to them are printed in the run
+    log only. Still to add: a reading list, and a source check of NCBI''s policy page (read on 2026-11-09, see sources).
+    Open point for the owner: the table shows some releases with fewer bases or sequences than the release before (bases
+    fall at releases 227 and 267, sequences at releases 227 and 235), so these are kept as published.'
+sources:
+- id: ncbi-genbank-statistics
+  name: NCBI, GenBank statistics (release table)
+  url: https://www.ncbi.nlm.nih.gov/genbank/statistics
+  kind: dataset
+  primary: true
+  notes: Read on 2026-11-09. The table lists release, date, bases and sequences for traditional GenBank records, and says
+    that it excludes CON-division and set-based (WGS, TSA, TLS) records. Values were read through WebFetch and must match the
+    dry run of scripts/fetchers/genbank_size.py.
+- id: ncbi-genbank-current
+  name: NCBI, GenBank current release
+  url: https://www.ncbi.nlm.nih.gov/genbank/release/current/
+  kind: dataset
+  notes: Read on 2026-11-09. It gives the flat-file release as 273.0 dated August 15 2026, with 8236878868450 bases and
+    267383895 sequences for traditional records, matching the last row of the statistics table. It also gives 6409108932
+    set-based sequences, which this frontier does not count.
+- id: ncbi-policies
+  name: NCBI, Website and Data Usage Policies and Disclaimers
+  url: https://www.ncbi.nlm.nih.gov/home/about/policies/
+  kind: other
+  notes: Read on 2026-11-09. Its section on molecular data says that NCBI itself places no restrictions on the use or
+    distribution of the data it holds, naming GenBank. Its copyright section says that material created by or for the US
+    government is in the public domain, and notes that some material on the site may be protected by copyright. Only facts
+    (counts) are recorded here, each with a link, and no copy of the table is kept.
+events:
+- date: '1997-08'
+  kind: milestone
+  title: GenBank passes one billion bases with release 102 in August 1997
+  why_it_matters: 'Release 101 in June 1997 held about 967 million bases; release 102 held about 1.05 billion, the first
+    release above that mark in the table.'
+  url: https://www.ncbi.nlm.nih.gov/genbank/statistics
+- date: '2009-02'
+  kind: milestone
+  title: GenBank passes 100 million sequence records with release 170 in February 2009
+  why_it_matters: 'Release 169 in December 2008 held about 98.9 million sequence records; release 170 held about 101.8
+    million, so the count of records crossed a round number at this release.'
+  url: https://www.ncbi.nlm.nih.gov/genbank/statistics
+- date: '2021-10'
+  kind: milestone
+  title: GenBank passes one trillion bases with release 246 in October 2021
+  why_it_matters: 'Release 245 in August 2021 held about 941 billion bases and release 246 about 1.01 trillion, so the
+    archive first reached a trillion bases in this release.'
+  url: https://www.ncbi.nlm.nih.gov/genbank/statistics
+- date: '2025-06'
+  kind: dataset
+  title: The release 267 base count falls below release 266 in the published table
+  why_it_matters: 'Release 266 in April 2025 is listed at about 5.79 trillion bases and release 267 in June 2025 at about
+    5.23 trillion, while sequence records rise. The page does not explain the fall, so the frontier keeps the figure as
+    published and flags it for the owner.'
+  url: https://www.ncbi.nlm.nih.gov/genbank/statistics
+observations:
+- {date: '1982-12', series: bases, value: 680338, source: ncbi-genbank-statistics}
+- {date: '1982-12', series: sequences, value: 606, source: ncbi-genbank-statistics}
+- {date: '1983-11', series: bases, value: 2274029, source: ncbi-genbank-statistics}
+- {date: '1983-11', series: sequences, value: 2427, source: ncbi-genbank-statistics}
+- {date: '1984-05', series: bases, value: 3002088, source: ncbi-genbank-statistics}
+- {date: '1984-05', series: sequences, value: 3665, source: ncbi-genbank-statistics}
+- {date: '1984-09', series: bases, value: 3323270, source: ncbi-genbank-statistics}
+- {date: '1984-09', series: sequences, value: 4135, source: ncbi-genbank-statistics}
+- {date: '1984-10', series: bases, value: 3368765, source: ncbi-genbank-statistics}
+- {date: '1984-10', series: sequences, value: 4175, source: ncbi-genbank-statistics}
+- {date: '1984-11', series: bases, value: 3689752, source: ncbi-genbank-statistics}
+- {date: '1984-11', series: sequences, value: 4393, source: ncbi-genbank-statistics}
+- {date: '1985-05', series: bases, value: 4211931, source: ncbi-genbank-statistics}
+- {date: '1985-05', series: sequences, value: 4954, source: ncbi-genbank-statistics}
+- {date: '1985-09', series: bases, value: 5204420, source: ncbi-genbank-statistics}
+- {date: '1985-09', series: sequences, value: 5700, source: ncbi-genbank-statistics}
+- {date: '1986-02', series: bases, value: 5925429, source: ncbi-genbank-statistics}
+- {date: '1986-02', series: sequences, value: 6642, source: ncbi-genbank-statistics}
+- {date: '1986-05', series: bases, value: 6765476, source: ncbi-genbank-statistics}
+- {date: '1986-05', series: sequences, value: 7416, source: ncbi-genbank-statistics}
+- {date: '1986-08', series: bases, value: 8442357, source: ncbi-genbank-statistics}
+- {date: '1986-08', series: sequences, value: 8823, source: ncbi-genbank-statistics}
+- {date: '1986-11', series: bases, value: 9615371, source: ncbi-genbank-statistics}
+- {date: '1986-11', series: sequences, value: 9978, source: ncbi-genbank-statistics}
+- {date: '1987-02', series: bases, value: 10961380, source: ncbi-genbank-statistics}
+- {date: '1987-02', series: sequences, value: 10913, source: ncbi-genbank-statistics}
+- {date: '1987-05', series: bases, value: 13048473, source: ncbi-genbank-statistics}
+- {date: '1987-05', series: sequences, value: 12534, source: ncbi-genbank-statistics}
+- {date: '1987-08', series: bases, value: 14855145, source: ncbi-genbank-statistics}
+- {date: '1987-08', series: sequences, value: 14020, source: ncbi-genbank-statistics}
+- {date: '1987-09', series: bases, value: 15514776, source: ncbi-genbank-statistics}
+- {date: '1987-09', series: sequences, value: 14584, source: ncbi-genbank-statistics}
+- {date: '1987-12', series: bases, value: 16752872, source: ncbi-genbank-statistics}
+- {date: '1987-12', series: sequences, value: 15465, source: ncbi-genbank-statistics}
+- {date: '1988-03', series: bases, value: 19156002, source: ncbi-genbank-statistics}
+- {date: '1988-03', series: sequences, value: 17047, source: ncbi-genbank-statistics}
+- {date: '1988-06', series: bases, value: 20795279, source: ncbi-genbank-statistics}
+- {date: '1988-06', series: sequences, value: 18226, source: ncbi-genbank-statistics}
+- {date: '1988-09', series: bases, value: 22019698, source: ncbi-genbank-statistics}
+- {date: '1988-09', series: sequences, value: 19044, source: ncbi-genbank-statistics}
+- {date: '1988-10', series: bases, value: 23800000, source: ncbi-genbank-statistics}
+- {date: '1988-10', series: sequences, value: 20579, source: ncbi-genbank-statistics}
+- {date: '1988-12', series: bases, value: 24690876, source: ncbi-genbank-statistics}
+- {date: '1988-12', series: sequences, value: 21248, source: ncbi-genbank-statistics}
+- {date: '1989-03', series: bases, value: 26382491, source: ncbi-genbank-statistics}
+- {date: '1989-03', series: sequences, value: 22479, source: ncbi-genbank-statistics}
+- {date: '1989-06', series: bases, value: 31808784, source: ncbi-genbank-statistics}
+- {date: '1989-06', series: sequences, value: 26317, source: ncbi-genbank-statistics}
+- {date: '1989-09', series: bases, value: 34762585, source: ncbi-genbank-statistics}
+- {date: '1989-09', series: sequences, value: 28791, source: ncbi-genbank-statistics}
+- {date: '1989-12', series: bases, value: 37183950, source: ncbi-genbank-statistics}
+- {date: '1989-12', series: sequences, value: 31229, source: ncbi-genbank-statistics}
+- {date: '1990-03', series: bases, value: 40127752, source: ncbi-genbank-statistics}
+- {date: '1990-03', series: sequences, value: 33377, source: ncbi-genbank-statistics}
+- {date: '1990-06', series: bases, value: 42495893, source: ncbi-genbank-statistics}
+- {date: '1990-06', series: sequences, value: 35100, source: ncbi-genbank-statistics}
+- {date: '1990-09', series: bases, value: 49179285, source: ncbi-genbank-statistics}
+- {date: '1990-09', series: sequences, value: 39533, source: ncbi-genbank-statistics}
+- {date: '1990-12', series: bases, value: 51306092, source: ncbi-genbank-statistics}
+- {date: '1990-12', series: sequences, value: 41057, source: ncbi-genbank-statistics}
+- {date: '1991-03', series: bases, value: 55169276, source: ncbi-genbank-statistics}
+- {date: '1991-03', series: sequences, value: 43903, source: ncbi-genbank-statistics}
+- {date: '1991-06', series: bases, value: 65868799, source: ncbi-genbank-statistics}
+- {date: '1991-06', series: sequences, value: 51418, source: ncbi-genbank-statistics}
+- {date: '1991-09', series: bases, value: 71947426, source: ncbi-genbank-statistics}
+- {date: '1991-09', series: sequences, value: 55627, source: ncbi-genbank-statistics}
+- {date: '1991-12', series: bases, value: 77337678, source: ncbi-genbank-statistics}
+- {date: '1991-12', series: sequences, value: 58952, source: ncbi-genbank-statistics}
+- {date: '1992-03', series: bases, value: 83894652, source: ncbi-genbank-statistics}
+- {date: '1992-03', series: sequences, value: 65100, source: ncbi-genbank-statistics}
+- {date: '1992-06', series: bases, value: 92160761, source: ncbi-genbank-statistics}
+- {date: '1992-06', series: sequences, value: 71280, source: ncbi-genbank-statistics}
+- {date: '1992-09', series: bases, value: 101008486, source: ncbi-genbank-statistics}
+- {date: '1992-09', series: sequences, value: 78608, source: ncbi-genbank-statistics}
+- {date: '1992-12', series: bases, value: 120242234, source: ncbi-genbank-statistics}
+- {date: '1992-12', series: sequences, value: 97084, source: ncbi-genbank-statistics}
+- {date: '1993-02', series: bases, value: 126212259, source: ncbi-genbank-statistics}
+- {date: '1993-02', series: sequences, value: 106684, source: ncbi-genbank-statistics}
+- {date: '1993-04', series: bases, value: 129968355, source: ncbi-genbank-statistics}
+- {date: '1993-04', series: sequences, value: 111911, source: ncbi-genbank-statistics}
+- {date: '1993-06', series: bases, value: 138904393, source: ncbi-genbank-statistics}
+- {date: '1993-06', series: sequences, value: 120134, source: ncbi-genbank-statistics}
+- {date: '1993-08', series: bases, value: 147215633, source: ncbi-genbank-statistics}
+- {date: '1993-08', series: sequences, value: 131328, source: ncbi-genbank-statistics}
+- {date: '1993-10', series: bases, value: 157152442, source: ncbi-genbank-statistics}
+- {date: '1993-10', series: sequences, value: 143492, source: ncbi-genbank-statistics}
+- {date: '1993-12', series: bases, value: 163802597, source: ncbi-genbank-statistics}
+- {date: '1993-12', series: sequences, value: 150744, source: ncbi-genbank-statistics}
+- {date: '1994-02', series: bases, value: 173261500, source: ncbi-genbank-statistics}
+- {date: '1994-02', series: sequences, value: 162946, source: ncbi-genbank-statistics}
+- {date: '1994-04', series: bases, value: 180589455, source: ncbi-genbank-statistics}
+- {date: '1994-04', series: sequences, value: 169896, source: ncbi-genbank-statistics}
+- {date: '1994-06', series: bases, value: 191393939, source: ncbi-genbank-statistics}
+- {date: '1994-06', series: sequences, value: 182753, source: ncbi-genbank-statistics}
+- {date: '1994-08', series: bases, value: 201815802, source: ncbi-genbank-statistics}
+- {date: '1994-08', series: sequences, value: 196703, source: ncbi-genbank-statistics}
+- {date: '1994-10', series: bases, value: 217102462, source: ncbi-genbank-statistics}
+- {date: '1994-10', series: sequences, value: 215273, source: ncbi-genbank-statistics}
+- {date: '1994-12', series: bases, value: 230485928, source: ncbi-genbank-statistics}
+- {date: '1994-12', series: sequences, value: 237775, source: ncbi-genbank-statistics}
+- {date: '1995-02', series: bases, value: 248499214, source: ncbi-genbank-statistics}
+- {date: '1995-02', series: sequences, value: 269478, source: ncbi-genbank-statistics}
+- {date: '1995-04', series: bases, value: 286094556, source: ncbi-genbank-statistics}
+- {date: '1995-04', series: sequences, value: 352414, source: ncbi-genbank-statistics}
+- {date: '1995-06', series: bases, value: 318624568, source: ncbi-genbank-statistics}
+- {date: '1995-06', series: sequences, value: 425211, source: ncbi-genbank-statistics}
+- {date: '1995-08', series: bases, value: 353713490, source: ncbi-genbank-statistics}
+- {date: '1995-08', series: sequences, value: 492483, source: ncbi-genbank-statistics}
+- {date: '1995-10', series: bases, value: 384939485, source: ncbi-genbank-statistics}
+- {date: '1995-10', series: sequences, value: 555694, source: ncbi-genbank-statistics}
+- {date: '1995-12', series: bases, value: 425860958, source: ncbi-genbank-statistics}
+- {date: '1995-12', series: sequences, value: 620765, source: ncbi-genbank-statistics}
+- {date: '1996-02', series: bases, value: 463758833, source: ncbi-genbank-statistics}
+- {date: '1996-02', series: sequences, value: 685693, source: ncbi-genbank-statistics}
+- {date: '1996-04', series: bases, value: 499127741, source: ncbi-genbank-statistics}
+- {date: '1996-04', series: sequences, value: 744295, source: ncbi-genbank-statistics}
+- {date: '1996-06', series: bases, value: 551750920, source: ncbi-genbank-statistics}
+- {date: '1996-06', series: sequences, value: 835487, source: ncbi-genbank-statistics}
+- {date: '1996-08', series: bases, value: 602072354, source: ncbi-genbank-statistics}
+- {date: '1996-08', series: sequences, value: 920588, source: ncbi-genbank-statistics}
+- {date: '1996-10', series: bases, value: 651972984, source: ncbi-genbank-statistics}
+- {date: '1996-10', series: sequences, value: 1021211, source: ncbi-genbank-statistics}
+- {date: '1996-12', series: bases, value: 730552938, source: ncbi-genbank-statistics}
+- {date: '1996-12', series: sequences, value: 1114581, source: ncbi-genbank-statistics}
+- {date: '1997-02', series: bases, value: 786898138, source: ncbi-genbank-statistics}
+- {date: '1997-02', series: sequences, value: 1192505, source: ncbi-genbank-statistics}
+- {date: '1997-04', series: bases, value: 842864309, source: ncbi-genbank-statistics}
+- {date: '1997-04', series: sequences, value: 1274747, source: ncbi-genbank-statistics}
+- {date: '1997-06', series: bases, value: 966993087, source: ncbi-genbank-statistics}
+- {date: '1997-06', series: sequences, value: 1491069, source: ncbi-genbank-statistics}
+- {date: '1997-08', series: bases, value: 1053474516, source: ncbi-genbank-statistics}
+- {date: '1997-08', series: sequences, value: 1610848, source: ncbi-genbank-statistics}
+- {date: '1997-10', series: bases, value: 1160300687, source: ncbi-genbank-statistics}
+- {date: '1997-10', series: sequences, value: 1765847, source: ncbi-genbank-statistics}
+- {date: '1997-12', series: bases, value: 1258290513, source: ncbi-genbank-statistics}
+- {date: '1997-12', series: sequences, value: 1891953, source: ncbi-genbank-statistics}
+- {date: '1998-02', series: bases, value: 1372368913, source: ncbi-genbank-statistics}
+- {date: '1998-02', series: sequences, value: 2042325, source: ncbi-genbank-statistics}
+- {date: '1998-04', series: bases, value: 1502542306, source: ncbi-genbank-statistics}
+- {date: '1998-04', series: sequences, value: 2209232, source: ncbi-genbank-statistics}
+- {date: '1998-06', series: bases, value: 1622041465, source: ncbi-genbank-statistics}
+- {date: '1998-06', series: sequences, value: 2355928, source: ncbi-genbank-statistics}
+- {date: '1998-08', series: bases, value: 1797137713, source: ncbi-genbank-statistics}
+- {date: '1998-08', series: sequences, value: 2532359, source: ncbi-genbank-statistics}
+- {date: '1998-10', series: bases, value: 2008761784, source: ncbi-genbank-statistics}
+- {date: '1998-10', series: sequences, value: 2837897, source: ncbi-genbank-statistics}
+- {date: '1998-12', series: bases, value: 2162067871, source: ncbi-genbank-statistics}
+- {date: '1998-12', series: sequences, value: 3043729, source: ncbi-genbank-statistics}
+- {date: '1999-04', series: bases, value: 2569578208, source: ncbi-genbank-statistics}
+- {date: '1999-04', series: sequences, value: 3525418, source: ncbi-genbank-statistics}
+- {date: '1999-06', series: bases, value: 2974791993, source: ncbi-genbank-statistics}
+- {date: '1999-06', series: sequences, value: 4028171, source: ncbi-genbank-statistics}
+- {date: '1999-08', series: bases, value: 3400237391, source: ncbi-genbank-statistics}
+- {date: '1999-08', series: sequences, value: 4610118, source: ncbi-genbank-statistics}
+- {date: '1999-10', series: bases, value: 3841163011, source: ncbi-genbank-statistics}
+- {date: '1999-10', series: sequences, value: 4864570, source: ncbi-genbank-statistics}
+- {date: '1999-12', series: bases, value: 4653932745, source: ncbi-genbank-statistics}
+- {date: '1999-12', series: sequences, value: 5354511, source: ncbi-genbank-statistics}
+- {date: '2000-02', series: bases, value: 5805414935, source: ncbi-genbank-statistics}
+- {date: '2000-02', series: sequences, value: 5691170, source: ncbi-genbank-statistics}
+- {date: '2000-04', series: bases, value: 7376080723, source: ncbi-genbank-statistics}
+- {date: '2000-04', series: sequences, value: 6215002, source: ncbi-genbank-statistics}
+- {date: '2000-06', series: bases, value: 8604221980, source: ncbi-genbank-statistics}
+- {date: '2000-06', series: sequences, value: 7077491, source: ncbi-genbank-statistics}
+- {date: '2000-08', series: bases, value: 9545724824, source: ncbi-genbank-statistics}
+- {date: '2000-08', series: sequences, value: 8214339, source: ncbi-genbank-statistics}
+- {date: '2000-10', series: bases, value: 10335692655, source: ncbi-genbank-statistics}
+- {date: '2000-10', series: sequences, value: 9102634, source: ncbi-genbank-statistics}
+- {date: '2000-12', series: bases, value: 11101066288, source: ncbi-genbank-statistics}
+- {date: '2000-12', series: sequences, value: 10106023, source: ncbi-genbank-statistics}
+- {date: '2001-02', series: bases, value: 11720120326, source: ncbi-genbank-statistics}
+- {date: '2001-02', series: sequences, value: 10896781, source: ncbi-genbank-statistics}
+- {date: '2001-04', series: bases, value: 12418544023, source: ncbi-genbank-statistics}
+- {date: '2001-04', series: sequences, value: 11545572, source: ncbi-genbank-statistics}
+- {date: '2001-06', series: bases, value: 12973707065, source: ncbi-genbank-statistics}
+- {date: '2001-06', series: sequences, value: 12243766, source: ncbi-genbank-statistics}
+- {date: '2001-08', series: bases, value: 13543364296, source: ncbi-genbank-statistics}
+- {date: '2001-08', series: sequences, value: 12813516, source: ncbi-genbank-statistics}
+- {date: '2001-10', series: bases, value: 14396883064, source: ncbi-genbank-statistics}
+- {date: '2001-10', series: sequences, value: 13602262, source: ncbi-genbank-statistics}
+- {date: '2001-12', series: bases, value: 15849921438, source: ncbi-genbank-statistics}
+- {date: '2001-12', series: sequences, value: 14976310, source: ncbi-genbank-statistics}
+- {date: '2002-02', series: bases, value: 17089143893, source: ncbi-genbank-statistics}
+- {date: '2002-02', series: sequences, value: 15465325, source: ncbi-genbank-statistics}
+- {date: '2002-04', series: bases, value: 19072679701, source: ncbi-genbank-statistics}
+- {date: '2002-04', series: sequences, value: 16769983, source: ncbi-genbank-statistics}
+- {date: '2002-06', series: bases, value: 20648748345, source: ncbi-genbank-statistics}
+- {date: '2002-06', series: sequences, value: 17471130, source: ncbi-genbank-statistics}
+- {date: '2002-08', series: bases, value: 22616937182, source: ncbi-genbank-statistics}
+- {date: '2002-08', series: sequences, value: 18197119, source: ncbi-genbank-statistics}
+- {date: '2002-10', series: bases, value: 26525934656, source: ncbi-genbank-statistics}
+- {date: '2002-10', series: sequences, value: 19808101, source: ncbi-genbank-statistics}
+- {date: '2002-12', series: bases, value: 28507990166, source: ncbi-genbank-statistics}
+- {date: '2002-12', series: sequences, value: 22318883, source: ncbi-genbank-statistics}
+- {date: '2003-02', series: bases, value: 29358082791, source: ncbi-genbank-statistics}
+- {date: '2003-02', series: sequences, value: 23035823, source: ncbi-genbank-statistics}
+- {date: '2003-04', series: bases, value: 31099264455, source: ncbi-genbank-statistics}
+- {date: '2003-04', series: sequences, value: 24027936, source: ncbi-genbank-statistics}
+- {date: '2003-06', series: bases, value: 32528249295, source: ncbi-genbank-statistics}
+- {date: '2003-06', series: sequences, value: 25592865, source: ncbi-genbank-statistics}
+- {date: '2003-08', series: bases, value: 33865022251, source: ncbi-genbank-statistics}
+- {date: '2003-08', series: sequences, value: 27213748, source: ncbi-genbank-statistics}
+- {date: '2003-10', series: bases, value: 35599621471, source: ncbi-genbank-statistics}
+- {date: '2003-10', series: sequences, value: 29819397, source: ncbi-genbank-statistics}
+- {date: '2003-12', series: bases, value: 36553368485, source: ncbi-genbank-statistics}
+- {date: '2003-12', series: sequences, value: 30968418, source: ncbi-genbank-statistics}
+- {date: '2004-02', series: bases, value: 37893844733, source: ncbi-genbank-statistics}
+- {date: '2004-02', series: sequences, value: 32549400, source: ncbi-genbank-statistics}
+- {date: '2004-04', series: bases, value: 38989342565, source: ncbi-genbank-statistics}
+- {date: '2004-04', series: sequences, value: 33676218, source: ncbi-genbank-statistics}
+- {date: '2004-06', series: bases, value: 40325321348, source: ncbi-genbank-statistics}
+- {date: '2004-06', series: sequences, value: 35532003, source: ncbi-genbank-statistics}
+- {date: '2004-08', series: bases, value: 41808045653, source: ncbi-genbank-statistics}
+- {date: '2004-08', series: sequences, value: 37343937, source: ncbi-genbank-statistics}
+- {date: '2004-10', series: bases, value: 43194602655, source: ncbi-genbank-statistics}
+- {date: '2004-10', series: sequences, value: 38941263, source: ncbi-genbank-statistics}
+- {date: '2004-12', series: bases, value: 44575745176, source: ncbi-genbank-statistics}
+- {date: '2004-12', series: sequences, value: 40604319, source: ncbi-genbank-statistics}
+- {date: '2005-02', series: bases, value: 46849831226, source: ncbi-genbank-statistics}
+- {date: '2005-02', series: sequences, value: 42734478, source: ncbi-genbank-statistics}
+- {date: '2005-04', series: bases, value: 48235738567, source: ncbi-genbank-statistics}
+- {date: '2005-04', series: sequences, value: 44202133, source: ncbi-genbank-statistics}
+- {date: '2005-06', series: bases, value: 49398852122, source: ncbi-genbank-statistics}
+- {date: '2005-06', series: sequences, value: 45236251, source: ncbi-genbank-statistics}
+- {date: '2005-08', series: bases, value: 51674486881, source: ncbi-genbank-statistics}
+- {date: '2005-08', series: sequences, value: 46947388, source: ncbi-genbank-statistics}
+- {date: '2005-10', series: bases, value: 53655236500, source: ncbi-genbank-statistics}
+- {date: '2005-10', series: sequences, value: 49152445, source: ncbi-genbank-statistics}
+- {date: '2005-12', series: bases, value: 56037734462, source: ncbi-genbank-statistics}
+- {date: '2005-12', series: sequences, value: 52016762, source: ncbi-genbank-statistics}
+- {date: '2006-02', series: bases, value: 59750386305, source: ncbi-genbank-statistics}
+- {date: '2006-02', series: sequences, value: 54584635, source: ncbi-genbank-statistics}
+- {date: '2006-04', series: bases, value: 61582143971, source: ncbi-genbank-statistics}
+- {date: '2006-04', series: sequences, value: 56620500, source: ncbi-genbank-statistics}
+- {date: '2006-06', series: bases, value: 63412609711, source: ncbi-genbank-statistics}
+- {date: '2006-06', series: sequences, value: 58890345, source: ncbi-genbank-statistics}
+- {date: '2006-08', series: bases, value: 65369091950, source: ncbi-genbank-statistics}
+- {date: '2006-08', series: sequences, value: 61132599, source: ncbi-genbank-statistics}
+- {date: '2006-10', series: bases, value: 66925938907, source: ncbi-genbank-statistics}
+- {date: '2006-10', series: sequences, value: 62765195, source: ncbi-genbank-statistics}
+- {date: '2006-12', series: bases, value: 69019290705, source: ncbi-genbank-statistics}
+- {date: '2006-12', series: sequences, value: 64893747, source: ncbi-genbank-statistics}
+- {date: '2007-02', series: bases, value: 71292211453, source: ncbi-genbank-statistics}
+- {date: '2007-02', series: sequences, value: 67218344, source: ncbi-genbank-statistics}
+- {date: '2007-04', series: bases, value: 75742041056, source: ncbi-genbank-statistics}
+- {date: '2007-04', series: sequences, value: 71802595, source: ncbi-genbank-statistics}
+- {date: '2007-06', series: bases, value: 77248690945, source: ncbi-genbank-statistics}
+- {date: '2007-06', series: sequences, value: 73078143, source: ncbi-genbank-statistics}
+- {date: '2007-08', series: bases, value: 79525559650, source: ncbi-genbank-statistics}
+- {date: '2007-08', series: sequences, value: 76146236, source: ncbi-genbank-statistics}
+- {date: '2007-10', series: bases, value: 81563399765, source: ncbi-genbank-statistics}
+- {date: '2007-10', series: sequences, value: 77632813, source: ncbi-genbank-statistics}
+- {date: '2007-12', series: bases, value: 83874179730, source: ncbi-genbank-statistics}
+- {date: '2007-12', series: sequences, value: 80388382, source: ncbi-genbank-statistics}
+- {date: '2008-02', series: bases, value: 85759586764, source: ncbi-genbank-statistics}
+- {date: '2008-02', series: sequences, value: 82853685, source: ncbi-genbank-statistics}
+- {date: '2008-04', series: bases, value: 89172350468, source: ncbi-genbank-statistics}
+- {date: '2008-04', series: sequences, value: 85500730, source: ncbi-genbank-statistics}
+- {date: '2008-06', series: bases, value: 92008611867, source: ncbi-genbank-statistics}
+- {date: '2008-06', series: sequences, value: 88554578, source: ncbi-genbank-statistics}
+- {date: '2008-08', series: bases, value: 95033791652, source: ncbi-genbank-statistics}
+- {date: '2008-08', series: sequences, value: 92748599, source: ncbi-genbank-statistics}
+- {date: '2008-10', series: bases, value: 97381682336, source: ncbi-genbank-statistics}
+- {date: '2008-10', series: sequences, value: 96400790, source: ncbi-genbank-statistics}
+- {date: '2008-12', series: bases, value: 99116431942, source: ncbi-genbank-statistics}
+- {date: '2008-12', series: sequences, value: 98868465, source: ncbi-genbank-statistics}
+- {date: '2009-02', series: bases, value: 101467270308, source: ncbi-genbank-statistics}
+- {date: '2009-02', series: sequences, value: 101815678, source: ncbi-genbank-statistics}
+- {date: '2009-04', series: bases, value: 102980268709, source: ncbi-genbank-statistics}
+- {date: '2009-04', series: sequences, value: 103335421, source: ncbi-genbank-statistics}
+- {date: '2009-06', series: bases, value: 105277306080, source: ncbi-genbank-statistics}
+- {date: '2009-06', series: sequences, value: 106073709, source: ncbi-genbank-statistics}
+- {date: '2009-08', series: bases, value: 106533156756, source: ncbi-genbank-statistics}
+- {date: '2009-08', series: sequences, value: 108431692, source: ncbi-genbank-statistics}
+- {date: '2009-10', series: bases, value: 108560236506, source: ncbi-genbank-statistics}
+- {date: '2009-10', series: sequences, value: 110946879, source: ncbi-genbank-statistics}
+- {date: '2009-12', series: bases, value: 110118557163, source: ncbi-genbank-statistics}
+- {date: '2009-12', series: sequences, value: 112910950, source: ncbi-genbank-statistics}
+- {date: '2010-02', series: bases, value: 112326229652, source: ncbi-genbank-statistics}
+- {date: '2010-02', series: sequences, value: 116461672, source: ncbi-genbank-statistics}
+- {date: '2010-04', series: bases, value: 114348888771, source: ncbi-genbank-statistics}
+- {date: '2010-04', series: sequences, value: 119112251, source: ncbi-genbank-statistics}
+- {date: '2010-06', series: bases, value: 115624497715, source: ncbi-genbank-statistics}
+- {date: '2010-06', series: sequences, value: 120604423, source: ncbi-genbank-statistics}
+- {date: '2010-08', series: bases, value: 117476523128, source: ncbi-genbank-statistics}
+- {date: '2010-08', series: sequences, value: 122941883, source: ncbi-genbank-statistics}
+- {date: '2010-10', series: bases, value: 118551641086, source: ncbi-genbank-statistics}
+- {date: '2010-10', series: sequences, value: 125764384, source: ncbi-genbank-statistics}
+- {date: '2010-12', series: bases, value: 122082812719, source: ncbi-genbank-statistics}
+- {date: '2010-12', series: sequences, value: 129902276, source: ncbi-genbank-statistics}
+- {date: '2011-02', series: bases, value: 124277818310, source: ncbi-genbank-statistics}
+- {date: '2011-02', series: sequences, value: 132015054, source: ncbi-genbank-statistics}
+- {date: '2011-04', series: bases, value: 126551501141, source: ncbi-genbank-statistics}
+- {date: '2011-04', series: sequences, value: 135440924, source: ncbi-genbank-statistics}
+- {date: '2011-06', series: bases, value: 129178292958, source: ncbi-genbank-statistics}
+- {date: '2011-06', series: sequences, value: 140482268, source: ncbi-genbank-statistics}
+- {date: '2011-08', series: bases, value: 130671233801, source: ncbi-genbank-statistics}
+- {date: '2011-08', series: sequences, value: 142284608, source: ncbi-genbank-statistics}
+- {date: '2011-10', series: bases, value: 132067413372, source: ncbi-genbank-statistics}
+- {date: '2011-10', series: sequences, value: 144458648, source: ncbi-genbank-statistics}
+- {date: '2011-12', series: bases, value: 135117731375, source: ncbi-genbank-statistics}
+- {date: '2011-12', series: sequences, value: 146413798, source: ncbi-genbank-statistics}
+- {date: '2012-02', series: bases, value: 137384889783, source: ncbi-genbank-statistics}
+- {date: '2012-02', series: sequences, value: 149819246, source: ncbi-genbank-statistics}
+- {date: '2012-04', series: bases, value: 139266481398, source: ncbi-genbank-statistics}
+- {date: '2012-04', series: sequences, value: 151824421, source: ncbi-genbank-statistics}
+- {date: '2012-06', series: bases, value: 141343240755, source: ncbi-genbank-statistics}
+- {date: '2012-06', series: sequences, value: 154130210, source: ncbi-genbank-statistics}
+- {date: '2012-08', series: bases, value: 143081765233, source: ncbi-genbank-statistics}
+- {date: '2012-08', series: sequences, value: 156424033, source: ncbi-genbank-statistics}
+- {date: '2012-10', series: bases, value: 145430961262, source: ncbi-genbank-statistics}
+- {date: '2012-10', series: sequences, value: 157889737, source: ncbi-genbank-statistics}
+- {date: '2012-12', series: bases, value: 148390863904, source: ncbi-genbank-statistics}
+- {date: '2012-12', series: sequences, value: 161140325, source: ncbi-genbank-statistics}
+- {date: '2013-02', series: bases, value: 150141354858, source: ncbi-genbank-statistics}
+- {date: '2013-02', series: sequences, value: 162886727, source: ncbi-genbank-statistics}
+- {date: '2013-04', series: bases, value: 151178979155, source: ncbi-genbank-statistics}
+- {date: '2013-04', series: sequences, value: 164136731, source: ncbi-genbank-statistics}
+- {date: '2013-06', series: bases, value: 152599230112, source: ncbi-genbank-statistics}
+- {date: '2013-06', series: sequences, value: 165740164, source: ncbi-genbank-statistics}
+- {date: '2013-08', series: bases, value: 154192921011, source: ncbi-genbank-statistics}
+- {date: '2013-08', series: sequences, value: 167295840, source: ncbi-genbank-statistics}
+- {date: '2013-10', series: bases, value: 155176494699, source: ncbi-genbank-statistics}
+- {date: '2013-10', series: sequences, value: 168335396, source: ncbi-genbank-statistics}
+- {date: '2013-12', series: bases, value: 156230531562, source: ncbi-genbank-statistics}
+- {date: '2013-12', series: sequences, value: 169331407, source: ncbi-genbank-statistics}
+- {date: '2014-02', series: bases, value: 157943793171, source: ncbi-genbank-statistics}
+- {date: '2014-02', series: sequences, value: 171123749, source: ncbi-genbank-statistics}
+- {date: '2014-04', series: bases, value: 159813411760, source: ncbi-genbank-statistics}
+- {date: '2014-04', series: sequences, value: 171744486, source: ncbi-genbank-statistics}
+- {date: '2014-06', series: bases, value: 161822845643, source: ncbi-genbank-statistics}
+- {date: '2014-06', series: sequences, value: 173353076, source: ncbi-genbank-statistics}
+- {date: '2014-08', series: bases, value: 165722980375, source: ncbi-genbank-statistics}
+- {date: '2014-08', series: sequences, value: 174108750, source: ncbi-genbank-statistics}
+- {date: '2014-10', series: bases, value: 181563676918, source: ncbi-genbank-statistics}
+- {date: '2014-10', series: sequences, value: 178322253, source: ncbi-genbank-statistics}
+- {date: '2014-12', series: bases, value: 184938063614, source: ncbi-genbank-statistics}
+- {date: '2014-12', series: sequences, value: 179295769, source: ncbi-genbank-statistics}
+- {date: '2015-02', series: bases, value: 187893826750, source: ncbi-genbank-statistics}
+- {date: '2015-02', series: sequences, value: 181336445, source: ncbi-genbank-statistics}
+- {date: '2015-04', series: bases, value: 189739230107, source: ncbi-genbank-statistics}
+- {date: '2015-04', series: sequences, value: 182188746, source: ncbi-genbank-statistics}
+- {date: '2015-06', series: bases, value: 193921042946, source: ncbi-genbank-statistics}
+- {date: '2015-06', series: sequences, value: 185019352, source: ncbi-genbank-statistics}
+- {date: '2015-08', series: bases, value: 199823644287, source: ncbi-genbank-statistics}
+- {date: '2015-08', series: sequences, value: 187066846, source: ncbi-genbank-statistics}
+- {date: '2015-10', series: bases, value: 202237081559, source: ncbi-genbank-statistics}
+- {date: '2015-10', series: sequences, value: 188372017, source: ncbi-genbank-statistics}
+- {date: '2015-12', series: bases, value: 203939111071, source: ncbi-genbank-statistics}
+- {date: '2015-12', series: sequences, value: 189232925, source: ncbi-genbank-statistics}
+- {date: '2016-02', series: bases, value: 207018196067, source: ncbi-genbank-statistics}
+- {date: '2016-02', series: sequences, value: 190250235, source: ncbi-genbank-statistics}
+- {date: '2016-04', series: bases, value: 211423912047, source: ncbi-genbank-statistics}
+- {date: '2016-04', series: sequences, value: 193739511, source: ncbi-genbank-statistics}
+- {date: '2016-06', series: bases, value: 213200907819, source: ncbi-genbank-statistics}
+- {date: '2016-06', series: sequences, value: 194463572, source: ncbi-genbank-statistics}
+- {date: '2016-08', series: bases, value: 217971437647, source: ncbi-genbank-statistics}
+- {date: '2016-08', series: sequences, value: 196120831, source: ncbi-genbank-statistics}
+- {date: '2016-10', series: bases, value: 220731315250, source: ncbi-genbank-statistics}
+- {date: '2016-10', series: sequences, value: 197390691, source: ncbi-genbank-statistics}
+- {date: '2016-12', series: bases, value: 224973060433, source: ncbi-genbank-statistics}
+- {date: '2016-12', series: sequences, value: 198565475, source: ncbi-genbank-statistics}
+- {date: '2017-02', series: bases, value: 228719437638, source: ncbi-genbank-statistics}
+- {date: '2017-02', series: sequences, value: 199341377, source: ncbi-genbank-statistics}
+- {date: '2017-04', series: bases, value: 231824951552, source: ncbi-genbank-statistics}
+- {date: '2017-04', series: sequences, value: 200877884, source: ncbi-genbank-statistics}
+- {date: '2017-06', series: bases, value: 234997362623, source: ncbi-genbank-statistics}
+- {date: '2017-06', series: sequences, value: 201663568, source: ncbi-genbank-statistics}
+- {date: '2017-08', series: bases, value: 240343378258, source: ncbi-genbank-statistics}
+- {date: '2017-08', series: sequences, value: 203180606, source: ncbi-genbank-statistics}
+- {date: '2017-10', series: bases, value: 244914705468, source: ncbi-genbank-statistics}
+- {date: '2017-10', series: sequences, value: 203953682, source: ncbi-genbank-statistics}
+- {date: '2017-12', series: bases, value: 249722163594, source: ncbi-genbank-statistics}
+- {date: '2017-12', series: sequences, value: 206293625, source: ncbi-genbank-statistics}
+- {date: '2018-02', series: bases, value: 253630708098, source: ncbi-genbank-statistics}
+- {date: '2018-02', series: sequences, value: 207040555, source: ncbi-genbank-statistics}
+- {date: '2018-04', series: bases, value: 260189141631, source: ncbi-genbank-statistics}
+- {date: '2018-04', series: sequences, value: 208452303, source: ncbi-genbank-statistics}
+- {date: '2018-06', series: bases, value: 263957884539, source: ncbi-genbank-statistics}
+- {date: '2018-06', series: sequences, value: 209775348, source: ncbi-genbank-statistics}
+- {date: '2018-08', series: bases, value: 260806936411, source: ncbi-genbank-statistics}
+- {date: '2018-08', series: sequences, value: 208831050, source: ncbi-genbank-statistics}
+- {date: '2018-10', series: bases, value: 279668290132, source: ncbi-genbank-statistics}
+- {date: '2018-10', series: sequences, value: 209656636, source: ncbi-genbank-statistics}
+- {date: '2018-12', series: bases, value: 285688542186, source: ncbi-genbank-statistics}
+- {date: '2018-12', series: sequences, value: 211281415, source: ncbi-genbank-statistics}
+- {date: '2019-02', series: bases, value: 303709510632, source: ncbi-genbank-statistics}
+- {date: '2019-02', series: sequences, value: 212260377, source: ncbi-genbank-statistics}
+- {date: '2019-04', series: bases, value: 321680566570, source: ncbi-genbank-statistics}
+- {date: '2019-04', series: sequences, value: 212775414, source: ncbi-genbank-statistics}
+- {date: '2019-06', series: bases, value: 329835282370, source: ncbi-genbank-statistics}
+- {date: '2019-06', series: sequences, value: 213383758, source: ncbi-genbank-statistics}
+- {date: '2019-08', series: bases, value: 366733917629, source: ncbi-genbank-statistics}
+- {date: '2019-08', series: sequences, value: 213865349, source: ncbi-genbank-statistics}
+- {date: '2019-10', series: bases, value: 386197018538, source: ncbi-genbank-statistics}
+- {date: '2019-10', series: sequences, value: 216763706, source: ncbi-genbank-statistics}
+- {date: '2019-12', series: bases, value: 388417258009, source: ncbi-genbank-statistics}
+- {date: '2019-12', series: sequences, value: 215333020, source: ncbi-genbank-statistics}
+- {date: '2020-02', series: bases, value: 399376854872, source: ncbi-genbank-statistics}
+- {date: '2020-02', series: sequences, value: 216214215, source: ncbi-genbank-statistics}
+- {date: '2020-04', series: bases, value: 415770027949, source: ncbi-genbank-statistics}
+- {date: '2020-04', series: sequences, value: 216531829, source: ncbi-genbank-statistics}
+- {date: '2020-06', series: bases, value: 427823258901, source: ncbi-genbank-statistics}
+- {date: '2020-06', series: sequences, value: 217122233, source: ncbi-genbank-statistics}
+- {date: '2020-08', series: bases, value: 654057069549, source: ncbi-genbank-statistics}
+- {date: '2020-08', series: sequences, value: 218642238, source: ncbi-genbank-statistics}
+- {date: '2020-10', series: bases, value: 698688094046, source: ncbi-genbank-statistics}
+- {date: '2020-10', series: sequences, value: 219055207, source: ncbi-genbank-statistics}
+- {date: '2020-12', series: bases, value: 723003822007, source: ncbi-genbank-statistics}
+- {date: '2020-12', series: sequences, value: 221467827, source: ncbi-genbank-statistics}
+- {date: '2021-02', series: bases, value: 776291211106, source: ncbi-genbank-statistics}
+- {date: '2021-02', series: sequences, value: 226241476, source: ncbi-genbank-statistics}
+- {date: '2021-04', series: bases, value: 832400799511, source: ncbi-genbank-statistics}
+- {date: '2021-04', series: sequences, value: 227123201, source: ncbi-genbank-statistics}
+- {date: '2021-06', series: bases, value: 866009790959, source: ncbi-genbank-statistics}
+- {date: '2021-06', series: sequences, value: 227888889, source: ncbi-genbank-statistics}
+- {date: '2021-08', series: bases, value: 940513260726, source: ncbi-genbank-statistics}
+- {date: '2021-08', series: sequences, value: 231982592, source: ncbi-genbank-statistics}
+- {date: '2021-10', series: bases, value: 1014763752113, source: ncbi-genbank-statistics}
+- {date: '2021-10', series: sequences, value: 233642893, source: ncbi-genbank-statistics}
+- {date: '2021-12', series: bases, value: 1053275115030, source: ncbi-genbank-statistics}
+- {date: '2021-12', series: sequences, value: 234557297, source: ncbi-genbank-statistics}
+- {date: '2022-02', series: bases, value: 1173984081721, source: ncbi-genbank-statistics}
+- {date: '2022-02', series: sequences, value: 236338284, source: ncbi-genbank-statistics}
+- {date: '2022-04', series: bases, value: 1266154890918, source: ncbi-genbank-statistics}
+- {date: '2022-04', series: sequences, value: 237520318, source: ncbi-genbank-statistics}
+- {date: '2022-06', series: bases, value: 1395628631187, source: ncbi-genbank-statistics}
+- {date: '2022-06', series: sequences, value: 239017893, source: ncbi-genbank-statistics}
+- {date: '2022-08', series: bases, value: 1492800704497, source: ncbi-genbank-statistics}
+- {date: '2022-08', series: sequences, value: 239915786, source: ncbi-genbank-statistics}
+- {date: '2022-10', series: bases, value: 1562963366851, source: ncbi-genbank-statistics}
+- {date: '2022-10', series: sequences, value: 240539282, source: ncbi-genbank-statistics}
+- {date: '2022-12', series: bases, value: 1635594138493, source: ncbi-genbank-statistics}
+- {date: '2022-12', series: sequences, value: 241015745, source: ncbi-genbank-statistics}
+- {date: '2023-02', series: bases, value: 1731302248418, source: ncbi-genbank-statistics}
+- {date: '2023-02', series: sequences, value: 241830635, source: ncbi-genbank-statistics}
+- {date: '2023-04', series: bases, value: 1826746318813, source: ncbi-genbank-statistics}
+- {date: '2023-04', series: sequences, value: 242554936, source: ncbi-genbank-statistics}
+- {date: '2023-06', series: bases, value: 1966479976146, source: ncbi-genbank-statistics}
+- {date: '2023-06', series: sequences, value: 243560863, source: ncbi-genbank-statistics}
+- {date: '2023-08', series: bases, value: 2112058517945, source: ncbi-genbank-statistics}
+- {date: '2023-08', series: sequences, value: 246119175, source: ncbi-genbank-statistics}
+- {date: '2023-10', series: bases, value: 2433391164875, source: ncbi-genbank-statistics}
+- {date: '2023-10', series: sequences, value: 247777761, source: ncbi-genbank-statistics}
+- {date: '2023-12', series: bases, value: 2570711588044, source: ncbi-genbank-statistics}
+- {date: '2023-12', series: sequences, value: 249060436, source: ncbi-genbank-statistics}
+- {date: '2024-04', series: bases, value: 3213818003787, source: ncbi-genbank-statistics}
+- {date: '2024-04', series: sequences, value: 250803006, source: ncbi-genbank-statistics}
+- {date: '2024-06', series: bases, value: 3387240663231, source: ncbi-genbank-statistics}
+- {date: '2024-06', series: sequences, value: 251094334, source: ncbi-genbank-statistics}
+- {date: '2024-08', series: bases, value: 3675462701077, source: ncbi-genbank-statistics}
+- {date: '2024-08', series: sequences, value: 251998350, source: ncbi-genbank-statistics}
+- {date: '2024-10', series: bases, value: 4250942573681, source: ncbi-genbank-statistics}
+- {date: '2024-10', series: sequences, value: 252347664, source: ncbi-genbank-statistics}
+- {date: '2024-12', series: bases, value: 5085904976338, source: ncbi-genbank-statistics}
+- {date: '2024-12', series: sequences, value: 254365075, source: ncbi-genbank-statistics}
+- {date: '2025-02', series: bases, value: 5415448651743, source: ncbi-genbank-statistics}
+- {date: '2025-02', series: sequences, value: 255669865, source: ncbi-genbank-statistics}
+- {date: '2025-04', series: bases, value: 5794509308815, source: ncbi-genbank-statistics}
+- {date: '2025-04', series: sequences, value: 257038531, source: ncbi-genbank-statistics}
+- {date: '2025-06', series: bases, value: 5234752089196, source: ncbi-genbank-statistics}
+- {date: '2025-06', series: sequences, value: 258002002, source: ncbi-genbank-statistics}
+- {date: '2025-08', series: bases, value: 5676067778413, source: ncbi-genbank-statistics}
+- {date: '2025-08', series: sequences, value: 258320620, source: ncbi-genbank-statistics}
+- {date: '2025-12', series: bases, value: 6651459875408, source: ncbi-genbank-statistics}
+- {date: '2025-12', series: sequences, value: 259677058, source: ncbi-genbank-statistics}
+- {date: '2026-02', series: bases, value: 7010340901567, source: ncbi-genbank-statistics}
+- {date: '2026-02', series: sequences, value: 260943419, source: ncbi-genbank-statistics}
+- {date: '2026-04', series: bases, value: 7289942983522, source: ncbi-genbank-statistics}
+- {date: '2026-04', series: sequences, value: 261460182, source: ncbi-genbank-statistics}
+- {date: '2026-06', series: bases, value: 7618210921117, source: ncbi-genbank-statistics}
+- {date: '2026-06', series: sequences, value: 264214354, source: ncbi-genbank-statistics}
+- {date: '2026-08', series: bases, value: 8236878868450, source: ncbi-genbank-statistics}
+- {date: '2026-08', series: sequences, value: 267383895, source: ncbi-genbank-statistics}
