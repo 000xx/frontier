@@ -26,13 +26,32 @@ The script draws a page from the blocks a frontier file holds. A new frontier th
 | `items` (any number) | A searchable list, with filters for status and group. A `problem-list` frontier shows no tally. |
 | `about` | "What this is" and "Why it matters", at the top of the page. |
 | `events`, `reading`, `sources` | "What happened", "Start here" and "Sources". |
-| Dataset `NOTICE.md` | The credit line under each chart and a "Data credits and terms" section. |
+| Dataset `NOTICE.md` | The credit line under each chart and bar, and a "Data credits and terms" section. |
+| `Credit line: "..."` in a source's `notes` | The same: the quoted line is printed under each chart and bar and listed under "Data credits and terms" with the source's name. |
+
+## Credit lines
+
+`scripts/build_site_data.py` collects a frontier's credit lines from two places and the page prints them, word for word, under every chart and bar of that frontier (`creditLine()`):
+
+- each dataset `NOTICE.md` the frontier file mentions: a `## Required credit` section, a sentence saying charts should carry the line "...", a paragraph starting `Credit line: "..."` or `Credit line for ...: "..."`, or a plain `Credit:` paragraph;
+- each source whose `notes` contain `Credit line: "..."`, `Credit line suggested: "..."` or `Credit wording, ...: "..."`. Only the text inside the quotes is taken. A line marked "suggested" is shown the same way under charts, and "Data credits and terms" says the wording was proposed when the data was added and is not the source's own.
+
+A credit applies to the whole frontier, not to one series. A credit described in running prose with no quoted line (for example "credit WHO as the source") is not picked up: an update run has to write the exact line in quotes. The build prints which frontiers got a line from source notes.
+
+## Front-page tiles
+
+Each tile carries a small drawing of the frontier's own data (`tileChart()`):
+
+- `records` or `observations`: the line of the series the page opens on. A series with a single result is one mark, and for a record a level line from its date to now.
+- `items` only: one square per entry in the order of the data, drawn by status as on the page (solid, outlined, half, struck), the most recent in orange. The tile's words are the number of entries listed.
+- `stages` and `candidates` only: one row per candidate with a segment per stage, dark up to the stage it has reached and orange at that stage. The tile's words are the furthest stage any candidate has reached, and how many are tracked.
+- A `problem-list` frontier has no drawing and no count on its tile.
 
 The headline number is the current record (for `records`) or the latest figure (for `observations`). `metric.direction` decides whether higher or lower counts as progress. A frontier with `status: draft` is shown with a "Draft data" label.
 
 ## The checks
 
-`node scripts/check_site.js` renders the front page and every frontier page, once per series, without a browser. It fails if a page throws, is empty, or prints a broken value such as `NaN`. It runs on every pull request and before every publish.
+`node scripts/check_site.js` renders the front page and every frontier page, once per series, without a browser. It fails if a page throws, is empty, or prints a broken value such as `NaN`. It also fails if a credit line the data gives is missing under any chart or bar, if a tile has no small drawing, or if a problem-list tile has one. It runs on every pull request and before every publish.
 
 ## Getting around
 
@@ -73,5 +92,5 @@ Every chart draws itself from left to right. A chart that is in view when the pa
 - The cost-curve view counts halvings over time. Cost per doubling of cumulative production (the learning rate) cannot be drawn: the format has no field for how much has been produced.
 - The scale ladder shows the powers of ten already passed and the next one. It has no far-off goal to mark, because none of the scale-ladder frontiers has a `metric.target`.
 - A `cost-curve` frontier whose latest figure is not below its first (renewables cost, with two equal figures) gets no cost view.
-- Credit lines are read from dataset `NOTICE.md` files only. A credit written in a source's notes is not shown under the chart.
+- A credit written in a source's notes as prose, with no quoted `Credit line: "..."`, is not shown under the chart (see "Credit lines").
 - No map view yet for country lists.

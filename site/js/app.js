@@ -16,6 +16,8 @@
       + claim-scoreboard  -> the grid becomes one card per claim, with who made it, where it stands and the note
       (a problem-list frontier gets the filterable list only: no grid, no counts, no chart over time)
     events, reading, sources, credits -> the reference sections
+  Credit lines (from a dataset NOTICE.md, or from a source's notes) are printed under every chart and bar of the frontier.
+  Front-page tiles carry a small drawing of the same data: a line, the list as squares, or a row of stages per candidate.
   A new frontier that uses these blocks needs no change here. To add a new view,
   write a function that returns HTML for a block and call it from frontier().
   All drawing functions return strings, so scripts/check_site.js can run them without a browser.
@@ -350,7 +352,12 @@
       ' aria-label="' + esc(aria) + '" viewBox="' + (box || '-96 -22 ' + (W + 114) + ' ' + (H + 58)) + '">' + sweep(o, W, H, true) + '</svg></div>' +
       (credit ? '<p class="credit">' + esc(credit) + '</p>' : '');
   }
-  function creditLine(f) { return f.credits.map(function (c) { return c.line; }).filter(Boolean).join(' '); }
+  /* The credit printed under every chart of a frontier: each credit line the data gives, once, in the source's or the data file's own words. */
+  function creditLine(f) {
+    var seen = {};
+    return f.credits.map(function (c) { return c.line; }).filter(function (l) { if (!l || seen[l]) return false; seen[l] = 1; return true; })
+      .reduce(function (all, l) { return !all ? l : all + (/[.!?]$/.test(all) ? ' ' : ' · ') + l; }, '');
+  }
 
   /* Value over time. lines: [{pts:[[t,v]], step, faint, band:[[t,lo,hi]]}], dots: [[t,v,strong]], marks: [{v,label}] */
   function timeChart(f, o, dark) {
@@ -531,7 +538,14 @@
       var rows = f[b][selectedId(f)];
       pts = (b === 'records' ? progression(f, rows).map(function (p) { return p.r; }) : rows).map(function (r) { return [parseDate(r[0]).t, r[1]]; });
     }
-    if (pts.length < 2) return '<svg class="spark" aria-hidden="true" viewBox="0 0 240 56"></svg>';
+    if (!pts.length) return '';
+    if (pts.length < 2) {
+      /* A single result: one mark, and for a record the level it has stood at since. */
+      var held = b === 'records' && nowT() > pts[0][0];
+      return '<svg class="spark" aria-hidden="true" data-sweep data-w="240" viewBox="0 0 240 56">' + sweep(FG +
+        (held ? '<path d="M4 28 H236" fill="none" stroke="#0F1317" stroke-width="2"/>' : '') +
+        '<circle cx="' + (held ? 4 : 236) + '" cy="28" r="4" fill="#E4531A"/>', 240, 56, false) + '</svg>';
+    }
     var log = f.metric.scale === 'log', tr = function (v) { return log ? Math.log10(Math.max(v, 1e-300)) : v; };
     var t0 = pts[0][0], t1 = Math.max(pts[pts.length - 1][0], b === 'records' ? nowT() : 0), vs = pts.map(function (p) { return tr(p[1]); });
     var lo = Math.min.apply(null, vs), hi = Math.max.apply(null, vs); if (hi === lo) hi = lo + 1;
@@ -544,6 +558,45 @@
       : '<path d="' + d + '" fill="none" stroke="#0F1317" stroke-width="2"/><circle cx="' + X(last[0]).toFixed(1) + '" cy="' + Y(last[1]).toFixed(1) + '" r="4" fill="#E4531A"/>';
     return '<svg class="spark" aria-hidden="true" data-sweep data-w="240" viewBox="0 0 240 56">' + sweep(FG + body, 240, 56, false) + '</svg>';
   }
+  /* A tile's small drawing of an item list: one square per entry, in the order the data lists them, drawn by status as on the page. */
+  function listSpark(f) {
+    var n = f.items.length, sizes = [14, 12, 10, 8, 7, 6, 5, 4, 3], s = 3, g = 1, cols = 60, k, newest = newestItem(f), o = '';
+    for (k = 0; k < sizes.length; k += 1) {
+      var gg = sizes[k] >= 8 ? 3 : sizes[k] >= 5 ? 2 : 1, cc = Math.floor((240 + gg) / (sizes[k] + gg));
+      if (Math.ceil(n / cc) * (sizes[k] + gg) - gg <= 56) { s = sizes[k]; g = gg; cols = cc; break; }
+    }
+    var top = 56 - (Math.ceil(n / cols) * (s + g) - g), sw = s >= 8 ? 1.5 : 1;
+    f.items.forEach(function (i, j) {
+      var x = (j % cols) * (s + g), y = top + Math.floor(j / cols) * (s + g), col = i === newest ? '#E4531A' : '#0F1317', st = i[3];
+      if (st === 'done') { o += '<rect x="' + x + '" y="' + y + '" width="' + s + '" height="' + s + '" fill="' + col + '"/>'; return; }
+      o += '<rect x="' + (x + sw / 2) + '" y="' + (y + sw / 2) + '" width="' + (s - sw) + '" height="' + (s - sw) + '" fill="none" stroke="' + col + '" stroke-width="' + sw + '"/>';
+      if (st === 'partial') o += '<rect x="' + x + '" y="' + y + '" width="' + s / 2 + '" height="' + s + '" fill="' + col + '"/>';
+      if (st === 'disputed') o += '<path d="M' + x + ' ' + (y + s) + ' L' + (x + s) + ' ' + y + '" stroke="' + col + '" stroke-width="' + sw + '"/>';
+    });
+    return '<svg class="spark" aria-hidden="true" data-sweep data-w="240" viewBox="0 0 240 56">' + sweep(FG + o, 240, 56, false) + '</svg>';
+  }
+  /* A tile's small drawing of a stage timeline: one row per candidate, one segment per stage, filled as far as it has got. */
+  function furthestStage(f) { var at = -1; f.candidates.forEach(function (c) { at = Math.max(at, f.stages.indexOf(c.stage)); }); return at; }
+  function stageSpark(f) {
+    var n = f.stages.length, rows = f.candidates.slice().sort(function (a, b) { return f.stages.indexOf(b.stage) - f.stages.indexOf(a.stage); });
+    if (!n || !rows.length) return '';
+    var gap = rows.length > 8 ? 1 : 4, rh = Math.min(8, (56 - gap * (rows.length - 1)) / rows.length), w = (240 - 3 * (n - 1)) / n;
+    var top = 56 - (rows.length * (rh + gap) - gap), o = '', fg = '';
+    rows.forEach(function (c, k) {
+      var at = f.stages.indexOf(c.stage), y = (top + k * (rh + gap)).toFixed(1), i;
+      for (i = 0; i < n; i += 1) {
+        var r = '<rect x="' + (i * (w + 3)).toFixed(1) + '" y="' + y + '" width="' + w.toFixed(1) + '" height="' + rh.toFixed(1) + '" fill="' + (i < at ? '#0F1317' : i === at ? '#E4531A' : '#E3E5DF') + '"/>';
+        if (i <= at) fg += r; else o += r;
+      }
+    });
+    return '<svg class="spark" aria-hidden="true" data-sweep data-w="240" viewBox="0 0 240 56">' + sweep(o + FG + fg, 240, 56, false) + '</svg>';
+  }
+  /* The small drawing on a tile. A problem list gets none: it is a list, not a score. */
+  function tileChart(f) {
+    if (block(f)) return spark(f);
+    if (f.candidates.length) return stageSpark(f);
+    return gridMode(f) ? listSpark(f) : '';
+  }
 
   /* ---------- front page ---------- */
   function bigNumber(f, h) {
@@ -551,11 +604,12 @@
       (unitText(f) ? '<div class="unitline">' + esc(unitText(f)) + '</div>' : '');
   }
   function tile(f) {
-    var h = headline(f), draft = f.dataStatus === 'draft';
+    var h = headline(f), draft = f.dataStatus === 'draft', far = !h && f.candidates.length ? furthestStage(f) : -1;
     return '<a class="tile" href="#' + esc(f.id) + '"><span class="trow eyebrow"><span>' + esc(f.subfield || f.domain) + '</span><span>' + esc(shapeLabel(f)) + '</span></span>' +
       (h ? '<span class="tnum">' + fmt(h.value) + (suffix(f) ? '<i>' + suffix(f) + '</i>' : '') + '</span>' + (unitText(f) ? '<span class="tunit">' + esc(unitText(f)) + '</span>' : '')
+        : far >= 0 ? '<span class="tnum words">' + esc(f.stages[far]) + '</span><span class="tunit">furthest stage reached · ' + f.candidates.length + ' tracked</span>'
         : '<span class="tnum words">' + (f.items.length && f.shape !== 'problem-list' ? fmt(f.items.length) + ' listed' : esc(shapeLabel(f))) + '</span>') +
-      '<span class="ttitle">' + esc(f.title) + '</span>' + spark(f) +
+      '<span class="ttitle">' + esc(f.title) + '</span>' + tileChart(f) +
       '<span class="trow tfoot"><span>' + (h ? esc((h.who ? h.who + ' · ' : '') + fmtDate(h.date)) : 'Updated ' + esc(fmtDate(f.lastChecked))) + '</span>' +
       (draft ? '<span class="draft">Draft data</span>' : h && h.status ? statusHtml(h.status, '#0F1317') : '') + '</span></a>';
   }
@@ -688,13 +742,14 @@
     return out;
   }
   /* One bar drawn to scale: `frac` of the full width is filled, the newest end in orange. ticks: [{at, blue}] */
-  function scaleBar(frac, aria, ticks) {
+  function scaleBar(frac, aria, ticks, credit) {
     var W = 880, w = Math.max(0, Math.min(1, frac)) * W, cap = Math.min(6, w);
     var o = '<rect x="0" y="7" width="' + W + '" height="18" fill="#E3E5DF"/>' + FG +
       '<rect x="0" y="7" width="' + w.toFixed(1) + '" height="18" fill="#0F1317"/>' +
       '<rect x="' + (w - cap).toFixed(1) + '" y="7" width="' + cap.toFixed(1) + '" height="18" fill="#E4531A"/>' +
       (ticks || []).map(function (t) { return '<rect x="' + Math.max(0, Math.min(W - 3, t.at * W - 1.5)).toFixed(1) + '" y="0" width="3" height="32" fill="' + (t.blue ? '#1E34D8' : '#0F1317') + '"/>'; }).join('');
-    return '<svg class="scalebar" role="img" data-sweep data-w="' + W + '" aria-label="' + esc(aria) + '" viewBox="0 0 ' + W + ' 32" preserveAspectRatio="none">' + sweep(o, W, 32, false) + '</svg>';
+    return '<svg class="scalebar" role="img" data-sweep data-w="' + W + '" aria-label="' + esc(aria) + '" viewBox="0 0 ' + W + ' 32" preserveAspectRatio="none">' + sweep(o, W, 32, false) + '</svg>' +
+      (credit ? '<p class="credit">' + esc(credit) + '</p>' : '');
   }
   function cell(cls, label, value) { return '<div class="' + cls + '"><dt>' + label + '</dt><dd>' + value + '</dd></div>'; }
   /* Threshold gauge: the current record drawn against the line it has to cross. On a linear measure the bar starts
@@ -712,7 +767,7 @@
     return '<div class="wrap block"><h2>Distance to the ' + name + '</h2>' +
       (drawn ? scaleBar(at(top[1]), 'A bar running ' + (log ? 'on a log scale from the first record in this series, ' + val(f, first[1]) + ',' : 'from zero') + ' to ' +
         (past ? 'the current record' : 'the ' + name + ', ' + val(f, L)) + '. The filled part is the current record, ' + val(f, top[1]) + ', set ' + fmtDate(top[0]) + '.' +
-        (past ? ' A blue tick marks the ' + name + ', ' + val(f, L) + '.' : ''), ticks) : '') +
+        (past ? ' A blue tick marks the ' + name + ', ' + val(f, L) + '.' : ''), ticks, creditLine(f)) : '') +
       '<dl class="split">' + cell('now', 'Current record · ' + esc(fmtDate(top[0])), val(f, top[1])) +
         (reached ? cell('words', past ? 'Went past the ' + name : 'Reached the ' + name, esc(fmtDate(hit[0]))) : log ? '' : cell('', 'Still to go', val(f, L - top[1]))) +
         (prog.length > 1 ? cell('', 'First record here · ' + esc(fmtDate(first[0])), val(f, first[1])) : '') +
@@ -765,7 +820,7 @@
     if (rows.length > 1) ticks.push({ at: first[1] / 100 });
     if (t && t.value < 100) ticks.push({ at: t.value / 100, blue: true });
     return '<div class="wrap block"><h2>How much of the whole</h2>' +
-      scaleBar(last[1] / 100, 'A bar standing for the whole, 100%. ' + val(f, last[1]) + ' of it is filled, as of ' + fmtDate(last[0]) + '.', ticks) +
+      scaleBar(last[1] / 100, 'A bar standing for the whole, 100%. ' + val(f, last[1]) + ' of it is filled, as of ' + fmtDate(last[0]) + '.', ticks, creditLine(f)) +
       '<dl class="split">' + cell('now', 'Latest figure · ' + esc(fmtDate(last[0])), val(f, last[1])) +
         cell('', 'The rest of the whole', val(f, 100 - last[1])) +
         (rows.length > 1 ? cell('', 'First figure here · ' + esc(fmtDate(first[0])), val(f, first[1])) : '') +
@@ -778,7 +833,7 @@
   function zeroSection(f, sid) {
     var rows = f.observations[sid], last = rows[rows.length - 1], peak = peakRow(rows), frac = peak[1] > 0 ? last[1] / peak[1] : 0;
     return '<div class="wrap block"><h2>Distance to zero</h2>' +
-      (peak[1] > 0 ? scaleBar(frac, 'A bar as long as the highest figure in this series, ' + val(f, peak[1]) + ' in ' + fmtDate(peak[0]) + '. The filled part is the latest figure, ' + val(f, last[1]) + ' in ' + fmtDate(last[0]) + '.') : '') +
+      (peak[1] > 0 ? scaleBar(frac, 'A bar as long as the highest figure in this series, ' + val(f, peak[1]) + ' in ' + fmtDate(peak[0]) + '. The filled part is the latest figure, ' + val(f, last[1]) + ' in ' + fmtDate(last[0]) + '.', null, creditLine(f)) : '') +
       '<dl class="split">' + cell('', 'Highest in this series · ' + esc(fmtDate(peak[0])), val(f, peak[1])) +
         cell('now', 'Latest figure · ' + esc(fmtDate(last[0])), val(f, last[1])) +
         cell('goal', 'The line to reach', '0') + '</dl>' +
@@ -849,7 +904,7 @@
       }).join('') + '</tbody></table></div>' : '';
     return '<div class="wrap block"><h2>The ladder of powers of ten</h2>' +
       scaleBar(at(top.v), 'A bar on a log scale from the first ' + word + ' in this series, ' + val(f, first.v) + ', to the next power of ten, ' + nextLabel + '. The filled part is the ' +
-        (rec ? 'current record' : 'latest figure') + ', ' + val(f, top.v) + ', from ' + fmtDate(top.d) + '. ' + rg.passed.length + (rg.passed.length === 1 ? ' power' : ' powers') + ' of ten passed on the way.', ticks) +
+        (rec ? 'current record' : 'latest figure') + ', ' + val(f, top.v) + ', from ' + fmtDate(top.d) + '. ' + rg.passed.length + (rg.passed.length === 1 ? ' power' : ' powers') + ' of ten passed on the way.', ticks, creditLine(f)) +
       '<dl class="split">' + cell('now', (rec ? 'Current record · ' : 'Latest figure · ') + esc(fmtDate(top.d)), val(f, top.v)) +
         cell('', 'Powers of ten passed', fmt(rg.passed.length)) +
         cell('', 'First ' + word + ' here · ' + esc(fmtDate(first.d)), val(f, first.v)) +
@@ -1044,7 +1099,11 @@
       return '<li><span class="n">0' + (i + 1) + '</span><span>' + link(r.url, '<strong>' + esc(r.title) + '</strong>') + '<span>' + esc([r.author, r.note].filter(Boolean).join(' · ')) + '</span></span></li>';
     }).join('');
     var sources = f.sources.map(function (x) { return '<li><span class="n">' + esc(x.kind || '') + '</span><span>' + link(x.url, '<strong>' + esc(x.name) + '</strong>') + '</span></li>'; }).join('');
-    var notices = f.credits.filter(function (c) { return c.line || c.notice; }).map(function (c) { return (c.line ? '<p>' + esc(c.line) + '</p>' : '') + (c.notice ? '<p>' + esc(c.notice) + '</p>' : ''); }).join('');
+    var notices = f.credits.filter(function (c) { return c.line || c.notice; }).map(function (c) {
+      return (c.line ? '<p>' + (c.sourceName ? '<strong>' + esc(c.sourceName) + '.</strong> ' : '') + esc(c.line) +
+          (c.proposed ? ' <em>This wording was proposed when the data was added; it is not the source’s own.</em>' : '') + '</p>' : '') +
+        (c.notice ? '<p>' + esc(c.notice) + '</p>' : '');
+    }).join('');
     return '<div class="wrap block"><div class="two"><div class="l">' +
         (f.explainer ? '<h2>How to read it</h2><p class="prose">' + esc(f.explainer) + '</p>' : '') +
         (events ? '<h2 class="gap">What happened</h2><ul class="read">' + events + '</ul>' : '') + '</div>' +
@@ -1085,7 +1144,7 @@
   }
 
   var Site = {
-    home: home, frontier: frontier, itemsList: itemsList, tilesList: tilesList,
+    home: home, frontier: frontier, itemsList: itemsList, tilesList: tilesList, tile: tile, creditLine: creditLine, esc: esc,
     filterHome: function (q, domain, shape) { homeState = { q: q || '', domain: domain || 'all', shape: shape || 'all' }; }, anchors: HOME_ANCHORS, seriesIds: seriesIds, block: block, gaugeMode: gaugeMode, reignMode: reignMode,
     costMode: costMode, ladderMode: ladderMode, gridMode: gridMode, claimMode: claimMode, itemTimeMode: itemTimeMode, stageDatesMode: stageDatesMode,
     select: function (fid, sid) { chosen[fid] = sid; }, data: function () { return D; }

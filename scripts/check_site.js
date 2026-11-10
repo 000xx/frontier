@@ -38,6 +38,21 @@ check('front page', () => Site.home());
 // The front page's search and filters redraw only the tiles, so check that part on its own too.
 check('front page tiles, filtered', () => { Site.filterHome('cost', null, null); const html = Site.tilesList(); Site.filterHome(); return Site.home().replace(/<div id="tiles-list">[\s\S]*?<\/div><\/section><\/div>/, html) + html; });
 check('front page tiles, no match', () => { Site.filterHome('no such frontier'); const html = Site.tilesList(); Site.filterHome(); if (html.indexOf('No frontier matches') < 0) throw new Error('no empty message'); return Site.home() + html; });
+// Every tile carries a small drawing of its data, except a problem list, which must stay a plain list.
+for (const f of data.frontiers) {
+  const html = Site.tile(f), drawn = /<svg class="spark"[^>]*data-sweep[^>]*>.*<(path|circle|rect) [^>]*(fill|stroke)="#(0F1317|E4531A)"/.test(html);
+  if (drawn === (f.shape === 'problem-list')) { failures += 1; console.error('FAIL ' + f.id + ': ' + (drawn ? 'a problem-list tile must not carry a drawing' : 'the tile has no small drawing')); }
+}
+// A credit line the data gives must be printed under every chart and bar on the page, word for word.
+function checkCredits(f, html) {
+  const line = Site.esc(Site.creditLine(f));
+  for (const c of f.credits) if (c.line && !line.includes(Site.esc(c.line))) throw new Error('credit line dropped: ' + c.line);
+  if (!line) return;
+  const charts = (html.match(/<svg (class="scalebar" )?role="img" data-sweep/g) || []).length;
+  const shown = html.split('<p class="credit">' + line + '</p>').length - 1;
+  if (shown < charts) throw new Error(charts + ' charts but the credit line is printed ' + shown + ' time(s)');
+  if (!html.includes('Data credits and terms')) throw new Error('no "Data credits and terms" section');
+}
 for (const f of data.frontiers) {
   const block = Site.block(f);
   if (!block && !f.items.length && !f.candidates.length) {
@@ -55,6 +70,7 @@ for (const f of data.frontiers) {
     if (Site.stageDatesMode(f) !== has('When each stage was reached')) throw new Error('stage dates shown or missing against the data');
     // A problem list stays a list: no grid, no counts and nothing drawn over time.
     if (f.shape === 'problem-list' && (/class="(split|tally|gcells|gcards)/.test(html) || has('The list over time'))) throw new Error('a problem list must not show a count, a grid or a chart over time');
+    checkCredits(f, html);
     return html;
   });
   if (block) for (const sid of Site.seriesIds(f, block)) {
@@ -68,6 +84,7 @@ for (const f of data.frontiers) {
         if (Site.gaugeMode(f, sid) !== /<h2>Distance to the (line|limit)<\/h2>/.test(html)) throw new Error('threshold gauge shown or missing against the data');
         if (Site.reignMode(f, sid) !== html.includes('<h2>Who has held the record</h2>')) throw new Error('record-holder ribbon shown or missing against the data');
       }
+      checkCredits(f, html);
       return html;
     });
   }
