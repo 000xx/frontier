@@ -1,0 +1,105 @@
+id: qkd-distance
+title: Quantum key distribution distance
+domain: quantum
+subfield: Quantum technologies
+status: draft
+summary: The longest distance over which quantum key distribution, a method for sharing encryption keys that exposes eavesdropping, has been demonstrated, tracked separately for optical fibre and for satellite links. Longer reach is what makes the method useful for a network rather than a lab bench.
+metric:
+  name: Distance of a quantum key distribution link
+  unit: km
+  direction: higher
+  scale: linear
+  explainer: 'Quantum key distribution sends single photons between two parties so that they can agree on a
+    secret key. Any eavesdropper disturbs the photons and reveals herself. Distance is the hard part: photons
+    are lost in fibre and in air, so the signal falls off quickly with length. Labs use relays, which are not
+    yet trusted by every use, or protocols such as twin-field QKD that avoid trusted relays but still need
+    very stable equipment. Satellites reach far by sending photons through the air, but the distance reported
+    for a satellite link is the path from orbit to the ground, which is not the same thing as a fibre length.
+    Each record is tied to a link type, and the two are shown separately.'
+chart:
+  primary: record-chart
+series:
+- id: fibre
+  label: Optical fibre
+  group: Ground links
+- id: satellite
+  label: Satellite to ground
+  group: Space links
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'No machine-readable source; records are added by hand from papers and releases opened in full.
+    Only four results have been checked, so the history is incomplete. Still to add: other fibre and
+    satellite results, including the 2017 satellite paper journal, which could not be confirmed. Check each
+    year for new non-relay and satellite demonstrations.'
+sources:
+- id: twin-field-1002-prl
+  name: 'USTC team, Experimental Twin-Field Quantum Key Distribution Over 1000 km Fiber Distance, arXiv:2303.15795 (2023), published in Physical Review Letters'
+  url: https://arxiv.org/pdf/2303.15795
+  kind: paper
+  primary: true
+  notes: Preprint, which gives the 1002 km distance and the key rate. The journal publication is from the phys.org report, not from the preprint.
+- id: phys-org-2023
+  name: 'phys.org: Scientists achieve a 1,002 km quantum key distribution record (June 2023)'
+  url: https://phys.org/news/2023-06-scientists-km-quantum-key.pdf
+  kind: news
+  notes: Reports the Physical Review Letters publication and the record for non-relay QKD.
+- id: nature-photonics-2022
+  name: 'Wang et al., Twin-field quantum key distribution over 830-km fibre, Nature Photonics (2022)'
+  url: https://www.nature.com/articles/s41566-021-00928-2.pdf
+  kind: paper
+  notes: Peer-reviewed. Reports a secure distance of 833.8 km.
+- id: micius-arxiv-2017
+  name: 'Satellite-to-ground quantum key distribution, arXiv:1707.00542 (2017)'
+  url: https://arxiv.org/pdf/1707.00542
+  kind: paper
+  notes: Preprint from the USTC satellite team. Reports a maximum link of 1200 km, slant range from orbit to ground. Journal not confirmed in the text.
+- id: eurekalert-2018
+  name: 'EurekAlert: USTC satellite-to-ground decoy-state QKD release (January 2018)'
+  url: https://www.eurekalert.org/news-releases/793539
+  kind: news
+  notes: Release names Physical Review Letters as the journal and gives the distance as about 1200 km. This does not match the arXiv title, so the journal is unresolved.
+records:
+- date: '2022-01'
+  value: 833.8
+  series: fibre
+  holder: USTC Hefei team (Wang et al.)
+  conditions: Twin-field QKD over optical fibre, no trusted relay; secure distance 833.8 km
+  status: peer_reviewed
+  source: nature-photonics-2022
+  url: https://www.nature.com/articles/s41566-021-00928-2.pdf
+  note: Superseded by the 1002 km result of 2023.
+- date: '2023-05'
+  value: 1002
+  series: fibre
+  holder: USTC Hefei team
+  conditions: Twin-field QKD over optical fibre with two 500 km legs; secure key rate 9.53 x 10^-12 per pulse, asymptotic regime
+  status: peer_reviewed
+  source: twin-field-1002-prl
+  url: https://arxiv.org/pdf/2303.15795
+  note: Reported as the record for non-relay QKD. The key rate is very low, so distance here does not mean useful throughput.
+- date: '2017-06'
+  value: 1200
+  series: satellite
+  holder: USTC (Pan Jianwei group)
+  conditions: Satellite-to-ground QKD; maximum distance of about 1200 km, slant range from orbit at about 500 km altitude
+  status: claimed
+  source: micius-arxiv-2017
+  url: https://arxiv.org/pdf/1707.00542
+  note: Journal status unresolved (see the source note). Not comparable with fibre distances.
+events:
+- date: '2017-06'
+  kind: paper
+  title: Satellite link reaches about 1200 km from orbit to ground
+  why_it_matters: Showed that a quantum key could be shared across a continent-scale path through the air, which fibre alone could not do.
+  url: https://arxiv.org/pdf/1707.00542
+- date: '2022-01-17'
+  kind: paper
+  title: Twin-field QKD reaches 830 km of fibre
+  why_it_matters: Extended the trusted-relay-free fibre distance well beyond earlier laboratory and field tests.
+  url: https://www.nature.com/articles/s41566-021-00928-2.pdf
+- date: '2023-05'
+  kind: paper
+  title: Twin-field QKD reaches 1002 km of fibre
+  why_it_matters: The largest non-relay fibre distance found in this check, but the key rate is very low, so it is a reach record rather than a practical link.
+  url: https://arxiv.org/pdf/2303.15795
