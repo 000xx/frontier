@@ -1,0 +1,224 @@
+# Items are the first visits listed on NASA's "Deep Space Robotic Firsts" page (science.nasa.gov/deep-space-exploration/),
+# transcribed from that page's list, opened in this run. No fetcher. The list is partial: it covers only the bodies that page
+# names, so the grid is not complete and the frontier stays in draft.
+id: worlds-explored
+title: Solar system bodies visited
+domain: space
+subfield: Exploring the solar system
+status: draft
+summary: How many solar system bodies have had a spacecraft fly past, orbit or land on them, and when each was first
+  reached. It maps how far the first visits have spread from the Earth-Moon system into the outer planets and small bodies.
+metric:
+  name: Solar system bodies visited by a spacecraft
+  unit: bodies
+  direction: higher
+  scale: linear
+  explainer: 'A visit here means that a human-made spacecraft has flown past, gone into orbit around, or landed on a
+    body, and the first such visit is what is recorded. The list counts bodies, not missions: one mission can visit
+    several bodies, and a body is listed once, at its first visit. A flyby is the least demanding kind of visit, passing
+    close enough to take measurements. An orbit means the spacecraft stays in a bound path around the body for an extended
+    period. A landing means it reached the surface. On this list the first visits to the Moon and Venus came in the late 1950s and early 1960s,
+    the outer planets followed in the 1970s and 1980s, and small bodies from 1985 on. Because the list reflects a single NASA page, it does not yet include every body that has since been visited.'
+chart:
+  primary: natural-map
+series:
+- id: planets
+  label: Planets
+- id: moons
+  label: Moons
+- id: dwarf-planets
+  label: Dwarf planets and asteroids
+- id: comets
+  label: Comets
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Built from a single NASA page of first visits. The page does not list every body visited since; for example it
+    does not list the first flyby of Mars or the later visits to other asteroids, so the status remains draft. Next step: add
+    the first visits to bodies from a second source, such as the NASA mission pages, and check each date against it.'
+sources:
+- id: nasa-deep-space-firsts
+  name: NASA Science, "Deep Space Robotic Firsts" (deep space exploration page)
+  url: https://science.nasa.gov/deep-space-exploration/
+  kind: report
+  primary: true
+  notes: The list gives each first with the mission and date. Some entries repeat across missions (for example the NEAR
+    landing on Eros appears on two dates); the item dates here are the first dates the page gives for each body.
+items:
+- id: moon
+  label: Moon
+  group: Moons
+  status: done
+  status_detail: first flyby
+  date_done: '1959-10-06'
+  by: Luna 3 (USSR)
+  url: https://science.nasa.gov/deep-space-exploration/
+  source: nasa-deep-space-firsts
+  note: The page gives Luna 3 as the first spacecraft to fly by the Moon. Its first survivable landing was Luna 9 (3 February 1966), and its first orbit was Luna 10 (2 April 1966).
+- id: venus
+  label: Venus
+  group: Planets
+  status: done
+  status_detail: first flyby
+  date_done: '1962-12-14'
+  by: Mariner 2 (USA)
+  url: https://science.nasa.gov/deep-space-exploration/
+  source: nasa-deep-space-firsts
+  note: The page gives Mariner 2 as the first successful planetary mission and the first to fly past Venus.
+- id: mercury
+  label: Mercury
+  group: Planets
+  status: done
+  status_detail: first flyby
+  date_done: '1974-03-29'
+  by: Mariner 10 (USA)
+  url: https://science.nasa.gov/deep-space-exploration/
+  source: nasa-deep-space-firsts
+  note: The page gives Mariner 10 as the first to fly by Mercury. Its first orbit was MESSENGER (18 March 2011), not included here.
+- id: mars
+  label: Mars
+  group: Planets
+  status: done
+  status_detail: first orbit
+  date_done: '1971-11-14'
+  by: Mariner 9 (USA)
+  url: https://science.nasa.gov/deep-space-exploration/
+  source: nasa-deep-space-firsts
+  note: The page gives Mariner 9 as the first spacecraft to orbit Mars, not the first visit. The first Mars visit is not on this page, so the date is for the first orbit only.
+- id: jupiter
+  label: Jupiter
+  group: Planets
+  status: done
+  status_detail: first flyby
+  date_done: '1973-12-04'
+  by: Pioneer 10 (USA)
+  url: https://science.nasa.gov/deep-space-exploration/
+  source: nasa-deep-space-firsts
+  note: Pioneer 10 is given as the first spacecraft to fly by Jupiter. Galileo's orbit (8 December 1995) is the first orbit.
+- id: saturn
+  label: Saturn
+  group: Planets
+  status: done
+  status_detail: first flyby
+  date_done: '1979-09-01'
+  by: Pioneer 11 (USA)
+  url: https://science.nasa.gov/deep-space-exploration/
+  source: nasa-deep-space-firsts
+  note: Pioneer 11 is given as the first spacecraft to fly by Saturn. Cassini's orbit (1 July 2004) is the first orbit.
+- id: uranus
+  label: Uranus
+  group: Planets
+  status: done
+  status_detail: first flyby
+  date_done: '1986-01-24'
+  by: Voyager 2 (USA)
+  url: https://science.nasa.gov/deep-space-exploration/
+  source: nasa-deep-space-firsts
+  note: The page gives Voyager 2 as the first spacecraft to fly by Uranus.
+- id: neptune
+  label: Neptune
+  group: Planets
+  status: done
+  status_detail: first flyby
+  date_done: '1989-08-25'
+  by: Voyager 2 (USA)
+  url: https://science.nasa.gov/deep-space-exploration/
+  source: nasa-deep-space-firsts
+  note: The page gives Voyager 2 as the first spacecraft to fly by Neptune.
+- id: titan
+  label: Titan
+  group: Moons
+  status: done
+  status_detail: first landing
+  date_done: '2005-01-14'
+  by: Huygens (ESA)
+  url: https://science.nasa.gov/deep-space-exploration/
+  source: nasa-deep-space-firsts
+  note: The page gives Huygens as the first spacecraft to soft-land on Titan.
+- id: pluto
+  label: Pluto
+  group: Dwarf planets and asteroids
+  status: done
+  status_detail: first flyby
+  date_done: '2015-07-14'
+  by: New Horizons (USA)
+  url: https://science.nasa.gov/deep-space-exploration/
+  source: nasa-deep-space-firsts
+  note: The page gives New Horizons as the first spacecraft to fly by Pluto.
+- id: gaspra
+  label: 951 Gaspra
+  group: Dwarf planets and asteroids
+  status: done
+  status_detail: first flyby
+  date_done: '1991-10-26'
+  by: Galileo (USA)
+  url: https://science.nasa.gov/deep-space-exploration/
+  source: nasa-deep-space-firsts
+  note: The page gives Galileo as the first spacecraft to fly past an asteroid, at 951 Gaspra.
+- id: eros
+  label: 433 Eros
+  group: Dwarf planets and asteroids
+  status: done
+  status_detail: first orbit
+  date_done: '2000-02-14'
+  by: NEAR Shoemaker (USA)
+  url: https://science.nasa.gov/deep-space-exploration/
+  source: nasa-deep-space-firsts
+  note: The page gives NEAR Shoemaker as the first spacecraft to orbit an asteroid, at 433 Eros. Its landing (12 and 13 February 2001 in the page's list) is not used here.
+- id: vesta
+  label: 4 Vesta
+  group: Dwarf planets and asteroids
+  status: done
+  status_detail: first orbit
+  date_done: '2011-07-16'
+  by: Dawn (USA)
+  url: https://science.nasa.gov/deep-space-exploration/
+  source: nasa-deep-space-firsts
+  note: The page gives Dawn as the first spacecraft to orbit a body in the main asteroid belt.
+- id: ceres
+  label: 1 Ceres
+  group: Dwarf planets and asteroids
+  status: done
+  status_detail: first orbit
+  date_done: '2015-03-07'
+  by: Dawn (USA)
+  url: https://science.nasa.gov/deep-space-exploration/
+  source: nasa-deep-space-firsts
+  note: The page gives Dawn as the first spacecraft to orbit a dwarf planet, at 1 Ceres.
+- id: giacobini-zinner
+  label: 21P/Giacobini-Zinner
+  group: Comets
+  status: done
+  status_detail: first flyby
+  date_done: '1985-09-11'
+  by: ISEE-3 (USA)
+  url: https://science.nasa.gov/deep-space-exploration/
+  source: nasa-deep-space-firsts
+  note: The page gives ISEE-3 as the first spacecraft to fly past a comet.
+- id: 67p
+  label: 67P/Churyumov-Gerasimenko
+  group: Comets
+  status: done
+  status_detail: first orbit
+  date_done: '2014-09-10'
+  by: Rosetta (ESA)
+  url: https://science.nasa.gov/deep-space-exploration/
+  source: nasa-deep-space-firsts
+  note: The page gives Rosetta as the first spacecraft to orbit a cometary nucleus. Philae landed on the comet on 12 November 2014, the first comet landing listed on the page.
+events:
+- date: '2014-11-12'
+  kind: milestone
+  title: Philae becomes the first spacecraft to land on a comet
+  why_it_matters: A landing on a comet's surface turns the visits from fly-bys into direct contact with a primitive body.
+  url: https://science.nasa.gov/deep-space-exploration/
+- date: '2015-03-07'
+  kind: milestone
+  title: Dawn becomes the first spacecraft to orbit a dwarf planet, at Ceres
+  why_it_matters: Orbiting a second body in the asteroid belt showed that a spacecraft could stay with a small world for a long period, not just pass it.
+  url: https://science.nasa.gov/deep-space-exploration/
+- date: '2005-01-14'
+  kind: milestone
+  title: Huygens becomes the first spacecraft to soft-land on Titan
+  why_it_matters: The first landing on a moon in the outer solar system extended direct surface exploration far beyond the inner planets.
+  url: https://science.nasa.gov/deep-space-exploration/
+reading: []
