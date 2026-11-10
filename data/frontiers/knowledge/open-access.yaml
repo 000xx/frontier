@@ -28,7 +28,7 @@ series:
   label: Articles
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-10'
   notes: 'Observations come from OpenAlex, one query per publication year, with type article grouped by open_access.is_oa.
     The fetcher adds new years and updates the last three full years; older years are not rewritten, and any change to
     them is written to the run log only. Still to add: a reading list, and an open-access licence check of OpenAlex''s
@@ -80,4 +80,4 @@ observations:
 - {date: '2022', series: articles, value: 71.1, source: openalex}
 - {date: '2023', series: articles, value: 74.9, source: openalex}
 - {date: '2024', series: articles, value: 73.9, source: openalex}
-- {date: '2025', series: articles, value: 73.6, source: openalex}
+- {date: '2025', series: articles, value: 73.7, source: openalex}
