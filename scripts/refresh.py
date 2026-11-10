@@ -124,7 +124,9 @@ def main():
                 review = []
                 if diff["removed"]:
                     review.append(f"{diff['removed']} existing entries removed")
-                if diff["changed"] > limit:
+                # Sources that refit their whole history (REVISES_PAST) change many values at
+                # once by design; removals still need review.
+                if diff["changed"] > limit and not getattr(mod, "REVISES_PAST", False):
                     review.append(f"{diff['changed']} existing entries changed (limit {limit})")
                 entry["state"] = "review" if review else "changed"
                 entry["review_reasons"] = review
