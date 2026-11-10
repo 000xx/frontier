@@ -6,7 +6,7 @@ id: papers-per-year
 title: Scholarly works per year
 domain: knowledge
 subfield: How science is working
-status: draft
+status: live
 summary: How many scholarly works, such as articles, books, preprints and datasets, are indexed each year in OpenAlex,
   a free catalogue of the research literature. It gives a rough picture of how much research is written up and recorded.
 metric:
