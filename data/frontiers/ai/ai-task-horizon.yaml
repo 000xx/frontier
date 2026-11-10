@@ -1,0 +1,428 @@
+id: ai-task-horizon
+title: AI task-completion time horizon
+domain: ai
+subfield: Capability
+status: draft
+summary: How long a software task can be, measured in the time a skilled human needs for it, before frontier
+  AI agents fail it as often as they succeed, according to METR's measurements. It is the most widely
+  cited single number for how fast AI agents are getting more capable at long, multi-step work.
+metric:
+  name: 50% task-completion time horizon
+  unit: minutes of human expert time
+  direction: higher
+  scale: log
+  explainer: 'METR collects a few hundred software engineering, machine-learning research and cybersecurity
+    tasks and times skilled people doing them, from a few seconds to many hours. It then runs an AI agent
+    on every task several times, fits a curve of the agent''s success rate against the human time for
+    each task, and reads off the task length at which the agent is predicted to succeed half the time.
+    A 2-hour horizon means the agent succeeds about half the time on tasks that take a skilled human
+    about 2 hours. It does not mean the agent works for 2 hours (agents are usually much faster than
+    people), that it can do any 2-hour job, or that its work is reliable enough to hand over: at an
+    80% success rate METR''s horizons are several times shorter. The number only applies to METR''s
+    own kind of task, which is well specified and automatically scored; METR finds much shorter horizons
+    on messier tasks and in other domains such as visual computer use. The error bars are wide, often
+    a factor of two or more each way, and grow for the strongest models because METR''s suite has few
+    tasks they cannot already do; METR says results above about 16 hours are unreliable. METR has changed
+    its task suite (Time Horizon 1.0 had 170 tasks, 1.1 has 228) and corrected its curve fitting in
+    March 2026, and each change shifts every model''s number, so values are only comparable within one
+    series on this chart. The long-run trend, a doubling roughly every seven months since 2019 and faster
+    since 2024, is what METR itself treats as the main result, more than any single model''s value.'
+chart:
+  primary: record-chart
+  secondary:
+  - forecast-fan
+  - pace-board
+series:
+- id: paper-neurips-2025
+  label: Original paper (NeurIPS 2025)
+  group: Time Horizon 1.0 task suite
+- id: th1-0-jan-2026
+  label: Time Horizon 1.0, METR estimates as of 29 Jan 2026
+  group: Time Horizon 1.0 task suite
+- id: th1-1-jan-2026
+  label: Time Horizon 1.1, first estimates (29 Jan 2026, before the March 2026 fit correction)
+  group: Time Horizon 1.1 task suite
+- id: th1-1-corrected
+  label: Time Horizon 1.1, after the 3 March 2026 fit correction
+  group: Time Horizon 1.1 task suite
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'METR''s full table of current estimates is the YAML file behind https://metr.org/time-horizons/
+    (https://metr.org/assets/benchmark_results_1_1.yaml). It could not be read in this run: the fetch
+    tool returned it as binary and the shell cannot reach metr.org. So the post-correction Time Horizon
+    1.1 series holds only Claude Opus 4.6, the one value METR states in prose. Next run: download that
+    YAML (or have metr.org allowed for the shell), and fill th1-1-corrected with every model it lists,
+    with its CIs and METR''s release dates; the 1.0 values in it are also post-correction and belong
+    in a new series, not in th1-0-jan-2026. METR''s GitHub repository (METR/eval-analysis-public) holds
+    raw runs and release dates but not the computed horizons, and has no licence file. Since 8 September
+    2026 METR says the time-horizons page is no longer actively updated; check METR''s blog and notes
+    for a successor measure. Brackets in the 29 January 2026 post carry no unit; they are minutes, as
+    the same post''s Vivaria/Inspect table (in minutes) shows identical point values.'
+sources:
+- id: metr-time-horizons
+  name: METR, "Task-Completion Time Horizons of Frontier AI Models" (live page and data)
+  url: https://metr.org/time-horizons/
+  kind: dataset
+  primary: true
+  notes: Links agent results at https://metr.org/assets/benchmark_results_1_1.yaml and task results at
+    https://metr.org/assets/task_results_1_1.yaml. Page footer reads "© 2026 METR. All rights reserved."
+    and no data licence is stated, so nothing is copied; records cite METR's published figures. Update
+    log, read 2026-11-09, shows models added up to Claude Mythos Preview (early) on 2026-05-08, a fitting
+    correction on 2026-03-03, and on 2026-09-08 a note that the page is no longer actively updated.
+- id: metr-th11-post
+  name: METR, "Time Horizon 1.1" (29 January 2026)
+  url: https://metr.org/blog/2026-01-29-time-horizon-1-1/
+  kind: report
+  notes: Table "Changes to Model Horizon Estimates" gives each model's 50% horizon and confidence interval
+    under TH1 and TH1.1. Figures predate the 3 March 2026 fitting correction and the post carries no
+    erratum. All rights reserved.
+- id: metr-paper
+  name: T. Kwa, B. West, J. Becker et al. (METR), "Measuring AI Ability to Complete Long Software Tasks",
+    NeurIPS 2025 (Advances in Neural Information Processing Systems 38), arXiv:2503.14499
+  url: https://proceedings.neurips.cc/paper_files/paper/2025/hash/85069585133c4c168c865e65d72e9775-Abstract-Conference.html
+  kind: paper
+  notes: Refereed, Main Conference Track; DOI 10.52202/085713-3086. Values were read from the proceedings
+    PDF. The arXiv version is licensed CC BY 4.0. The paper gives most per-model horizons only in figures;
+    only those printed as numbers are used.
+- id: metr-github
+  name: METR, eval-analysis-public (GitHub)
+  url: https://github.com/METR/eval-analysis-public
+  kind: dataset
+  notes: Source of the model release dates used as record dates (data/external/release_dates.yaml, read
+    2026-11-09 via raw.githubusercontent.com). The README says "See LICENSE file" but the repository
+    has no licence file, so default copyright applies and no file is copied here. Computed horizons are
+    DVC outputs and are not committed.
+- id: metr-modelling-note
+  name: A. Barry (METR), "Impact of modelling assumptions on time horizon results" (research note, 20 March
+    2026)
+  url: https://metr.org/notes/2026-03-20-impact-of-modelling-assumptions-on-time-horizon-results/
+  kind: report
+  notes: Describes the 3 March 2026 fix to the logistic fit and how alternative modelling choices move
+    the estimates. METR notes get less review than its research posts.
+- id: metr-limitations-note
+  name: T. Kwa (METR), "Clarifying limitations of time horizon" (research note, 22 January 2026)
+  url: https://metr.org/notes/2026-01-22-time-horizon-limitations/
+  kind: report
+- id: decoder-mythos
+  name: The Decoder, "METR says it can barely measure Claude Mythos" (10 May 2026)
+  url: https://the-decoder.com/metr-says-it-can-barely-measure-claude-mythos-palo-alto-networks-warns-of-autonomous-ai-attackers/
+  kind: news
+records:
+# Original paper (refereed). Only values the paper prints as numbers.
+- date: '2019-02-14'
+  value: 0.0333
+  series: paper-neurips-2025
+  holder: GPT-2 (OpenAI)
+  conditions: 50% horizon on the paper's 170-task suite (HCAST, RE-Bench, SWAA), run on Vivaria; no
+    confidence interval printed
+  status: peer_reviewed
+  source: metr-paper
+  note: The paper (Section 3.2) gives "2 seconds"; converted to minutes here. Status peer_reviewed because
+    the value is printed in METR's refereed NeurIPS 2025 paper. Date is METR's release date for GPT-2
+    (eval-analysis-public release_dates.yaml).
+- date: '2023-11-06'
+  value: 8.56
+  series: paper-neurips-2025
+  holder: GPT-4 1106 (OpenAI)
+  conditions: 50% horizon on the paper's 170-task suite, run on Vivaria; no confidence interval printed
+  status: peer_reviewed
+  source: metr-paper
+  note: Table 9 (Appendix H.5), "Our Tasks" column. Peer_reviewed because it is printed in the refereed
+    NeurIPS 2025 paper. Date from METR's release_dates.yaml.
+- date: '2024-03-04'
+  value: 6.42
+  series: paper-neurips-2025
+  holder: Claude 3 Opus (Anthropic)
+  conditions: 50% horizon on the paper's 170-task suite, run on Vivaria; no confidence interval printed
+  status: peer_reviewed
+  source: metr-paper
+  note: Table 9 (Appendix H.5), "Our Tasks" column. Peer_reviewed because it is printed in the refereed
+    NeurIPS 2025 paper. Date from METR's release_dates.yaml.
+- date: '2024-05-13'
+  value: 9.17
+  series: paper-neurips-2025
+  holder: GPT-4o (OpenAI)
+  conditions: 50% horizon on the paper's 170-task suite, run on Vivaria; no confidence interval printed
+  status: peer_reviewed
+  source: metr-paper
+  note: Table 9 (Appendix H.5), "Our Tasks" column. Peer_reviewed because it is printed in the refereed
+    NeurIPS 2025 paper. Date from METR's release_dates.yaml.
+- date: '2024-06-20'
+  value: 18.22
+  series: paper-neurips-2025
+  holder: Claude 3.5 Sonnet, June 2024 version (Anthropic)
+  conditions: 50% horizon on the paper's 170-task suite, run on Vivaria; no confidence interval printed
+  status: peer_reviewed
+  source: metr-paper
+  note: Table 9 (Appendix H.5), "Claude 3.5 Sonnet (Old)". Peer_reviewed because it is printed in the
+    refereed NeurIPS 2025 paper. Date from METR's release_dates.yaml.
+- date: '2024-10-22'
+  value: 28.98
+  series: paper-neurips-2025
+  holder: Claude 3.5 Sonnet, October 2024 version (Anthropic)
+  conditions: 50% horizon on the paper's 170-task suite, run on Vivaria; no confidence interval printed
+  status: peer_reviewed
+  source: metr-paper
+  note: Table 9 (Appendix H.5), "Claude 3.5 Sonnet (New)". Peer_reviewed because it is printed in the
+    refereed NeurIPS 2025 paper. Date from METR's release_dates.yaml.
+- date: '2024-12-05'
+  value: 39.21
+  series: paper-neurips-2025
+  holder: o1 (OpenAI)
+  conditions: 50% horizon on the paper's 170-task suite, run on Vivaria; no confidence interval printed
+  status: peer_reviewed
+  source: metr-paper
+  note: Table 9 (Appendix H.5); Appendix C.4 rounds it to "about 39 minutes". Peer_reviewed because it
+    is printed in the refereed NeurIPS 2025 paper. Date from METR's release_dates.yaml.
+- date: '2025-04-16'
+  value: 110
+  series: paper-neurips-2025
+  holder: o3 (OpenAI)
+  conditions: 50% horizon on the paper's 170-task suite; approximate value, no confidence interval printed
+  status: peer_reviewed
+  source: metr-paper
+  note: The abstract and Section 3.2 say "around 110 minutes". Peer_reviewed because it is printed in
+    the refereed NeurIPS 2025 paper. Date from METR's release_dates.yaml.
+# Time Horizon 1.0, METR's own figures as listed in the 29 January 2026 post (before the March 2026 correction).
+- date: '2023-03-14'
+  value: 5.4
+  series: th1-0-jan-2026
+  holder: GPT-4 0314 (OpenAI)
+  conditions: TH1 task suite (170 tasks); confidence interval [2.5, 10.3] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper, and no one
+    else has reproduced it. Predates the 3 March 2026 fit correction.
+- date: '2023-11-06'
+  value: 8.5
+  series: th1-0-jan-2026
+  holder: GPT-4 1106 (OpenAI)
+  conditions: TH1 task suite (170 tasks); confidence interval [4.0, 16.1] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. Predates the
+    3 March 2026 fit correction.
+- date: '2025-02-24'
+  value: 56
+  series: th1-0-jan-2026
+  holder: Claude 3.7 Sonnet (Anthropic)
+  conditions: TH1 task suite (170 tasks); confidence interval [28, 94] min
+  status: claimed
+  source: metr-th11-post
+  note: Listed as "Claude Sonnet 3.7". Claimed because it is METR's own measurement in a blog post, not
+    a refereed paper. Predates the 3 March 2026 fit correction.
+- date: '2025-04-16'
+  value: 94
+  series: th1-0-jan-2026
+  holder: o3 (OpenAI)
+  conditions: TH1 task suite (170 tasks); confidence interval [48, 165] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. Differs from
+    the paper's "around 110 minutes"; METR re-ran or re-fitted it after the paper. Predates the 3 March
+    2026 fit correction.
+- date: '2025-05-22'
+  value: 86
+  series: th1-0-jan-2026
+  holder: Claude Opus 4 (Anthropic)
+  conditions: TH1 task suite (170 tasks); confidence interval [44, 144] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. Predates the
+    3 March 2026 fit correction.
+- date: '2025-05-22'
+  value: 75
+  series: th1-0-jan-2026
+  holder: Claude Sonnet 4 (Anthropic)
+  conditions: TH1 task suite (170 tasks); confidence interval [38, 132] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. Not re-estimated
+    on TH1.1. Predates the 3 March 2026 fit correction.
+- date: '2025-07-09'
+  value: 109
+  series: th1-0-jan-2026
+  holder: Grok 4 (xAI)
+  conditions: TH1 task suite (170 tasks); confidence interval [48, 235] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. Not re-estimated
+    on TH1.1. Predates the 3 March 2026 fit correction.
+- date: '2025-08-05'
+  value: 114
+  series: th1-0-jan-2026
+  holder: Claude Opus 4.1 (Anthropic)
+  conditions: TH1 task suite (170 tasks); confidence interval [56, 215] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. Not re-estimated
+    on TH1.1. Predates the 3 March 2026 fit correction.
+- date: '2025-08-07'
+  value: 138
+  series: th1-0-jan-2026
+  holder: GPT-5 (OpenAI)
+  conditions: TH1 task suite (170 tasks); confidence interval [68, 281] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. Predates the
+    3 March 2026 fit correction.
+- date: '2025-09-29'
+  value: 122
+  series: th1-0-jan-2026
+  holder: Claude Sonnet 4.5 (Anthropic)
+  conditions: TH1 task suite (170 tasks); confidence interval [59, 252] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. Not re-estimated
+    on TH1.1. Predates the 3 March 2026 fit correction.
+- date: '2025-11-19'
+  value: 173
+  series: th1-0-jan-2026
+  holder: GPT-5.1-Codex-Max (OpenAI)
+  conditions: TH1 task suite (170 tasks); confidence interval [81, 411] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. Not re-estimated
+    on TH1.1. Predates the 3 March 2026 fit correction.
+- date: '2025-11-24'
+  value: 289
+  series: th1-0-jan-2026
+  holder: Claude Opus 4.5 (Anthropic)
+  conditions: TH1 task suite (170 tasks); confidence interval [110, 1268] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. METR's 22 January
+    2026 note gives the same model about 4 h 49 min. Predates the 3 March 2026 fit correction.
+# Time Horizon 1.1, first estimates from the 29 January 2026 post (before the March 2026 correction).
+- date: '2023-03-14'
+  value: 3.5
+  series: th1-1-jan-2026
+  holder: GPT-4 0314 (OpenAI)
+  conditions: TH1.1 task suite (228 tasks), Inspect; confidence interval [1.6, 6.9] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. Superseded by
+    the 3 March 2026 fit correction; the corrected value is on METR's time-horizons page.
+- date: '2023-11-06'
+  value: 3.6
+  series: th1-1-jan-2026
+  holder: GPT-4 1106 (OpenAI)
+  conditions: TH1.1 task suite (228 tasks), Inspect; confidence interval [1.6, 7.5] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. Superseded by
+    the 3 March 2026 fit correction.
+- date: '2025-02-24'
+  value: 60
+  series: th1-1-jan-2026
+  holder: Claude 3.7 Sonnet (Anthropic)
+  conditions: TH1.1 task suite (228 tasks), Inspect; confidence interval [32, 106] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. Superseded by
+    the 3 March 2026 fit correction.
+- date: '2025-04-16'
+  value: 121
+  series: th1-1-jan-2026
+  holder: o3 (OpenAI)
+  conditions: TH1.1 task suite (228 tasks), Inspect; confidence interval [74, 201] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. Superseded by
+    the 3 March 2026 fit correction.
+- date: '2025-05-22'
+  value: 101
+  series: th1-1-jan-2026
+  holder: Claude Opus 4 (Anthropic)
+  conditions: TH1.1 task suite (228 tasks), Inspect; confidence interval [58, 170] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. Superseded by
+    the 3 March 2026 fit correction.
+- date: '2025-08-07'
+  value: 214
+  series: th1-1-jan-2026
+  holder: GPT-5 (OpenAI)
+  conditions: TH1.1 task suite (228 tasks), Inspect; confidence interval [117, 480] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. Superseded by
+    the 3 March 2026 fit correction.
+- date: '2025-11-24'
+  value: 320
+  series: th1-1-jan-2026
+  holder: Claude Opus 4.5 (Anthropic)
+  conditions: TH1.1 task suite (228 tasks), Inspect; confidence interval [170, 729] min
+  status: claimed
+  source: metr-th11-post
+  note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. Superseded by
+    the 3 March 2026 fit correction.
+# Time Horizon 1.1 after the 3 March 2026 correction. Incomplete: see update.notes.
+- date: '2026-02-05'
+  value: 719
+  series: th1-1-corrected
+  holder: Claude Opus 4.6 (Anthropic)
+  conditions: TH1.1 task suite (about 230 tasks), maximum-likelihood fit after the 3 March 2026 correction;
+    no confidence interval given in the note
+  status: claimed
+  source: metr-modelling-note
+  note: The note gives 11 h 59 min (719 min) as Opus 4.6's horizon on all tasks, against 7 h 11 min on
+    METR's private tasks only. Claimed because it is METR's own measurement in a research note, not a
+    refereed paper. METR says other reasonable modelling choices move this estimate by about 1.5x. Date
+    from METR's release_dates.yaml.
+events:
+- date: '2025-03-18'
+  kind: paper
+  title: METR introduces the 50% time horizon and finds it doubling about every seven months
+  why_it_matters: It turned scattered benchmark scores into one human-scaled number with a long trend,
+    which became a common yardstick for forecasting AI agent progress.
+  url: https://arxiv.org/abs/2503.14499
+- date: '2026-01-22'
+  kind: paper
+  title: METR note sets out what the time horizon does and does not measure
+  why_it_matters: Its own authors warn that the number is not how long an agent can work alone, varies
+    a lot by domain, and has error bars of about a factor of two.
+  url: https://metr.org/notes/2026-01-22-time-horizon-limitations/
+- date: '2026-01-29'
+  kind: dataset
+  title: METR releases Time Horizon 1.1 with a larger task suite and new infrastructure
+  why_it_matters: More long tasks tightened the estimates for top models, moved some models' values by
+    more than half, and put the post-2023 doubling time near four months.
+  url: https://metr.org/blog/2026-01-29-time-horizon-1-1/
+- date: '2026-03-03'
+  kind: news
+  title: METR corrects a regularisation error in its curve fitting
+  why_it_matters: The fix lowered recent models' 50% horizons by up to 20%, so figures published before
+    March 2026 are not comparable with later ones.
+  url: https://metr.org/notes/2026-03-20-impact-of-modelling-assumptions-on-time-horizon-results/
+- date: '2026-05-08'
+  kind: milestone
+  title: METR puts an early Claude Mythos Preview at 16 hours or more, beyond what its tasks can reliably
+    measure
+  why_it_matters: It is the first result METR flags as past the reliable range of its own suite, with
+    a 95% interval running from about 8.5 to 55 hours.
+  url: https://the-decoder.com/metr-says-it-can-barely-measure-claude-mythos-palo-alto-networks-warns-of-autonomous-ai-attackers/
+- date: '2026-09-08'
+  kind: setback
+  title: METR stops actively updating its time-horizons page
+  why_it_matters: The best-known public series of agent horizons has no scheduled new entries, so later
+    frontier models may go unmeasured on this scale.
+  url: https://metr.org/time-horizons/
+reading:
+- level: 5min
+  title: Measuring AI Ability to Complete Long Software Tasks (blog post)
+  author: METR
+  kind: article
+  url: https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/
+- level: 1hr
+  title: Clarifying limitations of time horizon
+  author: Thomas Kwa (METR)
+  kind: article
+  url: https://metr.org/notes/2026-01-22-time-horizon-limitations/
+  note: What the number does not mean, from one of the paper's authors.
+- level: deep
+  title: Measuring AI Ability to Complete Long Software Tasks (NeurIPS 2025)
+  author: Thomas Kwa, Ben West, Joel Becker et al.
+  kind: paper
+  url: https://arxiv.org/abs/2503.14499
