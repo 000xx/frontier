@@ -86,6 +86,15 @@ for (const f of data.frontiers) {
         if (Site.reignMode(f, sid) !== html.includes('<h2>Who has held the record</h2>')) throw new Error('record-holder ribbon shown or missing against the data');
         if (Site.paceMode(f, sid) !== html.includes('<h2>The pace of records</h2>')) throw new Error('pace of records shown or missing against the data');
         if (Site.recClaimMode(f) !== html.includes('<h2>Where each claim stands</h2>')) throw new Error('claim cards for records shown or missing against the data');
+        // The coming-down view and the to-scale line-up: on the page where the data calls for them, with one row or disc per record.
+        const down = Site.downMode(f, sid), lineup = Site.lineupMode(f, sid), nRec = Site.recordCount(f, sid);
+        if (down !== /<h2>How far the (limit|record) has come down<\/h2>/.test(html)) throw new Error('coming-down view shown or missing against the data');
+        if (lineup !== html.includes('<h2>Drawn to scale</h2>')) throw new Error('to-scale line-up shown or missing against the data');
+        const steps = (html.match(/<li class="rstep/g) || []).length, discs = (html.match(/<circle [^>]*><title>/g) || []).length;
+        const want = (down ? nRec : 0) + (lineup && !Site.discMode(f) ? nRec : 0);
+        if (steps !== want) throw new Error(steps + ' record bars drawn, but the data calls for ' + want);
+        if (lineup && Site.discMode(f) && discs !== nRec) throw new Error(discs + ' discs drawn for ' + nRec + ' records');
+        if ((down || lineup) && (html.match(/<li class="rstep now"/g) || []).length > (down ? 1 : 0) + (lineup && !Site.discMode(f) ? 1 : 0)) throw new Error('more than one record bar is marked as the current one');
         // A retracted result is never the record: it must be marked as withdrawn, and the headline must be a result that stands.
         const rows = f.records[sid], gone = rows.filter((r) => r[4] === 'retracted');
         if (gone.length && gone.length < rows.length) {

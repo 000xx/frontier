@@ -7,6 +7,8 @@
       + reign-timeline    -> a ribbon of who has held the record, one block per holder, and a table of holders
       + three or more records in the series -> the pace of records: one tick per record, the longest wait, the wait since the latest
       + claim-scoreboard  -> one card per result with its status, holder, conditions and note
+      + lower is better on a log scale (limits, uncertainties) -> how far the record has come down: one bar per record, each reaching further toward the target
+      + to-scale-lineup   -> the records drawn to scale side by side: discs when the measure is a diameter, bars from zero otherwise
       (a retracted result stays on the chart and in the tables, struck through, but never counts as a record)
     observations          -> line chart with ranges and a table (or a points chart when each series is a single point)
       + coverage-meter    -> percentages are also drawn as a filled share of the whole, with what is left
@@ -236,6 +238,22 @@
     if (n < 61) return n < 1 ? 'Same day' : n + (n === 1 ? ' day' : ' days');
     return n < 730 ? Math.round(n / 30.44) + ' months' : (Math.round(n / 365.25 * 10) / 10) + ' years';
   }
+  /* Coming down: a record that is a limit or an uncertainty, where lower is better and the scale is log. The scale ladder
+     already covers the series that name it, so those are left to it. */
+  function downMode(f, sid) {
+    if (!hasRecords(f) || f.metric.direction !== 'lower' || f.metric.scale !== 'log' || hasShape(f, 'scale-ladder')) return false;
+    var prog = progression(f, f.records[sid]);
+    return prog.length > 1 && prog.every(function (p) { return p.r[1] > 0; });
+  }
+  function isLimit(f) { return hasShape(f, 'closing-bounds') || hasShape(f, 'exclusion-map'); }
+  /* To-scale line-up: the records of a series side by side, each drawn in proportion to its value. */
+  function lineupMode(f, sid) {
+    if (!hasRecords(f) || !hasShape(f, 'to-scale-lineup') || f.metric.direction === 'lower' || f.metric.scale === 'log') return false;
+    var prog = progression(f, f.records[sid]);
+    return prog.length > 1 && prog.every(function (p) { return p.r[1] > 0; });
+  }
+  /* When the measure is itself a diameter, the line-up can be drawn as discs of that diameter. */
+  function discMode(f) { return /diameter/i.test(f.metric.name || '') && /^(mm|cm|m|km|metres?|meters?|kilometres?|kilometers?)$/i.test(f.metric.unit || ''); }
   /* Claim scoreboard on a records frontier: the claims are the records themselves, each with its status. */
   function recClaimMode(f) { return hasRecords(f) && hasShape(f, 'claim-scoreboard'); }
   /* Precision funnel: measurements of one quantity by several methods, compared by the range each source gives. */
@@ -754,6 +772,8 @@
       (rows.some(withdrawn) && prog.length < rows.length ? ' A struck ring is a result that was later retracted: it stays on the chart but does not count as a record.' : '') + '</p></div>';
     if (gaugeMode(f, sid)) out += gaugeSection(f, sid);
     if (ladderMode(f, sid)) out += ladderSection(f, sid);
+    if (downMode(f, sid)) out += downSection(f, sid);
+    if (lineupMode(f, sid)) out += lineupSection(f, sid);
     if (f.metric.axes.length) out += scatterChart(f, sid);
     if (reignMode(f, sid)) out += reignSection(f, sid);
     if (paceMode(f, sid)) out += paceSection(f, sid);
@@ -900,6 +920,78 @@
         (longer ? 'The wait since the latest record is already longer than any wait between two records here. ' : '') +
         'The count and the waits are worked out on the page from the dates in the data, and are not figures from a source. A date the data gives only to the month or year makes a wait approximate.' +
         (f.dataStatus === 'draft' ? ' This is draft data: a record missing from it would make a wait look longer than it was.' : '') + '</p></div>';
+  }
+  /* One row per record, oldest first, each with a bar. at(v) gives the filled share of the bar; goalAt, when given,
+     is where the blue target mark sits. extra(p, i) is an optional line under the value. */
+  function stepRows(f, prog, at, goalAt, extra) {
+    var n = prog.length;
+    return '<ol class="rsteps">' + prog.map(function (p, i) {
+      var r = p.r, on = i === n - 1, w = Math.max(0, Math.min(1, at(r[1]))) * 100, x = extra ? extra(p, i) : '';
+      return '<li class="rstep' + (on ? ' now' : '') + '"><div class="st-when">' + esc(fmtDate(r[0])) + '</div>' +
+        '<div class="st-who"><strong>' + esc(r[2]) + '</strong>' + (r[3] ? '<span class="st-sub">' + esc(r[3]) + '</span>' : '') + '</div>' +
+        '<div class="st-v"><span class="st-n">' + val(f, r[1]) + '</span>' + (x ? '<span class="st-sub">' + x + '</span>' : '') + '</div>' +
+        '<div class="st-bar" aria-hidden="true"><i style="width:' + w.toFixed(2) + '%"></i>' +
+          (goalAt === null || goalAt === undefined ? '' : '<b style="left:' + (Math.max(0, Math.min(1, goalAt)) * 100).toFixed(2) + '%"></b>') + '</div></li>';
+    }).join('') + '</ol>' + (creditLine(f) ? '<p class="credit">' + esc(creditLine(f)) + '</p>' : '');
+  }
+  /* Coming down: how far each record reached below the first one, on a log scale, with the target marked where the data has one. */
+  function downSection(f, sid) {
+    var prog = progression(f, f.records[sid]), first = prog[0].r, top = prog[prog.length - 1].r, line = gaugeLine(f, sid), lim = isLimit(f), word = lim ? 'limit' : 'record';
+    var goal = line && line.value > 0 ? line.value : null, reached = goal !== null && top[1] <= goal, end = goal !== null && !reached ? goal : top[1];
+    function lg(v) { return Math.log10(v); }
+    function at(v) { return (lg(first[1]) - lg(v)) / (lg(first[1]) - lg(end)); }
+    var goalName = line && line.kind === 'limit' ? 'The limit' : 'The target';
+    return '<div class="wrap block"><h2>How far the ' + word + ' has come down</h2>' +
+      '<dl class="split">' + cell('', 'First ' + word + ' here · ' + esc(fmtDate(first[0])), val(f, first[1])) +
+        cell('now', 'Current ' + word + ' · ' + esc(fmtDate(top[0])), val(f, top[1])) +
+        cell('', 'Times lower than the first', fmt(first[1] / top[1]) + '×') +
+        (goal !== null ? cell('goal', goalName + (line.by ? ' · by ' + esc(fmtDate(line.by)) : ''), val(f, goal)) : '') +
+        (goal !== null && !reached ? cell('', 'Still to go', fmt(top[1] / goal) + '×') : '') + '</dl>' +
+      stepRows(f, prog, at, goal === null ? null : at(goal), function (p, i) { return i ? fmt(prog[i - 1].r[1] / p.r[1]) + '× lower than the one before' : 'Where this series starts'; }) +
+      '<p class="small">' + (unitText(f) ? 'Figures are in ' + esc(unitText(f)) + '. ' : '') +
+        'One bar for each ' + word + ' in this series, oldest at the top. The bars are a log scale, so equal lengths are equal multiples: each starts at the first ' + word + ' here and runs as far as that ' + word + ' got' +
+        (goal !== null && !reached ? ', and the full width is ' + goalName.toLowerCase() + ', marked in blue' : ', and the full width is the current ' + word + (goal !== null ? '; the blue mark is ' + goalName.toLowerCase() + ', which it has passed' : '')) + '. The orange bar is the current ' + word + '. ' +
+        'The multiples (times lower' + (goal !== null && !reached ? ', still to go' : '') + ') are one figure on this page divided by another, worked out here and not figures from a source. Where the conditions differ from one ' + word + ' to the next, a multiple does not compare like with like. ' +
+        (line && line.label ? goalName + ': ' + esc(line.label) + '. ' : '') +
+        (hasShape(f, 'closing-bounds') ? 'The data holds upper limits only, so nothing is drawn closing in from below. ' : '') +
+        (hasShape(f, 'exclusion-map') ? 'Each figure is the single value its source reports, under the conditions shown beside it; the data does not hold whole exclusion curves, so no map is drawn. ' : '') +
+        (seriesIds(f, 'records').length > 1 ? 'This is the selected series only.' : '') + '</p></div>';
+  }
+  /* To-scale line-up: discs with diameters in proportion when the measure is a diameter, otherwise bars from zero. */
+  function lineupSection(f, sid) {
+    var prog = progression(f, f.records[sid]), first = prog[0].r, top = prog[prog.length - 1].r, n = prog.length, disc = discMode(f), c = palette(false), body, note;
+    var u = unitText(f) ? ' ' + unitText(f) : '';
+    if (disc) {
+      var W = 880, gap = 20, cols = prog.map(function (p) {
+        var name = shortName(p.r[2] || ''), v = val(f, p.r[1]) + u;
+        return { p: p, name: name, v: v, lw: Math.max(name.length * 7.9, v.length * 9.4, 40) + 6 };
+      });
+      var s = (W - gap * (n - 1)) / cols.reduce(function (a, x) { return a + x.p.r[1]; }, 0), k, total = 0;
+      function width() { return cols.reduce(function (a, x) { return a + Math.max(x.p.r[1] * s, x.lw); }, 0) + gap * (n - 1); }
+      for (k = 0; k < 80 && (total = width()) > W; k += 1) s *= 0.97;
+      var D2 = top[1] * s, H = D2 + 68, x0 = (W - total) / 2, o = '<path d="M0 ' + D2.toFixed(1) + ' H' + W + '" stroke="' + c.axis + '" stroke-width="1"/>' + FG;
+      cols.forEach(function (x, i) {
+        var w = Math.max(x.p.r[1] * s, x.lw), cx = x0 + w / 2, r = x.p.r[1] * s / 2, on = i === n - 1;
+        o += '<circle cx="' + cx.toFixed(1) + '" cy="' + (D2 - r).toFixed(1) + '" r="' + r.toFixed(1) + '" fill="' + (on ? '#E4531A' : '#0F1317') + '"><title>' + esc(x.v + ' · ' + x.p.r[2] + ' · ' + fmtDate(x.p.r[0])) + '</title></circle>' +
+          '<text x="' + cx.toFixed(1) + '" y="' + (D2 + 22).toFixed(1) + '" fill="' + c.strong + '" font-size="15" font-weight="600" text-anchor="middle">' + esc(x.v) + '</text>' +
+          '<text x="' + cx.toFixed(1) + '" y="' + (D2 + 41).toFixed(1) + '" fill="' + c.text + '" font-size="13" text-anchor="middle">' + esc(x.name) + '</text>' +
+          '<text x="' + cx.toFixed(1) + '" y="' + (D2 + 58).toFixed(1) + '" fill="' + c.text + '" font-size="13" text-anchor="middle">' + parseDate(x.p.r[0]).y + '</text>';
+        x0 += w + gap;
+      });
+      body = '<div class="card">' + frame(o, W, H, 'The ' + n + ' records of this series as discs side by side, oldest on the left, each with its diameter drawn to the same scale. From ' + val(f, first[1]) + u + ' (' + parseDate(first[0]).y + ') to the current record, ' +
+        val(f, top[1]) + u + ' (' + parseDate(top[0]).y + ').', creditLine(f), null, '-10 -12 ' + (W + 20) + ' ' + (H + 18)) + '</div>';
+      note = 'Each disc is one record holder, oldest on the left, with its diameter drawn in proportion to the figure in the data; the orange disc is the current record. Only the diameter is to scale: the discs say nothing about the shape or make-up of the real thing. Full names, dates and conditions are in the history below.';
+    } else {
+      body = stepRows(f, prog, function (v) { return v / top[1]; }, null, null);
+      note = 'One bar for each record in this series, oldest at the top. Every bar starts at zero and the full width is the current record, in orange, so the lengths are in true proportion. ' +
+        'The bars compare the measure itself' + (u ? ' (' + esc(unitText(f)) + ')' : '') + '. The data has no field for physical size here, so the things themselves are not drawn to scale; any sizes the source gives are in the conditions beside each record.';
+    }
+    return '<div class="wrap block"><h2>Drawn to scale</h2>' +
+      '<dl class="split">' + cell('', 'First record here · ' + esc(fmtDate(first[0])), val(f, first[1])) +
+        cell('now', 'Current record · ' + esc(fmtDate(top[0])), val(f, top[1])) + '</dl>' + body +
+      '<p class="small">' + (u ? 'Figures are in ' + esc(unitText(f)) + '. ' : '') + note +
+        (f.dataStatus === 'draft' ? ' This is draft data, so records may be missing from the line-up.' : '') +
+        (seriesIds(f, 'records').length > 1 ? ' This is the selected series only.' : '') + '</p></div>';
   }
   /* Claim scoreboard on a records frontier: one card per result, newest first, with where the claim stands. */
   var REC_STATUS = ['confirmed', 'peer_reviewed', 'claimed', 'retracted'];
@@ -1309,7 +1401,7 @@
   var Site = {
     home: home, frontier: frontier, itemsList: itemsList, tilesList: tilesList, tile: tile, creditLine: creditLine, esc: esc,
     filterHome: function (q, domain, shape) { homeState = { q: q || '', domain: domain || 'all', shape: shape || 'all' }; }, anchors: HOME_ANCHORS, seriesIds: seriesIds, block: block, gaugeMode: gaugeMode, reignMode: reignMode,
-    costMode: costMode, ladderMode: ladderMode, paceMode: paceMode, recClaimMode: recClaimMode, funnelMode: funnelMode, headline: headline, gridMode: gridMode, claimMode: claimMode, itemTimeMode: itemTimeMode, stageDatesMode: stageDatesMode,
+    costMode: costMode, ladderMode: ladderMode, paceMode: paceMode, downMode: downMode, lineupMode: lineupMode, discMode: discMode, recordCount: function (f, sid) { return progression(f, f.records[sid]).length; }, recClaimMode: recClaimMode, funnelMode: funnelMode, headline: headline, gridMode: gridMode, claimMode: claimMode, itemTimeMode: itemTimeMode, stageDatesMode: stageDatesMode,
     select: function (fid, sid) { chosen[fid] = sid; }, data: function () { return D; }
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = Site;
@@ -1367,7 +1459,12 @@
     else if (!f && h === 'home') window.scrollTo(0, 0);
     onScroll();
   }
-  function rerender(keepScroll) { var f = find(current), y = window.scrollY; if (!f) return; render(f); window.scrollTo(0, keepScroll ? y : 0); }
+  /* Choosing another series redraws the page with every chart complete: nothing is left half-drawn waiting for a scroll. */
+  function rerender(keepScroll) {
+    var f = find(current), y = window.scrollY; if (!f) return;
+    render(f); [].forEach.call(app.querySelectorAll('svg[data-sweep]'), function (svg) { svg.setAttribute('data-done', '1'); });
+    window.scrollTo(0, keepScroll ? y : 0);
+  }
   function refreshTiles() { var el = document.getElementById('tiles-list'); if (el) el.innerHTML = tilesList(); }
   function refreshItems() { var f = find(current), el = document.getElementById('items-list'); if (f && el) el.innerHTML = itemsList(f); }
   app.addEventListener('change', function (e) {

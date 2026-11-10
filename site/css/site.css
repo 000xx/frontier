@@ -338,3 +338,23 @@ table.ladder tr.next td { color: var(--mute); }
 
 /* Claim cards for records: a retracted result keeps its card, with the figure struck through */
 .gcard.gone strong { text-decoration: line-through; text-decoration-thickness: 2px; color: var(--mute); }
+
+/* Steps: one row per record with a bar, used by "How far the record has come down" and the bar form of "Drawn to scale" */
+.rsteps { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.split + .rsteps { border-top: 0; }
+.rstep { display: grid; grid-template-columns: 7.5em minmax(0, 1fr) auto; gap: 4px 20px; align-items: baseline; padding: 14px 0 16px; border-bottom: 1px solid var(--line); }
+.rstep .st-when { font-family: var(--mono); font-size: 13px; color: var(--mute); }
+.rstep .st-who { min-width: 0; overflow-wrap: anywhere; }
+.rstep .st-who strong { font-weight: 600; }
+.rstep .st-sub { display: block; font-size: 13px; color: var(--mute); }
+.rstep .st-v { text-align: right; max-width: 15em; }
+.rstep .st-v .st-n { font-family: var(--display); font-weight: 600; font-size: 22px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.rstep .st-bar { grid-column: 1 / -1; position: relative; height: 10px; margin-top: 6px; background: #E3E5DF; }
+.rstep .st-bar i { display: block; height: 100%; min-width: 2px; background: var(--ink-2); }
+.rstep.now .st-bar i { background: #E4531A; }
+.rstep .st-bar b { position: absolute; top: -5px; bottom: -5px; width: 3px; margin-left: -1.5px; background: var(--limit); }
+.rstep .st-bar b[style*="left:100"] { margin-left: -3px; }
+@media (max-width: 620px) {
+  .rstep { grid-template-columns: minmax(0, 1fr) auto; }
+  .rstep .st-when { grid-column: 1 / -1; }
+}
