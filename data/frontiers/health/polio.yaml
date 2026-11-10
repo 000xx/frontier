@@ -1,0 +1,212 @@
+# Polio: wild and vaccine-derived poliovirus cases, and the eradication milestones WHO has certified.
+# Two case series are kept apart on purpose: wild poliovirus type 1 (wpv1) and circulating vaccine-derived
+# poliovirus (cvdpv). They are different viruses with different causes and must never be merged.
+# Only the Afghanistan and Pakistan counts for WPV1 are in observations so far. The sources opened do not give a
+# global cVDPV total, so no cVDPV observations are recorded (see update.notes).
+id: polio
+title: Polio
+domain: health
+subfield: Diseases being eliminated
+status: draft
+summary: How many children are paralysed by wild poliovirus each year, and which of the three wild virus types and
+  which WHO regions have been certified free of it.
+metric:
+  name: Wild poliovirus type 1 cases per year, worldwide
+  unit: cases per year
+  direction: lower
+  scale: linear
+  explainer: 'Polio is a virus that mostly spreads from person to person and can paralyse a child in a few cases out
+    of many infections. Most infections cause no symptoms, so case counts are only a partial picture. The count
+    shown here is for wild poliovirus type 1 (WPV1), the type still in circulation in the two countries where it is
+    endemic. Circulating vaccine-derived poliovirus (cVDPV) is a separate series: it comes from weakened vaccine virus
+    that has changed in under-vaccinated communities, and it is not tracked in the same number. A year to date count
+    is not a full-year total, so compare full years with full years.'
+chart:
+  primary: race-to-zero
+  secondary:
+  - natural-map
+series:
+- id: wpv1
+  label: Wild poliovirus type 1 (WPV1) cases
+- id: cvdpv
+  label: Circulating vaccine-derived poliovirus (cVDPV) cases
+update:
+  cadence: weekly
+  last_checked: '2026-11-09'
+  notes: 'WPV1 observations are the sum of the Afghanistan and Pakistan counts printed on the GPEI "Polio this week"
+    page, which gives country totals with an as-of date of 4 October 2026; the 2025 figure is a full-year total and
+    the 2026 figure is year to date. Not yet sourced: WPV1 counts for 2000 to 2024 (the 2013 to 2018 table opened from
+    GPEI could not be read reliably, because its values and year labels do not line up), a full cVDPV series, and
+    exact dates for the WPV2 certification (the source gives only 2015). The GPEI page lists cVDPV counts by country
+    only (DR Congo, Ethiopia and Somalia in the 2026 update); summing them would give a partial total, so none is
+    recorded. The WHO HQ report of 11 August 2026 lists a cVDPV1 indicator of 112 for 2026 and 111 for 2025, but its
+    table layout could not be read reliably enough to use. The eradication milestones in items are from WHO and CDC
+    pages opened on 9 November 2026. The WHO regional dates for Americas, Western Pacific and Europe come from a CDC
+    MMWR article; WHO''s South-East Asia page gives 27 March 2014 but its wording is inconsistent, so the date is
+    marked in the item note.'
+sources:
+- id: gpei-polio-this-week
+  name: GPEI, Polio this week (country updates as of 4 October 2026)
+  url: https://polioeradication.org/about-polio/polio-this-week/
+  kind: dataset
+  primary: true
+  notes: Country counts for WPV1 and cVDPV, 2025 and 2026. The page states its country updates are as of 4 October
+    2026; the 2025 figures are full-year totals. Read 9 November 2026.
+- id: gpei-terms
+  name: GPEI website terms of use
+  url: https://polioeradication.org/terms-of-use/
+  kind: other
+  notes: Copyright is held by WHO. Content may be reviewed, reproduced or translated for research or private study.
+    Sale or use with commercial purposes is excluded and needs prior written authorisation, as does reproduction of
+    substantial portions. Use must acknowledge WHO as the source and cite the article URL. Read 9 November 2026.
+- id: who-wpv3-2019
+  name: WHO, Two out of three wild poliovirus strains eradicated (24 October 2019)
+  url: https://www.who.int/news-room/feature-stories/detail/two-out-of-three-wild-poliovirus-strains-eradicated
+  kind: press
+  notes: Gives the WPV3 declaration date and states that WPV2 was certified eradicated in 2015. Page carries
+    WHO copyright and links to WHO terms of use; the terms text was not read.
+- id: who-africa-2020
+  name: WHO / GPEI, Global Polio Eradication Initiative applauds WHO African Region for wild polio-free certification
+    (25 August 2020)
+  url: https://www.who.int/news/item/25-08-2020-global-polio-eradication-initiative-applauds-who-african-region-for-wild-polio-free-certification
+  kind: press
+  notes: Certification by the Africa Regional Certification Commission, dated 25 August 2020.
+- id: who-searo-polio-free
+  name: WHO South-East Asia, Polio-free certification
+  url: https://www.who.int/southeastasia/activities/maintaining-polio-free-status/polio-free-certification-who-south-east-asia
+  kind: other
+  notes: Gives 27 March 2014 for the South-East Asia Region certification, but one sentence says the region is only
+    expected to be certified after the March 2014 meeting. Also gives Americas 1994, Western Pacific 2000 and Europe
+    2002 by year.
+- id: cdc-mmwr-regions
+  name: CDC MMWR, article on WHO regions certified polio-free (volume 52, number 47)
+  url: https://www.cdc.gov/mmwr/preview/mmwrhtml/mm5247a6.htm
+  kind: report
+  notes: Gives the exact dates for the Americas (20 August 1994), Western Pacific (29 October 2000) and Europe
+    (21 June 2002). It is an older report, so the Eastern Mediterranean and South-East Asia statements in it are
+    superseded by the sources below.
+- id: emro-2023
+  name: WHO EMRO, news release of 10 October 2023 on polio in the Eastern Mediterranean Region
+  url: https://www.emro.who.int/media/news/member-states-urged-to-go-all-in-to-end-polio-during-meeting-of-the-regional-subcommittee-for-polio-eradication-and-outbreaks.html
+  kind: press
+  notes: States that endemic wild poliovirus is present only in Afghanistan and Pakistan in the region, and that the
+    region has not yet been certified polio-free.
+- id: who-copyright
+  name: WHO copyright and licensing for WHO publications
+  url: https://www.who.int/about/policies/publishing/copyright
+  kind: other
+  notes: Publications under CC BY-NC-SA 3.0 IGO. Commercial use needs WHO permission. Adaptations need a disclaimer
+    that WHO did not create them. Credit WHO as the source.
+- id: who-data-terms
+  name: WHO terms and conditions for WHO data compilations, aggregations, evaluations and analyses
+  url: https://www.who.int/about/policies/publishing/data-policy/terms-and-conditions
+  kind: other
+  notes: Data may be used for public health purposes only, not to promote a commercial enterprise, and must not be
+    altered beyond minimal restyling without WHO permission. Credit is required. These terms are written for datasets
+    and do not clearly cover WHO news or web text.
+observations:
+- date: '2025'
+  series: wpv1
+  value: 52
+  source: gpei-polio-this-week
+  note: Full-year 2025 total. Sum of Afghanistan 21 and Pakistan 31 as printed on the GPEI page. The sum is ours,
+    the page prints the country totals only.
+- date: '2026'
+  series: wpv1
+  value: 58
+  source: gpei-polio-this-week
+  note: Year to date, as of 4 October 2026, not a full-year total. Sum of Afghanistan 50 (most recent case 30
+    September 2026) and Pakistan 8 (most recent case 18 September 2026). The sum is ours.
+items:
+- id: wpv2
+  label: 'Wild poliovirus type 2 (WPV2)'
+  group: Poliovirus types
+  status: done
+  status_detail: certification of the eradication of WPV2 in 2015
+  date_done: '2015'
+  source: who-wpv3-2019
+  note: WHO's 2019 release gives the year only. The exact certification date is not yet sourced.
+- id: wpv3
+  label: 'Wild poliovirus type 3 (WPV3)'
+  group: Poliovirus types
+  status: done
+  status_detail: Global eradication of wild poliovirus type 3 declared on World Polio Day
+  date_done: '2019-10-24'
+  url: https://www.who.int/news-room/feature-stories/detail/two-out-of-three-wild-poliovirus-strains-eradicated
+  source: who-wpv3-2019
+  note: Date of WHO's announcement, which the release says is World Polio Day.
+- id: americas
+  label: 'Americas'
+  group: WHO regions
+  status: done
+  status_detail: certified as polio-free
+  date_done: '1994-08-20'
+  source: cdc-mmwr-regions
+  note: Certification date as given in the MMWR article; the WHO South-East Asia page also gives 1994.
+- id: western-pacific
+  label: 'Western Pacific'
+  group: WHO regions
+  status: done
+  status_detail: certified as polio-free
+  date_done: '2000-10-29'
+  source: cdc-mmwr-regions
+  note: Certification date as given in the MMWR article; the WHO South-East Asia page gives 2000.
+- id: europe
+  label: 'Europe'
+  group: WHO regions
+  status: done
+  status_detail: certified as polio-free
+  date_done: '2002-06-21'
+  source: cdc-mmwr-regions
+  note: Certification date as given in the MMWR article; the WHO South-East Asia page gives 2002.
+- id: south-east-asia
+  label: 'South-East Asia'
+  group: WHO regions
+  status: done
+  status_detail: certified as polio-free
+  date_done: '2014-03-27'
+  url: https://www.who.int/southeastasia/activities/maintaining-polio-free-status/polio-free-certification-who-south-east-asia
+  source: who-searo-polio-free
+  note: Date from WHO's South-East Asia page. The same page's wording is inconsistent (one sentence says the
+    region is expected to be certified after the March 2014 meeting), so check this date against another source.
+- id: africa
+  label: 'African'
+  group: WHO regions
+  status: done
+  status_detail: certified as wild polio-free
+  date_done: '2020-08-25'
+  url: https://www.who.int/news/item/25-08-2020-global-polio-eradication-initiative-applauds-who-african-region-for-wild-polio-free-certification
+  source: who-africa-2020
+  note: Certified by the Africa Regional Certification Commission. The release certifies it as wild polio-free.
+- id: eastern-mediterranean
+  label: 'Eastern Mediterranean'
+  group: WHO regions
+  status: open
+  status_detail: not yet certified; endemic wild poliovirus in Afghanistan and Pakistan
+  source: emro-2023
+  note: As of WHO EMRO's October 2023 release. Status in 2026 is not yet sourced beyond the GPEI counts above.
+events:
+- date: '2026-10-04'
+  kind: setback
+  title: Afghanistan and Pakistan report 58 wild poliovirus type 1 cases in 2026 so far
+  why_it_matters: Wild poliovirus is still circulating in the two countries where it is endemic, so the count is
+    not falling to zero yet, and the 2026 total already exceeds the 2025 year total.
+  url: https://polioeradication.org/about-polio/polio-this-week/
+- date: '2023-10-10'
+  kind: news
+  title: WHO's Eastern Mediterranean Region says it is still the only region with wild poliovirus, in Afghanistan and Pakistan
+  why_it_matters: The Eastern Mediterranean is the only WHO region still uncertified, and it is also where the virus
+    is still found, so the certification map has one region left to fill.
+  url: https://www.emro.who.int/media/news/member-states-urged-to-go-all-in-to-end-polio-during-meeting-of-the-regional-subcommittee-for-polio-eradication-and-outbreaks.html
+- date: '2020-08-25'
+  kind: milestone
+  title: WHO African Region certified wild polio-free
+  why_it_matters: With this certification, every WHO region except the Eastern Mediterranean has been certified free of
+    wild poliovirus.
+  url: https://www.who.int/news/item/25-08-2020-global-polio-eradication-initiative-applauds-who-african-region-for-wild-polio-free-certification
+- date: '2019-10-24'
+  kind: milestone
+  title: WHO declares wild poliovirus type 3 eradicated worldwide
+  why_it_matters: With WPV2 already certified in 2015, only wild type 1 is left to eradicate among the three wild types.
+  url: https://www.who.int/news-room/feature-stories/detail/two-out-of-three-wild-poliovirus-strains-eradicated
+reading: []
