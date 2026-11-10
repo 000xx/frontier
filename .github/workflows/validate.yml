@@ -19,3 +19,7 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Validate frontier files
         run: python scripts/validate.py
+      - name: Build the site's data file
+        run: python scripts/build_site_data.py
+      - name: Check that every page of the site still renders
+        run: node scripts/check_site.js
