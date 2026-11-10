@@ -1,0 +1,28 @@
+id: undernourishment
+title: Undernourishment
+domain: food
+subfield: The food system
+status: draft
+summary: placeholder
+metric:
+  name: placeholder
+  unit: '%'
+  direction: lower
+  scale: linear
+  explainer: placeholder
+chart:
+  primary: race-to-zero
+series:
+- id: world
+  label: World
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+sources:
+- id: owid-undernourishment
+  name: placeholder
+  url: https://ourworldindata.org/grapher/prevalence-of-undernourishment
+  kind: dataset
+  primary: true
+events: []
+observations: []
