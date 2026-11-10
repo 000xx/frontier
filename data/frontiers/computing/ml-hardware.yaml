@@ -21,7 +21,7 @@ metric:
     stated peak. The value on this page is the one in Epoch''s column for tensor FP16/BF16 performance. Epoch''s
     documentation does not say on the page whether that figure is dense or sparse, so the owner should treat
     that detail as unconfirmed. A record is set when a newer chip exceeds every chip released before it. The
-    line rises by about a thousandfold in under a decade, which is why it is drawn on a log scale. A high
+    line rises from 46 TFLOP/s in 2017 to 5,000 in 2026, roughly a hundredfold, which is why it is drawn on a log scale. A high
     peak says little about the speed a model achieves on the chip, which depends on memory, networking and
     software.'
 chart:
