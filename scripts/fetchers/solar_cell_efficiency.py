@@ -40,6 +40,7 @@ HEADERS = {
 }
 # Efficiency: first non-empty of these columns.
 EFFICIENCY = [("Combined efficiency (%)", "exact"), ("Revised/New", "prefix"), ("Efficiency", "prefix")]
+NUMERIC = ["uncertainty_pct", "area_cm2", "suns"]
 EXCEL_EPOCH = dt.date(1899, 12, 30)
 
 
@@ -147,7 +148,6 @@ def build_csv(raw):
     if header_at is None:
         raise common.SourceError("no 'Record Identifier' header row in the first 20 rows")
     headers = [_norm(c) for c in rows[header_at]]
-    print("DIAG header row", header_at, headers)  # DIAG
     cols = {key: _find(headers, name, how) for key, (name, how) in HEADERS.items()}
     eff_cols = [_find(headers, name, how) for name, how in EFFICIENCY]
 
@@ -157,11 +157,16 @@ def build_csv(raw):
         if all(c is None or (isinstance(c, str) and not c.strip()) for c in r):
             continue
         row = {key: _text(r[i]) for key, i in cols.items() if key != "measurement_date"}
+        for key in NUMERIC:
+            # Text that is not a number (e.g. NLR's "0. 0955" for record 397) is left blank,
+            # as the dataset has always done; no value is guessed.
+            try:
+                float(row[key] or "0")
+            except ValueError:
+                row[key] = ""
         if not row["record_id"]:
             # Not a numbered record; the dataset has always left these out.
-            print("DIAG skipped id-less row", r[:12])  # DIAG
             continue
-        row = {"record_id": row["record_id"], "measurement_date": None, **row}
         row["measurement_date"] = _date(r[cols["measurement_date"]], row["record_id"])
         eff = next((_text(r[i]) for i in eff_cols if _text(r[i]) != ""), "")
         try:
@@ -205,20 +210,6 @@ def fetch():
     if len(set(ids)) != len(ids):
         raise common.SourceError("duplicate record identifiers in the workbook")
 
-    # DIAG start
-    print(f"DIAG rows={len(rows)} old={len(old)} sha={common.sha256(csv_text.encode())}")
-    print("DIAG last rows:", [(r['record_id'], r['measurement_date'], r['efficiency_pct']) for r in rows[-5:]])
-    n = 0
-    for r in rows:
-        prev = old.get(r["record_id"])
-        if prev is None:
-            print("DIAG new", r)
-        elif prev != r:
-            n += 1
-            if n <= 40:
-                print("DIAG diff", r["record_id"], {k: (prev[k], r[k]) for k in COLUMNS if prev[k] != r[k]})
-    print("DIAG changed", n, "missing", sorted(old.keys() - set(ids))[:20])
-    # DIAG end
     if not common.write_if_changed(csv_path, csv_text):
         return []
 
@@ -244,3 +235,4 @@ def fetch():
     if [i for i in ids if i in old] != [i for i in old if i in set(ids)]:
         changes.append("Workbook rows were reordered")
     return changes or ["records.csv updated"]
+
