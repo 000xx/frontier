@@ -1,0 +1,43 @@
+# The chart shapes a frontier can use. A frontier's chart.primary and chart.secondary must be ids below.
+# scope: frontier = drawn on one frontier's page; site = drawn across many frontiers.
+
+# Core shapes
+- {id: record-chart, scope: frontier, use_when: "No finish line, only better", looks_like: "Step line of best-ever values over time, split by approach"}
+- {id: leaderboard, scope: frontier, use_when: "Rivals compete right now", looks_like: "Ranked table with recent rank changes"}
+- {id: stage-timeline, scope: frontier, use_when: "Finished when it works and reaches people", looks_like: "Track from discovery to rollout, one marker per candidate"}
+- {id: countdown-grid, scope: frontier, use_when: "A fixed list to complete", looks_like: "Grid that fills in, X of Y solved"}
+- {id: cost-curve, scope: frontier, use_when: "Progress means cheaper", looks_like: "Falling line on a log scale"}
+- {id: race-to-zero, scope: frontier, use_when: "The goal is eliminating something", looks_like: "Counts falling toward zero"}
+- {id: threshold-gauge, scope: frontier, use_when: "One clear line must be crossed", looks_like: "Best result against the target line"}
+- {id: coverage-meter, scope: frontier, use_when: "The goal is mapping or completing a whole", looks_like: "Percentage filled"}
+
+# Specialist shapes
+- {id: closing-bounds, scope: frontier, use_when: "True value unknown but bounded", looks_like: "Upper and lower limits converging"}
+- {id: precision-funnel, scope: frontier, use_when: "A constant measured ever more precisely", looks_like: "Shrinking error bars, one funnel per method"}
+- {id: exclusion-map, scope: frontier, use_when: "Searching for something not yet found", looks_like: "Ruled-out territory shaded and growing"}
+- {id: crossover-chart, scope: frontier, use_when: "A challenger catching an incumbent", looks_like: "Two lines with the crossing marked"}
+- {id: target-zone-scatter, scope: frontier, use_when: "Progress needs two things at once", looks_like: "Dots moving toward a shaded goal zone"}
+- {id: scale-ladder, scope: frontier, use_when: "The goal is many powers of ten away", looks_like: "Log ladder of milestones with today marked"}
+- {id: tech-tree, scope: frontier, use_when: "The goal depends on unsolved pieces", looks_like: "Linked boxes that light up when solved"}
+- {id: natural-map, scope: frontier, use_when: "A countdown list has a real-world shape", looks_like: "World map, periodic table, body map, sky map"}
+- {id: pipeline-funnel, scope: frontier, use_when: "Many candidates, most will fail", looks_like: "Candidate counts narrowing by stage"}
+- {id: slip-chart, scope: frontier, use_when: "A project has a promised finish date", looks_like: "Promised date against the date of the promise"}
+- {id: glide-path, scope: frontier, use_when: "A goal has a deadline", looks_like: "Actual line against the line needed"}
+- {id: limit-bar, scope: frontier, use_when: "Physics sets a hard ceiling", looks_like: "Bar to the theoretical maximum, headroom shown"}
+- {id: baton-chart, scope: frontier, use_when: "Technologies take over from each other", looks_like: "One curve per generation plus the envelope"}
+- {id: lab-to-world-gap, scope: frontier, use_when: "The record and everyday reality differ", looks_like: "Best in lab, best on sale, typical in use"}
+- {id: lifting-survival-curve, scope: frontier, use_when: "A disease is becoming more survivable", looks_like: "Survival curves by decade, each higher"}
+- {id: readiness-ladder, scope: frontier, use_when: "Too early for a single number", looks_like: "Nine-rung technology readiness ladder"}
+- {id: claim-scoreboard, scope: frontier, use_when: "A result is contested", looks_like: "Claim, replications for and against, verdict"}
+- {id: before-and-after, scope: frontier, use_when: "The frontier is an image", looks_like: "Best picture then and now"}
+- {id: to-scale-lineup, scope: frontier, use_when: "Things are getting bigger or smaller", looks_like: "Generations drawn to scale side by side"}
+- {id: reign-timeline, scope: frontier, use_when: "Who holds the record matters", looks_like: "Ribbon of record holders over time"}
+
+# Site-wide shapes
+- {id: record-heartbeat, scope: site, use_when: "Showing the tempo of a frontier", looks_like: "One tick per record, days since the last"}
+- {id: pulse-wall, scope: site, use_when: "Showing everything at once", looks_like: "Grid of frontiers by month, shaded by movement"}
+- {id: pace-board, scope: site, use_when: "Comparing speed across fields", looks_like: "Frontiers ranked by doubling or halving time"}
+- {id: forecast-fan, scope: site, use_when: "Asking when a threshold will fall", looks_like: "Record chart with a widening forecast band"}
+- {id: live-counter, scope: site, use_when: "One number says it all", looks_like: "A single large number that ticks up"}
+- {id: hype-check, scope: site, use_when: "Attention and progress come apart", looks_like: "News coverage against metric movement"}
+- {id: spillover-map, scope: site, use_when: "Showing how fields feed each other", looks_like: "Flows from enabling to using frontier"}

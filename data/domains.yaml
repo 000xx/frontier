@@ -1,0 +1,90 @@
+# The domains and subfields every frontier belongs to.
+# A frontier's `domain` must be an id below, and its `subfield` one of that domain's subfields.
+
+- id: mathematics
+  name: Mathematics
+  subfields: [Open problems, Best known values, Computation, Machine proof]
+
+- id: physics
+  name: Fundamental physics
+  subfields: [Precision measurement, Searches and limits, Particles and matter]
+
+- id: astronomy
+  name: Astronomy and cosmology
+  subfields: [The universe at large, Stars, black holes and signals, Planets and life]
+
+- id: space
+  name: Space
+  subfields: [Getting to orbit, Living and working in space, Exploring the solar system]
+
+- id: earth
+  name: Earth and the living planet
+  subfields: [Observing the Earth, Climate and pollution, Life on Earth]
+
+- id: chemistry
+  name: Chemistry and materials
+  subfields: [Making molecules, Discovering materials, Record properties]
+
+- id: energy
+  name: Energy
+  subfields: [Solar, Fusion, Fission, Batteries and storage, Wind, heat and fuels, Grid and transition]
+
+- id: computing
+  name: Computing
+  subfields: [Chips and hardware, Software and algorithms, Networks and security]
+
+- id: ai
+  name: Artificial intelligence
+  subfields: [Capability, AI doing science, Cost and scale, Spread and safety]
+
+- id: quantum
+  name: Quantum technologies
+  subfields: [Quantum technologies]
+
+- id: robotics
+  name: Robotics and autonomous machines
+  subfields: [Capability, In the field]
+
+- id: biology
+  name: Biology
+  subfields: [Reading life, Predicting and designing, Writing and editing life, Cells, organisms and aging]
+
+- id: brain
+  name: Brain and mind
+  subfields: [Mapping and reading the brain, Interfaces and treatment]
+
+- id: health
+  name: Health and medicine
+  subfields: [Diseases being eliminated, Vaccines and treatments still missing, Cancer, Chronic and genetic conditions, New kinds of medicine, Restoring and replacing the body, Population health]
+
+- id: food
+  name: Agriculture and food
+  subfields: [Crops, Animals and new protein, The food system]
+
+- id: industry
+  name: Industry and infrastructure
+  subfields: [Transport, Building, Making things, Everyday technology]
+
+- id: instruments
+  name: Instruments and big science
+  subfields: [Big projects, Seeing and measuring]
+
+- id: safety
+  name: Safety, forecasting and resilience
+  subfields: [Seeing it coming, Fewer deaths and failures]
+
+- id: knowledge
+  name: Knowledge, the past and science itself
+  subfields: [The past, Open knowledge, How science is working]
+
+- id: cost
+  name: The cost of capability
+  subfields: [Cost curves]
+
+- id: development
+  name: Human development
+  subfields: [Human development]
+
+- id: extremes
+  name: Extremes of research and engineering
+  subfields: [Physical extremes, Extreme materials and devices, Biggest, deepest, longest]

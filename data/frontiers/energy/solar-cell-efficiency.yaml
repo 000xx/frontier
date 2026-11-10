@@ -1,0 +1,116 @@
+id: solar-cell-efficiency
+title: Solar cell efficiency
+domain: energy
+subfield: Solar
+status: draft
+summary: >-
+  The highest certified share of sunlight that a solar cell turns into electricity, tracked
+  separately for each cell technology. It is the longest-running and best-verified record
+  table in clean energy.
+
+metric:
+  name: Conversion efficiency
+  unit: "%"
+  direction: higher
+  scale: linear
+  explainer: >-
+    Efficiency is the share of the sunlight's energy hitting a cell that comes out as
+    electricity. Records only count when an independent test lab measures the cell under
+    standard conditions (a fixed light spectrum and a cell temperature of 25 °C), so results
+    from different labs can be compared. Different technologies are tracked separately
+    because they have different ceilings: cells that stack several light-absorbing layers can
+    go far higher than a single layer of silicon.
+
+chart:
+  primary: record-chart
+  secondary: [baton-chart, limit-bar, lab-to-world-gap]
+
+series:
+  - {id: multijunction, label: Multijunction cells, group: III-V}
+  - {id: single-junction-gaas, label: Single-junction gallium arsenide, group: III-V}
+  - {id: crystalline-silicon, label: Crystalline silicon, group: Silicon}
+  - {id: thin-film, label: Thin-film technologies, group: Thin film}
+  - {id: emerging-pv, label: Emerging photovoltaics, group: Emerging}
+  - {id: hybrid-tandems, label: Hybrid tandems, group: Tandem}
+
+update:
+  cadence: monthly
+  last_checked: 2026-11-09
+  notes: >-
+    Seeded from a 2024 news summary only. The NREL data file could not be downloaded from the
+    build environment, so the full record history from 1976 still needs importing, and the
+    records below are out of date. First update run: import the NREL data file, replace the
+    seed records, and add the single-junction theoretical limit with a citation.
+
+sources:
+  - id: nrel-chart
+    name: NREL Best Research-Cell Efficiency Chart
+    url: https://www.nrel.gov/pv/cell-efficiency.html
+    kind: dataset
+    primary: true
+    notes: >-
+      Highest confirmed efficiencies by technology since 1976, measured by independent test
+      labs (NREL, AIST, JRC-ESTI, Fraunhofer ISE and others). Offers a full data file and an
+      interactive chart.
+  - id: pv-magazine-2024-04
+    name: "pv magazine USA: NREL updates interactive chart of solar cell efficiency (April 2024)"
+    url: https://pv-magazine-usa.com/2024/04/24/nrel-updates-interactive-chart-of-solar-cell-efficiency-2
+    kind: news
+  - id: pv-magazine-2022-11
+    name: "pv magazine USA: NREL updates interactive chart of solar cell efficiency (November 2022)"
+    url: https://pv-magazine-usa.com/2022/11/22/nrel-updates-interactive-chart-of-solar-cell-efficiency/
+    kind: news
+
+records:
+  - date: "2023-11"
+    value: 33.9
+    series: hybrid-tandems
+    holder: LONGi
+    conditions: Perovskite-on-silicon tandem cell
+    status: confirmed
+    source: pv-magazine-2024-04
+    note: Seed record. Listed on the NREL chart as of its April 2024 update.
+  - date: "2024"
+    value: 27.09
+    series: crystalline-silicon
+    holder: LONGi
+    conditions: Heterojunction back-contact silicon cell
+    status: confirmed
+    source: pv-magazine-2024-04
+    note: Seed record. Date achieved not stated in the source; it appeared in the NREL chart update of April 2024.
+  - date: "2024-03"
+    value: 23.64
+    series: thin-film
+    holder: First Solar
+    conditions: CIGS (copper indium gallium diselenide) cell
+    status: confirmed
+    source: pv-magazine-2024-04
+    note: Seed record.
+  - date: "2024"
+    value: 47.6
+    series: multijunction
+    holder: Fraunhofer ISE
+    conditions: Four-junction cell
+    status: confirmed
+    source: pv-magazine-2024-04
+    note: Seed record. Date achieved not stated in the source; the article gives it as the highest efficiency on the chart in April 2024.
+
+events:
+  - date: "2022-11"
+    kind: dataset
+    title: NREL releases an interactive version of the efficiency chart
+    why_it_matters: >-
+      Decades of records became explorable by technology and time period, with current,
+      voltage and fill factor where NREL has them.
+    url: https://pv-magazine-usa.com/2022/11/22/nrel-updates-interactive-chart-of-solar-cell-efficiency/
+  - date: "2024-04"
+    kind: dataset
+    title: NREL chart updated with results through early 2024
+    why_it_matters: >-
+      Added a perovskite-silicon tandem record and new silicon and CIGS records, and NREL said
+      the chart would soon add a hybrid tandem category.
+    url: https://pv-magazine-usa.com/2024/04/24/nrel-updates-interactive-chart-of-solar-cell-efficiency-2
+
+reading: []
+
+connections: [solar-modules, perovskite-durability, solar-cost]
