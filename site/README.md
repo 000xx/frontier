@@ -23,6 +23,17 @@ The headline number is the current record (for `records`) or the latest figure (
 
 `node scripts/check_site.js` renders the front page and every frontier page, once per series, without a browser. It fails if a page throws, is empty, or prints a broken value such as `NaN`. It runs on every pull request and before every publish.
 
+## Getting around
+
+Every page carries the same navigation, built from the data, so nothing needs updating by hand when a frontier is added:
+
+- The header has an "All frontiers" menu, grouped by domain.
+- The footer lists every frontier, plus the front page, overview, method and domains.
+- The front page has a tile per frontier, and each domain in the domain list links to its frontiers.
+- A frontier page also links to the others in its domain and to the previous and next frontier.
+
+The check fails if any page lacks a link to any frontier, or has an in-site link that leads nowhere.
+
 ## Site settings
 
 `config.json` holds the choices that are not data: the site name, `lead` (the frontier shown under the opening photo), `featured` (which series a frontier opens on) and `planned` (a "next in the queue" list, hidden when empty).
