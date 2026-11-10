@@ -1,28 +1,99 @@
+# Observations are new arXiv submissions per calendar year, 1992 to 2025, summed from the monthly counts in arXiv's
+# monthly submissions CSV (https://arxiv.org/stats/get_monthly_submissions), read through the refresh workflow's dry run,
+# opened 2026-11-09. July 1991 to December 1991 is left out because the series starts in July 1991, and 2026 is left out
+# until it has twelve months. Values are whole numbers as published.
 id: arxiv-submissions
 title: arXiv submissions
 domain: knowledge
 subfield: How science is working
 status: draft
-summary: placeholder
+summary: How many new papers are sent to arXiv, the main free server where physicists, mathematicians, computer
+  scientists and many other researchers post drafts before or alongside journal publication. The yearly count shows how
+  fast the public preprint record is growing.
 metric:
-  name: placeholder
-  unit: papers
+  name: New arXiv submissions per year
+  unit: submissions per year
   direction: higher
   scale: linear
-  explainer: placeholder
+  explainer: 'arXiv counts new submissions received in each month, so each figure is the number of papers first sent
+    in that year, not the number of papers that were later accepted by a journal or still in the archive. The archive
+    also has to be read with its moderation and migration rules in mind: arXiv says its totals exclude articles that
+    were migrated to it rather than submitted directly, and articles that were later deleted. A rising count shows that
+    more research is being shared early, not that more research is good; compare growth rates with the size of the
+    research workforce.'
 chart:
   primary: record-chart
 series:
 - id: all
-  label: All
+  label: All submissions
 update:
   cadence: monthly
   last_checked: '2026-11-09'
+  notes: 'Observations are yearly sums of the monthly CSV. The fetcher adds each calendar year once it has twelve months.
+    Still to add: the reading list, and a check of arXiv''s terms of use (the copyright and terms pages were not opened).'
 sources:
-- id: arxiv-stats
-  name: placeholder
-  url: https://arxiv.org/stats/monthly_submissions
+- id: arxiv-monthly-csv
+  name: arXiv, monthly submissions CSV
+  url: https://arxiv.org/stats/get_monthly_submissions
   kind: dataset
   primary: true
-events: []
-observations: []
+  notes: Read through the refresh workflow's dry run on 2026-11-09. Columns: month, submissions. The CSV starts at 1991-07-01 and
+    ends at 2026-10-01 at the time of reading.
+- id: arxiv-monthly-page
+  name: arXiv, Monthly Submissions page
+  url: https://arxiv.org/stats/monthly_submissions
+  kind: dataset
+  notes: Opened 2026-11-09. The page says the chart shows new submissions per month since August 1991 and gives a total of
+    3,234,990 submissions as of November 9, 2026, excluding 2,431 migrated articles and 156 deleted ones.
+events:
+- date: '2018'
+  kind: milestone
+  title: arXiv receives more than 140,000 new submissions in a single year for the first time in this series
+  why_it_matters: 'The 2018 count is 140,616, up from 123,523 in 2017, so it crossed a threshold that the archive had not
+    reached before.'
+  url: https://arxiv.org/stats/get_monthly_submissions
+- date: '2024'
+  kind: milestone
+  title: The yearly count passes 240,000 for the first time, at 244,031 new submissions in 2024
+  why_it_matters: 'The 2023 total was 208,493, so the archive gained about 35,000 submissions in one year.'
+  url: https://arxiv.org/stats/get_monthly_submissions
+- date: '2025'
+  kind: milestone
+  title: 2025 is the first year above 280,000 submissions, at 284,486
+  why_it_matters: 'The archive kept growing at pace: 2025 is about 17 per cent higher than 2024.'
+  url: https://arxiv.org/stats/get_monthly_submissions
+observations:
+- {date: '1992', series: all, value: 3263, source: arxiv-monthly-csv}
+- {date: '1993', series: all, value: 6743, source: arxiv-monthly-csv}
+- {date: '1994', series: all, value: 10097, source: arxiv-monthly-csv}
+- {date: '1995', series: all, value: 13014, source: arxiv-monthly-csv}
+- {date: '1996', series: all, value: 15866, source: arxiv-monthly-csv}
+- {date: '1997', series: all, value: 19624, source: arxiv-monthly-csv}
+- {date: '1998', series: all, value: 24172, source: arxiv-monthly-csv}
+- {date: '1999', series: all, value: 27704, source: arxiv-monthly-csv}
+- {date: '2000', series: all, value: 30601, source: arxiv-monthly-csv}
+- {date: '2001', series: all, value: 33214, source: arxiv-monthly-csv}
+- {date: '2002', series: all, value: 36121, source: arxiv-monthly-csv}
+- {date: '2003', series: all, value: 39414, source: arxiv-monthly-csv}
+- {date: '2004', series: all, value: 43727, source: arxiv-monthly-csv}
+- {date: '2005', series: all, value: 46855, source: arxiv-monthly-csv}
+- {date: '2006', series: all, value: 50227, source: arxiv-monthly-csv}
+- {date: '2007', series: all, value: 55638, source: arxiv-monthly-csv}
+- {date: '2008', series: all, value: 58915, source: arxiv-monthly-csv}
+- {date: '2009', series: all, value: 64047, source: arxiv-monthly-csv}
+- {date: '2010', series: all, value: 70131, source: arxiv-monthly-csv}
+- {date: '2011', series: all, value: 76578, source: arxiv-monthly-csv}
+- {date: '2012', series: all, value: 84603, source: arxiv-monthly-csv}
+- {date: '2013', series: all, value: 92641, source: arxiv-monthly-csv}
+- {date: '2014', series: all, value: 97517, source: arxiv-monthly-csv}
+- {date: '2015', series: all, value: 105280, source: arxiv-monthly-csv}
+- {date: '2016', series: all, value: 113380, source: arxiv-monthly-csv}
+- {date: '2017', series: all, value: 123523, source: arxiv-monthly-csv}
+- {date: '2018', series: all, value: 140616, source: arxiv-monthly-csv}
+- {date: '2019', series: all, value: 155866, source: arxiv-monthly-csv}
+- {date: '2020', series: all, value: 178329, source: arxiv-monthly-csv}
+- {date: '2021', series: all, value: 181630, source: arxiv-monthly-csv}
+- {date: '2022', series: all, value: 185692, source: arxiv-monthly-csv}
+- {date: '2023', series: all, value: 208493, source: arxiv-monthly-csv}
+- {date: '2024', series: all, value: 244031, source: arxiv-monthly-csv}
+- {date: '2025', series: all, value: 284486, source: arxiv-monthly-csv}
