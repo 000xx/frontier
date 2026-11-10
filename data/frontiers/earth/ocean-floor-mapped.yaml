@@ -1,0 +1,143 @@
+# Observations are the yearly figures from the Nippon Foundation-GEBCO Seabed 2030 Project.
+# Each value is the share of the world ocean floor the project reports as mapped, as given in the announcement cited.
+# A year is the year of the GEBCO grid release the announcement reports; where an announcement gives no year, the year of the announcement is used (see notes).
+id: ocean-floor-mapped
+title: Ocean floor mapped to modern standards
+domain: earth
+subfield: Observing the Earth
+status: live
+summary: How much of the world's ocean floor has been mapped to modern standards, as counted each year by the
+  Nippon Foundation-GEBCO Seabed 2030 Project, and how far that is from a full map by 2030.
+metric:
+  name: Share of the world's ocean floor mapped to modern standards
+  unit: percent
+  direction: higher
+  scale: linear
+  explainer: 'Most of the ocean floor has never been measured in detail. Ships and some aircraft collect depth
+    soundings, and the Seabed 2030 project gathers those surveys from many countries and combines them into the
+    GEBCO grid, a single global depth map. Each year the project reports what share of the seafloor is covered
+    by data at modern resolution. The figure is a share of area, not a measure of accuracy, and it depends on
+    which grid release is used, so compare years only as the project reports them. Each year is a different
+    grid release, and the project has announced its figures at different times of the year, from April to
+    June. The 2026 figure of 28.7 percent is described as the share of seafloor mapped, without the "modern
+    standards" wording used in 2025. Reaching 100 percent is the project''s stated aim for 2030.'
+  target:
+    value: 100
+    label: 'Whole ocean floor mapped to modern standards: the Seabed 2030 project''s stated goal of completing the
+      mapping of the world''s ocean floor by 2030'
+    by: '2030'
+chart:
+  primary: coverage-meter
+series: []
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Figures are read from the project''s yearly announcements and the GEBCO grid release pages. The project''s
+    own site, seabed2030.org, could not be fetched in this run, so no figure was taken from its home page; check
+    its news page first on the next run and replace the newest year there if it differs. Announcements have come
+    between April and June (2020 on 21 June, 2022 on 29 June, 2023 on 6 June, 2024 and 2025 on 21 June, 2026 on
+    28 April). Terms: seabed2030.org gives a copyright line of "Copyright © 2020-2026, Seabed 2030 Project" and
+    no licence or attribution condition for its data; its disclaimer says the data is not for navigation or for any
+    purpose involving safety at sea. GEBCO places the GEBCO Grid in the public domain, requires users to acknowledge
+    its source and not to suggest official status or endorsement, and points to accompanying documentation for the
+    wording. The recommended citation given with the GEBCO_2025 Grid is: GEBCO Bathymetric Compilation Group 2025
+    (2025), The GEBCO_2025 Grid, a continuous terrain model for oceans and land at 15 arc-second intervals, NERC EDS
+    British Oceanographic Data Centre NOC, https://doi.org/10.5285/37c52e96-24ea-67ce-e063-7086abc05f29. No GEBCO
+    grid data is copied into this repository; only the yearly percentages are stored, each with its announcement.'
+sources:
+- id: seabed2030-project
+  name: Nippon Foundation-GEBCO Seabed 2030 Project, seabed2030.org
+  url: https://seabed2030.org/
+  kind: other
+  primary: true
+  notes: 'Project site. Its disclaimer and copyright line were read at https://seabed2030.org/?p=589. The home page
+    could not be fetched in this run, so the yearly figures come from the announcements listed below.'
+- id: gebco-terms
+  name: GEBCO, Terms of use for the GEBCO Grid and derived information products
+  url: https://www.gebco.net/data-products/gridded-bathymetry/terms-of-use
+  kind: other
+  notes: Read 2026-11-09. Public domain; acknowledge the source; no implied endorsement.
+- id: nippon-2020
+  name: 'Nippon Foundation, Nearly One-Fifth of World''s Ocean Floor Now Mapped (21 June 2020)'
+  url: https://en.nippon-foundation.or.jp/news/articles/2020/20200621-45318.html
+  kind: press
+- id: gebco-2021
+  name: 'GEBCO, GEBCO_2021 grid release (1 August 2021)'
+  url: https://gebco.net/news_and_media/gebco_2021_grid_release.html
+  kind: press
+  notes: Third grid produced under the Seabed 2030 project.
+- id: nippon-2022
+  name: 'Nippon Foundation, Nearly a Quarter of the World''s Ocean Floor Now Mapped (announced 29 June 2022)'
+  url: https://tnfsa.nippon-foundation.or.jp/news/855147
+  kind: press
+- id: nippon-2023
+  name: 'Nippon Foundation, A Quarter of the World''s Ocean Floor Now Mapped (6 June 2023)'
+  url: https://tnfsa.nippon-foundation.or.jp/news/1569113
+  kind: press
+  notes: The article does not name the grid year; 2023 is assigned from its date.
+- id: oceannews-2024
+  name: 'Ocean News, Seabed 2030 Announces Latest Progress on World Hydrography Day (21 June 2024)'
+  url: https://oceannews.com/news/science-technology/seabed-2030-announces-latest-progress-on-world-hydrography-day/
+  kind: press
+  notes: Republished project release, not the project''s own page. The article does not name the grid year; 2024
+    is assigned from its date, and an image caption links the figure to the 2024 GEBCO Grid release.
+- id: nippon-2025
+  name: 'Nippon Foundation, 27.3% of World''s Ocean Floor Now Mapped in Seabed 2030 Project (announced 21 June 2025)'
+  url: https://tnfsa.nippon-foundation.or.jp/news/2756701
+  kind: press
+  notes: Page dated 4 August 2025; the announcement it reports is dated 21 June 2025.
+- id: iho-2026
+  name: 'IHO, Global seabed mapping reaches new milestone as five million square kilometres added in a year (28 April 2026)'
+  url: https://iho.int/en/global-seabed-mapping-reaches-new-milestone-as-five-million-square-kilometres-added-in-a-year
+  kind: press
+  notes: Refers to the 2026 grid, which covers about 104 million square kilometres of mapped seabed. The IHO page
+    gives no separate grid year, so 2026 is assigned from the announcement.
+observations:
+- date: '2020'
+  value: 19
+  source: nippon-2020
+  note: Up from 15 percent the year before, as the release reports it.
+- date: '2021'
+  value: 20.6
+  source: gebco-2021
+  note: GEBCO_2021 grid.
+- date: '2022'
+  value: 23.4
+  source: nippon-2022
+  note: 2022 grid; reported as an increase of 10.1 million square kilometres over the 2021 release.
+- date: '2023'
+  value: 24.9
+  source: nippon-2023
+  note: Latest GEBCO grid figure at announcement; the article reports an increase of 5.4 million square kilometres over the previous year.
+- date: '2024'
+  value: 26.1
+  source: oceannews-2024
+- date: '2025'
+  value: 27.3
+  source: nippon-2025
+  note: Described by the project as mapped to modern standards.
+- date: '2026'
+  value: 28.7
+  source: iho-2026
+  note: 2026 grid, described as mapped without the modern standards wording.
+events:
+- date: '2020-06-21'
+  kind: milestone
+  title: Seabed 2030 reports 19 percent of the seafloor mapped
+  why_it_matters: The share rose four points in a year, which set the starting pace for the rest of the series.
+  url: https://en.nippon-foundation.or.jp/news/articles/2020/20200621-45318.html
+- date: '2022-06-29'
+  kind: milestone
+  title: Mapped share reaches 23.4 percent in the 2022 grid
+  why_it_matters: The 2022 grid added 10.1 million square kilometres over the 2021 release, a clear step toward the 2030 goal.
+  url: https://tnfsa.nippon-foundation.or.jp/news/855147
+- date: '2025-06-21'
+  kind: milestone
+  title: Mapped share reaches 27.3 percent, described as modern standards
+  why_it_matters: With about 73 percent of the ocean floor still unmapped to modern standards, the goal depends on the pace of new surveys.
+  url: https://tnfsa.nippon-foundation.or.jp/news/2756701
+- date: '2026-04-28'
+  kind: milestone
+  title: Mapped share reaches 28.7 percent in the 2026 grid
+  why_it_matters: The share rose 1.4 points in the latest year, while closing the remaining gap by 2030 would need roughly 18 points a year.
+  url: https://iho.int/en/global-seabed-mapping-reaches-new-milestone-as-five-million-square-kilometres-added-in-a-year
