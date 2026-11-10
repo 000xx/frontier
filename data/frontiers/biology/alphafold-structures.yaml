@@ -1,0 +1,97 @@
+id: alphafold-structures
+title: Predicted protein structures in open databases
+domain: biology
+subfield: Predicting and designing
+status: draft
+summary: How many protein shapes that computers have predicted are openly available to researchers, counted in
+  AlphaFold DB and the ESM Metagenomic Atlas. The databases now hold more predicted structures than the number
+  of proteins that anyone has yet solved by experiment.
+metric:
+  name: Predicted protein structures available in open databases
+  unit: predicted structures
+  direction: higher
+  scale: log
+  explainer: 'A predicted structure is a three-dimensional model of a protein built by an AI system from its amino
+    acid sequence, without a physical experiment. Counts in this frontier are the number of such models in
+    openly accessible databases, as their operators publish them. A count is not a measure of accuracy: a
+    model can be confidently wrong, and most databases label each model with a confidence score that users
+    should read. Two counts are reported separately because they come from different databases with different
+    coverage. The AlphaFold DB covers proteins from a fixed set of genomes, and the ESM Atlas covers proteins
+    found in metagenomic sequences, many of them from microbes that have never been grown in a lab.'
+chart:
+  primary: scale-ladder
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Draft because no source opened gives a current total for the AlphaFold DB after July 2022, or for the ESM
+    Atlas after November 2022. The March 2026 release adds 1.7 million predicted homodimers to the AlphaFold DB, but
+    that is a set of protein complexes, not single chains, so it is not added to the count; the owner should
+    decide whether complexes count. The first AlphaFold DB figure is given as about 350,000 (an approximate
+    count) and is kept as stated. The ESM Atlas figure is given as more than 600 million. The licence for each
+    database must be read from its own site before this goes live.'
+sources:
+- id: ebi-afdb-blog
+  name: EMBL-EBI, new AlphaFold DB release with 200+ million predicted structures (blog, 28 July 2022)
+  url: https://ebi-biows.gitdocs.ebi.ac.uk/blog/2022-07-28-new-afdb-release
+  kind: news
+  primary: true
+  notes: Gives about 350,000 structures for the July 2021 release, 992,316 for the December 2021 release (date from an
+    embedded post), and 214,684,311 for July 2022. No licence stated on the page.
+- id: meta-esm-blog
+  name: Meta AI, ESMFold and the ESM Metagenomic Atlas (blog, 1 November 2022)
+  url: https://ai.meta.com/blog/protein-folding-esmfold-metagenomics/
+  kind: press
+  notes: Reports more than 600 million metagenomic structures. No licence stated on the page; models are on GitHub with their own terms.
+- id: news-medical-2026
+  name: News-Medical, AlphaFold Database expands with millions of predicted protein complexes (March 2026)
+  url: https://www.news-medical.net/news/20260317/AlphaFold-Database-expands-with-millions-of-predicted-protein-complexes.aspx
+  kind: news
+  notes: Reports the EMBL-EBI release of 1.7 million high-confidence homodimer predictions, dated 17 March 2026. Gives no total count of structures. No licence named.
+series:
+- id: alphafold-db
+  label: AlphaFold DB (EMBL-EBI)
+- id: esm-atlas
+  label: ESM Metagenomic Atlas (Meta)
+observations:
+- date: '2021-07-22'
+  value: 350000
+  series: alphafold-db
+  source: ebi-afdb-blog
+  note: The source gives about 350,000 ('~350,000'), an approximate figure from the first release.
+- date: '2021-12-09'
+  value: 992316
+  series: alphafold-db
+  source: ebi-afdb-blog
+  note: Second release, adding most curated UniProt entries. The date is taken from an embedded post in the source.
+- date: '2022-07-28'
+  value: 214684311
+  series: alphafold-db
+  source: ebi-afdb-blog
+  note: Latest count in the sources we opened.
+- date: '2022-11-01'
+  value: 600000000
+  series: esm-atlas
+  source: meta-esm-blog
+  note: The source says more than 600 million; the value is the lower bound.
+events:
+- date: '2021-07-22'
+  kind: dataset
+  title: First AlphaFold DB release, with about 350,000 predicted structures
+  why_it_matters: Puts a first large set of predicted protein shapes into a free public database.
+  url: https://ebi-biows.gitdocs.ebi.ac.uk/blog/2022-07-28-new-afdb-release
+- date: '2022-07-28'
+  kind: dataset
+  title: AlphaFold DB expands to over 200 million predicted structures
+  why_it_matters: Covers almost the whole of UniProt, the main catalogue of known protein sequences, so most known proteins now have a predicted shape.
+  url: https://ebi-biows.gitdocs.ebi.ac.uk/blog/2022-07-28-new-afdb-release
+- date: '2022-11-01'
+  kind: dataset
+  title: Meta releases the ESM Metagenomic Atlas with more than 600 million structures
+  why_it_matters: Adds a second, separate open collection of predicted structures, drawn from proteins found in environmental DNA sequences.
+  url: https://ai.meta.com/blog/protein-folding-esmfold-metagenomics/
+- date: '2026-03-17'
+  kind: dataset
+  title: AlphaFold DB adds 1.7 million predicted homodimers
+  why_it_matters: Moves the database from single proteins toward protein complexes, which show how proteins bind each other; the count of complexes is separate from the count of single-chain structures.
+  url: https://www.news-medical.net/news/20260317/AlphaFold-Database-expands-with-millions-of-predicted-protein-complexes.aspx
+reading: []
