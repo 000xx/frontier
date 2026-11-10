@@ -77,7 +77,57 @@ def check_frontier(path, data, schema, domains, shapes, today):
     if limit and limit["source"] not in source_ids:
         errors.append(f"{rel}: metric limit cites unknown source '{limit['source']}'")
 
-    for i, rec in enumerate(data["records"]):
+    if not any(data.get(k) for k in ("records", "observations", "items", "candidates")):
+        errors.append(f"{rel}: needs at least one of records, observations, items or candidates")
+
+    axes = {a["id"] for a in data["metric"].get("axes", [])}
+    for i, rec in enumerate(data.get("records", [])):
+        for key in rec.get("extra", {}):
+            if key not in axes:
+                errors.append(f"{rel}: records[{i}]: extra value '{key}' is not one of metric.axes")
+
+    for i, obs in enumerate(data.get("observations", [])):
+        label = f"{rel}: observations[{i}]"
+        if obs["source"] not in source_ids:
+            errors.append(f"{label}: unknown source '{obs['source']}'")
+        if series_ids and obs.get("series") and obs["series"] not in series_ids:
+            errors.append(f"{label}: series '{obs['series']}' is not defined in this file")
+        if parse_date(obs["date"]) > today:
+            errors.append(f"{label}: date {obs['date']} is in the future")
+
+    item_ids = set()
+    for i, item in enumerate(data.get("items", [])):
+        label = f"{rel}: items[{i}]"
+        if item["id"] in item_ids:
+            errors.append(f"{label}: duplicate item id '{item['id']}'")
+        item_ids.add(item["id"])
+        if item["source"] not in source_ids:
+            errors.append(f"{label}: unknown source '{item['source']}'")
+        if item.get("date_done") and parse_date(item["date_done"]) > today:
+            errors.append(f"{label}: date_done {item['date_done']} is in the future")
+
+    stages = data.get("stages", [])
+    if data.get("candidates") and not stages:
+        errors.append(f"{rel}: candidates need a `stages` list")
+    cand_ids = set()
+    for i, cand in enumerate(data.get("candidates", [])):
+        label = f"{rel}: candidates[{i}]"
+        if cand["id"] in cand_ids:
+            errors.append(f"{label}: duplicate candidate id '{cand['id']}'")
+        cand_ids.add(cand["id"])
+        if cand["stage"] not in stages:
+            errors.append(f"{label}: stage '{cand['stage']}' is not in `stages`")
+        if cand["source"] not in source_ids:
+            errors.append(f"{label}: unknown source '{cand['source']}'")
+        for j, h in enumerate(cand.get("history", [])):
+            if h["stage"] not in stages:
+                errors.append(f"{label}: history[{j}] stage '{h['stage']}' is not in `stages`")
+            if h["source"] not in source_ids:
+                errors.append(f"{label}: history[{j}] unknown source '{h['source']}'")
+            if parse_date(h["date"]) > today:
+                errors.append(f"{label}: history[{j}] date {h['date']} is in the future")
+
+    for i, rec in enumerate(data.get("records", [])):
         label = f"{rel}: records[{i}]"
         if rec["source"] not in source_ids:
             errors.append(f"{label}: unknown source '{rec['source']}'")
@@ -91,7 +141,7 @@ def check_frontier(path, data, schema, domains, shapes, today):
     best = {}
     higher = data["metric"]["direction"] == "higher"
     ordered = sorted(
-        (r for r in data["records"] if r["status"] != "retracted"),
+        (r for r in data.get("records", []) if r["status"] != "retracted"),
         key=lambda r: parse_date(r["date"]),
     )
     for rec in ordered:
