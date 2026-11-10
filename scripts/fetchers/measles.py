@@ -13,7 +13,7 @@ SPECS = [
                column="Measles - number of reported cases", decimals=0, first_year=2000, min_rows=10),
     _owid.Spec(series="coverage", source="owid-measles-coverage",
                url="https://ourworldindata.org/grapher/share-of-children-vaccinated-against-measles.csv?country=OWID_WRL",
-               column="Share of children vaccinated against measles", decimals=1, first_year=2000, min_rows=10),
+               column="Measles, first dose (MCV1)", decimals=1, first_year=2000, min_rows=10),
 ]
 
 
