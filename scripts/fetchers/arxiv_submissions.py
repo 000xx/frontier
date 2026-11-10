@@ -1,4 +1,4 @@
-"""Discovery stub: prints the text of the arXiv monthly submissions page."""
+"""Discovery stub: prints CSV links on the arXiv monthly submissions page and tries them."""
 import re
 
 from . import common
@@ -9,9 +9,9 @@ URL = "https://arxiv.org/stats/monthly_submissions"
 
 def fetch():
     raw = common.get(URL).decode("utf-8", "replace")
-    body = re.sub(r"(?is)<(script|style).*?</\1>", " ", raw)
-    text = " ".join(re.sub(r"<[^>]+>", " ", body).split())
-    print(f"DIAG len={len(text)} scripts={raw.count('<script')} div={raw.count('<div')} svg={raw.count('<svg')}")
-    for i in range(0, min(len(text), 9000), 1500):
-        print("DIAG text: " + text[i:i + 1500])
+    for m in re.finditer(r"<a[^>]*href=\"([^\"]*)\"[^>]*>(.*?)</a>", raw, flags=re.S | re.I):
+        if "csv" in (m.group(1) + m.group(2)).lower() or "download" in m.group(2).lower():
+            print(f"DIAG link: {m.group(1)} text={' '.join(re.sub(r'<[^>]+>', ' ', m.group(2)).split())}")
+    for m in re.finditer(r"csv[^\"' ]*", raw, flags=re.I):
+        print(f"DIAG csvref: {m.group(0)[:200]}")
     raise common.SourceError("discovery run")
