@@ -1,0 +1,84 @@
+# Records are rebuilt from Epoch AI's benchmark data by scripts/fetchers/gpqa_diamond.py.
+# Edit the other fields by hand; never edit the records directly.
+id: gpqa-diamond
+title: AI on graduate-level science questions (GPQA Diamond)
+domain: ai
+subfield: Capability
+status: draft
+summary: The best score any AI model has reached on GPQA Diamond, 198 hard multiple-choice questions in
+  biology, chemistry and physics written by domain experts, as run by Epoch AI. It shows how quickly
+  models went from chance-level guessing to near the benchmark's ceiling.
+metric:
+  name: Best GPQA Diamond accuracy (Epoch AI runs)
+  unit: '% of questions correct'
+  direction: higher
+  scale: linear
+  limit:
+    value: 100
+    label: Every question correct
+    source: epoch-benchmarks
+  explainer: 'GPQA was built in 2023 by asking domain experts to write multiple-choice
+    questions in their own field that other experts could answer but that clever outsiders could not
+    look up. In the paper''s main set, experts got about two thirds right, while skilled people from other
+    fields, given unrestricted web search and more than half an hour per question, scored only about one
+    third, barely above guessing among four options. The Diamond subset keeps the 198 questions that both
+    expert checkers agreed on, making it the cleanest part of the set, and it became one of the standard
+    tests that AI developers report. A score here shows whether a model can apply specialist scientific
+    knowledge and several steps of reasoning, not just recall facts. Two things limit what the top of the
+    line means. Some questions are likely wrong or ambiguous: Epoch estimated in 2025 that roughly one in
+    twelve may be invalid, so no honest score is likely to reach 100%. And because the questions have been
+    public since 2023, later models may have seen them during training. This page uses only Epoch AI''s
+    own runs, done in one consistent way, rather than figures that developers report.'
+chart:
+  primary: record-chart
+  secondary:
+  - threshold-gauge
+series:
+- id: epoch-runs
+  label: Best model, Epoch AI runs
+update:
+  cadence: monthly
+  last_checked: '2026-11-09'
+  notes: 'Records are rebuilt from Epoch''s benchmark_data.zip (member gpqa_diamond.csv) by
+    scripts/fetchers/gpqa_diamond.py; do not edit them by hand. Values are Epoch''s mean_score times 100,
+    rounded to two decimals. A model is a record when its score beats every model with an earlier release
+    date. Dates are model release dates as Epoch lists them, not evaluation dates. Status confirmed is used
+    because Epoch, an independent organisation, runs the evaluations. Developer-reported scores are not
+    included.'
+sources:
+- id: epoch-benchmarks
+  name: Epoch AI, Benchmarking hub data (benchmark_data.zip)
+  url: https://epoch.ai/benchmarks/use-this-data
+  kind: dataset
+  primary: true
+  notes: 'File https://epoch.ai/data/benchmark_data.zip (updated 2026-11-09 when read), member
+    gpqa_diamond.csv. Licence CC BY 4.0: the page says the data is free to use, distribute and reproduce
+    with credit to the source and authors; benchmark questions and answers belong to their creators and
+    are not copied here. Credit line: "Data: Epoch AI, Benchmarking hub (epoch.ai/benchmarks), CC BY 4.0."'
+- id: gpqa-paper
+  name: Rein et al., GPQA, arXiv:2311.12022
+  url: https://arxiv.org/abs/2311.12022
+  kind: paper
+- id: epoch-gpqa-whats-left
+  name: Epoch AI (Greg Burnham), GPQA Diamond, what's left?
+  url: https://epoch.ai/gradient-updates/gpqa-diamond-whats-left
+  kind: report
+  notes: Source for the 198-question size, the both-experts-agree rule for Diamond, and the estimate that
+    about 8% of questions may be invalid (the author calls it rough, from a small sample).
+events:
+- date: '2023-11-20'
+  kind: paper
+  title: GPQA paper released; experts score 65%, web-searching non-experts 34%, GPT-4 39%
+  why_it_matters: Created a science test that could not be passed by searching the web, giving a clear
+    gap between expert and lay performance for AI to close.
+  url: https://arxiv.org/abs/2311.12022
+- date: '2025-05-30'
+  kind: news
+  title: Epoch estimates that about 8% of GPQA Diamond questions may be invalid
+  why_it_matters: With top models already above 80%, the remaining headroom is small, and part of it may
+    be questions with no defensible answer.
+  url: https://epoch.ai/gradient-updates/gpqa-diamond-whats-left
+reading: []
+connections:
+- ai-capabilities-index
+records: []
