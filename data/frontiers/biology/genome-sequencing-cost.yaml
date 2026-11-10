@@ -241,3 +241,6 @@ events:
   title: Last row of the NHGRI series in the DataHub copy, at about $525 per genome
   why_it_matters: The series stops in May 2022 in this copy, so readers should not treat the last value as today's price until NHGRI publishes a newer table.
   url: https://datahub.io/core/genome-sequencing-costs
+about:
+  what: "What it costs to read the full DNA sequence of one person."
+  why: "The first human genome took an international project more than a decade. As the cost of a genome fell, sequencing moved from a research feat to a routine tool for diagnosing rare diseases, guiding cancer treatment and studying whole populations."

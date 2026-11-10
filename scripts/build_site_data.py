@@ -25,9 +25,9 @@ def one_line(text):
 def dataset_credits(text):
     """Credit lines and required notices from each dataset NOTICE.md the frontier file mentions.
 
-    A NOTICE.md states its credit in one of three ways, tried in this order: a
-    "## Required credit" section, a sentence saying charts should carry the line "...", or a plain
-    "Credit:" paragraph. Lines starting with "> " outside the
+    A NOTICE.md states its credit in one of four ways, tried in this order: a
+    "## Required credit" section, a sentence saying charts should carry the line "...", a paragraph
+    starting Credit line: "..." (or "Credit line for ...:"), or a plain "Credit:" paragraph. Lines starting with "> " outside the
     credit section are a notice the source requires to be shown in full.
     """
     out, seen = [], set()
@@ -47,9 +47,35 @@ def dataset_credits(text):
             notice = notice.replace(body, "")
         else:
             q = re.search(r'carry the line[^"“]*["“]([^"”]+)["”]', notice)
-            line = q.group(1) if q else one_line(para.group(1)) if para else ""
+            named = re.search(r'^Credit line[^"“”:\n]{0,80}:\s*["“]([^"”]+)["”]', notice, re.M)
+            line = q.group(1) if q else one_line(named.group(1)) if named else one_line(para.group(1)) if para else ""
         required = "\n".join(l[2:] for l in notice.split("\n") if l.startswith("> ")).strip()
         out.append({"dataset": ds, "line": line, "notice": required})
+    return out
+
+
+# A credit an update run wrote into a source's notes, in the form: Credit line: "..." (also
+# "Credit line suggested:" and "Credit wording, ...:"). Only the quoted text is taken, so nothing is reworded.
+NOTE_CREDIT = re.compile(r'\bCredit (line|wording)\b([^"“”:]{0,80}):\s*["“]([^"”]{8,400})["”]')
+
+
+def source_credits(sources, already):
+    """Credit lines kept in a source's notes, for frontiers whose data has no dataset NOTICE.md.
+
+    `proposed` is true when the notes say the wording is a suggestion by the update run, not the
+    source's own. A line that a dataset NOTICE.md already gives is not repeated.
+    """
+    out, seen = [], {one_line(a).rstrip(".") for a in already}
+    for s in sources:
+        m = NOTE_CREDIT.search(one_line(s.get("notes")))
+        if not m:
+            continue
+        line = one_line(m.group(3))
+        if line.rstrip(".") in seen:
+            continue
+        seen.add(line.rstrip("."))
+        out.append({"dataset": "", "source": s["id"], "sourceName": s["name"], "line": line, "notice": "",
+                    "proposed": "suggest" in m.group(2).lower()})
     return out
 
 
@@ -75,6 +101,7 @@ def build():
         d = yaml.safe_load(text)
         metric = d.get("metric") or {}
         sources = d.get("sources") or []
+        credits = dataset_credits(text)
         frontiers.append({
             "id": d["id"],
             "title": d["title"],
@@ -82,6 +109,7 @@ def build():
             "subfield": d.get("subfield", ""),
             "dataStatus": d.get("status", ""),
             "summary": one_line(d.get("summary")),
+            "about": {"what": one_line((d.get("about") or {}).get("what")), "why": one_line((d.get("about") or {}).get("why"))},
             "metric": {
                 "name": metric.get("name", ""), "unit": metric.get("unit", ""),
                 "direction": metric.get("direction", "higher"), "scale": metric.get("scale", "linear"),
@@ -89,6 +117,7 @@ def build():
             },
             "explainer": one_line(metric.get("explainer")),
             "shape": (d.get("chart") or {}).get("primary", ""),
+            "shapes": [(d.get("chart") or {}).get("primary", "")] + list((d.get("chart") or {}).get("secondary") or []),
             "series": d.get("series") or [],
             "records": by_series(d.get("records"), lambda r: [
                 str(r["date"]), r["value"], r.get("holder") or "", r.get("conditions") or "",
@@ -96,18 +125,22 @@ def build():
             "observations": by_series(d.get("observations"), lambda r: [
                 str(r["date"]), r["value"], r.get("low"), r.get("high"), r.get("source") or "", one_line(r.get("note"))]),
             "items": [[str(i["id"]), i["label"], i.get("group") or "", i["status"], i.get("status_detail") or "",
-                       str(i.get("date_done") or ""), i.get("url") or "", i.get("ai_involvement") or ""]
+                       str(i.get("date_done") or ""), i.get("url") or "", i.get("ai_involvement") or "",
+                       i.get("by") or "", one_line(i.get("note"))]
                       for i in d.get("items") or []],
             "stages": d.get("stages") or [],
             "candidates": [{"name": c["name"], "developer": c.get("developer") or "", "kind": c.get("kind") or "",
-                            "stage": c.get("stage") or "", "key": one_line(c.get("key_result")), "url": c.get("url") or ""}
+                            "stage": c.get("stage") or "", "key": one_line(c.get("key_result")), "url": c.get("url") or "",
+                            "history": [{"stage": h["stage"], "date": str(h["date"]), "source": h.get("source") or "",
+                                         "url": h.get("url") or "", "note": one_line(h.get("note"))}
+                                        for h in c.get("history") or []]}
                            for c in d.get("candidates") or []],
             "events": [{"date": str(e["date"]), "kind": e.get("kind") or "", "title": e["title"],
                         "why": one_line(e.get("why_it_matters")), "url": e.get("url")} for e in d.get("events") or []],
             "reading": [{"title": r["title"], "author": r.get("author") or "", "kind": r.get("kind") or "",
                          "url": r.get("url"), "note": one_line(r.get("note"))} for r in d.get("reading") or []],
             "sources": [{"id": s["id"], "name": s["name"], "url": s.get("url"), "kind": s.get("kind")} for s in sources],
-            "credits": dataset_credits(text),
+            "credits": credits + source_credits(sources, [c["line"] for c in credits]),
             "lastChecked": str((d.get("update") or {}).get("last_checked", "")),
             "featured": (config.get("featured") or {}).get(d["id"]),
         })
@@ -128,6 +161,8 @@ def build():
     for f in frontiers:
         blocks = [k for k in ("records", "observations", "items", "candidates") if f[k]]
         print(f"  {f['id']}: {f['shape']}; blocks: {', '.join(blocks) or 'none'}; credits: {[c['line'][:90] for c in f['credits']]}")
+    noted = [f["id"] for f in frontiers if any(c.get("source") for c in f["credits"])]
+    print(f"Credit lines read from source notes: {len(noted)} frontier(s): {', '.join(noted) or 'none'}")
 
 
 if __name__ == "__main__":
