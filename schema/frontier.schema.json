@@ -5,52 +5,150 @@
   "description": "One tracked frontier: its metric, sources, records, events and reading list.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "title", "domain", "subfield", "status", "summary", "metric", "chart", "update", "sources", "records"],
+  "required": [
+    "id",
+    "title",
+    "domain",
+    "subfield",
+    "status",
+    "summary",
+    "metric",
+    "chart",
+    "update",
+    "sources"
+  ],
   "properties": {
     "id": {
       "description": "Stable slug. Must match the file name.",
       "type": "string",
       "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
     },
-    "title": { "type": "string", "minLength": 3 },
-    "domain": { "description": "A domain id from data/domains.yaml.", "type": "string" },
-    "subfield": { "description": "A subfield name listed under that domain.", "type": "string" },
+    "title": {
+      "type": "string",
+      "minLength": 3
+    },
+    "domain": {
+      "description": "A domain id from data/domains.yaml.",
+      "type": "string"
+    },
+    "subfield": {
+      "description": "A subfield name listed under that domain.",
+      "type": "string"
+    },
     "status": {
       "description": "draft: not shown on the site. live: shown. paused: shown but no longer updated.",
-      "enum": ["draft", "live", "paused"]
+      "enum": [
+        "draft",
+        "live",
+        "paused"
+      ]
     },
-    "summary": { "description": "One or two plain sentences on what this frontier measures and why it matters.", "type": "string", "minLength": 20 },
+    "summary": {
+      "description": "One or two plain sentences on what this frontier measures and why it matters.",
+      "type": "string",
+      "minLength": 20
+    },
     "metric": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["name", "unit", "direction"],
+      "required": [
+        "name",
+        "unit",
+        "direction"
+      ],
       "properties": {
-        "name": { "type": "string" },
-        "unit": { "type": "string" },
-        "direction": { "description": "Which way counts as progress.", "enum": ["higher", "lower"] },
-        "scale": { "enum": ["linear", "log"], "default": "linear" },
-        "explainer": { "description": "Five-minute plain-language explanation of the metric.", "type": "string" },
+        "name": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "direction": {
+          "description": "Which way counts as progress.",
+          "enum": [
+            "higher",
+            "lower"
+          ]
+        },
+        "scale": {
+          "enum": [
+            "linear",
+            "log"
+          ],
+          "default": "linear"
+        },
+        "explainer": {
+          "description": "Five-minute plain-language explanation of the metric.",
+          "type": "string"
+        },
         "limit": {
           "description": "A hard physical or theoretical ceiling, if one exists.",
           "type": "object",
           "additionalProperties": false,
-          "required": ["value", "label", "source"],
+          "required": [
+            "value",
+            "label",
+            "source"
+          ],
           "properties": {
-            "value": { "type": "number" },
-            "label": { "type": "string" },
-            "series": { "type": "string" },
-            "source": { "description": "A source id from this file.", "type": "string" }
+            "value": {
+              "type": "number"
+            },
+            "label": {
+              "type": "string"
+            },
+            "series": {
+              "type": "string"
+            },
+            "source": {
+              "description": "A source id from this file.",
+              "type": "string"
+            }
           }
         },
         "target": {
           "description": "A threshold that would be a milestone (for threshold gauges and glide paths).",
           "type": "object",
           "additionalProperties": false,
-          "required": ["value", "label"],
+          "required": [
+            "value",
+            "label"
+          ],
           "properties": {
-            "value": { "type": "number" },
-            "label": { "type": "string" },
-            "by": { "$ref": "#/$defs/date" }
+            "value": {
+              "type": "number"
+            },
+            "label": {
+              "type": "string"
+            },
+            "by": {
+              "$ref": "#/$defs/date"
+            }
+          }
+        },
+        "axes": {
+          "description": "Extra measured quantities beyond the main value, for charts that plot two things at once (target-zone scatter). Records give these in `extra`.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "name",
+              "unit"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(_[a-z0-9]+)*$"
+              },
+              "name": {
+                "type": "string"
+              },
+              "unit": {
+                "type": "string"
+              }
+            }
           }
         }
       }
@@ -58,10 +156,21 @@
     "chart": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["primary"],
+      "required": [
+        "primary"
+      ],
       "properties": {
-        "primary": { "description": "A chart shape id from data/chart-shapes.yaml.", "type": "string" },
-        "secondary": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+        "primary": {
+          "description": "A chart shape id from data/chart-shapes.yaml.",
+          "type": "string"
+        },
+        "secondary": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
       }
     },
     "series": {
@@ -70,22 +179,48 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "label"],
+        "required": [
+          "id",
+          "label"
+        ],
         "properties": {
-          "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
-          "label": { "type": "string" },
-          "group": { "type": "string" }
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "label": {
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          }
         }
       }
     },
     "update": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["cadence", "last_checked"],
+      "required": [
+        "cadence",
+        "last_checked"
+      ],
       "properties": {
-        "cadence": { "description": "How often the update routine should check this frontier.", "enum": ["weekly", "monthly", "quarterly", "yearly"] },
-        "last_checked": { "description": "Date the sources were last checked, whether or not anything changed.", "$ref": "#/$defs/fullDate" },
-        "notes": { "type": "string" }
+        "cadence": {
+          "description": "How often the update routine should check this frontier.",
+          "enum": [
+            "weekly",
+            "monthly",
+            "quarterly",
+            "yearly"
+          ]
+        },
+        "last_checked": {
+          "description": "Date the sources were last checked, whether or not anything changed.",
+          "$ref": "#/$defs/fullDate"
+        },
+        "notes": {
+          "type": "string"
+        }
       }
     },
     "sources": {
@@ -94,37 +229,107 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "name", "url", "kind"],
+        "required": [
+          "id",
+          "name",
+          "url",
+          "kind"
+        ],
         "properties": {
-          "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
-          "name": { "type": "string" },
-          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
-          "kind": { "enum": ["dataset", "paper", "press", "report", "registry", "news", "other"] },
-          "primary": { "description": "True for the authoritative source the update routine checks first.", "type": "boolean" },
-          "notes": { "type": "string" }
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https?://"
+          },
+          "kind": {
+            "enum": [
+              "dataset",
+              "paper",
+              "press",
+              "report",
+              "registry",
+              "news",
+              "other"
+            ]
+          },
+          "primary": {
+            "description": "True for the authoritative source the update routine checks first.",
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string"
+          }
         }
       }
     },
     "records": {
-      "description": "Every value that set a new best at the time, newest last.",
+      "description": "Results that set or matched the best at the time, as published by the source. Order does not matter. Optional when the frontier is tracked with items, candidates or observations instead.",
       "type": "array",
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["date", "value", "holder", "status", "source"],
+        "required": [
+          "date",
+          "value",
+          "holder",
+          "status",
+          "source"
+        ],
         "properties": {
-          "date": { "description": "When the result was achieved. YYYY, YYYY-MM or YYYY-MM-DD.", "$ref": "#/$defs/date" },
-          "value": { "type": "number" },
-          "series": { "description": "A series id from this file.", "type": "string" },
-          "holder": { "description": "Lab, company or team that set the record.", "type": "string" },
-          "conditions": { "description": "Test conditions that matter for comparison (area, temperature, endpoint, trial).", "type": "string" },
+          "date": {
+            "description": "When the result was achieved. YYYY, YYYY-MM or YYYY-MM-DD.",
+            "$ref": "#/$defs/date"
+          },
+          "value": {
+            "type": "number"
+          },
+          "series": {
+            "description": "A series id from this file.",
+            "type": "string"
+          },
+          "holder": {
+            "description": "Lab, company or team that set the record.",
+            "type": "string"
+          },
+          "conditions": {
+            "description": "Test conditions that matter for comparison (area, temperature, endpoint, trial).",
+            "type": "string"
+          },
           "status": {
             "description": "claimed: announced only. peer_reviewed: in a refereed paper. confirmed: independently measured or replicated.",
-            "enum": ["claimed", "peer_reviewed", "confirmed", "retracted"]
+            "enum": [
+              "claimed",
+              "peer_reviewed",
+              "confirmed",
+              "retracted"
+            ]
           },
-          "source": { "description": "A source id from this file.", "type": "string" },
-          "url": { "description": "Direct link to the paper or announcement, if different from the source.", "type": "string", "pattern": "^https?://" },
-          "note": { "type": "string" }
+          "source": {
+            "description": "A source id from this file.",
+            "type": "string"
+          },
+          "url": {
+            "description": "Direct link to the paper or announcement, if different from the source.",
+            "type": "string",
+            "pattern": "^https?://"
+          },
+          "note": {
+            "type": "string"
+          },
+          "extra": {
+            "description": "Values for metric.axes, keyed by axis id.",
+            "type": "object",
+            "additionalProperties": {
+              "type": "number"
+            }
+          }
         }
       }
     },
@@ -134,13 +339,38 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["date", "kind", "title", "why_it_matters", "url"],
+        "required": [
+          "date",
+          "kind",
+          "title",
+          "why_it_matters",
+          "url"
+        ],
         "properties": {
-          "date": { "$ref": "#/$defs/date" },
-          "kind": { "enum": ["paper", "news", "milestone", "setback", "retraction", "dataset"] },
-          "title": { "type": "string" },
-          "why_it_matters": { "description": "One line, in our own words.", "type": "string" },
-          "url": { "type": "string", "pattern": "^https?://" }
+          "date": {
+            "$ref": "#/$defs/date"
+          },
+          "kind": {
+            "enum": [
+              "paper",
+              "news",
+              "milestone",
+              "setback",
+              "retraction",
+              "dataset"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "why_it_matters": {
+            "description": "One line, in our own words.",
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https?://"
+          }
         }
       }
     },
@@ -150,25 +380,247 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["level", "title", "kind"],
+        "required": [
+          "level",
+          "title",
+          "kind"
+        ],
         "properties": {
-          "level": { "enum": ["5min", "1hr", "deep"] },
-          "title": { "type": "string" },
-          "author": { "type": "string" },
-          "kind": { "enum": ["article", "video", "book", "paper", "course", "podcast"] },
-          "url": { "type": "string", "pattern": "^https?://" },
-          "note": { "type": "string" }
+          "level": {
+            "enum": [
+              "5min",
+              "1hr",
+              "deep"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "article",
+              "video",
+              "book",
+              "paper",
+              "course",
+              "podcast"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https?://"
+          },
+          "note": {
+            "type": "string"
+          }
         }
       }
     },
     "connections": {
       "description": "Other frontier ids this one depends on or unlocks.",
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
+    },
+    "observations": {
+      "description": "A regular time series that is not a record (case counts, coverage, prices). Used by race-to-zero, glide-path, coverage and cost charts.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "date",
+          "value",
+          "source"
+        ],
+        "properties": {
+          "date": {
+            "$ref": "#/$defs/date"
+          },
+          "value": {
+            "type": "number"
+          },
+          "series": {
+            "type": "string"
+          },
+          "low": {
+            "description": "Lower bound of an estimate range.",
+            "type": "number"
+          },
+          "high": {
+            "description": "Upper bound of an estimate range.",
+            "type": "number"
+          },
+          "source": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "items": {
+      "description": "A fixed list to complete, for countdown grids and natural maps (problems, countries, diseases).",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "status",
+          "source"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "status": {
+            "description": "open, done (solved, eliminated, certified), partial, or disputed.",
+            "enum": [
+              "open",
+              "done",
+              "partial",
+              "disputed"
+            ]
+          },
+          "status_detail": {
+            "description": "The source's own status wording, kept verbatim (for example 'proved', 'disproved', 'certified malaria-free').",
+            "type": "string"
+          },
+          "date_done": {
+            "$ref": "#/$defs/date"
+          },
+          "by": {
+            "type": "string"
+          },
+          "ai_involvement": {
+            "description": "For research problems: how much AI contributed, if the source says.",
+            "enum": [
+              "none",
+              "assisted",
+              "primary",
+              "unknown"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https?://"
+          },
+          "source": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "candidates": {
+      "description": "Things moving through stages (vaccines, drugs, reactors, machines), for stage timelines and pipeline funnels.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "stage",
+          "source"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "developer": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "stage": {
+            "description": "Current stage; must be one of `stages`.",
+            "type": "string"
+          },
+          "history": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "stage",
+                "date",
+                "source"
+              ],
+              "properties": {
+                "stage": {
+                  "type": "string"
+                },
+                "date": {
+                  "$ref": "#/$defs/date"
+                },
+                "source": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "pattern": "^https?://"
+                },
+                "note": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "key_result": {
+            "description": "Headline result with its endpoint stated, e.g. 'Efficacy 75% against clinical malaria over 12 months, phase 3, children 5-36 months'.",
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https?://"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "stages": {
+      "description": "Ordered stage names used by `candidates`.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
     }
   },
   "$defs": {
-    "date": { "type": "string", "pattern": "^[0-9]{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?$" },
-    "fullDate": { "type": "string", "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$" }
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?)?$"
+    },
+    "fullDate": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+    }
   }
 }
