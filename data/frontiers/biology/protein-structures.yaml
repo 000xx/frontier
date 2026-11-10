@@ -28,13 +28,16 @@ series:
 update:
   cadence: yearly
   last_checked: '2026-11-09'
-  notes: 'Observations run from 1976 to 2024 and were read on 2026-11-09 from the RCSB statistics page. No 2025 row
-    was available: the release.rcsb.org copy of the page was refused by the fetch tool, and the www.rcsb.org copy did
-    not return the table. Add 2025 once it can be read. The coverage meter needs a denominator, meaning a whole to
+  notes: 'Observations run from 1976 to 2024 and were read on 2026-11-09 from the RCSB statistics page (bioinformatics.rcsb.org) and matched the copied CSV on all
+    49 rows. The RCSB search and holdings APIs could not be fetched, so the counts are checked against the page only,
+    not a machine-readable feed. The www.rcsb.org copy of the page has no table. No 2025 row was available on either
+    copy. Add 2025 once it can be read. The coverage meter needs a denominator, meaning a whole to
     measure against; none has been sourced, so the site cannot draw a meaningful percentage yet. AlphaFold Database
     size is unresolved: the EBI homepage says "over 260 million protein structure predictions" and also says "the
     latest database release contains over 200 million entries" on the same page. The 2022 EMBL-EBI release figure
-    ("over 200 million") is used in events; the homepage figure is not used until the conflict is resolved.'
+    ("over 200 million") is used in events; the homepage figure is not used until the conflict is resolved. Re-checked 2026-11-09: the homepage still gives both
+    "over 260 million protein structure predictions" and "over 200 million entries" with no release date, so no
+    current total is recorded.'
 sources:
 - id: rcsb-growth-stats
   name: 'RCSB PDB, PDB Statistics: Overall Growth of Released Structures Per Year'
