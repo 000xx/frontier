@@ -69,17 +69,23 @@ def _columns(header):
     cols = {}
     for i, cell in enumerate(header):
         name = cell.lower()
-        if name.startswith("rank") and "rank" not in cols:
+        if name in ("#", "rank") and "rank" not in cols:
             cols["rank"] = i
-        elif "exponent" in name:
+        elif "exponent" in name or re.fullmatch(r"2\s*p\s*-\s*1", name):
             cols["exp"] = i
         elif name.startswith("digits"):
             cols["digits"] = i
         elif "date" in name:
             cols["date"] = i
-        elif name.startswith("discoverer"):
+        elif name.startswith("discover") and "date" not in name:
             cols["holder"] = i
     return cols if {"exp", "digits", "date", "holder"} <= cols.keys() else None
+
+
+def _exp(text):
+    """The exponent from a cell reading 2^p-1 (the page writes it as 2, then p as a superscript, then -1)."""
+    m = re.fullmatch(r"2([\d,]+)-1", text.replace(" ", ""))
+    return int(m.group(1).replace(",", "")) if m else None
 
 
 def _int(text, what):
@@ -111,24 +117,19 @@ def _rows(raw):
             continue
         out = []
         for cells in table[h + 1:]:
-            if len(cells) <= max(cols.values()) or not re.fullmatch(r"\d[\d,]*\*?", cells[cols["exp"]]):
+            if len(cells) <= max(cols.values()) or _exp(cells[cols["exp"]]) is None:
                 continue
             holder = cells[cols["holder"]]
             if not holder:
                 raise common.SourceError("a row of the GIMPS table has no discoverer")
             out.append({
-                "exp": _int(cells[cols["exp"]], "exponent"),
+                "exp": _exp(cells[cols["exp"]]),
                 "digits": _int(cells[cols["digits"]], "digit count"),
                 "date": _date(cells[cols["date"]]),
                 "holder": holder,
                 "provisional": "*" in (cells[cols["rank"]] if "rank" in cols else ""),
             })
         return out
-    print("DEBUG tables", len(parser.tables), "table tags", raw.lower().count("<table"), "tr", raw.lower().count("<tr"))
-    for t in parser.tables[:5]:
-        print("DEBUG table first rows", t[:2])
-    i = raw.find("Digits")
-    print("DEBUG context", repr(raw[max(0, i - 900):i + 300]) if i >= 0 else "no 'Digits' in page")
     raise common.SourceError("the GIMPS table was not found (no header with exponent, digits, date and discoverer)")
 
 
