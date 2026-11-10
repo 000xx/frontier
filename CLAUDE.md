@@ -7,7 +7,7 @@ This repository is the data backend for a site tracking scientific and technolog
 The owner wants updates to move with as few checkpoints as possible:
 
 - Put every change on its own branch, named `update/<frontier-id>-<YYYY-MM-DD>`, and open a pull request once `python scripts/validate.py` passes.
-- Do not merge pull requests yourself; merging is done by the owner or a session they have approved for it. Never push to `main` directly, and never force-push.
+- Once validation passes, merge your own pull request through the GitHub API (`gh api -X PUT repos/000xx/frontier/pulls/<n>/merge -f merge_method=merge`). The owner approved this on 2026-11-09. Never push to `main` directly, and never force-push.
 - Do the whole job without stopping to ask. Raise a problem in the pull request description, and in your report back, when it needs the owner's judgment. Examples: a source's terms that restrict use, a maintainer's stated wishes, data you could not verify, or a number that looks wrong.
 
 ## Rules for data
@@ -41,4 +41,4 @@ The owner wants updates to move with as few checkpoints as possible:
 2. For each, check the primary source first, then the others.
 3. Add new records, observations and up to five events per month that genuinely matter. Failures and retractions count.
 4. Set `update.last_checked` to today, even if nothing changed.
-5. One pull request per frontier, listing each change with its source.
+5. One pull request per frontier, listing each change with its source; merge it once validation passes.
