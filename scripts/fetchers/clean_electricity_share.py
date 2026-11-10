@@ -18,6 +18,7 @@ NON_FOSSIL = ["Hydropower", "Solar", "Wind", "Nuclear", "Other renewables", "Bio
 FOSSIL = ["Coal", "Gas", "Oil"]
 REQUIRED = ["Entity", "Code", "Year"] + NON_FOSSIL + FOSSIL
 SERIES = [("low-carbon", "Low-carbon"), ("wind", "Wind"), ("solar", "Solar")]
+FIRST_YEAR = 2000  # the frontier covers 2000 onward; the source goes back to 1900
 MIN_WORLD_YEARS = 20
 
 
@@ -43,6 +44,8 @@ def read_world(raw):
         if not re.fullmatch(r"\d{4}", year):
             raise common.SourceError(f"World row has a bad year: {year!r}")
         year = int(year)
+        if year < FIRST_YEAR:
+            continue
         if year in world:
             raise common.SourceError(f"World {year} appears more than once")
         cells = {c: row[c].strip() for c in NON_FOSSIL + FOSSIL}
