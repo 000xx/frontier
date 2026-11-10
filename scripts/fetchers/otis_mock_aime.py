@@ -23,7 +23,7 @@ FILES = {
     "epoch-runs": "otis_mock_aime_2024_2025.csv",
 }
 MODEL, SCORE, DATE, ORG, STDERR = "Model version", "mean_score", "Release date", "Organization", "stderr"
-MIN_ROWS = 10          # discovery run: not yet set from the file
+MIN_ROWS = 200         # the file had 315 rows in November 2026
 REVISES_PAST = True    # Epoch re-runs models and fixes release dates; removals still go to review
 
 
