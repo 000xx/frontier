@@ -1,0 +1,28 @@
+id: open-access
+title: Open access
+domain: knowledge
+subfield: Open knowledge
+status: draft
+summary: placeholder
+metric:
+  name: placeholder
+  unit: '%'
+  direction: higher
+  scale: linear
+  explainer: placeholder
+chart:
+  primary: coverage-meter
+series:
+- id: articles
+  label: Articles
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+sources:
+- id: openalex
+  name: placeholder
+  url: https://openalex.org/
+  kind: dataset
+  primary: true
+events: []
+observations: []
