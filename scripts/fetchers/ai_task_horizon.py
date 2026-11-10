@@ -18,18 +18,15 @@ def _show(label, obj, limit=1500):
 
 def fetch():
     raw = common.get(YAML_URL)
-    print("bytes:", len(raw), "sha256:", hashlib.sha256(raw).hexdigest())
-    print("head bytes:", repr(raw[:400]))
-    try:
-        doc = yaml.safe_load(raw)
-    except yaml.YAMLError as exc:
-        print("yaml parse error:", str(exc)[:500])
-        return []
-    _show("document", doc, 2500)
-    if isinstance(doc, dict):
-        for key, val in doc.items():
-            _show(f"key {key!r}", val, 800)
+    doc = yaml.safe_load(raw)
+    res = doc["results"]
+    print("result entries:", len(res), "top keys:", sorted(doc.keys()))
+    for key, e in res.items():
+        m = e.get("metrics", {})
+        p50 = m.get("p50_horizon_length")
+        p80 = m.get("p80_horizon_length")
+        extra = sorted(set(e.keys()) - {"benchmark_name", "metrics", "release_date", "scaffolds"})
+        print(repr(key), "|", e.get("release_date"), "| p50", p50, "| p80", (p80 or {}).get("estimate"), "| sota", m.get("is_sota"), "| other", extra, "| metrics", sorted(m.keys()))
     rel = common.get(RELEASES_URL)
-    print("release dates bytes:", len(rel))
-    print(rel[:600].decode("utf-8", "replace"))
+    print(rel.decode("utf-8", "replace"))
     return []
