@@ -65,6 +65,16 @@ observations:
 - {date: '2018', series: deaths, value: 1478186, source: owid-tb-deaths}
 - {date: '2019', series: cases, value: 10307117, source: owid-tb-cases}
 - {date: '2019', series: deaths, value: 1397183, source: owid-tb-deaths}
+- {date: '2020', series: cases, value: 10173717, source: owid-tb-cases}
+- {date: '2021', series: cases, value: 10319052, source: owid-tb-cases}
+- {date: '2022', series: cases, value: 10600103, source: owid-tb-cases}
+- {date: '2023', series: cases, value: 10653626, source: owid-tb-cases}
+- {date: '2024', series: cases, value: 10553581, source: owid-tb-cases}
+- {date: '2020', series: deaths, value: 1389311, source: owid-tb-deaths}
+- {date: '2021', series: deaths, value: 1402435, source: owid-tb-deaths}
+- {date: '2022', series: deaths, value: 1327167, source: owid-tb-deaths}
+- {date: '2023', series: deaths, value: 1241137, source: owid-tb-deaths}
+- {date: '2024', series: deaths, value: 1198800, source: owid-tb-deaths}
 sources:
 - id: owid-tb-deaths
   name: Our World in Data, Tuberculosis deaths (WHO 2025, processed by Our World in Data)
