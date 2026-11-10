@@ -1,0 +1,39 @@
+# Records are rebuilt from Epoch AI's benchmark data by scripts/fetchers/chess_puzzles.py.
+# Edit the other fields by hand; never edit the records directly.
+id: chess-puzzles
+title: AI solving chess puzzles (Epoch chess puzzles benchmark)
+domain: ai
+subfield: Capability
+status: draft
+summary: placeholder until the source has been read.
+metric:
+  name: Best chess puzzles score (Epoch AI runs)
+  unit: '% of puzzles solved'
+  direction: higher
+  scale: linear
+  limit:
+    value: 100
+    label: Every puzzle solved
+    source: epoch-benchmarks
+  explainer: placeholder
+chart:
+  primary: record-chart
+  secondary:
+  - threshold-gauge
+series:
+- id: epoch-runs
+  label: Best model, Epoch AI runs
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'placeholder'
+sources:
+- id: epoch-benchmarks
+  name: Epoch AI, Benchmarking hub data (benchmark_data.zip)
+  url: https://epoch.ai/benchmarks/use-this-data
+  kind: dataset
+  primary: true
+  notes: 'File https://epoch.ai/data/benchmark_data.zip (updated 2026-11-09 when read), member
+    chess_puzzles.csv. Licence CC BY 4.0 for Epoch data. Credit line: "Data: Epoch AI, Benchmarking hub (epoch.ai/benchmarks), CC BY 4.0."'
+events: []
+reading: []
