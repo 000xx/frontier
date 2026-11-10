@@ -1,0 +1,163 @@
+# Items are written by hand from the pages listed under sources; each value was read in this run.
+# One item per Busy Beaver value for 2-symbol Turing machines, measured in steps (S(n), written BB(n)).
+id: busy-beaver
+title: Busy Beaver values
+domain: mathematics
+subfield: Open problems
+status: live
+summary: The longest any small computer program of a given size can run before stopping. Only the first five
+  values are known; the fifth took a worldwide online collaboration and a machine-checked proof in 2024, and
+  the sixth is so large it may never be pinned down.
+metric:
+  name: Busy Beaver values proven (2-symbol Turing machines)
+  unit: values
+  direction: higher
+  scale: linear
+  explainer: 'A Turing machine is the simplest model of a computer: a head that moves along a tape of 0s and 1s,
+    following a small table of rules that depends on which state it is in. The Busy Beaver number BB(n) asks:
+    of all machines with n states that eventually stop when started on a blank tape, which one runs longest,
+    and for how many steps? Tibor Radó defined it in 1962 as one of the simplest functions no computer can
+    calculate in general. To prove a value you must find the champion and then show that every other machine
+    of that size either stops sooner or runs forever, which means settling each machine''s fate one by one.
+    BB(5) = 47,176,870 was proposed in 1989 and only proven in 2024, when the bbchallenge collaboration
+    checked all 181,385,789 five-state machines with a proof verified by the Coq (now Rocq) proof assistant.
+    For six states, some machines behave like famously unsolved problems in number theory, so a proof may
+    be out of reach; what is known is a lower bound so large it needs towers of exponents just to write.
+    This frontier lists each value and whether it is proven; it does not track machines with more symbols.'
+chart:
+  primary: countdown-grid
+  secondary:
+  - problem-list
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Values are step counts, S(n), as used by bbchallenge. BB(1) to BB(4) and their dates come from the
+    reference column in Petersen (2017); the original papers were not opened. Open points for the owner: (1) the
+    bbchallenge wiki dates the BB(5) proof to June 2024, and the public announcement was on 2 July 2024; the
+    item uses June 2024. (2) The BB(5) paper (arXiv:2509.12337) was not checked for journal publication. (3)
+    The BB(6) lower bound is written as the wiki gives it, 10↑↑10↑↑10↑↑8; Scott Aaronson''s post of 28 June
+    2025 states the same June 2025 result as more than 2↑↑2↑↑2↑↑9. Such numbers cannot be stored in the
+    schema''s numeric fields, so it is kept as text. (4) The bbchallenge wiki is CC BY 4.0; only facts are
+    recorded, with credit to bbchallenge. No stated wishes about use were found. The statement in the
+    explainer that some six-state machines resemble unsolved number theory problems rests on the
+    "Antihydra" machine mentioned on the wiki''s 2025 review page; the comparison is ours. Check the
+    bbchallenge wiki and forum for new BB(6) bounds.'
+sources:
+- id: bbchallenge-wiki
+  name: bbchallenge wiki, main page (table of known Busy Beaver values)
+  url: https://wiki.bbchallenge.org/
+  kind: registry
+  primary: true
+  notes: Content under CC BY 4.0. Gives BB(2) = 6, BB(3) = 21, BB(4) = 107, BB(5) = 47,176,870 and BB(6) >
+    10↑↑10↑↑10↑↑8.
+- id: bbchallenge-wiki-bb5
+  name: bbchallenge wiki, "BB(5)"
+  url: https://wiki.bbchallenge.org/wiki/BB(5)
+  kind: registry
+  notes: Gives the history of BB(5) lower bounds from 1964 to 1989 and the Coq-BB5 proof by mxdys in June 2024.
+- id: bbchallenge-2024-announcement
+  name: bbchallenge forum, "[July 2nd 2024] We have proved BB(5) = 47,176,870" (Tristan Stérin)
+  url: https://discuss.bbchallenge.org/t/july-2nd-2024-we-have-proved-bb-5-47-176-870/237
+  kind: press
+- id: bbchallenge-2025-paper
+  name: The bbchallenge Collaboration, "Determination of the fifth Busy Beaver value", arXiv:2509.12337
+  url: https://arxiv.org/abs/2509.12337
+  kind: paper
+- id: bbchallenge-wiki-2025
+  name: 'bbchallenge wiki, "TYBR: 2025" (review of the year)'
+  url: https://wiki.bbchallenge.org/wiki/TYBR:_2025
+  kind: registry
+  notes: Gives the BB(6) champions found by mxdys on 16 June and 25 June 2025.
+- id: aaronson-2025
+  name: Scott Aaronson, "BusyBeaver(6) is really quite large" (Shtetl-Optimized, 28 June 2025)
+  url: https://scottaaronson.blog/?p=8972
+  kind: other
+- id: petersen-2017
+  name: H. Petersen, "Busy Beaver Scores and Alphabet Size", arXiv:1704.08752
+  url: https://arxiv.org/abs/1704.08752
+  kind: paper
+  notes: Table of S(n,2) with references, Rado 1962 for n = 1 and 2, Lin and Rado 1965 for n = 3, Brady 1983
+    for n = 4.
+items:
+- id: bb1
+  label: BB(1) = 1
+  group: 2-symbol
+  status: done
+  status_detail: proven
+  date_done: '1962'
+  by: T. Radó
+  source: petersen-2017
+- id: bb2
+  label: BB(2) = 6
+  group: 2-symbol
+  status: done
+  status_detail: proven
+  date_done: '1962'
+  by: T. Radó
+  source: petersen-2017
+- id: bb3
+  label: BB(3) = 21
+  group: 2-symbol
+  status: done
+  status_detail: proven
+  date_done: '1965'
+  by: Lin and T. Radó
+  source: petersen-2017
+- id: bb4
+  label: BB(4) = 107
+  group: 2-symbol
+  status: done
+  status_detail: proven
+  date_done: '1983'
+  by: A. Brady
+  source: petersen-2017
+- id: bb5
+  label: BB(5) = 47,176,870
+  group: 2-symbol
+  status: done
+  status_detail: proved in Coq (Coq-BB5)
+  date_done: '2024-06'
+  by: bbchallenge collaboration (Coq proof by mxdys)
+  url: https://wiki.bbchallenge.org/wiki/BB(5)
+  source: bbchallenge-wiki-bb5
+  note: The champion machine was found by H. Marxen and J. Buntrock in September 1989 and published in February
+    1990. The proof checks 181,385,789 five-state machines.
+- id: bb6
+  label: BB(6) > 10↑↑10↑↑10↑↑8
+  group: 2-symbol
+  status: open
+  status_detail: lower bound only
+  by: Current champion found by mxdys (bbchallenge), 25 June 2025
+  url: https://wiki.bbchallenge.org/wiki/TYBR:_2025
+  source: bbchallenge-wiki
+  note: Earlier in June 2025 mxdys had raised the bound to 10↑↑11010000. Aaronson's account credits Pavel Kropitz
+    with the best bound in 2022.
+events:
+- date: '1983'
+  kind: milestone
+  title: BB(4) = 107 is proven
+  why_it_matters: It was the last Busy Beaver value settled for four decades.
+  url: https://arxiv.org/abs/1704.08752
+- date: '1989-09'
+  kind: milestone
+  title: Marxen and Buntrock find the five-state machine that runs 47,176,870 steps
+  why_it_matters: It set the bound that later turned out to be exact, though proving that took 35 more years.
+  url: https://wiki.bbchallenge.org/wiki/BB(5)
+- date: '2024-07-02'
+  kind: milestone
+  title: bbchallenge announces a machine-checked proof that BB(5) = 47,176,870
+  why_it_matters: The first new Busy Beaver value in over 40 years was settled by an open online collaboration
+    and checked by a proof assistant, not by trusting a computer search.
+  url: https://discuss.bbchallenge.org/t/july-2nd-2024-we-have-proved-bb-5-47-176-870/237
+- date: '2025-06-25'
+  kind: news
+  title: A new six-state champion pushes the BB(6) lower bound past 10↑↑10↑↑10↑↑8
+  why_it_matters: Two record machines in ten days showed how far beyond ordinary numbers BB(6) lies.
+  url: https://scottaaronson.blog/?p=8972
+- date: '2025-09-15'
+  kind: paper
+  title: The bbchallenge Collaboration posts its BB(5) paper
+  why_it_matters: The full write-up lets mathematicians outside the project check how every five-state machine
+    was decided.
+  url: https://arxiv.org/abs/2509.12337
+reading: []
