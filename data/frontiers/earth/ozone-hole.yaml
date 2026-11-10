@@ -1,12 +1,13 @@
 # Observations are the yearly maximum Antarctic ozone hole area, in million square kilometres, from NASA Ozone Watch's
 # annual table (the largest daily ozone hole size in each year), 1979 to 2025. 1995 is absent because the source lists no
 # data for that year. The values are as shown on the page, one decimal place.
-# The table was read with WebFetch (summarised), so the fetcher dry run is the check against the page's own table.
+# The table was first read with WebFetch; the fetcher dry run (scripts/fetchers/ozone_hole.py) then matched all 46 years
+# on the page, so the values are checked against the source.
 id: ozone-hole
 title: Antarctic ozone hole
 domain: earth
 subfield: Climate and pollution
-status: draft
+status: live
 summary: The largest area of the Antarctic ozone hole each year, the thinned layer of stratospheric ozone that shields
   life from harmful ultraviolet light. Its size has stopped growing and is slowly shrinking after the ban on ozone-depleting gases.
 metric:
