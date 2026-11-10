@@ -114,10 +114,6 @@ def fetch():
     last_name = str(last["holder"]).split(",")[0].strip()
     last_value = Decimal(str(last["value"]))
 
-    _s, _p = _get(PAGE.format(edition="2026/06"))  # DEBUG-REMOVE
-    _n = parse_number_one(_p)  # DEBUG-REMOVE
-    print("DEBUG-REMOVE june parse:", _n, _to_pflops(_n[2], _n[3]), "stored:", last["value"])  # DEBUG-REMOVE
-
     edition = _next_edition(_edition_of(str(last["date"])))
     new_blocks, messages = [], []
     # Walk forward past editions that exist but do not change the record, stopping at the first
