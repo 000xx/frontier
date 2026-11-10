@@ -1,0 +1,105 @@
+# Observations are the world's adult literacy rate, the share of people aged 15 and over who can read and write a short
+# simple statement, for 1975 to 2024. They are the World rows of Our World in Data's grapher CSV (literacy-rate-adults,
+# OWID_WRL), opened 2026-11-09, which republishes UNESCO Institute for Statistics data. Values are stored as the source gives them.
+id: literacy
+title: Adult literacy
+domain: development
+subfield: Human development
+status: draft
+summary: The share of adults who can read and write, a basic skill that shapes access to work, health information and
+  schooling for the next generation. It has risen steadily for half a century and is one of the clearest long-run
+  measures of human development.
+metric:
+  name: Adult literacy rate (aged 15 and over), world
+  unit: '%'
+  direction: higher
+  scale: linear
+  explainer: 'Literacy is measured by asking people whether they can read and write a short, simple sentence about their
+    everyday life, or by using census and survey answers when no test is given. National figures are combined into a world
+    figure weighted by the adult population of each country. Many countries report literacy from self-declared answers,
+    so the measure can differ from test-based results. Because it is a share of adults, the rate moves slowly: most of the
+    gain comes from new generations who attend school, not from the older population changing.'
+chart:
+  primary: coverage-meter
+series:
+- id: world
+  label: World
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'UNESCO publishes literacy estimates irregularly, and the OWID page was last updated on 12 May 2026. To update, run
+    the literacy fetcher, which adds new years and reports any revised earlier year. Open for the owner: the UNESCO
+    Institute for Statistics terms of use were not opened, so the licence for copying these values is unconfirmed. The
+    World 2024 value was read from the CSV, not the interactive page.'
+sources:
+- id: owid-literacy-rate-adults
+  name: 'Our World in Data, adult literacy rate (World), from UNESCO Institute for Statistics'
+  url: https://ourworldindata.org/grapher/literacy-rate-adults
+  kind: dataset
+  primary: true
+  notes: 'Page and CSV (World rows, OWID_WRL) opened 2026-11-09. The page gives the citation "UNESCO Institute for Statistics
+    (2026) – with minor processing by Our World in Data". OWID''s own work is CC BY 4.0; it says third-party data remains
+    subject to the provider''s licence terms. The UNESCO terms were not checked. The CSV was read through WebFetch, so the
+    seeded values are checked by the fetcher dry run.'
+events:
+- date: '1998'
+  kind: milestone
+  title: World adult literacy passes 80 percent in 1998
+  why_it_matters: The share of adults who can read and write crossed four in five people, after a long, steady climb from about two thirds in the mid-1970s.
+  url: https://ourworldindata.org/grapher/literacy-rate-adults
+- date: '2024'
+  kind: milestone
+  title: The 2024 world adult literacy rate reaches 87.7 percent
+  why_it_matters: The latest value is the highest in the series, though the yearly gains have slowed since the 1990s.
+  url: https://ourworldindata.org/grapher/literacy-rate-adults
+observations:
+- {date: '1975', series: world, value: 65.42, source: owid-literacy-rate-adults}
+- {date: '1976', series: world, value: 65.57, source: owid-literacy-rate-adults}
+- {date: '1977', series: world, value: 65.88, source: owid-literacy-rate-adults}
+- {date: '1978', series: world, value: 66.5, source: owid-literacy-rate-adults}
+- {date: '1979', series: world, value: 67.15, source: owid-literacy-rate-adults}
+- {date: '1980', series: world, value: 67.76, source: owid-literacy-rate-adults}
+- {date: '1981', series: world, value: 68.35, source: owid-literacy-rate-adults}
+- {date: '1982', series: world, value: 68.93, source: owid-literacy-rate-adults}
+- {date: '1983', series: world, value: 69.49, source: owid-literacy-rate-adults}
+- {date: '1984', series: world, value: 70.15, source: owid-literacy-rate-adults}
+- {date: '1985', series: world, value: 70.73, source: owid-literacy-rate-adults}
+- {date: '1986', series: world, value: 71.27, source: owid-literacy-rate-adults}
+- {date: '1987', series: world, value: 71.94, source: owid-literacy-rate-adults}
+- {date: '1988', series: world, value: 73.55, source: owid-literacy-rate-adults}
+- {date: '1989', series: world, value: 74.07, source: owid-literacy-rate-adults}
+- {date: '1990', series: world, value: 74.63, source: owid-literacy-rate-adults}
+- {date: '1991', series: world, value: 75.06, source: owid-literacy-rate-adults}
+- {date: '1992', series: world, value: 75.51, source: owid-literacy-rate-adults}
+- {date: '1993', series: world, value: 75.97, source: owid-literacy-rate-adults}
+- {date: '1994', series: world, value: 76.42, source: owid-literacy-rate-adults}
+- {date: '1995', series: world, value: 76.87, source: owid-literacy-rate-adults}
+- {date: '1996', series: world, value: 77.3, source: owid-literacy-rate-adults}
+- {date: '1997', series: world, value: 79.3, source: owid-literacy-rate-adults}
+- {date: '1998', series: world, value: 80.52, source: owid-literacy-rate-adults}
+- {date: '1999', series: world, value: 80.9, source: owid-literacy-rate-adults}
+- {date: '2000', series: world, value: 81.12, source: owid-literacy-rate-adults}
+- {date: '2001', series: world, value: 81.37, source: owid-literacy-rate-adults}
+- {date: '2002', series: world, value: 81.74, source: owid-literacy-rate-adults}
+- {date: '2003', series: world, value: 82.22, source: owid-literacy-rate-adults}
+- {date: '2004', series: world, value: 82.56, source: owid-literacy-rate-adults}
+- {date: '2005', series: world, value: 82.57, source: owid-literacy-rate-adults}
+- {date: '2006', series: world, value: 82.53, source: owid-literacy-rate-adults}
+- {date: '2007', series: world, value: 83.12, source: owid-literacy-rate-adults}
+- {date: '2008', series: world, value: 83.48, source: owid-literacy-rate-adults}
+- {date: '2009', series: world, value: 83.8, source: owid-literacy-rate-adults}
+- {date: '2010', series: world, value: 84.37, source: owid-literacy-rate-adults}
+- {date: '2011', series: world, value: 84.71, source: owid-literacy-rate-adults}
+- {date: '2012', series: world, value: 84.91, source: owid-literacy-rate-adults}
+- {date: '2013', series: world, value: 85.21, source: owid-literacy-rate-adults}
+- {date: '2014', series: world, value: 85.56, source: owid-literacy-rate-adults}
+- {date: '2015', series: world, value: 85.96, source: owid-literacy-rate-adults}
+- {date: '2016', series: world, value: 86.28, source: owid-literacy-rate-adults}
+- {date: '2017', series: world, value: 86.47, source: owid-literacy-rate-adults}
+- {date: '2018', series: world, value: 86.76, source: owid-literacy-rate-adults}
+- {date: '2019', series: world, value: 86.79, source: owid-literacy-rate-adults}
+- {date: '2020', series: world, value: 86.98, source: owid-literacy-rate-adults}
+- {date: '2021', series: world, value: 87.17, source: owid-literacy-rate-adults}
+- {date: '2022', series: world, value: 87.39, source: owid-literacy-rate-adults}
+- {date: '2023', series: world, value: 87.58, source: owid-literacy-rate-adults}
+- {date: '2024', series: world, value: 87.74, source: owid-literacy-rate-adults}
