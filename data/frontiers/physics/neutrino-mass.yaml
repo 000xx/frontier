@@ -1,0 +1,155 @@
+# Records are transcribed by hand from the papers listed under sources; each value was read in this run.
+# Only direct, laboratory measurements from tritium beta decay are counted; cosmological bounds are not.
+id: neutrino-mass
+title: Neutrino mass from direct measurements
+domain: physics
+subfield: Searches and limits
+status: live
+summary: The tightest laboratory upper limit on the mass of the electron neutrino, measured from the energies of
+  electrons in tritium decay. Neutrinos are known to have some mass, but nobody has yet weighed one; the
+  limit has fallen from a few electronvolts in the Mainz and Troitsk experiments to below half an electronvolt
+  at KATRIN.
+metric:
+  name: Upper limit on the effective electron-antineutrino mass (direct, tritium beta decay)
+  unit: eV/c²
+  direction: lower
+  scale: log
+  explainer: 'Neutrinos switch between their three types as they travel, which is only possible if they have
+    mass, but those oscillation experiments measure differences between masses, not the masses themselves.
+    The most direct way to weigh a neutrino is to watch tritium, a radioactive form of hydrogen, decay. Each
+    decay shares a fixed amount of energy between an electron and an antineutrino. Because some energy must
+    go into the antineutrino''s mass, the very top of the electron energy spectrum is slightly cut off and
+    reshaped. The experiments measure that endpoint region with huge electrostatic spectrometers and ask how
+    heavy the neutrino could be without distorting it more than they see. So far the data are consistent with
+    zero, and each result is an upper limit at a stated confidence level (95% for Mainz and Troitsk, 90% for
+    KATRIN, so their numbers are not strictly like for like). Cosmology gives tighter limits on the sum of the
+    three masses, but those depend on a model of the whole universe; this frontier tracks the model-independent
+    laboratory route.'
+  target:
+    value: 0.3
+    label: KATRIN's expected final sensitivity, stated as below 300 meV (90% CL) for the full 1000-day data set
+chart:
+  primary: record-chart
+  secondary:
+  - closing-bounds
+series:
+- id: tritium-beta-decay
+  label: Tritium beta decay (Mainz, Troitsk, KATRIN)
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Values were read from the paper abstracts in this run. Dates are first arXiv submission dates. Open
+    points for the owner: (1) Mainz and Troitsk quote 95% confidence limits and KATRIN 90%; the schema has no
+    field for confidence level, so it is in the conditions text. (2) Troitsk gives three numbers (2.2 eV
+    sensitivity, 2.12 eV Bayesian, 2.05 eV Feldman-Cousins); 2.05 eV is used. (3) The target is KATRIN''s
+    expected final sensitivity from a June 2026 conference abstract, not a physical limit. (4) The schema has
+    no lower-bound field for the closing-bounds chart; oscillation data imply a lower bound but no value for it
+    was read in this run. KATRIN finished taking data in October 2025 and is analysing the full 1000-day data
+    set; check KATRIN, KIT and MPIK news for the final result. Project 8 and other new methods would also count.'
+sources:
+- id: katrin-2025
+  name: KATRIN, "Direct neutrino-mass measurement based on 259 days of KATRIN data", Science 388, 180-185 (2025),
+    arXiv:2406.13516, DOI 10.1126/science.adq9592
+  url: https://arxiv.org/abs/2406.13516
+  kind: paper
+  primary: true
+  notes: Current record. Journal details from the SFB 1258 news item
+    (https://www.sfb1258.de/news-items/precision-scale-katrin-sets-new-record-neutrinos-weigh-less-than-045-ev-c2).
+- id: sfb1258-2025
+  name: 'SFB 1258, "Precision scale: KATRIN sets new record, neutrinos weigh less than 0.45 eV/c²" (11 April 2025)'
+  url: https://www.sfb1258.de/news-items/precision-scale-katrin-sets-new-record-neutrinos-weigh-less-than-045-ev-c2
+  kind: news
+- id: katrin-2022
+  name: KATRIN, "Direct neutrino-mass measurement with sub-electronvolt sensitivity", Nature Physics 18, 160-166
+    (2022), arXiv:2105.08533, DOI 10.1038/s41567-021-01463-1
+  url: https://arxiv.org/abs/2105.08533
+  kind: paper
+  notes: Journal details from the US DOE Office of Science highlight
+    (https://www.energy.gov/science/np/articles/direct-neutrino-mass-measurement-achieves-new-sub-electronvolt-sensitivity).
+- id: doe-2022
+  name: US DOE Office of Science, "Direct Neutrino-Mass Measurement Achieves New, Sub-Electronvolt Sensitivity"
+    (13 June 2022)
+  url: https://www.energy.gov/science/np/articles/direct-neutrino-mass-measurement-achieves-new-sub-electronvolt-sensitivity
+  kind: news
+- id: katrin-2019
+  name: KATRIN, "An improved upper limit on the neutrino mass from a direct kinematic method by KATRIN", Phys. Rev.
+    Lett. 123, 221802 (2019), arXiv:1909.06048
+  url: https://arxiv.org/abs/1909.06048
+  kind: paper
+- id: troitsk-2011
+  name: V. N. Aseev et al., "An upper limit on electron antineutrino mass from Troitsk experiment", Phys. Rev. D
+    84, 112003 (2011), arXiv:1108.5034
+  url: https://arxiv.org/abs/1108.5034
+  kind: paper
+- id: mainz-2005
+  name: Ch. Kraus et al., "Final Results from phase II of the Mainz Neutrino Mass Search in Tritium β Decay"
+    (arXiv:hep-ex/0412056), DOI 10.1140/epjc/s2005-02139-7
+  url: https://arxiv.org/abs/hep-ex/0412056
+  kind: paper
+- id: mpik-1000-days
+  name: Max Planck Institute for Nuclear Physics, "1000 days of neutrino mass measurements" (27 October 2025)
+  url: https://www.mpi-hd.mpg.de/mpi/en/public-relations/news/news-item/1000-days-of-neutrino-mass-measurements
+  kind: news
+- id: katrin-final-talk-2026
+  name: K. Erhardt (KIT), "Towards the final analysis of the KATRIN data", conference talk, 23 June 2026
+  url: https://indico.global/event/14705/contributions/155014/
+  kind: other
+records:
+- date: '2004-12-20'
+  value: 2.3
+  series: tritium-beta-decay
+  holder: Mainz Neutrino Mass Experiment (Ch. Kraus et al.)
+  conditions: 95% confidence level; final phase II result
+  status: peer_reviewed
+  source: mainz-2005
+- date: '2011-08-25'
+  value: 2.05
+  series: tritium-beta-decay
+  holder: Troitsk nu-mass experiment (V. N. Aseev et al.)
+  conditions: 95% confidence level, Feldman-Cousins method
+  status: peer_reviewed
+  source: troitsk-2011
+  note: The same abstract gives 2.12 eV (95% CL) with Bayesian statistics and a sensitivity of 2.2 eV.
+- date: '2019-09-13'
+  value: 1.1
+  series: tritium-beta-decay
+  holder: KATRIN
+  conditions: 90% confidence level
+  status: peer_reviewed
+  source: katrin-2019
+- date: '2021-05-18'
+  value: 0.8
+  series: tritium-beta-decay
+  holder: KATRIN
+  conditions: 90% confidence level; first two measurement campaigns combined
+  status: peer_reviewed
+  source: katrin-2022
+  note: The second campaign alone gave 0.9 eV (90% CL).
+- date: '2024-06-19'
+  value: 0.45
+  series: tritium-beta-decay
+  holder: KATRIN
+  conditions: 90% confidence level; 259 days of data; best-fit m² = −0.14 (+0.13/−0.15) eV²
+  status: peer_reviewed
+  source: katrin-2025
+  note: Published in Science on 10 April 2025.
+events:
+- date: '2022-06-13'
+  kind: milestone
+  title: KATRIN pushes the direct neutrino-mass limit below 1 eV
+  why_it_matters: It was the first laboratory weighing sensitive enough to rule out neutrinos heavier than one
+    electronvolt without leaning on cosmology.
+  url: https://www.energy.gov/science/np/articles/direct-neutrino-mass-measurement-achieves-new-sub-electronvolt-sensitivity
+- date: '2025-04-10'
+  kind: paper
+  title: KATRIN halves its limit to 0.45 eV
+  why_it_matters: Using only part of its planned data, the experiment cut the allowed neutrino mass nearly in half
+    again, and the result still fits a mass of zero.
+  url: https://www.sfb1258.de/news-items/precision-scale-katrin-sets-new-record-neutrinos-weigh-less-than-045-ev-c2
+- date: '2025-10-26'
+  kind: milestone
+  title: KATRIN completes 1000 days of measurement
+  why_it_matters: Data taking is over, so the next limit, expected to reach below 0.3 eV, now depends only on the
+    analysis of the full data set.
+  url: https://www.mpi-hd.mpg.de/mpi/en/public-relations/news/news-item/1000-days-of-neutrino-mass-measurements
+reading: []
