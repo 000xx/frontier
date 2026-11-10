@@ -156,9 +156,10 @@ def build_csv(raw):
         r = list(r) + [None] * (len(headers) - len(r))
         if all(c is None or (isinstance(c, str) and not c.strip()) for c in r):
             continue
-        row = {key: _text(r[i]) for key, i in cols.items()}
+        row = {key: _text(r[i]) for key, i in cols.items() if key != "measurement_date"}
         if not row["record_id"]:
             raise common.SourceError(f"row without a record identifier: {r[:8]}")
+        row = {"record_id": row["record_id"], "measurement_date": None, **row}
         row["measurement_date"] = _date(r[cols["measurement_date"]], row["record_id"])
         eff = next((_text(r[i]) for i in eff_cols if _text(r[i]) != ""), "")
         try:
