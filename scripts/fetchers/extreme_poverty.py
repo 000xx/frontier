@@ -14,7 +14,7 @@ from . import common
 
 FRONTIER = "data/frontiers/development/extreme-poverty.yaml"
 URL = "https://ourworldindata.org/grapher/share-of-population-in-extreme-poverty.csv?country=OWID_WRL"
-COLUMN = "Share of population in extreme poverty, $3.00 a day"
+COLUMN = "Share of population in poverty ($3 a day)"
 SOURCE_ID = "owid-extreme-poverty"
 ID_COLUMNS = ("Entity", "Code", "Year")
 MIN_YEARS = 20
