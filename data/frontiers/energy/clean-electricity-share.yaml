@@ -1,11 +1,16 @@
-# Observations are annual shares as Ember published them. Only figures from pages opened on 2026-11-09 are included.
-# Ember's 2025 review gives 2023 and 2024 low-carbon shares. Its 2026 review (figures relayed by press) gives
-# a 2025 renewables share but no 2025 low-carbon total, so 2025 is left out until Ember's own page can be read.
+# Observations are annual shares of world electricity generation for 2000 to 2025, all taken from one source:
+# Ember's yearly electricity data, as republished in the Our World in Data table for World (OWID_WRL), opened 2026-11-09.
+# Values are rounded to two decimal places from the source's full-precision figures.
+# Wind and solar are the source's own columns. The low-carbon share is not a column in the source: it is the sum of
+# the source's hydropower, solar, wind, nuclear, other renewables and bioenergy shares. That sum gives 39.42 for 2023
+# and 40.91 for 2024, matching Ember's 2025 review (39.4 and 40.9), and 33.76 renewables for 2025, matching the 33.8
+# percent Ember reports for 2026. The earlier observations from Ember's 2025 review are replaced by this single source.
+# Ember's data catalogue lists a global yearly CSV; this run could not download it (robots rule), so OWID's copy was used.
 id: clean-electricity-share
 title: Clean electricity share
 domain: energy
 subfield: Grid and transition
-status: draft
+status: live
 summary: The share of the world's electricity that comes from low-carbon sources (renewables plus nuclear),
   with solar and wind shown separately. It shows how far the grid has moved away from fossil fuels.
 metric:
@@ -33,22 +38,33 @@ series:
 update:
   cadence: yearly
   last_checked: '2026-11-09'
-  notes: 'Ember publishes its Global Electricity Review once a year. To update, open the new review and the data
-    explorer, add the new year for each series, and check whether earlier years have been revised. Still to add:
-    a 2025 low-carbon total from Ember''s own page, earlier years from the data explorer, and the reading list.'
+  notes: 'Ember publishes its Global Electricity Review once a year, and its yearly data download is updated monthly.
+    To update, open Ember''s yearly data and the Our World in Data table for World, add the new year for each series
+    (low-carbon as the sum of the non-fossil shares), and check whether earlier years have been revised. Still to add:
+    the reading list.'
 sources:
+- id: ember-yearly-data
+  name: Ember, yearly electricity data (global generation by source)
+  url: https://ember-energy.org/data-catalogue/yearly-electricity-data/
+  kind: dataset
+  primary: true
+  notes: Catalogue page opened 2026-11-09; it states that content is released under CC BY 4.0 and names Ember Energy
+    Research CIC. The CSV itself (release_generation_yearly_global.csv) is disallowed for automated fetching by the
+    file host's robots rule, so the figures were taken from the Our World in Data copy below. Ember's page gives no
+    exact credit wording; see the notes on the credit line.
+- id: owid-share-elec-by-source
+  name: Our World in Data, share of electricity production by source (World), built from Ember data
+  url: https://ourworldindata.org/grapher/share-elec-by-source
+  kind: dataset
+  notes: CSV opened 2026-11-09 at https://ourworldindata.org/grapher/share-elec-by-source.csv?country=OWID_WRL (the
+    file returned contains all entities; the World rows for 1900 to 2025 were read from it). Used for every
+    observation in this file. Cite both OWID and Ember.
 - id: ember-ger-2025
   name: Ember, Global Electricity Review 2025 (2024 in review)
   url: https://ember-energy.org/latest-insights/global-electricity-review-2025/2024-in-review/
   kind: report
-  primary: true
-  notes: Source of the 2023 and 2024 observations. Content is released under CC BY 4.0. Ember's page gives no
-    exact credit wording, so the credit line used on the site is in the notes below.
-- id: ember-ger-2025-overview
-  name: Ember, Global Electricity Review 2025 (overview page)
-  url: https://ember-energy.org/latest-insights/global-electricity-review-2025/
-  kind: report
-  notes: Overview of the same review. Used to check the 2024 and 2023 figures and the licence.
+  notes: Used for the 2024 milestone event. Its 2023 and 2024 low-carbon figures (39.4 and 40.9) agree with the
+    observations here. Content is released under CC BY 4.0.
 - id: ember-ger-2026-energyconnects
   name: 'EnergyConnects: Renewables Topped Coal in Global Power Mix in 2025, Ember Says (April 2026)'
   url: https://www.energyconnects.com/news/renewables/2026/april/renewables-topped-coal-in-global-power-mix-in-2025-ember-says/
@@ -76,23 +92,81 @@ events:
   why_it_matters: Solar is now the largest of the two variable renewables, so its growth drives most of the rise in clean power.
   url: https://www.pv-tech.org/global-solar-generation-met-three-quarters-of-new-power-demand-in-2025-ember
 observations:
-- date: '2023'
-  series: low-carbon
-  value: 39.4
-  source: ember-ger-2025
-  note: Low-carbon share of global electricity generation, as given in Ember's 2025 review.
-- date: '2024'
-  series: low-carbon
-  value: 40.9
-  source: ember-ger-2025
-  note: Low-carbon share of global electricity generation (12,609 TWh), as given in Ember's 2025 review.
-- date: '2024'
-  series: wind
-  value: 8.1
-  source: ember-ger-2025
-  note: Wind share of global electricity generation, as given in Ember's 2025 review.
-- date: '2024'
-  series: solar
-  value: 6.9
-  source: ember-ger-2025
-  note: Solar share of global electricity generation, as given in Ember's 2025 review.
+- {date: '2000', series: low-carbon, value: 35.34, source: owid-share-elec-by-source}
+- {date: '2001', series: low-carbon, value: 34.90, source: owid-share-elec-by-source}
+- {date: '2002', series: low-carbon, value: 34.45, source: owid-share-elec-by-source}
+- {date: '2003', series: low-carbon, value: 33.08, source: owid-share-elec-by-source}
+- {date: '2004', series: low-carbon, value: 33.60, source: owid-share-elec-by-source}
+- {date: '2005', series: low-carbon, value: 33.13, source: owid-share-elec-by-source}
+- {date: '2006', series: low-carbon, value: 32.89, source: owid-share-elec-by-source}
+- {date: '2007', series: low-carbon, value: 31.69, source: owid-share-elec-by-source}
+- {date: '2008', series: low-carbon, value: 32.31, source: owid-share-elec-by-source}
+- {date: '2009', series: low-carbon, value: 32.79, source: owid-share-elec-by-source}
+- {date: '2010', series: low-carbon, value: 32.54, source: owid-share-elec-by-source}
+- {date: '2011', series: low-carbon, value: 31.90, source: owid-share-elec-by-source}
+- {date: '2012', series: low-carbon, value: 31.78, source: owid-share-elec-by-source}
+- {date: '2013', series: low-carbon, value: 32.29, source: owid-share-elec-by-source}
+- {date: '2014', series: low-carbon, value: 32.78, source: owid-share-elec-by-source}
+- {date: '2015', series: low-carbon, value: 33.52, source: owid-share-elec-by-source}
+- {date: '2016', series: low-carbon, value: 34.14, source: owid-share-elec-by-source}
+- {date: '2017', series: low-carbon, value: 34.66, source: owid-share-elec-by-source}
+- {date: '2018', series: low-carbon, value: 35.14, source: owid-share-elec-by-source}
+- {date: '2019', series: low-carbon, value: 36.34, source: owid-share-elec-by-source}
+- {date: '2020', series: low-carbon, value: 37.90, source: owid-share-elec-by-source}
+- {date: '2021', series: low-carbon, value: 37.88, source: owid-share-elec-by-source}
+- {date: '2022', series: low-carbon, value: 38.60, source: owid-share-elec-by-source}
+- {date: '2023', series: low-carbon, value: 39.42, source: owid-share-elec-by-source}
+- {date: '2024', series: low-carbon, value: 40.91, source: owid-share-elec-by-source}
+- {date: '2025', series: low-carbon, value: 42.61, source: owid-share-elec-by-source}
+- {date: '2000', series: wind, value: 0.20, source: owid-share-elec-by-source}
+- {date: '2001', series: wind, value: 0.25, source: owid-share-elec-by-source}
+- {date: '2002', series: wind, value: 0.33, source: owid-share-elec-by-source}
+- {date: '2003', series: wind, value: 0.38, source: owid-share-elec-by-source}
+- {date: '2004', series: wind, value: 0.49, source: owid-share-elec-by-source}
+- {date: '2005', series: wind, value: 0.58, source: owid-share-elec-by-source}
+- {date: '2006', series: wind, value: 0.71, source: owid-share-elec-by-source}
+- {date: '2007', series: wind, value: 0.87, source: owid-share-elec-by-source}
+- {date: '2008', series: wind, value: 1.10, source: owid-share-elec-by-source}
+- {date: '2009', series: wind, value: 1.39, source: owid-share-elec-by-source}
+- {date: '2010', series: wind, value: 1.63, source: owid-share-elec-by-source}
+- {date: '2011', series: wind, value: 2.00, source: owid-share-elec-by-source}
+- {date: '2012', series: wind, value: 2.35, source: owid-share-elec-by-source}
+- {date: '2013', series: wind, value: 2.74, source: owid-share-elec-by-source}
+- {date: '2014', series: wind, value: 2.97, source: owid-share-elec-by-source}
+- {date: '2015', series: wind, value: 3.46, source: owid-share-elec-by-source}
+- {date: '2016', series: wind, value: 3.89, source: owid-share-elec-by-source}
+- {date: '2017', series: wind, value: 4.48, source: owid-share-elec-by-source}
+- {date: '2018', series: wind, value: 4.79, source: owid-share-elec-by-source}
+- {date: '2019', series: wind, value: 5.30, source: owid-share-elec-by-source}
+- {date: '2020', series: wind, value: 5.96, source: owid-share-elec-by-source}
+- {date: '2021', series: wind, value: 6.57, source: owid-share-elec-by-source}
+- {date: '2022', series: wind, value: 7.29, source: owid-share-elec-by-source}
+- {date: '2023', series: wind, value: 7.82, source: owid-share-elec-by-source}
+- {date: '2024', series: wind, value: 8.11, source: owid-share-elec-by-source}
+- {date: '2025', series: wind, value: 8.54, source: owid-share-elec-by-source}
+- {date: '2000', series: solar, value: 0.01, source: owid-share-elec-by-source}
+- {date: '2001', series: solar, value: 0.01, source: owid-share-elec-by-source}
+- {date: '2002', series: solar, value: 0.01, source: owid-share-elec-by-source}
+- {date: '2003', series: solar, value: 0.01, source: owid-share-elec-by-source}
+- {date: '2004', series: solar, value: 0.02, source: owid-share-elec-by-source}
+- {date: '2005', series: solar, value: 0.02, source: owid-share-elec-by-source}
+- {date: '2006', series: solar, value: 0.03, source: owid-share-elec-by-source}
+- {date: '2007', series: solar, value: 0.04, source: owid-share-elec-by-source}
+- {date: '2008', series: solar, value: 0.06, source: owid-share-elec-by-source}
+- {date: '2009', series: solar, value: 0.10, source: owid-share-elec-by-source}
+- {date: '2010', series: solar, value: 0.15, source: owid-share-elec-by-source}
+- {date: '2011', series: solar, value: 0.29, source: owid-share-elec-by-source}
+- {date: '2012', series: solar, value: 0.43, source: owid-share-elec-by-source}
+- {date: '2013', series: solar, value: 0.57, source: owid-share-elec-by-source}
+- {date: '2014', series: solar, value: 0.83, source: owid-share-elec-by-source}
+- {date: '2015', series: solar, value: 1.07, source: owid-share-elec-by-source}
+- {date: '2016', series: solar, value: 1.33, source: owid-share-elec-by-source}
+- {date: '2017', series: solar, value: 1.75, source: owid-share-elec-by-source}
+- {date: '2018', series: solar, value: 2.17, source: owid-share-elec-by-source}
+- {date: '2019', series: solar, value: 2.60, source: owid-share-elec-by-source}
+- {date: '2020', series: solar, value: 3.19, source: owid-share-elec-by-source}
+- {date: '2021', series: solar, value: 3.73, source: owid-share-elec-by-source}
+- {date: '2022', series: solar, value: 4.61, source: owid-share-elec-by-source}
+- {date: '2023', series: solar, value: 5.61, source: owid-share-elec-by-source}
+- {date: '2024', series: solar, value: 6.93, source: owid-share-elec-by-source}
+- {date: '2025', series: solar, value: 8.75, source: owid-share-elec-by-source}
