@@ -1,14 +1,13 @@
 # Observations are annual global mean surface temperature anomalies, in degrees Celsius against NASA's 1951 to 1980 baseline, for 1880 to 2025.
 # They come from NASA GISS's Global Land-Ocean Temperature Index (GLB.Ts+dSST.csv), which is public domain.
-# The values were first seeded from a GitHub copy of the GISTEMP annual series (datasets/global-temp, opened 2026-11-10). That copy
-# gives averages with more decimals than NASA's published annual figure (J-D, in hundredths), so the seeded values are
-# expected to differ until the fetcher (scripts/fetchers/global_temperature.py) has run against NASA and corrected them.
-# The NASA CSV could not be opened by WebFetch in this run (permission request not answered).
+# The values were seeded from a GitHub copy of the GISTEMP annual rows (datasets/global-temp, opened 2026-11-10), then 12 values
+# were corrected to NASA's two-decimal figures. The NASA CSV was not opened by WebFetch in this run; the fetcher dry run
+# (scripts/fetchers/global_temperature.py) read it and reports "No change" for every year.
 id: global-temperature
 title: Global surface temperature
 domain: earth
 subfield: Climate and pollution
-status: draft
+status: live
 summary: The average temperature of the Earth's land and ocean surface, shown as the difference from a fixed 1951 to 1980 baseline.
   It is the headline measure of how much the planet has warmed, year by year.
 metric:
