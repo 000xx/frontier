@@ -1,0 +1,28 @@
+id: nuclear-generation
+title: Nuclear generation
+domain: energy
+subfield: Fission
+status: draft
+summary: placeholder
+metric:
+  name: Nuclear electricity generation, world
+  unit: TWh
+  direction: higher
+  scale: linear
+  explainer: placeholder
+chart:
+  primary: record-chart
+series:
+- id: nuclear
+  label: Nuclear electricity generation
+update:
+  cadence: yearly
+  last_checked: '2026-11-10'
+  notes: placeholder
+sources:
+- id: owid-nuclear-energy-generation
+  name: placeholder
+  url: https://ourworldindata.org/grapher/nuclear-energy-generation
+  kind: dataset
+  primary: true
+observations: []
