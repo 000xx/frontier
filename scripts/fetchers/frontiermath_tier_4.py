@@ -23,7 +23,7 @@ FILES = {
     "tier-4-v2": "frontiermath_tier_4_v2.csv",
 }
 MODEL, SCORE, DATE, ORG, STDERR = "Model version", "mean_score", "Release date", "Organization", "stderr"
-MIN_ROWS = 10          # discovery run: not yet set from the file
+MIN_ROWS = 50          # the file had 80 rows in November 2026
 REVISES_PAST = True    # Epoch re-runs models and fixes release dates; removals still go to review
 
 
@@ -36,7 +36,6 @@ def _read(zf, series, name):
     if missing:
         raise common.SourceError(f"{name}: missing columns {missing}; header is {fields}")
     rows = list(reader)
-    print(f"DIAG header {name}: {fields}")
     if len(rows) < MIN_ROWS:
         raise common.SourceError(f"{name}: only {len(rows)} rows (expected at least {MIN_ROWS})")
     usable = []

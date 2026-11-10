@@ -4,8 +4,10 @@ id: frontiermath-tier-4
 title: AI on the hardest FrontierMath problems (Tier 4)
 domain: ai
 subfield: AI doing science
-status: draft
-summary: placeholder until the source has been read.
+status: live
+summary: The best score any AI model has reached on FrontierMath Tier 4, the hardest tier of a set of
+  unpublished research-level maths problems written by expert mathematicians, as run by Epoch AI. Tier 4
+  has 43 problems in its corrected version, so each problem is worth a noticeable share of the score.
 metric:
   name: Best FrontierMath Tier 4 score (Epoch AI runs)
   unit: '% of problems solved'
@@ -15,7 +17,16 @@ metric:
     value: 100
     label: Every problem solved
     source: epoch-benchmarks
-  explainer: placeholder
+  explainer: 'FrontierMath is a benchmark of research-level maths problems that expert mathematicians
+    crafted and vetted. Epoch AI runs the models itself. Tier 4 is the hardest part of the set. In its
+    corrected version, released on 12 June 2026, it has 43 problems. Each model submits a Python function that
+    returns an answer, and a computer marks it: a correct answer scores one point and a wrong or missing one
+    scores nothing. The benchmark was funded by OpenAI, which Epoch says retains ownership of the questions
+    and has access to the problems and solutions, so the tiers are not fully private. Epoch has said it is
+    finalising a 50-problem set on which OpenAI receives only the problem statements. Scores on the corrected
+    version are not directly comparable with the original, which is why this page uses only the v2 file. A
+    high score means a model can reliably solve hard, well-posed problems; it does not show that the model
+    can pick good research questions or write full proofs.'
 chart:
   primary: record-chart
   secondary:
@@ -26,7 +37,11 @@ series:
 update:
   cadence: monthly
   last_checked: '2026-11-09'
-  notes: 'placeholder'
+  notes: 'Records are rebuilt from Epoch''s benchmark_data.zip (member frontiermath_tier_4_v2.csv) by
+    scripts/fetchers/frontiermath_tier_4.py; do not edit them by hand. Values are Epoch''s mean_score times 100,
+    rounded to two decimals. A model is a record when its score beats every model with an earlier release
+    date. Dates are model release dates as Epoch lists them. Only the v2 file is used; the earlier Tier 4 (v1)
+    results are not tracked here.'
 sources:
 - id: epoch-benchmarks
   name: Epoch AI, Benchmarking hub data (benchmark_data.zip)
@@ -34,6 +49,25 @@ sources:
   kind: dataset
   primary: true
   notes: 'File https://epoch.ai/data/benchmark_data.zip (updated 2026-11-09 when read), member
-    frontiermath_tier_4_v2.csv (name to be confirmed). Licence CC BY 4.0 for Epoch data. Credit line: "Data: Epoch AI, Benchmarking hub (epoch.ai/benchmarks), CC BY 4.0."'
-events: []
+    frontiermath_tier_4_v2.csv. Licence CC BY 4.0 for Epoch data. Credit line: "Data: Epoch AI, Benchmarking hub (epoch.ai/benchmarks), CC BY 4.0."'
+events:
+- date: '2025-01-23'
+  kind: news
+  title: Epoch explains that OpenAI funded FrontierMath, owns the questions and can see the problems and solutions
+  why_it_matters: One developer has access to the problems, so Epoch's holdout set is the check that results can be trusted.
+  url: https://epoch.ai/blog/openai-and-frontiermath
+- date: '2026-06-12'
+  kind: dataset
+  title: Epoch releases FrontierMath Tier 4 v2, correcting 12 problems and removing 7
+  why_it_matters: Scores before and after the correction are not directly comparable, so the series is kept separate.
+  url: https://epoch.ai/benchmarks/frontiermath-tier-4-v2
 reading: []
+records:
+- {date: '2025-04-16', value: 4.88, series: tier-4-v2, holder: o4-mini-2025-04-16_high, conditions: developer OpenAI; standard error 3.41 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-08-07', value: 21.95, series: tier-4-v2, holder: gpt-5-2025-08-07_high, conditions: developer OpenAI; standard error 6.54 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-12-11', value: 46.0, series: tier-4-v2, holder: gpt-5.2-pro-2025-12-11_xhigh, conditions: developer OpenAI; standard error 7.79 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-03-05', value: 58.54, series: tier-4-v2, holder: gpt-5.4-pro-2026-03-05_xhigh, conditions: developer OpenAI; standard error 7.79 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-04-23', value: 78.05, series: tier-4-v2, holder: gpt-5.5-pro_xhigh, conditions: developer OpenAI; standard error 6.54 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-06-09', value: 90.2, series: tier-4-v2, holder: claude-fable-5_max, conditions: developer Anthropic; standard error 4.6 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-09-03', value: 97.6, series: tier-4-v2, holder: gpt-6-astra_high, conditions: developer OpenAI; standard error 2.4 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-09-29', value: 100.0, series: tier-4-v2, holder: gpt-6.1-sol_max, conditions: developer OpenAI; standard error 0.0 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
