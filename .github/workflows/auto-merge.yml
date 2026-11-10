@@ -1,0 +1,50 @@
+name: Merge data updates
+
+# When "Validate data" passes on a pull request that only changes data,
+# merge it and republish the site. Anything that touches the site, the
+# schema, the checks or the workflows is left for a person to merge.
+
+on:
+  workflow_run:
+    workflows: ["Validate data"]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+jobs:
+  merge:
+    if: >-
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge if the pull request only changes data
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.event.workflow_run.head_sha }}
+          BRANCH: ${{ github.event.workflow_run.head_branch }}
+        run: |
+          set -euo pipefail
+          pr=$(gh pr list --repo "$REPO" --head "$BRANCH" --state open \
+            --json number,headRefOid,isDraft,baseRefName \
+            --jq '[.[] | select(.headRefOid == env.SHA and .isDraft == false and .baseRefName == "main")][0].number // empty')
+          if [ -z "$pr" ]; then
+            echo "No open, non-draft pull request into main for $BRANCH at $SHA. Nothing to do."
+            exit 0
+          fi
+          files=$(gh api --paginate "repos/$REPO/pulls/$pr/files" --jq '.[] | .filename, (.previous_filename // empty)')
+          other=$(printf '%s\n' "$files" | grep -Ev '^(data/frontiers/|data/datasets/|scripts/import_)' || true)
+          if [ -n "$other" ]; then
+            echo "Pull request #$pr changes files outside the data folders, so it is left for a person:"
+            printf '%s\n' "$other"
+            exit 0
+          fi
+          echo "Pull request #$pr only changes data and passed validation. Merging."
+          gh pr merge "$pr" --repo "$REPO" --merge --match-head-commit "$SHA"
+          # A merge made by a workflow does not start other workflows, so publish explicitly.
+          gh workflow run pages.yml --repo "$REPO" --ref main

@@ -64,6 +64,7 @@ The public site is in `site/` and is published with GitHub Pages. It reads every
 - Build and check locally: `python scripts/build_site_data.py`, then `node scripts/check_site.js`, then open `site/index.html` in a browser.
 - Every pull request runs both steps, so a data change that would break a page fails before it is merged.
 - Every push to `main` rebuilds and republishes the site.
+- A pull request that only changes files under `data/frontiers/`, `data/datasets/` or `scripts/import_*` is merged automatically once validation passes, and the site is republished (`.github/workflows/auto-merge.yml`). Anything else waits for a person.
 
 ## Automatic refresh
 
