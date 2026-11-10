@@ -10,10 +10,19 @@ The script draws a page from the blocks a frontier file holds. A new frontier th
 | --- | --- |
 | `records` | Record chart (linear or log, from `metric.scale`), a ranking of the series, and the full history table. `metric.limit` and `metric.target` are drawn as dashed lines. |
 | `records` with `metric.axes` | Also a two-axis chart: the main value against the first extra axis, with the target zone shaded. |
+| `records` on a `threshold-gauge` frontier with a `metric.target` or `metric.limit` | Also "Distance to the line" (or "to the limit"): a bar from zero to the line filled to the current record, with the current record, what is still to go (the line minus the record, labelled as worked out here), the first record and the line. Once the record reaches the line the page gives the date it did. On a log measure the bar is a log scale starting at the series' first record, and no "still to go" is printed. The target is used when both are given. |
+| `records` on a `reign-timeline` frontier | Also "Who has held the record": a ribbon with one block per holder, from the date they took the record to the date someone else beat it, a mark for every record, and a table of holders with the dates, the number of records each set and their best. Consecutive records by the same holder are one block. Drawn for the selected series when it has had at least two holders. |
 | `observations` | Line chart, with a shaded band where `low` and `high` are given, and a table of figures. |
+| `observations` on a `coverage-meter` frontier, in percent | Also "How much of the whole": a bar for the whole filled to the latest figure, with the latest figure, the rest (100% minus the latest figure, labelled as worked out here), the first figure and any target. The chart's axis runs from 0 to 100% with the area under the line shaded. |
+| `observations` on a `race-to-zero` frontier with `direction: lower` | Also "Distance to zero" for the first series: the highest figure in the series, the latest figure and zero, with a bar that draws the latest against the highest to scale. The chart marks zero in blue and drops a dotted line to it from the latest figure. When the series falls a hundredfold or more the axis is a log scale, with zero on a line of its own under a break. |
 | `observations`, one per series | A points chart and a table of every entry (for example one point per rocket). |
 | `stages` and `candidates` | A table of how far each candidate has got. |
-| `items` | A searchable list, with filters for status and group. A `problem-list` frontier shows no tally. |
+| `candidates` with dated `history` (two or more dates on the page) | Also "When each stage was reached": one track per candidate on a shared time axis, with a numbered mark at the date each stage was reached, a key to the stage numbers, and a table of every dated stage with its note and source. The orange mark is the stage the candidate is at now. A stage with no date in the data has no mark. |
+| `items` (up to 400, not a `problem-list`) | "The list at a glance": the whole list drawn by status (solid for done, ring for open, half for partial, struck ring for disputed), grouped as the data groups it. Lists of up to 24 entries get a card per entry with its date, the source's status wording and `by`; longer lists get one square per entry. Above it, the number of entries by status and in all (counts of rows, labelled as worked out on the page) and the most recent dated entry, which is orange. No entry is singled out when the dates cannot say which is newest. |
+| `items` on a `claim-scoreboard` frontier | The same section becomes "The claims and where they stand": one wide card per claim, with who made it, its status, the source's wording and the entry's `note`. |
+| `items` where at least three entries, and at least half of them, have `date_done` | Also "The list over time": one mark per dated entry on a time axis, stacked where dates fall close together. An entry dated only to a year sits mid-year, and the caption says how many entries have no date. |
+| `items` (any number) | A searchable list, with filters for status and group. A `problem-list` frontier shows no tally. |
+| `about` | "What this is" and "Why it matters", at the top of the page. |
 | `events`, `reading`, `sources` | "What happened", "Start here" and "Sources". |
 | Dataset `NOTICE.md` | The credit line under each chart and a "Data credits and terms" section. |
 
@@ -29,10 +38,15 @@ Every page carries the same navigation, built from the data, so nothing needs up
 
 - The header has an "All frontiers" menu, grouped by domain.
 - The footer lists every frontier, plus the front page, overview, method and domains.
-- The front page has a tile per frontier, and each domain in the domain list links to its frontiers.
+- The front page has a tile per frontier, grouped under domain headings, with a search box and filters for domain and chart shape. Only the tiles are redrawn when these change (`tilesList()`), and the choice is kept when the reader comes back from a frontier page.
+- Each domain in the domain list links to its frontiers.
 - A frontier page also links to the others in its domain and to the previous and next frontier.
 
 The check fails if any page lacks a link to any frontier, or has an in-site link that leads nowhere.
+
+## Motion
+
+Every chart draws itself from left to right. A chart that is in view when the page opens draws once; charts further down draw as they are scrolled into view, with a marker showing the year reached. The chart markup is complete without scripting, and nothing moves for readers who have asked their device to reduce motion.
 
 ## Site settings
 
@@ -46,6 +60,13 @@ The check fails if any page lacks a link to any frontier, or has an in-site link
 
 ## Known gaps
 
-- Chart shapes named in `chart.primary` are labels only. The page is chosen by the blocks present, so a `coverage-meter` or `race-to-zero` frontier is drawn as a line chart for now.
+- Five chart shapes change the page so far: `coverage-meter`, `race-to-zero`, `threshold-gauge`, `reign-timeline` and `claim-scoreboard` (the last only as primary shape; the others as primary or secondary, passed through as `shapes`). The list grid and the stage dates are chosen by the blocks present. Every other shape is a label only.
+- `natural-map` lists (elements, worlds, countries) are drawn as a grid in the order of the data, not as a periodic table or a map: the format has no positions for the entries.
+- `claim-scoreboard` as a secondary shape on a records or observations frontier (Hubble constant, superconductor Tc) changes nothing yet: the claims there are records, not items.
+- The list views take `status: done` to mean whatever the frontier's list is about (certified, approved, visited, performed), and label it "Done". The format has no per-frontier word for it.
+- A `threshold-gauge` frontier with no `metric.target` or `metric.limit` has no line to draw against, so it gets no gauge (GPU clusters, ML hardware). The gauge is not drawn where lower is better.
+- The ribbon of holders takes the `holder` text as written: two spellings of one holder are two blocks.
+- A `coverage-meter` frontier that is not in percent (a count with no sourced total, such as structures or asteroids found) is still a plain line chart, because the format has no field for the size of the whole.
+- On a `race-to-zero` frontier only the first series is drawn against zero. The format has no unit or direction per series, so a second series can measure something else (measles lists vaccine coverage in percent beside case counts) and is drawn as a plain line under the frontier's unit.
 - Credit lines are read from dataset `NOTICE.md` files only. A credit written in a source's notes is not shown under the chart.
 - No map view yet for country lists.

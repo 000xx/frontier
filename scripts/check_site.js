@@ -35,6 +35,9 @@ function check(name, make) {
 
 const data = Site.data();
 check('front page', () => Site.home());
+// The front page's search and filters redraw only the tiles, so check that part on its own too.
+check('front page tiles, filtered', () => { Site.filterHome('cost', null, null); const html = Site.tilesList(); Site.filterHome(); return Site.home().replace(/<div id="tiles-list">[\s\S]*?<\/div><\/section><\/div>/, html) + html; });
+check('front page tiles, no match', () => { Site.filterHome('no such frontier'); const html = Site.tilesList(); Site.filterHome(); if (html.indexOf('No frontier matches') < 0) throw new Error('no empty message'); return Site.home() + html; });
 for (const f of data.frontiers) {
   const block = Site.block(f);
   if (!block && !f.items.length && !f.candidates.length) {
@@ -42,9 +45,29 @@ for (const f of data.frontiers) {
     console.error('FAIL ' + f.id + ': no records, observations, items or candidates, so the page would be empty');
     continue;
   }
-  check(f.id, () => Site.frontier(f));
+  check(f.id, () => {
+    const html = Site.frontier(f);
+    // The list and stage views must be on the page exactly where the data calls for them.
+    const has = (h2) => html.includes('<h2>' + h2 + '</h2>');
+    if (Site.gridMode(f) !== (has('The list at a glance') || has('The claims and where they stand'))) throw new Error('list grid shown or missing against the data');
+    if (Site.claimMode(f) !== has('The claims and where they stand')) throw new Error('claim cards shown or missing against the data');
+    if (Site.itemTimeMode(f) !== has('The list over time')) throw new Error('list timeline shown or missing against the data');
+    if (Site.stageDatesMode(f) !== has('When each stage was reached')) throw new Error('stage dates shown or missing against the data');
+    // A problem list stays a list: no grid, no counts and nothing drawn over time.
+    if (f.shape === 'problem-list' && (/class="(split|tally|gcells|gcards)/.test(html) || has('The list over time'))) throw new Error('a problem list must not show a count, a grid or a chart over time');
+    return html;
+  });
   if (block) for (const sid of Site.seriesIds(f, block)) {
-    check(f.id + ' / ' + sid, () => { Site.select(f.id, sid); return Site.frontier(f); });
+    check(f.id + ' / ' + sid, () => {
+      Site.select(f.id, sid);
+      const html = Site.frontier(f);
+      // A shape view that applies to this series must be on the page, and must not appear where it does not apply.
+      if (block === 'records') {
+        if (Site.gaugeMode(f, sid) !== /<h2>Distance to the (line|limit)<\/h2>/.test(html)) throw new Error('threshold gauge shown or missing against the data');
+        if (Site.reignMode(f, sid) !== html.includes('<h2>Who has held the record</h2>')) throw new Error('record-holder ribbon shown or missing against the data');
+      }
+      return html;
+    });
   }
 }
 console.log('Checked ' + pages + ' page views across ' + data.frontiers.length + ' frontiers: ' + failures + ' failure(s).');
