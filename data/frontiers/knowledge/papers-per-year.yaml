@@ -40,4 +40,99 @@ sources:
   notes: Read through the refresh workflow''s dry run on 2026-11-09. The request filters on publication years and groups
     the works by publication_year. OpenAlex states its data is CC0; that statement was not read directly in this run
     (the licence and API help pages were not reachable), so confirm before marking live.
+events:
+- date: '2000'
+  kind: milestone
+  title: The yearly count first passes three million works, at 3.45 million for 2000
+  why_it_matters: 'The 1999 count was 2.998 million, so the index gained about 450,000 works for 2000 in one step.'
+  url: https://api.openalex.org/works?filter=publication_year:1960-2025&group_by=publication_year
+- date: '2011'
+  kind: milestone
+  title: The yearly count first passes eight million works, at 8.11 million for 2011
+  why_it_matters: 'The 2010 count was 7.57 million and the 2011 count 8.11 million, so the eight-million mark was crossed in 2011.'
+  url: https://api.openalex.org/works?filter=publication_year:1960-2025&group_by=publication_year
+- date: '2019'
+  kind: milestone
+  title: The yearly count first passes ten million works, at 10.30 million for 2019
+  why_it_matters: 'The count had fallen in 2017 and 2018 (to 9.79 million), so it passed ten million only in 2019.'
+  url: https://api.openalex.org/works?filter=publication_year:1960-2025&group_by=publication_year
+- date: '2021'
+  kind: dataset
+  title: The count falls in 2021 and 2022 after 10.97 million for 2020
+  why_it_matters: 'The index shows 10.43 million works for 2021 and 10.11 million for 2022, below the 2020 count. The fall
+    may be real or may reflect how the index fills in records for recent years, so the single-year figures should be read
+    as a trend.'
+  url: https://api.openalex.org/works?filter=publication_year:1960-2025&group_by=publication_year
+- date: '2025'
+  kind: dataset
+  title: The 2025 count rises to 14.76 million, about a third above 2024, and is provisional
+  why_it_matters: 'The 2024 count was 11.05 million. A jump of this size in one year is more likely to reflect records still
+    being added to the index than a real change in output, so the latest year is provisional and is rewritten by the fetcher.'
+  url: https://api.openalex.org/works?filter=publication_year:1960-2025&group_by=publication_year
 observations:
+- {date: '1960', series: works, value: 487405, source: openalex-works}
+- {date: '1961', series: works, value: 480770, source: openalex-works}
+- {date: '1962', series: works, value: 508227, source: openalex-works}
+- {date: '1963', series: works, value: 559300, source: openalex-works}
+- {date: '1964', series: works, value: 591764, source: openalex-works}
+- {date: '1965', series: works, value: 635294, source: openalex-works}
+- {date: '1966', series: works, value: 673653, source: openalex-works}
+- {date: '1967', series: works, value: 725200, source: openalex-works}
+- {date: '1968', series: works, value: 771011, source: openalex-works}
+- {date: '1969', series: works, value: 816714, source: openalex-works}
+- {date: '1970', series: works, value: 957363, source: openalex-works}
+- {date: '1971', series: works, value: 887372, source: openalex-works}
+- {date: '1972', series: works, value: 928712, source: openalex-works}
+- {date: '1973', series: works, value: 951568, source: openalex-works}
+- {date: '1974', series: works, value: 987641, source: openalex-works}
+- {date: '1975', series: works, value: 1027385, source: openalex-works}
+- {date: '1976', series: works, value: 1052455, source: openalex-works}
+- {date: '1977', series: works, value: 1095682, source: openalex-works}
+- {date: '1978', series: works, value: 1146332, source: openalex-works}
+- {date: '1979', series: works, value: 1195977, source: openalex-works}
+- {date: '1980', series: works, value: 1306043, source: openalex-works}
+- {date: '1981', series: works, value: 1296591, source: openalex-works}
+- {date: '1982', series: works, value: 1330523, source: openalex-works}
+- {date: '1983', series: works, value: 1379984, source: openalex-works}
+- {date: '1984', series: works, value: 1433477, source: openalex-works}
+- {date: '1985', series: works, value: 1494301, source: openalex-works}
+- {date: '1986', series: works, value: 1569368, source: openalex-works}
+- {date: '1987', series: works, value: 1656045, source: openalex-works}
+- {date: '1988', series: works, value: 1735791, source: openalex-works}
+- {date: '1989', series: works, value: 1837509, source: openalex-works}
+- {date: '1990', series: works, value: 2005240, source: openalex-works}
+- {date: '1991', series: works, value: 1998757, source: openalex-works}
+- {date: '1992', series: works, value: 2089831, source: openalex-works}
+- {date: '1993', series: works, value: 2180208, source: openalex-works}
+- {date: '1994', series: works, value: 2293439, source: openalex-works}
+- {date: '1995', series: works, value: 2443698, source: openalex-works}
+- {date: '1996', series: works, value: 2608251, source: openalex-works}
+- {date: '1997', series: works, value: 2714651, source: openalex-works}
+- {date: '1998', series: works, value: 2852715, source: openalex-works}
+- {date: '1999', series: works, value: 2998383, source: openalex-works}
+- {date: '2000', series: works, value: 3445376, source: openalex-works}
+- {date: '2001', series: works, value: 3616709, source: openalex-works}
+- {date: '2002', series: works, value: 4210388, source: openalex-works}
+- {date: '2003', series: works, value: 4448524, source: openalex-works}
+- {date: '2004', series: works, value: 4836217, source: openalex-works}
+- {date: '2005', series: works, value: 5202474, source: openalex-works}
+- {date: '2006', series: works, value: 5654985, source: openalex-works}
+- {date: '2007', series: works, value: 6145691, source: openalex-works}
+- {date: '2008', series: works, value: 6582459, source: openalex-works}
+- {date: '2009', series: works, value: 7094955, source: openalex-works}
+- {date: '2010', series: works, value: 7566366, source: openalex-works}
+- {date: '2011', series: works, value: 8112147, source: openalex-works}
+- {date: '2012', series: works, value: 8391418, source: openalex-works}
+- {date: '2013', series: works, value: 8832612, source: openalex-works}
+- {date: '2014', series: works, value: 9332719, source: openalex-works}
+- {date: '2015', series: works, value: 9515571, source: openalex-works}
+- {date: '2016', series: works, value: 9944766, source: openalex-works}
+- {date: '2017', series: works, value: 9847061, source: openalex-works}
+- {date: '2018', series: works, value: 9792616, source: openalex-works}
+- {date: '2019', series: works, value: 10295222, source: openalex-works}
+- {date: '2020', series: works, value: 10966952, source: openalex-works}
+- {date: '2021', series: works, value: 10428731, source: openalex-works}
+- {date: '2022', series: works, value: 10110669, source: openalex-works}
+- {date: '2023', series: works, value: 10801751, source: openalex-works}
+- {date: '2024', series: works, value: 11054196, source: openalex-works}
+- {date: '2025', series: works, value: 14757934, source: openalex-works}
