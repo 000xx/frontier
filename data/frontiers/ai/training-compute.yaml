@@ -4,7 +4,7 @@ id: training-compute
 title: Training compute of the largest AI models
 domain: ai
 subfield: Cost and scale
-status: draft
+status: live
 summary: The largest amount of computation used to train any notable AI model, by publication date, as
   estimated by Epoch AI. It is the clearest single measure of how fast AI training has scaled up.
 metric:
@@ -84,4 +84,40 @@ events:
 reading: []
 connections:
 - ai-capabilities-index
-records: []
+records:
+- {date: '1950-07-02', value: 40.0, series: notable-models, holder: Theseus, conditions: 'developer Bell Laboratories; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '1957-01-01', value: 694894.9377361819, series: notable-models, holder: Perceptron Mark I, conditions: 'developer Cornell Aeronautical Laboratory, Cornell University; Epoch confidence in the estimate: Likely', status: claimed, source: epoch-notable-models}
+- {date: '1959-02-01', value: 600000000.0, series: notable-models, holder: Pandemonium (morse), conditions: 'developer Massachusetts Institute of Technology (MIT); Epoch confidence in the estimate: Speculative', status: claimed, source: epoch-notable-models}
+- {date: '1960-03-30', value: 720000000.0, series: notable-models, holder: Perceptron (1960), conditions: 'developer Cornell Aeronautical Laboratory; Epoch confidence in the estimate: Speculative', status: claimed, source: epoch-notable-models}
+- {date: '1987-06-06', value: 28328002560.0, series: notable-models, holder: NetTalk (transcription), conditions: 'developer Princeton University; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '1989-11-27', value: 181440000000.0, series: notable-models, holder: Handwritten digit recognition network, conditions: 'developer AT&T; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '1989-12-01', value: 1496338054440.0, series: notable-models, holder: Zip CNN, conditions: 'developer AT&T, Bell Laboratories; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '1992-05-01', value: 18232157622832.703, series: notable-models, holder: TD-Gammon, conditions: 'developer IBM; Epoch confidence in the estimate: Speculative', status: claimed, source: epoch-notable-models}
+- {date: '1994-12-02', value: 18621900000000.0, series: notable-models, holder: Predictive Coding NN, conditions: 'developer Technical University of Munich; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '1997-11-15', value: 31512000000000.0, series: notable-models, holder: LSTM, conditions: 'developer Technical University of Munich; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '2000-11-28', value: 6339000000000000.0, series: notable-models, holder: Neural LM, conditions: 'developer University of Montreal / Université de Montréal; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '2007-06-22', value: 1.4494464e+18, series: notable-models, holder: SB-LM, conditions: 'developer Google; Epoch confidence in the estimate: Likely', status: claimed, source: epoch-notable-models}
+- {date: '2013-01-16', value: 2.612736e+18, series: notable-models, holder: DistBelief NNLM, conditions: 'developer Google; Epoch confidence in the estimate: Likely', status: claimed, source: epoch-notable-models}
+- {date: '2014-06-18', value: 3.411072e+18, series: notable-models, holder: SPPNet, conditions: 'developer Microsoft, Xi’an Jiaotong University, University of Science and Technology of China (USTC); Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '2014-09-04', value: 1.2291e+19, series: notable-models, holder: VGG16, conditions: 'developer University of Oxford; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '2014-09-10', value: 5.6e+19, series: notable-models, holder: Seq2Seq LSTM, conditions: 'developer Google; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '2014-12-03', value: 2.97600000001e+20, series: notable-models, holder: SNM-skip, conditions: 'developer Google; Epoch confidence in the estimate: Speculative', status: claimed, source: epoch-notable-models}
+- {date: '2015-10-01', value: 3.8e+20, series: notable-models, holder: AlphaGo Fan, conditions: 'developer DeepMind; Epoch confidence in the estimate: Likely', status: claimed, source: epoch-notable-models}
+- {date: '2016-01-27', value: 1.9e+21, series: notable-models, holder: AlphaGo Lee, conditions: 'developer DeepMind; Epoch confidence in the estimate: Speculative', status: claimed, source: epoch-notable-models}
+- {date: '2016-09-26', value: 6.620000000001e+21, series: notable-models, holder: GNMT, conditions: 'developer Google; Epoch confidence in the estimate: Likely', status: claimed, source: epoch-notable-models}
+- {date: '2018-05-02', value: 8.74395e+21, series: notable-models, holder: ResNeXt-101 32x48d, conditions: 'developer Facebook; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '2019-09-17', value: 2.2e+22, series: notable-models, holder: Megatron-BERT, conditions: 'developer Nvidia; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '2019-10-23', value: 3.3e+22, series: notable-models, holder: T5-11B, conditions: 'developer Google; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '2019-10-30', value: 1.0773400001e+23, series: notable-models, holder: AlphaStar, conditions: 'developer DeepMind; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '2020-01-28', value: 1.12e+23, series: notable-models, holder: Meena, conditions: 'developer Google Brain; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '2020-05-28', value: 3.14e+23, series: notable-models, holder: GPT-3 175B (davinci), conditions: 'developer OpenAI; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '2021-08-11', value: 3.7e+23, series: notable-models, holder: Jurassic-1-Jumbo, conditions: 'developer AI21 Labs; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '2021-09-03', value: 2.047e+24, series: notable-models, holder: FLAN 137B, conditions: 'developer Google Research; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '2022-03-15', value: 2.578e+24, series: notable-models, holder: GPT-3.5 (davinci-002), conditions: 'developer OpenAI; Epoch confidence in the estimate: Speculative', status: claimed, source: epoch-notable-models}
+- {date: '2022-06-29', value: 2.7415e+24, series: notable-models, holder: Minerva (540B), conditions: 'developer Google; Epoch confidence in the estimate: Confident', status: confirmed, source: epoch-notable-models}
+- {date: '2023-03-15', value: 2.1e+25, series: notable-models, holder: GPT-4 (Mar 2023), conditions: 'developer OpenAI; Epoch confidence in the estimate: Likely', status: claimed, source: epoch-notable-models}
+- {date: '2023-12-06', value: 5.0000000001e+25, series: notable-models, holder: Gemini 1.0 Ultra, conditions: 'developer Google DeepMind; Epoch confidence in the estimate: Speculative', status: claimed, source: epoch-notable-models}
+- {date: '2025-02-17', value: 3.5e+26, series: notable-models, holder: Grok 3, conditions: 'developer xAI; Epoch confidence in the estimate: Likely', status: claimed, source: epoch-notable-models}
+- {date: '2025-02-27', value: 3.8e+26, series: notable-models, holder: GPT-4.5, conditions: 'developer OpenAI; Epoch confidence in the estimate: Likely', status: claimed, source: epoch-notable-models}
+- {date: '2025-07-09', value: 5.0000000000001e+26, series: notable-models, holder: Grok 4, conditions: 'developer xAI; Epoch confidence in the estimate: Speculative', status: claimed, source: epoch-notable-models}
+- {date: '2026-09-03', value: 9.4e+26, series: notable-models, holder: GPT-6 Astra, conditions: 'developer OpenAI; Epoch confidence in the estimate: Likely', status: claimed, source: epoch-notable-models}

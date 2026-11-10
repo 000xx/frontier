@@ -68,7 +68,8 @@ def build(usable):
             continue
         best = value
         confidence = r["Confidence"].strip() or "not given"
-        parts = [f"developer {' '.join(r['Organization'].split())}" if r["Organization"].strip() else "",
+        org = ", ".join(" ".join(o.split()) for o in r["Organization"].split(",") if o.strip())
+        parts = [f"developer {org}" if org else "",
                  f"Epoch confidence in the estimate: {confidence}"]
         records.append({
             "date": date,
