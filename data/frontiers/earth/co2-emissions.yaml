@@ -1,0 +1,63 @@
+# Observations are yearly world emissions of carbon dioxide from fossil fuels and cement, in billion tonnes, for 1900 onward.
+# They come from Our World in Data's copy of the Global Carbon Budget (annual-co2-emissions-per-country, World rows),
+# which is CC BY 4.0 with the Global Carbon Project as the original provider. The grapher CSV could not be opened by WebFetch
+# in this run (only its page), so the values are to be written from the fetcher (scripts/fetchers/co2_emissions.py) dry-run log,
+# which reads the same CSV; the file's observations are filled in only from that log and then checked to match.
+id: co2-emissions
+title: World fossil CO2 emissions
+domain: earth
+subfield: Climate and pollution
+status: draft
+summary: The yearly carbon dioxide released by burning fossil fuels and making cement, summed over the world.
+  It is the main flow that adds to the atmospheric build-up, so it shows whether the climate problem is shrinking.
+metric:
+  name: Annual CO2 emissions from fossil fuels and cement, world
+  unit: Gt CO2
+  direction: lower
+  scale: linear
+  explainer: 'Each year, the carbon in coal, oil and gas burned, plus the carbon released when cement is made, is
+    converted to tonnes of carbon dioxide and added up for every country. The total excludes land-use change such as
+    forest clearing, which is tracked separately in the carbon budget. Emissions are territorial, so goods made in one
+    country and used in another count where they are made. The number has risen for most of the period since 1900, with
+    short dips in wars and recessions. Progress means emissions falling steadily, not only in one year.'
+chart:
+  primary: record-chart
+series:
+- id: world-fossil-co2
+  label: World fossil CO2 and cement
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'The Global Carbon Budget is published each November, and the Our World in Data copy follows it. Update by running
+    the co2_emissions fetcher once the new year appears in the World rows. Fossil CO2 for the latest year is revised in
+    later editions, so revised values are written and flagged for review.'
+sources:
+- id: owid-annual-co2-emissions
+  name: Our World in Data, annual CO2 emissions by country (World rows), from the Global Carbon Budget 2025
+  url: https://ourworldindata.org/grapher/annual-co2-emissions-per-country
+  kind: dataset
+  primary: true
+  notes: 'Page opened 2026-11-09. Data licence CC BY 4.0 (Our World in Data), with the Global Carbon Project as the original
+    provider. Credit line suggested: "Data: Global Carbon Budget (2025), processed by Our World in Data".'
+- id: gcp-2025-release
+  name: Global Carbon Project, Global Carbon Budget 2025 press release (hosted by NIES, Japan), 13 November 2025
+  url: https://cger.nies.go.jp/gcp/news/20251113.html
+  kind: press
+  notes: 'Opened 2026-11-10. Gives the projected 2025 rise and the 2024 comparison.'
+- id: carbonbrief-2025-record
+  name: Carbon Brief, Analysis: fossil-fuel CO2 emissions to set new record in 2025, as land sink recovers (13 November 2025)
+  url: https://www.carbonbrief.org/analysis-fossil-fuel-co2-emissions-to-set-new-record-in-2025-as-land-sink-recovers/
+  kind: news
+  notes: 'Opened 2026-11-10. Analysis by a news outlet of the Global Carbon Budget; relayed figures, not read from the GCP dataset.'
+events:
+- date: '2025-11-13'
+  kind: milestone
+  title: The Global Carbon Project projects a further rise in fossil CO2 for 2025
+  why_it_matters: The year's projected rise of about one percent means the annual fossil total keeps climbing rather than turning down.
+  url: https://cger.nies.go.jp/gcp/news/20251113.html
+- date: '2025-11-13'
+  kind: milestone
+  title: Analysts expect 2025 to be a new record for fossil and cement CO2
+  why_it_matters: The projection puts the yearly total at a new peak of about 38 billion tonnes, which is the level the cuts have to bring down from.
+  url: https://www.carbonbrief.org/analysis-fossil-fuel-co2-emissions-to-set-new-record-in-2025-as-land-sink-recovers/
+observations:
