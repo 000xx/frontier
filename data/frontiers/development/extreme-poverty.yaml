@@ -1,0 +1,24 @@
+id: extreme-poverty
+title: Extreme poverty
+domain: development
+subfield: Human development
+status: draft
+summary: The share of the world's people who live on less than the international extreme-poverty line. It shows how
+  many people are left behind by growth, not just how fast the average rises.
+metric:
+  name: Share of the world population living in extreme poverty
+  unit: '%'
+  direction: lower
+  scale: linear
+  explainer: placeholder until the sourced text is written.
+chart:
+  primary: race-to-zero
+sources:
+- id: owid-extreme-poverty
+  name: Our World in Data, share of population living in extreme poverty (World Bank Poverty and Inequality Platform)
+  url: https://ourworldindata.org/grapher/share-of-population-in-extreme-poverty
+  kind: dataset
+  primary: true
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
