@@ -1,0 +1,50 @@
+# Tuberculosis: estimated deaths and cases each year, from the World rows of Our World in Data's exports of WHO data.
+# observations are rewritten by scripts/fetchers/tuberculosis.py; do not edit them by hand.
+id: tuberculosis
+title: Tuberculosis
+domain: health
+subfield: Diseases being eliminated
+status: draft
+summary: How many people fall ill with tuberculosis and die of it each year, worldwide, and how far that is from the
+  point where the disease stops being a major killer.
+metric:
+  name: Estimated tuberculosis deaths per year, worldwide
+  unit: deaths per year
+  direction: lower
+  scale: linear
+  explainer: 'Tuberculosis is caused by a bacterium that spreads through the air when people with active lung disease
+    cough, sneeze or talk. It is treatable, but many people are never diagnosed, so the true number of cases and
+    deaths is only known through estimates. WHO builds these each year from country reports, surveys and models, and
+    gives them as central figures. Because WHO revises earlier estimates when it publishes a new report, compare
+    years drawn from the same report.'
+chart:
+  primary: race-to-zero
+series:
+- id: deaths
+  label: Estimated deaths
+- id: cases
+  label: Estimated cases
+observations: []
+sources:
+- id: owid-tb-deaths
+  name: Our World in Data, Tuberculosis deaths (WHO 2025, processed by Our World in Data)
+  url: https://ourworldindata.org/grapher/tuberculosis-deaths-who
+  kind: dataset
+  primary: true
+  notes: World rows of the CSV export, read by the refresh. OWID credits WHO (2025) with minor processing and gives
+    5 February 2026 as the last update, with dates 2000 to 2024. OWID's own work is CC BY; the WHO data keeps WHO's
+    terms (see who-data-terms in the malaria dataset NOTICE.md).
+- id: owid-tb-cases
+  name: Our World in Data, Tuberculosis cases (WHO 2025, processed by Our World in Data)
+  url: https://ourworldindata.org/grapher/number-of-tuberculosis-cases
+  kind: dataset
+  notes: World rows of the CSV export, read by the refresh. Same credit and terms as owid-tb-deaths. OWID gives
+    5 February 2026 as the last update, with dates 2000 to 2024.
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Observations are the World values in OWID''s CSV exports of WHO estimates (2000 to 2024), copied exactly by
+    scripts/fetchers/tuberculosis.py. WHO publishes its Global tuberculosis report each year, usually in the autumn,
+    and revises earlier years, so the fetcher rewrites every year it reads. Not yet sourced: WHO''s own Global
+    tuberculosis report, the event feed, and a reading list.'
+reading: []
