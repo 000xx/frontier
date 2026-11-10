@@ -1,0 +1,102 @@
+# Observations are the yearly maximum Antarctic ozone hole area, in million square kilometres, from NASA Ozone Watch's
+# annual table (the largest daily ozone hole size in each year), 1979 to 2025. 1995 is absent because the source lists no
+# data for that year. The values are as shown on the page, one decimal place.
+# The table was read with WebFetch (summarised), so the fetcher dry run is the check against the page's own table.
+id: ozone-hole
+title: Antarctic ozone hole
+domain: earth
+subfield: Climate and pollution
+status: draft
+summary: The largest area of the Antarctic ozone hole each year, the thinned layer of stratospheric ozone that shields
+  life from harmful ultraviolet light. Its size has stopped growing and is slowly shrinking after the ban on ozone-depleting gases.
+metric:
+  name: Annual maximum area of the Antarctic ozone hole
+  unit: million km²
+  direction: lower
+  scale: linear
+  explainer: 'Each spring over Antarctica, sunlight returns to the stratosphere and chlorine and bromine from old
+    refrigerant and propellant gases destroy ozone. The hole is the area where ozone falls below a set threshold. Each
+    year, the largest daily size of that area is recorded. The size swings with the weather in the stratosphere, so one
+    year says little on its own. The measure is useful because the chemistry that makes the hole is well understood and
+    fell under the Montreal Protocol, so a shrinking trend shows the controls are working. Progress means a smaller hole.'
+chart:
+  primary: record-chart
+series:
+- id: max-area
+  label: Annual maximum hole area
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'NASA Ozone Watch adds each year after the spring season ends. To update, add the new year from the annual table
+    (the fetcher reports any change). Values in one year can be revised, so revised values are written and flagged.'
+sources:
+- id: nasa-ozone-watch
+  name: NASA Ozone Watch, annual maximum Antarctic ozone hole area table
+  url: https://ozonewatch.gsfc.nasa.gov/statistics/annual_data.html
+  kind: dataset
+  primary: true
+  notes: 'Page opened 2026-11-09 with WebFetch (summarised table). The page asks that material be credited to "NASA Ozone
+    Watch" unless otherwise noted. Credit line: "Data: NASA Ozone Watch".'
+- id: theweather-2025-ranking
+  name: The Weather Network, NASA and NOAA rank the 2025 Antarctic ozone hole as the fifth smallest (26 November 2025)
+  url: https://www.theweather.net/news/trending/nasa-and-noaa-rank-the-2025-antarctic-ozone-hole-as-the-fifth-smallest-and-on-the-road-to-recovery.html
+  kind: news
+  notes: 'Opened 2026-11-10. Relays NASA and NOAA ranking figures; the 22.86 million km2 maximum is quoted from it.'
+events:
+- date: '2025-11-26'
+  kind: milestone
+  title: NASA and NOAA rank the 2025 hole as the fifth smallest since 1992
+  why_it_matters: The year's peak was about 22.9 million square kilometres, which places it among the smaller holes in the record since 1992.
+  url: https://www.theweather.net/news/trending/nasa-and-noaa-rank-the-2025-antarctic-ozone-hole-as-the-fifth-smallest-and-on-the-road-to-recovery.html
+- date: '2025-11-26'
+  kind: milestone
+  title: The same agencies say the ozone hole is slowly recovering
+  why_it_matters: The official reading from the agencies that measure the hole is that the layer is repairing, though the annual size still swings.
+  url: https://www.theweather.net/news/trending/nasa-and-noaa-rank-the-2025-antarctic-ozone-hole-as-the-fifth-smallest-and-on-the-road-to-recovery.html
+observations:
+- {date: '1979', series: max-area, value: 1.1, source: nasa-ozone-watch}
+- {date: '1980', series: max-area, value: 3.3, source: nasa-ozone-watch}
+- {date: '1981', series: max-area, value: 3.1, source: nasa-ozone-watch}
+- {date: '1982', series: max-area, value: 10.8, source: nasa-ozone-watch}
+- {date: '1983', series: max-area, value: 12.2, source: nasa-ozone-watch}
+- {date: '1984', series: max-area, value: 14.7, source: nasa-ozone-watch}
+- {date: '1985', series: max-area, value: 18.8, source: nasa-ozone-watch}
+- {date: '1986', series: max-area, value: 14.4, source: nasa-ozone-watch}
+- {date: '1987', series: max-area, value: 22.5, source: nasa-ozone-watch}
+- {date: '1988', series: max-area, value: 13.8, source: nasa-ozone-watch}
+- {date: '1989', series: max-area, value: 21.7, source: nasa-ozone-watch}
+- {date: '1990', series: max-area, value: 21.1, source: nasa-ozone-watch}
+- {date: '1991', series: max-area, value: 22.6, source: nasa-ozone-watch}
+- {date: '1992', series: max-area, value: 24.9, source: nasa-ozone-watch}
+- {date: '1993', series: max-area, value: 25.8, source: nasa-ozone-watch}
+- {date: '1994', series: max-area, value: 25.2, source: nasa-ozone-watch}
+- {date: '1996', series: max-area, value: 26.9, source: nasa-ozone-watch}
+- {date: '1997', series: max-area, value: 25.1, source: nasa-ozone-watch}
+- {date: '1998', series: max-area, value: 27.9, source: nasa-ozone-watch}
+- {date: '1999', series: max-area, value: 25.8, source: nasa-ozone-watch}
+- {date: '2000', series: max-area, value: 29.9, source: nasa-ozone-watch}
+- {date: '2001', series: max-area, value: 26.5, source: nasa-ozone-watch}
+- {date: '2002', series: max-area, value: 21.9, source: nasa-ozone-watch}
+- {date: '2003', series: max-area, value: 28.4, source: nasa-ozone-watch}
+- {date: '2004', series: max-area, value: 22.8, source: nasa-ozone-watch}
+- {date: '2005', series: max-area, value: 27.2, source: nasa-ozone-watch}
+- {date: '2006', series: max-area, value: 29.6, source: nasa-ozone-watch}
+- {date: '2007', series: max-area, value: 25.2, source: nasa-ozone-watch}
+- {date: '2008', series: max-area, value: 27.0, source: nasa-ozone-watch}
+- {date: '2009', series: max-area, value: 24.4, source: nasa-ozone-watch}
+- {date: '2010', series: max-area, value: 22.6, source: nasa-ozone-watch}
+- {date: '2011', series: max-area, value: 26.1, source: nasa-ozone-watch}
+- {date: '2012', series: max-area, value: 21.1, source: nasa-ozone-watch}
+- {date: '2013', series: max-area, value: 24.0, source: nasa-ozone-watch}
+- {date: '2014', series: max-area, value: 24.1, source: nasa-ozone-watch}
+- {date: '2015', series: max-area, value: 28.2, source: nasa-ozone-watch}
+- {date: '2016', series: max-area, value: 22.8, source: nasa-ozone-watch}
+- {date: '2017', series: max-area, value: 19.6, source: nasa-ozone-watch}
+- {date: '2018', series: max-area, value: 24.8, source: nasa-ozone-watch}
+- {date: '2019', series: max-area, value: 16.4, source: nasa-ozone-watch}
+- {date: '2020', series: max-area, value: 24.8, source: nasa-ozone-watch}
+- {date: '2021', series: max-area, value: 24.8, source: nasa-ozone-watch}
+- {date: '2022', series: max-area, value: 26.5, source: nasa-ozone-watch}
+- {date: '2023', series: max-area, value: 26.0, source: nasa-ozone-watch}
+- {date: '2024', series: max-area, value: 22.4, source: nasa-ozone-watch}
+- {date: '2025', series: max-area, value: 22.9, source: nasa-ozone-watch}
