@@ -1,5 +1,6 @@
 // Renders the front page and every frontier page from site/js/data.js without a browser,
-// and fails if any page throws or prints a broken value. Run after scripts/build_site_data.py.
+// and fails if any page throws, prints a broken value, has a dead in-site link,
+// or does not link to every other page. Run after scripts/build_site_data.py.
 // Usage: node scripts/check_site.js
 const path = require('path');
 globalThis.window = globalThis;
@@ -9,10 +10,20 @@ const Site = require(path.join(__dirname, '..', 'site', 'js', 'app.js'));
 const BROKEN = /\bNaN\b|\bundefined\b|\bInfinity\b|\[object Object\]/;
 let failures = 0, pages = 0;
 
+// Every page must link to every frontier, and every in-site link must lead somewhere.
+function checkLinks(html) {
+  const ids = new Set(Site.data().frontiers.map((f) => f.id));
+  const links = new Set([...html.matchAll(/href="#([^"]*)"/g)].map((m) => m[1]));
+  for (const l of links) if (!ids.has(l) && !Site.anchors[l]) throw new Error('link to "#' + l + '" leads nowhere');
+  for (const id of ids) if (!links.has(id)) throw new Error('no link to the "' + id + '" page');
+  for (const a of Object.keys(Site.anchors)) if (!links.has(a)) throw new Error('no link to "#' + a + '"');
+}
+
 function check(name, make) {
   pages += 1;
   try {
     const html = make();
+    checkLinks(html);
     const bad = html.replace(/<title>[^<]*<\/title>/g, '').match(BROKEN);
     if (!html || html.length < 400) throw new Error('page is empty');
     if (bad) throw new Error('page contains "' + bad[0] + '" near: ' + html.slice(Math.max(0, bad.index - 80), bad.index + 40).replace(/\s+/g, ' '));

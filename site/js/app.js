@@ -79,9 +79,41 @@
     return '<svg aria-hidden="true" width="28" height="28" viewBox="0 0 28 28"><path d="M2 24 H9 V17 H16 V10 H23 V3" fill="none" stroke="' + c + '" stroke-width="2.5"/><circle cx="23" cy="4" r="3.5" fill="#FF7A40"/></svg>';
   }
   var ARROW = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><path d="M2 8 H13 M9 4 L13 8 L9 12" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
-  function nav(color) {
+  /* Frontiers in the site's domain order, so menus, tiles and previous/next links all agree. */
+  function ordered() {
+    return D.frontiers.slice().sort(function (a, b) {
+      var d = D.domains.indexOf(a.domain) - D.domains.indexOf(b.domain);
+      return d || (a.title < b.title ? -1 : a.title > b.title ? 1 : 0);
+    });
+  }
+  function byDomain() {
+    var out = [];
+    ordered().forEach(function (f) {
+      var last = out[out.length - 1];
+      if (!last || last.name !== f.domain) out.push(last = { name: f.domain, list: [] });
+      last.list.push(f);
+    });
+    return out;
+  }
+  function frontierLinks(currentId) {
+    return byDomain().map(function (g) {
+      return '<div class="ig"><h3>' + esc(g.name) + '</h3><ul>' + g.list.map(function (f) {
+        return '<li><a href="#' + esc(f.id) + '"' + (f.id === currentId ? ' aria-current="page"' : '') + '>' + esc(f.title) + '</a></li>';
+      }).join('') + '</ul></div>';
+    }).join('');
+  }
+  function nav(color, currentId) {
     return '<a class="brand" href="#home">' + LOGO(color) + '<span>' + esc(D.site.name) + '</span></a>' +
-      '<nav aria-label="Main"><a href="#frontiers">Frontiers</a><a href="#method">Method</a><a href="#domains">Domains</a></nav>';
+      '<nav aria-label="Main"><details class="menu"><summary>All ' + D.frontiers.length + ' frontiers</summary>' +
+      '<div class="menu-panel">' + frontierLinks(currentId) + '</div></details>' +
+      '<a href="#frontiers">Overview</a><a href="#method">Method</a><a href="#domains">Domains</a></nav>';
+  }
+  function siteFooter(currentId) {
+    return '<footer class="footer dark"><div class="wrap">' +
+      '<div class="frow"><p class="l">Every number links to its source. Every record carries a status.</p>' +
+      '<nav aria-label="Site"><a href="#home">Front page</a><a href="#frontiers">Overview</a><a href="#method">Method</a><a href="#domains">Domains</a></nav></div>' +
+      '<nav class="index" aria-label="All frontiers">' + frontierLinks(currentId) + '</nav>' +
+      '<p class="foot-note">Photograph: NASA.</p></div></footer>';
   }
   function link(url, html) { return url ? '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + html + '</a>' : html; }
   function sourceLink(f, id) {
@@ -367,7 +399,7 @@
   }
   function home() {
     var lead = D.frontiers.filter(function (x) { return x.id === D.site.lead && hasRecords(x); })[0] || D.frontiers.filter(hasRecords)[0];
-    var liveDomains = {}; D.frontiers.forEach(function (x) { liveDomains[x.domain] = (liveDomains[x.domain] || 0) + 1; });
+    var inDomain = {}; ordered().forEach(function (x) { (inDomain[x.domain] = inDomain[x.domain] || []).push(x); });
     var feature = '';
     if (lead) {
       var sid = selectedId(lead), h = headline(lead, sid), total = 0, ids = seriesIds(lead, 'records');
@@ -382,9 +414,10 @@
         '</div><div class="chart">' + recordsChart(lead, sid, true) + '</div></div></div></section>';
     }
     var doms = D.domains.map(function (name, i) {
-      var n = liveDomains[name];
-      return '<li class="' + (n ? 'on' : '') + '"><span class="n">' + (i < 9 ? '0' : '') + (i + 1) + '</span><span>' + esc(name) + '</span>' +
-        (n ? '<span class="live"><i></i>' + n + ' live</span>' : '') + '</li>';
+      var list = inDomain[name] || [];
+      return '<li class="' + (list.length ? 'on' : '') + '"><span class="n">' + (i < 9 ? '0' : '') + (i + 1) + '</span><span class="dn"><span>' + esc(name) + '</span>' +
+        (list.length ? '<span class="dl">' + list.map(function (x) { return '<a href="#' + esc(x.id) + '">' + esc(x.title) + '</a>'; }).join('') + '</span>' : '') + '</span>' +
+        (list.length ? '<span class="live"><i></i>' + list.length + ' live</span>' : '') + '</li>';
     }).join('');
     var queue = D.planned.length ? '<ul class="rows">' + D.planned.map(function (x) {
       return '<li><span class="d">' + esc(x.domain) + '</span><span class="t">' + esc(x.title) + '</span><span class="s">' + esc(x.shape) + '</span><span class="w">Next in the queue</span></li>';
@@ -399,7 +432,7 @@
 
       '<section class="band" id="frontiers"><div class="wrap"><div class="head"><h2>' + D.frontiers.length + ' frontiers so far</h2>' +
         '<p>Each one gets the chart that fits it. New ones appear here as their data is sourced and checked.</p></div>' +
-        '<div class="tiles">' + D.frontiers.map(tile).join('') + '</div>' + queue + '</div></section>' +
+        '<div class="tiles">' + ordered().map(tile).join('') + '</div>' + queue + '</div></section>' +
 
       '<section class="band" id="method"><div class="wrap"><div class="head"><h2>Every record carries a status</h2>' +
         '<p>A number is only as good as the checking behind it, so the mark travels with the number.</p></div>' +
@@ -411,8 +444,8 @@
         '</div></div></section>' +
 
       '<section class="section-dark dark" id="domains"><div class="wrap"><div class="head"><h2>' + D.domains.length + ' domains</h2>' +
-        '<p>The full map of what the site will cover, in order from the sciences to technology.</p></div>' +
-        '<ol class="domains">' + doms + '</ol><p class="foot-note">Photograph: NASA.</p></div></section>';
+        '<p>The full map of what the site will cover, in order from the sciences to technology. Domains with frontiers link straight to them.</p></div>' +
+        '<ol class="domains">' + doms + '</ol></div></section>' + siteFooter(null);
   }
   function firstDate(f) {
     var m = '9999';
@@ -553,19 +586,23 @@
         (h.status ? '<div><dt>Status</dt><dd>' + statusHtml(h.status, '#0F1317') + '</dd></div>' : '') +
         '<div><dt>Measure</dt><dd class="soft2">' + esc(f.metric.name) + '</dd></div></dl>';
     }
-    return '<header class="nav-plain"><div class="wrap nav">' + nav('#0F1317') + '</div></header>' +
-      '<div class="wrap fr-head"><nav class="crumb eyebrow" aria-label="Breadcrumb"><a href="#domains">' + esc(f.domain) + '</a><span aria-hidden="true">/</span><span>' + esc(f.subfield) + '</span>' +
+    var all = ordered(), at = all.indexOf(f), prev = all[(at - 1 + all.length) % all.length], next = all[(at + 1) % all.length];
+    var mates = all.filter(function (x) { return x.domain === f.domain && x.id !== f.id; });
+    var around = '<div class="wrap block"><nav class="around" aria-label="Other frontiers">' +
+      (mates.length ? '<div class="mates"><span class="eyebrow">More in ' + esc(f.domain) + '</span>' + mates.map(function (x) { return '<a href="#' + esc(x.id) + '">' + esc(x.title) + '</a>'; }).join('') + '</div>' : '') +
+      (all.length > 1 ? '<div class="pn"><a class="pv" href="#' + esc(prev.id) + '"><span class="eyebrow">Previous</span><strong>' + esc(prev.title) + '</strong></a>' +
+        '<a class="nx" href="#' + esc(next.id) + '"><span class="eyebrow">Next</span><strong>' + esc(next.title) + '</strong></a></div>' : '') + '</nav></div>';
+    return '<header class="nav-plain"><div class="wrap nav">' + nav('#0F1317', f.id) + '</div></header>' +
+      '<div class="wrap fr-head"><nav class="crumb eyebrow" aria-label="Breadcrumb"><a href="#home">Front page</a><span aria-hidden="true">/</span><a href="#domains">' + esc(f.domain) + '</a><span aria-hidden="true">/</span><span>' + esc(f.subfield) + '</span>' +
         (f.dataStatus === 'draft' ? '<span class="draft">Draft data, still being checked</span>' : '') + '</nav>' +
         '<div class="fr-title"><div class="l"><h1>' + esc(f.title) + '</h1><p>' + esc(f.summary) + '</p>' + (b && !(b === 'observations' && pointsMode(f)) ? picker(f, b, sid) : '') + '</div>' +
           (h ? '<div class="hl"><div class="eyebrow">' + esc(h.kind) + (h.label && h.label !== f.title ? ' · ' + esc(h.label) : '') + '</div>' + bigNumber(f, h) + '</div>' : '') + '</div>' + facts + '</div>' +
       (b === 'records' ? recordsSections(f, sid) : b === 'observations' ? obsSections(f, sid) : '') +
-      stagesSection(f) + itemsSection(f) + referenceSections(f) +
-      '<footer class="footer dark"><div class="wrap"><p class="l">Every number links to its source. Every record carries a status.</p>' +
-        '<a class="pill pill-ghost" href="#home">Back to the front page</a></div></footer>';
+      stagesSection(f) + itemsSection(f) + referenceSections(f) + around + siteFooter(f.id);
   }
 
   var Site = {
-    home: home, frontier: frontier, itemsList: itemsList, seriesIds: seriesIds, block: block,
+    home: home, frontier: frontier, itemsList: itemsList, anchors: HOME_ANCHORS, seriesIds: seriesIds, block: block,
     select: function (fid, sid) { chosen[fid] = sid; }, data: function () { return D; }
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = Site;
@@ -577,6 +614,7 @@
   function render(f) { app.innerHTML = f ? frontier(f) : home(); }
   function route() {
     var h = (location.hash || '#home').slice(1), f = find(h), view = f ? f.id : 'home';
+    var open = document.querySelector('details.menu[open]'); if (open) open.removeAttribute('open');
     if (view !== current) { render(f); document.title = f ? f.title + ' · ' + D.site.name : D.site.name; current = view; window.scrollTo(0, 0); }
     if (!f && HOME_ANCHORS[h] && h !== 'home') { var el = document.getElementById(h); if (el) el.scrollIntoView(); }
     else if (!f && h === 'home') window.scrollTo(0, 0);
@@ -603,6 +641,10 @@
     var el = document.scrollingElement || document.documentElement, max = el.scrollHeight - window.innerHeight;
     bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, Math.max(0, el.scrollTop / max)) : 0) + ')';
   }
+  document.addEventListener('click', function (e) {
+    var open = document.querySelector('details.menu[open]');
+    if (open && e.target && e.target.closest && (!e.target.closest('details.menu') || e.target.closest('.menu-panel a'))) open.removeAttribute('open');
+  });
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('hashchange', route);
   route();
