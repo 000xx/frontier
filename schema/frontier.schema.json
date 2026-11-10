@@ -48,6 +48,27 @@
       "type": "string",
       "minLength": 20
     },
+    "about": {
+      "description": "A plain-language introduction shown at the top of the frontier's page. Write both parts in your own words, with no figures that would need a source.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "what",
+        "why"
+      ],
+      "properties": {
+        "what": {
+          "description": "What this frontier is and what is being measured, in two or three sentences a newcomer can follow.",
+          "type": "string",
+          "minLength": 40
+        },
+        "why": {
+          "description": "Why progress here matters outside the field, in two or three sentences.",
+          "type": "string",
+          "minLength": 40
+        }
+      }
+    },
     "metric": {
       "type": "object",
       "additionalProperties": false,
