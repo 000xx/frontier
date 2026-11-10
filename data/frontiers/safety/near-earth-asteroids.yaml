@@ -1,0 +1,79 @@
+# Observations are the three discovery counts printed on NASA's near-Earth asteroid page (science.nasa.gov), all dated
+# 3 December 2025 by that page. No fetcher: the NASA CNEOS statistics page could not be opened in this run.
+id: near-earth-asteroids
+title: Known near-Earth asteroids
+domain: safety
+subfield: Seeing it coming
+status: draft
+summary: How many asteroids that pass near Earth have been found, in total and in the largest size classes that
+  could cause regional or global damage. Finding them is the first step in planetary defence.
+metric:
+  name: Discovered near-Earth asteroids
+  unit: asteroids
+  direction: higher
+  scale: linear
+  explainer: 'A near-Earth asteroid is a small body whose orbit brings it close to the Earth''s orbit. Astronomers
+    count the ones they have found, and sort them by size, because the size of an asteroid governs how much
+    damage it could do if it struck. The NASA page reports two size classes, objects larger than 140 metres and
+    objects larger than 1 kilometre, alongside the total of all sizes. Finding an asteroid is not the same as
+    knowing its path, and the counts do not show how many remain undiscovered. The page gives separate estimates
+    of the remaining population, so read the discovered count together with those estimates.'
+chart:
+  primary: coverage-meter
+series:
+- id: all-sizes
+  label: All sizes
+- id: larger-than-140-m
+  label: Larger than 140 m
+- id: larger-than-1-km
+  label: Larger than 1 km
+update:
+  cadence: monthly
+  last_checked: '2026-11-09'
+  notes: 'Only one dated snapshot was read, from the NASA page of 15 April 2026 whose infographic reflects data as of
+    3 December 2025. The page gives remaining-to-find estimates of about 50 asteroids larger than 1 km and about
+    14,000 larger than 140 m; these are not stored because they are estimates. The NASA CNEOS discovery statistics
+    page (https://cneos.jpl.nasa.gov/stats/totals.html) is the preferred primary source, but it could not be opened in
+    this run, so its figures are not verified against this page. Add time series from it, or from the monthly updates,
+    before the status is set to live.'
+sources:
+- id: nasa-near-earth-asteroids
+  name: NASA Science, "Near-Earth Asteroids" (planetary defense page with monthly infographic)
+  url: https://science.nasa.gov/solar-system/asteroids-comets-meteors/near-earth-asteroids
+  kind: report
+  primary: true
+  notes: Credits NASA's Planetary Defense Coordination Office. Page last updated 15 April 2026; figures as of December 2025.
+- id: space-com-10000
+  name: Space.com, "Scientists spot 10,000th medium near-Earth asteroid in planetary defense milestone" (17 February 2022)
+  url: https://www.space.com/planetary-defense-10000th-medium-near-earth-asteroid
+  kind: news
+observations:
+- date: '2025-12-03'
+  series: all-sizes
+  value: 39123
+  source: nasa-near-earth-asteroids
+  note: NASA page infographic, "Total number of discovered near-Earth asteroids of all sizes", data as of December 2025.
+- date: '2025-12-03'
+  series: larger-than-140-m
+  value: 11343
+  source: nasa-near-earth-asteroids
+  note: NASA page infographic, "Discovered asteroids larger than 140 meters", data as of December 2025.
+- date: '2025-12-03'
+  series: larger-than-1-km
+  value: 873
+  source: nasa-near-earth-asteroids
+  note: NASA page infographic, "Discovered asteroids larger than 1 kilometer", data as of December 2025.
+events:
+- date: '2022-02-17'
+  kind: milestone
+  title: The count of medium-sized near-Earth asteroids passes 10,000, at 10,004 by 6 February
+  why_it_matters: The article ties the milestone to NASA's watch for any large asteroid on a collision course, a reminder
+    that the medium size class was already well mapped by 2022.
+  url: https://www.space.com/planetary-defense-10000th-medium-near-earth-asteroid
+- date: '2026-04-15'
+  kind: dataset
+  title: NASA's planetary defense page reports 39,123 known near-Earth asteroids, data as of December 2025
+  why_it_matters: The page also estimates about 14,000 asteroids above 140 metres are still to be found, so most of
+    that size class remains unseen.
+  url: https://science.nasa.gov/solar-system/asteroids-comets-meteors/near-earth-asteroids
+reading: []
