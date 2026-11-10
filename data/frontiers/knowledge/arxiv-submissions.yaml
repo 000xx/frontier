@@ -6,7 +6,7 @@ id: arxiv-submissions
 title: arXiv submissions
 domain: knowledge
 subfield: How science is working
-status: draft
+status: live
 summary: How many new papers are sent to arXiv, the main free server where physicists, mathematicians, computer
   scientists and many other researchers post drafts before or alongside journal publication. The yearly count shows how
   fast the public preprint record is growing.
