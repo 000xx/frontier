@@ -1,10 +1,11 @@
 # Observations are dated totals copied from the NASA Exoplanet Archive's own news log and counts page.
 # Each value is the archive's stated confirmed total on that date. Add a row when the archive states a new total.
+# The yearly rows (discovery year, and cumulative by discovery year) come from the archive's TAP service, not from a dated news total.
 id: exoplanets
 title: Confirmed exoplanets
 domain: astronomy
 subfield: Planets and life
-status: draft
+status: live
 summary: The number of planets outside the Solar System that have been confirmed, as counted by the NASA Exoplanet
   Archive. It has grown from a few thousand in the mid-2010s to more than six thousand, and it is the simplest
   measure of how fast astronomers are finding worlds.
@@ -27,15 +28,24 @@ chart:
 series:
 - id: confirmed-planets
   label: Confirmed planets
+- id: planets-discovered-per-year
+  label: Confirmed planets by discovery year
+- id: cumulative-planets-by-year
+  label: Cumulative confirmed planets by discovery year
 update:
   cadence: monthly
   last_checked: '2026-11-09'
   notes: 'Observations are dated totals from the archive news log (2024news, 2025news and the 2026 news page) and the
-    counts page. The counts page carries no date, so its value is recorded on the retrieval date. Still missing: a total
-    by discovery year. The archive''s discovery-year plots are images with no numbers, and its TAP query service
-    could not be read on 2026-11-09. Also missing: the counts by discovery method, which the counts page gives
-    but without a date. To update: add a row for each new total the archive news log states, and check the counts
-    page for the current figure.'
+    counts page. The counts page carries no date, so its value is recorded on the retrieval date. The yearly series
+    (planets by discovery year, and their running total) were read from the archive TAP service on 2026-11-09. Both the
+    pscomppars query and the ps query with default_flag=1 returned identical rows; the yearly counts sum to 6464, which
+    matches the counts page. Years with no planets are absent from the query output, so they are absent from the
+    series. The running totals are sums of the current table, so they are not snapshots of the archive on each year-end;
+    they run higher than the dated news totals for earlier years (for example, 5844 through 2024 against 5811 on
+    2024-12-19) because planets added later with earlier discovery years are included. Still missing: the counts by
+    discovery method, which the counts page gives but without a date. To update: add a row for each new total the
+    archive news log states, check the counts page for the current figure, and rerun the TAP grouping by disc_year
+    for the yearly rows.'
 sources:
 - id: exoplanet-archive-counts
   name: NASA Exoplanet Archive, Exoplanet and Candidate Statistics
@@ -73,6 +83,13 @@ sources:
   url: https://exoplanetarchive.ipac.caltech.edu/docs/acknowledge.html
   kind: other
   notes: Source of the required credit line and citation. Opened to read the terms.
+- id: exoplanet-archive-tap
+  name: NASA Exoplanet Archive TAP service, pscomppars table grouped by disc_year
+  url: https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+disc_year,count(*)+from+pscomppars+group+by+disc_year+order+by+disc_year&format=csv
+  kind: dataset
+  notes: 'Retrieved 2026-11-09. One row per planet in pscomppars, counted by discovery year; the 2026 row is year to date.
+    The ps query with default_flag=1 gave the same rows. Facts only: counts, no copied dataset. Credit as for the
+    counts page above.'
 records: []
 events:
 - date: '2025-09-17'
@@ -161,3 +178,277 @@ observations:
   value: 6464
   source: exoplanet-archive-counts
   note: Total on the counts page, which carries no date. Recorded on the retrieval date.
+- date: '1992'
+  series: planets-discovered-per-year
+  value: 2
+  source: exoplanet-archive-tap
+- date: '1994'
+  series: planets-discovered-per-year
+  value: 1
+  source: exoplanet-archive-tap
+- date: '1995'
+  series: planets-discovered-per-year
+  value: 1
+  source: exoplanet-archive-tap
+- date: '1996'
+  series: planets-discovered-per-year
+  value: 6
+  source: exoplanet-archive-tap
+- date: '1997'
+  series: planets-discovered-per-year
+  value: 1
+  source: exoplanet-archive-tap
+- date: '1998'
+  series: planets-discovered-per-year
+  value: 6
+  source: exoplanet-archive-tap
+- date: '1999'
+  series: planets-discovered-per-year
+  value: 13
+  source: exoplanet-archive-tap
+- date: '2000'
+  series: planets-discovered-per-year
+  value: 16
+  source: exoplanet-archive-tap
+- date: '2001'
+  series: planets-discovered-per-year
+  value: 12
+  source: exoplanet-archive-tap
+- date: '2002'
+  series: planets-discovered-per-year
+  value: 29
+  source: exoplanet-archive-tap
+- date: '2003'
+  series: planets-discovered-per-year
+  value: 22
+  source: exoplanet-archive-tap
+- date: '2004'
+  series: planets-discovered-per-year
+  value: 27
+  source: exoplanet-archive-tap
+- date: '2005'
+  series: planets-discovered-per-year
+  value: 36
+  source: exoplanet-archive-tap
+- date: '2006'
+  series: planets-discovered-per-year
+  value: 32
+  source: exoplanet-archive-tap
+- date: '2007'
+  series: planets-discovered-per-year
+  value: 52
+  source: exoplanet-archive-tap
+- date: '2008'
+  series: planets-discovered-per-year
+  value: 62
+  source: exoplanet-archive-tap
+- date: '2009'
+  series: planets-discovered-per-year
+  value: 87
+  source: exoplanet-archive-tap
+- date: '2010'
+  series: planets-discovered-per-year
+  value: 93
+  source: exoplanet-archive-tap
+- date: '2011'
+  series: planets-discovered-per-year
+  value: 141
+  source: exoplanet-archive-tap
+- date: '2012'
+  series: planets-discovered-per-year
+  value: 144
+  source: exoplanet-archive-tap
+- date: '2013'
+  series: planets-discovered-per-year
+  value: 128
+  source: exoplanet-archive-tap
+- date: '2014'
+  series: planets-discovered-per-year
+  value: 872
+  source: exoplanet-archive-tap
+- date: '2015'
+  series: planets-discovered-per-year
+  value: 155
+  source: exoplanet-archive-tap
+- date: '2016'
+  series: planets-discovered-per-year
+  value: 1504
+  source: exoplanet-archive-tap
+- date: '2017'
+  series: planets-discovered-per-year
+  value: 152
+  source: exoplanet-archive-tap
+- date: '2018'
+  series: planets-discovered-per-year
+  value: 308
+  source: exoplanet-archive-tap
+- date: '2019'
+  series: planets-discovered-per-year
+  value: 194
+  source: exoplanet-archive-tap
+- date: '2020'
+  series: planets-discovered-per-year
+  value: 234
+  source: exoplanet-archive-tap
+- date: '2021'
+  series: planets-discovered-per-year
+  value: 564
+  source: exoplanet-archive-tap
+- date: '2022'
+  series: planets-discovered-per-year
+  value: 367
+  source: exoplanet-archive-tap
+- date: '2023'
+  series: planets-discovered-per-year
+  value: 323
+  source: exoplanet-archive-tap
+- date: '2024'
+  series: planets-discovered-per-year
+  value: 260
+  source: exoplanet-archive-tap
+- date: '2025'
+  series: planets-discovered-per-year
+  value: 246
+  source: exoplanet-archive-tap
+- date: '2026'
+  series: planets-discovered-per-year
+  value: 374
+  source: exoplanet-archive-tap
+  note: Year to date on the retrieval date, 2026-11-09.
+- date: '1992'
+  series: cumulative-planets-by-year
+  value: 2
+  source: exoplanet-archive-tap
+- date: '1994'
+  series: cumulative-planets-by-year
+  value: 3
+  source: exoplanet-archive-tap
+- date: '1995'
+  series: cumulative-planets-by-year
+  value: 4
+  source: exoplanet-archive-tap
+- date: '1996'
+  series: cumulative-planets-by-year
+  value: 10
+  source: exoplanet-archive-tap
+- date: '1997'
+  series: cumulative-planets-by-year
+  value: 11
+  source: exoplanet-archive-tap
+- date: '1998'
+  series: cumulative-planets-by-year
+  value: 17
+  source: exoplanet-archive-tap
+- date: '1999'
+  series: cumulative-planets-by-year
+  value: 30
+  source: exoplanet-archive-tap
+- date: '2000'
+  series: cumulative-planets-by-year
+  value: 46
+  source: exoplanet-archive-tap
+- date: '2001'
+  series: cumulative-planets-by-year
+  value: 58
+  source: exoplanet-archive-tap
+- date: '2002'
+  series: cumulative-planets-by-year
+  value: 87
+  source: exoplanet-archive-tap
+- date: '2003'
+  series: cumulative-planets-by-year
+  value: 109
+  source: exoplanet-archive-tap
+- date: '2004'
+  series: cumulative-planets-by-year
+  value: 136
+  source: exoplanet-archive-tap
+- date: '2005'
+  series: cumulative-planets-by-year
+  value: 172
+  source: exoplanet-archive-tap
+- date: '2006'
+  series: cumulative-planets-by-year
+  value: 204
+  source: exoplanet-archive-tap
+- date: '2007'
+  series: cumulative-planets-by-year
+  value: 256
+  source: exoplanet-archive-tap
+- date: '2008'
+  series: cumulative-planets-by-year
+  value: 318
+  source: exoplanet-archive-tap
+- date: '2009'
+  series: cumulative-planets-by-year
+  value: 405
+  source: exoplanet-archive-tap
+- date: '2010'
+  series: cumulative-planets-by-year
+  value: 498
+  source: exoplanet-archive-tap
+- date: '2011'
+  series: cumulative-planets-by-year
+  value: 639
+  source: exoplanet-archive-tap
+- date: '2012'
+  series: cumulative-planets-by-year
+  value: 783
+  source: exoplanet-archive-tap
+- date: '2013'
+  series: cumulative-planets-by-year
+  value: 911
+  source: exoplanet-archive-tap
+- date: '2014'
+  series: cumulative-planets-by-year
+  value: 1783
+  source: exoplanet-archive-tap
+- date: '2015'
+  series: cumulative-planets-by-year
+  value: 1938
+  source: exoplanet-archive-tap
+- date: '2016'
+  series: cumulative-planets-by-year
+  value: 3442
+  source: exoplanet-archive-tap
+- date: '2017'
+  series: cumulative-planets-by-year
+  value: 3594
+  source: exoplanet-archive-tap
+- date: '2018'
+  series: cumulative-planets-by-year
+  value: 3902
+  source: exoplanet-archive-tap
+- date: '2019'
+  series: cumulative-planets-by-year
+  value: 4096
+  source: exoplanet-archive-tap
+- date: '2020'
+  series: cumulative-planets-by-year
+  value: 4330
+  source: exoplanet-archive-tap
+- date: '2021'
+  series: cumulative-planets-by-year
+  value: 4894
+  source: exoplanet-archive-tap
+- date: '2022'
+  series: cumulative-planets-by-year
+  value: 5261
+  source: exoplanet-archive-tap
+- date: '2023'
+  series: cumulative-planets-by-year
+  value: 5584
+  source: exoplanet-archive-tap
+- date: '2024'
+  series: cumulative-planets-by-year
+  value: 5844
+  source: exoplanet-archive-tap
+- date: '2025'
+  series: cumulative-planets-by-year
+  value: 6090
+  source: exoplanet-archive-tap
+- date: '2026'
+  series: cumulative-planets-by-year
+  value: 6464
+  source: exoplanet-archive-tap
+  note: Sum of the current table up to this discovery year, retrieved 2026-11-09. Not a snapshot of the archive on that year.
