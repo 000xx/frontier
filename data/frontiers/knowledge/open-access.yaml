@@ -1,28 +1,83 @@
+# Observations are the share of article records per publication year that OpenAlex marks as open access, 2000 to 2025,
+# read through the refresh workflow's dry run from api.openalex.org (works, type article, grouped by open_access.is_oa),
+# opened 2026-11-09. Share = true / (true + false) x 100, to one decimal. Years 2023 to 2025 may still change as OpenAlex
+# updates its records, so the fetcher rewrites only the last three full years and reports any change to older years.
 id: open-access
 title: Open access
 domain: knowledge
 subfield: Open knowledge
 status: draft
-summary: placeholder
+summary: The share of published journal and conference articles that readers can get free of charge, as recorded in
+  the OpenAlex index. It shows whether the research literature is moving from paywalls to free access.
 metric:
-  name: placeholder
+  name: Share of articles that are open access
   unit: '%'
   direction: higher
   scale: linear
-  explainer: placeholder
+  explainer: 'An article counts as open access when OpenAlex finds a free, legal copy of it, whether from the publisher,
+    a repository or another site. The share is the open-access articles divided by all articles in the index for that
+    publication year. The measure depends on how completely the index finds free copies, and the latest years are still
+    being filled in as copies are found and linked. So read the trend over several years, and treat the most recent
+    years as provisional.'
 chart:
   primary: coverage-meter
+  secondary:
+  - record-chart
 series:
 - id: articles
   label: Articles
 update:
   cadence: yearly
   last_checked: '2026-11-09'
+  notes: 'Observations come from OpenAlex, one query per publication year, with type article grouped by open_access.is_oa.
+    The fetcher adds new years and updates the last three full years; older years are not rewritten, and any change to
+    them is written to the run log only. Still to add: a reading list, and an open-access licence check of OpenAlex''s
+    own terms (the licence page was not read; see the source notes).'
 sources:
 - id: openalex
-  name: placeholder
+  name: OpenAlex, works API (type article, grouped by open access status)
   url: https://openalex.org/
   kind: dataset
   primary: true
-events: []
-observations: []
+  notes: Read through the refresh workflow's dry run on 2026-11-09, one request per year at https://api.openalex.org/works?filter=publication_year:YEAR,type:article&group_by=open_access.is_oa.
+    The brief records OpenAlex as CC0. OpenAlex's docs and licence pages were partly blocked and the CC0 statement was
+    not read directly. Confirm before marking live.
+events:
+- date: '2019'
+  kind: milestone
+  title: Open-access articles make up more than half of the articles OpenAlex indexes for 2019 (50.6 per cent)
+  why_it_matters: 'The year the open share first passes half, from 48.1 per cent in 2018 to 50.6 per cent in 2019.'
+  url: https://api.openalex.org/works?filter=publication_year:2019,type:article&group_by=open_access.is_oa
+- date: '2023'
+  kind: milestone
+  title: The open-access share peaks at 74.9 per cent for 2023 articles
+  why_it_matters: 'The 2024 and 2025 values are slightly lower (73.9 and 73.6 per cent) in the same snapshot, but those years
+    are the least complete and may still change.'
+  url: https://api.openalex.org/works?filter=publication_year:2023,type:article&group_by=open_access.is_oa
+observations:
+- {date: '2000', series: articles, value: 17.8, source: openalex}
+- {date: '2001', series: articles, value: 17.7, source: openalex}
+- {date: '2002', series: articles, value: 18.1, source: openalex}
+- {date: '2003', series: articles, value: 18.3, source: openalex}
+- {date: '2004', series: articles, value: 18.6, source: openalex}
+- {date: '2005', series: articles, value: 19.1, source: openalex}
+- {date: '2006', series: articles, value: 19.0, source: openalex}
+- {date: '2007', series: articles, value: 20.2, source: openalex}
+- {date: '2008', series: articles, value: 21.1, source: openalex}
+- {date: '2009', series: articles, value: 22.5, source: openalex}
+- {date: '2010', series: articles, value: 24.3, source: openalex}
+- {date: '2011', series: articles, value: 26.0, source: openalex}
+- {date: '2012', series: articles, value: 28.2, source: openalex}
+- {date: '2013', series: articles, value: 30.5, source: openalex}
+- {date: '2014', series: articles, value: 32.4, source: openalex}
+- {date: '2015', series: articles, value: 35.0, source: openalex}
+- {date: '2016', series: articles, value: 38.1, source: openalex}
+- {date: '2017', series: articles, value: 43.6, source: openalex}
+- {date: '2018', series: articles, value: 48.1, source: openalex}
+- {date: '2019', series: articles, value: 50.6, source: openalex}
+- {date: '2020', series: articles, value: 55.8, source: openalex}
+- {date: '2021', series: articles, value: 61.9, source: openalex}
+- {date: '2022', series: articles, value: 71.1, source: openalex}
+- {date: '2023', series: articles, value: 74.9, source: openalex}
+- {date: '2024', series: articles, value: 73.9, source: openalex}
+- {date: '2025', series: articles, value: 73.6, source: openalex}
