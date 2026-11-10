@@ -14,7 +14,7 @@ FRONTIER = "data/frontiers/earth/tree-cover-loss.yaml"
 URL = "https://ourworldindata.org/grapher/tree-cover-loss.csv?v=1&csvType=full&useColumnShortNames=false"
 SOURCE_ID = "owid-tree-cover-loss"
 SERIES = "world-tree-cover-loss"
-COLUMN = "Tree cover loss"
+COLUMN = "Total"
 REQUIRED = ["Entity", "Code", "Year", COLUMN]
 FIRST_YEAR = 2001
 MIN_YEARS = 20
