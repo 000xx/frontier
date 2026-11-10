@@ -8,6 +8,9 @@
     observations          -> line chart with ranges and a table (or a points chart when each series is a single point)
       + coverage-meter    -> percentages are also drawn as a filled share of the whole, with what is left
       + race-to-zero      -> the first series is also drawn against zero: distance to go, and a log axis for big falls
+      + cost-curve        -> how many times cheaper the latest figure is than the first, and a ribbon of when each halving was reached
+    records or observations
+      + scale-ladder      -> the powers of ten the series has passed, on a log bar from its first figure to the next power of ten
     stages + candidates   -> stage table, and a dated track per candidate where `history` has dates
     items                 -> a grid of the whole list by status, the dated entries on a time axis, then the filterable list
       + claim-scoreboard  -> the grid becomes one card per claim, with who made it, where it stands and the note
@@ -238,6 +241,46 @@
     return out;
   }
   function stageDatesMode(f) { return stageDates(f).length >= 2; }
+  /* Cost curve: the figures of the selected series as { d, v, who }. Where every series is a single entry
+     (one rocket, one year) the curve is the cheapest entry so far, in date order. */
+  function costRows(f, sid) {
+    if (!pointsMode(f)) return (f.observations[sid] || []).map(function (r) { return { d: r[0], v: r[1], who: '' }; });
+    var all = [], best = null, out = [];
+    seriesIds(f, 'observations').forEach(function (id) { var r = f.observations[id][0]; all.push({ d: r[0], v: r[1], who: seriesMeta(f, id).label }); });
+    all.sort(function (a, b) { return parseDate(a.d).t - parseDate(b.d).t || a.v - b.v; });
+    all.forEach(function (r) { if (best === null || r.v < best) { out.push(r); best = r.v; } });
+    return out;
+  }
+  function costMode(f, sid) {
+    if (!hasObs(f) || hasRecords(f) || !hasShape(f, 'cost-curve') || f.metric.direction !== 'lower') return false;
+    var rows = costRows(f, sid);
+    return rows.length > 1 && rows.every(function (r) { return r.v > 0; }) && rows[rows.length - 1].v < rows[0].v;
+  }
+  /* Each halving of the first figure, with the first row at or below it. One row can reach several halvings. */
+  function halvings(rows) {
+    var first = rows[0].v, out = [], k = 1;
+    rows.forEach(function (r) { while (r.v <= first / Math.pow(2, k)) { out.push({ k: k, level: first / Math.pow(2, k), r: r }); k += 1; } });
+    return out;
+  }
+  /* Scale ladder: the best-so-far figures of a series as { d, v, who }, and the powers of ten they passed on the way. */
+  function ladderRows(f, sid) {
+    var b = block(f); if (!b || !f[b][sid] || (b === 'observations' && pointsMode(f))) return [];
+    return progression(f, f[b][sid]).map(function (p) { return { d: p.r[0], v: p.r[1], who: b === 'records' ? p.r[2] || '' : '' }; });
+  }
+  function ladderMode(f, sid) {
+    var rows = hasShape(f, 'scale-ladder') ? ladderRows(f, sid) : [];
+    return rows.length > 1 && rows.every(function (r) { return r.v > 0; });
+  }
+  function pow10(e) { return Number('1e' + e); }
+  function pow10Label(e, plain) { return plain ? fmt(pow10(e)) : '10' + sup(e); }
+  function rungs(f, rows) {
+    var down = f.metric.direction === 'lower', first = rows[0].v, top = rows[rows.length - 1].v, e = Math.round(Math.log10(first)), out = [];
+    function beyond(p, v) { return down ? p < v : p > v; }       // is the power of ten p further on than the figure v?
+    while (!beyond(pow10(e), first)) e += down ? -1 : 1;
+    while (beyond(pow10(e - (down ? -1 : 1)), first)) e -= down ? -1 : 1;
+    for (; !beyond(pow10(e), top); e += down ? -1 : 1) out.push({ e: e, p: pow10(e), r: rows.filter(function (r) { return !beyond(pow10(e), r.v); })[0] });
+    return { passed: out, next: e };
+  }
   function peakRow(rows) { var p = rows[0]; rows.forEach(function (r) { if (r[1] > p[1]) p = r; }); return p; }
   function selectedId(f) {
     var b = block(f); if (!b) return null;
@@ -615,6 +658,7 @@
     var out = '<div class="wrap block"><h2>' + esc(seriesName(meta)) + '</h2><div class="card">' + recordsChart(f, sid, false) + '</div>' +
       '<p class="small">The dark line is the record for the selected series.' + (ids.length > 1 ? ' Thin lines are the other series.' : '') + (top.r[3] ? ' Current record: ' + esc(top.r[3]) + '.' : '') + '</p></div>';
     if (gaugeMode(f, sid)) out += gaugeSection(f, sid);
+    if (ladderMode(f, sid)) out += ladderSection(f, sid);
     if (f.metric.axes.length) out += scatterChart(f, sid);
     if (reignMode(f, sid)) out += reignSection(f, sid);
     if (ids.length > 1) {
@@ -741,8 +785,82 @@
       '<p class="small">' + (unitText(f) ? 'Figures are in ' + esc(unitText(f)) + '. ' : '') + 'The bar is as long as the highest figure in this series, and the dark part is the latest figure drawn to the same scale' +
         (peak[1] > 0 && frac < 0.004 ? ', which is too small to see at this size' : '') + '.</p></div>';
   }
+  /* Cost curve: how many times cheaper the latest figure is than the first, and when each halving of the first figure was reached. */
+  function costSection(f, sid) {
+    var rows = costRows(f, sid), pm = pointsMode(f), first = rows[0], last = rows[rows.length - 1], hs = halvings(rows), c = palette(false), W = 880, H = 62, out = '', fg = '';
+    var t0 = Math.floor(parseDate(first.d).t), t1 = Math.ceil(parseDate(last.d).t + 0.1), newest = hs[hs.length - 1];
+    function X(t) { return (t - t0) / (t1 - t0) * W; }
+    function named(r) { return (r.who ? esc(r.who) + ' · ' : '') + esc(fmtDate(r.d)); }
+    var ribbon = '', table = '';
+    if (hs.length) {
+      out += '<path d="M0 ' + H + ' H' + W + '" stroke="' + c.axis + '" stroke-width="1"/>';
+      timeTicks(t0, t1).forEach(function (y) {
+        out += '<path d="M' + X(y).toFixed(1) + ' ' + H + ' V' + (H + 6) + '" stroke="' + c.axis + '" stroke-width="1"/>' +
+          '<text x="' + X(y).toFixed(1) + '" y="' + (H + 26) + '" fill="' + c.text + '" font-size="13" text-anchor="middle">' + y + '</text>';
+      });
+      var from = X(parseDate(first.d).t);
+      hs.forEach(function (h, i) {
+        var to = X(parseDate(h.r.d).t), on = h === newest, w = Math.max(1.5, to - from - 1);
+        fg += '<rect x="' + from.toFixed(1) + '" y="16" width="' + w.toFixed(1) + '" height="' + (H - 16) + '" fill="' + (on ? '#E4531A' : i % 2 ? '#4F5760' : '#0F1317') + '">' +
+          '<title>' + esc('Halving ' + h.k + ': at or below ' + val(f, h.level) + ' from ' + fmtDate(h.r.d)) + '</title></rect>';
+        if (String(h.k).length * 7.9 + 14 <= w) fg += '<text x="' + (from + 7).toFixed(1) + '" y="' + (16 + (H - 16) / 2 + 4.5).toFixed(1) + '" fill="' + (on ? '#0F1317' : '#F4F5F1') + '" font-size="13" font-weight="500" pointer-events="none">' + h.k + '</text>';
+        fg += '<path d="M' + to.toFixed(1) + ' 4 V13" stroke="' + (on ? '#E4531A' : c.axis) + '" stroke-width="1.5"/>';
+        from = to;
+      });
+      var end = X(parseDate(last.d).t);
+      if (end - from > 1.5) fg += '<rect x="' + from.toFixed(1) + '" y="16" width="' + (end - from).toFixed(1) + '" height="' + (H - 16) + '" fill="#E3E5DF"><title>' + esc('Since halving ' + newest.k + ', up to ' + fmtDate(last.d)) + '</title></rect>';
+      ribbon = '<div class="card">' + frame(out + FG + fg, W, H, 'A ribbon from ' + parseDate(first.d).y + ' to ' + parseDate(last.d).y + ' with one block per halving of the first figure, ' + val(f, first.v) + '. ' + hs.length +
+        (hs.length === 1 ? ' halving' : ' halvings') + ' reached; the latest was reached ' + fmtDate(newest.r.d) + '.', creditLine(f), [t0, t1], '-10 -24 ' + (W + 20) + ' ' + (H + 58)) + '</div>';
+      table = '<div class="tbl"><table class="halvings"><thead><tr><th scope="col">Halving</th><th scope="col">First figure halved this many times</th><th scope="col">First at or below it</th>' +
+        (pm ? '<th scope="col">Which</th>' : '') + '<th scope="col">Figure then</th></tr></thead><tbody>' +
+        hs.slice().reverse().map(function (h) {
+          return '<tr class="' + (h === newest ? 'now' : '') + '"><td><span class="snum' + (h === newest ? ' at' : '') + '">' + h.k + '</span></td><td class="g">' + val(f, h.level) + '</td>' +
+            '<td class="date">' + esc(fmtDate(h.r.d)) + '</td>' + (pm ? '<td>' + esc(h.r.who) + '</td>' : '') + '<td class="v">' + val(f, h.r.v) + '</td></tr>';
+        }).join('') + '</tbody></table></div>';
+    }
+    return '<div class="wrap block"><h2>How far the cost has fallen</h2>' +
+      '<dl class="split">' + cell('', (pm ? 'First entry · ' : 'First figure here · ') + named(first), val(f, first.v)) +
+        cell('now', (pm ? 'Cheapest so far · ' : 'Latest figure · ') + named(last), val(f, last.v)) +
+        cell('', 'Times cheaper', fmt(first.v / last.v) + '×') +
+        cell('', 'Halvings reached', fmt(hs.length)) + '</dl>' + ribbon +
+      '<p class="small">' + (unitText(f) ? 'Figures are in ' + esc(unitText(f)) + '. ' : '') +
+        (pm ? 'Each entry here is a different one, so the curve is the cheapest entry so far, taken in date order. ' : '') +
+        'Times cheaper is the first figure divided by the ' + (pm ? 'cheapest' : 'latest') + ', and a halving is counted each time a figure is at or below half the level before it, starting from the first figure. ' +
+        'Both are worked out here from the figures on this page and are not figures from the source. ' +
+        (hs.length ? 'Each block of the ribbon is the time one halving took: a narrow block is a fast halving. The orange block is the most recent one' +
+            (parseDate(last.d).t > parseDate(newest.r.d).t ? ', and the pale stretch is the time since' : '') + '. A cost that later rose again keeps the halvings it had already reached.'
+          : 'The cost has not yet fallen to half the first figure, so there is no halving to draw.') + '</p>' + table + '</div>';
+  }
+  /* Scale ladder: the powers of ten a series has passed, drawn on a log bar from its first figure to the next power of ten. */
+  function ladderSection(f, sid) {
+    var rows = ladderRows(f, sid), first = rows[0], top = rows[rows.length - 1], rg = rungs(f, rows), down = f.metric.direction === 'lower';
+    var rec = hasRecords(f), word = rec ? 'record' : 'figure', u = unitText(f) ? ' ' + esc(unitText(f)) : '';
+    function lg(v) { return Math.log10(v); }
+    function at(v) { return (lg(v) - lg(first.v)) / (lg(pow10(rg.next)) - lg(first.v)); }
+    /* One notation per ladder: plain numbers while every rung is short enough to read, powers of ten otherwise. */
+    var plain = rg.passed.concat([{ e: rg.next }]).every(function (x) { return x.e >= -3 && x.e <= 4; });
+    var ticks = rg.passed.map(function (x) { return { at: at(x.p) }; }), nextLabel = pow10Label(rg.next, plain) + suffix(f);
+    var table = rg.passed.length ? '<div class="tbl"><table class="ladder"><thead><tr><th scope="col">Power of ten</th><th scope="col">First ' + (down ? 'at or below' : 'reached') + '</th>' +
+      (rec ? '<th scope="col">By</th>' : '') + '<th scope="col">The ' + word + ' that did it</th></tr></thead><tbody>' +
+      '<tr class="next"><td class="v dim">' + nextLabel + '</td><td class="date">Not yet</td>' + (rec ? '<td></td>' : '') + '<td></td></tr>' +
+      rg.passed.slice().reverse().map(function (x) {
+        return '<tr class="' + (x.r === top ? 'now' : '') + '"><td class="v">' + pow10Label(x.e, plain) + suffix(f) + '</td><td class="date">' + esc(fmtDate(x.r.d)) + '</td>' +
+          (rec ? '<td>' + esc(x.r.who) + '</td>' : '') + '<td class="g">' + val(f, x.r.v) + '</td></tr>';
+      }).join('') + '</tbody></table></div>' : '';
+    return '<div class="wrap block"><h2>The ladder of powers of ten</h2>' +
+      scaleBar(at(top.v), 'A bar on a log scale from the first ' + word + ' in this series, ' + val(f, first.v) + ', to the next power of ten, ' + nextLabel + '. The filled part is the ' +
+        (rec ? 'current record' : 'latest figure') + ', ' + val(f, top.v) + ', from ' + fmtDate(top.d) + '. ' + rg.passed.length + (rg.passed.length === 1 ? ' power' : ' powers') + ' of ten passed on the way.', ticks) +
+      '<dl class="split">' + cell('now', (rec ? 'Current record · ' : 'Latest figure · ') + esc(fmtDate(top.d)), val(f, top.v)) +
+        cell('', 'Powers of ten passed', fmt(rg.passed.length)) +
+        cell('', 'First ' + word + ' here · ' + esc(fmtDate(first.d)), val(f, first.v)) +
+        cell('', 'Next power of ten', nextLabel) + '</dl>' +
+      '<p class="small">' + (u ? 'Figures are in' + u + '. ' : '') + 'The bar is a log scale, so equal lengths are equal multiples. It runs from the first ' + word + ' in this series to the next power of ten ' +
+        (down ? 'below' : 'above') + ' the ' + (rec ? 'current record' : 'latest figure') + '; the dark part is how far the series has got' +
+        (ticks.length ? ' and each black tick is a power of ten it passed on the way' : '') + '. The powers of ten are the gridlines of the scale, not targets set by anyone, ' +
+        'and the count of them is worked out here from the ' + word + 's on this page.' + (seriesIds(f, block(f)).length > 1 ? ' This is the selected series only.' : '') + '</p>' + table + '</div>';
+  }
   function obsSections(f, sid) {
-    var pm = pointsMode(f), meta = seriesMeta(f, sid), rows, head, body, cov = coverageMode(f), zero = zeroMode(f, sid);
+    var pm = pointsMode(f), meta = seriesMeta(f, sid), rows, head, body, cov = coverageMode(f), zero = zeroMode(f, sid), cost = costMode(f, sid);
     var log = (zero ? zeroScale(f.observations[sid]) : f.metric.scale) === 'log';
     var note = pm ? 'Each point is one entry, placed at its date. Hover a point for its name.'
       : cov ? 'The shaded area under the line is the share reached, on an axis that runs from nothing to the whole. The dashed blue line is the whole.'
@@ -750,10 +868,12 @@
       : 'The shaded band, where shown, is the range the source gives around its central figure.';
     if (!pm && seriesIds(f, 'observations').length > 1) note += ' Thin lines are the other series, where they fit on the same axis.';
     if (zero && log) note += ' The vertical axis is a log scale: each gridline is ten times the one below it. A log scale has no zero, so zero is drawn as a line of its own under the break in the axis.';
+    else if (log && hasShape(f, 'cost-curve') && f.metric.direction === 'lower') note += ' The vertical axis is a log scale: each gridline is a tenth of the one above it. On this scale a cost that falls by the same percentage every year is a straight line, and the cheap recent years are not squashed flat against the bottom by the expensive early ones.';
     else if (log) note += ' The vertical axis is a log scale.';
-    var out = (cov ? coverageSection(f, sid) : zero ? zeroSection(f, sid) : '') +
+    var out = (cov ? coverageSection(f, sid) : zero ? zeroSection(f, sid) : cost ? costSection(f, sid) : '') +
       '<div class="wrap block"><h2>' + esc(pm ? f.metric.name : seriesName(meta)) + (cov || zero ? ' over time' : '') + '</h2><div class="card">' + obsChart(f, sid, false) + '</div>' +
       '<p class="small">' + note + '</p></div>';
+    if (ladderMode(f, sid)) out += ladderSection(f, sid);
     if (pm) {
       rows = []; seriesIds(f, 'observations').forEach(function (id) { rows.push({ m: seriesMeta(f, id), r: f.observations[id][0] }); });
       rows.sort(function (a, b) { return a.r[0] < b.r[0] ? 1 : -1; });
@@ -967,7 +1087,7 @@
   var Site = {
     home: home, frontier: frontier, itemsList: itemsList, tilesList: tilesList,
     filterHome: function (q, domain, shape) { homeState = { q: q || '', domain: domain || 'all', shape: shape || 'all' }; }, anchors: HOME_ANCHORS, seriesIds: seriesIds, block: block, gaugeMode: gaugeMode, reignMode: reignMode,
-    gridMode: gridMode, claimMode: claimMode, itemTimeMode: itemTimeMode, stageDatesMode: stageDatesMode,
+    costMode: costMode, ladderMode: ladderMode, gridMode: gridMode, claimMode: claimMode, itemTimeMode: itemTimeMode, stageDatesMode: stageDatesMode,
     select: function (fid, sid) { chosen[fid] = sid; }, data: function () { return D; }
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = Site;

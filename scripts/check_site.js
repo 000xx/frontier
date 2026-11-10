@@ -62,6 +62,8 @@ for (const f of data.frontiers) {
       Site.select(f.id, sid);
       const html = Site.frontier(f);
       // A shape view that applies to this series must be on the page, and must not appear where it does not apply.
+      if (Site.costMode(f, sid) !== html.includes('<h2>How far the cost has fallen</h2>')) throw new Error('cost-curve view shown or missing against the data');
+      if (Site.ladderMode(f, sid) !== html.includes('<h2>The ladder of powers of ten</h2>')) throw new Error('scale ladder shown or missing against the data');
       if (block === 'records') {
         if (Site.gaugeMode(f, sid) !== /<h2>Distance to the (line|limit)<\/h2>/.test(html)) throw new Error('threshold gauge shown or missing against the data');
         if (Site.reignMode(f, sid) !== html.includes('<h2>Who has held the record</h2>')) throw new Error('record-holder ribbon shown or missing against the data');
