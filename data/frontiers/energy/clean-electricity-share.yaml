@@ -170,3 +170,6 @@ observations:
 - {date: '2023', series: solar, value: 5.61, source: owid-share-elec-by-source}
 - {date: '2024', series: solar, value: 6.93, source: owid-share-elec-by-source}
 - {date: '2025', series: solar, value: 8.75, source: owid-share-elec-by-source}
+about:
+  what: "The share of the world's electricity that comes from sources that do not burn fossil fuels: solar, wind, hydro, nuclear and other renewables."
+  why: "Generating electricity is the largest single source of carbon dioxide emissions, and most plans to cut emissions from transport, heating and industry rely on switching them to electricity. That only helps if the electricity itself is clean, so this share shows how far the change has got."

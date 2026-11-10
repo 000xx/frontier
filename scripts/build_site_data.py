@@ -82,6 +82,7 @@ def build():
             "subfield": d.get("subfield", ""),
             "dataStatus": d.get("status", ""),
             "summary": one_line(d.get("summary")),
+            "about": {"what": one_line((d.get("about") or {}).get("what")), "why": one_line((d.get("about") or {}).get("why"))},
             "metric": {
                 "name": metric.get("name", ""), "unit": metric.get("unit", ""),
                 "direction": metric.get("direction", "higher"), "scale": metric.get("scale", "linear"),
