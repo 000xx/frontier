@@ -1,0 +1,311 @@
+# Records are transcribed by hand from the papers and pages listed under sources; each value was read in this run.
+# One series per dimension. A record is a lower bound on the kissing number in that dimension, set by an explicit
+# arrangement of spheres. Only dimensions whose bound changed since 2022 are tracked; earlier values appear only
+# where a source gives a date for them.
+id: kissing-numbers
+title: Kissing number lower bounds
+domain: mathematics
+subfield: Best known values
+status: live
+summary: How many equal spheres can touch one sphere at the same time, in spaces of 10 to 31 dimensions. After
+  decades without change, the best known arrangements have improved in many dimensions since 2022, some found
+  by mathematicians and some by AI search systems.
+metric:
+  name: Best known lower bound on the kissing number
+  unit: spheres
+  direction: higher
+  scale: log
+  explainer: 'Put a ball on a table and ask how many balls of the same size can be arranged around it so that each
+    one touches it. In two dimensions (coins on a table) the answer is 6, and in three dimensions it is 12. This
+    count is the kissing number, and the same question can be asked in any number of dimensions. The exact answer
+    is known only in a handful of dimensions; everywhere else mathematicians have a lower bound, set by the best
+    arrangement anyone has found, and an upper bound, proved by showing no arrangement can do better. This
+    frontier tracks the lower bounds. Raising one is a construction problem: you write down the centres of
+    the touching spheres and check that none of them overlap, which anyone can verify with a computer. That
+    makes the problem a natural test for computer search, and since 2025 AI systems such as Google DeepMind''s
+    AlphaEvolve have found some of the improvements, alongside new constructions by mathematicians. The
+    question matters beyond geometry because good sphere arrangements in high dimensions are closely tied to
+    error-correcting codes used to send data reliably. Each dimension is its own series, and the numbers grow
+    so fast with dimension that the chart uses a log scale.'
+chart:
+  primary: record-chart
+series:
+- id: dim-10
+  label: Dimension 10
+- id: dim-11
+  label: Dimension 11
+- id: dim-14
+  label: Dimension 14
+- id: dim-17
+  label: Dimension 17
+- id: dim-18
+  label: Dimension 18
+- id: dim-19
+  label: Dimension 19
+- id: dim-20
+  label: Dimension 20
+- id: dim-21
+  label: Dimension 21
+- id: dim-25
+  label: Dimension 25
+- id: dim-26
+  label: Dimension 26
+- id: dim-27
+  label: Dimension 27
+- id: dim-28
+  label: Dimension 28
+- id: dim-29
+  label: Dimension 29
+- id: dim-30
+  label: Dimension 30
+- id: dim-31
+  label: Dimension 31
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Coverage is limited to dimensions whose lower bound changed since 2022. Open points for the owner: (1)
+    earlier bounds are recorded only where a source dates them (Leech 1967 for dimensions 17 to 21). Ganzhinov
+    gives the previous bounds as 500 in dimension 10 and 1606 in dimension 14, citing the Nebe-Sloane table
+    without dates; Ma et al. give previous bounds for dimensions 25 to 31 without dates. These are kept in record
+    notes, not as records. (2) Only Ganzhinov''s paper was confirmed as refereed (Linear Algebra and its
+    Applications, 2025). The Cohn-Li, Ma et al. (PackingStar) and Ho papers were found only as arXiv preprints,
+    and AlphaEvolve''s result is a company announcement, so all four are claimed. Lower bounds come with explicit
+    sphere arrangements that can be checked by computer, but no independent check was read here. (3) Ho''s 2026
+    bound in dimension 19 is above Cohn and Li''s. (4) Ma et al. also report generalised kissing numbers and a
+    rational arrangement in dimension 13 below the record; neither is tracked. Check arXiv math.MG and
+    math.CO, and AI lab announcements, for new bounds.'
+sources:
+- id: ganzhinov-2025
+  name: M. Ganzhinov, "Highly symmetric lines", Linear Algebra and its Applications 722, 12-37 (2025), DOI
+    10.1016/j.laa.2025.05.002, arXiv:2207.08266
+  url: https://arxiv.org/abs/2207.08266
+  kind: paper
+  primary: true
+  notes: First posted on arXiv on 17 July 2022; journal details from the Aalto research portal
+    (https://research.aalto.fi/en/publications/highly-symmetric-lines/).
+- id: aalto-2025
+  name: Aalto University, "Researcher cracks new kissing number bounds, besting AI in the process" (23 October 2025)
+  url: https://www.aalto.fi/en/news/researcher-cracks-new-kissing-number-bounds-besting-ai-in-the-process
+  kind: press
+- id: ieee-alphaevolve-2025
+  name: IEEE Spectrum, report on Google DeepMind's AlphaEvolve (14 May 2025)
+  url: https://spectrum.ieee.org/deepmind-alphaevolve
+  kind: news
+  notes: Reports AlphaEvolve raising the 11-dimensional bound from 592 to 593.
+- id: cohn-li-2024
+  name: H. Cohn and A. Li, "Improved kissing numbers in seventeen through twenty-one dimensions", arXiv:2411.04916
+  url: https://arxiv.org/abs/2411.04916
+  kind: paper
+  notes: Gives Leech's 1967 bounds (5346, 7398, 10668, 17400, 27720) and the new bounds for dimensions 17 to 21.
+- id: quanta-2025
+  name: Quanta Magazine, "Mathematicians Discover New Way for Spheres to 'Kiss'" (15 January 2025)
+  url: https://quantamagazine.org/mathematicians-discover-new-way-for-spheres-to-kiss-20250115/
+  kind: news
+- id: ho-2026
+  name: B. S. Ho, "A new lower bound for the kissing number in 19 dimensions", arXiv:2603.10425
+  url: https://arxiv.org/abs/2603.10425
+  kind: paper
+- id: ma-2025-packingstar
+  name: C. Ma, Y. Yang et al., "Finding Kissing Numbers with Game-theoretic Reinforcement Learning",
+    arXiv:2511.13391
+  url: https://arxiv.org/abs/2511.13391
+  kind: paper
+  notes: Table 2 of the paper gives previous and new bounds for dimensions 25 to 31, found by the PackingStar
+    system.
+records:
+- date: '2022-07-17'
+  value: 510
+  series: dim-10
+  holder: M. Ganzhinov, Aalto University
+  conditions: New kissing configuration; date is arXiv submission
+  status: peer_reviewed
+  source: ganzhinov-2025
+  note: Previous bound 500, per the paper.
+- date: '2022-07-17'
+  value: 592
+  series: dim-11
+  holder: M. Ganzhinov, Aalto University
+  conditions: New kissing configuration; date is arXiv submission
+  status: peer_reviewed
+  source: ganzhinov-2025
+- date: '2025-05-14'
+  value: 593
+  series: dim-11
+  holder: Google DeepMind (AlphaEvolve)
+  conditions: Found by an AI coding agent with an automated evaluator
+  status: claimed
+  source: ieee-alphaevolve-2025
+  note: Aalto's release notes this is one above Ganzhinov's 592, and that AI matched only one of his three new
+    bounds.
+- date: '2022-07-17'
+  value: 1932
+  series: dim-14
+  holder: M. Ganzhinov, Aalto University
+  conditions: New kissing configuration; date is arXiv submission
+  status: peer_reviewed
+  source: ganzhinov-2025
+  note: Previous bound 1606, per the paper.
+- date: '1967'
+  value: 5346
+  series: dim-17
+  holder: J. Leech
+  conditions: Construction from 1967, as cited by Cohn and Li
+  status: peer_reviewed
+  source: cohn-li-2024
+- date: '2024-11-07'
+  value: 5730
+  series: dim-17
+  holder: H. Cohn and A. Li
+  conditions: New kissing configuration; date is arXiv submission
+  status: claimed
+  source: cohn-li-2024
+- date: '1967'
+  value: 7398
+  series: dim-18
+  holder: J. Leech
+  conditions: Construction from 1967, as cited by Cohn and Li
+  status: peer_reviewed
+  source: cohn-li-2024
+- date: '2024-11-07'
+  value: 7654
+  series: dim-18
+  holder: H. Cohn and A. Li
+  conditions: New kissing configuration; date is arXiv submission
+  status: claimed
+  source: cohn-li-2024
+- date: '1967'
+  value: 10668
+  series: dim-19
+  holder: J. Leech
+  conditions: Construction from 1967, as cited by Cohn and Li
+  status: peer_reviewed
+  source: cohn-li-2024
+- date: '2024-11-07'
+  value: 11692
+  series: dim-19
+  holder: H. Cohn and A. Li
+  conditions: New kissing configuration; date is arXiv submission
+  status: claimed
+  source: cohn-li-2024
+- date: '1967'
+  value: 17400
+  series: dim-20
+  holder: J. Leech
+  conditions: Construction from 1967, as cited by Cohn and Li
+  status: peer_reviewed
+  source: cohn-li-2024
+- date: '2024-11-07'
+  value: 19448
+  series: dim-20
+  holder: H. Cohn and A. Li
+  conditions: New kissing configuration; date is arXiv submission
+  status: claimed
+  source: cohn-li-2024
+- date: '1967'
+  value: 27720
+  series: dim-21
+  holder: J. Leech
+  conditions: Construction from 1967, as cited by Cohn and Li
+  status: peer_reviewed
+  source: cohn-li-2024
+- date: '2024-11-07'
+  value: 29768
+  series: dim-21
+  holder: H. Cohn and A. Li
+  conditions: New kissing configuration; date is arXiv submission
+  status: claimed
+  source: cohn-li-2024
+- date: '2026-03-11'
+  value: 11948
+  series: dim-19
+  holder: B. S. Ho
+  conditions: New kissing configuration, 256 above Cohn and Li; date is arXiv submission
+  status: claimed
+  source: ho-2026
+- date: '2025-11-17'
+  value: 197056
+  series: dim-25
+  holder: C. Ma, Y. Yang et al. (PackingStar, game-theoretic reinforcement learning)
+  conditions: Found by an AI search system; date is arXiv submission
+  status: claimed
+  source: ma-2025-packingstar
+  note: Previous bound 197,048, per Table 2 of the paper.
+- date: '2025-11-17'
+  value: 198550
+  series: dim-26
+  holder: C. Ma, Y. Yang et al. (PackingStar, game-theoretic reinforcement learning)
+  conditions: Found by an AI search system; date is arXiv submission
+  status: claimed
+  source: ma-2025-packingstar
+  note: Previous bound 198,512, per Table 2 of the paper.
+- date: '2025-11-17'
+  value: 200044
+  series: dim-27
+  holder: C. Ma, Y. Yang et al. (PackingStar, game-theoretic reinforcement learning)
+  conditions: Found by an AI search system; date is arXiv submission
+  status: claimed
+  source: ma-2025-packingstar
+  note: Previous bound 199,976, per Table 2 of the paper.
+- date: '2025-11-17'
+  value: 204520
+  series: dim-28
+  holder: C. Ma, Y. Yang et al. (PackingStar, game-theoretic reinforcement learning)
+  conditions: Found by an AI search system; date is arXiv submission
+  status: claimed
+  source: ma-2025-packingstar
+  note: Previous bound 204,368, per Table 2 of the paper.
+- date: '2025-11-17'
+  value: 209496
+  series: dim-29
+  holder: C. Ma, Y. Yang et al. (PackingStar, game-theoretic reinforcement learning)
+  conditions: Found by an AI search system; date is arXiv submission
+  status: claimed
+  source: ma-2025-packingstar
+  note: Previous bound 208,272, per Table 2 of the paper.
+- date: '2025-11-17'
+  value: 220440
+  series: dim-30
+  holder: C. Ma, Y. Yang et al. (PackingStar, game-theoretic reinforcement learning)
+  conditions: Found by an AI search system; date is arXiv submission
+  status: claimed
+  source: ma-2025-packingstar
+  note: Previous bound 219,984, per Table 2 of the paper.
+- date: '2025-11-17'
+  value: 238350
+  series: dim-31
+  holder: C. Ma, Y. Yang et al. (PackingStar, game-theoretic reinforcement learning)
+  conditions: Found by an AI search system; date is arXiv submission
+  status: claimed
+  source: ma-2025-packingstar
+  note: Previous bound 232,874, per Table 2 of the paper.
+events:
+- date: '2022-07-17'
+  kind: paper
+  title: Ganzhinov improves the kissing number bounds in dimensions 10, 11 and 14
+  why_it_matters: These were the first gains in dimensions below 16 in about two decades, by a doctoral student
+    using highly symmetric line systems.
+  url: https://www.aalto.fi/en/news/researcher-cracks-new-kissing-number-bounds-besting-ai-in-the-process
+- date: '2024-11-07'
+  kind: paper
+  title: Cohn and Li beat Leech's 1967 bounds in dimensions 17 to 21
+  why_it_matters: Constructions that had stood for 57 years were improved, starting from an undergraduate class
+    project.
+  url: https://arxiv.org/abs/2411.04916
+- date: '2025-05-14'
+  kind: news
+  title: AlphaEvolve raises the 11-dimensional bound from 592 to 593
+  why_it_matters: An AI coding agent edged one sphere past a record that a mathematician had set three years
+    earlier.
+  url: https://spectrum.ieee.org/deepmind-alphaevolve
+- date: '2025-11-17'
+  kind: paper
+  title: Reinforcement-learning system reports new bounds in dimensions 25 to 31
+  why_it_matters: Seven bounds moved at once, by up to several thousand spheres, which suggests the
+    higher dimensions still have plenty of room for search.
+  url: https://arxiv.org/abs/2511.13391
+- date: '2026-03-11'
+  kind: paper
+  title: New 19-dimensional bound of 11,948 overtakes Cohn and Li
+  why_it_matters: The 17 to 21 dimension bounds, untouched for decades, are now moving again within months.
+  url: https://arxiv.org/abs/2603.10425
+reading: []
