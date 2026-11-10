@@ -1,0 +1,148 @@
+# Records are transcribed by hand from the pages listed under sources; each value was read in this run.
+# Series hold different kinds of temperature and must not be ranked against each other.
+id: coldest-temperature
+title: Coldest temperatures made in the lab
+domain: extremes
+subfield: Physical extremes
+status: live
+summary: The lowest temperatures anyone has reached, a fraction of a billionth of a degree above absolute zero. Two
+  very different systems hold the records, the magnetic spins of atomic nuclei inside a metal and clouds of
+  atoms floating in a vacuum, and each now sits within about a tenth of a billionth of a degree of zero.
+metric:
+  name: Lowest temperature reached
+  unit: picokelvin (pK)
+  direction: lower
+  scale: log
+  explainer: 'Temperature measures how much random motion there is. Absolute zero, 0 kelvin, would mean none at
+    all, and the laws of thermodynamics say it can be approached but never reached. Records are counted in
+    picokelvin, trillionths of a degree. They come from two quite different kinds of system, and the word
+    "temperature" means slightly different things in each. In a metal such as rhodium, the tiny magnets of the
+    atomic nuclei can be cooled by magnetic tricks far below the temperature of the metal''s electrons and
+    crystal lattice; the record there is the temperature of the nuclear spins alone. In a gas of atoms trapped
+    with lasers and magnetic fields, the atoms are cooled into a Bose-Einstein condensate, and the cloud is then
+    allowed to expand and refocused so that its atoms barely move; the record there is an effective temperature
+    worked out from the leftover motion, sometimes in only two directions. Because of these differences each
+    system is shown as its own series, and the numbers should not be compared directly.'
+chart:
+  primary: record-chart
+  secondary:
+  - scale-ladder
+series:
+- id: nuclear-spins
+  label: Nuclear spins in a metal (spin temperature)
+- id: atomic-gas
+  label: Ultracold atomic gas (effective kinetic temperature)
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Values were read from the pages listed. Open points for the owner: (1) the nuclear-spin records come only
+    from Aalto University''s own pages, which give years but no papers, so they are claimed; the papers were not
+    found in this run. (2) The 2003 MIT result is 450 pK in Physics World and "500 picokelvin" (as a rounded "below
+    500") in MIT News; 450 pK is used. MIT News says the previous lowest reported temperature was 3 nK but not who
+    set it, so that earlier record is not added. (3) Kovachy et al. (2015) is an effective temperature in two
+    dimensions only; Deppner et al. (2021) is in three. (4) The Aalto page also lists a negative absolute
+    temperature in rhodium nuclear spins, which is not a low-temperature record and is left out. (5) Electron and
+    bulk-material temperature records are not covered yet. Coverage starts in 1993.'
+sources:
+- id: aalto-records
+  name: Aalto University OtaNano, "Record low temperatures"
+  url: https://www.aalto.fi/en/otanano/record-low-temperatures
+  kind: other
+  primary: true
+  notes: The page states no terms of use; facts only are recorded.
+- id: aalto-milestones
+  name: Aalto University OtaNano, "LTL milestones"
+  url: https://www.aalto.fi/en/otanano/ltl-milestones
+  kind: other
+- id: deppner-2021
+  name: C. Deppner et al., "Collective-Mode Enhanced Matter-Wave Optics", Phys. Rev. Lett. 127, 100401 (2021)
+  url: https://ui.adsabs.harvard.edu/abs/2021PhRvL.127j0401D
+  kind: paper
+- id: aps-physics-2021
+  name: APS Physics, Viewpoint on the 38 pK matter-wave lens (Physics 14, 119)
+  url: https://physics.aps.org/articles/v14/119
+  kind: news
+- id: kovachy-2015
+  name: T. Kovachy et al., "Matter wave lensing to picokelvin temperatures", Phys. Rev. Lett. 114, 143004 (2015),
+    arXiv:1407.6995
+  url: https://arxiv.org/abs/1407.6995
+  kind: paper
+- id: physicsworld-2003
+  name: Physics World, "Bose-Einstein condensates break temperature record" (12 September 2003)
+  url: https://physicsworld.com/a/bose-einstein-condensates-break-temperature-record
+  kind: news
+- id: mit-news-2003
+  name: MIT News, report on the MIT picokelvin result (17 September 2003)
+  url: https://news.mit.edu/2003/cooling-0917
+  kind: news
+records:
+- date: '1993'
+  value: 280
+  series: nuclear-spins
+  holder: Low Temperature Laboratory, Helsinki University of Technology (now Aalto University)
+  conditions: Nuclear spin temperature of a rhodium sample
+  status: claimed
+  source: aalto-milestones
+  note: Listed by the laboratory as a world record; no paper read in this run.
+- date: '1999'
+  value: 100
+  series: nuclear-spins
+  holder: Low Temperature Laboratory, Helsinki University of Technology (now Aalto University)
+  conditions: Nuclear spin temperature of a rhodium sample (about two grams of rhodium metal)
+  status: claimed
+  source: aalto-milestones
+  url: https://www.aalto.fi/en/otanano/record-low-temperatures
+  note: Listed by the laboratory as a world record; no paper read in this run.
+- date: '2003-09-12'
+  value: 450
+  series: atomic-gas
+  holder: MIT (W. Ketterle, D. E. Pritchard and colleagues)
+  conditions: Bose-Einstein condensate of sodium atoms; lowest measured temperature
+  status: peer_reviewed
+  source: physicsworld-2003
+  url: https://news.mit.edu/2003/cooling-0917
+  note: Published in Science (12 September 2003 issue), according to MIT News. MIT News rounds it to 500 pK and says
+    it is six times lower than the previous lowest reported temperature.
+- date: '2014-07-25'
+  value: 50
+  series: atomic-gas
+  holder: Stanford (T. Kovachy et al.)
+  conditions: Effective temperature of rubidium-87 atoms after matter-wave lensing, in two dimensions only;
+    50 (+50/−30) pK
+  status: peer_reviewed
+  source: kovachy-2015
+- date: '2021-09'
+  value: 38
+  series: atomic-gas
+  holder: QUANTUS collaboration, Bremen drop tower (C. Deppner et al.)
+  conditions: Effective temperature from the total internal kinetic energy of a Bose-Einstein condensate of about
+    101,000 atoms, in three dimensions, in microgravity; 38 (+6/−7) pK
+  status: peer_reviewed
+  source: deppner-2021
+  note: APS Physics notes the earlier 50 pK lens worked in two dimensions only.
+events:
+- date: '1999'
+  kind: milestone
+  title: Nuclear spins in rhodium cooled to 100 pK in Helsinki
+  why_it_matters: The laboratory still lists it as the record, though it applies to the nuclear magnets alone, not
+    to the metal as a whole.
+  url: https://www.aalto.fi/en/otanano/ltl-milestones
+- date: '2003-09-12'
+  kind: paper
+  title: MIT takes an atomic gas below 500 picokelvin
+  why_it_matters: An atomic gas went below half a billionth of a degree, about six times colder than any gas
+    reported before.
+  url: https://physicsworld.com/a/bose-einstein-condensates-break-temperature-record
+- date: '2014-07-25'
+  kind: paper
+  title: Matter-wave lensing reaches 50 pK, in two dimensions
+  why_it_matters: Refocusing an expanding atom cloud, much as a lens refocuses light, gave an effective temperature
+    about nine times below the 2003 gas record, though only along two directions.
+  url: https://arxiv.org/abs/1407.6995
+- date: '2021-09'
+  kind: paper
+  title: Drop-tower experiment reaches 38 pK in all three dimensions
+  why_it_matters: Working in microgravity, the lensing trick slowed the atoms in all three directions, not just
+    two, setting the current record for an atomic gas.
+  url: https://physics.aps.org/articles/v14/119
+reading: []
