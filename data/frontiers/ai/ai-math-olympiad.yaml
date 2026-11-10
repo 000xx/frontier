@@ -1,0 +1,155 @@
+# Records are transcribed by hand from the announcements and reports listed in sources.
+# Add records only from pages opened in the update run.
+id: ai-math-olympiad
+title: AI at the International Mathematical Olympiad
+domain: ai
+subfield: AI doing science
+status: live
+summary: The best score an AI system has reached on the year's International Mathematical Olympiad
+  problems, out of 42, from silver-medal level in 2024 to gold in 2025 and reported perfect scores in
+  2026. It is a widely understood yardstick for AI mathematical reasoning.
+metric:
+  name: Best AI score on the year's IMO problems
+  unit: points out of 42
+  direction: higher
+  scale: linear
+  limit:
+    value: 42
+    label: Perfect score (six problems, 7 points each)
+    source: deepmind-imo-2025
+  explainer: 'The International Mathematical Olympiad is the world championship of school mathematics.
+    Each July, secondary-school students from more than a hundred countries sit two papers of four and a
+    half hours, with three problems in each. Every problem is worth 7 points, so 42 is a
+    perfect score, and answers are full written proofs, marked by the IMO''s coordinators. Roughly one
+    contestant in ten wins gold. The problems need no advanced theory but do need real insight,
+    which made the IMO a long-standing target for AI. Comparing AI with students is not straightforward:
+    early systems had problems translated by hand into a formal proof language and took days rather than
+    hours, some labs had their answers graded by people they chose rather than by the IMO, and only some
+    results were certified by IMO coordinators. Each record here says how the result was produced and
+    who graded it. Status confirmed is used only where IMO coordinators graded and certified the result;
+    a lab''s own announcement is claimed. A perfect score on the IMO does not mean an AI can do new
+    research: olympiad problems are set so that a solution exists and fits in a few pages, which open
+    research questions do not promise.'
+chart:
+  primary: record-chart
+  secondary:
+  - threshold-gauge
+series:
+- id: imo-score
+  label: Best AI score on that year's IMO
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Facts transcribed from the pages listed in sources; no dataset exists. One record per system that
+    set or matched the best score. Dates are announcement dates where known. The 2026 entries rest on a
+    single newspaper report (Ambito, 2026-08-01) that names the companies but not the systems, gives the
+    score only as the maximum, and does not say the IMO certified the results; the IMO''s 2026 edition page
+    and other primary announcements could not be opened in this run, so they are claimed and dated by
+    month. Check them against IMO or company announcements in the next run. OpenAI''s 2025 result was
+    announced by the company and graded outside the IMO process. DeepSeekMath-V2''s gold-level result on
+    the 2025 problems (5 of 6 solved) came months after the contest, so it is an event, not a record.'
+sources:
+- id: deepmind-imo-2024
+  name: Google DeepMind, AI achieves silver-medal standard solving International Mathematical Olympiad problems
+  url: https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level
+  kind: press
+- id: deepmind-imo-2025
+  name: Google DeepMind, Advanced version of Gemini with Deep Think officially achieves gold-medal standard
+    at the International Mathematical Olympiad
+  url: https://deepmind.google/en/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/
+  kind: press
+  primary: true
+  notes: States that the results were graded and certified by IMO coordinators, and quotes IMO President
+    Gregor Dolinar. Also states that the IMO's review does not extend to validating the system itself.
+- id: willison-imo-2025
+  name: Simon Willison, notes on the Gemini and OpenAI IMO 2025 results (2025-07-21)
+  url: https://simonwillison.net/2025/Jul/21/gemini-imo/
+  kind: news
+  notes: Source for OpenAI's 35/42 announced on Saturday 2025-07-19 after the closing ceremony, outside
+    the official process.
+- id: dawn-imo-2025
+  name: Dawn, report on Google and OpenAI gold-level IMO 2025 results (2025-07-23)
+  url: https://www.dawn.com/news/1925980
+  kind: news
+- id: deepseekmath-v2
+  name: DeepSeek-AI, DeepSeekMath-V2, arXiv:2511.22570
+  url: https://arxiv.org/pdf/2511.22570
+  kind: paper
+- id: ambito-imo-2026
+  name: Ambito, report on AI perfect scores at IMO 2026 (2026-08-01)
+  url: https://www.ambito.com/tecnologia/la-inteligencia-artificial-alcanza-un-nuevo-record-al-igualar-los-mejores-jovenes-matematicos-del-mundo-n6304895/amp
+  kind: news
+  notes: Spanish-language. Reports that models from Huawei and Xiaohongshu (RedNote) reached the maximum
+    score at IMO 2026 (666 students from 117 countries; seven students also scored the maximum), assessed
+    with the criteria used for students. It does not state that the IMO certified the results.
+records:
+- date: '2024-07-25'
+  value: 28
+  series: imo-score
+  holder: Google DeepMind (AlphaProof and AlphaGeometry 2)
+  conditions: IMO 2024; 4 of 6 problems solved; problems translated by hand into the Lean formal language;
+    up to three days on some problems; scored by Timothy Gowers and Joseph Myers under IMO rules, not by
+    IMO coordinators; one point below that year's gold threshold of 29
+  status: claimed
+  source: deepmind-imo-2024
+- date: '2025-07-19'
+  value: 35
+  series: imo-score
+  holder: OpenAI (experimental reasoning model)
+  conditions: IMO 2025; problems 1 to 5 solved, problem 6 not; natural language; announced by OpenAI after
+    the closing ceremony; not graded or certified by the IMO
+  status: claimed
+  source: willison-imo-2025
+- date: '2025-07-21'
+  value: 35
+  series: imo-score
+  holder: Google DeepMind (Gemini Deep Think, advanced version)
+  conditions: IMO 2025; 5 of 6 problems solved with full marks; natural language, within the 4.5-hour
+    time limit; graded and certified by IMO coordinators with the criteria used for students; gold-medal
+    score
+  status: confirmed
+  source: deepmind-imo-2025
+- date: '2026-07'
+  value: 42
+  series: imo-score
+  holder: Huawei
+  conditions: IMO 2026; maximum score as reported by Ambito (2026-08-01); system not named in that report;
+    IMO certification not stated in the sources read
+  status: claimed
+  source: ambito-imo-2026
+- date: '2026-07'
+  value: 42
+  series: imo-score
+  holder: Xiaohongshu (RedNote)
+  conditions: IMO 2026; maximum score as reported by Ambito (2026-08-01); system not named in that report;
+    IMO certification not stated in the sources read
+  status: claimed
+  source: ambito-imo-2026
+events:
+- date: '2024-07-25'
+  kind: milestone
+  title: AlphaProof and AlphaGeometry 2 reach silver-medal level at IMO 2024
+  why_it_matters: First AI result at medal level on a real IMO paper, though with hand translation into
+    formal language and far more time than students get.
+  url: https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level
+- date: '2025-07-21'
+  kind: milestone
+  title: Gemini Deep Think gets the first gold-level score certified by IMO coordinators
+  why_it_matters: The first AI result graded inside the IMO's own process, written in plain language
+    within the student time limit.
+  url: https://deepmind.google/en/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/
+- date: '2025-11'
+  kind: paper
+  title: DeepSeekMath-V2 reports gold-level results on the 2025 IMO problems with open weights
+  why_it_matters: Showed that gold-level olympiad proofs were no longer limited to closed systems a few
+    months after the contest.
+  url: https://arxiv.org/pdf/2511.22570
+- date: '2026-08-01'
+  kind: news
+  title: Models from Huawei and Xiaohongshu reported to reach the maximum score at IMO 2026
+  why_it_matters: If confirmed, the IMO would be saturated as a yardstick for AI, matching the seven
+    students who also scored full marks.
+  url: https://www.ambito.com/tecnologia/la-inteligencia-artificial-alcanza-un-nuevo-record-al-igualar-los-mejores-jovenes-matematicos-del-mundo-n6304895/amp
+reading: []
+connections:
+- frontiermath
