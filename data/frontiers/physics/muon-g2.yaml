@@ -1,0 +1,157 @@
+# Records are transcribed by hand from the papers listed under sources; each value was read in this run.
+# Values are the total relative uncertainty of each published measurement of the muon anomaly a_mu, in ppm.
+# Two series: the best single experiment, and the experimental world average quoted in the same paper.
+id: muon-g2
+title: Muon magnetic moment (g-2)
+domain: physics
+subfield: Precision measurement
+status: live
+summary: How precisely the muon's magnetic strength has been measured. Fermilab's final 2025 result pinned it
+  down to 127 parts per billion, four times better than Brookhaven's 2006 result, as a test of whether
+  unknown particles are tugging on the muon.
+metric:
+  name: Relative uncertainty on the muon anomalous magnetic moment
+  unit: ppm
+  direction: lower
+  scale: log
+  explainer: 'The muon is a heavier cousin of the electron. Like a tiny bar magnet it lines up in a magnetic field
+    and wobbles (precesses) around it at a rate set by its magnetic moment, written g. Simple quantum theory says
+    g should be exactly 2, but the muon is constantly surrounded by short-lived virtual particles that nudge g
+    slightly above 2. The size of that nudge, a_mu = (g - 2)/2, about 0.00116592, depends on every particle that
+    exists, including any not yet discovered. So physicists measure a_mu very precisely and compare it with the
+    Standard Model prediction: a clear difference would point to new physics. The experiments store muons in a
+    ring-shaped magnet and time how fast their spins turn compared with how fast they circle. This
+    frontier tracks the precision of the measurement, given as the total uncertainty in parts per million
+    (ppm). For years the measurement and the prediction disagreed, but a new prediction in 2025, using
+    a computer-based method for the hardest part of the theory, sits much closer to the measured value.'
+chart:
+  primary: record-chart
+series:
+- id: single-experiment
+  label: Best single experiment
+- id: world-average
+  label: Experimental world average
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Coverage starts with the final Brookhaven result of 2006; the earlier CERN and intermediate Brookhaven
+    results are not yet added. Dates are first arXiv submission. Open points for the owner: (1) all records are
+    peer_reviewed; Fermilab''s values agree with Brookhaven''s, which is an independent check of the value but
+    not of the uncertainty, so none is marked confirmed. (2) The world-average series starts in 2021 because no
+    source read gives the world-average uncertainty before then. (3) Check for new experiments that
+    could improve on Fermilab. (4) The theory side (the Muon g-2 Theory Initiative
+    predictions) is described only in words; no theory values are recorded.'
+sources:
+- id: fnal-2025
+  name: Muon g-2 Collaboration, "Measurement of the Positive Muon Anomalous Magnetic Moment to 127 ppb", Phys.
+    Rev. Lett. 135, 101802 (2025), arXiv:2506.03069
+  url: https://arxiv.org/abs/2506.03069
+  kind: paper
+  primary: true
+  notes: Journal details from the NSU research portal record. Runs 4-6 alone give 139 ppb; Runs 1-6 combined 127
+    ppb; world average including Brookhaven 124 ppb.
+- id: doe-2025
+  name: US Department of Energy Office of Science, "Muon g-2 announces most precise measurement of the magnetic
+    anomaly of the muon" (3 June 2025)
+  url: https://www.energy.gov/science/articles/muon-g-2-announces-most-precise-measurement-magnetic-anomaly-muon-0
+  kind: press
+  notes: Gives the 140 ppb design goal and says the 2025 Theory Initiative prediction is closer to the measurement.
+- id: fnal-2023
+  name: Muon g-2 Collaboration, "Measurement of the Positive Muon Anomalous Magnetic Moment to 0.20 ppm", Phys.
+    Rev. Lett. 131, 161802 (2023), arXiv:2308.06230
+  url: https://arxiv.org/abs/2308.06230
+  kind: paper
+  notes: Runs 2-3 alone 0.21 ppm; Runs 1-3 combined 0.20 ppm; world average 0.19 ppm.
+- id: fnal-2021
+  name: Muon g-2 Collaboration, "Measurement of the Positive Muon Anomalous Magnetic Moment to 0.46 ppm", Phys.
+    Rev. Lett. 126, 141801 (2021), arXiv:2104.03281
+  url: https://arxiv.org/abs/2104.03281
+  kind: paper
+  notes: Run 1 alone 0.46 ppm; experimental average with Brookhaven and earlier measurements 0.35 ppm.
+- id: bnl-2006
+  name: Muon g-2 Collaboration (G. W. Bennett et al.), "Final Report of the Muon E821 Anomalous Magnetic Moment
+    Measurement at BNL", Phys. Rev. D 73, 072003 (2006), arXiv:hep-ex/0602035
+  url: https://arxiv.org/abs/hep-ex/0602035
+  kind: paper
+- id: zaid-2025
+  name: E. Zaid, "Run 2/3 measurement of the muon anomalous magnetic moment by the Muon g-2 experiment at
+    Fermilab", arXiv:2506.21219
+  url: https://arxiv.org/abs/2506.21219
+  kind: paper
+  notes: Conference proceedings; gives the Fermilab design target of 0.14 ppm.
+records:
+- date: '2006-02-20'
+  value: 0.54
+  series: single-experiment
+  holder: Brookhaven National Laboratory, E821
+  conditions: Final result combining positive and negative muon data
+  status: peer_reviewed
+  source: bnl-2006
+- date: '2021-04-07'
+  value: 0.46
+  series: single-experiment
+  holder: Fermilab, Muon g-2 (E989)
+  conditions: Run 1 (2018 data), positive muons
+  status: peer_reviewed
+  source: fnal-2021
+- date: '2023-08-11'
+  value: 0.2
+  series: single-experiment
+  holder: Fermilab, Muon g-2 (E989)
+  conditions: Runs 1-3 combined, positive muons; Runs 2-3 alone 0.21 ppm
+  status: peer_reviewed
+  source: fnal-2023
+- date: '2025-06-03'
+  value: 0.127
+  series: single-experiment
+  holder: Fermilab, Muon g-2 (E989)
+  conditions: Runs 1-6 combined, final result; Runs 4-6 alone 139 ppb
+  status: peer_reviewed
+  source: fnal-2025
+  note: Better than the experiment's design goal of 140 ppb.
+- date: '2021-04-07'
+  value: 0.35
+  series: world-average
+  holder: Fermilab Run 1 with Brookhaven and earlier measurements
+  conditions: Experimental average as quoted by the Fermilab collaboration
+  status: peer_reviewed
+  source: fnal-2021
+- date: '2023-08-11'
+  value: 0.19
+  series: world-average
+  holder: Fermilab Runs 1-3 with Brookhaven
+  conditions: Experimental average as quoted by the Fermilab collaboration
+  status: peer_reviewed
+  source: fnal-2023
+- date: '2025-06-03'
+  value: 0.124
+  series: world-average
+  holder: Fermilab Runs 1-6 with Brookhaven
+  conditions: Experimental average as quoted by the Fermilab collaboration
+  status: peer_reviewed
+  source: fnal-2025
+events:
+- date: '2006-02-20'
+  kind: paper
+  title: Brookhaven publishes its final muon g-2 result at 0.54 ppm
+  why_it_matters: This set the benchmark that Fermilab's experiment was designed to beat.
+  url: https://arxiv.org/abs/hep-ex/0602035
+- date: '2021-04-07'
+  kind: paper
+  title: Fermilab's first result agrees with Brookhaven
+  why_it_matters: A second experiment, at a different laboratory, reproduced the measured value.
+  url: https://arxiv.org/abs/2104.03281
+- date: '2023-08-11'
+  kind: paper
+  title: Fermilab more than doubles the precision, to 0.20 ppm
+  why_it_matters: Two more years of data halved the uncertainty, making the comparison with theory far sharper.
+  url: https://arxiv.org/abs/2308.06230
+- date: '2025-06-03'
+  kind: milestone
+  title: Final Fermilab result reaches 127 ppb, beating its 140 ppb design goal
+  why_it_matters: The experiment ends with the most precise measurement of the muon's magnetism, while a new
+    theory prediction now sits much closer to it.
+  url: https://www.energy.gov/science/articles/muon-g-2-announces-most-precise-measurement-magnetic-anomaly-muon-0
+reading: []
+connections:
+- optical-clocks
