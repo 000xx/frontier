@@ -1,29 +1,73 @@
 # Records are rebuilt from Epoch AI's machine learning hardware data by scripts/fetchers/ml_hardware.py.
 # Edit the other fields by hand; never edit the records directly.
 id: ml-hardware
-title: Peak AI chip performance (dense FP16 or BF16)
+title: Fastest AI chips at tensor FP16 and BF16 (Epoch AI datasheet data)
 domain: computing
 subfield: Chips and hardware
-status: draft
-summary: placeholder until the source has been read.
+status: live
+summary: The highest tensor FP16/BF16 performance of any AI accelerator released up to each date, from Epoch
+  AI's collection of about 180 GPUs, TPUs and other AI chips, with the figures taken from hardware datasheets.
+  It shows how much arithmetic a single chip can do in the number formats that AI models are trained in.
 metric:
-  name: Peak dense FP16/BF16 performance of the best AI accelerator
+  name: Best tensor FP16/BF16 performance of an AI accelerator (datasheet)
   unit: TFLOP/s
   direction: higher
   scale: log
-  explainer: placeholder
+  explainer: 'An AI chip spends most of its time multiplying and adding numbers in matrices. FLOP/s counts
+    how many floating-point operations a chip can do per second, and a TFLOP/s is a trillion of them. FP16
+    and BF16 are two 16-bit number formats that AI models are commonly trained and run in, and "tensor" refers
+    to the chip''s dedicated matrix units. Epoch AI compiles these figures for more than 180 accelerators from
+    the manufacturers'' hardware datasheets, rather than from measurements, so each figure is the maker''s own
+    stated peak. The value on this page is the one in Epoch''s column for tensor FP16/BF16 performance. Epoch''s
+    documentation does not say on the page whether that figure is dense or sparse, so the owner should treat
+    that detail as unconfirmed. A record is set when a newer chip exceeds every chip released before it. The
+    line rises by about a thousandfold in under a decade, which is why it is drawn on a log scale. A high
+    peak says little about the speed a model achieves on the chip, which depends on memory, networking and
+    software.'
 chart:
   primary: record-chart
+  secondary:
+  - threshold-gauge
+series:
+- id: tensor-fp16-bf16
+  label: Best tensor FP16/BF16 accelerator (datasheet)
 update:
   cadence: quarterly
   last_checked: '2026-11-09'
-  notes: 'placeholder'
+  notes: 'Records are rebuilt from Epoch''s ml_hardware.csv by scripts/fetchers/ml_hardware.py; do not edit
+    them by hand. Values are the column "Tensor-FP16/BF16 performance (FLOP/s)" divided by 10^12. A chip is a
+    record when its figure beats every chip released on an earlier date. Status claimed is used because the
+    figures are manufacturer datasheet values compiled by Epoch, not measurements.'
 sources:
 - id: epoch-ml-hardware
-  name: Epoch AI, Data on machine learning hardware
+  name: Epoch AI, Data on machine learning hardware (ml_hardware.csv)
   url: https://epoch.ai/data/machine-learning-hardware
   kind: dataset
   primary: true
-  notes: 'Licence CC BY 4.0. Credit line: "Data: Epoch AI, Machine learning hardware (epoch.ai/data), CC BY 4.0."'
-events: []
+  notes: 'File https://epoch.ai/data/ml_hardware.csv (page updated 2026-11-06 when read; archive
+    https://epoch.ai/data/ml_hardware.zip). Licence CC BY 4.0: free to use, distribute and reproduce with credit.
+    Credit line: "Data: Epoch AI, Machine learning hardware (epoch.ai/data), CC BY 4.0." Epoch says it uses hardware
+    datasheets for each chip.'
+events:
+- date: '2026-11-06'
+  kind: dataset
+  title: Epoch updates its machine learning hardware dataset, which covers more than 180 AI accelerators
+  why_it_matters: Each new accelerator is added with its datasheet figures, so the record line moves when a faster chip ships.
+  url: https://epoch.ai/data/machine-learning-hardware
 reading: []
+records:
+- {date: '2017-05-01', value: 46.0, series: tensor-fp16-bf16, holder: Google TPU v2, conditions: manufacturer Google; figure from the hardware datasheet as compiled by Epoch AI; date is the release date, status: claimed, source: epoch-ml-hardware}
+- {date: '2017-06-21', value: 125.0, series: tensor-fp16-bf16, holder: NVIDIA Tesla V100 SXM2 16 GB, conditions: manufacturer NVIDIA; figure from the hardware datasheet as compiled by Epoch AI; date is the release date, status: claimed, source: epoch-ml-hardware}
+- {date: '2019-11-26', value: 130.0, series: tensor-fp16-bf16, holder: NVIDIA Tesla V100S PCIe 32 GB, conditions: manufacturer NVIDIA; figure from the hardware datasheet as compiled by Epoch AI; date is the release date, status: claimed, source: epoch-ml-hardware}
+- {date: '2020-01-01', value: 138.0, series: tensor-fp16-bf16, holder: Google TPU v4i, conditions: manufacturer Google; figure from the hardware datasheet as compiled by Epoch AI; date is the release date, status: claimed, source: epoch-ml-hardware}
+- {date: '2020-03-01', value: 312.0, series: tensor-fp16-bf16, holder: NVIDIA A100, conditions: manufacturer NVIDIA; figure from the hardware datasheet as compiled by Epoch AI; date is the release date, status: claimed, source: epoch-ml-hardware}
+- {date: '2021-08-21', value: 362.0, series: tensor-fp16-bf16, holder: Tesla D1 Dojo, conditions: manufacturer Tesla; figure from the hardware datasheet as compiled by Epoch AI; date is the release date, status: claimed, source: epoch-ml-hardware}
+- {date: '2021-11-08', value: 383.0, series: tensor-fp16-bf16, holder: AMD Radeon Instinct MI250X, conditions: manufacturer AMD; figure from the hardware datasheet as compiled by Epoch AI; date is the release date, status: claimed, source: epoch-ml-hardware}
+- {date: '2022-05-10', value: 450.0, series: tensor-fp16-bf16, holder: Intel Habana Gaudi2, conditions: manufacturer Intel; figure from the hardware datasheet as compiled by Epoch AI; date is the release date, status: claimed, source: epoch-ml-hardware}
+- {date: '2022-08-22', value: 1024.0, series: tensor-fp16-bf16, holder: Biren BR100, conditions: manufacturer Biren; figure from the hardware datasheet as compiled by Epoch AI; date is the release date, status: claimed, source: epoch-ml-hardware}
+- {date: '2023-12-06', value: 1307.4, series: tensor-fp16-bf16, holder: AMD Instinct MI300X, conditions: manufacturer AMD; figure from the hardware datasheet as compiled by Epoch AI; date is the release date, status: claimed, source: epoch-ml-hardware}
+- {date: '2024-09-24', value: 1678.0, series: tensor-fp16-bf16, holder: Intel Habana Gaudi3, conditions: manufacturer Intel; figure from the hardware datasheet as compiled by Epoch AI; date is the release date, status: claimed, source: epoch-ml-hardware}
+- {date: '2024-11-15', value: 2250.0, series: tensor-fp16-bf16, holder: NVIDIA B200, conditions: manufacturer NVIDIA; figure from the hardware datasheet as compiled by Epoch AI; date is the release date, status: claimed, source: epoch-ml-hardware}
+- {date: '2025-02-15', value: 2500.0, series: tensor-fp16-bf16, holder: NVIDIA GB200, conditions: manufacturer NVIDIA; figure from the hardware datasheet as compiled by Epoch AI; date is the release date, status: claimed, source: epoch-ml-hardware}
+- {date: '2025-06-12', value: 2516.6, series: tensor-fp16-bf16, holder: AMD Instinct MI355X, conditions: manufacturer AMD; figure from the hardware datasheet as compiled by Epoch AI; date is the release date, status: claimed, source: epoch-ml-hardware}
+- {date: '2026-07-23', value: 5000.0, series: tensor-fp16-bf16, holder: AMD Instinct MI455X, conditions: manufacturer AMD; figure from the hardware datasheet as compiled by Epoch AI; date is the release date, status: claimed, source: epoch-ml-hardware}
