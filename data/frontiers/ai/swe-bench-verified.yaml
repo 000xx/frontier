@@ -4,7 +4,7 @@ id: swe-bench-verified
 title: AI fixing real software bugs (SWE-bench Verified)
 domain: ai
 subfield: Capability
-status: draft
+status: live
 summary: The best share of real GitHub bug reports an AI model can fix on SWE-bench Verified, as run by
   Epoch AI. It was the most watched test of AI coding ability, though by 2026 it was close to saturated
   and known to be flawed and contaminated.
@@ -38,7 +38,7 @@ series:
 - id: epoch-runs
   label: Best model, Epoch AI runs
 update:
-  cadence: monthly
+  cadence: quarterly
   last_checked: '2026-11-09'
   notes: 'Records are rebuilt from Epoch''s benchmark_data.zip (member swe_bench_verified.csv) by
     scripts/fetchers/swe_bench_verified.py; do not edit them by hand. Values are Epoch''s mean_score times
@@ -89,4 +89,13 @@ events:
 reading: []
 connections:
 - ai-capabilities-index
-records: []
+records:
+- {date: '2024-11-20', value: 30.99, series: epoch-runs, holder: gpt-4o-2024-11-20, conditions: developer OpenAI; standard error 2.1 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-02-24', value: 60.95, series: epoch-runs, holder: claude-3-7-sonnet-20250219, conditions: developer Anthropic; standard error 2.22 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-04-16', value: 62.32, series: epoch-runs, holder: o3-2025-04-16_medium, conditions: developer OpenAI; standard error 2.21 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-05-22', value: 70.66, series: epoch-runs, holder: claude-opus-4-20250514, conditions: developer Anthropic; standard error 2.07 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-08-05', value: 73.35, series: epoch-runs, holder: claude-opus-4-1-20250805, conditions: developer Anthropic; standard error 2.01 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-08-07', value: 73.55, series: epoch-runs, holder: gpt-5-2025-08-07_high, conditions: developer OpenAI; standard error 2.01 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-11-24', value: 76.65, series: epoch-runs, holder: claude-opus-4-5-20251101, conditions: developer Anthropic; standard error 1.92 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-02-05', value: 78.72, series: epoch-runs, holder: claude-opus-4-6, conditions: developer Anthropic; standard error 1.86 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-04-16', value: 83.47, series: epoch-runs, holder: claude-opus-4-7_max, conditions: developer Anthropic; standard error 1.69 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
