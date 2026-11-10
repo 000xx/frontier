@@ -1,0 +1,53 @@
+# Wind capacity: observations are the world's cumulative installed wind capacity in gigawatts, one per year.
+# They are read by scripts/fetchers/wind_capacity.py from Our World in Data's copy of IRENA's renewable capacity
+# statistics (the grapher table cumulative-installed-wind-energy-capacity-gigawatts, World rows).
+# The IRENA 2026 capacity highlights PDF, opened 2026-11-10, gives a wind increase of 159 GW in 2025 (+14.0%).
+id: wind-capacity
+title: Wind capacity
+domain: energy
+subfield: Wind, heat and fuels
+status: draft
+summary: The total wind power capacity installed worldwide, year by year, covering onshore and offshore turbines.
+  Each year's figure is the capacity still in place at the end of that year.
+metric:
+  name: Cumulative installed wind capacity, world
+  unit: GW
+  direction: higher
+  scale: linear
+  explainer: 'Installed capacity is the maximum output that the turbines could deliver in good wind, measured in
+    gigawatts. It is not the electricity produced: a turbine running at its rated power for a full year is rare,
+    because wind speeds vary. Capacity is the stock of turbines that have been built and are still connected, so it
+    rises with each year of new installations and falls only when old machines are retired. Comparing it year on
+    year shows how fast the world is adding wind power.'
+chart:
+  primary: record-chart
+series:
+- id: wind
+  label: Installed wind capacity
+update:
+  cadence: yearly
+  last_checked: '2026-11-10'
+  notes: 'IRENA publishes its renewable capacity statistics once a year, around March or April, and updates them in the
+    summer. To update, run the wind_capacity fetcher; it adds new years and reports any revised earlier year.
+    Open item: the IRENA terms of reuse were not checked, and the IRENA July 2026 edition was not read.'
+sources:
+- id: owid-cumulative-installed-wind-energy-capacity-gigawatts
+  name: Our World in Data, cumulative installed wind energy capacity (World), from IRENA Renewable Energy Statistics
+  url: https://ourworldindata.org/grapher/cumulative-installed-wind-energy-capacity-gigawatts
+  kind: dataset
+  primary: true
+  notes: 'Page opened 2026-11-10. Our World in Data states that its own work is licensed CC BY and that third-party data
+    follows the original provider''s licence terms. Citation requested: "IRENA (2026) – processed by Our World in Data."
+    The CSV is fetched by the fetcher from the grapher CSV URL.'
+- id: irena-capacity-highlights-2026
+  name: IRENA, Renewable capacity highlights 2026 (Renewable Power Capacity by Energy Source)
+  url: https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_capacity_highlights_2026.pdf
+  kind: report
+  notes: 'PDF opened 2026-11-10. Gives the 2025 wind addition of 159 GW (+14.0%). IRENA terms of reuse not checked.'
+events:
+- date: '2025'
+  kind: milestone
+  title: Wind capacity grew by 159 GW in 2025, a rise of 14.0 percent
+  why_it_matters: Wind added more capacity than any technology except solar, so it remains a major part of the clean build-out.
+  url: https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_capacity_highlights_2026.pdf
+observations: []
