@@ -18,7 +18,7 @@ The database is crowdsourced and unofficial. Its maintainers say erdosproblems.c
 
 ## How the files were made
 
-`statistics_history.csv` is an unchanged copy. Each row is a commit to the upstream database with its counts at that point. The first rows of 2025-08-31 were written while the problems were still being imported, so their totals jump from 2 to 992.
+`statistics_history.csv` is an unchanged copy. Each row is a commit to the upstream database with its counts at that point. The first rows of 2025-08-31 were written while the problems were still being imported, so their totals jump from 2 to 992. It is kept for reference only: the site deliberately shows no solved count or count-over-time chart for these problems.
 
 `problems.csv` was made from `problems.yaml`, one row per problem, sorted by number:
 

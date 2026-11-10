@@ -31,6 +31,7 @@
 - {id: claim-scoreboard, scope: frontier, use_when: "A result is contested", looks_like: "Claim, replications for and against, verdict"}
 - {id: before-and-after, scope: frontier, use_when: "The frontier is an image", looks_like: "Best picture then and now"}
 - {id: to-scale-lineup, scope: frontier, use_when: "Things are getting bigger or smaller", looks_like: "Generations drawn to scale side by side"}
+- {id: problem-list, scope: frontier, use_when: "Open problems where the stories matter more than a tally", looks_like: "Browsable list of problems with status, links and recent developments; no headline count"}
 - {id: reign-timeline, scope: frontier, use_when: "Who holds the record matters", looks_like: "Ribbon of record holders over time"}
 
 # Site-wide shapes
