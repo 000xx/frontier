@@ -1,0 +1,106 @@
+id: extreme-poverty
+title: Extreme poverty
+domain: development
+subfield: Human development
+status: live
+summary: The share of the world's people who live on less than the international extreme-poverty line. It shows how
+  many people are left behind by growth, not just how fast the average rises.
+metric:
+  name: Share of the world population living below $3 a day
+  unit: '%'
+  direction: lower
+  scale: linear
+  explainer: 'Extreme poverty counts people whose spending or income is below a fixed line, set in dollars that
+    buy the same amount in every country (purchasing power parity). The World Bank moved that line in June 2025,
+    from $2.15 to $3.00 a day in 2021 prices, and revised the figures for 2022 upward, from 9.0% to 10.5% of
+    people. The series here uses the $3.00 line for every year, so the whole curve is on one basis. The newest
+    World values are not counted surveys: the source extends them from national accounts and forecasts, so they
+    move when a new release arrives. The goal the line serves is to end extreme poverty by 2030, which is why
+    the chart shows distance to zero.'
+chart:
+  primary: race-to-zero
+  secondary:
+  - glide-path
+sources:
+- id: owid-extreme-poverty
+  name: Our World in Data, share of population living in extreme poverty (World Bank Poverty and Inequality Platform)
+  url: https://ourworldindata.org/grapher/share-of-population-in-extreme-poverty
+  kind: dataset
+  primary: true
+  notes: 'Chart page opened 2026-11-10: the data source is named as the World Bank Poverty and Inequality Platform (2026)
+    with major processing by Our World in Data, and the page states that Our World in Data''s data is CC BY. It also
+    says third-party data is subject to the original providers'' licence terms. The CSV was read by the fetcher
+    (scripts/fetchers/extreme_poverty.py) from the URL the fetcher names. The page says regional and global estimates
+    are extrapolated to the release year from national accounts growth estimates and forecasts. The page is dated
+    2026-09-22 with the next update expected 2027-03-21.'
+- id: worldbank-june-2025-update
+  name: World Bank, June 2025 Global Poverty Update (2021 PPPs)
+  url: https://blogs.worldbank.org/en/opendata/june-2025-global-poverty-update-from-the-world-bank--2021-ppps-a
+  kind: report
+  notes: 'Blog post opened 2026-11-10. It gives the revised line ($2.15 to $3.00) and the revised 2022 rate. The page
+    has no licence statement.'
+- id: poverty-data-explainer-owid
+  name: Our World in Data, tracking how many people live on less than $3, $10 or $30 a day
+  url: https://ourworldindata.org/tracking-how-many-people-live-on-less-than-3-10-or-30-a-day
+  kind: other
+  notes: 'Page opened 2026-11-10. It describes the $3 line and the World Bank Poverty and Inequality Platform as the
+    official source for the SDG extreme-poverty goal, and records the 2026-10-07 update that added four new surveys.'
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'The World Bank updates the Poverty and Inequality Platform a few times a year; the OWID chart is refreshed
+    with each release. The fetcher reads the OWID CSV and changes only years it can match. Check the World Bank
+    release notes and whether earlier years are revised when the line or the PPPs change: if the line changes, the
+    series is no longer comparable and the frontier should say so.'
+events:
+- date: '2025-06-05'
+  kind: dataset
+  title: World Bank moves the extreme-poverty line to $3.00 a day and revises 2022 upward
+  why_it_matters: The line rose from $2.15 to $3.00 in 2021 prices and the 2022 rate went from 9.0% to 10.5%, so
+    the number of people below the line rose from 713 million to 838 million. Older figures use a different line,
+    so they cannot be compared directly with this series.
+  url: https://blogs.worldbank.org/en/opendata/june-2025-global-poverty-update-from-the-world-bank--2021-ppps-a
+- date: '2026-10-07'
+  kind: dataset
+  title: Our World in Data adds four new World Bank surveys to its poverty charts
+  why_it_matters: New household surveys for India, Uganda, Moldova and Switzerland feed the country estimates that
+    make up the world total, so the latest values can shift as the surveys are added.
+  url: https://ourworldindata.org/tracking-how-many-people-live-on-less-than-3-10-or-30-a-day
+observations:
+- {date: '1990', value: 43.41, source: owid-extreme-poverty}
+- {date: '1991', value: 43.12, source: owid-extreme-poverty}
+- {date: '1992', value: 42.51, source: owid-extreme-poverty}
+- {date: '1993', value: 42.06, source: owid-extreme-poverty}
+- {date: '1994', value: 40.73, source: owid-extreme-poverty}
+- {date: '1995', value: 39.40, source: owid-extreme-poverty}
+- {date: '1996', value: 38.07, source: owid-extreme-poverty}
+- {date: '1997', value: 37.69, source: owid-extreme-poverty}
+- {date: '1998', value: 37.92, source: owid-extreme-poverty}
+- {date: '1999', value: 37.33, source: owid-extreme-poverty}
+- {date: '2000', value: 36.20, source: owid-extreme-poverty}
+- {date: '2001', value: 35.25, source: owid-extreme-poverty}
+- {date: '2002', value: 33.74, source: owid-extreme-poverty}
+- {date: '2003', value: 32.15, source: owid-extreme-poverty}
+- {date: '2004', value: 30.26, source: owid-extreme-poverty}
+- {date: '2005', value: 28.33, source: owid-extreme-poverty}
+- {date: '2006', value: 26.99, source: owid-extreme-poverty}
+- {date: '2007', value: 25.29, source: owid-extreme-poverty}
+- {date: '2008', value: 24.14, source: owid-extreme-poverty}
+- {date: '2009', value: 23.06, source: owid-extreme-poverty}
+- {date: '2010', value: 20.98, source: owid-extreme-poverty}
+- {date: '2011', value: 19.10, source: owid-extreme-poverty}
+- {date: '2012', value: 17.83, source: owid-extreme-poverty}
+- {date: '2013', value: 15.50, source: owid-extreme-poverty}
+- {date: '2014', value: 14.51, source: owid-extreme-poverty}
+- {date: '2015', value: 13.42, source: owid-extreme-poverty}
+- {date: '2016', value: 12.57, source: owid-extreme-poverty}
+- {date: '2017', value: 11.79, source: owid-extreme-poverty}
+- {date: '2018', value: 11.12, source: owid-extreme-poverty}
+- {date: '2019', value: 10.76, source: owid-extreme-poverty}
+- {date: '2020', value: 11.41, source: owid-extreme-poverty}
+- {date: '2021', value: 11.32, source: owid-extreme-poverty}
+- {date: '2022', value: 10.87, source: owid-extreme-poverty}
+- {date: '2023', value: 10.47, source: owid-extreme-poverty}
+- {date: '2024', value: 10.12, source: owid-extreme-poverty}
+- {date: '2025', value: 9.95, source: owid-extreme-poverty}
+- {date: '2026', value: 9.79, source: owid-extreme-poverty}
