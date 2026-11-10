@@ -66,3 +66,17 @@ The public site is in `site/`: one page (`index.html`), a stylesheet, a script t
 - `site/config.json` holds the choices that are not data: the site name, which series each frontier features on the front page, and the "next in the queue" list.
 - The `Publish site` workflow rebuilds the data file and publishes `site/` to GitHub Pages on every push to `main`. In the repository settings, Pages must have its source set to "GitHub Actions".
 - Only the record chart shape is drawn so far. A frontier whose primary shape is something else still gets a record chart until that shape is built.
+
+## Automatic refresh
+
+The **Refresh data** workflow (`.github/workflows/refresh.yml`) runs every day at 10:23 UTC. It runs each fetcher in `scripts/fetchers/`, and each fetcher reads one frontier's machine-readable source, then:
+
+1. Validates the result. A fetcher that fails, or whose output doesn't validate, is reverted and listed in a "Data refresh failures" issue.
+2. Puts the changes on a `refresh/<date>-<run>` branch and opens a pull request with a report of what changed.
+3. Merges the pull request and rebuilds the site, unless something needs review. Review is needed when existing entries were removed, or when more than 10% of them changed at once. Those pull requests are left open with a comment.
+
+To run it by hand, open the Actions tab, choose "Refresh data", then "Run workflow". You can limit it to some fetchers and choose a dry run. Set the repository variable `AUTO_MERGE` to `false` to turn automatic merging off.
+
+To add a fetcher, copy `scripts/fetchers/erdos_problems.py`: define `FRONTIER` and a `fetch()` that returns one line per change and raises on anything unexpected. Test it locally with `python scripts/refresh.py --only <name>`.
+
+Frontiers with no machine-readable source are checked by a scheduled Claude run, which opens pull requests for a person to review.
