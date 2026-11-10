@@ -1,0 +1,24 @@
+id: electricity-access
+title: Electricity access
+domain: development
+subfield: Human development
+status: draft
+summary: The share of the world's people who have electricity in their homes. Light, phones, refrigeration and
+  clinics all depend on it, so the figure shows who is left out of modern life.
+metric:
+  name: Share of the world population with access to electricity
+  unit: '%'
+  direction: higher
+  scale: linear
+  explainer: placeholder until the sourced text is written.
+chart:
+  primary: coverage-meter
+sources:
+- id: owid-electricity-access
+  name: Our World in Data, share of the population with access to electricity (World Bank)
+  url: https://ourworldindata.org/grapher/share-of-the-population-with-access-to-electricity
+  kind: dataset
+  primary: true
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
