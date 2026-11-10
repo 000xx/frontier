@@ -37,7 +37,7 @@ sources:
   url: https://arxiv.org/stats/get_monthly_submissions
   kind: dataset
   primary: true
-  notes: Read through the refresh workflow's dry run on 2026-11-09. Columns: month, submissions. The CSV starts at 1991-07-01 and
+  notes: Read through the refresh workflow's dry run on 2026-11-09. The columns are month and submissions. The CSV starts at 1991-07-01 and
     ends at 2026-10-01 at the time of reading.
 - id: arxiv-monthly-page
   name: arXiv, Monthly Submissions page
