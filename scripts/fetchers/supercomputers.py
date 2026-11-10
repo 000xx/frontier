@@ -24,10 +24,11 @@ def fetch():
     print(f"robots.txt status: {status}")
     print(robots[:3000])
 
-    status, page = _get("https://www.top500.org/lists/top500/2026/11/")
-    print(f"list page 2026/11 status: {status}, length: {len(page)}")
-    if page:
-        row = re.search(r"<tr[^>]*>(?:(?!</tr>).)*?<td[^>]*>\s*1\s*</td>.*?</tr>", page, re.S)
-        print("rank-1 row:" if row else "no rank-1 row matched")
-        print((row.group(0) if row else page[:1500])[:1500])
+    for edition in ("2026/06", "2026/11"):
+        status, page = _get(f"https://www.top500.org/lists/top500/{edition}/")
+        print(f"list page {edition} status: {status}, length: {len(page)}")
+        if page:
+            row = re.search(r"<tr[^>]*>(?:(?!</tr>).)*?<td[^>]*>\s*1\s*</td>.*?</tr>", page, re.S)
+            print("rank-1 row:" if row else "no rank-1 row matched")
+            print((row.group(0) if row else page[:1500])[:1500])
     return []
