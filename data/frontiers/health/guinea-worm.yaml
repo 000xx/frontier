@@ -20,143 +20,192 @@ metric:
     whether the latest figure is still provisional before comparing it with earlier years.'
 chart:
   primary: race-to-zero
+series:
+- id: cases
+  label: Reported human cases
 observations:
 - date: '1980'
+  series: cases
   value: 35894
   source: owid-guinea-worm
 - date: '1981'
+  series: cases
   value: 18741
   source: owid-guinea-worm
 - date: '1982'
+  series: cases
   value: 51765
   source: owid-guinea-worm
 - date: '1983'
+  series: cases
   value: 56520
   source: owid-guinea-worm
 - date: '1984'
+  series: cases
   value: 75797
   source: owid-guinea-worm
 - date: '1985'
+  series: cases
   value: 55173
   source: owid-guinea-worm
 - date: '1986'
+  series: cases
   value: 46043
   source: owid-guinea-worm
 - date: '1987'
+  series: cases
   value: 260140
   source: owid-guinea-worm
 - date: '1988'
+  series: cases
   value: 758217
   source: owid-guinea-worm
 - date: '1989'
+  series: cases
   value: 892055
   source: owid-guinea-worm
 - date: '1990'
+  series: cases
   value: 623579
   source: owid-guinea-worm
 - date: '1991'
+  series: cases
   value: 543585
   source: owid-guinea-worm
 - date: '1992'
+  series: cases
   value: 374202
   source: owid-guinea-worm
 - date: '1993'
+  series: cases
   value: 229773
   source: owid-guinea-worm
 - date: '1994'
+  series: cases
   value: 164977
   source: owid-guinea-worm
 - date: '1995'
+  series: cases
   value: 129852
   source: owid-guinea-worm
 - date: '1996'
+  series: cases
   value: 152814
   source: owid-guinea-worm
 - date: '1997'
+  series: cases
   value: 77863
   source: owid-guinea-worm
 - date: '1998'
+  series: cases
   value: 78557
   source: owid-guinea-worm
 - date: '1999'
+  series: cases
   value: 96293
   source: owid-guinea-worm
 - date: '2000'
+  series: cases
   value: 75223
   source: owid-guinea-worm
 - date: '2001'
+  series: cases
   value: 63718
   source: owid-guinea-worm
 - date: '2002'
+  series: cases
   value: 54638
   source: owid-guinea-worm
 - date: '2003'
+  series: cases
   value: 32193
   source: owid-guinea-worm
 - date: '2004'
+  series: cases
   value: 16026
   source: owid-guinea-worm
 - date: '2005'
+  series: cases
   value: 10674
   source: owid-guinea-worm
 - date: '2006'
+  series: cases
   value: 25217
   source: owid-guinea-worm
 - date: '2007'
+  series: cases
   value: 9589
   source: owid-guinea-worm
 - date: '2008'
+  series: cases
   value: 4619
   source: owid-guinea-worm
 - date: '2009'
+  series: cases
   value: 3190
   source: owid-guinea-worm
 - date: '2010'
+  series: cases
   value: 1797
   source: owid-guinea-worm
 - date: '2011'
+  series: cases
   value: 1058
   source: owid-guinea-worm
 - date: '2012'
+  series: cases
   value: 542
   source: owid-guinea-worm
 - date: '2013'
+  series: cases
   value: 148
   source: owid-guinea-worm
 - date: '2014'
+  series: cases
   value: 126
   source: owid-guinea-worm
 - date: '2015'
+  series: cases
   value: 22
   source: owid-guinea-worm
 - date: '2016'
+  series: cases
   value: 25
   source: owid-guinea-worm
 - date: '2017'
+  series: cases
   value: 30
   source: owid-guinea-worm
 - date: '2018'
+  series: cases
   value: 28
   source: owid-guinea-worm
 - date: '2019'
+  series: cases
   value: 54
   source: owid-guinea-worm
 - date: '2020'
+  series: cases
   value: 27
   source: owid-guinea-worm
 - date: '2021'
+  series: cases
   value: 15
   source: owid-guinea-worm
 - date: '2022'
+  series: cases
   value: 13
   source: owid-guinea-worm
 - date: '2023'
+  series: cases
   value: 14
   source: owid-guinea-worm
 - date: '2024'
+  series: cases
   value: 15
   source: owid-guinea-worm
 - date: '2025'
+  series: cases
   value: 10
   source: owid-guinea-worm
 sources:
