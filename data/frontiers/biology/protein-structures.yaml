@@ -288,3 +288,6 @@ observations:
   series: pdb-cumulative
   value: 229380
   source: rcsb-growth-stats
+about:
+  what: "The number of three-dimensional molecular structures, most of them proteins, held in the Protein Data Bank, the public archive where experimentally determined structures are deposited."
+  why: "A protein's shape determines what it does, so structures are a starting point for understanding disease and designing drugs. The archive is also the experimental evidence that structure-prediction systems such as AlphaFold were trained on."

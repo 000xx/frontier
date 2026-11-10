@@ -452,3 +452,6 @@ observations:
   value: 6464
   source: exoplanet-archive-tap
   note: Sum of the current table up to this discovery year, retrieved 2026-11-09. Not a snapshot of the archive on that year.
+about:
+  what: "The number of planets confirmed to orbit stars other than the Sun."
+  why: "Until the 1990s the only known planets were those of our own solar system. Each confirmed planet adds to the picture of how common planets are, what kinds exist, and how many might have conditions suitable for life."

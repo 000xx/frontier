@@ -266,3 +266,12 @@ table.stages { min-width: 760px; }
 .pn a:hover { background: var(--panel); }
 .pn a.nx { text-align: right; align-items: flex-end; }
 .pn strong { font-family: var(--display); font-size: 20px; letter-spacing: -0.02em; }
+
+/* What this is / why it matters */
+.about { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 1px; background: var(--line); border-top: 2px solid var(--ink-2); border-bottom: 1px solid var(--line); }
+.about > div { background: var(--paper); padding: 24px 32px 28px 0; display: flex; flex-direction: column; gap: 10px; }
+.about > div + div { padding-left: 32px; }
+.about h2 { font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mute); }
+.about p { font-family: var(--display); font-weight: 500; font-size: clamp(19px, 1.7vw, 23px); line-height: 1.35; letter-spacing: -0.015em; max-width: 34em; text-wrap: pretty; }
+@media (max-width: 760px) { .about > div + div { padding-left: 0; } }
+.sw-cursor { pointer-events: none; }

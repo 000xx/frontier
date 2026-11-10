@@ -327,3 +327,6 @@ events:
   title: LineShine debuts at number one with 2,198.40 PFlop/s
   why_it_matters: The new top system scored more than 20% above the number-two system on the list, which is a larger lead than the top spot usually shows.
   url: https://top500.org/lists/top500/2026/06/
+about:
+  what: "The speed of the fastest computer on the TOP500 list, measured by how many calculations a second it sustains on a standard benchmark."
+  why: "The largest machines are how researchers model the climate, simulate fusion plasmas and new materials, and train some AI systems. The top speed shows how much computation a single project can call on."

@@ -207,8 +207,19 @@
     for (y = Math.ceil(t0 / step) * step; y <= t1; y += step) out.push(y);
     return out;
   }
-  function frame(o, W, H, aria, credit) {
-    return '<div class="chart-box"><svg role="img" aria-label="' + esc(aria) + '" viewBox="-96 -22 ' + (W + 114) + ' ' + (H + 58) + '">' + o + '</svg></div>' +
+  /* Marks after the FG marker sit inside a clip rectangle. In the browser the rectangle widens as the chart
+     scrolls into view, so the chart draws itself from left to right. Without scripting the clip is full width. */
+  var FG = '<!--fg-->', sweepN = 0;
+  function sweep(o, W, H, cursor) {
+    var parts = o.split(FG), id = 'sw' + (++sweepN);
+    if (parts.length < 2) return o;
+    return parts[0] + '<clipPath id="' + id + '"><rect class="sw-rect" x="-14" y="-40" width="' + (W + 28) + '" height="' + (H + 80) + '"/></clipPath>' +
+      '<g clip-path="url(#' + id + ')">' + parts[1] + '</g>' +
+      (cursor ? '<g class="sw-cursor" visibility="hidden"><path d="M0 -4 V' + H + '" stroke="#E4531A" stroke-width="1.5"/><text y="-9" text-anchor="middle" font-size="13" font-weight="500" fill="#E4531A"></text></g>' : '');
+  }
+  function frame(o, W, H, aria, credit, span) {
+    return '<div class="chart-box"><svg role="img" data-sweep data-w="' + W + '"' + (span ? ' data-t0="' + span[0] + '" data-t1="' + span[1] + '"' : '') +
+      ' aria-label="' + esc(aria) + '" viewBox="-96 -22 ' + (W + 114) + ' ' + (H + 58) + '">' + sweep(o, W, H, true) + '</svg></div>' +
       (credit ? '<p class="credit">' + esc(credit) + '</p>' : '');
   }
   function creditLine(f) { return f.credits.map(function (c) { return c.line; }).filter(Boolean).join(' '); }
@@ -236,6 +247,7 @@
       out += '<path d="M' + X(y).toFixed(1) + ' ' + H + ' V' + (H + 6) + '" stroke="' + c.axis + '" stroke-width="1"/>' +
         '<text x="' + X(y).toFixed(1) + '" y="' + (H + 26) + '" fill="' + c.text + '" font-size="13" text-anchor="middle">' + y + '</text>';
     });
+    out += FG;
     (o.marks || []).forEach(function (m) {
       var y = ax.Y(m.v);
       out += '<path d="M0 ' + y.toFixed(1) + ' H' + W + '" stroke="' + c.mark + '" stroke-width="1.5" stroke-dasharray="3 5" fill="none"/>' +
@@ -272,7 +284,7 @@
         '<circle cx="' + lx.toFixed(1) + '" cy="' + ly.toFixed(1) + '" r="5.5" fill="' + c.hot + '"/>' +
         '<text x="' + (lx + (end ? -14 : 14)).toFixed(1) + '" y="' + (ly + (below ? 26 : -14)).toFixed(1) + '" fill="' + c.strong + '" stroke="' + c.bg + '" stroke-width="5" paint-order="stroke" font-size="14" font-weight="500" text-anchor="' + (end ? 'end' : 'start') + '">' + esc(o.label.text) + '</text>';
     }
-    return frame(out, W, H, o.aria, creditLine(f));
+    return frame(out, W, H, o.aria, creditLine(f), [t0, t1]);
   }
 
   function recordsChart(f, sid, dark) {
@@ -344,6 +356,7 @@
       out += '<path d="M' + X(k.v).toFixed(1) + ' ' + H + ' V' + (H + 6) + '" stroke="' + c.axis + '" stroke-width="1"/>' +
         '<text x="' + X(k.v).toFixed(1) + '" y="' + (H + 26) + '" fill="' + c.text + '" font-size="13" text-anchor="middle">' + esc(k.label) + '</text>';
     });
+    out += FG;
     if (target) {
       var ty = ya.Y(target.value);
       out += '<rect x="0" y="0" width="' + W + '" height="' + Math.max(0, ty).toFixed(1) + '" fill="rgba(30,52,216,0.06)"/>' +
@@ -380,7 +393,7 @@
     if (step) d += ' H' + X(t1).toFixed(1);
     body = dotsOnly ? pts.map(function (p) { return '<circle cx="' + X(p[0]).toFixed(1) + '" cy="' + Y(p[1]).toFixed(1) + '" r="2" fill="#0F1317"/>'; }).join('')
       : '<path d="' + d + '" fill="none" stroke="#0F1317" stroke-width="2"/><circle cx="' + X(last[0]).toFixed(1) + '" cy="' + Y(last[1]).toFixed(1) + '" r="4" fill="#E4531A"/>';
-    return '<svg class="spark" aria-hidden="true" viewBox="0 0 240 56">' + body + '</svg>';
+    return '<svg class="spark" aria-hidden="true" data-sweep data-w="240" viewBox="0 0 240 56">' + sweep(FG + body, 240, 56, false) + '</svg>';
   }
 
   /* ---------- front page ---------- */
@@ -576,6 +589,12 @@
         (f.lastChecked ? '<p class="small">Data last checked ' + esc(fmtDate(f.lastChecked)) + '.</p>' : '') + '</aside></div></div>' +
       (notices ? '<div class="wrap block"><details class="notice"><summary>Data credits and terms</summary>' + notices + '</details></div>' : '');
   }
+  function aboutSection(f) {
+    if (!f.about || (!f.about.what && !f.about.why)) return '';
+    return '<div class="wrap block"><div class="about">' +
+      (f.about.what ? '<div><h2>What this is</h2><p>' + esc(f.about.what) + '</p></div>' : '') +
+      (f.about.why ? '<div><h2>Why it matters</h2><p>' + esc(f.about.why) + '</p></div>' : '') + '</div></div>';
+  }
   function frontier(f) {
     var b = block(f), sid = selectedId(f), h = headline(f, sid), facts = '';
     if (h) {
@@ -597,7 +616,7 @@
         (f.dataStatus === 'draft' ? '<span class="draft">Draft data, still being checked</span>' : '') + '</nav>' +
         '<div class="fr-title"><div class="l"><h1>' + esc(f.title) + '</h1><p>' + esc(f.summary) + '</p>' + (b && !(b === 'observations' && pointsMode(f)) ? picker(f, b, sid) : '') + '</div>' +
           (h ? '<div class="hl"><div class="eyebrow">' + esc(h.kind) + (h.label && h.label !== f.title ? ' · ' + esc(h.label) : '') + '</div>' + bigNumber(f, h) + '</div>' : '') + '</div>' + facts + '</div>' +
-      (b === 'records' ? recordsSections(f, sid) : b === 'observations' ? obsSections(f, sid) : '') +
+      aboutSection(f) + (b === 'records' ? recordsSections(f, sid) : b === 'observations' ? obsSections(f, sid) : '') +
       stagesSection(f) + itemsSection(f) + referenceSections(f) + around + siteFooter(f.id);
   }
 
@@ -611,11 +630,51 @@
   /* ---------- browser wiring ---------- */
   var app = document.getElementById('app'), bar = document.getElementById('progress'), current = null;
   function find(h) { return D.frontiers.filter(function (x) { return x.id === h; })[0]; }
-  function render(f) { app.innerHTML = f ? frontier(f) : home(); }
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function setSweep(svg, p) {
+    var W = +svg.getAttribute('data-w'), rect = svg.querySelector('.sw-rect'), cur = svg.querySelector('.sw-cursor');
+    if (!rect) return;
+    rect.setAttribute('width', (14 + W * p + (p >= 1 ? 14 : 0)).toFixed(1));
+    if (!cur) return;
+    if (p <= 0 || p >= 1) { cur.setAttribute('visibility', 'hidden'); return; }
+    cur.setAttribute('visibility', 'visible');
+    cur.setAttribute('transform', 'translate(' + (W * p).toFixed(1) + ' 0)');
+    var t0 = svg.getAttribute('data-t0'), label = cur.querySelector('text');
+    label.textContent = t0 === null ? '' : Math.min(new Date().getFullYear(), Math.floor(+t0 + p * (+svg.getAttribute('data-t1') - +t0)));
+  }
+  /* Charts in view when a page opens draw themselves once. Charts further down draw as they are scrolled into view. */
+  function startSweeps() {
+    if (reduce) return;
+    var vh = window.innerHeight;
+    [].forEach.call(app.querySelectorAll('svg[data-sweep]'), function (svg) {
+      var top = svg.getBoundingClientRect().top;
+      if (top < vh * 0.85) {
+        var start = null;
+        svg.setAttribute('data-done', '1'); setSweep(svg, 0);
+        window.requestAnimationFrame(function tick(now) {
+          if (start === null) start = now;
+          var k = Math.min(1, (now - start) / 1400);
+          setSweep(svg, 1 - Math.pow(1 - k, 3));
+          if (k < 1) window.requestAnimationFrame(tick);
+        });
+      } else { svg._p = 0; setSweep(svg, 0); }
+    });
+  }
+  function scrollSweeps() {
+    if (reduce) return;
+    var vh = window.innerHeight;
+    [].forEach.call(app.querySelectorAll('svg[data-sweep]:not([data-done])'), function (svg) {
+      var r = svg.getBoundingClientRect();
+      var p = Math.max(svg._p || 0, Math.min(1, (vh * 0.92 - r.top) / (vh * 0.3 + r.height * 0.6)));
+      svg._p = p; setSweep(svg, p);
+      if (p >= 1) svg.setAttribute('data-done', '1');
+    });
+  }
+  function render(f, animate) { app.innerHTML = f ? frontier(f) : home(); if (animate) startSweeps(); }
   function route() {
     var h = (location.hash || '#home').slice(1), f = find(h), view = f ? f.id : 'home';
     var open = document.querySelector('details.menu[open]'); if (open) open.removeAttribute('open');
-    if (view !== current) { render(f); document.title = f ? f.title + ' · ' + D.site.name : D.site.name; current = view; window.scrollTo(0, 0); }
+    if (view !== current) { render(f, true); document.title = f ? f.title + ' · ' + D.site.name : D.site.name; current = view; window.scrollTo(0, 0); }
     if (!f && HOME_ANCHORS[h] && h !== 'home') { var el = document.getElementById(h); if (el) el.scrollIntoView(); }
     else if (!f && h === 'home') window.scrollTo(0, 0);
     onScroll();
@@ -640,6 +699,7 @@
   function onScroll() {
     var el = document.scrollingElement || document.documentElement, max = el.scrollHeight - window.innerHeight;
     bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, Math.max(0, el.scrollTop / max)) : 0) + ')';
+    scrollSweeps();
   }
   document.addEventListener('click', function (e) {
     var open = document.querySelector('details.menu[open]');

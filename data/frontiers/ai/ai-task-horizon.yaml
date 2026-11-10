@@ -442,3 +442,6 @@ reading:
   author: Thomas Kwa, Ben West, Joel Becker et al.
   kind: paper
   url: https://arxiv.org/abs/2503.14499
+about:
+  what: "The length of software task an AI agent can complete on its own, measured by how long the same task takes a skilled person. METR, the group behind the measure, reports the task length at which an agent succeeds about half the time."
+  why: "Most benchmark scores say little about whether a system can carry a long piece of work through to the end. Task length is a more direct sign of how much real work could be handed over, which bears on both the economic effect of AI and its risks."

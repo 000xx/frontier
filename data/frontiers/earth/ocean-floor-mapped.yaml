@@ -141,3 +141,6 @@ events:
   title: Mapped share reaches 28.7 percent in the 2026 grid
   why_it_matters: The share rose 1.4 points in the latest year, while closing the remaining gap by 2030 would need roughly 18 points a year.
   url: https://iho.int/en/global-seabed-mapping-reaches-new-milestone-as-five-million-square-kilometres-added-in-a-year
+about:
+  what: "The share of the world's ocean floor that has been measured directly at modern resolution, as compiled by the Seabed 2030 project."
+  why: "Most of the seabed has been charted only roughly, from satellite measurements of the sea surface. Detailed maps are needed for safe navigation, for laying cables, for forecasting tsunamis and ocean currents, and for understanding habitats that nobody has seen."

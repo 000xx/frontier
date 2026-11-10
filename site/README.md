@@ -14,6 +14,7 @@ The script draws a page from the blocks a frontier file holds. A new frontier th
 | `observations`, one per series | A points chart and a table of every entry (for example one point per rocket). |
 | `stages` and `candidates` | A table of how far each candidate has got. |
 | `items` | A searchable list, with filters for status and group. A `problem-list` frontier shows no tally. |
+| `about` | "What this is" and "Why it matters", at the top of the page. |
 | `events`, `reading`, `sources` | "What happened", "Start here" and "Sources". |
 | Dataset `NOTICE.md` | The credit line under each chart and a "Data credits and terms" section. |
 
@@ -33,6 +34,10 @@ Every page carries the same navigation, built from the data, so nothing needs up
 - A frontier page also links to the others in its domain and to the previous and next frontier.
 
 The check fails if any page lacks a link to any frontier, or has an in-site link that leads nowhere.
+
+## Motion
+
+Every chart draws itself from left to right. A chart that is in view when the page opens draws once; charts further down draw as they are scrolled into view, with a marker showing the year reached. The chart markup is complete without scripting, and nothing moves for readers who have asked their device to reduce motion.
 
 ## Site settings
 

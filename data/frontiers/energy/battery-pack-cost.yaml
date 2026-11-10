@@ -130,3 +130,6 @@ events:
   title: First reported sub-$100/kWh battery packs, while the market average stands at $137/kWh
   why_it_matters: Individual packs were now reported below the $100/kWh level that carmakers had long named as a target, even though the typical price was still well above it.
   url: https://about.bnef.com/insights/clean-energy/battery-pack-prices-cited-below-100-kwh-for-the-first-time-in-2020-while-market-average-sits-at-137-kwh/
+about:
+  what: "The average price of a lithium-ion battery pack for each kilowatt-hour of energy it stores."
+  why: "The battery is the most expensive part of an electric car and the main cost of storing electricity on the grid. As pack prices fall, electric vehicles get closer to the price of petrol cars, and it becomes cheaper to save solar and wind power for when it is needed."

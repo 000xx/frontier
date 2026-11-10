@@ -4631,3 +4631,6 @@ connections:
 - solar-modules
 - perovskite-durability
 - solar-cost
+about:
+  what: "How much of the sunlight falling on a solar cell comes out as electricity. Each cell technology has its own record, set by a laboratory cell and confirmed by an independent test centre."
+  why: "Efficiency sets how much power a given area of panel can produce, so every gain means less land, glass, steel and labour for the same electricity. Records set in the laboratory show what factory panels may reach some years later, and which new materials are closing in on silicon."
