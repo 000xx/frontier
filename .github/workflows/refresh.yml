@@ -26,7 +26,8 @@ permissions:
   actions: write
 
 concurrency:
-  group: refresh-data
+  # Real refreshes queue one at a time; dry runs each get their own group so they never cancel each other.
+  group: ${{ inputs.dry_run && format('refresh-dry-run-{0}', github.run_id) || 'refresh-data' }}
   cancel-in-progress: false
 
 jobs:

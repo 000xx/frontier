@@ -80,7 +80,7 @@ def set_readme_row(path, label, value):
     """Replace the value cell of a two-column markdown table row whose first cell is `label`."""
     target = ROOT / path
     text = target.read_text(encoding="utf-8")
-    pattern = re.compile(r"(?m)^\|\s*" + re.escape(label) + r"\s*\|[^\n]*\|\s*$")
+    pattern = re.compile(r"(?m)^\|[ \t]*" + re.escape(label) + r"[ \t]*\|[^\n]*\|[ \t]*$")
     if not pattern.search(text):
         raise RuntimeError(f"no '{label}' row in {path}")
     target.write_text(pattern.sub(f"| {label} | {value} |", text, count=1), encoding="utf-8")
