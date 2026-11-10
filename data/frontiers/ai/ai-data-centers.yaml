@@ -1,0 +1,79 @@
+# Records are rebuilt from Epoch AI's data center timelines by scripts/fetchers/ai_data_centers.py.
+# Edit the other fields by hand; never edit the records directly.
+id: ai-data-centers
+title: Power of the largest AI data center
+domain: ai
+subfield: Cost and scale
+status: draft
+summary: The electrical power capacity of the largest AI data center in operation or under construction
+  at each date, as estimated by Epoch AI from satellite imagery, permits and company disclosures. It
+  tracks how fast the physical build-out behind AI training is growing.
+metric:
+  name: Facility power of the largest tracked AI data center
+  unit: MW
+  direction: higher
+  scale: log
+  explainer: 'Training the largest AI models now needs hundreds of thousands of AI chips in one place,
+    and the binding limit is often electricity: a site has to get grid connections, power plants or
+    turbines, and cooling built before the chips can run. Power capacity is therefore a good single
+    measure of how big an AI data center is. Developers rarely publish it, so Epoch AI estimates it
+    independently. Its analysts look at satellite and aerial images of each site, count and size the
+    cooling equipment such as chillers and cooling towers, and check the result against permits and
+    company disclosures. From power they estimate how many chips the site can hold and
+    what it cost. The figure used here is total facility power, which includes the computers plus cooling,
+    lighting and other overheads; the computers alone draw less, and each record also gives that IT power.
+    Epoch records each site''s status as of dated milestones, so the line steps up when a site expands or
+    a bigger one comes online. Epoch also projects future milestones from construction plans; those are
+    left off this line until their date has passed. The hub only covers the largest sites Epoch has
+    identified, mostly in the United States, so a large site it has not yet found would be missing.'
+chart:
+  primary: record-chart
+  secondary:
+  - scale-ladder
+  - pace-board
+series:
+- id: largest-site
+  label: Largest tracked site
+update:
+  cadence: monthly
+  last_checked: '2026-11-09'
+  notes: 'Records are rebuilt from Epoch''s data_center_timelines.csv by scripts/fetchers/ai_data_centers.py;
+    do not edit them by hand. A timeline row is a record when its facility power (Power (MW)) beats every
+    row dated before it across all sites. Rows dated after the day of the run are Epoch''s projections and
+    are skipped. Status confirmed is used because the figures are Epoch''s independent estimates, not
+    developer announcements; they are estimates with real uncertainty, which the schema cannot express.'
+sources:
+- id: epoch-data-centers
+  name: Epoch AI, Frontier Data Centers hub (timelines file)
+  url: https://epoch.ai/data/frontier-data-centers
+  kind: dataset
+  primary: true
+  notes: 'File https://epoch.ai/data/data_centers/data_center_timelines.csv (hub updated 2026-11-06 when
+    read). Column definitions at https://epoch.ai/data/data-centers-documentation/records. Licence CC BY
+    4.0: the page says the data is free to use, distribute and reproduce with credit to the source and
+    authors. Credit line: "Data: Epoch AI, AI data centers (epoch.ai/data/ai-data-centers), CC BY 4.0."'
+- id: epoch-data-centers-launch
+  name: Epoch AI, Introducing the Frontier Data Centers hub
+  url: https://epoch.ai/blog/introducing-the-frontier-data-centers-hub/
+  kind: report
+- id: epoch-largest-dc-compute
+  name: Epoch AI, Data insight on the compute of the largest AI data center
+  url: https://epoch.ai/data-insights/largest-data-center-compute
+  kind: report
+events:
+- date: '2025-11-04'
+  kind: dataset
+  title: Epoch launches its Frontier Data Centers hub, tracking 13 large US sites
+  why_it_matters: Gave the first public, site-by-site estimates of AI data center power and chips, built
+    from satellite images rather than company claims.
+  url: https://epoch.ai/blog/introducing-the-frontier-data-centers-hub/
+- date: '2026-06-11'
+  kind: paper
+  title: Epoch finds the largest AI data center's compute has doubled about every seven months
+  why_it_matters: Puts a pace on the build-out, and Epoch expects a pause until bigger sites finish in late
+    2027 or 2028.
+  url: https://epoch.ai/data-insights/largest-data-center-compute
+reading: []
+connections:
+- training-compute
+records: []
