@@ -1,0 +1,83 @@
+# Observations are the world's share of people using safely managed drinking water, for 2000 to 2024. They are the World
+# rows of Our World in Data's grapher CSV (proportion-using-safely-managed-drinking-water, OWID_WRL), opened 2026-11-09,
+# which republishes the WHO/UNICEF Joint Monitoring Programme estimates. Values are stored as the source gives them.
+# The 2024 value rises 1.7 points on 2023, against about 0.5 points a year before; the source's own note was not found,
+# so it is flagged in the update notes for the owner rather than smoothed.
+id: safe-water
+title: Safely managed drinking water
+domain: development
+subfield: Human development
+status: draft
+summary: The share of the world's people who drink water from a source that is on site, available when needed and free
+  of contamination. It is the strictest of the water measures WHO and UNICEF track, and it shows how far safe supply has reached.
+metric:
+  name: Share of population using safely managed drinking water services, world
+  unit: '%'
+  direction: higher
+  scale: linear
+  explainer: 'The Joint Monitoring Programme classes drinking water in a ladder. The top rung, safely managed, means the
+    water comes from an improved source that is located on premises, is available when needed and is free from
+    contamination. Lower rungs are basic, limited, unimproved and surface water. The measure counts the share of people
+    on the top rung, so it stays below the wider access figures, which count any improved source. The estimates come
+    from household surveys and national data, so a figure can move when a survey is added or revised, not only when
+    people''s water changes.'
+chart:
+  primary: coverage-meter
+series:
+- id: world
+  label: World
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'WHO and UNICEF update these estimates about every two years; the OWID page says its last update was on
+    8 December 2025 and the next is expected in December 2027. To update, run the safe_water fetcher once a new edition
+    is out. Open for the owner: the 2024 jump (about 1.7 points against roughly 0.5 a year before) is in the source as
+    published; the source''s own note on it was not found on the page read. Licence: OWID states that WHO and UNICEF
+    data keep the providers'' terms; see the notes on the source.'
+sources:
+- id: owid-proportion-using-safely-managed-drinking-water
+  name: 'Our World in Data, proportion using safely managed drinking water (World), from WHO/UNICEF JMP'
+  url: https://ourworldindata.org/grapher/proportion-using-safely-managed-drinking-water
+  kind: dataset
+  primary: true
+  notes: 'Page and CSV (World rows, OWID_WRL) opened 2026-11-09. The page gives the citation "WHO/UNICEF Joint Monitoring
+    Programme for Water Supply, Sanitation and Hygiene (2025) – processed by Our World in Data". OWID''s own work is CC BY
+    4.0; third-party data keeps the provider''s terms, which the page does not state for WHO/UNICEF. The CSV was read
+    through WebFetch, so the seeded values are checked by the fetcher dry run.'
+events:
+- date: '2019'
+  kind: milestone
+  title: Safely managed drinking water reaches 70 percent of the world's people
+  why_it_matters: The top rung of the water ladder passed seven in ten people, a level it had not reached in the series before.
+  url: https://ourworldindata.org/grapher/proportion-using-safely-managed-drinking-water
+- date: '2024'
+  kind: milestone
+  title: The 2024 world share reaches 73.7 percent in the latest edition
+  why_it_matters: The latest year is the highest in the series, though the step up is larger than the trend before it.
+  url: https://ourworldindata.org/grapher/proportion-using-safely-managed-drinking-water
+observations:
+- {date: '2000', series: world, value: 61.261635, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2001', series: world, value: 61.49474, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2002', series: world, value: 61.816216, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2003', series: world, value: 62.142193, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2004', series: world, value: 62.47009, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2005', series: world, value: 62.821815, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2006', series: world, value: 63.14657, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2007', series: world, value: 63.464493, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2008', series: world, value: 63.780457, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2009', series: world, value: 64.31226, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2010', series: world, value: 64.84133, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2011', series: world, value: 65.350914, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2012', series: world, value: 65.91863, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2013', series: world, value: 66.5065, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2014', series: world, value: 67.09997, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2015', series: world, value: 67.69277, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2016', series: world, value: 68.287094, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2017', series: world, value: 68.86847, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2018', series: world, value: 69.4436, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2019', series: world, value: 70.00305, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2020', series: world, value: 70.53926, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2021', series: world, value: 71.05931, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2022', series: world, value: 71.57286, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2023', series: world, value: 72.05648, source: owid-proportion-using-safely-managed-drinking-water}
+- {date: '2024', series: world, value: 73.735176, source: owid-proportion-using-safely-managed-drinking-water}
