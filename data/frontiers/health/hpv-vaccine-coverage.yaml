@@ -1,20 +1,20 @@
 # HPV vaccine coverage: share of adolescent girls vaccinated, World, from OWID's copy of WHO/UNICEF (WUENIC) estimates.
-# Observations are written by scripts/fetchers/hpv_vaccine_coverage.py; edit the other fields by hand.
+# Observations match the OWID export as read in the dry run (16 values, 2010 to 2025); scripts/fetchers/hpv_vaccine_coverage.py refreshes them.
 id: hpv-vaccine-coverage
 title: HPV vaccine coverage
 domain: health
 subfield: Cancer
 status: draft
-summary: The share of adolescent girls worldwide who have been vaccinated against human papillomavirus, the
+summary: The share of girls worldwide who have had the last dose of the vaccine against human papillomavirus by age 15, the
   virus behind almost all cervical cancer, and how far that is from the level needed to eliminate the cancer.
 metric:
-  name: Share of adolescent girls vaccinated against HPV, worldwide
+  name: Share of girls vaccinated against HPV by age 15 (last dose), worldwide
   unit: '%'
   direction: higher
   scale: linear
   explainer: 'Human papillomavirus is a common virus passed on by sexual contact, and some types cause almost all
     cervical cancer. Vaccines given before a person is exposed to the virus prevent most of that infection. The
-    measure here is the share of girls of the target age who have been vaccinated, estimated each year by WHO and
+    measure here is the share of girls who have had the last dose by age 15, estimated each year by WHO and
     UNICEF from country reports and surveys. Coverage estimates can be revised when new data arrive, so compare
     years within one release. Vaccinating girls is only part of cervical cancer prevention: screening and
     treatment of precancerous changes also matter, and the vaccine does not protect against every HPV type.'
@@ -27,14 +27,14 @@ update:
   cadence: yearly
   last_checked: '2026-11-09'
   notes: 'Observations come from Our World in Data''s grapher for the WHO/UNICEF coverage estimates (2025 revision,
-    completed 15 July 2026, data from 1980 to 2025; the chart shows 2010 to 2025). The fetcher is
+    completed 15 July 2026, data from 1980 to 2025; the chart shows 2010 to 2025). The source column is "HPV Vaccination
+    coverage by age 15, last dose, females". The fetcher is
     scripts/fetchers/hpv_vaccine_coverage.py. The WHO/UNICEF target for cervical cancer elimination is 90% of girls
-    fully vaccinated by age 15 by 2030; that is a different measure from this series, so it is not drawn as a target
-    until the series definition (first or full course) is confirmed. Not yet checked: the WHO/UNICEF licence terms
+    fully vaccinated by age 15 by 2030; the series is the last-dose measure by age 15; the link between the two is not checked here, so no target line is drawn. Not yet checked: the WHO/UNICEF licence terms
     for copying the values (the OWID page says third-party data is subject to the provider''s terms).'
 sources:
 - id: owid-coverage-of-the-human-papillomavirus-vaccine
-  name: Our World in Data, Share of adolescent girls vaccinated against human papillomavirus (WHO and UNICEF, WUENIC)
+  name: Our World in Data, HPV vaccination coverage by age 15, last dose, females (WHO and UNICEF, WUENIC)
   url: https://ourworldindata.org/grapher/coverage-of-the-human-papillomavirus-vaccine
   kind: dataset
   primary: true
@@ -46,4 +46,31 @@ sources:
   kind: report
   notes: Secondary summary of the WHO strategy. Gives the 2030 target of 90% of girls fully vaccinated by age 15. Used
     for the target note only.
-observations: []
+events:
+- date: '2026-07-15'
+  kind: dataset
+  title: WHO and UNICEF complete the 2025 revision of HPV coverage estimates
+  why_it_matters: The estimates run to 2025 and show the World value at 24 for 2025, the highest in the series.
+  url: https://ourworldindata.org/grapher/coverage-of-the-human-papillomavirus-vaccine
+- date: '2025'
+  kind: milestone
+  title: World HPV last-dose coverage by age 15 reaches 24% in 2025
+  why_it_matters: Up from 2% in 2010; the series is compared with the WHO goal only once the measures are confirmed to match.
+  url: https://ourworldindata.org/grapher/coverage-of-the-human-papillomavirus-vaccine
+observations:
+- {date: '2010', series: world, value: 2.0, source: owid-coverage-of-the-human-papillomavirus-vaccine}
+- {date: '2011', series: world, value: 2.0, source: owid-coverage-of-the-human-papillomavirus-vaccine}
+- {date: '2012', series: world, value: 3.0, source: owid-coverage-of-the-human-papillomavirus-vaccine}
+- {date: '2013', series: world, value: 4.0, source: owid-coverage-of-the-human-papillomavirus-vaccine}
+- {date: '2014', series: world, value: 5.0, source: owid-coverage-of-the-human-papillomavirus-vaccine}
+- {date: '2015', series: world, value: 5.0, source: owid-coverage-of-the-human-papillomavirus-vaccine}
+- {date: '2016', series: world, value: 8.0, source: owid-coverage-of-the-human-papillomavirus-vaccine}
+- {date: '2017', series: world, value: 9.0, source: owid-coverage-of-the-human-papillomavirus-vaccine}
+- {date: '2018', series: world, value: 9.0, source: owid-coverage-of-the-human-papillomavirus-vaccine}
+- {date: '2019', series: world, value: 10.0, source: owid-coverage-of-the-human-papillomavirus-vaccine}
+- {date: '2020', series: world, value: 12.0, source: owid-coverage-of-the-human-papillomavirus-vaccine}
+- {date: '2021', series: world, value: 14.0, source: owid-coverage-of-the-human-papillomavirus-vaccine}
+- {date: '2022', series: world, value: 15.0, source: owid-coverage-of-the-human-papillomavirus-vaccine}
+- {date: '2023', series: world, value: 15.0, source: owid-coverage-of-the-human-papillomavirus-vaccine}
+- {date: '2024', series: world, value: 18.0, source: owid-coverage-of-the-human-papillomavirus-vaccine}
+- {date: '2025', series: world, value: 24.0, source: owid-coverage-of-the-human-papillomavirus-vaccine}
