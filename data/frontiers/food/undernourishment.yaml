@@ -1,0 +1,90 @@
+# Observations are the world prevalence of undernourishment, percent of the population, 2000 to 2024, read from Our World
+# in Data's copy of the FAO indicator 2.1.1 (grapher prevalence-of-undernourishment, World row OWID_WRL), opened
+# 2026-11-09 through the refresh workflow's dry run. Values are the source's own, one decimal.
+id: undernourishment
+title: Undernourishment
+domain: food
+subfield: The food system
+status: live
+summary: The share of the world's people whose usual food intake is too low to give them the energy their bodies need.
+  It is the headline measure of hunger that the UN tracks towards the goal of zero hunger by 2030.
+metric:
+  name: Share of the world population that is undernourished
+  unit: '%'
+  direction: lower
+  scale: linear
+  explainer: 'This is an estimate of how many people do not get enough food energy for an active, healthy life. It is
+    built from national food supply figures and household survey data, so it is not a headcount of hungry people. The
+    number of people is worked out from the share and the population. Read the trend over many years: a single year
+    can move with prices, weather or conflict, and the estimates for earlier years change when new data arrive.'
+chart:
+  primary: race-to-zero
+series:
+- id: world
+  label: World
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Observations are from the Our World in Data grapher prevalence-of-undernourishment (World row), which carries
+    FAO''s SDG 2.1.1 series. The refresh fetcher reads the same CSV and updates changed or new years. Not yet added: the
+    2025 estimate. The FAO 2026 report gives it as 7.8 per cent, but that figure was read from a press report, not from
+    FAO, so it is held back until the FAO report or FAOSTAT is opened. The FAO methodology page was not opened.'
+sources:
+- id: owid-undernourishment
+  name: Our World in Data, prevalence of undernourishment (World), built from FAO and UN SDG data
+  url: https://ourworldindata.org/grapher/prevalence-of-undernourishment
+  kind: dataset
+  primary: true
+  notes: CSV read through the refresh workflow's dry run at https://ourworldindata.org/grapher/prevalence-of-undernourishment.csv?country=OWID_WRL
+    on 2026-11-09. The column is '2.1.1 prevalence of undernourishment - Value (percent)'. Cite OWID and FAO.
+- id: fao-sofi-2026-press
+  name: 'The State of Food Security and Nutrition in the World 2026 (FAO, WFP, WHO, UNICEF, IFAD), as reported by CathNews'
+  url: https://cathnews.com/2026/07/24/un-report-estimates-645-million-people-faced-hunger-in-2025/
+  kind: news
+  notes: Press report dated 24 July 2026. It relays the FAO report's 645 million and 7.8 per cent figures for 2025. Not
+    read from the FAO report itself; to be replaced when that report is opened.
+events:
+- date: '2017'
+  kind: milestone
+  title: The world share of undernourished people falls to 7.1 per cent, the lowest in this series
+  why_it_matters: 'The share had fallen from 12.7 per cent in 2000 to 7.1 per cent in 2017, a drop of more than 5 points,
+    before rising again.'
+  url: https://ourworldindata.org/grapher/prevalence-of-undernourishment
+- date: '2020'
+  kind: setback
+  title: The world share of undernourished people rises from 7.5 per cent in 2019 to 8.5 per cent in 2020
+  why_it_matters: 'A one-year rise of a full point. The share stayed between 8.2 and 8.8 per cent in every year from 2020
+    to 2024, all above the 2019 level.'
+  url: https://ourworldindata.org/grapher/prevalence-of-undernourishment
+- date: '2026-07-24'
+  kind: milestone
+  title: FAO reports 645 million people faced hunger in 2025, 7.8 per cent of the population, 14 million fewer than in 2024
+  why_it_matters: 'The 2025 figure of 7.8 per cent is below the 2024 value of 8.2 in this series, but above the 7.5 per
+    cent recorded for 2019.'
+  url: https://cathnews.com/2026/07/24/un-report-estimates-645-million-people-faced-hunger-in-2025/
+observations:
+- {date: '2000', series: world, value: 12.7, source: owid-undernourishment}
+- {date: '2001', series: world, value: 12.8, source: owid-undernourishment}
+- {date: '2002', series: world, value: 13.0, source: owid-undernourishment}
+- {date: '2003', series: world, value: 12.7, source: owid-undernourishment}
+- {date: '2004', series: world, value: 12.6, source: owid-undernourishment}
+- {date: '2005', series: world, value: 12.0, source: owid-undernourishment}
+- {date: '2006', series: world, value: 11.0, source: owid-undernourishment}
+- {date: '2007', series: world, value: 10.0, source: owid-undernourishment}
+- {date: '2008', series: world, value: 9.3, source: owid-undernourishment}
+- {date: '2009', series: world, value: 9.1, source: owid-undernourishment}
+- {date: '2010', series: world, value: 8.7, source: owid-undernourishment}
+- {date: '2011', series: world, value: 8.2, source: owid-undernourishment}
+- {date: '2012', series: world, value: 8.1, source: owid-undernourishment}
+- {date: '2013', series: world, value: 7.9, source: owid-undernourishment}
+- {date: '2014', series: world, value: 7.5, source: owid-undernourishment}
+- {date: '2015', series: world, value: 7.7, source: owid-undernourishment}
+- {date: '2016', series: world, value: 7.6, source: owid-undernourishment}
+- {date: '2017', series: world, value: 7.1, source: owid-undernourishment}
+- {date: '2018', series: world, value: 7.3, source: owid-undernourishment}
+- {date: '2019', series: world, value: 7.5, source: owid-undernourishment}
+- {date: '2020', series: world, value: 8.5, source: owid-undernourishment}
+- {date: '2021', series: world, value: 8.8, source: owid-undernourishment}
+- {date: '2022', series: world, value: 8.7, source: owid-undernourishment}
+- {date: '2023', series: world, value: 8.5, source: owid-undernourishment}
+- {date: '2024', series: world, value: 8.2, source: owid-undernourishment}
