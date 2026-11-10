@@ -1,0 +1,43 @@
+# Observations are the number of works in OpenAlex's index per publication year, 1960 to 2025, from one grouped request to
+# https://api.openalex.org/works?filter=publication_year:1960-2025&group_by=publication_year, read through the refresh
+# workflow's dry run, opened 2026-11-09. The count covers every work type in the index (articles, books, preprints,
+# datasets, and others), so it is larger than the article count. Years are filled as the index is updated.
+id: papers-per-year
+title: Scholarly works per year
+domain: knowledge
+subfield: How science is working
+status: draft
+summary: How many scholarly works, such as articles, books, preprints and datasets, are indexed each year in OpenAlex,
+  a free catalogue of the research literature. It gives a rough picture of how much research is written up and recorded.
+metric:
+  name: Scholarly works indexed per publication year
+  unit: works per year
+  direction: higher
+  scale: log
+  explainer: 'A work is any record in OpenAlex with a publication year, from a journal article to a book, a preprint or a
+    dataset. The count for a year is the number of records that OpenAlex lists as published in that year. It is a count of
+    records in one index, not of distinct research outputs, so duplicates that the index has not merged are included, and
+    the most recent years are still being filled in as publishers and repositories send their records. A rising count
+    shows that more research is being recorded, not that it is more useful. Growth is steep over six decades, so the chart
+    uses a log scale.'
+chart:
+  primary: record-chart
+series:
+- id: works
+  label: Works
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Observations come from one OpenAlex request per run, grouped by publication year. The fetcher adds new years and
+    updates the last three full years when they change. Older years are kept as they are; a change to them is printed in
+    the run log only. Still to add: events, a reading list and a licence check of OpenAlex''s terms.'
+sources:
+- id: openalex-works
+  name: OpenAlex, works API (grouped by publication year)
+  url: https://openalex.org/
+  kind: dataset
+  primary: true
+  notes: Read through the refresh workflow''s dry run on 2026-11-09. The request filters on publication years and groups
+    the works by publication_year. OpenAlex states its data is CC0; that statement was not read directly in this run
+    (the licence and API help pages were not reachable), so confirm before marking live.
+observations:
