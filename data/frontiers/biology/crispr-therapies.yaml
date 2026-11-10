@@ -1,0 +1,143 @@
+# CRISPR-based therapies by stage. Four candidates, each from sources opened in this run:
+# Casgevy (FDA announcement, 8 December 2023); lonvo-z (Intellia release and HCPLive, 8 September 2026, company claims);
+# nex-z (Intellia release, 27 January 2026, company); risto-cel (Beam release, 7 May 2026, company).
+# Only candidates with a stage stated in those sources are added. Other CRISPR programmes are not yet covered.
+id: crispr-therapies
+title: CRISPR therapies
+domain: biology
+subfield: Writing and editing life
+status: draft
+summary: How far the first CRISPR-based medicines have travelled from the laboratory to approval, and how many
+  more are in trials, with the regulatory filings and safety holds that decide when each one reaches patients.
+metric:
+  name: CRISPR-based therapies by stage
+  unit: therapies
+  direction: higher
+  scale: linear
+  explainer: 'CRISPR is a system that bacteria use to recognise and cut DNA, which researchers have adapted to edit
+    the genetic code of cells. A therapy built on it can cut a gene, or in some newer designs change one letter of
+    DNA without cutting both strands. Medicines move through the same stages as other drugs: early safety trials,
+    larger efficacy trials, a regulator''s review of the application, approval, and then use by patients. A
+    company announcement of a filing or result is not the same as a regulator''s decision, and a clinical hold
+    can pause a trial while safety is checked. The stage shows how far a therapy has got, not whether it will
+    work for everyone who receives it.'
+chart:
+  primary: stage-timeline
+stages:
+- Preclinical
+- Phase 1
+- Phase 1/2
+- Phase 2
+- Phase 3
+- Regulatory review
+- Regulatory approval
+- Rollout
+series:
+- id: therapies
+  label: CRISPR-based therapies
+update:
+  cadence: monthly
+  last_checked: '2026-11-09'
+  notes: 'Four candidates are added. Casgevy is the only approved one here, from the FDA announcement of 8 December
+    2023. The lonvo-z filing and the nex-z and risto-cel trial statuses come from company releases, so they are
+    claimed, not confirmed by a regulator. Next checks: the FDA decision on lonvo-z (PDUFA target 10 March 2027); the
+    MAGNITUDE (ATTR-CM) clinical hold, which was still under FDA discussion in January 2026; the risto-cel BLA, which
+    the company expects as early as year-end 2026. Not yet covered: other CRISPR programmes, including Verve and
+    others. Owner: base editors such as risto-cel use a CRISPR guide but change single DNA letters rather than
+    cutting; please decide whether they belong in this frontier. The Casgevy developer is not named in the FDA
+    announcement, so the developer field is left out.'
+sources:
+- id: fda-casgevy-2023
+  name: FDA, FDA approves first gene therapies to treat patients with sickle cell disease
+  url: https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease
+  kind: press
+  primary: true
+  notes: 'Announced 8 December 2023. Casgevy approved for sickle cell disease in patients 12 and over with recurrent
+    vaso-occlusive crises. Regulator source.'
+- id: intellia-bla-2026
+  name: Intellia Therapeutics, FDA acceptance of Biologics License Application with priority review for lonvoguran ziclumeran (lonvo-z) for hereditary angioedema
+  url: https://ir.intelliatx.com/node/12886/pdf
+  kind: press
+  notes: 'Company release dated 8 September 2026. Gives a PDUFA target action date of 10 March 2027 and the HAELO phase 3
+    result. Company claim.'
+- id: hcplive-lonvo-z-2026
+  name: HCPLive, Lonvo-z BLA accepted by FDA with priority review for HAE
+  url: https://www.hcplive.com/view/lonvo-z-bla-accepted-fda-priority-review-hae
+  kind: news
+  notes: 'Dated 8 September 2026. Says the FDA does not currently plan an advisory committee. Secondary report of the
+    Intellia release.'
+- id: intellia-hold-lift-2026
+  name: Intellia Therapeutics, FDA lift of clinical hold on MAGNITUDE-2 phase 3 trial in ATTRv-PN
+  url: https://www.biospace.com/press-releases/intellia-therapeutics-announces-fda-lift-of-clinical-hold-on-magnitude-2-phase-3-clinical-trial-in-attrv-pn
+  kind: press
+  notes: 'Dated 27 January 2026 (BioSpace publication 28 January 2026). The hold was imposed on 29 October 2025 after a
+    Grade 4 liver transaminase case. Company statement; the MAGNITUDE (ATTR-CM) hold was still under FDA discussion.'
+- id: beam-q1-2026
+  name: Beam Therapeutics, first quarter 2026 financial results and business updates
+  url: https://investors.beamtx.com/news-releases/news-release-details/beam-therapeutics-reports-first-quarter-2026-financial-results/
+  kind: press
+  notes: 'Dated 7 May 2026. Company statement. Gives risto-cel (BEAM-101) status and the planned BLA timing.'
+candidates:
+- id: casgevy
+  name: Casgevy (exagamglogene autotemcel)
+  stage: Regulatory approval
+  history:
+  - stage: Regulatory approval
+    date: '2023-12-08'
+    source: fda-casgevy-2023
+    url: https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease
+  key_result: Approved for sickle cell disease in patients 12 and over with recurrent vaso-occlusive crises.
+  source: fda-casgevy-2023
+  url: https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease
+- id: lonvo-z
+  name: Lonvoguran ziclumeran (lonvo-z)
+  developer: Intellia Therapeutics
+  stage: Regulatory review
+  history:
+  - stage: Regulatory review
+    date: '2026-09-08'
+    source: intellia-bla-2026
+    url: https://ir.intelliatx.com/node/12886/pdf
+    note: FDA accepted the BLA with priority review (company announcement). Claimed, not yet decided.
+  key_result: 'Phase 3 HAELO trial: 87% reduction (p<0.0001) in mean monthly attacks versus placebo (company statement). Indication: hereditary angioedema, age 16 and over. PDUFA target 10 March 2027.'
+  source: intellia-bla-2026
+  url: https://ir.intelliatx.com/node/12886/pdf
+  note: Would be the first in vivo CRISPR-based therapy for HAE, per the company.
+- id: nex-z
+  name: Nexiguran ziclumeran (nex-z)
+  developer: Intellia Therapeutics
+  stage: Phase 3
+  key_result: 'MAGNITUDE-2 phase 3 trial in ATTRv-PN: clinical hold lifted by FDA on 27 January 2026. The MAGNITUDE (ATTR-CM) hold was still under FDA discussion at that date.'
+  source: intellia-hold-lift-2026
+  url: https://www.biospace.com/press-releases/intellia-therapeutics-announces-fda-lift-of-clinical-hold-on-magnitude-2-phase-3-clinical-trial-in-attrv-pn
+  note: Hold imposed 29 October 2025 after a Grade 4 liver transaminase case in the MAGNITUDE trial. Company statement.
+- id: risto-cel
+  name: Risto-cel (BEAM-101)
+  developer: Beam Therapeutics
+  stage: Phase 1/2
+  key_result: Ongoing Phase 1/2 BEACON trial for sickle cell disease. BLA expected as early as year-end 2026 (company statement).
+  source: beam-q1-2026
+  url: https://investors.beamtx.com/news-releases/news-release-details/beam-therapeutics-reports-first-quarter-2026-financial-results/
+  note: Base editing. Company statement; data have been published in the New England Journal of Medicine per the same release.
+events:
+- date: '2023-12-08'
+  kind: milestone
+  title: FDA approves Casgevy for sickle cell disease, announced with Lyfgenia as the first gene therapies for it
+  why_it_matters: The first approved therapy in this frontier, for patients 12 and over, per the FDA announcement.
+  url: https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease
+- date: '2026-01-27'
+  kind: milestone
+  title: FDA lifts the clinical hold on the MAGNITUDE-2 trial of nex-z
+  why_it_matters: The hold came after a serious liver reaction; lifting it lets enrolment resume with extra liver monitoring.
+  url: https://www.biospace.com/press-releases/intellia-therapeutics-announces-fda-lift-of-clinical-hold-on-magnitude-2-phase-3-clinical-trial-in-attrv-pn
+- date: '2026-05-07'
+  kind: news
+  title: Beam expects to file a BLA for risto-cel as early as year-end 2026
+  why_it_matters: A base-editing therapy for sickle cell disease moves toward a regulatory filing.
+  url: https://investors.beamtx.com/news-releases/news-release-details/beam-therapeutics-reports-first-quarter-2026-financial-results/
+- date: '2026-09-08'
+  kind: milestone
+  title: FDA accepts the lonvo-z BLA with priority review
+  why_it_matters: The first in vivo CRISPR therapy for hereditary angioedema to reach a regulator's review, if the company's statement holds.
+  url: https://ir.intelliatx.com/node/12886/pdf
+reading: []

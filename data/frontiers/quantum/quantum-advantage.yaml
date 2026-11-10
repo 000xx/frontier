@@ -1,0 +1,72 @@
+id: quantum-advantage
+title: Claimed quantum advantage
+domain: quantum
+subfield: Quantum technologies
+status: draft
+summary: Experiments that claim a quantum computer solved a task no classical computer could match in practical time, each with the classical rebuttals that followed. Most such claims are contested, so the verdict matters as much as the claim.
+metric:
+  name: Claimed quantum-advantage experiments
+  unit: experiments
+  direction: higher
+  scale: linear
+  explainer: 'Quantum advantage means a quantum device does something that ordinary computers cannot do in
+    a reasonable time. Claims are usually made for a narrow task chosen to be hard for classical machines,
+    and then the claim is tested by people who look for a faster classical method. A claim can stand, be
+    overturned, or be narrowed: a faster method may bring the classical time down from many years to days,
+    or to minutes on a different problem. Each entry records the claim, the rebuttal and the status the
+    evidence supports, so the list shows how contested the field is rather than only counting wins.'
+chart:
+  primary: claim-scoreboard
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'No machine-readable source; items are added by hand from sources opened in full. Only two
+    claims have been checked, and the list is not complete. Still to add: other published claims, each
+    with its rebuttals, found in peer-reviewed journals and the rebuttal papers themselves.'
+sources:
+- id: conversation-2019
+  name: 'The Conversation: Google claims to have invented a quantum computer but IBM begs to differ (October 2019)'
+  url: https://theconversation.com:443/google-claims-to-have-invented-a-quantum-computer-but-ibm-begs-to-differ-127309
+  kind: news
+  primary: true
+  notes: Describes Google's Nature paper of 23 October 2019 and the IBM response of 21 October 2019. Used for the claim and rebuttal figures.
+- id: hpcwire-2025
+  name: 'HPCwire: D-Wave reports quantum supremacy, stirs immediate challenge and rebuttal (March 2025)'
+  url: https://www.hpcwire.com/2025/03/13/d-wave-reports-quantum-supremacy-stirs-immediate-challenge-and-rebuttal/
+  kind: news
+  notes: Reports the D-Wave claim of 12 March 2025 and the Flatiron and EPFL rebuttals. The journal paper and the rebuttal papers themselves were not opened.
+items:
+- id: google-sycamore-2019
+  label: Google Sycamore random-circuit sampling (53 qubits)
+  group: Sampling
+  status: disputed
+  status_detail: 'Claimed in Nature (October 2019); classical rebuttal by IBM'
+  date_done: '2019-10-23'
+  by: Google
+  source: conversation-2019
+  note: Google's claim was 200 seconds on the quantum processor against an estimated 10,000 years classically. IBM's estimate was days on the Summit supercomputer using secondary storage, which shrinks the size of the claimed gap.
+- id: dwave-spin-glass-2025
+  label: D-Wave quantum dynamics in spin glasses (Advantage2)
+  group: Simulation
+  status: disputed
+  status_detail: 'Claimed March 2025; rebuttals from the Flatiron Institute and EPFL'
+  date_done: '2025-03-12'
+  by: D-Wave
+  source: hpcwire-2025
+  note: D-Wave said minutes on its annealer against nearly a million years classically. Rebuttal papers from the Flatiron Institute and EPFL challenge that classical estimate. D-Wave said it would post an official rebuttal the next day; that rebuttal was not opened.
+events:
+- date: '2019-10-21'
+  kind: news
+  title: IBM says the Sycamore claim is overstated
+  why_it_matters: Showed that the classical estimate for the same task depended on the storage and supercomputer used, so the size of the claimed advantage was contested within days.
+  url: https://theconversation.com:443/google-claims-to-have-invented-a-quantum-computer-but-ibm-begs-to-differ-127309
+- date: '2019-10-23'
+  kind: paper
+  title: Google publishes its random-circuit sampling claim in Nature
+  why_it_matters: A claim that a programmable quantum processor beat classical machines on one task, published in a peer-reviewed journal and then challenged in public.
+  url: https://theconversation.com:443/google-claims-to-have-invented-a-quantum-computer-but-ibm-begs-to-differ-127309
+- date: '2025-03-12'
+  kind: news
+  title: D-Wave claims beyond-classical simulation of spin glasses
+  why_it_matters: A new claim on a simulation task, which the Flatiron Institute and EPFL then challenged within a day.
+  url: https://www.hpcwire.com/2025/03/13/d-wave-reports-quantum-supremacy-stirs-immediate-challenge-and-rebuttal/

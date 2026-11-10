@@ -1,0 +1,86 @@
+id: humanoid-robots
+title: Humanoid robots in commercial work
+domain: robotics
+subfield: Capability
+status: draft
+summary: How far humanoid robots, machines built with a human-like body, have moved from prototypes to paid work in factories and warehouses. It tracks each company's stage as its own announcements describe it.
+metric:
+  name: Humanoid robot programmes in commercial use
+  unit: programmes
+  direction: higher
+  scale: linear
+  explainer: 'A humanoid robot has a body shaped roughly like a person''s, usually two arms and two legs, so it
+    can use tools and spaces built for people. Most are still at the demonstration or trial stage. Each
+    candidate is placed at the furthest stage its own company or customer has described: a prototype shown
+    off, a pilot with one customer, a signed commercial agreement, or work that is paid for. Companies
+    describe their progress in their own words, so the stage is a claim until an independent source
+    confirms it.'
+chart:
+  primary: stage-timeline
+stages:
+- Prototype
+- Pilot
+- Commercial agreement
+- Paid deployment
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'No machine-readable source; candidates come from company and press announcements. Only two
+    companies have been checked, both from sources opened in full. Dates for the Agility pilot and
+    commercial agreements were not given in the source, so they are not in the history. Still to add:
+    other humanoid makers with announced customers, each with a dated stage. Check quarterly, and treat
+    any stage change as a company claim until the customer confirms it.'
+sources:
+- id: figure-2024-pr
+  name: 'Figure press release: Figure announces commercial agreement with BMW Manufacturing (18 January 2024)'
+  url: https://prnewswire.com/news-releases/figure-announces-commercial-agreement-with-bmw-manufacturing-to-bring-general-purpose-robots-into-automotive-production-302036263.html
+  kind: press
+  primary: true
+  notes: Company announcement. Number of robots and paid status not stated; staged deployment depends on a first phase.
+- id: agility-2026-news
+  name: 'Robotics and Automation News: Agility Robotics says more than 30 companies considering Digit (2 November 2026)'
+  url: https://roboticsandautomationnews.com/2026/11/02/agility-robotics-says-more-than-30-companies-considering-digit-humanoid-robot/106595/
+  kind: news
+  notes: Reports Agility's own statements on paid programmes, commercial agreements and GXO's deployment. Customers in paid programmes are not named.
+candidates:
+- id: figure-02
+  name: Figure 02
+  developer: Figure AI
+  kind: humanoid
+  stage: Commercial agreement
+  history:
+  - stage: Commercial agreement
+    date: '2024-01-18'
+    source: figure-2024-pr
+    url: https://prnewswire.com/news-releases/figure-announces-commercial-agreement-with-bmw-manufacturing-to-bring-general-purpose-robots-into-automotive-production-302036263.html
+    note: Signed with BMW Manufacturing for its Spartanburg plant, with a milestone-based first phase before staged deployment.
+  key_result: Commercial agreement with BMW Manufacturing at its Spartanburg plant, with deployment to start after a first phase of use-case work; number of robots not stated.
+  source: figure-2024-pr
+  url: https://prnewswire.com/news-releases/figure-announces-commercial-agreement-with-bmw-manufacturing-to-bring-general-purpose-robots-into-automotive-production-302036263.html
+  note: Stage is as stated in the 2024 release. The later deployment status is not confirmed from an opened source.
+- id: agility-digit
+  name: Digit
+  developer: Agility Robotics
+  kind: humanoid
+  stage: Paid deployment
+  history:
+  - stage: Paid deployment
+    date: '2026-11-02'
+    source: agility-2026-news
+    url: https://roboticsandautomationnews.com/2026/11/02/agility-robotics-says-more-than-30-companies-considering-digit-humanoid-robot/106595/
+    note: Agility says it works with three manufacturing customers in paid programmes, not named. GXO has signed a new commercial agreement for two more US facilities.
+  key_result: Digit at GXO's Georgia site has moved more than 100,000 totes, according to Agility; Agility reports more than 30 prospective customers.
+  source: agility-2026-news
+  url: https://roboticsandautomationnews.com/2026/11/02/agility-robotics-says-more-than-30-companies-considering-digit-humanoid-robot/106595/
+  note: Stage as stated by the company. The total number of Digit robots in service is not given.
+events:
+- date: '2024-01-18'
+  kind: news
+  title: Figure signs a commercial agreement with BMW
+  why_it_matters: An early commercial deal for a humanoid in car manufacturing, though the company's own release made deployment depend on a later phase.
+  url: https://prnewswire.com/news-releases/figure-announces-commercial-agreement-with-bmw-manufacturing-to-bring-general-purpose-robots-into-automotive-production-302036263.html
+- date: '2026-11-02'
+  kind: milestone
+  title: Agility reports paid manufacturing programmes and more than 30 prospective customers
+  why_it_matters: The company says its robot is now in paid work with manufacturers, but names few of them, so independent confirmation is still needed.
+  url: https://roboticsandautomationnews.com/2026/11/02/agility-robotics-says-more-than-30-companies-considering-digit-humanoid-robot/106595/

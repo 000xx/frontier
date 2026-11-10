@@ -1,0 +1,104 @@
+id: aviation-safety
+title: Aviation safety
+domain: safety
+subfield: Fewer deaths and failures
+status: live
+summary: How often commercial airliners have fatal accidents, measured per million flights. It shows whether flying has
+  become safer as traffic has grown.
+metric:
+  name: Fatal airliner accidents per million commercial flights
+  unit: accidents per million flights
+  direction: lower
+  scale: linear
+  explainer: 'The rate divides the number of fatal accidents involving commercial airliners (aircraft with more than 14
+    seats, passenger or cargo) by the number of worldwide departures, then multiplies by one million. Dividing by
+    flights keeps the measure fair when traffic grows: a rising count of accidents could still mean a falling risk per
+    trip. The series excludes corporate jets and military transport. Hijackings with fatalities are counted with the
+    airliner accidents. Because one accident can be rare, a single year can swing, so read the long trend rather
+    than one point.'
+chart:
+  primary: race-to-zero
+  secondary:
+  - record-chart
+sources:
+- id: owid-aviation-safety
+  name: Our World in Data, fatal airliner accidents per million commercial flights (Aviation Safety Network and ICAO, via World Bank)
+  url: https://ourworldindata.org/grapher/fatal-airliner-accidents-per-million-flights
+  kind: dataset
+  primary: true
+  notes: 'Chart page opened 2026-11-10. It names the Aviation Safety Network (2024) and ICAO via the World Bank (2026)
+    as sources, and states that Our World in Data''s work is CC BY while third-party data is subject to the providers''
+    licence terms. The Aviation Safety Network''s own terms could not be checked in this run: its page was blocked to
+    the agent. Owner to confirm the ASN terms before the series is treated as cleared. The CSV is read by the fetcher
+    (scripts/fetchers/aviation_safety.py). The series has no value for 1972 in this copy.'
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'The source publishes this series with its annual update. The fetcher reads the OWID CSV and changes only years
+    it can match. Deaths per year, a count of fatal accidents and the passenger-departures denominator are not in this
+    frontier yet: they need a source whose terms are confirmed before they are added.'
+events:
+- date: '2022'
+  kind: dataset
+  title: The series ends at 0.48 fatal accidents per million flights in 2022, against 6.46 in 1970
+  why_it_matters: The rate is about a thirteenth of its 1970 level, so the long trend is clear even though single
+    years swing.
+  url: https://ourworldindata.org/grapher/fatal-airliner-accidents-per-million-flights
+- date: '2017'
+  kind: milestone
+  title: 2017 is the lowest year in the series, at 0.28 fatal accidents per million flights
+  why_it_matters: One record low does not show a steady trend; every later year from 2018 to 2022 stayed above it.
+  url: https://ourworldindata.org/grapher/fatal-airliner-accidents-per-million-flights
+observations:
+- {date: '1970', value: 6.46, source: owid-aviation-safety}
+- {date: '1971', value: 4.95, source: owid-aviation-safety}
+- {date: '1973', value: 6.25, source: owid-aviation-safety}
+- {date: '1974', value: 6.27, source: owid-aviation-safety}
+- {date: '1975', value: 4.76, source: owid-aviation-safety}
+- {date: '1976', value: 5.44, source: owid-aviation-safety}
+- {date: '1977', value: 5.24, source: owid-aviation-safety}
+- {date: '1978', value: 4.03, source: owid-aviation-safety}
+- {date: '1979', value: 5.16, source: owid-aviation-safety}
+- {date: '1980', value: 3.08, source: owid-aviation-safety}
+- {date: '1981', value: 3.70, source: owid-aviation-safety}
+- {date: '1982', value: 3.10, source: owid-aviation-safety}
+- {date: '1983', value: 2.97, source: owid-aviation-safety}
+- {date: '1984', value: 2.63, source: owid-aviation-safety}
+- {date: '1985', value: 3.28, source: owid-aviation-safety}
+- {date: '1986', value: 3.00, source: owid-aviation-safety}
+- {date: '1987', value: 3.25, source: owid-aviation-safety}
+- {date: '1988', value: 3.89, source: owid-aviation-safety}
+- {date: '1989', value: 3.85, source: owid-aviation-safety}
+- {date: '1990', value: 2.88, source: owid-aviation-safety}
+- {date: '1991', value: 3.41, source: owid-aviation-safety}
+- {date: '1992', value: 3.15, source: owid-aviation-safety}
+- {date: '1993', value: 2.69, source: owid-aviation-safety}
+- {date: '1994', value: 2.79, source: owid-aviation-safety}
+- {date: '1995', value: 2.72, source: owid-aviation-safety}
+- {date: '1996', value: 2.59, source: owid-aviation-safety}
+- {date: '1997', value: 1.89, source: owid-aviation-safety}
+- {date: '1998', value: 2.39, source: owid-aviation-safety}
+- {date: '1999', value: 2.12, source: owid-aviation-safety}
+- {date: '2000', value: 1.68, source: owid-aviation-safety}
+- {date: '2001', value: 1.62, source: owid-aviation-safety}
+- {date: '2002', value: 1.59, source: owid-aviation-safety}
+- {date: '2003', value: 1.22, source: owid-aviation-safety}
+- {date: '2004', value: 1.35, source: owid-aviation-safety}
+- {date: '2005', value: 1.40, source: owid-aviation-safety}
+- {date: '2006', value: 0.97, source: owid-aviation-safety}
+- {date: '2007', value: 1.15, source: owid-aviation-safety}
+- {date: '2008', value: 1.02, source: owid-aviation-safety}
+- {date: '2009', value: 0.88, source: owid-aviation-safety}
+- {date: '2010', value: 0.89, source: owid-aviation-safety}
+- {date: '2011', value: 1.03, source: owid-aviation-safety}
+- {date: '2012', value: 0.54, source: owid-aviation-safety}
+- {date: '2013', value: 0.72, source: owid-aviation-safety}
+- {date: '2014', value: 0.55, source: owid-aviation-safety}
+- {date: '2015', value: 0.29, source: owid-aviation-safety}
+- {date: '2016', value: 0.45, source: owid-aviation-safety}
+- {date: '2017', value: 0.28, source: owid-aviation-safety}
+- {date: '2018', value: 0.37, source: owid-aviation-safety}
+- {date: '2019', value: 0.53, source: owid-aviation-safety}
+- {date: '2020', value: 0.40, source: owid-aviation-safety}
+- {date: '2021', value: 0.46, source: owid-aviation-safety}
+- {date: '2022', value: 0.48, source: owid-aviation-safety}

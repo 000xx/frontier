@@ -1,0 +1,247 @@
+# Observations are transcribed by hand from paper abstracts; each value was read in this run.
+# low and high are the value minus and plus the uncertainty quoted in the abstract (68% level).
+# Where a paper quotes statistical and systematic errors separately with no total, low and high are left out.
+id: hubble-constant
+title: Hubble constant and the Hubble tension
+domain: astronomy
+subfield: The universe at large
+status: live
+summary: How fast the universe is expanding today, measured in two very different ways that no longer agree.
+  Nearby distance measurements give about 73 km/s per megaparsec, while the early-universe light of the cosmic
+  microwave background, read through the standard model of cosmology, gives about 67, and both camps have
+  shrunk their error bars until the gap is hard to explain away.
+metric:
+  name: Hubble constant, H0
+  unit: km/s/Mpc
+  direction: higher
+  scale: linear
+  explainer: 'The Hubble constant says how fast galaxies recede for each unit of distance: a value of 70 means
+    a galaxy one megaparsec away (about 3.3 million light years) moves away at about 70 km/s, and one twice as
+    far at twice that speed. There are two broad ways to get it. The local route builds a distance ladder:
+    nearby stars of known brightness (Cepheid variables, or the brightest red giants) calibrate the distances to
+    galaxies that host type Ia supernovae, and the supernovae then reach far enough to see the expansion. Other
+    local routes skip the ladder, using the delayed flicker of quasars seen through gravitational lenses, water
+    masers orbiting black holes, or the gravitational waves from merging neutron stars. The early-universe
+    route measures the pattern of hot and cold spots in the cosmic microwave background and works forward to
+    today with the standard cosmological model. The "Hubble tension" is that the Cepheid ladder gives values
+    near 73 while the microwave background gives near 67, each now with an uncertainty below one unit. If both
+    are right, the standard model is missing something. One team using red giant stars gets values in between,
+    so whether the tension is real physics or an unrecognised error in some measurements is still argued over.
+    Progress here is shrinking error bars and agreement between independent methods, not a higher or lower
+    number.'
+chart:
+  primary: precision-funnel
+  secondary:
+  - claim-scoreboard
+series:
+- id: cmb
+  label: Cosmic microwave background (with the standard cosmological model)
+  group: Early universe
+- id: cepheid-ladder
+  label: Distance ladder calibrated with Cepheids
+  group: Local
+- id: red-giant-ladder
+  label: Distance ladder calibrated with red giants (TRGB)
+  group: Local
+- id: lensing-time-delays
+  label: Gravitationally lensed quasar time delays
+  group: Local, no ladder
+- id: masers
+  label: Water megamasers
+  group: Local, no ladder
+- id: standard-sirens
+  label: Gravitational-wave standard sirens
+  group: Local, no ladder
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Each observation is one headline result, dated by its first arXiv submission, read from the abstract.
+    Only headline values are recorded, not every variant in each paper. Open points for the owner:
+    (1) the schema needs a metric direction, but neither higher nor lower is progress here; "higher" is a
+    placeholder and the site should not call any value a record. (2) The two CCHP red-giant results quote
+    statistical and systematic errors separately and give no total, so low and high are left out rather than
+    combined by us; decide whether to show them added in quadrature. (3) The ACT DR6 value is a combination
+    with Planck, CMB lensing and DESI DR1 baryon acoustic oscillations, since the abstract gives no ACT-only
+    value. (4) The H0DN value is a community combination of several local methods, mostly the Cepheid ladder,
+    and is filed under that series. (5) The WMAP nine-year abstract gives no H0 value, so WMAP is not included.
+    Check for new SH0ES, CCHP, H0DN, TDCOSMO, ACT, SPT, Planck and DESI results.'
+sources:
+- id: h0dn-2025
+  name: 'H0DN Collaboration (S. Casertano et al.), "The Local Distance Network: a community consensus report on
+    the measurement of the Hubble constant at 1% precision", A&A 708, A166 (2026), arXiv:2510.23823'
+  url: https://www.aanda.org/articles/aa/abs/2026/04/aa57993-25/aa57993-25.html
+  kind: paper
+  primary: true
+  notes: Latest combined local result. DOI 10.1051/0004-6361/202557993, published online 10 April 2026.
+- id: planck-2018
+  name: Planck Collaboration, "Planck 2018 results. VI. Cosmological parameters" (arXiv:1807.06209), DOI
+    10.1051/0004-6361/201833910
+  url: https://arxiv.org/abs/1807.06209
+  kind: paper
+- id: act-dr6-2025
+  name: 'ACT, "The Atacama Cosmology Telescope: DR6 Power Spectra, Likelihoods and ΛCDM Parameters"
+    (arXiv:2503.14452)'
+  url: https://arxiv.org/abs/2503.14452
+  kind: paper
+- id: spt3g-2025
+  name: 'SPT-3G, "SPT-3G D1: CMB temperature and polarization power spectra and cosmology from 2019 and 2020
+    observations of the SPT-3G Main field" (arXiv:2506.20707)'
+  url: https://arxiv.org/abs/2506.20707
+  kind: paper
+- id: hst-key-project-2001
+  name: W. L. Freedman et al., "Final Results from the Hubble Space Telescope Key Project to Measure the Hubble
+    Constant" (arXiv:astro-ph/0012376), DOI 10.1086/320638
+  url: https://arxiv.org/abs/astro-ph/0012376
+  kind: paper
+- id: shoes-2022
+  name: A. G. Riess et al., "A Comprehensive Measurement of the Local Value of the Hubble Constant with 1 km/s/Mpc
+    Uncertainty from the Hubble Space Telescope and the SH0ES Team" (arXiv:2112.04510), DOI 10.3847/2041-8213/ac5c5b
+  url: https://arxiv.org/abs/2112.04510
+  kind: paper
+- id: cchp-2019
+  name: W. L. Freedman et al., "The Carnegie-Chicago Hubble Program. VIII. An Independent Determination of the
+    Hubble Constant Based on the Tip of the Red Giant Branch" (arXiv:1907.05922), DOI 10.3847/1538-4357/ab2f73
+  url: https://arxiv.org/abs/1907.05922
+  kind: paper
+- id: cchp-2024
+  name: 'W. L. Freedman et al., "Status Report on the Chicago-Carnegie Hubble Program (CCHP): Measurement of the
+    Hubble Constant Using the Hubble and James Webb Space Telescopes" (arXiv:2408.06153)'
+  url: https://arxiv.org/abs/2408.06153
+  kind: paper
+- id: h0licow-2019
+  name: 'K. C. Wong et al., "H0LiCOW XIII. A 2.4% measurement of H0 from lensed quasars: 5.3σ tension between
+    early and late-Universe probes" (arXiv:1907.04869), DOI 10.1093/mnras/stz3094'
+  url: https://arxiv.org/abs/1907.04869
+  kind: paper
+- id: tdcosmo-2025
+  name: 'TDCOSMO Collaboration, "TDCOSMO 2025: Cosmological constraints from strong lensing time delays"
+    (arXiv:2506.03023)'
+  url: https://arxiv.org/abs/2506.03023
+  kind: paper
+- id: mcp-2020
+  name: D. W. Pesce et al., "The Megamaser Cosmology Project. XIII. Combined Hubble constant constraints"
+    (arXiv:2001.09213), DOI 10.3847/2041-8213/ab75f0
+  url: https://arxiv.org/abs/2001.09213
+  kind: paper
+- id: gw170817-h0
+  name: LIGO, Virgo and partners, "A gravitational-wave standard siren measurement of the Hubble constant"
+    (arXiv:1710.05835), DOI 10.1038/nature24471
+  url: https://arxiv.org/abs/1710.05835
+  kind: paper
+observations:
+- date: '2000-12-18'
+  value: 72
+  low: 64
+  high: 80
+  series: cepheid-ladder
+  source: hst-key-project-2001
+  note: Hubble Space Telescope Key Project final result, 72 ± 8.
+- date: '2017-10-16'
+  value: 70.0
+  low: 62.0
+  high: 82.0
+  series: standard-sirens
+  source: gw170817-h0
+  note: GW170817 neutron-star merger; maximum a posteriori value with 68% credible interval, +12.0 / −8.0.
+- date: '2018-07-17'
+  value: 67.4
+  low: 66.9
+  high: 67.9
+  series: cmb
+  source: planck-2018
+  note: Planck 2018, base ΛCDM, 67.4 ± 0.5.
+- date: '2019-07-10'
+  value: 73.3
+  low: 71.5
+  high: 75.0
+  series: lensing-time-delays
+  source: h0licow-2019
+  note: H0LiCOW, six lensed quasars, 73.3 +1.7 / −1.8.
+- date: '2019-07-12'
+  value: 69.8
+  series: red-giant-ladder
+  source: cchp-2019
+  note: CCHP tip of the red giant branch, 69.8 ± 0.8 (stat) ± 1.7 (sys); no combined total quoted.
+- date: '2020-01-24'
+  value: 73.9
+  low: 70.9
+  high: 76.9
+  series: masers
+  source: mcp-2020
+  note: Megamaser Cosmology Project, 73.9 ± 3.0, independent of distance ladders and the microwave background.
+- date: '2021-12-08'
+  value: 73.04
+  low: 72.0
+  high: 74.08
+  series: cepheid-ladder
+  source: shoes-2022
+  note: SH0ES baseline Cepheid and supernova result, 73.04 ± 1.04; the abstract reports a 5σ difference from
+    Planck with ΛCDM.
+- date: '2024-08-12'
+  value: 70.39
+  series: red-giant-ladder
+  source: cchp-2024
+  note: CCHP with Hubble and JWST, 24 supernova calibrators, 70.39 ± 1.22 (stat) ± 1.33 (sys) ± 0.70 (σ_SN);
+    no combined total quoted.
+- date: '2025-03-18'
+  value: 68.22
+  low: 67.86
+  high: 68.58
+  series: cmb
+  source: act-dr6-2025
+  note: ACT DR6 combined with Planck (P-ACT), ACT and Planck CMB lensing and DESI DR1 BAO, 68.22 ± 0.36. With DESI
+    DR2 instead the abstract gives 68.43 ± 0.27.
+- date: '2025-06-03'
+  value: 71.6
+  low: 68.3
+  high: 75.5
+  series: lensing-time-delays
+  source: tdcosmo-2025
+  note: TDCOSMO 2025 sample with Pantheon+ supernovae, flat ΛCDM, 71.6 +3.9 / −3.3.
+- date: '2025-06-25'
+  value: 66.66
+  low: 66.06
+  high: 67.26
+  series: cmb
+  source: spt3g-2025
+  note: SPT-3G alone, 66.66 ± 0.60. Combined with Planck and ACT the abstract gives 67.19 ± 0.38.
+- date: '2025-10-27'
+  value: 73.5
+  low: 72.69
+  high: 74.31
+  series: cepheid-ladder
+  source: h0dn-2025
+  note: H0DN community combination of local distance methods, baseline 73.50 ± 0.81, stated as 7.1σ from the
+    early-universe ΛCDM value.
+events:
+- date: '2017-10-16'
+  kind: milestone
+  title: First Hubble constant from gravitational waves
+  why_it_matters: A single neutron-star merger gave a value with no distance ladder at all, opening a third,
+    independent route that will sharpen as more mergers are seen.
+  url: https://arxiv.org/abs/1710.05835
+- date: '2021-12-08'
+  kind: paper
+  title: SH0ES reaches 1 km/s/Mpc precision and a 5σ gap with Planck
+  why_it_matters: The local measurement became precise enough that chance alone could no longer explain the
+    disagreement with the early-universe value.
+  url: https://arxiv.org/abs/2112.04510
+- date: '2024-08-12'
+  kind: paper
+  title: Red-giant distances from JWST give a value between the two camps
+  why_it_matters: An independent ladder calibration sits closer to the microwave-background value, which keeps
+    alive the possibility that the tension comes from measurement errors rather than new physics.
+  url: https://arxiv.org/abs/2408.06153
+- date: '2025-06-25'
+  kind: paper
+  title: South Pole Telescope alone gives 66.66, 6.2σ below SH0ES
+  why_it_matters: A microwave-background experiment independent of Planck lands on the low side, so the
+    early-universe value no longer rests on one satellite.
+  url: https://arxiv.org/abs/2506.20707
+- date: '2026-04-10'
+  kind: paper
+  title: Community consensus puts the local value at 73.50 ± 0.81
+  why_it_matters: Pooling many local methods reached about 1% precision and widened the stated gap with the
+    early universe to 7.1σ.
+  url: https://www.aanda.org/articles/aa/abs/2026/04/aa57993-25/aa57993-25.html
+reading: []

@@ -1,0 +1,90 @@
+# Observations are retraction notices per calendar year (RetractionNature = Retraction, counted by the year of
+# RetractionDate), 2000 to 2025, from the Retraction Watch database CSV republished by Crossref on GitLab
+# (https://gitlab.com/crossref/retraction-watch-data), read through the refresh workflow's dry run, opened 2026-11-09.
+# Expressions of concern, corrections and reinstatements are not counted. 2026 is left out until the year is complete.
+id: retractions
+title: Retractions
+domain: knowledge
+subfield: How science is working
+status: live
+summary: How many published papers each year are formally withdrawn by their journals because of error, misconduct or
+  unreliable results. The count is a measure of how often the research record has to correct itself.
+metric:
+  name: Retraction notices per year
+  unit: retractions per year
+  direction: lower
+  scale: linear
+  explainer: 'A retraction is a formal notice that a published paper should no longer be relied on. The yearly count
+    depends on what the Retraction Watch database has found and when, so it reflects detection as much as misconduct.
+    The database has grown and now draws on publisher websites, scholarly databases and community reports. Some years
+    jump because a publisher withdraws many papers at once, so one batch can move a single year by thousands. Read the
+    trend with that in mind: a rise can mean the research record is getting more reliable at catching problems, not
+    only that more problems are arising. Direction is marked lower because fewer retractions is the outcome the field
+    is aiming for, but that reading is a judgement, not a rule.'
+chart:
+  primary: record-chart
+series:
+- id: all
+  label: All retractions
+update:
+  cadence: monthly
+  last_checked: '2026-11-09'
+  notes: 'Observations are yearly counts of retraction notices from the Retraction Watch CSV, published by Crossref and
+    updated each working day. The fetcher adds each complete year and rewrites only the last three full years; older
+    years are not rewritten, and any change to them is written to the run log only. Open questions for the owner: the
+    licence of the Retraction Watch data (the Crossref page and the repository README do not state a data licence; the
+    Crossref page says site content is CC BY 4.0), and whether the site should use this data at all. Still to add: a
+    reading list.'
+sources:
+- id: retraction-watch-csv
+  name: Retraction Watch database, CSV as published by Crossref
+  url: https://gitlab.com/crossref/retraction-watch-data
+  kind: dataset
+  primary: true
+  notes: Read through the refresh workflow's dry run at https://gitlab.com/crossref/retraction-watch-data/-/raw/main/retraction_watch.csv
+    on 2026-11-09. The README there says the data was generated on 2026-11-09 and that Crossref acquired the database in
+    September 2023 and made it public. The README does not state a data licence, and the CSV was not copied, only yearly counts.
+- id: crossref-rw-page
+  name: Crossref, Retraction Watch documentation
+  url: https://crossref.org/documentation/retrieve-metadata/retraction-watch/
+  kind: other
+  notes: Opened 2026-11-09. Says the CSV is updated once per working day, names RetractionDate as the date of the published
+    retraction, and says the site content is licensed under CC BY 4.0. No separate data licence was stated there.
+events:
+- date: '2010'
+  kind: milestone
+  title: The yearly count passes 5,000 retraction notices for the first time, at 5,011 in 2010
+  why_it_matters: 'The count was 1,186 in 2009, so most of the rise came in a single year; the next year, 2011, was just below 5,000.'
+  url: https://gitlab.com/crossref/retraction-watch-data
+- date: '2023'
+  kind: milestone
+  title: 2023 is the highest year in the series, with 13,371 retraction notices
+  why_it_matters: 'The count was 6,502 in 2024, roughly half the 2023 figure, so one year dominates the long-run trend.'
+  url: https://gitlab.com/crossref/retraction-watch-data
+observations:
+- {date: '2000', series: all, value: 41, source: retraction-watch-csv}
+- {date: '2001', series: all, value: 37, source: retraction-watch-csv}
+- {date: '2002', series: all, value: 124, source: retraction-watch-csv}
+- {date: '2003', series: all, value: 89, source: retraction-watch-csv}
+- {date: '2004', series: all, value: 128, source: retraction-watch-csv}
+- {date: '2005', series: all, value: 140, source: retraction-watch-csv}
+- {date: '2006', series: all, value: 215, source: retraction-watch-csv}
+- {date: '2007', series: all, value: 334, source: retraction-watch-csv}
+- {date: '2008', series: all, value: 450, source: retraction-watch-csv}
+- {date: '2009', series: all, value: 1186, source: retraction-watch-csv}
+- {date: '2010', series: all, value: 5011, source: retraction-watch-csv}
+- {date: '2011', series: all, value: 4936, source: retraction-watch-csv}
+- {date: '2012', series: all, value: 1160, source: retraction-watch-csv}
+- {date: '2013', series: all, value: 1450, source: retraction-watch-csv}
+- {date: '2014', series: all, value: 1115, source: retraction-watch-csv}
+- {date: '2015', series: all, value: 1546, source: retraction-watch-csv}
+- {date: '2016', series: all, value: 1683, source: retraction-watch-csv}
+- {date: '2017', series: all, value: 1712, source: retraction-watch-csv}
+- {date: '2018', series: all, value: 2534, source: retraction-watch-csv}
+- {date: '2019', series: all, value: 2907, source: retraction-watch-csv}
+- {date: '2020', series: all, value: 3124, source: retraction-watch-csv}
+- {date: '2021', series: all, value: 3957, source: retraction-watch-csv}
+- {date: '2022', series: all, value: 5592, source: retraction-watch-csv}
+- {date: '2023', series: all, value: 13371, source: retraction-watch-csv}
+- {date: '2024', series: all, value: 6502, source: retraction-watch-csv}
+- {date: '2025', series: all, value: 6008, source: retraction-watch-csv}

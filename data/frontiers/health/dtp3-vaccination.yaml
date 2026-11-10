@@ -1,0 +1,104 @@
+# Observations are the world's DTP3 coverage: the share of one-year-olds who received three doses of the
+# diphtheria, tetanus and pertussis vaccine, for 1980 to 2025. They are the World rows of Our World in Data's grapher CSV
+# (share-of-children-immunized-dtp3, OWID_WRL), opened 2026-11-09, which republishes WHO and UNICEF coverage estimates.
+# The source gives whole percentages, so values are stored as whole numbers. The scheduled fetcher
+# (scripts/fetchers/dtp3_vaccination.py) checks them against the same CSV and reports any mismatch.
+id: dtp3-vaccination
+title: DTP3 vaccination coverage
+domain: health
+subfield: Population health
+status: draft
+summary: The share of the world's one-year-olds who have had all three doses of the combined diphtheria, tetanus and
+  pertussis (whooping cough) vaccine. Three doses is the usual threshold for protection, so this is one of the most
+  watched measures of routine childhood immunisation.
+metric:
+  name: Share of one-year-olds who received three doses of DTP vaccine, world
+  unit: '%'
+  direction: higher
+  scale: linear
+  explainer: 'The third DTP dose, called DTP3, completes the basic course of protection against diphtheria, tetanus
+    and whooping cough. The figure counts children who finished the course by their first birthday, so it is a
+    national coverage estimate, not a count of individual vaccinations. Estimates for each country come from
+    health-system records and household surveys, and they are combined into a world figure weighted by population.
+    The measure is a good guide to how many children are reached by routine services, though it says nothing about
+    the quality of protection or about children who are vaccinated later in life.'
+chart:
+  primary: coverage-meter
+series:
+- id: world
+  label: World
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'WHO and UNICEF publish the coverage estimates once a year, usually in July. To update, run the
+    dtp3_vaccination fetcher, which adds new years and reports any revised earlier year. Licence: OWID states that
+    WHO and UNICEF data keep the providers'' own terms; see the notes on the source. Reading list still to add.'
+sources:
+- id: owid-share-of-children-immunized-dtp3
+  name: 'Our World in Data, share of one-year-olds who have had three doses of the DTP vaccine (WHO and UNICEF)'
+  url: https://ourworldindata.org/grapher/share-of-children-immunized-dtp3
+  kind: dataset
+  primary: true
+  notes: 'Page and CSV (World rows, OWID_WRL) opened 2026-11-09. The page gives the citation "WHO & UNICEF (2026); UN,
+    World Population Prospects (2024) – processed by Our World in Data". OWID''s own work is CC BY 4.0; it says
+    third-party data is subject to the original providers'' terms, and it does not state WHO''s terms on the page. WHO
+    data published by WHO is generally under CC BY-NC-SA 3.0 IGO (see malaria.yaml), so the owner should confirm
+    before this frontier is published as live.'
+events:
+- date: '2020'
+  kind: setback
+  title: World DTP3 coverage falls from 86 percent in 2019 to 83 percent in 2020
+  why_it_matters: The drop erased several years of gains and took coverage back to its level of about a decade earlier.
+  url: https://ourworldindata.org/grapher/share-of-children-immunized-dtp3
+- date: '2022'
+  kind: milestone
+  title: Coverage recovers to 85 percent in 2022 after the 2020 and 2021 dip
+  why_it_matters: The rebound brought coverage back above its pre-2020 level, though the gain was smaller than the fall that preceded it.
+  url: https://ourworldindata.org/grapher/share-of-children-immunized-dtp3
+observations:
+- {date: '1980', series: world, value: 20, source: owid-share-of-children-immunized-dtp3}
+- {date: '1981', series: world, value: 23, source: owid-share-of-children-immunized-dtp3}
+- {date: '1982', series: world, value: 25, source: owid-share-of-children-immunized-dtp3}
+- {date: '1983', series: world, value: 37, source: owid-share-of-children-immunized-dtp3}
+- {date: '1984', series: world, value: 44, source: owid-share-of-children-immunized-dtp3}
+- {date: '1985', series: world, value: 48, source: owid-share-of-children-immunized-dtp3}
+- {date: '1986', series: world, value: 51, source: owid-share-of-children-immunized-dtp3}
+- {date: '1987', series: world, value: 55, source: owid-share-of-children-immunized-dtp3}
+- {date: '1988', series: world, value: 63, source: owid-share-of-children-immunized-dtp3}
+- {date: '1989', series: world, value: 68, source: owid-share-of-children-immunized-dtp3}
+- {date: '1990', series: world, value: 76, source: owid-share-of-children-immunized-dtp3}
+- {date: '1991', series: world, value: 71, source: owid-share-of-children-immunized-dtp3}
+- {date: '1992', series: world, value: 69, source: owid-share-of-children-immunized-dtp3}
+- {date: '1993', series: world, value: 69, source: owid-share-of-children-immunized-dtp3}
+- {date: '1994', series: world, value: 72, source: owid-share-of-children-immunized-dtp3}
+- {date: '1995', series: world, value: 72, source: owid-share-of-children-immunized-dtp3}
+- {date: '1996', series: world, value: 72, source: owid-share-of-children-immunized-dtp3}
+- {date: '1997', series: world, value: 71, source: owid-share-of-children-immunized-dtp3}
+- {date: '1998', series: world, value: 71, source: owid-share-of-children-immunized-dtp3}
+- {date: '1999', series: world, value: 71, source: owid-share-of-children-immunized-dtp3}
+- {date: '2000', series: world, value: 72, source: owid-share-of-children-immunized-dtp3}
+- {date: '2001', series: world, value: 72, source: owid-share-of-children-immunized-dtp3}
+- {date: '2002', series: world, value: 72, source: owid-share-of-children-immunized-dtp3}
+- {date: '2003', series: world, value: 74, source: owid-share-of-children-immunized-dtp3}
+- {date: '2004', series: world, value: 76, source: owid-share-of-children-immunized-dtp3}
+- {date: '2005', series: world, value: 77, source: owid-share-of-children-immunized-dtp3}
+- {date: '2006', series: world, value: 78, source: owid-share-of-children-immunized-dtp3}
+- {date: '2007', series: world, value: 78, source: owid-share-of-children-immunized-dtp3}
+- {date: '2008', series: world, value: 81, source: owid-share-of-children-immunized-dtp3}
+- {date: '2009', series: world, value: 83, source: owid-share-of-children-immunized-dtp3}
+- {date: '2010', series: world, value: 83, source: owid-share-of-children-immunized-dtp3}
+- {date: '2011', series: world, value: 84, source: owid-share-of-children-immunized-dtp3}
+- {date: '2012', series: world, value: 84, source: owid-share-of-children-immunized-dtp3}
+- {date: '2013', series: world, value: 84, source: owid-share-of-children-immunized-dtp3}
+- {date: '2014', series: world, value: 84, source: owid-share-of-children-immunized-dtp3}
+- {date: '2015', series: world, value: 85, source: owid-share-of-children-immunized-dtp3}
+- {date: '2016', series: world, value: 86, source: owid-share-of-children-immunized-dtp3}
+- {date: '2017', series: world, value: 86, source: owid-share-of-children-immunized-dtp3}
+- {date: '2018', series: world, value: 86, source: owid-share-of-children-immunized-dtp3}
+- {date: '2019', series: world, value: 86, source: owid-share-of-children-immunized-dtp3}
+- {date: '2020', series: world, value: 83, source: owid-share-of-children-immunized-dtp3}
+- {date: '2021', series: world, value: 81, source: owid-share-of-children-immunized-dtp3}
+- {date: '2022', series: world, value: 85, source: owid-share-of-children-immunized-dtp3}
+- {date: '2023', series: world, value: 84, source: owid-share-of-children-immunized-dtp3}
+- {date: '2024', series: world, value: 84, source: owid-share-of-children-immunized-dtp3}
+- {date: '2025', series: world, value: 85, source: owid-share-of-children-immunized-dtp3}

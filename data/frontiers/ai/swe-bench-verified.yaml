@@ -1,0 +1,101 @@
+# Records are rebuilt from Epoch AI's benchmark data by scripts/fetchers/swe_bench_verified.py.
+# Edit the other fields by hand; never edit the records directly.
+id: swe-bench-verified
+title: AI fixing real software bugs (SWE-bench Verified)
+domain: ai
+subfield: Capability
+status: live
+summary: The best share of real GitHub bug reports an AI model can fix on SWE-bench Verified, as run by
+  Epoch AI. It was a widely watched test of AI coding ability, though by 2026 it was known to be flawed
+  and contaminated.
+metric:
+  name: Best SWE-bench Verified score (Epoch AI runs)
+  unit: '% of issues resolved'
+  direction: higher
+  scale: linear
+  limit:
+    value: 100
+    label: Every issue resolved
+    source: epoch-benchmarks
+  explainer: 'SWE-bench takes real issues that people filed on popular open-source Python projects on
+    GitHub, together with the code change that fixed each one and the tests that check the fix. A model
+    is given the project''s code and the issue text and must edit the code so that the hidden tests pass,
+    much as a programmer would. The original set had 2,294 issues from 12 projects. SWE-bench Verified is
+    a 500-issue subset that human reviewers checked to remove problems that were unclear or impossible to
+    judge fairly. When SWE-bench appeared in October 2023 the best model fixed under 2% of the full set,
+    which made the rise of coding agents easy to see on this test. Scores depend a lot on the scaffold
+    around the model, meaning the tools, prompts and number of attempts it is given, so this page uses
+    only Epoch AI''s own runs, made in one consistent way, rather than numbers developers report. Read
+    recent values with care: in 2026 an audit found that a sizeable share of the tasks have tests that
+    reject correct fixes, the tasks and solutions are public and have been seen by models in training,
+    and Epoch now rates the benchmark as no longer measuring what it set out to measure. Scores near the
+    top therefore say more about familiarity with these exact tasks than about general coding skill.'
+chart:
+  primary: record-chart
+  secondary:
+  - threshold-gauge
+series:
+- id: epoch-runs
+  label: Best model, Epoch AI runs
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Records are rebuilt from Epoch''s benchmark_data.zip (member swe_bench_verified.csv) by
+    scripts/fetchers/swe_bench_verified.py; do not edit them by hand. Values are Epoch''s mean_score times
+    100, rounded to two decimals. A model is a record when its score beats every model with an earlier
+    release date. Dates are model release dates as Epoch lists them, not evaluation dates. Status
+    confirmed is used because Epoch, an independent organisation, runs the evaluations. Developer-reported
+    scores (often higher, with their own scaffolds) are not included.'
+sources:
+- id: epoch-benchmarks
+  name: Epoch AI, Benchmarking hub data (benchmark_data.zip)
+  url: https://epoch.ai/benchmarks/use-this-data
+  kind: dataset
+  primary: true
+  notes: 'File https://epoch.ai/data/benchmark_data.zip (updated 2026-11-09 when read), member
+    swe_bench_verified.csv. Licence CC BY 4.0: the page says the data is free to use, distribute and
+    reproduce with credit to the source and authors; benchmark questions and answers belong to their
+    creators and are not copied here. Credit line: "Data: Epoch AI, Benchmarking hub (epoch.ai/benchmarks),
+    CC BY 4.0."'
+- id: epoch-swe-review
+  name: Epoch AI, SWE-bench Verified benchmark review
+  url: https://epoch.ai/benchmarks/swe-bench-verified/review
+  kind: report
+  notes: Reviewed 2026-09-03; verdict "Flawed". Summarises OpenAI's audit of 2026-02-23 and the
+    benchmark's make-up (500 issues from 12 repositories, drawn from the original 2,294).
+- id: swe-bench-paper
+  name: Jimenez et al., SWE-bench, arXiv:2310.06770
+  url: https://arxiv.org/abs/2310.06770
+  kind: paper
+events:
+- date: '2023-10-10'
+  kind: paper
+  title: SWE-bench paper released; the best model fixes under 2% of issues
+  why_it_matters: Moved coding tests from short puzzles to whole real projects, where a fix must pass
+    the project's own tests.
+  url: https://arxiv.org/abs/2310.06770
+- date: '2026-02-23'
+  kind: setback
+  title: OpenAI audit finds many SWE-bench Verified tasks reject correct fixes
+  why_it_matters: Of the tasks audited, most had faulty tests, and models had seen tasks in training,
+    so top scores stopped tracking real coding skill.
+  url: https://epoch.ai/benchmarks/swe-bench-verified/review
+- date: '2026-09-03'
+  kind: news
+  title: Epoch rates SWE-bench Verified as flawed in its benchmark review
+  why_it_matters: The organisation that runs these evaluations now says the benchmark no longer measures
+    the skill it was built for, so this line is mostly of historical interest.
+  url: https://epoch.ai/benchmarks/swe-bench-verified/review
+reading: []
+connections:
+- ai-capabilities-index
+records:
+- {date: '2024-11-20', value: 30.99, series: epoch-runs, holder: gpt-4o-2024-11-20, conditions: developer OpenAI; standard error 2.1 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-02-24', value: 60.95, series: epoch-runs, holder: claude-3-7-sonnet-20250219, conditions: developer Anthropic; standard error 2.22 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-04-16', value: 62.32, series: epoch-runs, holder: o3-2025-04-16_medium, conditions: developer OpenAI; standard error 2.21 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-05-22', value: 70.66, series: epoch-runs, holder: claude-opus-4-20250514, conditions: developer Anthropic; standard error 2.07 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-08-05', value: 73.35, series: epoch-runs, holder: claude-opus-4-1-20250805, conditions: developer Anthropic; standard error 2.01 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-08-07', value: 73.55, series: epoch-runs, holder: gpt-5-2025-08-07_high, conditions: developer OpenAI; standard error 2.01 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-11-24', value: 76.65, series: epoch-runs, holder: claude-opus-4-5-20251101, conditions: developer Anthropic; standard error 1.92 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-02-05', value: 78.72, series: epoch-runs, holder: claude-opus-4-6, conditions: developer Anthropic; standard error 1.86 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-04-16', value: 83.47, series: epoch-runs, holder: claude-opus-4-7_max, conditions: developer Anthropic; standard error 1.69 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}

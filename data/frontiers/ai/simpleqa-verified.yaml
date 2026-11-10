@@ -1,0 +1,71 @@
+# Records are rebuilt from Epoch AI's benchmark data by scripts/fetchers/simpleqa_verified.py.
+# Edit the other fields by hand; never edit the records directly.
+id: simpleqa-verified
+title: AI on factual recall questions (SimpleQA Verified)
+domain: ai
+subfield: Capability
+status: live
+summary: The best score any AI model has reached on SimpleQA Verified, a set of 1,000 short factual questions
+  designed to check whether a model's answers are correct, as run by Epoch AI.
+metric:
+  name: Best SimpleQA Verified score (Epoch AI runs)
+  unit: '% of questions answered correctly'
+  direction: higher
+  scale: linear
+  limit:
+    value: 100
+    label: Every question answered correctly
+    source: epoch-benchmarks
+  explainer: 'SimpleQA Verified is a set of 1,000 short prompts, each with a single checkable answer, for
+    measuring whether a language model states facts correctly. The arXiv paper that introduces it, posted in
+    September 2025, calls it a reliable factuality benchmark for parametric knowledge, meaning what the model
+    holds in its own weights rather than what it can look up. Epoch AI runs the models itself and records the
+    share answered correctly. A high score means a model recalls and states facts of this kind accurately. It
+    does not show that a model reasons well, and in December 2025 Epoch reported that GPT-5.2 scored notably
+    worse on this benchmark than earlier GPT-5 models, while leading on several others, so one benchmark does
+    not summarise a model.'
+chart:
+  primary: record-chart
+  secondary:
+  - threshold-gauge
+series:
+- id: epoch-runs
+  label: Best model, Epoch AI runs
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Records are rebuilt from Epoch''s benchmark_data.zip (member simpleqa_verified.csv) by
+    scripts/fetchers/simpleqa_verified.py; do not edit them by hand. Values are Epoch''s mean_score times 100,
+    rounded to two decimals. A model is a record when its score beats every model with an earlier release
+    date. Dates are model release dates as Epoch lists them.'
+sources:
+- id: epoch-benchmarks
+  name: Epoch AI, Benchmarking hub data (benchmark_data.zip)
+  url: https://epoch.ai/benchmarks/use-this-data
+  kind: dataset
+  primary: true
+  notes: 'File https://epoch.ai/data/benchmark_data.zip (updated 2026-11-09 when read), member
+    simpleqa_verified.csv. Licence CC BY 4.0 for Epoch data. Credit line: "Data: Epoch AI, Benchmarking hub (epoch.ai/benchmarks), CC BY 4.0."'
+events:
+- date: '2025-09-09'
+  kind: paper
+  title: SimpleQA Verified paper posted to arXiv, a 1,000-prompt factuality benchmark
+  why_it_matters: Introduced a 1,000-prompt version of the factuality test as a benchmark for what a model knows, which Epoch now runs.
+  url: https://arxiv.org/abs/2509.07968
+- date: '2025-12-15'
+  kind: news
+  title: Epoch reports GPT-5.2 scores notably worse on SimpleQA Verified than earlier GPT-5 models
+  why_it_matters: Shows that a model can lead on maths and science tests while lagging on factual recall, so one benchmark does not summarise a model.
+  url: https://substack.com/@epochai/note/c-187985664
+reading: []
+records:
+- {date: '2024-02-29', value: 12.6, series: epoch-runs, holder: claude-3-opus-20240229, conditions: developer Anthropic; standard error 1.05 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-08-06', value: 26.0, series: epoch-runs, holder: gpt-4o-2024-08-06, conditions: developer OpenAI; standard error 1.39 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-12-17', value: 41.1, series: epoch-runs, holder: o1-2024-12-17_high, conditions: developer OpenAI; standard error 1.56 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-04-16', value: 49.4, series: epoch-runs, holder: o3-2025-04-16_high, conditions: developer OpenAI; standard error 1.58 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-08-07', value: 50.1, series: epoch-runs, holder: gpt-5-2025-08-07_high, conditions: developer OpenAI; standard error 1.58 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-12-17', value: 66.8, series: epoch-runs, holder: gemini-3-flash-preview_high, conditions: developer Google DeepMind; standard error 1.49 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-02-19', value: 73.5, series: epoch-runs, holder: gemini-3.1-pro-preview_high, conditions: developer Google DeepMind; standard error 1.4 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-09-03', value: 75.6, series: epoch-runs, holder: gpt-6-astra_max, conditions: developer OpenAI; standard error 1.36 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-09-30', value: 76.0, series: epoch-runs, holder: gemini-4-argon_high, conditions: developer Google DeepMind; standard error 1.35 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-11-09', value: 94.0, series: epoch-runs, holder: claude-fable-5-2_max, conditions: developer Anthropic; standard error 0.75 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}

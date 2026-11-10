@@ -1,0 +1,156 @@
+# Records are transcribed by hand from the y-cruncher records page (numberworld.org/y-cruncher/records.html).
+# The page lists the date each result was announced and completed; the completion date is used here.
+# Earlier computations (1949 to 2009) are not on that page and are not added: the Wikipedia chronology
+# has them but flags several entries as unverified, so they are left out until a verified source is found.
+id: pi-digits
+title: Digits of pi computed
+domain: mathematics
+subfield: Computation
+status: live
+summary: The most decimal digits of pi that anyone has computed, from 5 trillion in 2010 to 314 trillion in 2025. Every record since 2010 on the source page was set with y-cruncher, run on servers and workstations that the record-setters assembled or rented.
+metric:
+  name: Decimal digits of pi computed
+  unit: decimal digits
+  direction: higher
+  scale: log
+  explainer: 'Pi is the ratio of a circle''s circumference to its diameter. It is irrational, so its decimal
+    expansion never ends and never repeats, and no one can write all of it down. A digit record is the largest
+    number of digits that someone has computed and checked. Each record is a computer run that can take months,
+    and the intermediate results are too large to hold in memory, so the runs depend heavily on disk storage. Records are checked with a second, independent formula whose results must
+    match the last digits of the main run. The digit count is not a test of mathematical insight; it is a test
+    of computing hardware and of how well the software handles disks. The chart uses a log scale because each
+    record is usually several times larger than the one before.'
+chart:
+  primary: record-chart
+  secondary:
+  - reign-timeline
+sources:
+- id: ycruncher-records
+  name: y-cruncher records page (Pi records)
+  url: https://numberworld.org/y-cruncher/records.html
+  kind: dataset
+  primary: true
+  notes: Lists each Pi record with announced and completed dates, digit count, names, hardware and the verification method. The page has no copyright or reuse statement, so only the individual facts are recorded here, each with a link to this page. Opened 2026-11-09.
+- id: wikipedia-pi-chronology
+  name: Wikipedia, Chronology of computation of pi
+  url: https://en.wikipedia.org/wiki/Chronology_of_computation_of_pi
+  kind: other
+  notes: Secondary. Used only to check the period before 2010 and to find that the record list has gaps. Several of its entries are flagged as unverified or failing verification, and it lists a 1995 run with an uncertain hour count, so it is not used for any record value. Wikipedia text is CC BY-SA; no sentences are copied. Opened 2026-11-09.
+- id: storagereview-coverage
+  name: Tom's Hardware, report on the 314 trillion digit run
+  url: https://www.tomshardware.com/pc-components/storage/pi-calculating-record-shattered-at-314-trillion-digits-with-a-four-month-run-on-a-single-server-storagereview-retakes-the-crown-thanks-to-storage-bandwidth
+  kind: news
+  notes: The headline gives 314 trillion digits and the body gives 314 million. The 314 trillion figure is taken from the y-cruncher records page, not from this article. Opened 2026-11-09.
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Records come from the y-cruncher records page. The page dates each record twice (announced and completed); the completion date is used. Open points for the owner: (1) the page lists a 2.5 trillion digit run by newalex (completed 2019-05-09) that is below the 5 trillion record of 2010, so it is not a record and is not added; (2) the Tom''s Hardware report of the 314 trillion run gives 314 million in its body text; (3) the page lists no y-cruncher version for any row, so the software version is not recorded; (4) every record is claimed: the sources read give a self-check (a second formula that must match the last digits) but no independent confirmation; (5) the Wikipedia chronology disagrees with the y-cruncher page on several dates and holders, for example for the 2025 runs; (6) the 1949 to 2009 history is not yet added.'
+records:
+- date: '2010-08-02'
+  value: 5000000000000
+  holder: Shigeru Kondo and Alexander Yee
+  conditions: 2 x Intel Xeon X5680; 96 GB DDR3; 16 x 2 TB drives; y-cruncher
+  status: claimed
+  source: ycruncher-records
+  url: https://numberworld.org/y-cruncher/records.html
+- date: '2011-10-16'
+  value: 10000000000050
+  holder: Shigeru Kondo
+  conditions: 2 x Intel Xeon X5680; 96 GB DDR3; 24 x 2 TB drives; y-cruncher
+  status: claimed
+  source: ycruncher-records
+  url: https://numberworld.org/y-cruncher/records.html
+- date: '2013-12-28'
+  value: 12100000000050
+  holder: Shigeru Kondo
+  conditions: 2 x Intel Xeon E5-2690; 128 GB DDR3; 24 x 3 TB drives; y-cruncher
+  status: claimed
+  source: ycruncher-records
+  url: https://numberworld.org/y-cruncher/records.html
+- date: '2014-10-07'
+  value: 13300000000000
+  holder: Sandon Van Ness (houkouonchi)
+  conditions: 2 x Intel Xeon E5-4650L; 192 GB DDR3; 24 x 4 TB and 30 x 3 TB drives; y-cruncher
+  status: claimed
+  source: ycruncher-records
+  url: https://numberworld.org/y-cruncher/records.html
+- date: '2016-11-11'
+  value: 22459157718361
+  holder: Peter Trueb
+  conditions: 4 x Intel Xeon E7-8890 v3; 1.25 TB DDR4; 20 x 6 TB drives; y-cruncher
+  status: claimed
+  source: ycruncher-records
+  url: https://numberworld.org/y-cruncher/records.html
+- date: '2019-01-21'
+  value: 31415926535897
+  holder: Emma Haruka Iwao
+  conditions: 2 x Intel Xeon (model undisclosed); more than 1.40 TB DDR4 and more than 240 TB SSD; y-cruncher
+  status: claimed
+  source: ycruncher-records
+  url: https://numberworld.org/y-cruncher/records.html
+- date: '2020-01-29'
+  value: 50000000000000
+  holder: Timothy Mullican
+  conditions: 4 x Intel Xeon E7-4880 v2; 315 GB RAM; 48 hard drives; y-cruncher
+  status: claimed
+  source: ycruncher-records
+  url: https://numberworld.org/y-cruncher/records.html
+- date: '2021-08-14'
+  value: 62831853071796
+  holder: Team DAViS, University of Applied Sciences of the Grisons
+  conditions: AMD Epyc 7542; 1 TB RAM; 34 + 4 hard drives; y-cruncher
+  status: claimed
+  source: ycruncher-records
+  url: https://numberworld.org/y-cruncher/records.html
+- date: '2022-03-21'
+  value: 100000000000000
+  holder: Emma Haruka Iwao
+  conditions: 128 vCPU Intel Ice Lake on Google Cloud; 864 GB RAM; 663 TB storage; y-cruncher
+  status: claimed
+  source: ycruncher-records
+  url: https://numberworld.org/y-cruncher/records.html
+- date: '2024-02-27'
+  value: 105000000000000
+  holder: Jordan Ranous, Kevin O'Brien and Brian Beeler (StorageReview)
+  conditions: 2 x AMD Epyc 9754; 1.5 TB RAM; 960 TB storage; y-cruncher
+  status: claimed
+  source: ycruncher-records
+  url: https://numberworld.org/y-cruncher/records.html
+- date: '2024-05-20'
+  value: 202112290000000
+  holder: Jordan Ranous, Kevin O'Brien and Brian Beeler (StorageReview)
+  conditions: 2 x Intel Xeon Platinum 8592+; 1.0 TB RAM; 1.6 PB storage; y-cruncher
+  status: claimed
+  source: ycruncher-records
+  url: https://numberworld.org/y-cruncher/records.html
+- date: '2025-04-02'
+  value: 300000000000000
+  holder: Jake Tivy (Linus Media Group)
+  conditions: 2 x AMD Epyc 9684X; 3 TB RAM; 2 PB storage; y-cruncher
+  status: claimed
+  source: ycruncher-records
+  url: https://numberworld.org/y-cruncher/records.html
+- date: '2025-11-19'
+  value: 314000000000000
+  holder: Kevin O'Brien, Divyansh Jain and Brian Beeler (StorageReview)
+  conditions: 2 x AMD Epyc 9965; 1.5 TB RAM; y-cruncher
+  status: claimed
+  source: ycruncher-records
+  url: https://numberworld.org/y-cruncher/records.html
+events:
+- date: '2010-08-02'
+  kind: milestone
+  title: 5 trillion digits computed on two Xeon X5680 processors with 96 GB of RAM
+  why_it_matters: The source lists this run with modest hardware, which shows how far a small machine could go by 2010.
+  url: https://numberworld.org/y-cruncher/records.html
+- date: '2022-03-21'
+  kind: milestone
+  title: 100 trillion digits passed on a rented cloud instance
+  why_it_matters: A cloud configuration reached the 100 trillion digit mark, so the record no longer needed owned hardware.
+  url: https://numberworld.org/y-cruncher/records.html
+- date: '2025-11-19'
+  kind: milestone
+  title: 314 trillion digits, the current record on the page
+  why_it_matters: The source lists two AMD Epyc processors and 1.5 TB of RAM for this run, so the record was set on a small server rather than a supercomputer.
+  url: https://numberworld.org/y-cruncher/records.html
+reading: []

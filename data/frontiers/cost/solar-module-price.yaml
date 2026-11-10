@@ -1,0 +1,116 @@
+# Solar module price: observations are the average price of a solar PV module in constant 2025 US dollars per watt, one per
+# year from 1975. They are read by scripts/fetchers/solar_module_price.py from Our World in Data's solar PV prices table
+# (grapher solar-pv-prices, World rows). OWID's page states the source is IRENA (2025 and 2026) with processing by OWID, and
+# lists Nemet (2009) and Farmer and Lafond (2016) for early years; from 2010 the benchmark is for modules sold in Europe.
+id: solar-module-price
+title: Solar module price
+domain: cost
+subfield: Cost curves
+status: live
+summary: The average price of a solar panel (the module, without installation), per watt of peak power, adjusted for
+  inflation. It is the part of solar's cost that has fallen fastest.
+metric:
+  name: Average solar PV module price, constant 2025 US dollars
+  unit: USD/W
+  direction: lower
+  scale: log
+  explainer: 'A module is the sealed panel of solar cells, and its price is quoted per watt of peak output, the power it
+    makes in full sun. The series is adjusted for inflation to 2025 dollars, so a rise or fall reflects the price of
+    the panel itself rather than the general level of prices. It does not include inverters, mounting or labour, which
+    make up much of the cost of a finished solar system. The series combines older estimates for the early decades with
+    European trading benchmarks from 2010, so changes between those two periods depend partly on the source. The scale
+    is logarithmic because the price has fallen by well over an order of magnitude since the 1970s.'
+chart:
+  primary: cost-curve
+series:
+- id: module
+  label: Solar PV module price
+update:
+  cadence: yearly
+  last_checked: '2026-11-10'
+  notes: 'OWID restates earlier years when it re-adjusts for inflation, so the fetcher will report many changed values
+    when that happens; those runs go to review and should be checked against the source before merging. To update, run
+    the solar_module_price fetcher and read its change list. Open item: the terms of IRENA''s data were not checked, and
+    the price benchmark is for Europe from 2010.'
+sources:
+- id: owid-solar-pv-prices
+  name: Our World in Data, solar (photovoltaic) module price, with IRENA and earlier sources
+  url: https://ourworldindata.org/grapher/solar-pv-prices
+  kind: dataset
+  primary: true
+  notes: 'Page opened 2026-11-10. OWID states that its own work is CC BY and that third-party data is subject to the
+    original providers'' licence terms. The page gives a long citation listing IRENA (2025), IRENA (2026), Nemet (2009)
+    and Farmer and Lafond (2016); the full wording is in its "How to cite this data" section and was not copied.'
+- id: pv-index-oct-2024
+  name: pv-tech, pv.index report for October 2024 (sun.store)
+  url: https://pv-tech.org/pv-index-module-price-continues-to-decline-in-europe
+  kind: news
+  notes: 'Opened 2026-11-10. Reports a fall in European module prices for a sixth month, to EUR 0.098/Wp in October 2024.'
+- id: pvxchange-june-2025
+  name: TaiyangNews, module prices in June 2025 (pvXchange)
+  url: https://taiyangnews.info/business/solar-module-prices-june-2025-pvxchange
+  kind: news
+  notes: 'Opened 2026-11-10. Reports selective declines in June 2025 and EUR 0.110/W for mainstream modules.'
+events:
+- date: '2024-11'
+  kind: news
+  title: European module prices fell for a sixth month in a row in October 2024
+  why_it_matters: The European benchmark kept sliding even as demand softened, which kept pressure on the panel price.
+  url: https://pv-tech.org/pv-index-module-price-continues-to-decline-in-europe
+- date: '2025-06'
+  kind: news
+  title: Module prices saw only selective declines in June 2025 as demand weakened and stocks built up
+  why_it_matters: The benchmark stopped falling steadily in mid-2025, which shows the price is sensitive to demand and inventory.
+  url: https://taiyangnews.info/business/solar-module-prices-june-2025-pvxchange
+observations:
+- {date: '1975', series: module, value: 132.3757, source: owid-solar-pv-prices}
+- {date: '1976', series: module, value: 99.59758, source: owid-solar-pv-prices}
+- {date: '1977', series: module, value: 72.66112, source: owid-solar-pv-prices}
+- {date: '1978', series: module, value: 51.408165, source: owid-solar-pv-prices}
+- {date: '1979', series: module, value: 43.19512, source: owid-solar-pv-prices}
+- {date: '1980', series: module, value: 36.604977, source: owid-solar-pv-prices}
+- {date: '1981', series: module, value: 29.266363, source: owid-solar-pv-prices}
+- {date: '1982', series: module, value: 26.295176, source: owid-solar-pv-prices}
+- {date: '1983', series: module, value: 21.2281, source: owid-solar-pv-prices}
+- {date: '1984', series: module, value: 19.725023, source: owid-solar-pv-prices}
+- {date: '1985', series: module, value: 17.220385, source: owid-solar-pv-prices}
+- {date: '1986', series: module, value: 14.24468, source: owid-solar-pv-prices}
+- {date: '1987', series: module, value: 12.110387, source: owid-solar-pv-prices}
+- {date: '1988', series: module, value: 11.311608, source: owid-solar-pv-prices}
+- {date: '1989', series: module, value: 11.690053, source: owid-solar-pv-prices}
+- {date: '1990', series: module, value: 12.091146, source: owid-solar-pv-prices}
+- {date: '1991', series: module, value: 11.200797, source: owid-solar-pv-prices}
+- {date: '1992', series: module, value: 10.435116, source: owid-solar-pv-prices}
+- {date: '1993', series: module, value: 9.758667, source: owid-solar-pv-prices}
+- {date: '1994', series: module, value: 9.231527, source: owid-solar-pv-prices}
+- {date: '1995', series: module, value: 8.535535, source: owid-solar-pv-prices}
+- {date: '1996', series: module, value: 7.9798346, source: owid-solar-pv-prices}
+- {date: '1997', series: module, value: 7.952008, source: owid-solar-pv-prices}
+- {date: '1998', series: module, value: 7.165558, source: owid-solar-pv-prices}
+- {date: '1999', series: module, value: 6.6192613, source: owid-solar-pv-prices}
+- {date: '2000', series: module, value: 6.495887, source: owid-solar-pv-prices}
+- {date: '2001', series: module, value: 6.284449, source: owid-solar-pv-prices}
+- {date: '2002', series: module, value: 5.747254, source: owid-solar-pv-prices}
+- {date: '2003', series: module, value: 5.463806, source: owid-solar-pv-prices}
+- {date: '2004', series: module, value: 4.695495, source: owid-solar-pv-prices}
+- {date: '2005', series: module, value: 4.7456656, source: owid-solar-pv-prices}
+- {date: '2006', series: module, value: 5.172746, source: owid-solar-pv-prices}
+- {date: '2007', series: module, value: 5.211057, source: owid-solar-pv-prices}
+- {date: '2008', series: module, value: 4.7491965, source: owid-solar-pv-prices}
+- {date: '2009', series: module, value: 3.1742926, source: owid-solar-pv-prices}
+- {date: '2010', series: module, value: 2.5118067, source: owid-solar-pv-prices}
+- {date: '2011', series: module, value: 2.060892, source: owid-solar-pv-prices}
+- {date: '2012', series: module, value: 1.1107162, source: owid-solar-pv-prices}
+- {date: '2013', series: module, value: 0.85660523, source: owid-solar-pv-prices}
+- {date: '2014', series: module, value: 0.79053074, source: owid-solar-pv-prices}
+- {date: '2015', series: module, value: 0.7357285, source: owid-solar-pv-prices}
+- {date: '2016', series: module, value: 0.6802508, source: owid-solar-pv-prices}
+- {date: '2017', series: module, value: 0.57135326, source: owid-solar-pv-prices}
+- {date: '2018', series: module, value: 0.5090506, source: owid-solar-pv-prices}
+- {date: '2019', series: module, value: 0.46694848, source: owid-solar-pv-prices}
+- {date: '2020', series: module, value: 0.32486692, source: owid-solar-pv-prices}
+- {date: '2021', series: module, value: 0.34456873, source: owid-solar-pv-prices}
+- {date: '2022', series: module, value: 0.36692584, source: owid-solar-pv-prices}
+- {date: '2023', series: module, value: 0.2734925, source: owid-solar-pv-prices}
+- {date: '2024', series: module, value: 0.1330806, source: owid-solar-pv-prices}
+- {date: '2025', series: module, value: 0.12021687, source: owid-solar-pv-prices}

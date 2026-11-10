@@ -5,7 +5,7 @@ id: genome-sequencing-cost
 title: Cost of sequencing a human genome
 domain: biology
 subfield: Reading life
-status: draft
+status: live
 summary: The estimated cost of reading one human-sized genome, and of reading one megabase of DNA, as the National Human Genome Research Institute tracks it. The estimate fell from about $95 million in September 2001 to about $525 in May 2022, the last row in the copy.
 metric:
   name: Cost of sequencing one human-sized genome

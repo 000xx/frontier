@@ -1,0 +1,347 @@
+# FDA-approved cellular and gene therapy products, from FDA's listing (current as of 10/30/2026 on the page).
+# The listing gives names and manufacturers only, not approval dates. Dates are added from each product's FDA
+# announcement or label; only Casgevy and Lyfgenia are dated so far (FDA press announcement, 8 December 2023).
+# Cord blood products are separate entries on the list, one per cord blood bank or product name.
+id: gene-and-cell-therapies
+title: Gene and cell therapies
+domain: health
+subfield: New kinds of medicine
+status: draft
+summary: How many living-cell and gene-based medicines the US Food and Drug Administration has approved, from
+  the first cord blood products to the newest gene-editing treatment for sickle cell disease.
+metric:
+  name: Cellular and gene therapy products on the FDA approved list
+  unit: products
+  direction: higher
+  scale: linear
+  explainer: 'A cell therapy uses living cells, often a patient''s own, that are changed or grown outside the body
+    and then given back. A gene therapy delivers genetic material into the body, or changes the cells that a
+    patient''s body already has. The FDA reviews these products through its biologics centre, not its drug
+    centre, so they are not counted in the novel drug total. Cord blood products are on the same list, because
+    they are biologics used for transplant. The number on the list is a count of products, not patients, and it
+    rises only when a new product is approved. Some products have been withdrawn or are no longer marketed, so
+    the list does not measure how many treatments are in use today.'
+chart:
+  primary: countdown-grid
+series:
+- id: approved-products
+  label: Approved products
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'The item list comes from the FDA listing of approved cellular and gene therapy products, which gives
+    names and manufacturers but no approval dates. Items are not dated, except Casgevy and Lyfgenia, from the
+    FDA announcement of 8 December 2023. Still needed: approval dates for the other 53 products, from each FDA
+    approval letter or label; the page does not say which products are withdrawn. The ASGCT patient education
+    list (not an official source) was read as a cross-check only; it names fewer products on the same topic
+    and was not used for any value. The page was blocked once during this run and was read on a second attempt.
+    Open for the owner: whether countdown-grid is the right shape, because the list has no target number.'
+sources:
+- id: fda-ctgt-list
+  name: FDA, Approved Cellular and Gene Therapy Products
+  url: https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/approved-cellular-and-gene-therapy-products
+  kind: registry
+  primary: true
+  notes: 'Lists 55 products; the page gives its content as "current as of: 10/30/2026". Items use the names
+    as listed. The page has no dates or indications.'
+- id: fda-ctgt-press-2023
+  name: FDA, FDA approves first gene therapies to treat patients with sickle cell disease
+  url: https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease
+  kind: press
+  notes: Announced 8 December 2023. Covers Casgevy (ages 12 and over, recurrent vaso-occlusive crises) and
+    Lyfgenia (ages 12 and over, history of vaso-occlusive events).
+- id: asgct-patient-list
+  name: ASGCT Patient Education, FDA-approved cell and gene therapy products
+  url: https://patienteducation.asgct.org/disease-treatments/fda-approved-cell-gene-therapy-products
+  kind: other
+  notes: Cross-check only. Not an FDA source.
+events:
+- date: '2023-12-08'
+  kind: milestone
+  title: FDA approves Casgevy and Lyfgenia, the first gene therapies for sickle cell disease
+  why_it_matters: The first two gene-based treatments for sickle cell disease, one of them a CRISPR gene edit.
+  url: https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapies-treat-patients-sickle-cell-disease
+- date: '2026-10-30'
+  kind: dataset
+  title: FDA's approved cellular and gene therapy list is current as of 30 October 2026
+  why_it_matters: The list now names 55 products, but gives no approval dates, so the counting by year is not yet possible.
+  url: https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/approved-cellular-and-gene-therapy-products
+reading: []
+items:
+- id: abecma
+  label: 'ABECMA (idecabtagene vicleucel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: adstiladrin
+  label: 'ADSTILADRIN (nadofaragene firadenovec-vncg)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: allocord
+  label: 'ALLOCORD (HPC, Cord Blood)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: amtagvi
+  label: 'AMTAGVI (lifileucel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: tregzi
+  label: 'TREGZI (Allogeneic regulatory T cell immunotherapy with HSPC and T cells-vldq)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: aucatzyl
+  label: 'AUCATZYL (obecabtagene autoleucel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: beqvez
+  label: 'BEQVEZ (fidanacogene elaparvovec-dzkt)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: breyanzi
+  label: 'BREYANZI (lisocabtagene maraleucel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: carvykti
+  label: 'CARVYKTI (ciltacabtagene autoleucel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: casgevy
+  label: 'CASGEVY (exagamglogene autotemcel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  date_done: '2023-12-08'
+  source: fda-ctgt-press-2023
+- id: clevecord
+  label: 'CLEVECORD (HPC Cord Blood)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: ducord
+  label: 'Ducord (HPC Cord Blood)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: elevidys
+  label: 'ELEVIDYS (delandistrogene moxeparvovec-rokl)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: enceleto
+  label: 'ENCELTO (revakinagene taroretcel-lwey)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: fayuvi
+  label: 'FAYUVI (rebisufligene etisparvovec-hopf)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: genglycos
+  label: 'GENGLYCOS (pariglasgene brecaparvovec-opnr)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: gintuit
+  label: 'GINTUIT (Allogeneic Cultured Keratinocytes and Fibroblasts in Bovine Collagen)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: hemacord
+  label: 'HEMACORD (HPC, cord blood)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: hemgenix
+  label: 'HEMGENIX (etranacogene dezaparvovec-drlb)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: hpc-cord-blood-clinimmune
+  label: 'HPC, Cord Blood (Clinimmune Labs, University of Colorado Cord Blood Bank)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: hpc-cord-blood-md-anderson
+  label: 'HPC, Cord Blood (MD Anderson Cord Blood Bank)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: hpc-cord-blood-lifesouth
+  label: 'HPC, Cord Blood (LifeSouth)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: hpc-cord-blood-bloodworks
+  label: 'HPC, Cord Blood (Bloodworks)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: imlygic
+  label: 'IMLYGIC (talimogene laherparepvec)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: itvisma
+  label: 'ITVISMA (onasemnogene abeparvovec-brve)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: kebilidi
+  label: 'KEBILIDI (eladocagene exuparvovec-tneq)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: kresladi
+  label: 'KRESLADI (marnetegragene autotemcel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: kymriah
+  label: 'KYMRIAH (tisagenlecleucel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: lantidra
+  label: 'LANTIDRA (donislecel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: laviv
+  label: 'LAVIV (Azficel-T)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: lenmeldy
+  label: 'LENMELDY (atidarsagene autotemcel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: luxturna
+  label: 'LUXTURNA (voretigene neparvovec-rzyl)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: lyfgenia
+  label: 'LYFGENIA (lovotibeglogene autotemcel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  date_done: '2023-12-08'
+  source: fda-ctgt-press-2023
+- id: maci
+  label: 'MACI (Autologous Cultured Chondrocytes on a Porcine Collagen Membrane)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: omisirge
+  label: 'OMISIRGE (omidubicel-onlv)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: otarmeni
+  label: 'OTARMENI (lunsotogene parvec cwha)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: papzimeos
+  label: 'PAPZIMEOS (zopapogene imadenovec-drba)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: provenge
+  label: 'PROVENGE (sipuleucel-T)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: regenecyte
+  label: 'REGENECYTE (HPC, Cord Blood)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: rethymic
+  label: 'RETHYMIC (allogeneic processed thymus tissue-agdc)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: roctavian
+  label: 'ROCTAVIAN (valoctocogene roxaparvovec-rvox)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: ryoncil
+  label: 'RYONCIL (remestemcel-L-rknd)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: symvess
+  label: 'SYMVESS (acellular tissue engineered vessel-tyod)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: skysona
+  label: 'SKYSONA (elivaldogene autotemcel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: stratagraft
+  label: 'STRATAGRAFT (allogeneic cultured keratinocytes and dermal fibroblasts in murine collagen-dsat)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: tecartus
+  label: 'TECARTUS (brexucabtagene autoleucel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: tecelra
+  label: 'TECELRA (afamitresgene autoleucel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: tudriqev
+  label: 'TUDRIQEV (vusolimogene oderparepvec-wtpg)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: voceryq
+  label: 'VOCERYQ (doruxapapogene ralaplasmid and lalikinogene sifuplasmid-gxfd)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: vyjuvek
+  label: 'VYJUVEK (beremagene geperpavec-svdt)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: waskyra
+  label: 'WASKYRA (etuvetidigene autotemcel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: yescarta
+  label: 'YESCARTA (axicabtagene ciloleucel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: zevaskyn
+  label: 'ZEVASKYN (prademagene zamikeracel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: zynteglo
+  label: 'ZYNTEGLO (betibeglogene autotemcel)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list
+- id: zolgensma
+  label: 'ZOLGENSMA (onasemnogene abeparvovec-xioi)'
+  status: done
+  status_detail: listed as approved on FDA's list
+  source: fda-ctgt-list

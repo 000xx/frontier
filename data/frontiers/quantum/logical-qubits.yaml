@@ -1,0 +1,99 @@
+id: logical-qubits
+title: Logical qubit error rates
+domain: quantum
+subfield: Quantum technologies
+status: draft
+summary: How reliable a protected quantum bit becomes when many physical qubits work together to correct errors. The key milestone is error correction that gets better, not worse, as the code grows.
+metric:
+  name: Logical error rate per correction cycle
+  unit: per cycle
+  direction: lower
+  scale: log
+  explainer: 'A physical qubit is easily disturbed, so error-correction codes spread one protected "logical"
+    qubit across many physical ones and repeatedly measure them to find and fix errors. The logical error
+    rate is the chance that the protected qubit still goes wrong in one correction cycle. The milestone that
+    matters is below threshold: a bigger code must lose less information than a smaller one, so the logical
+    error rate falls as the code distance grows. Distance is a measure of the code''s size, and the suppression
+    factor compares the error rate at one distance with the next. Results depend on the code, the decoder
+    that interprets the measurements, and the hardware, so only the same kind of result is compared.'
+chart:
+  primary: record-chart
+series:
+- id: surface-code-d3
+  label: Surface code, distance 3
+  group: Surface code
+- id: surface-code-d5
+  label: Surface code, distance 5
+  group: Surface code
+- id: surface-code-d7
+  label: Surface code, distance 7
+  group: Surface code
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'No machine-readable source; records are added by hand from papers opened in full. Only the
+    Google Quantum AI result has been checked, so the history covers one platform and is incomplete. The
+    Microsoft and Quantinuum four-logical-qubit announcement has no logical error rate in the source and is
+    not added as a record. Still to add: trapped-ion and neutral-atom error-correction results with numbers
+    from their papers.'
+sources:
+- id: google-2024-arxiv
+  name: 'Google Quantum AI, Quantum error correction below the surface code threshold, arXiv:2408.13687 (2024)'
+  url: https://arxiv.org/pdf/2408.13687
+  kind: paper
+  primary: true
+  notes: Preprint version, v1 submitted 2024-08-24. All numbers here come from this version. Data stated as available on Zenodo.
+- id: nature-2024-record
+  name: 'Quantum error correction below the surface code threshold, Nature (2024-12)'
+  url: https://bvbvf1.bib-bvb.de/vufind/PrimoRecord/cdi_pubmed_primary_39653125
+  kind: paper
+  notes: Library catalogue record showing the Nature publication (December 2024). The published version was not opened, so its numbers may differ from the preprint.
+- id: microsoft-quantinuum-2024
+  name: 'Microsoft blog: Microsoft and Quantinuum demonstrate the most reliable logical qubits on record (April 2024)'
+  url: https://blogs.microsoft.com/blog/2024/04/03/advancing-science-microsoft-and-quantinuum-demonstrate-the-most-reliable-logical-qubits-on-record-with-an-error-rate-800x-better-than-physical-qubits/
+  kind: press
+  notes: Company announcement. Four logical qubits; the post gives no numeric logical error rate.
+records:
+- date: '2024-08'
+  value: 0.00650
+  series: surface-code-d3
+  holder: Google Quantum AI
+  conditions: Surface code, distance 3, neural-network decoder; logical error per cycle 6.50 x 10^-3 (+/- 0.06 x 10^-3)
+  status: peer_reviewed
+  source: google-2024-arxiv
+  url: https://arxiv.org/pdf/2408.13687
+  note: Values from the arXiv v1 table; the Nature version was not opened.
+- date: '2024-08'
+  value: 0.00303
+  series: surface-code-d5
+  holder: Google Quantum AI
+  conditions: Surface code, distance 5, neural-network decoder; logical error per cycle 3.03 x 10^-3 (+/- 0.03 x 10^-3)
+  status: peer_reviewed
+  source: google-2024-arxiv
+  url: https://arxiv.org/pdf/2408.13687
+  note: Values from the arXiv v1 table; the Nature version was not opened.
+- date: '2024-08'
+  value: 0.00143
+  series: surface-code-d7
+  holder: Google Quantum AI
+  conditions: Surface code, distance 7, 101-qubit code, neural-network decoder; logical error per cycle 1.43 x 10^-3 (+/- 0.03 x 10^-3); error suppression factor 2.14 +/- 0.02 from distance 3 to 7
+  status: peer_reviewed
+  source: google-2024-arxiv
+  url: https://arxiv.org/pdf/2408.13687
+  note: Lowest logical error per cycle in this table. Each step up in distance cut the error by about a factor of two.
+events:
+- date: '2024-04-03'
+  kind: news
+  title: Microsoft and Quantinuum announce four logical qubits
+  why_it_matters: A company claim of error-corrected qubits with a stated improvement, but with no numeric logical error rate to check.
+  url: https://blogs.microsoft.com/blog/2024/04/03/advancing-science-microsoft-and-quantinuum-demonstrate-the-most-reliable-logical-qubits-on-record-with-an-error-rate-800x-better-than-physical-qubits/
+- date: '2024-08-24'
+  kind: paper
+  title: Google reports logical errors falling as the surface code grows
+  why_it_matters: Showed on real hardware that a larger error-correcting code can lower the logical error rate, the threshold behaviour that scaling needs.
+  url: https://arxiv.org/pdf/2408.13687
+- date: '2024-12'
+  kind: paper
+  title: The Google result is published in Nature
+  why_it_matters: Puts the below-threshold result into a refereed journal, where other groups can check it.
+  url: https://bvbvf1.bib-bvb.de/vufind/PrimoRecord/cdi_pubmed_primary_39653125

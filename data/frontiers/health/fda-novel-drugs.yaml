@@ -1,0 +1,116 @@
+# FDA novel drug approvals: counts from CDER's annual "Novel Drug Approvals" pages.
+# Observations are the totals printed on each year's page (2021 to 2025). The 2016 to 2020 pages could not be
+# read in this run, so those years are not added. The 2025 page's table was counted by hand: 46 rows.
+# A novel drug is one with a new active ingredient, so a biologic counts only when CDER reviews it.
+id: fda-novel-drugs
+title: FDA novel drug approvals
+domain: health
+subfield: New kinds of medicine
+status: draft
+summary: How many medicines with a new active ingredient the US Food and Drug Administration's drug centre
+  approves each year, and which years brought the most and fewest.
+metric:
+  name: Novel drugs approved by CDER per year
+  unit: drugs per year
+  direction: higher
+  scale: linear
+  explainer: 'A novel drug is a medicine the US Food and Drug Administration has never approved before, because
+    its active ingredient is new. The FDA counts these through its drug centre, CDER, which reviews most
+    small-molecule drugs and many antibodies and other proteins. Cell and gene therapies are reviewed by a
+    different FDA centre, so they are not in this count. The yearly total moves for many reasons: how many
+    drugs reach the final review stage, how the agency is staffed, and how many applications are withdrawn or
+    delayed. One busy year does not show a trend, so read several years together. A count is also not a measure
+    of benefit: a novel drug may treat a rare disease that few people have, or may be only a modest improvement
+    on an existing treatment.'
+chart:
+  primary: record-chart
+series:
+- id: novel-approvals
+  label: Novel drugs approved by CDER
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Totals come from the FDA''s annual pages: 2021 (50), 2022 (37), 2023 (55), 2024 (50) and 2025 (46).
+    The 2025 total is also counted from its table, which has 46 rows. The 2016 to 2020 pages returned a
+    blocked-access error in this run, so those years are not yet added. An FDA report, "Advancing Health
+    Through Innovation: New Drug Therapy Approvals 2025", has a chart of 2016 to 2025; its chart text was
+    read only as a cross-check and its 2023 value (54) disagrees with the 2023 page (55), so the chart text
+    is not used. Not yet checked: the FDA website policies page (blocked in this run), so the reuse terms
+    are not confirmed. Each year is published once the year is over, so check in January.'
+sources:
+- id: fda-2025
+  name: FDA, Novel Drug Approvals for 2025
+  url: https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2025
+  kind: dataset
+  primary: true
+  notes: 'States: "In 2025, CDER approved 46 new drugs never before approved or marketed in the U.S., known as
+    novel drugs." Approvals are listed with dates from 17 January 2025 (Datroway) to 30 December 2025 (Nereus).'
+- id: fda-2024
+  name: FDA, Novel Drug Approvals for 2024
+  url: https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2024
+  kind: dataset
+  notes: 'States: "In 2024, CDER approved 50 new drugs never before approved or marketed in the U.S."'
+- id: fda-2023
+  name: FDA, Novel Drug Approvals for 2023
+  url: https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2023
+  kind: dataset
+  notes: 'States: "In 2023, CDER approved 55 new drugs never before approved or marketed in the U.S."'
+- id: fda-2022
+  name: FDA, Novel Drug Approvals for 2022
+  url: https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2022
+  kind: dataset
+  notes: 'States: "In 2022, CDER approved 37 novel drugs". Table has 37 rows.'
+- id: fda-2021
+  name: FDA, Novel Drug Approvals for 2021
+  url: https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2021
+  kind: dataset
+  notes: 'States: "In 2021, CDER approved 50 new drugs". Table has 50 rows.'
+- id: fda-report-2025
+  name: 'FDA, Advancing Health Through Innovation: New Drug Therapy Approvals 2025'
+  url: https://www.fda.gov/media/190705/download
+  kind: report
+  notes: Cross-check only. Its chart values for 2016 to 2020 were not used, because the chart text could not be
+    confirmed against the annual pages.
+observations:
+- date: '2021'
+  series: novel-approvals
+  value: 50
+  source: fda-2021
+- date: '2022'
+  series: novel-approvals
+  value: 37
+  source: fda-2022
+- date: '2023'
+  series: novel-approvals
+  value: 55
+  source: fda-2023
+- date: '2024'
+  series: novel-approvals
+  value: 50
+  source: fda-2024
+- date: '2025'
+  series: novel-approvals
+  value: 46
+  source: fda-2025
+events:
+- date: '2025-01-17'
+  kind: milestone
+  title: Datroway is the first novel drug approved in 2025
+  why_it_matters: The first of 46 novel approvals that year, listed by the FDA with its approval date.
+  url: https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2025
+- date: '2025-12-30'
+  kind: milestone
+  title: Nereus is the last novel drug approved in 2025
+  why_it_matters: Closes the 2025 list, which gives 46 approvals for the year.
+  url: https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2025
+- date: '2022'
+  kind: setback
+  title: CDER approves 37 novel drugs in 2022, the lowest of the 2021 to 2025 years
+  why_it_matters: A dip in the count that the next year reversed, which is why one year should not be read alone.
+  url: https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2022
+- date: '2023'
+  kind: milestone
+  title: CDER approves 55 novel drugs in 2023, the highest count of the 2021 to 2025 years
+  why_it_matters: The high point of the five years on this page, after the 2022 dip.
+  url: https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2023
+reading: []

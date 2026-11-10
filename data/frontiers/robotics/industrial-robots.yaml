@@ -1,0 +1,76 @@
+id: industrial-robots
+title: Industrial robots installed per year
+domain: robotics
+subfield: In the field
+status: draft
+summary: How many industrial robots factories around the world install each year, as counted by the International Federation of Robotics. It tracks how far automation is spreading across manufacturing.
+metric:
+  name: Industrial robots installed per year
+  unit: robots per year
+  direction: higher
+  scale: linear
+  explainer: 'An industrial robot is a programmable arm or machine used in manufacturing, such as for welding,
+    handling parts or assembly. Annual installations count how many new units were put into service in a
+    year. The count is a flow, not the total in use. The total operating in factories is a separate figure,
+    and it grows more slowly in some years when installations dip. Installation counts are estimates from
+    the federation''s member data, so small year-on-year changes are less meaningful than the broad trend.'
+chart:
+  primary: record-chart
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'No machine-readable source; values are taken from the federation''s annual press releases. Four
+    years are checked (2022 to 2025), and the 2025 figure is a floor ("more than 600,000"). The releases
+    carry the federation''s copyright and link to separate World Robotics terms that were not opened, so
+    only facts are stored. Still to add: the earlier annual values from the 2016 to 2021 releases. Check the
+    federation''s press releases each September.'
+sources:
+- id: ifr-2026-release
+  name: 'IFR press release: Five Million Robots now Operate in Factories Globally (Frankfurt, 24 September 2026)'
+  url: https://ifr.org/ifr-press-releases/news/five-million-robots-now-operate-in-factories-globally
+  kind: press
+  primary: true
+  notes: '© IFR 2026. Links to World Robotics Terms of Usage (VDMA Verlag), which were not opened. Facts only, with citation.'
+- id: ifr-2025-release
+  name: 'IFR press release: Global Robot Demand in Factories Doubles Over 10 Years (Frankfurt, 25 September 2025)'
+  url: https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years
+  kind: press
+  notes: Gives the 2024 installation figure. Terms as for the 2026 release.
+- id: ifr-2024-release
+  name: 'IFR press release: Record of 4 Million Robots in Factories Worldwide (Frankfurt, 24 September 2024)'
+  url: https://ifr.org/ifr-press-releases/news/record-of-4-million-robots-working-in-factories-worldwide
+  kind: press
+  notes: Gives the 2023 figure and the 2022 record it compares with. Terms as for the 2026 release.
+observations:
+- date: '2022'
+  value: 552946
+  source: ifr-2024-release
+  note: Described as the record year for installations, as quoted in the 2024 release.
+- date: '2023'
+  value: 541302
+  source: ifr-2024-release
+  note: Second highest in history, about 2 per cent below 2022.
+- date: '2024'
+  value: 542000
+  source: ifr-2025-release
+  note: Second highest in history at the time of the 2025 release.
+- date: '2025'
+  value: 600000
+  source: ifr-2026-release
+  note: Reported as more than 600,000, so this is a floor. The release gives an 11 per cent jump in installations, which is consistent with it.
+events:
+- date: '2024-09-24'
+  kind: setback
+  title: Installations dip slightly from the 2022 record
+  why_it_matters: The first fall from the high point in this series, although the year was still the second highest on record.
+  url: https://ifr.org/ifr-press-releases/news/record-of-4-million-robots-working-in-factories-worldwide
+- date: '2025-09-25'
+  kind: news
+  title: Installations of 542,000 in 2024, with the operating stock at 4.664 million
+  why_it_matters: A recovery to near the peak, with the federation forecasting further growth, which tests whether the trend continues.
+  url: https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years
+- date: '2026-09-24'
+  kind: milestone
+  title: Operating stock passes 5 million robots
+  why_it_matters: The federation reports the installed base of factory robots reached a record 5 million units in 2025, with installations up 11 per cent.
+  url: https://ifr.org/ifr-press-releases/news/five-million-robots-now-operate-in-factories-globally

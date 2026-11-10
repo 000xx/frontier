@@ -1,0 +1,99 @@
+id: synthetic-genomes
+title: Synthetic genomes
+domain: biology
+subfield: Writing and editing life
+status: draft
+summary: The largest genome ever built from chemical building blocks and put into a living cell, counted in base
+  pairs. Each step has needed a new way to write DNA, not just a faster way to copy it.
+metric:
+  name: Length of the largest complete synthetic genome in a living cell
+  unit: base pairs
+  direction: higher
+  scale: log
+  explainer: 'A synthetic genome is DNA whose sequence was designed on a computer and then made from chemical
+    building blocks, rather than copied from a natural cell. Length is a simple measure of how much DNA the
+    team has written from scratch, and it has grown by several orders of magnitude since the first minimal
+    bacterial genome. Length alone is not the whole story: a short genome designed to keep only the genes a cell
+    needs can be harder to build than a long one copied from nature, and a genome that works inside a living cell
+    is a stronger result than DNA made in a test tube. Records here count only genomes that were built into
+    working cells.'
+chart:
+  primary: record-chart
+  secondary:
+  - scale-ladder
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Draft because two gaps remain. The total size of the synthetic yeast genome (Sc2.0) was not stated in any
+    source we could open: the January 2025 papers give only the final chromosome, synXVI, at 903 kb, and a Discover
+    report says six of sixteen chromosomes are made from scratch. The yeast project is the one most likely to
+    beat the E. coli record, so its total size and the date it became complete must be sourced before this goes
+    live. The 1,079 kb synthetic Mycoplasma genome (JCVI-syn1.0) is named in the NIST record of the 2016 paper, but
+    we could not open a source for its own date, so it is not a record yet. Syn57 is described as a 4 Mb synthetic
+    genome; the LMB article gives this in a figure caption, not in the text.'
+sources:
+- id: nist-syn3-record
+  name: NIST publication record, design and synthesis of a minimal bacterial genome (Science, 2016)
+  url: https://www.nist.gov/publications/design-and-synthesis-minimal-bacterial-genome
+  kind: paper
+  primary: true
+  notes: Gives the abstract figure of 531 kilobase pairs and 473 genes for JCVI-syn3.0 and names 1079 kb as the
+    starting synthetic genome, JCVI-syn1.0. Publication date 25 March 2016. No reuse statement.
+- id: genomeweb-syn3
+  name: GenomeWeb, report on JCVI-syn3.0 minimal bacterial genome
+  url: https://www.genomeweb.com/node/106186
+  kind: news
+  notes: Gives a 531-kilobase pair genome with 438 protein-coding and 35 RNA genes. No date in the text. Terms not stated.
+- id: lmb-syn57
+  name: MRC Laboratory of Molecular Biology, Syn57 represents a new chapter in the genetic code of life
+  url: https://mrclmb.ac.uk/?p=11438
+  kind: press
+  notes: Reports the 4 Mb synthetic E. coli genome (Science, 1 August 2025) built from 38 fragments of about 100 kb,
+    and 101,000 recoded codons. Copyright MRC LMB; no reuse statement.
+- id: azo-yeast-2025
+  name: AZoLifeSciences, completing the first synthetic yeast genome (Nature Communications, January 2025)
+  url: https://azolifesciences.com/news/20250123/Breakthrough-Achieved-in-Completing-the-Creation-of-First-Synthetic-Yeast-Genome.aspx
+  kind: press
+  notes: Gives the final chromosome synXVI at 903 kb and the Macquarie University lead. No total genome size. Terms are AZoNetwork site terms.
+- id: sciencedaily-yeast-2025
+  name: ScienceDaily, final chromosome of the synthetic yeast genome (January 2025)
+  url: https://sciencedaily.com/releases/2025/01/250122125522.htm
+  kind: press
+  notes: Same study. Journal Nature Communications, DOI 10.1038/s41467-024-55318-3. Content may be edited for style and length.
+- id: discover-yeast
+  name: Discover Magazine, an entirely synthetic yeast genome is nearly complete
+  url: https://www.discovermagazine.com/an-entirely-synthetic-yeast-genome-is-nearly-complete-40448
+  kind: news
+  notes: Reports six of sixteen yeast chromosomes made from scratch, in Science, led by NYU Langone. No total size, no date. No reuse statement.
+records:
+- date: '2016-03-25'
+  value: 531000
+  holder: J. Craig Venter Institute and Synthetic Genomics
+  conditions: Minimal genome of 473 genes, built from chemical building blocks and transplanted into a living cell
+  status: peer_reviewed
+  source: nist-syn3-record
+  note: Reported in Science. Syn3.0 was derived from the 1,079 kb starting synthetic genome named in the NIST record.
+- date: '2025-08-01'
+  value: 4000000
+  holder: MRC Laboratory of Molecular Biology (Chin group, with Robertson)
+  conditions: Synthetic E. coli genome of about 4 Mb, built from 38 fragments of about 100 kb and recoded to use 57 codons. Stated as '4 Mb' in a figure caption.
+  status: peer_reviewed
+  source: lmb-syn57
+  note: Reported in Science. The result is a working cell with a fully synthetic genome.
+events:
+- date: '2016-03-25'
+  kind: paper
+  title: Minimal synthetic bacterial genome of 531 kb in Science
+  why_it_matters: Showed that a living cell can run on a designed genome with only 473 genes, a baseline for what a cell needs to survive.
+  url: https://www.nist.gov/publications/design-and-synthesis-minimal-bacterial-genome
+- date: '2025-01'
+  kind: paper
+  title: Final chromosome of the first synthetic yeast genome, in Nature Communications
+  why_it_matters: Completes a designed chromosome of the baker's yeast, with a 903 kb synthetic chromosome, the largest single part of a project to write all sixteen yeast chromosomes.
+  url: https://sciencedaily.com/releases/2025/01/250122125522.htm
+- date: '2025-08-01'
+  kind: paper
+  title: Syn57 E. coli with a fully synthetic 4 Mb genome in Science
+  why_it_matters: Builds an entire bacterial genome from DNA that was designed and made from scratch, and recodes it, removing seven codons from the genetic code it uses.
+  url: https://mrclmb.ac.uk/?p=11438
+reading: []

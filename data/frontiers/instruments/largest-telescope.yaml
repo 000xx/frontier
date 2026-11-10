@@ -1,0 +1,229 @@
+# Records are transcribed by hand from the pages listed under sources; each value was read in this run.
+# A record is a working optical telescope whose single primary mirror (one piece or segmented) is wider than
+# every earlier one. Telescopes that combine separate mirrors on one mount, and those whose usable aperture is
+# smaller than their mirror, are not counted.
+id: largest-telescope
+title: Largest optical telescope
+domain: instruments
+subfield: Seeing and measuring
+status: live
+summary: The diameter of the biggest working optical telescope mirror, and the three giant telescopes meant to
+  overtake it. A wider mirror collects more light and sees finer detail, so each jump has opened new parts of
+  the universe to study.
+metric:
+  name: Primary mirror diameter of the largest working optical telescope
+  unit: metres
+  direction: higher
+  scale: linear
+  explainer: 'A telescope''s main job is to gather light. The amount it collects grows with the area of its
+    primary mirror, so doubling the diameter gives four times the light and lets astronomers see objects four
+    times fainter in the same time. A wider mirror can also, in principle, resolve finer detail, although for
+    ground-based telescopes the blurring of the atmosphere gets in the way unless the telescope corrects for
+    it with a deformable mirror (adaptive optics). For most of the twentieth century the limit was how big a
+    single piece of glass could be cast, polished and held in shape as the telescope tilted. The 5 metre
+    Hale telescope held the record for almost three decades before a 6 metre Soviet telescope passed it. The way past that wall was to build the mirror from many hexagonal
+    segments, each kept in line by computer-controlled supports, which is how the 10 metre Keck telescopes
+    and the slightly larger Gran Telescopio Canarias were made. The next generation uses the same idea on a
+    much bigger scale: Europe''s Extremely Large Telescope will have a 39 metre mirror made of 798 segments,
+    while the Giant Magellan Telescope combines seven 8.4 metre mirrors. These projects take decades and
+    billions to build, so their progress is tracked here as stages rather than as records.'
+chart:
+  primary: record-chart
+  secondary:
+  - stage-timeline
+  - to-scale-lineup
+series:
+- id: single-aperture
+  label: Largest single-aperture optical telescope
+stages:
+- Design
+- Construction
+- Telescope first light
+- Science operations
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Coverage starts in 1917 with the Hooker telescope; earlier record holders are not yet added. Open
+    points for the owner: (1) the status scale was written for experimental results. The size of a built
+    telescope is not in doubt, but only the Gran Telescopio Canarias is backed by an independent registry
+    (Guinness World Records), so it is the only record marked confirmed; the others rest on an observatory,
+    agency, encyclopedia or magazine page and are marked claimed. (2) Telescopes with a large mirror but a
+    smaller usable aperture (such as SALT and the Hobby-Eberly Telescope) and those that combine two mirrors
+    on one mount (the Large Binocular Telescope) are left out by the definition above; no figures for them
+    were read in this run. (3) The Hooker and Hale apertures are given in inches by their sources and are
+    converted here (1 inch = 2.54 cm). (4) Wikipedia pages could not be opened in this run. Check ESO''s ELT
+    timeline first, then GMTO, TMT and news for the three giant telescopes.'
+sources:
+- id: eso-elt-timeline
+  name: ESO, Extremely Large Telescope timeline
+  url: https://elt.eso.org/about/timeline/
+  kind: other
+  primary: true
+  notes: Page opened 2026-11-10. Gives the 39 metre, 798-segment primary mirror, construction approval in
+    December 2014, telescope first light planned for 2029 and scientific first light in December 2030.
+- id: eso-ann25001
+  name: ESO announcement ann25001, "Telescope first light for ESO's Extremely Large Telescope now planned for
+    March 2029" (14 March 2025)
+  url: https://eso.org/public/announcements/ann25001/
+  kind: press
+- id: guinness-gtc
+  name: Guinness World Records, Largest single optical telescope
+  url: https://www.guinnessworldrecords.com/world-records/largest-single-optical-telescope
+  kind: registry
+  notes: Gives the Gran Telescopio Canarias, 10.4 m across from 36 hexagonal segments, first light 13 July 2007.
+- id: nasa-keck
+  name: NASA Astrobiology, W. M. Keck Observatory mission page
+  url: https://astrobiology.nasa.gov/missions/keck/
+  kind: other
+  notes: Gives 10 metre primary mirrors, Keck I science observations from May 1993 and Keck II first light in
+    October 1996. NASA is a partner in the observatory.
+- id: sao-bta-40
+  name: Special Astrophysical Observatory RAS, "The 40th anniversary of putting the 6-m BTA telescope into
+    operation" (2015)
+  url: https://www.sao.ru/Doc-en/Events/2015/BTA-40/
+  kind: other
+  notes: Gives the acceptance certificate of 30 December 1975 as the start of operation and first light.
+- id: britannica-palomar
+  name: Encyclopaedia Britannica, Palomar Observatory
+  url: https://britannica.com/topic/Palomar-Observatory
+  kind: other
+  notes: Gives the 200-inch (508 cm) aperture, completion in 1948 after a wartime delay, and the Hale telescope
+    as the largest of its kind until 1976.
+- id: astronomy-hooker
+  name: 'Astronomy magazine, "Nov. 1, 1917: The Hooker Telescope sees first light"'
+  url: https://www.astronomy.com/today-in-the-history-of-astronomy/nov-1-1917-the-hooker-telescope-sees-first-light/
+  kind: news
+  notes: Gives first light on 1 November 1917, a 100-inch mirror, and the Hooker as the largest telescope until
+    the Hale telescope in 1948.
+- id: space-com-gmt-2026
+  name: Space.com, "This giant telescope could discover habitable exoplanets and secrets of our universe, if it
+    gets its funding" (17 April 2026)
+  url: https://www.space.com/astronomy/this-giant-telescope-could-discover-habitable-exoplanets-and-secrets-of-our-universe-if-it-gets-its-funding
+  kind: news
+  notes: Gives the 25.4 metre aperture from seven 8.4 metre mirrors, and science observations expected in the
+    2030s.
+- id: eurekalert-gmt-2025
+  name: EurekAlert, "Giant Magellan telescope advances to National Science Foundation final design phase" (12
+    June 2025)
+  url: https://www.eurekalert.org/news-releases/1087222
+  kind: press
+- id: eurekalert-gmt-2026
+  name: EurekAlert, "Giant Magellan Telescope names Daniel T. Jaffe as president" (13 January 2026)
+  url: https://www.eurekalert.org/news-releases/1112384
+  kind: press
+  notes: Describes the telescope as 40% under construction.
+- id: civilbeat-tmt-2026
+  name: Honolulu Civil Beat, "TMT doubles down on Mauna Kea, declines Spain's $1B proposal" (30 September 2026)
+  url: https://www.civilbeat.org/2026/09/tmt-doubles-down-on-mauna-kea-declines-spains-1b-proposal/
+  kind: news
+  notes: Gives the 30 metre primary mirror, the project stalled since protests in 2019, and the NSF decision to
+    direct major funding to the Giant Magellan Telescope instead.
+records:
+- date: '1917-11-01'
+  value: 2.54
+  series: single-aperture
+  holder: Hooker telescope, Mount Wilson Observatory (Carnegie Institution)
+  conditions: Single 100-inch glass mirror; date is first light
+  status: claimed
+  source: astronomy-hooker
+- date: '1948'
+  value: 5.08
+  series: single-aperture
+  holder: Hale telescope, Palomar Observatory (Caltech)
+  conditions: Single 200-inch (508 cm) mirror; date is completion
+  status: claimed
+  source: britannica-palomar
+  note: Britannica says the telescope made its first observations in 1949.
+- date: '1975-12-30'
+  value: 6
+  series: single-aperture
+  holder: BTA-6, Special Astrophysical Observatory (USSR Academy of Sciences)
+  conditions: Single 6 metre mirror; date is the acceptance certificate, given as the start of operation
+  status: claimed
+  source: sao-bta-40
+  note: Britannica dates the end of the Hale telescope's reign to 1976.
+- date: '1993-05'
+  value: 10
+  series: single-aperture
+  holder: Keck I, W. M. Keck Observatory (Caltech, University of California)
+  conditions: 10 metre segmented mirror; date is the start of science observations, as no first-light date was
+    read
+  status: claimed
+  source: nasa-keck
+- date: '2007-07-13'
+  value: 10.4
+  series: single-aperture
+  holder: Gran Telescopio Canarias, Roque de los Muchachos Observatory, La Palma
+  conditions: 10.4 metre mirror of 36 hexagonal segments; date is first light
+  status: confirmed
+  source: guinness-gtc
+candidates:
+- id: elt
+  name: Extremely Large Telescope (ELT)
+  developer: European Southern Observatory
+  kind: 39 metre segmented mirror (798 segments), Cerro Armazones, Chile
+  stage: Construction
+  history:
+  - stage: Design
+    date: '2006-12'
+    source: eso-elt-timeline
+    note: ESO Council approves a detailed study.
+  - stage: Construction
+    date: '2014-12'
+    source: eso-elt-timeline
+    note: ESO Council approves construction in two phases.
+  key_result: Telescope first light planned for March 2029 and first science in December 2030, per ESO
+  source: eso-elt-timeline
+  note: In March 2025 ESO announced that telescope first light is now planned for March 2029.
+- id: gmt
+  name: Giant Magellan Telescope (GMT)
+  developer: GMTO Corporation (international consortium)
+  kind: 25.4 metre aperture from seven 8.4 metre mirrors, Atacama Desert, Chile
+  stage: Construction
+  key_result: Described as 40% under construction in January 2026; science observations expected in the 2030s
+  source: eurekalert-gmt-2026
+  note: Entered the NSF Major Facilities Final Design Phase in June 2025, a step before it can seek federal
+    construction funding.
+- id: tmt
+  name: Thirty Meter Telescope (TMT)
+  developer: TMT International Observatory
+  kind: 30 metre segmented mirror, Mauna Kea, Hawaii (preferred site)
+  stage: Construction
+  key_result: Stalled since protests blocked construction in 2019; no first-light date set
+  source: civilbeat-tmt-2026
+  note: In September 2026 the project declined Spain's offer of up to 1 billion euros to build on La Palma and
+    kept Mauna Kea as its preferred site, which still needs approval from the Mauna Kea oversight authority.
+events:
+- date: '2007-07-13'
+  kind: milestone
+  title: Gran Telescopio Canarias sees first light with a 10.4 metre mirror
+  why_it_matters: It edged past the Keck telescopes using the same segmented-mirror design and still holds the
+    record for a single optical telescope.
+  url: https://www.guinnessworldrecords.com/world-records/largest-single-optical-telescope
+- date: '2014-12'
+  kind: milestone
+  title: ESO approves construction of the 39 metre Extremely Large Telescope
+  why_it_matters: The first of the giant telescopes to be fully committed, it would nearly quadruple the record
+    diameter.
+  url: https://elt.eso.org/about/timeline/
+- date: '2025-03-14'
+  kind: setback
+  title: ELT telescope first light moves to March 2029
+  why_it_matters: The new date pushes back the moment the record could change hands, a reminder that schedules for one-off machines like this slip.
+  url: https://eso.org/public/announcements/ann25001/
+- date: '2025-06-12'
+  kind: news
+  title: Giant Magellan Telescope enters the NSF final design phase
+  why_it_matters: It is the step before US federal construction money, and the NSF chose to back this
+    telescope rather than the TMT.
+  url: https://www.eurekalert.org/news-releases/1087222
+- date: '2026-09-30'
+  kind: setback
+  title: Thirty Meter Telescope turns down Spain's offer to move to La Palma
+  why_it_matters: Staying with Mauna Kea keeps the project tied to a site where construction has been blocked
+    since 2019, while US federal support has gone to its rival.
+  url: https://www.civilbeat.org/2026/09/tmt-doubles-down-on-mauna-kea-declines-spains-1b-proposal/
+reading: []
+connections:
+- most-distant-galaxy
+- exoplanets

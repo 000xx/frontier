@@ -1,0 +1,77 @@
+id: strongest-magnetic-field
+title: Strongest magnetic field made in the lab
+domain: extremes
+subfield: Physical extremes
+status: draft
+summary: The strongest magnetic fields that people have made in a laboratory, tracked by how the field is produced. Each
+  step up is harder to hold for long, so the record shows how far magnet engineering has come.
+metric:
+  name: Strongest pulsed magnetic field made in a laboratory
+  unit: tesla
+  direction: higher
+  scale: linear
+  explainer: 'A tesla is the unit of magnetic flux density. Pulsed magnets reach higher fields than steady magnets
+    because they are driven with a short current pulse, so the coil does not have to hold the field indefinitely.
+    The records below are split by magnet type: a field held as a long flat top is not the same achievement as a
+    brief peak, so the chart shows each approach separately. The values come from the labs that built the magnets;
+    no independent measurement is listed yet.'
+chart:
+  primary: record-chart
+series:
+- id: pulsed-non-destructive
+  label: Multi-shot pulsed (non-destructive)
+- id: flat-top-pulsed
+  label: Flat-top pulsed
+sources:
+- id: nhmfl-100-tesla-magnet
+  name: National High Magnetic Field Laboratory, Meet the 100 Tesla Pulsed Magnet
+  url: https://nationalmaglab.org/about-the-maglab/around-the-lab/meet-the-magnets/meet-the-100-tesla-pulsed-magnet/
+  kind: other
+  notes: 'Page opened 2026-11-10. It states that in March 2012 the Los Alamos campus of the lab produced the first 100 T
+    non-destructive field. The page gives no dates for its other field figures and is not dated itself.'
+- id: hust-flat-top-2025
+  name: Wuhan National High Magnetic Field Center (HUST), new world record 71.36 tesla flat-top pulsed magnetic field
+  url: https://en-whmfc.hust.edu.cn/info/1024/1237.htm
+  kind: press
+  notes: 'Release opened 2026-11-10. It is dated 27 June 2025 and gives the record date as 20 June. It says the previous
+    record was 64 tesla in 2018, without naming the holder. No peer-reviewed paper is cited.'
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Still to add: the strongest continuous (steady) field, which needs a lab or refereed source; and the 100.75 T
+    pulsed run at Los Alamos, which is widely reported but whose date could not be found in the page opened here.
+    Until both are sourced the frontier is draft. Check whether either lab has a refereed paper for its records.'
+records:
+- date: '2012-03'
+  value: 100
+  series: pulsed-non-destructive
+  holder: National High Magnetic Field Laboratory, Los Alamos campus
+  conditions: Multi-shot pulsed magnet, non-destructive; the first 100 T non-destructive field, per the lab
+  status: claimed
+  source: nhmfl-100-tesla-magnet
+- date: '2018'
+  value: 64
+  series: flat-top-pulsed
+  holder: Not named in the source (described as the previous record in HUST's 2025 release)
+  conditions: Flat-top pulsed magnet
+  status: claimed
+  source: hust-flat-top-2025
+- date: '2025-06-20'
+  value: 71.36
+  series: flat-top-pulsed
+  holder: Wuhan National High Magnetic Field Center, Huazhong University of Science and Technology
+  conditions: Flat-top pulsed magnetic field
+  status: claimed
+  source: hust-flat-top-2025
+  url: https://en-whmfc.hust.edu.cn/info/1024/1237.htm
+events:
+- date: '2012-03'
+  kind: milestone
+  title: First non-destructive 100 tesla pulsed field, at the Los Alamos campus of the US high-field lab
+  why_it_matters: The 100 tesla mark was reached without destroying the magnet, which made it usable for experiments.
+  url: https://nationalmaglab.org/about-the-maglab/around-the-lab/meet-the-magnets/meet-the-100-tesla-pulsed-magnet/
+- date: '2025-06-20'
+  kind: milestone
+  title: Wuhan lab reports a 71.36 tesla flat-top pulsed field, above its 2018 record of 64 tesla
+  why_it_matters: The flat-top approach holds a steady high field for longer than a brief peak, which matters for experiments that need time.
+  url: https://en-whmfc.hust.edu.cn/info/1024/1237.htm

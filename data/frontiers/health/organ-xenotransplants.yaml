@@ -1,0 +1,114 @@
+# Pig-to-human organ transplants, one item per procedure. Dates and outcomes come from news reports opened in this run
+# (an AP timeline, NBC News, Boston.com and FOX 9). No hospital or peer-reviewed report was found for these cases.
+# Tim Andrews's transplant date is given as 2025-01 because the sources give the 271-day function period and the
+# removal date of 23 October 2025, not the surgery date. The liveinthefuture scorecard was not used: its page says
+# its byline is "fictional".
+id: organ-xenotransplants
+title: Pig organ transplants
+domain: health
+subfield: Restoring and replacing the body
+status: draft
+summary: How many people have received a pig organ, and how long each organ worked, from the first pig heart
+  transplant in 2022 to the kidney transplants of 2025.
+metric:
+  name: Pig-to-human organ transplants performed
+  unit: transplants
+  direction: higher
+  scale: linear
+  explainer: 'A xenotransplant is a transplant of an animal organ into a person. Pigs are the main candidate
+    because their organs are similar in size to human organs, and the pig genome can be edited to reduce rejection.
+    Each procedure is listed here as one item. The outcome matters as much as the count: an organ that works for
+    weeks is a step, and an organ that works for months is a larger one. Many of the early recipients were very ill
+    and had other conditions, so a death after a transplant does not always mean the organ caused it. The sources
+    here are news reports, which give fewer details than hospital or journal reports.'
+chart:
+  primary: countdown-grid
+series:
+- id: transplants
+  label: Pig organ transplants
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Five procedures are listed, from news reports read in this run. Looney''s transplant date is from the AP
+    timeline (25 November 2024). Still open: hospital or journal reports for each case, the hospital for Towana
+    Looney''s first transplant, and any procedure after Tim Andrews''s January 2025 transplant. The liveinthefuture
+    scorecard was found in search but not used, because its page says its byline is "fictional".'
+sources:
+- id: ap-timeline
+  name: 'AP, Pig organ transplants: a timeline of recent US milestones (republished, 19 December 2024)'
+  url: https://www.freemalaysiatoday.com/category/leisure/2024/12/19/pig-organ-transplants-a-timeline-of-recent-us-milestones
+  kind: news
+  primary: true
+  notes: 'Gives the Bennett heart (7 January 2022), Slayman (March 2024), Pisano (April 2024) and Looney (25 November 2024) dates and outcomes as stated at publication. Republished copy; the original AP article was not opened.'
+- id: nbc-slayman
+  name: NBC News, first person to receive a genetically modified pig kidney transplant dies nearly 2 months later
+  url: https://www.nbcnews.com/news/us-news/first-genetically-modified-pig-kidney-transplant-dies-rick-slayman-rcna151851
+  kind: news
+  notes: 'Surgery at Massachusetts General Hospital in March; the hospital said it had no indication the death was due to the transplant.'
+- id: boston-andrews
+  name: Boston.com, New Hampshire man resumes dialysis after record 271 days living with a pig kidney (27 October 2025)
+  url: https://www.boston.com/news/health/2025/10/27/new-hampshire-man-resumes-dialysis-after-record-271-days-living-with-a-pig-kidney/
+  kind: news
+  notes: 'Gives 271 days of function and removal on 23 October 2025. Says the transplant was likely at Mass General, from a photo caption; the hospital is not named for the transplant itself.'
+- id: fox9-looney
+  name: FOX 9, Alabama woman has pig kidney removed after a record 130 days (13 April 2025)
+  url: https://www.fox9.com/news/alabama-woman-has-pig-kidney-removed-after-record-130-days
+  kind: news
+  notes: 'Gives the 130 days of function, the removal surgery on 4 April 2025 (NYU Langone named for that surgery), and the reason given: rejection after a recent infection and reduced anti-rejection drugs.'
+items:
+- id: bennett-heart
+  label: 'David Bennett, pig heart (University of Maryland)'
+  status: done
+  status_detail: 'Heart worked for several weeks without signs of rejection; patient died about two months after transplant'
+  date_done: '2022-01-07'
+  source: ap-timeline
+  note: 'Researchers say a porcine virus in the heart may have contributed to the failure (AP).'
+- id: slayman-kidney
+  label: 'Richard Slayman, pig kidney (Massachusetts General Hospital)'
+  status: done
+  status_detail: 'Died about two months after transplant; hospital had no indication the death resulted from the transplant'
+  date_done: '2024-03'
+  source: nbc-slayman
+  note: 'First pig kidney transplant in a living patient, per AP.'
+- id: pisano-kidney
+  label: 'Lisa Pisano, pig kidney (NYU Langone)'
+  status: done
+  status_detail: 'Functioned for the first month; removed after 47 days; patient died six weeks later'
+  date_done: '2024-04'
+  source: ap-timeline
+- id: looney-kidney
+  label: 'Towana Looney, pig kidney'
+  status: done
+  status_detail: 'Functioned for 130 days; removed 4 April 2025 after the body began to reject it'
+  date_done: '2024-11-25'
+  source: fox9-looney
+  note: 'Transplant date from the AP timeline; the hospital for the transplant is not stated in the sources read.'
+- id: andrews-kidney
+  label: 'Tim Andrews, pig kidney'
+  status: done
+  status_detail: 'Functioned for 271 days, a record; removed 23 October 2025 because its function was declining'
+  date_done: '2025-01'
+  source: boston-andrews
+  note: 'Month derived from the 271-day function period and the removal date; surgery date not stated in the source.'
+events:
+- date: '2022-01-07'
+  kind: milestone
+  title: First genetically modified pig heart transplanted into a person
+  why_it_matters: The first procedure here, a genetically modified pig heart in a human; the recipient died about two months later.
+  url: https://www.freemalaysiatoday.com/category/leisure/2024/12/19/pig-organ-transplants-a-timeline-of-recent-us-milestones
+- date: '2024-03'
+  kind: milestone
+  title: First pig kidney transplant in a living patient
+  why_it_matters: The first kidney procedure in a living patient in this list; the patient died about two months later, and the hospital said the death was not linked to the transplant.
+  url: https://www.nbcnews.com/news/us-news/first-genetically-modified-pig-kidney-transplant-dies-rick-slayman-rcna151851
+- date: '2025-04-04'
+  kind: setback
+  title: Towana Looney's pig kidney removed after a record 130 days, per FOX 9
+  why_it_matters: Shows that rejection can end a graft even after months of function.
+  url: https://www.fox9.com/news/alabama-woman-has-pig-kidney-removed-after-record-130-days
+- date: '2025-10-23'
+  kind: milestone
+  title: Tim Andrews's pig kidney works for a record 271 days before removal
+  why_it_matters: The longest function reported in this list; the organ was removed when its function declined.
+  url: https://www.boston.com/news/health/2025/10/27/new-hampshire-man-resumes-dialysis-after-record-271-days-living-with-a-pig-kidney/
+reading: []

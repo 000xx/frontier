@@ -1,0 +1,240 @@
+# Records are transcribed by hand from the papers listed under sources; each value was read in this run.
+# Add a record only when a spectroscopic redshift beats every earlier one; photometric candidates never count.
+id: most-distant-galaxy
+title: Most distant galaxy
+domain: astronomy
+subfield: The universe at large
+status: live
+summary: The highest redshift measured with a spectrum for any galaxy, which is the same as asking how
+  close to the Big Bang we have seen a galaxy. The record crept up by fractions of a redshift unit for a
+  decade, then jumped from about 11 to above 14 once the James Webb Space Telescope began taking spectra.
+metric:
+  name: Highest spectroscopically confirmed galaxy redshift
+  unit: redshift (z)
+  direction: higher
+  scale: linear
+  explainer: 'Light from a distant galaxy is stretched on its way to us by the expansion of the universe.
+    Redshift, written z, says by how much: at z = 14 every wavelength arrives fifteen times longer than
+    it left. Higher redshift means the light set out earlier, so the record is also a record for how young
+    a universe we have seen; a galaxy at z of about 14 is seen as it was roughly 300 million years after the
+    Big Bang. Many faint galaxies have estimated redshifts from their colours in images, but those estimates
+    can be badly wrong, for example when a dusty nearby galaxy mimics a distant one. Only a spectrum, which
+    shows either a sharp drop in light at a known wavelength (the Lyman break) or a line from a known element,
+    pins the redshift down, so only spectroscopic results count here. Even spectra can be revised: a faint
+    line can fail to reappear in later data, and a low-resolution break gives a less precise value than a
+    line does.'
+chart:
+  primary: record-chart
+  secondary:
+  - reign-timeline
+update:
+  cadence: monthly
+  last_checked: '2026-11-09'
+  notes: 'Every record was read from the paper abstract (arXiv) or, for JADES-GS-z13-0, from the paper
+    text and Table 1. Dates are the first arXiv submission dates. A record is a galaxy whose spectroscopic
+    redshift beats every earlier spectroscopic galaxy redshift; quasars and gamma-ray bursts are not
+    counted. Coverage starts in 2006 (IOK-1); earlier records are not yet added. Open points for the owner:
+    (1) UDFy-38135539 (Lehnert et al. 2010, z = 8.5549, Nature) is left out of the records because an
+    independent team could not reproduce its line (Bunker et al. 2013); it is listed as events instead. The
+    claim was never withdrawn, so it is not marked retracted; decide whether it should appear on the chart.
+    (2) GN-z11 is recorded at its 2016 grism value of z = 11.09; JWST spectra later put it at 10.603, which is
+    still a z > 10 galaxy, so the record stands with a note. (3) JADES-GS-z14-0 is recorded at its NIRSpec
+    value of 14.32; two ALMA detections refined it to about 14.18. MoM-z14 at 14.44 beats both values.
+    (4) The journal for Curtis-Lake et al. was not confirmed from the publisher in this run; Wikipedia
+    cites it as published in a Nature journal. (5) The Open Journal of Astrophysics page for MoM-z14 could
+    not be opened (blocked fetch); the journal, volume and DOI come from the ISTA repository record.
+    Check arXiv astro-ph.GA and JWST programme news for new z_spec claims; ignore photometric candidates.'
+sources:
+- id: naidu-2025
+  name: 'R. P. Naidu et al., "A Cosmic Miracle: A Remarkably Luminous Galaxy at z_spec = 14.44 Confirmed
+    with JWST" (arXiv:2505.11263)'
+  url: https://arxiv.org/abs/2505.11263
+  kind: paper
+  primary: true
+  notes: Current record. Published in The Open Journal of Astrophysics, vol. 9, on 2026-01-30, DOI
+    10.33232/001c.156033, according to the ISTA repository record
+    (https://research-explorer.ista.ac.at/record/21342). Check arXiv astro-ph.GA for anything newer first.
+- id: carniani-2024
+  name: S. Carniani et al., "Spectroscopic confirmation of two luminous galaxies at z~14" (arXiv:2405.18485),
+    DOI 10.1038/s41586-024-07860-9
+  url: https://arxiv.org/abs/2405.18485
+  kind: paper
+- id: schouws-2025
+  name: S. Schouws et al., "Detection of [OIII]88μm in JADES-GS-z14-0 at z = 14.1793", ApJ 988 (2025),
+    DOI 10.3847/1538-4357/adbf1b (arXiv:2409.20549)
+  url: https://arxiv.org/abs/2409.20549
+  kind: paper
+  notes: Journal details from the LJMU repository record, https://researchonline.ljmu.ac.uk/id/eprint/26762/
+- id: alma-oxygen-2025
+  name: Astrobiology.com, "Oxygen has been discovered in the most distant known galaxy JADES-GS-z14-0"
+    (20 March 2025, repost of the ESO release)
+  url: https://astrobiology.com/2025/03/20/oxygen-has-been-discovered-in-the-most-distant-known-galaxy-jades-gs-z14-0/
+  kind: news
+  notes: Reports two independent ALMA detections (Schouws et al., ApJ; Carniani et al., A&A).
+- id: curtis-lake-2022
+  name: E. Curtis-Lake et al., "Spectroscopic confirmation of four metal-poor galaxies at z=10.3-13.2"
+    (arXiv:2212.04568)
+  url: https://arxiv.org/abs/2212.04568
+  kind: paper
+- id: oesch-2016
+  name: P. A. Oesch et al., "A Remarkably Luminous Galaxy at z=11.1 Measured with Hubble Space Telescope
+    Grism Spectroscopy" (arXiv:1603.00461), DOI 10.3847/0004-637X/819/2/129
+  url: https://arxiv.org/abs/1603.00461
+  kind: paper
+- id: bunker-2023
+  name: A. J. Bunker et al., "JADES NIRSpec Spectroscopy of GN-z11" (arXiv:2302.07256), DOI
+    10.1051/0004-6361/202346159
+  url: https://arxiv.org/abs/2302.07256
+  kind: paper
+- id: zitrin-2015
+  name: A. Zitrin et al., "Lyman-alpha Emission from a Luminous z=8.68 Galaxy" (arXiv:1507.02679), DOI
+    10.1088/2041-8205/810/1/L12
+  url: https://arxiv.org/abs/1507.02679
+  kind: paper
+- id: oesch-2015
+  name: P. A. Oesch et al., "A Spectroscopic Redshift Measurement for a Luminous Lyman Break Galaxy at
+    z=7.730 using Keck/MOSFIRE" (arXiv:1502.05399), DOI 10.1088/2041-8205/804/2/L30
+  url: https://arxiv.org/abs/1502.05399
+  kind: paper
+- id: finkelstein-2013
+  name: S. L. Finkelstein et al., "A Rapidly Star-forming Galaxy 700 Million Years After the Big Bang at
+    z=7.51" (arXiv:1310.6031), DOI 10.1038/nature12657
+  url: https://arxiv.org/abs/1310.6031
+  kind: paper
+- id: shibuya-2012
+  name: T. Shibuya et al., "The First Systematic Survey for Lyman Alpha Emitters at z=7.3 with Red-sensitive
+    Subaru/Suprime-Cam" (arXiv:1112.3997), DOI 10.1088/0004-637X/752/2/114
+  url: https://arxiv.org/abs/1112.3997
+  kind: paper
+- id: ono-2012
+  name: Y. Ono et al., "Spectroscopic Confirmation of Three z-Dropout Galaxies at z = 6.844 - 7.213"
+    (arXiv:1107.3159), DOI 10.1088/0004-637X/744/2/83
+  url: https://arxiv.org/abs/1107.3159
+  kind: paper
+- id: iye-2006
+  name: M. Iye et al., "A galaxy at a redshift z = 6.96" (arXiv:astro-ph/0609393), DOI 10.1038/nature05104
+  url: https://arxiv.org/abs/astro-ph/0609393
+  kind: paper
+- id: lehnert-2010
+  name: M. D. Lehnert et al., "Spectroscopic confirmation of a galaxy at redshift z=8.6" (arXiv:1010.4312),
+    DOI 10.1038/nature09462
+  url: https://arxiv.org/abs/1010.4312
+  kind: paper
+- id: bunker-2013
+  name: 'A. J. Bunker et al., "VLT/XSHOOTER and Subaru/MOIRCS spectroscopy of HUDF.YD3: no evidence for
+    Lyman α emission at z = 8.55", MNRAS 430, 3314 (2013)'
+  url: https://uhra.herts.ac.uk/id/eprint/4517/
+  kind: paper
+- id: donnan-2026
+  name: C. T. Donnan et al., "Spectroscopic confirmation of a large and luminous galaxy with weak emission
+    lines at z = 13.53" (arXiv:2601.11515)
+  url: https://arxiv.org/abs/2601.11515
+  kind: paper
+records:
+- date: '2006-09-14'
+  value: 6.96
+  holder: Subaru Telescope team (M. Iye et al.)
+  conditions: IOK-1; Lyman-alpha emission line at 9,682 Å, Subaru spectroscopy
+  status: peer_reviewed
+  source: iye-2006
+  note: The abstract says spectroscopic galaxy redshifts had been limited to below 6.6 before this. Ono
+    et al. (2012) later measured the same galaxy at z = 6.965 at higher resolution.
+- date: '2011-07-15'
+  value: 7.213
+  holder: Subaru/Keck team (Y. Ono et al.)
+  conditions: GN-108036; Lyman-alpha emission line, Keck/DEIMOS, seen in two separate observing runs
+  status: peer_reviewed
+  source: ono-2012
+  url: https://arxiv.org/abs/1107.3159
+- date: '2011-12-17'
+  value: 7.215
+  holder: Subaru team (T. Shibuya et al.)
+  conditions: SXDF-NB1006-2; single emission line taken to be Lyman-alpha
+  status: peer_reviewed
+  source: shibuya-2012
+  note: The redshift assumes the single detected line is Lyman-alpha, as the abstract states. Only 0.002
+    above the previous record.
+- date: '2013-10-22'
+  value: 7.51
+  holder: S. L. Finkelstein et al.
+  conditions: z8_GND_5296; emission line at 1.0343 µm taken to be Lyman-alpha, Keck/MOSFIRE
+  status: peer_reviewed
+  source: finkelstein-2013
+  note: The abstract calls the line likely Lyman-alpha and makes no explicit record claim.
+- date: '2015-02-18'
+  value: 7.7302
+  holder: P. A. Oesch et al.
+  conditions: EGS-zs8-1; Lyman-alpha emission line, Keck/MOSFIRE
+  status: peer_reviewed
+  source: oesch-2015
+  note: The abstract says the measurement sets a new redshift record for galaxies.
+- date: '2015-07-09'
+  value: 8.683
+  holder: A. Zitrin et al.
+  conditions: EGSY8p7; emission line at about 7.5σ taken to be Lyman-alpha, Keck/MOSFIRE, seen on two
+    nights
+  status: peer_reviewed
+  source: zitrin-2015
+- date: '2016-03-01'
+  value: 11.09
+  holder: P. A. Oesch et al.
+  conditions: GN-z11; Lyman break in Hubble WFC3/IR slitless grism spectrum
+  status: peer_reviewed
+  source: oesch-2016
+  note: JWST NIRSpec spectra from several emission lines later gave z = 10.603 (Bunker et al. 2023), lower
+    than this grism value but still the most distant galaxy known until December 2022.
+- date: '2022-12-08'
+  value: 13.2
+  holder: JADES (E. Curtis-Lake et al.)
+  conditions: JADES-GS-z13-0; Lyman break in JWST NIRSpec prism spectrum
+  status: peer_reviewed
+  source: curtis-lake-2022
+  note: Value 13.20 from Table 1 of the paper. The paper says the highest spectroscopic redshift before
+    it was GN-z11 at z = 10.957.
+- date: '2024-05-28'
+  value: 14.32
+  holder: JADES (S. Carniani et al.)
+  conditions: JADES-GS-z14-0; Lyman break in JWST NIRSpec spectrum, z = 14.32 (+0.08/−0.20)
+  status: confirmed
+  source: carniani-2024
+  note: Two independent ALMA detections of an oxygen line (Schouws et al. 2025; Carniani et al.) confirmed
+    the galaxy at z = 14.1793 ± 0.0007, lower than the NIRSpec value but within its error bar.
+- date: '2025-05-16'
+  value: 14.44
+  holder: MoM survey (R. P. Naidu et al.)
+  conditions: MoM-z14, COSMOS field; sharp Lyman break in JWST NIRSpec prism spectrum, z = 14.44 ± 0.02
+  status: peer_reviewed
+  source: naidu-2025
+  note: Published in The Open Journal of Astrophysics on 2026-01-30 (refereed).
+events:
+- date: '2010-10-20'
+  kind: paper
+  title: A z = 8.55 galaxy claimed from a single faint line
+  why_it_matters: Had it held up, it would have pushed the record past 8.5 five years early, and it shows how
+    much rides on one faint emission line.
+  url: https://arxiv.org/abs/1010.4312
+- date: '2013'
+  kind: setback
+  title: Deeper spectra find no trace of the z = 8.55 line
+  why_it_matters: An independent team with data that should have shown the line at 5σ saw nothing, so the
+    claim is not counted as a record here.
+  url: https://uhra.herts.ac.uk/id/eprint/4517/
+- date: '2023-02-14'
+  kind: paper
+  title: JWST revises GN-z11 down from z = 11.09 to z = 10.603
+  why_it_matters: Sharper spectra from several lines replaced the Hubble estimate, a reminder that a record
+    value can move even when the galaxy stays among the most distant.
+  url: https://arxiv.org/abs/2302.07256
+- date: '2025-03-20'
+  kind: milestone
+  title: Two ALMA teams independently detect oxygen in JADES-GS-z14-0
+  why_it_matters: A second instrument and a different kind of signal pinned the redshift at 14.18, turning a
+    Webb break measurement into an independently confirmed one.
+  url: https://astrobiology.com/2025/03/20/oxygen-has-been-discovered-in-the-most-distant-known-galaxy-jades-gs-z14-0/
+- date: '2026-01-16'
+  kind: paper
+  title: PAN-z14-1 confirmed at z = 13.53, the fourth most distant galaxy known
+  why_it_matters: More bright galaxies keep turning up near z = 14, which strengthens the case that the early
+    universe made bright galaxies faster than models expected.
+  url: https://arxiv.org/abs/2601.11515
+reading: []

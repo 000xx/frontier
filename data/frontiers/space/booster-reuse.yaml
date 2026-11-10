@@ -1,0 +1,138 @@
+# Records are transcribed from launch news articles that were opened in this run. No fetcher: the source is
+# not a machine-readable table. Gaps are noted in update.notes; add them only from pages opened in a later run.
+id: booster-reuse
+title: Most flights by one orbital booster
+domain: space
+subfield: Getting to orbit
+status: draft
+summary: The most times a single orbital rocket booster has flown to space and back, record by record. Each
+  extra flight of the same booster lowers the cost of getting to orbit, so this count tracks how well reuse works.
+metric:
+  name: Flights by the most-flown orbital booster
+  unit: flights
+  direction: higher
+  scale: linear
+  explainer: 'A booster is the first stage of a rocket, the part that carries the rest up and falls back to Earth
+    after its work. Reusing a booster means landing it and flying it again. The record here is the largest number
+    of orbital flights made by one physical booster. Each flight is counted once, and the count is the booster''s
+    own, not the number of boosters a company has flown. The counts are what the company or the news articles
+    report from launch logs, so they are claimed rather than checked against an independent registry. Reaching a
+    high count shows that the hardware survives repeated flights, but it says little about cost on its own, because
+    refurbishment, insurance and launch rate also matter.'
+chart:
+  primary: record-chart
+update:
+  cadence: monthly
+  last_checked: '2026-11-09'
+  notes: 'Records were taken from news articles, all of them about Falcon 9 booster B1067 except the first, which
+    is B1062. Only the record-setting flights listed here were opened. Flights 21 to 24, 26 and 28 to 32 are not yet
+    recorded, so the history is incomplete; the current record (37, 2026-08-25) was checked against two articles.
+    The dates for the 20th, 25th, 27th, 35th flights are those in the preview articles, not confirmed by a
+    post-launch article. Check SpaceX and launch logs for flights after August 2026. No 38th flight was found in
+    search on 2026-11-09.'
+sources:
+- id: spaceflightnow
+  name: Spaceflight Now launch coverage
+  url: https://spaceflightnow.com/
+  kind: press
+  primary: true
+  notes: Launch-day coverage that states the booster serial and the flight number. Preview articles, so dates are
+    scheduled dates.
+- id: bgr
+  name: BGR, "SpaceX Just Proved Rocket Reuse Works Better Than Anyone Expected"
+  url: https://www.bgr.com/2273946/spacex-falcon-9-rocket-booster-reuse-37th-time/
+  kind: news
+- id: aiaa
+  name: AIAA, "SpaceX Breaks Rocket Reuse Record on 36th Falcon 9 Flight" (9 July 2026)
+  url: https://aiaa.org/2026/07/09/spacex-breaks-rocket-reuse-record-on-36th-falcon-9-flight/
+  kind: news
+- id: behindtheblack
+  name: Behind the Black, "SpaceX launches first stage for record 34th time, passing shuttle Atlantis"
+  url: https://behindtheblack.com/behind-the-black/points-of-information/spacex-launches-first-stage-for-record-34th-time-passing-shuttle-atlantis/
+  kind: news
+- id: cislunar-space
+  name: Cislunar Space News, "SpaceX Falcon 9 B1067 Sets Reuse Record with 36th Flight" (9 July 2026)
+  url: https://cislunarspace.cn/en/space-news/2026/07/2026-07-09-spacex-falcon-9-b1067-36th-flight-record/
+  kind: news
+records:
+- date: '2024-04-12'
+  value: 20
+  holder: SpaceX (booster B1062)
+  conditions: Falcon 9 booster, flight count
+  status: claimed
+  source: spaceflightnow
+  url: https://spaceflightnow.com/2024/04/12/live-coverage-spacex-to-launch-falcon-9-booster-on-record-breaking-20th-flight/
+  note: Preview article for the 20th flight of B1062, which it calls record-breaking. Scheduled date.
+- date: '2025-01-10'
+  value: 25
+  holder: SpaceX (booster B1067)
+  conditions: Falcon 9 booster, flight count
+  status: claimed
+  source: spaceflightnow
+  url: https://spaceflightnow.com/?p=68449
+  note: Launch and landing attempt by B1067, described as a record-setting 25th launch and landing.
+- date: '2025-04-14'
+  value: 27
+  holder: SpaceX (booster B1067)
+  conditions: Falcon 9 booster, flight count
+  status: claimed
+  source: spaceflightnow
+  url: https://spaceflightnow.com/2025/04/13/live-coverage-spacex-to-launch-27-starlink-satellites-on-falcon-9-rocket-from-cape-canaveral/
+  note: Starlink 6-73 mission, described as a record-setting 27th launch. Scheduled date.
+- date: '2026-02-21'
+  value: 33
+  holder: SpaceX (booster B1067)
+  conditions: Falcon 9 booster, flight count
+  status: claimed
+  source: spaceflightnow
+  url: https://spaceflightnow.com/2026/02/21/live-coverage-spacexs-most-flown-falcon-booster-to-launch-on-record-33rd-flight/
+  note: Described as SpaceX's most-flown Falcon 9 booster on its 33rd mission.
+- date: '2026-03-30'
+  value: 34
+  holder: SpaceX (booster B1067)
+  conditions: Falcon 9 booster, flight count
+  status: claimed
+  source: behindtheblack
+  url: https://behindtheblack.com/behind-the-black/points-of-information/spacex-launches-first-stage-for-record-34th-time-passing-shuttle-atlantis/
+  note: Reported as the 34th flight of B1067 on 30 March 2026. The article ranks it second among reused launch vehicles, ahead of Space Shuttle Atlantis at 33 flights.
+- date: '2026-06-08'
+  value: 35
+  holder: SpaceX (booster B1067)
+  conditions: Falcon 9 booster, flight count
+  status: claimed
+  source: spaceflightnow
+  url: https://spaceflightnow.com/2026/06/07/live-coverage-spacex-to-launch-falcon-9-rocket-booster-on-record-breaking-35th-flight/?mr=falcon-9
+  note: Launch described as the 35th flight of B1067, on a record-breaking flight. Scheduled date from the preview.
+- date: '2026-07-09'
+  value: 36
+  holder: SpaceX (booster B1067)
+  conditions: Falcon 9 booster, flight count
+  status: claimed
+  source: cislunar-space
+  url: https://cislunarspace.cn/en/space-news/2026/07/2026-07-09-spacex-falcon-9-b1067-36th-flight-record/
+  note: The AIAA article (https://aiaa.org/2026/07/09/spacex-breaks-rocket-reuse-record-on-36th-falcon-9-flight/) gives the 36th flight and the date but not the serial; B1067 comes from this article.
+- date: '2026-08-25'
+  value: 37
+  holder: SpaceX (booster B1067)
+  conditions: Falcon 9 booster, flight count
+  status: claimed
+  source: bgr
+  url: https://www.bgr.com/2273946/spacex-falcon-9-rocket-booster-reuse-37th-time/
+  note: Reported as the 37th flight of B1067, a new record for reflight, on 25 August 2026.
+events:
+- date: '2026-03-30'
+  kind: milestone
+  title: B1067 flies its 34th time and passes the Space Shuttle Atlantis for second place among reused launch vehicles
+  why_it_matters: The booster's count now exceeds the 33 flights credited to Atlantis, so the record is set by a rocket stage rather than a crewed orbiter.
+  url: https://behindtheblack.com/behind-the-black/points-of-information/spacex-launches-first-stage-for-record-34th-time-passing-shuttle-atlantis/
+- date: '2026-08-25'
+  kind: milestone
+  title: B1067 lifts off for its 37th time, setting a new reflight record
+  why_it_matters: Each extra flight from the same booster spreads its build cost over more launches, which is the mechanism reuse relies on.
+  url: https://www.bgr.com/2273946/spacex-falcon-9-rocket-booster-reuse-37th-time/
+- date: '2025-01-10'
+  kind: milestone
+  title: B1067 completes its 25th launch and landing, a record for an orbital-class rocket
+  why_it_matters: Repeated landings of the same stage show whether recovery can be repeated, not only achieved once.
+  url: https://spaceflightnow.com/?p=68449
+reading: []
