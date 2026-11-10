@@ -266,3 +266,75 @@ table.stages { min-width: 760px; }
 .pn a:hover { background: var(--panel); }
 .pn a.nx { text-align: right; align-items: flex-end; }
 .pn strong { font-family: var(--display); font-size: 20px; letter-spacing: -0.02em; }
+
+/* What this is / why it matters */
+.about { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 1px; background: var(--line); border-top: 2px solid var(--ink-2); border-bottom: 1px solid var(--line); }
+.about > div { background: var(--paper); padding: 24px 32px 28px 0; display: flex; flex-direction: column; gap: 10px; }
+.about > div + div { padding-left: 32px; }
+.about h2 { font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mute); }
+.about p { font-family: var(--display); font-weight: 500; font-size: clamp(19px, 1.7vw, 23px); line-height: 1.35; letter-spacing: -0.015em; max-width: 34em; text-wrap: pretty; }
+@media (max-width: 760px) { .about > div + div { padding-left: 0; } }
+.sw-cursor { pointer-events: none; }
+
+/* Shape views: a bar drawn to scale and a row of the figures it compares (coverage meter, race to zero) */
+.scalebar { display: block; width: 100%; height: 32px; }
+.split { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 1px; background: var(--line); border-top: 2px solid var(--ink-2); border-bottom: 1px solid var(--line); }
+.split div { background: var(--paper); padding: 16px 16px 18px 0; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.split dt { font-size: 13px; color: var(--mute); }
+.split dd { margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(30px, 3.6vw, 48px); line-height: 1; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.split .now dt::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #E4531A; margin-right: 8px; }
+.split .goal dd, .split .goal dt { color: var(--limit); }
+
+/* Front page: search, filters and tiles grouped by domain */
+.filters .grow { flex: 2 1 280px; max-width: 480px; }
+#tiles-list { display: flex; flex-direction: column; gap: 20px; }
+.tgroup { display: flex; flex-direction: column; gap: 12px; }
+.tgroup h3 { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 20px; border-top: 2px solid var(--ink-2); padding-top: 12px; font-size: 22px; letter-spacing: -0.025em; }
+.tgroup + .tgroup { margin-top: 20px; }
+.empty { font-family: var(--display); font-weight: 500; font-size: 22px; letter-spacing: -0.02em; }
+
+/* Shape views: threshold gauge and the ribbon of record holders */
+.split .words dd { font-size: clamp(20px, 2.2vw, 28px); line-height: 1.15; letter-spacing: -0.02em; }
+table.reigns { min-width: 620px; }
+table.reigns td.g { font-variant-numeric: tabular-nums; }
+.big.xlong, .fr-title .big.xlong { font-size: clamp(28px, 7.4vw, 96px); letter-spacing: -0.04em; } /* a headline of 13 or more characters must still fit a phone */
+.read li > span:last-child { min-width: 0; overflow-wrap: anywhere; } /* a long file name in a source title must wrap, not widen the page */
+
+/* Shape views: the whole list as a grid by status, claim cards, and dated stage tracks */
+.ggs { display: flex; flex-direction: column; gap: 24px; }
+.gg { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.gg h3 { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 20px; font-size: 18px; letter-spacing: -0.02em; }
+.gcells { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.gc { width: 22px; height: 22px; border: 1.5px solid var(--ink-2); border-radius: 1px; }
+.gc.done { background: var(--ink-2); }
+.gc.partial { background: linear-gradient(90deg, var(--ink-2) 50%, transparent 50%); }
+.gc.disputed { background: linear-gradient(135deg, transparent 46%, var(--ink-2) 46%, var(--ink-2) 54%, transparent 54%); }
+.gc.new { border-color: #E4531A; }
+.gc.new.done { background: #E4531A; }
+.gcards { list-style: none; margin: 0; padding: 1px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr)); gap: 1px; }
+.gcards.claims { grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr)); }
+.gcard { outline: 1px solid var(--line); background: var(--paper); padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; min-width: 0; overflow-wrap: anywhere; }
+.gcard strong { font-family: var(--display); font-weight: 600; font-size: 18px; line-height: 1.2; letter-spacing: -0.02em; }
+.gcard.new { background: var(--panel); }
+.gtop { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; color: var(--mute); min-height: 18px; }
+.gtop svg { flex: none; }
+.gcard.new .gtop { color: var(--hot-ink); }
+.gcard .by { color: var(--ink-2); font-weight: 500; }
+.gnote { font-size: 14px; color: #353C44; margin-top: 4px; }
+.claims .gcard strong { font-size: 22px; }
+.gkey { display: flex; flex-wrap: wrap; gap: 6px 24px; }
+.stagekey { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; }
+.stagekey li { display: inline-flex; align-items: center; }
+.snum { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: var(--ink-2); color: #F4F5F1; font-family: var(--mono); font-size: 11px; font-weight: 500; margin-right: 8px; flex: none; }
+.snum.at { background: #E4531A; color: var(--ink-2); }
+table.stagedates { min-width: 720px; }
+.tbl { position: relative; } /* keeps a visually hidden column heading inside the table’s own scroll area, so it cannot widen the page */
+/* Cost-curve halvings and the scale ladder */
+table.halvings { min-width: 520px; }
+table.halvings td.g, table.ladder td.g { font-variant-numeric: tabular-nums; }
+table.halvings .snum { margin-right: 0; width: auto; min-width: 20px; padding: 0 5px; border-radius: 10px; }
+table.ladder { min-width: 520px; }
+table.ladder tr.next td { color: var(--mute); }
+
+/* Claim cards for records: a retracted result keeps its card, with the figure struck through */
+.gcard.gone strong { text-decoration: line-through; text-decoration-thickness: 2px; color: var(--mute); }

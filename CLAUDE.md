@@ -24,9 +24,10 @@ The owner wants updates to move with as few checkpoints as possible:
 
 1. Create `data/frontiers/<domain>/<id>.yaml`. Domain and subfield must exist in `data/domains.yaml`; chart shapes must exist in `data/chart-shapes.yaml`.
 2. Use `records` for best-ever results, `observations` for regular time series (costs, counts, shares), `items` for fixed lists, and `stages` plus `candidates` for things moving through stages.
-3. Set `status: live` when the core data is complete and sourced, and `draft` otherwise.
-4. Set `update.last_checked` to today and pick a sensible `update.cadence`.
-5. Leave `reading` empty unless every link is real and you opened it.
+3. Write `about.what` (what the frontier is and what is measured) and `about.why` (why progress matters outside the field): two or three plain sentences each, in your own words, with no figures that would need a source. The site shows them at the top of the page.
+4. Set `status: live` when the core data is complete and sourced, and `draft` otherwise.
+5. Set `update.last_checked` to today and pick a sensible `update.cadence`.
+6. Leave `reading` empty unless every link is real and you opened it.
 
 ## Environment notes
 

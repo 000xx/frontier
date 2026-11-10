@@ -1480,3 +1480,6 @@ reading:
   kind: paper
   url: https://arxiv.org/abs/2105.10954
   note: The original 2022 paper, which explains the method and the ignition and breakeven thresholds.
+about:
+  what: "How close fusion experiments have come to the conditions a power plant would need. The main score is the triple product: how hot, how dense and how well insulated the fuel is, multiplied together."
+  why: "Fusion could supply electricity with no carbon emissions and far less long-lived radioactive waste than fission, from fuel that is abundant. It only works if the fuel releases more energy than it takes to heat it, and this measure shows how far each approach is from that point."
