@@ -1,0 +1,140 @@
+# Observations are annual means of CO2 measured at Mauna Loa Observatory, Hawaii, for 1959 to 2025.
+# They come from NOAA's Global Monitoring Laboratory annual-mean file (co2_annmean_mlo.txt), which is public domain.
+# The values were first seeded from a GitHub copy of that file (datasets/co2-ppm, opened 2026-11-10 via raw.githubusercontent.com);
+# the NOAA file itself could not be opened by WebFetch in this run (permission request not answered), so the
+# scheduled fetcher (scripts/fetchers/atmospheric_co2.py) is the check against NOAA and must dry-run clean before this goes live.
+# Values are given to two decimal places as NOAA publishes them.
+id: atmospheric-co2
+title: Atmospheric CO2 at Mauna Loa
+domain: earth
+subfield: Climate and pollution
+status: draft
+summary: The yearly average concentration of carbon dioxide in the air, measured at the Mauna Loa Observatory since 1958.
+  It is the longest continuous record of the gas that drives most of the warming, and it shows how far the atmosphere
+  has moved away from its pre-industrial level.
+metric:
+  name: Annual mean CO2 concentration, Mauna Loa Observatory
+  unit: ppm
+  direction: lower
+  scale: linear
+  explainer: 'Carbon dioxide is measured as a dry-air mole fraction, in parts per million, at Mauna Loa on the island of
+    Hawaii. The site sits high above the local vegetation and far from big cities, so the readings track the global
+    background. Each year is the average of all the valid measurements taken that year. The number rises every year because
+    burning fossil fuels puts more carbon into the air than natural sinks remove. The yearly rise also varies with
+    climate and vegetation, so single-year jumps say less than the long trend. Progress here means a slower rise and,
+    eventually, a fall.'
+chart:
+  primary: record-chart
+series:
+- id: mauna-loa-annual
+  label: Mauna Loa annual mean
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'NOAA updates the annual mean once a year, early in the year after. To update, run the atmospheric_co2 fetcher or
+    open the NOAA file and add any new year. The fetcher refuses to drop existing years or change existing values.'
+sources:
+- id: noaa-mlo-annual
+  name: 'NOAA Global Monitoring Laboratory, trends in atmospheric carbon dioxide, Mauna Loa annual mean'
+  url: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt
+  kind: dataset
+  primary: true
+  notes: 'Public domain (US government work). Dataset page: https://gml.noaa.gov/ccgg/trends/. This file was not opened by
+    WebFetch in this run; its values come from the GitHub copy below and are to be checked by the fetcher dry run.
+    Credit line suggested: "Data: NOAA Global Monitoring Laboratory".'
+- id: github-co2-ppm-copy
+  name: 'datasets/co2-ppm, Mauna Loa annual CO2 CSV (GitHub copy of the NOAA annual means)'
+  url: https://raw.githubusercontent.com/datasets/co2-ppm/master/data/co2-annmean-mlo.csv
+  kind: dataset
+  notes: 'Opened 2026-11-10. Used only to seed the observations; not copied into the repository. Its licence was not checked,
+    so no dataset folder was made. Values must match NOAA (checked by the fetcher).'
+- id: noaa-400ppm-news
+  name: 'NOAA GML news, CO2 at Mauna Loa Observatory reaches new milestone: tops 400 ppm (10 May 2013)'
+  url: https://gml.noaa.gov/news/7074.html
+  kind: press
+  notes: 'Opened 2026-11-10. NOAA and Scripps both report the daily mean, not a monthly or annual mean.'
+- id: scripps-may-2026-peak
+  name: 'UC San Diego Today, Annual carbon dioxide peak reaches 432 parts per million (11 June 2026)'
+  url: https://today.ucsd.edu/story/annual-carbon-dioxide-peak-reaches-432-parts-per-million
+  kind: press
+  notes: 'Opened 2026-11-10. Scripps gives 432.00 ppm for May 2026; the article quotes NOAA at 432.3 ppm and does not explain
+    the difference. Monthly peak, not an annual mean; not in the observations.'
+events:
+- date: '2013-05-10'
+  kind: milestone
+  title: Daily average CO2 at Mauna Loa passes 400 ppm for the first time
+  why_it_matters: The air over Hawaii crossed a symbolic line that had not been reached since measurements began in 1958.
+  url: https://gml.noaa.gov/news/7074.html
+- date: '2026-06-11'
+  kind: milestone
+  title: The May 2026 monthly peak at Mauna Loa reaches about 432 ppm
+  why_it_matters: The seasonal peak is now more than 30 ppm above where the record stood when the 400 ppm line was first passed.
+  url: https://today.ucsd.edu/story/annual-carbon-dioxide-peak-reaches-432-parts-per-million
+observations:
+- {date: '1959', series: mauna-loa-annual, value: 315.98, source: noaa-mlo-annual}
+- {date: '1960', series: mauna-loa-annual, value: 316.91, source: noaa-mlo-annual}
+- {date: '1961', series: mauna-loa-annual, value: 317.64, source: noaa-mlo-annual}
+- {date: '1962', series: mauna-loa-annual, value: 318.45, source: noaa-mlo-annual}
+- {date: '1963', series: mauna-loa-annual, value: 318.99, source: noaa-mlo-annual}
+- {date: '1964', series: mauna-loa-annual, value: 319.62, source: noaa-mlo-annual}
+- {date: '1965', series: mauna-loa-annual, value: 320.04, source: noaa-mlo-annual}
+- {date: '1966', series: mauna-loa-annual, value: 321.37, source: noaa-mlo-annual}
+- {date: '1967', series: mauna-loa-annual, value: 322.18, source: noaa-mlo-annual}
+- {date: '1968', series: mauna-loa-annual, value: 323.05, source: noaa-mlo-annual}
+- {date: '1969', series: mauna-loa-annual, value: 324.62, source: noaa-mlo-annual}
+- {date: '1970', series: mauna-loa-annual, value: 325.68, source: noaa-mlo-annual}
+- {date: '1971', series: mauna-loa-annual, value: 326.32, source: noaa-mlo-annual}
+- {date: '1972', series: mauna-loa-annual, value: 327.46, source: noaa-mlo-annual}
+- {date: '1973', series: mauna-loa-annual, value: 329.68, source: noaa-mlo-annual}
+- {date: '1974', series: mauna-loa-annual, value: 330.19, source: noaa-mlo-annual}
+- {date: '1975', series: mauna-loa-annual, value: 331.13, source: noaa-mlo-annual}
+- {date: '1976', series: mauna-loa-annual, value: 332.03, source: noaa-mlo-annual}
+- {date: '1977', series: mauna-loa-annual, value: 333.84, source: noaa-mlo-annual}
+- {date: '1978', series: mauna-loa-annual, value: 335.41, source: noaa-mlo-annual}
+- {date: '1979', series: mauna-loa-annual, value: 336.84, source: noaa-mlo-annual}
+- {date: '1980', series: mauna-loa-annual, value: 338.76, source: noaa-mlo-annual}
+- {date: '1981', series: mauna-loa-annual, value: 340.12, source: noaa-mlo-annual}
+- {date: '1982', series: mauna-loa-annual, value: 341.48, source: noaa-mlo-annual}
+- {date: '1983', series: mauna-loa-annual, value: 343.15, source: noaa-mlo-annual}
+- {date: '1984', series: mauna-loa-annual, value: 344.87, source: noaa-mlo-annual}
+- {date: '1985', series: mauna-loa-annual, value: 346.35, source: noaa-mlo-annual}
+- {date: '1986', series: mauna-loa-annual, value: 347.61, source: noaa-mlo-annual}
+- {date: '1987', series: mauna-loa-annual, value: 349.31, source: noaa-mlo-annual}
+- {date: '1988', series: mauna-loa-annual, value: 351.69, source: noaa-mlo-annual}
+- {date: '1989', series: mauna-loa-annual, value: 353.20, source: noaa-mlo-annual}
+- {date: '1990', series: mauna-loa-annual, value: 354.45, source: noaa-mlo-annual}
+- {date: '1991', series: mauna-loa-annual, value: 355.70, source: noaa-mlo-annual}
+- {date: '1992', series: mauna-loa-annual, value: 356.54, source: noaa-mlo-annual}
+- {date: '1993', series: mauna-loa-annual, value: 357.21, source: noaa-mlo-annual}
+- {date: '1994', series: mauna-loa-annual, value: 358.96, source: noaa-mlo-annual}
+- {date: '1995', series: mauna-loa-annual, value: 360.97, source: noaa-mlo-annual}
+- {date: '1996', series: mauna-loa-annual, value: 362.74, source: noaa-mlo-annual}
+- {date: '1997', series: mauna-loa-annual, value: 363.88, source: noaa-mlo-annual}
+- {date: '1998', series: mauna-loa-annual, value: 366.84, source: noaa-mlo-annual}
+- {date: '1999', series: mauna-loa-annual, value: 368.54, source: noaa-mlo-annual}
+- {date: '2000', series: mauna-loa-annual, value: 369.71, source: noaa-mlo-annual}
+- {date: '2001', series: mauna-loa-annual, value: 371.32, source: noaa-mlo-annual}
+- {date: '2002', series: mauna-loa-annual, value: 373.45, source: noaa-mlo-annual}
+- {date: '2003', series: mauna-loa-annual, value: 375.98, source: noaa-mlo-annual}
+- {date: '2004', series: mauna-loa-annual, value: 377.70, source: noaa-mlo-annual}
+- {date: '2005', series: mauna-loa-annual, value: 379.98, source: noaa-mlo-annual}
+- {date: '2006', series: mauna-loa-annual, value: 382.09, source: noaa-mlo-annual}
+- {date: '2007', series: mauna-loa-annual, value: 384.02, source: noaa-mlo-annual}
+- {date: '2008', series: mauna-loa-annual, value: 385.83, source: noaa-mlo-annual}
+- {date: '2009', series: mauna-loa-annual, value: 387.64, source: noaa-mlo-annual}
+- {date: '2010', series: mauna-loa-annual, value: 390.10, source: noaa-mlo-annual}
+- {date: '2011', series: mauna-loa-annual, value: 391.85, source: noaa-mlo-annual}
+- {date: '2012', series: mauna-loa-annual, value: 394.06, source: noaa-mlo-annual}
+- {date: '2013', series: mauna-loa-annual, value: 396.74, source: noaa-mlo-annual}
+- {date: '2014', series: mauna-loa-annual, value: 398.81, source: noaa-mlo-annual}
+- {date: '2015', series: mauna-loa-annual, value: 401.01, source: noaa-mlo-annual}
+- {date: '2016', series: mauna-loa-annual, value: 404.41, source: noaa-mlo-annual}
+- {date: '2017', series: mauna-loa-annual, value: 406.76, source: noaa-mlo-annual}
+- {date: '2018', series: mauna-loa-annual, value: 408.72, source: noaa-mlo-annual}
+- {date: '2019', series: mauna-loa-annual, value: 411.65, source: noaa-mlo-annual}
+- {date: '2020', series: mauna-loa-annual, value: 414.21, source: noaa-mlo-annual}
+- {date: '2021', series: mauna-loa-annual, value: 416.41, source: noaa-mlo-annual}
+- {date: '2022', series: mauna-loa-annual, value: 418.53, source: noaa-mlo-annual}
+- {date: '2023', series: mauna-loa-annual, value: 421.08, source: noaa-mlo-annual}
+- {date: '2024', series: mauna-loa-annual, value: 424.61, source: noaa-mlo-annual}
+- {date: '2025', series: mauna-loa-annual, value: 427.35, source: noaa-mlo-annual}
