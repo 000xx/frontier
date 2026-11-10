@@ -192,8 +192,6 @@ def fetch():
     csv_text = build_csv(data)
     old_obs, new_obs = update_observations(data)
     obs_changed = old_obs != new_obs
-    print("DIAG malaria:", {m: (len(data[m]), max(data[m]), data[m][max(data[m])]["value"][0]) for m in data},
-          "dates", sorted(dates), "obs_changed", obs_changed)  # DIAG
     csv_changed = common.write_if_changed(f"{DATASET}/estimates.csv", csv_text)
     if not csv_changed and not obs_changed:
         return []
