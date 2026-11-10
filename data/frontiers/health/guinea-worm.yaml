@@ -5,7 +5,7 @@ id: guinea-worm
 title: Guinea worm disease
 domain: health
 subfield: Diseases being eliminated
-status: draft
+status: live
 summary: How many people are reported with Guinea worm disease each year, and how close the world is to
   eradicating a parasite that has no vaccine and no drug to prevent it.
 metric:
@@ -140,6 +140,24 @@ observations:
   source: owid-guinea-worm
 - date: '2019'
   value: 54
+  source: owid-guinea-worm
+- date: '2020'
+  value: 27
+  source: owid-guinea-worm
+- date: '2021'
+  value: 15
+  source: owid-guinea-worm
+- date: '2022'
+  value: 13
+  source: owid-guinea-worm
+- date: '2023'
+  value: 14
+  source: owid-guinea-worm
+- date: '2024'
+  value: 15
+  source: owid-guinea-worm
+- date: '2025'
+  value: 10
   source: owid-guinea-worm
 sources:
 - id: owid-guinea-worm
