@@ -14,7 +14,7 @@ from . import common
 
 FRONTIER = "data/frontiers/development/electricity-access.yaml"
 URL = "https://ourworldindata.org/grapher/share-of-the-population-with-access-to-electricity.csv?country=OWID_WRL"
-COLUMN = "Access to electricity (% of population)"
+COLUMN = "Share of the population with access to electricity"
 SOURCE_ID = "owid-electricity-access"
 ID_COLUMNS = ("Entity", "Code", "Year")
 MIN_YEARS = 20
