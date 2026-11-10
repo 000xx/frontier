@@ -1,0 +1,113 @@
+id: qubit-fidelity
+title: Two-qubit gate fidelity
+domain: quantum
+subfield: Quantum technologies
+status: draft
+summary: How often the best quantum processors carry out a two-qubit operation correctly, tracked by hardware platform. Fidelity has to climb far higher than today's levels before error correction can work at scale.
+metric:
+  name: Two-qubit gate fidelity
+  unit: '%'
+  direction: higher
+  scale: linear
+  explainer: 'A two-qubit gate is the basic operation that entangles a pair of qubits, the building block of
+    any quantum algorithm. Its fidelity is the chance that the gate does what it should. Error-correction
+    schemes need each gate to fail rarely, so a few more nines of fidelity matter a lot: 99 per cent means
+    one failure in a hundred operations, while 99.99 per cent means one in ten thousand. Labs measure it
+    by preparing known states and comparing the output with what the ideal gate would produce, so results
+    depend on the platform, the qubit count and the benchmark used. Each record here is tied to a specific
+    device and paper, and only the platform best of its kind is shown.'
+chart:
+  primary: record-chart
+series:
+- id: trapped-ion
+  label: Trapped ions
+  group: Trapped ions
+- id: superconducting-transmon
+  label: Superconducting transmons
+  group: Superconducting circuits
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'No machine-readable source; records are added by hand from papers opened in full. Only four
+    results have been checked so far, so the history is incomplete. Still to add: the earlier superconducting
+    and trapped-ion milestones and any refereed version of the 2025 preprints. Check arXiv and journal
+    listings for new results each quarter.'
+sources:
+- id: ballance-2016-prl
+  name: 'Ballance et al., High-Fidelity Quantum Logic Gates Using Trapped-Ion Hyperfine Qubits, Physical Review Letters (2016)'
+  url: https://ui.adsabs.harvard.edu/abs/2016PhRvL.117f0504B
+  kind: paper
+  notes: Peer-reviewed. Reports a 99.9(1) per cent two-qubit gate in calcium-43 ions.
+- id: gaebler-2016-prl
+  name: 'Gaebler et al., High Fidelity Universal Gate Set for 9Be+ Ion Qubits, Physical Review Letters (2016)'
+  url: https://www.nist.gov/node/1182431
+  kind: paper
+  notes: Peer-reviewed. NIST page for the paper, which reports a gate infidelity of 8(4) x 10^-4 for a beryllium-ion two-qubit gate.
+- id: marxer-2025-arxiv
+  name: 'Marxer et al., Above 99.9% Fidelity Single-Qubit Gates, Two-Qubit Gates, and Readout in a Single Superconducting Quantum Device, arXiv:2508.16437 (2025)'
+  url: https://arxiv.org/abs/2508.16437
+  kind: paper
+  notes: arXiv preprint, submitted 2025-08-22. The page gives DOI 10.1103/n86s-2b88, which was not opened, so journal publication is unchecked.
+- id: hughes-2025-arxiv
+  name: 'Hughes et al., Trapped-ion two-qubit gates with >99.99% fidelity without ground-state cooling, arXiv:2510.17286 (2025)'
+  url: https://arxiv.org/abs/2510.17286
+  kind: paper
+  notes: arXiv preprint, submitted 2025-10-20. Not refereed as far as checked.
+records:
+- date: '2016-08'
+  value: 99.9
+  series: trapped-ion
+  holder: Oxford group (Ballance et al.)
+  conditions: Calcium-43 hyperfine qubits; reported as 99.9(1)%
+  status: peer_reviewed
+  source: ballance-2016-prl
+  url: https://ui.adsabs.harvard.edu/abs/2016PhRvL.117f0504B
+  note: Trapped-ion benchmark from the 2016 paper.
+- date: '2016-08'
+  value: 99.92
+  series: trapped-ion
+  holder: NIST (Gaebler et al.)
+  conditions: Beryllium-9 ions; value computed as 1 minus the reported infidelity of 8(4) x 10^-4, so the uncertainty is about 0.04 points
+  status: peer_reviewed
+  source: gaebler-2016-prl
+  url: https://www.nist.gov/node/1182431
+  note: Same year as the calcium result; reported as a gate infidelity, converted here to fidelity.
+- date: '2025-08'
+  value: 99.93
+  series: superconducting-transmon
+  holder: Marxer et al.
+  conditions: Two transmon qubits with a tunable coupler; average CZ gate fidelity over 40 hours
+  status: claimed
+  source: marxer-2025-arxiv
+  url: https://arxiv.org/abs/2508.16437
+  note: Preprint, not yet refereed as far as checked. Single-qubit gates and readout were also above 99.9 per cent in the same device.
+- date: '2025-10'
+  value: 99.9916
+  series: trapped-ion
+  holder: Hughes et al.
+  conditions: Trapped ions, no ground-state cooling; reported as an error of 8.4(7) x 10^-5, so the value is computed from it
+  status: claimed
+  source: hughes-2025-arxiv
+  url: https://arxiv.org/abs/2510.17286
+  note: Preprint, not yet refereed as far as checked. The title's claim of above 99.99 per cent is consistent with the reported error.
+events:
+- date: '2016-08'
+  kind: paper
+  title: Calcium-43 two-qubit gates reach 99.9 per cent fidelity
+  why_it_matters: An early sign that trapped-ion gates could meet the accuracy that error correction requires.
+  url: https://ui.adsabs.harvard.edu/abs/2016PhRvL.117f0504B
+- date: '2016-08-04'
+  kind: paper
+  title: NIST reports a universal gate set for beryllium-ion qubits
+  why_it_matters: A second, independent trapped-ion platform reached the same accuracy class in the same year.
+  url: https://www.nist.gov/node/1182431
+- date: '2025-08-22'
+  kind: paper
+  title: Superconducting device reports above 99.9 per cent on gates and readout together
+  why_it_matters: Showed that the superconducting platform, not only ions, can run its gates at this accuracy in one device.
+  url: https://arxiv.org/abs/2508.16437
+- date: '2025-10-20'
+  kind: paper
+  title: Trapped-ion gates above 99.99 per cent without ground-state cooling
+  why_it_matters: Claims a gate error near one in ten thousand with a simpler cooling step, which would ease scaling.
+  url: https://arxiv.org/abs/2510.17286
