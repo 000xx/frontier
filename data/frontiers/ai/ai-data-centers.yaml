@@ -4,7 +4,7 @@ id: ai-data-centers
 title: Power of the largest AI data center
 domain: ai
 subfield: Cost and scale
-status: draft
+status: live
 summary: The electrical power capacity of the largest AI data center in operation or under construction
   at each date, as estimated by Epoch AI from satellite imagery, permits and company disclosures. It
   tracks how fast the physical build-out behind AI training is growing.
@@ -76,4 +76,14 @@ events:
 reading: []
 connections:
 - training-compute
-records: []
+records:
+- {date: '2021-01-01', value: 57.0, series: largest-site, holder: Microsoft Project Osmium, conditions: IT power 48 MW; Epoch AI estimate for this date, status: confirmed, source: epoch-data-centers}
+- {date: '2023-01-23', value: 95.0, series: largest-site, holder: Google Papillion, conditions: IT power 79 MW; Epoch AI estimate for this date, status: confirmed, source: epoch-data-centers}
+- {date: '2023-06-30', value: 114.0, series: largest-site, holder: Microsoft Project Osmium, conditions: IT power 95 MW; Epoch AI estimate for this date, status: confirmed, source: epoch-data-centers}
+- {date: '2024-06-23', value: 132.0, series: largest-site, holder: QTS Richmond 1, conditions: IT power 94 MW; Epoch AI estimate for this date, status: confirmed, source: epoch-data-centers}
+- {date: '2024-08-03', value: 284.0, series: largest-site, holder: Google Papillion, conditions: IT power 237 MW; Epoch AI estimate for this date, status: confirmed, source: epoch-data-centers}
+- {date: '2025-02-17', value: 361.0, series: largest-site, holder: Colossus 1, conditions: IT power 278 MW; Epoch AI estimate for this date, status: confirmed, source: epoch-data-centers}
+- {date: '2025-06-23', value: 478.0, series: largest-site, holder: Anthropic-Amazon New Carlisle, conditions: IT power 398 MW; Epoch AI estimate for this date, status: confirmed, source: epoch-data-centers}
+- {date: '2025-12-23', value: 751.0, series: largest-site, holder: Anthropic-Amazon New Carlisle, conditions: IT power 626 MW; Epoch AI estimate for this date, status: confirmed, source: epoch-data-centers}
+- {date: '2026-03-23', value: 1092.0, series: largest-site, holder: Anthropic-Amazon New Carlisle, conditions: IT power 910 MW; Epoch AI estimate for this date, status: confirmed, source: epoch-data-centers}
+- {date: '2026-06-15', value: 1276.0, series: largest-site, holder: Colossus 2, conditions: IT power 946 MW; Epoch AI estimate for this date, status: confirmed, source: epoch-data-centers}

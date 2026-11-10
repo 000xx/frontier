@@ -6,7 +6,8 @@ A row is a record when its facility power is larger than every row dated before 
 (rows on the same date are taken largest first). Rows dated after the day of the run are Epoch's
 projections and are left out; they enter the record line automatically once their date has passed.
 The records block is rebuilt from the file each time; only facts derived from it are stored, and the
-file is not copied. DIAG lines show counts, the latest records and every difference from the file.
+file is not copied, and Epoch's free-text construction notes are not stored. DIAG lines show counts,
+the latest records and every difference from the frontier file.
 """
 import csv
 import datetime as dt
@@ -22,7 +23,7 @@ URL = "https://epoch.ai/data/data_centers/data_center_timelines.csv"
 SOURCE = "epoch-data-centers"
 SERIES = "largest-site"
 SITE, DATE, POWER, IT_POWER, STATUS = "Data center", "Date", "Power (MW)", "IT power (MW)", "Construction status"
-MIN_ROWS = 300   # placeholder until the first run shows the row count
+MIN_ROWS = 400   # the file had 573 rows (76 sites) in November 2026
 REVISES_PAST = True  # Epoch revises its site estimates; removed records still go to review
 
 
@@ -73,8 +74,6 @@ def build(usable):
         it = _number(r[IT_POWER], f"IT power for {r[SITE]!r} on {date}")
         if it is not None:
             parts.append(f"IT power {it:g} MW")
-        if r[STATUS].strip():
-            parts.append(f"construction status: {' '.join(r[STATUS].split())}")
         parts.append("Epoch AI estimate for this date")
         records.append({
             "date": date,
