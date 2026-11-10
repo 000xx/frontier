@@ -1,0 +1,70 @@
+# Renewables cost: observations are global weighted-average levelised cost of electricity (LCOE) in USD per MWh, for
+# utility-scale solar PV, onshore wind and offshore wind. All values come from the executive summary of IRENA's
+# "Renewable power generation costs in 2025" (cited as IRENA 2026), opened 2026-11-10. The summary gives the 2025 values
+# for all three technologies and says solar was unchanged from 2024 at USD 44/MWh, so 2024 is recorded for solar only.
+# The full report PDF on irena.org could not be opened (client error), so earlier years were not added. This is a draft
+# because the frontier has one year for wind and two for solar, not a time series.
+id: renewables-cost
+title: Renewable electricity cost
+domain: cost
+subfield: Cost curves
+status: draft
+summary: The average cost of generating electricity from new solar, onshore wind and offshore wind plants over their
+  lifetimes, worldwide. Falling costs are why new renewable plants now often undercut new fossil fuel plants.
+metric:
+  name: Global weighted-average levelised cost of electricity, by technology
+  unit: USD/MWh
+  direction: lower
+  scale: linear
+  explainer: 'The levelised cost of electricity spreads a power plant''s total cost over every unit of electricity it
+    will produce across its life, so it includes the build cost, financing, operation and maintenance, and fuel where
+    relevant. It is a cost per unit of output rather than a price, so it can be compared across technologies with
+    different lifetimes and different amounts of sun or wind. A weighted average gives more weight to the countries
+    that build more capacity. The figure depends on assumptions about financing costs and the amount of energy a plant
+    yields, so small changes in those assumptions can move the number without any change in the equipment.'
+chart:
+  primary: cost-curve
+series:
+- id: solar-pv
+  label: Utility-scale solar PV
+- id: onshore-wind
+  label: Onshore wind
+- id: offshore-wind
+  label: Offshore wind
+update:
+  cadence: yearly
+  last_checked: '2026-11-10'
+  notes: 'IRENA publishes its renewable power generation cost report once a year. To update, open the full report and
+    add the new year for all three technologies, and add the earlier years from its time-series table if one is
+    published. The full report PDF on irena.org was not reachable in this run.'
+sources:
+- id: irena-rpgc-2025-summary
+  name: IRENA, Renewable power generation costs in 2025, executive summary (copy)
+  url: https://elettricomagazine.it/wp-content/uploads/2025/08/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf
+  kind: report
+  primary: true
+  notes: 'Opened 2026-11-10. The file is hosted on an Italian magazine site, but its text states it is IRENA''s own
+    publication, with the notice "© IRENA 2026" and the citation "IRENA (2026), Renewable power generation costs in
+    2025, International Renewable Energy Agency, Abu Dhabi." IRENA''s own copy (irena.org, July 2026 PDF) returned a
+    client error when opened. Reuse terms were not checked; owner to confirm before copying any data beyond the figures.'
+- id: irena-rpgc-2025-full-pdf
+  name: IRENA, Renewable power generation costs in 2025 (full report, irena.org)
+  url: https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Jul/IRENA_TEC_RPGC_in_2025_2026.pdf
+  kind: report
+  notes: 'Listed by search only. Opening it returned a client error, so none of its figures are used.'
+events:
+- date: '2026'
+  kind: milestone
+  title: Onshore wind LCOE falls to USD 33/MWh in 2025, offshore wind to USD 78/MWh
+  why_it_matters: Both wind technologies fell in cost in the year that solar's figure stayed flat, so the report shows wind moving ahead on cost.
+  url: https://elettricomagazine.it/wp-content/uploads/2025/08/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf
+- date: '2026'
+  kind: milestone
+  title: Solar PV LCOE held at USD 44/MWh in 2025, unchanged from 2024
+  why_it_matters: Solar's cost did not fall in 2025, so the report's figure shows no further gain for that year.
+  url: https://elettricomagazine.it/wp-content/uploads/2025/08/IRENA_TEC_RPGC_2025_Executive_summary_2026.pdf
+observations:
+- {date: '2024', series: solar-pv, value: 44, source: irena-rpgc-2025-summary}
+- {date: '2025', series: solar-pv, value: 44, source: irena-rpgc-2025-summary}
+- {date: '2025', series: onshore-wind, value: 33, source: irena-rpgc-2025-summary}
+- {date: '2025', series: offshore-wind, value: 78, source: irena-rpgc-2025-summary}
