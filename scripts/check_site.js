@@ -45,7 +45,18 @@ for (const f of data.frontiers) {
     console.error('FAIL ' + f.id + ': no records, observations, items or candidates, so the page would be empty');
     continue;
   }
-  check(f.id, () => Site.frontier(f));
+  check(f.id, () => {
+    const html = Site.frontier(f);
+    // The list and stage views must be on the page exactly where the data calls for them.
+    const has = (h2) => html.includes('<h2>' + h2 + '</h2>');
+    if (Site.gridMode(f) !== (has('The list at a glance') || has('The claims and where they stand'))) throw new Error('list grid shown or missing against the data');
+    if (Site.claimMode(f) !== has('The claims and where they stand')) throw new Error('claim cards shown or missing against the data');
+    if (Site.itemTimeMode(f) !== has('The list over time')) throw new Error('list timeline shown or missing against the data');
+    if (Site.stageDatesMode(f) !== has('When each stage was reached')) throw new Error('stage dates shown or missing against the data');
+    // A problem list stays a list: no grid, no counts and nothing drawn over time.
+    if (f.shape === 'problem-list' && (/class="(split|tally|gcells|gcards)/.test(html) || has('The list over time'))) throw new Error('a problem list must not show a count, a grid or a chart over time');
+    return html;
+  });
   if (block) for (const sid of Site.seriesIds(f, block)) {
     check(f.id + ' / ' + sid, () => {
       Site.select(f.id, sid);

@@ -98,11 +98,15 @@ def build():
             "observations": by_series(d.get("observations"), lambda r: [
                 str(r["date"]), r["value"], r.get("low"), r.get("high"), r.get("source") or "", one_line(r.get("note"))]),
             "items": [[str(i["id"]), i["label"], i.get("group") or "", i["status"], i.get("status_detail") or "",
-                       str(i.get("date_done") or ""), i.get("url") or "", i.get("ai_involvement") or ""]
+                       str(i.get("date_done") or ""), i.get("url") or "", i.get("ai_involvement") or "",
+                       i.get("by") or "", one_line(i.get("note"))]
                       for i in d.get("items") or []],
             "stages": d.get("stages") or [],
             "candidates": [{"name": c["name"], "developer": c.get("developer") or "", "kind": c.get("kind") or "",
-                            "stage": c.get("stage") or "", "key": one_line(c.get("key_result")), "url": c.get("url") or ""}
+                            "stage": c.get("stage") or "", "key": one_line(c.get("key_result")), "url": c.get("url") or "",
+                            "history": [{"stage": h["stage"], "date": str(h["date"]), "source": h.get("source") or "",
+                                         "url": h.get("url") or "", "note": one_line(h.get("note"))}
+                                        for h in c.get("history") or []]}
                            for c in d.get("candidates") or []],
             "events": [{"date": str(e["date"]), "kind": e.get("kind") or "", "title": e["title"],
                         "why": one_line(e.get("why_it_matters")), "url": e.get("url")} for e in d.get("events") or []],

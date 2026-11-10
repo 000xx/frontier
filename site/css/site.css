@@ -299,3 +299,33 @@ table.reigns { min-width: 620px; }
 table.reigns td.g { font-variant-numeric: tabular-nums; }
 .big.xlong, .fr-title .big.xlong { font-size: clamp(28px, 7.4vw, 96px); letter-spacing: -0.04em; } /* a headline of 13 or more characters must still fit a phone */
 .read li > span:last-child { min-width: 0; overflow-wrap: anywhere; } /* a long file name in a source title must wrap, not widen the page */
+
+/* Shape views: the whole list as a grid by status, claim cards, and dated stage tracks */
+.ggs { display: flex; flex-direction: column; gap: 24px; }
+.gg { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.gg h3 { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 20px; font-size: 18px; letter-spacing: -0.02em; }
+.gcells { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.gc { width: 22px; height: 22px; border: 1.5px solid var(--ink-2); border-radius: 1px; }
+.gc.done { background: var(--ink-2); }
+.gc.partial { background: linear-gradient(90deg, var(--ink-2) 50%, transparent 50%); }
+.gc.disputed { background: linear-gradient(135deg, transparent 46%, var(--ink-2) 46%, var(--ink-2) 54%, transparent 54%); }
+.gc.new { border-color: #E4531A; }
+.gc.new.done { background: #E4531A; }
+.gcards { list-style: none; margin: 0; padding: 1px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr)); gap: 1px; }
+.gcards.claims { grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr)); }
+.gcard { outline: 1px solid var(--line); background: var(--paper); padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; min-width: 0; overflow-wrap: anywhere; }
+.gcard strong { font-family: var(--display); font-weight: 600; font-size: 18px; line-height: 1.2; letter-spacing: -0.02em; }
+.gcard.new { background: var(--panel); }
+.gtop { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; color: var(--mute); min-height: 18px; }
+.gtop svg { flex: none; }
+.gcard.new .gtop { color: var(--hot-ink); }
+.gcard .by { color: var(--ink-2); font-weight: 500; }
+.gnote { font-size: 14px; color: #353C44; margin-top: 4px; }
+.claims .gcard strong { font-size: 22px; }
+.gkey { display: flex; flex-wrap: wrap; gap: 6px 24px; }
+.stagekey { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; }
+.stagekey li { display: inline-flex; align-items: center; }
+.snum { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: var(--ink-2); color: #F4F5F1; font-family: var(--mono); font-size: 11px; font-weight: 500; margin-right: 8px; flex: none; }
+.snum.at { background: #E4531A; color: var(--ink-2); }
+table.stagedates { min-width: 720px; }
+.tbl { position: relative; } /* keeps a visually hidden column heading inside the table’s own scroll area, so it cannot widen the page */

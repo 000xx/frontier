@@ -8,8 +8,10 @@
     observations          -> line chart with ranges and a table (or a points chart when each series is a single point)
       + coverage-meter    -> percentages are also drawn as a filled share of the whole, with what is left
       + race-to-zero      -> the first series is also drawn against zero: distance to go, and a log axis for big falls
-    stages + candidates   -> stage table
-    items                 -> filterable list
+    stages + candidates   -> stage table, and a dated track per candidate where `history` has dates
+    items                 -> a grid of the whole list by status, the dated entries on a time axis, then the filterable list
+      + claim-scoreboard  -> the grid becomes one card per claim, with who made it, where it stands and the note
+      (a problem-list frontier gets the filterable list only: no grid, no counts, no chart over time)
     events, reading, sources, credits -> the reference sections
   A new frontier that uses these blocks needs no change here. To add a new view,
   write a function that returns HTML for a block and call it from frontier().
@@ -206,6 +208,36 @@
   function reignMode(f, sid) {
     return hasRecords(f) && hasShape(f, 'reign-timeline') && reigns(f, sid).length > 1 && f.records[sid].every(function (r) { return r[2]; });
   }
+  /* Item lists. A problem list is shown as a list only, with no counts and nothing drawn over time. */
+  var ITEM_ORDER = ['done', 'partial', 'disputed', 'open'], MARK_AS = { done: 'confirmed', partial: 'peer_reviewed', disputed: 'retracted' };
+  function itemMark(s, color, size) { return mark(MARK_AS[s] || 'claimed', color, size); }
+  function gridMode(f) { return f.items.length > 0 && f.items.length <= 400 && f.shape !== 'problem-list'; }
+  function claimMode(f) { return gridMode(f) && f.shape === 'claim-scoreboard'; }
+  function datedItems(f) { return f.items.filter(function (i) { return i[5]; }); }
+  function itemTimeMode(f) { var n = datedItems(f).length; return gridMode(f) && n >= 3 && n * 2 >= f.items.length; }
+  /* The newest dated entry, or null when the dates cannot say which is newest (two in the same year, one dated to the year only). */
+  function newestItem(f) {
+    var top = null, clash = false;
+    datedItems(f).forEach(function (i) {
+      if (!top) { top = i; return; }
+      var a = parseDate(i[5]), b = parseDate(top[5]);
+      var same = a.y === b.y && (!a.m || !b.m || (a.m === b.m && (!a.d || !b.d || a.d === b.d)));
+      if (same) { clash = true; if (a.t > b.t) top = i; }
+      else if (a.t > b.t) { top = i; clash = false; }
+    });
+    return clash ? null : top;
+  }
+  function itemCounts(list) {
+    var n = {}; list.forEach(function (i) { n[i[3]] = (n[i[3]] || 0) + 1; });
+    return ITEM_ORDER.filter(function (s) { return n[s]; }).map(function (s) { return { s: s, n: n[s] }; });
+  }
+  /* Stage dates: every dated entry in a candidate's history. */
+  function stageDates(f) {
+    var out = [];
+    f.candidates.forEach(function (c) { (c.history || []).forEach(function (h) { if (h.date) out.push({ c: c, h: h, i: f.stages.indexOf(h.stage) }); }); });
+    return out;
+  }
+  function stageDatesMode(f) { return stageDates(f).length >= 2; }
   function peakRow(rows) { var p = rows[0]; rows.forEach(function (r) { if (r[1] > p[1]) p = r; }); return p; }
   function selectedId(f) {
     var b = block(f); if (!b) return null;
@@ -752,6 +784,109 @@
           '<td class="cond wide">' + esc(c.key) + '</td></tr>';
       }).join('') + '</tbody></table></div><p class="small">Stages, in order: ' + esc(f.stages.join(', ')) + '. Results from different trials or machines are not directly comparable.</p></div>';
   }
+  /* Stage timeline: one track per candidate with a numbered mark at the date each stage was reached. */
+  function cutName(s) { var t = s.split(' (')[0]; return t.length > 58 ? t.slice(0, 56) + '…' : t; }
+  function stageDatesSection(f) {
+    if (!stageDatesMode(f)) return '';
+    var all = stageDates(f), c = palette(false), W = 880, RH = 78, tN = nowT(), out = '', fg = '', n = f.stages.length;
+    var cands = f.candidates.filter(function (x) { return all.some(function (d) { return d.c === x; }); })
+      .sort(function (a, b) { return f.stages.indexOf(b.stage) - f.stages.indexOf(a.stage); });
+    var none = f.candidates.filter(function (x) { return cands.indexOf(x) < 0; });
+    var t0 = Math.floor(Math.min.apply(null, all.map(function (d) { return parseDate(d.h.date).t; }))), t1 = Math.ceil(tN + 0.1), H = cands.length * RH;
+    function X(t) { return (t - t0) / (t1 - t0) * W; }
+    out += '<path d="M0 ' + H + ' H' + W + '" stroke="' + c.axis + '" stroke-width="1"/>';
+    timeTicks(t0, t1).forEach(function (y) {
+      out += '<path d="M' + X(y).toFixed(1) + ' 0 V' + (H + 6) + '" stroke="' + c.grid + '" stroke-width="1"/>' +
+        '<text x="' + X(y).toFixed(1) + '" y="' + (H + 26) + '" fill="' + c.text + '" font-size="13" text-anchor="middle">' + y + '</text>';
+    });
+    cands.forEach(function (x, k) {
+      var y = k * RH + 40, ds = all.filter(function (d) { return d.c === x; }).sort(function (a, b) { return parseDate(a.h.date).t - parseDate(b.h.date).t; });
+      var lastX = null, level = 0, xs = ds.map(function (d) { return X(parseDate(d.h.date).t); });
+      out += '<text x="0" y="' + (k * RH + 17) + '" fill="' + c.strong + '" stroke="' + c.bg + '" stroke-width="4" paint-order="stroke" font-size="13" font-weight="500">' + esc(cutName(x.name)) + '</text>';
+      fg += '<path d="M' + xs[0].toFixed(1) + ' ' + y + ' H' + X(tN).toFixed(1) + '" stroke="' + c.faint + '" stroke-width="1.5"/>' +
+        '<path d="M' + xs[0].toFixed(1) + ' ' + y + ' H' + xs[xs.length - 1].toFixed(1) + '" stroke="' + c.line + '" stroke-width="2.5"/>';
+      ds.forEach(function (d, j) {
+        level = lastX !== null && xs[j] - lastX < 23 ? 1 - level : 0; lastX = xs[j];
+        var on = d.h.stage === x.stage, cy = y + level * 21;
+        fg += '<g><title>' + esc(x.name + ': ' + d.h.stage + ', ' + fmtDate(d.h.date)) + '</title>' +
+          '<circle cx="' + xs[j].toFixed(1) + '" cy="' + cy + '" r="10" fill="' + (on ? '#E4531A' : c.line) + '" stroke="' + c.bg + '" stroke-width="1.5"/>' +
+          '<text x="' + xs[j].toFixed(1) + '" y="' + (cy + 4.5) + '" fill="' + (on ? '#0F1317' : '#F4F5F1') + '" font-size="12" font-weight="500" text-anchor="middle">' + (d.i >= 0 ? d.i + 1 : '?') + '</text></g>';
+      });
+    });
+    var rows = all.slice().sort(function (a, b) { return parseDate(b.h.date).t - parseDate(a.h.date).t; }).map(function (d) {
+      var on = d.h.stage === d.c.stage;
+      return '<tr class="' + (on ? 'now' : '') + '"><td class="date">' + esc(fmtDate(d.h.date)) + '</td><td><strong>' + esc(d.c.name) + '</strong></td>' +
+        '<td>' + (d.i >= 0 ? '<span class="snum' + (on ? ' at' : '') + '">' + (d.i + 1) + '</span>' : '') + esc(d.h.stage) + '</td><td class="cond wide">' + esc(d.h.note) + '</td>' +
+        '<td>' + (d.h.url ? link(d.h.url, 'Source') : sourceLink(f, d.h.source)) + '</td></tr>';
+    }).join('');
+    return '<div class="wrap block"><h2>When each stage was reached</h2><div class="card">' +
+      frame(out + FG + fg, W, H, 'One track per candidate from ' + t0 + ' to now, with a numbered mark at the date each stage was reached. ' +
+        cands.map(function (x) { return x.name + ': now at ' + x.stage + '.'; }).join(' '), creditLine(f), [t0, t1], '-24 -8 ' + (W + 48) + ' ' + (H + 44)) + '</div>' +
+      '<ol class="stagekey">' + f.stages.map(function (s, i) { return '<li><span class="snum">' + (i + 1) + '</span>' + esc(s) + '</li>'; }).join('') + '</ol>' +
+      '<p class="small">Each numbered mark is the date a candidate reached that stage, for the stages the data has a date for. The orange mark is the stage it is at now. ' +
+        'A stage with no mark has no date in the data, which is not the same as a stage that was skipped. Marks that would overlap are set one below the other.' +
+        (none.length ? ' No dated stages yet for: ' + esc(none.map(function (x) { return x.name; }).join('; ')) + '.' : '') + '</p>' +
+      '<div class="tbl"><table class="stagedates"><thead><tr><th scope="col">Date</th><th scope="col">Name</th><th scope="col">Stage reached</th><th scope="col">Note</th><th scope="col">Source</th></tr></thead><tbody>' + rows + '</tbody></table></div></div>';
+  }
+  /* Countdown grid: the whole list at once, one cell per entry, drawn by status. Short lists get a labelled card per entry. */
+  function tallyText(list) { return itemCounts(list).map(function (x) { return x.n + ' ' + (ITEM_STATUS[x.s] || x.s).toLowerCase(); }).join(' · '); }
+  function gridSection(f) {
+    if (!gridMode(f)) return '';
+    var claim = claimMode(f), cards = claim || f.items.length <= 24, newest = newestItem(f), counts = itemCounts(f.items), groups = [], by = {};
+    f.items.forEach(function (i) { var g = claim ? '' : i[2] || ''; if (!by[g]) { by[g] = []; groups.push(g); } by[g].push(i); });
+    var mixed = counts.length > 1, split = '';
+    if (mixed || counts[0].s !== 'done') counts.forEach(function (x) { split += cell('', esc(ITEM_STATUS[x.s] || x.s), fmt(x.n)); });
+    split += cell('', 'On the list', fmt(f.items.length));
+    if (newest) split += cell('now words', 'Most recent · ' + esc(fmtDate(newest[5])), esc(newest[1]));
+    function when(i) { return (i[3] !== 'done' ? esc(ITEM_STATUS[i[3]] || i[3]) + (i[5] ? ' · ' : '') : '') + esc(fmtDate(i[5])); }
+    function one(i) {
+      var on = i === newest;
+      if (!cards) return '<li class="gc ' + esc(i[3]) + (on ? ' new' : '') + '" title="' + esc(i[1] + (i[4] ? ' · ' + i[4] : '') + (i[5] ? ' · ' + fmtDate(i[5]) : '')) + '"><span class="vh">' + esc(i[1] + ': ' + (ITEM_STATUS[i[3]] || i[3])) + '</span></li>';
+      return '<li class="gcard' + (on ? ' new' : '') + '"><span class="gtop">' + itemMark(i[3], on ? '#E4531A' : '#0F1317', 14) + '<span>' + when(i) + (claim && i[2] ? ' · ' + esc(i[2]) : '') + '</span></span>' +
+        '<strong>' + link(i[6], esc(i[1])) + '</strong>' + (i[4] ? '<span class="sub">' + esc(i[4]) + '</span>' : '') +
+        (i[8] ? '<span class="sub by">' + esc(i[8]) + '</span>' : '') + (claim && i[9] ? '<span class="gnote">' + esc(i[9]) + '</span>' : '') + '</li>';
+    }
+    var body = groups.map(function (g) {
+      return '<section class="gg">' + (g ? '<h3><span>' + esc(g || 'Not grouped') + '</span><span class="eyebrow">' + esc(tallyText(by[g])) + '</span></h3>' : '') +
+        '<ul class="' + (cards ? 'gcards' + (claim ? ' claims' : '') : 'gcells') + '">' + by[g].map(one).join('') + '</ul></section>';
+    }).join('');
+    var key = counts.map(function (x) { return '<span class="status">' + itemMark(x.s, '#0F1317') + esc(ITEM_STATUS[x.s] || x.s) + '</span>'; }).join('');
+    return '<div class="wrap block"><h2>' + (claim ? 'The claims and where they stand' : 'The list at a glance') + '</h2>' +
+      '<dl class="split">' + split + '</dl><div class="ggs">' + body + '</div>' +
+      '<p class="small gkey">' + key + (newest ? '<span class="status">' + itemMark(newest[3], '#E4531A') + 'Most recent</span>' : '') + '</p>' +
+      '<p class="small">' + (cards ? 'One card per entry, in the order the data lists them' : 'One square per entry, in the order the data lists them; hover a square for its name') +
+        (groups.length > 1 ? ', grouped as the data groups them' : '') + '. The counts are counts of the entries listed here, worked out on the page and not a figure from a source' +
+        (f.dataStatus === 'draft' ? '; this is draft data, so the list may not be complete' : '') + '. The wording under each ' + (cards ? 'name' : 'entry in the full list below') + ' is the source’s own.</p></div>';
+  }
+  /* The dated entries of a list on a time axis: one mark per entry, stacked where dates fall close together. */
+  function itemTimeSection(f) {
+    if (!itemTimeMode(f)) return '';
+    var c = palette(false), W = 880, tN = nowT(), newest = newestItem(f), out = '', fg = '', stack = {}, peak = 1;
+    var list = datedItems(f).slice().sort(function (a, b) { return parseDate(a[5]).t - parseDate(b[5]).t; });
+    var t0 = Math.floor(parseDate(list[0][5]).t), t1 = Math.ceil(tN + 0.1), P = 13;
+    function X(t) { return (t - t0) / (t1 - t0) * W; }
+    var spots = list.map(function (i) { var b = Math.round(X(parseDate(i[5]).t) / P); stack[b] = (stack[b] || 0) + 1; peak = Math.max(peak, stack[b]); return { i: i, x: b * P, k: stack[b] - 1 }; });
+    var H = Math.max(56, peak * P + 14);
+    out += '<path d="M0 ' + H + ' H' + W + '" stroke="' + c.axis + '" stroke-width="1"/>';
+    timeTicks(t0, t1).forEach(function (y) {
+      out += '<path d="M' + X(y).toFixed(1) + ' ' + H + ' V' + (H + 6) + '" stroke="' + c.axis + '" stroke-width="1"/>' +
+        '<text x="' + X(y).toFixed(1) + '" y="' + (H + 26) + '" fill="' + c.text + '" font-size="13" text-anchor="middle">' + y + '</text>';
+    });
+    spots.forEach(function (s) {
+      var on = s.i === newest, col = on ? '#E4531A' : c.line, cy = H - 9 - s.k * P, st = s.i[3], x = s.x.toFixed(1);
+      fg += '<g><title>' + esc(s.i[1] + ' · ' + fmtDate(s.i[5])) + '</title>' +
+        (st === 'done' ? '<circle cx="' + x + '" cy="' + cy + '" r="5" fill="' + col + '"/>'
+          : '<circle cx="' + x + '" cy="' + cy + '" r="4.25" fill="' + c.bg + '" stroke="' + col + '" stroke-width="1.5"/>' +
+            (st === 'partial' ? '<path d="M' + x + ' ' + (cy - 4.25) + ' a4.25 4.25 0 0 1 0 8.5 Z" fill="' + col + '"/>' : '') +
+            (st === 'disputed' ? '<path d="M' + (s.x - 3.5) + ' ' + (cy + 3.5) + ' l7 -7" stroke="' + col + '" stroke-width="1.5"/>' : '')) + '</g>';
+    });
+    var first = list[0], last = list[list.length - 1], undated = f.items.length - list.length;
+    return '<div class="wrap block"><h2>The list over time</h2><div class="card">' +
+      frame(out + FG + fg, W, H, 'One mark for each of the ' + list.length + ' dated entries on the list, placed by date from ' + parseDate(first[5]).y + ' to ' + parseDate(last[5]).y + '. Earliest: ' + first[1] + ', ' + fmtDate(first[5]) + '. Latest: ' + last[1] + ', ' + fmtDate(last[5]) + '.',
+        creditLine(f), [t0, t1], '-24 -8 ' + (W + 48) + ' ' + (H + 44)) + '</div>' +
+      '<p class="small">Each mark is one entry on the list, placed at the date the data gives for it' + (newest ? '; the orange mark is the most recent' : '') + '. Marks stack where dates fall close together. ' +
+        'An entry dated only to a year sits in the middle of that year.' + (undated ? ' ' + undated + ' of the ' + f.items.length + ' entries have no date in the data and are not drawn.' : '') + '</p></div>';
+  }
   function itemsState(f) { return itemState[f.id] || (itemState[f.id] = { q: '', status: 'all', group: 'all', shown: 120 }); }
   function itemsList(f) {
     var st = itemsState(f), q = st.q.trim().toLowerCase();
@@ -826,12 +961,13 @@
         '<div class="fr-title"><div class="l"><h1>' + esc(f.title) + '</h1><p>' + esc(f.summary) + '</p>' + (b && !(b === 'observations' && pointsMode(f)) ? picker(f, b, sid) : '') + '</div>' +
           (h ? '<div class="hl"><div class="eyebrow">' + esc(h.kind) + (h.label && h.label !== f.title ? ' · ' + esc(h.label) : '') + '</div>' + bigNumber(f, h) + '</div>' : '') + '</div>' + facts + '</div>' +
       aboutSection(f) + (b === 'records' ? recordsSections(f, sid) : b === 'observations' ? obsSections(f, sid) : '') +
-      stagesSection(f) + itemsSection(f) + referenceSections(f) + around + siteFooter(f.id);
+      stagesSection(f) + stageDatesSection(f) + gridSection(f) + itemTimeSection(f) + itemsSection(f) + referenceSections(f) + around + siteFooter(f.id);
   }
 
   var Site = {
     home: home, frontier: frontier, itemsList: itemsList, tilesList: tilesList,
     filterHome: function (q, domain, shape) { homeState = { q: q || '', domain: domain || 'all', shape: shape || 'all' }; }, anchors: HOME_ANCHORS, seriesIds: seriesIds, block: block, gaugeMode: gaugeMode, reignMode: reignMode,
+    gridMode: gridMode, claimMode: claimMode, itemTimeMode: itemTimeMode, stageDatesMode: stageDatesMode,
     select: function (fid, sid) { chosen[fid] = sid; }, data: function () { return D; }
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = Site;

@@ -17,7 +17,11 @@ The script draws a page from the blocks a frontier file holds. A new frontier th
 | `observations` on a `race-to-zero` frontier with `direction: lower` | Also "Distance to zero" for the first series: the highest figure in the series, the latest figure and zero, with a bar that draws the latest against the highest to scale. The chart marks zero in blue and drops a dotted line to it from the latest figure. When the series falls a hundredfold or more the axis is a log scale, with zero on a line of its own under a break. |
 | `observations`, one per series | A points chart and a table of every entry (for example one point per rocket). |
 | `stages` and `candidates` | A table of how far each candidate has got. |
-| `items` | A searchable list, with filters for status and group. A `problem-list` frontier shows no tally. |
+| `candidates` with dated `history` (two or more dates on the page) | Also "When each stage was reached": one track per candidate on a shared time axis, with a numbered mark at the date each stage was reached, a key to the stage numbers, and a table of every dated stage with its note and source. The orange mark is the stage the candidate is at now. A stage with no date in the data has no mark. |
+| `items` (up to 400, not a `problem-list`) | "The list at a glance": the whole list drawn by status (solid for done, ring for open, half for partial, struck ring for disputed), grouped as the data groups it. Lists of up to 24 entries get a card per entry with its date, the source's status wording and `by`; longer lists get one square per entry. Above it, the number of entries by status and in all (counts of rows, labelled as worked out on the page) and the most recent dated entry, which is orange. No entry is singled out when the dates cannot say which is newest. |
+| `items` on a `claim-scoreboard` frontier | The same section becomes "The claims and where they stand": one wide card per claim, with who made it, its status, the source's wording and the entry's `note`. |
+| `items` where at least three entries, and at least half of them, have `date_done` | Also "The list over time": one mark per dated entry on a time axis, stacked where dates fall close together. An entry dated only to a year sits mid-year, and the caption says how many entries have no date. |
+| `items` (any number) | A searchable list, with filters for status and group. A `problem-list` frontier shows no tally. |
 | `about` | "What this is" and "Why it matters", at the top of the page. |
 | `events`, `reading`, `sources` | "What happened", "Start here" and "Sources". |
 | Dataset `NOTICE.md` | The credit line under each chart and a "Data credits and terms" section. |
@@ -56,7 +60,10 @@ Every chart draws itself from left to right. A chart that is in view when the pa
 
 ## Known gaps
 
-- Four chart shapes change the page so far: `coverage-meter`, `race-to-zero`, `threshold-gauge` and `reign-timeline` (as primary or secondary shape, passed through as `shapes`). Every other shape is a label only, and the page is chosen by the blocks present.
+- Five chart shapes change the page so far: `coverage-meter`, `race-to-zero`, `threshold-gauge`, `reign-timeline` and `claim-scoreboard` (the last only as primary shape; the others as primary or secondary, passed through as `shapes`). The list grid and the stage dates are chosen by the blocks present. Every other shape is a label only.
+- `natural-map` lists (elements, worlds, countries) are drawn as a grid in the order of the data, not as a periodic table or a map: the format has no positions for the entries.
+- `claim-scoreboard` as a secondary shape on a records or observations frontier (Hubble constant, superconductor Tc) changes nothing yet: the claims there are records, not items.
+- The list views take `status: done` to mean whatever the frontier's list is about (certified, approved, visited, performed), and label it "Done". The format has no per-frontier word for it.
 - A `threshold-gauge` frontier with no `metric.target` or `metric.limit` has no line to draw against, so it gets no gauge (GPU clusters, ML hardware). The gauge is not drawn where lower is better.
 - The ribbon of holders takes the `holder` text as written: two spellings of one holder are two blocks.
 - A `coverage-meter` frontier that is not in percent (a count with no sourced total, such as structures or asteroids found) is still a plain line chart, because the format has no field for the size of the whole.
