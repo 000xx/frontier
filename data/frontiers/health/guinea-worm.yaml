@@ -1,0 +1,61 @@
+# Guinea worm: human cases reported each year, from the World row of Our World in Data's export of WHO data.
+# observations are rewritten by scripts/fetchers/guinea_worm.py; do not edit them by hand.
+# Latest-year figures are provisional and can be revised.
+id: guinea-worm
+title: Guinea worm disease
+domain: health
+subfield: Diseases being eliminated
+status: draft
+summary: How many people are reported with Guinea worm disease each year, and how close the world is to
+  eradicating a parasite that has no vaccine and no drug to prevent it.
+metric:
+  name: Reported human Guinea worm cases per year, worldwide
+  unit: cases per year
+  direction: lower
+  scale: linear
+  explainer: 'Guinea worm disease is caused by a parasitic worm. A person who drinks water containing a carrier
+    organism gets infected, and months later a worm can emerge through the skin, which is painful and disabling
+    while it lasts. The count is of human cases reported through surveillance, so it measures reports rather than
+    every infection. The most recent year is provisional and can be revised when late reports arrive, so check
+    whether the latest figure is still provisional before comparing it with earlier years.'
+chart:
+  primary: race-to-zero
+observations: []
+sources:
+- id: owid-guinea-worm
+  name: Our World in Data, Reported cases of guinea worm disease (World, from WHO data)
+  url: https://ourworldindata.org/grapher/number-of-reported-guinea-worm-dracunculiasis-cases
+  kind: dataset
+  primary: true
+  notes: World rows of the CSV export, read by the refresh. OWID credits World Health Organization (2026), with
+    major processing by Our World in Data, and gives 17 March 2026 as the last update. OWID's own work is CC BY;
+    the underlying WHO data keeps WHO's terms (see who-data-terms in the malaria dataset NOTICE.md).
+- id: carter-2026-01-30
+  name: The Carter Center, provisional 2025 Guinea worm count (release of 30 January 2026)
+  url: https://www.cartercenter.org/?p=22014
+  kind: press
+  notes: Gives 10 provisional human cases for 2025 and says that is a 33% decline from 15 in 2024. Read 10 November 2026.
+- id: carter-2025-05-13
+  name: 'The Carter Center, Update: 15 human Guinea worm cases reported in 2024 (13 May 2025)'
+  url: https://www.cartercenter.org/?p=12860
+  kind: press
+  notes: Gives 15 human cases for 2024. Read 10 November 2026.
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Observations are the World values in OWID''s CSV export (WHO data, 1980 to 2025), copied exactly by
+    scripts/fetchers/guinea_worm.py. The Carter Center''s 2025 figure of 10 is provisional; the fetcher will
+    update it when WHO revises it. Not yet sourced: the number of endemic countries in 2025 (the Carter Center
+    release names countries with cases but gives no count), and any reading list.'
+events:
+- date: '2026-01-30'
+  kind: milestone
+  title: Carter Center reports 10 provisional human Guinea worm cases for 2025
+  why_it_matters: The provisional count is a third below the 15 cases reported for 2024.
+  url: https://www.cartercenter.org/?p=22014
+- date: '2025-05-13'
+  kind: news
+  title: Carter Center reports 15 human Guinea worm cases for 2024
+  why_it_matters: The 2024 figure is the baseline the 2025 provisional count is measured against.
+  url: https://www.cartercenter.org/?p=12860
+reading: []
