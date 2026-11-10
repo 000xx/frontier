@@ -1,0 +1,29 @@
+# Records are rebuilt from Epoch AI's machine learning hardware data by scripts/fetchers/ml_hardware.py.
+# Edit the other fields by hand; never edit the records directly.
+id: ml-hardware
+title: Peak AI chip performance (dense FP16 or BF16)
+domain: computing
+subfield: Chips and hardware
+status: draft
+summary: placeholder until the source has been read.
+metric:
+  name: Peak dense FP16/BF16 performance of the best AI accelerator
+  unit: TFLOP/s
+  direction: higher
+  scale: log
+  explainer: placeholder
+chart:
+  primary: record-chart
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'placeholder'
+sources:
+- id: epoch-ml-hardware
+  name: Epoch AI, Data on machine learning hardware
+  url: https://epoch.ai/data/machine-learning-hardware
+  kind: dataset
+  primary: true
+  notes: 'Licence CC BY 4.0. Credit line: "Data: Epoch AI, Machine learning hardware (epoch.ai/data), CC BY 4.0."'
+events: []
+reading: []
