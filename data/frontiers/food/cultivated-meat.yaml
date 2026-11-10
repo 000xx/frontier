@@ -1,0 +1,108 @@
+# Items are regulatory approvals for cultivated (cell-cultured) meat, one item per product and approving jurisdiction.
+# Only approvals whose primary record or a dated report was opened are listed. Known gaps are in update.notes.
+id: cultivated-meat
+title: Cultivated meat approvals
+domain: food
+subfield: Animals and new protein
+status: draft
+summary: Which countries have approved meat grown from animal cells for people to eat, and which products each
+  approval covers. It tracks the moment a new kind of food passes from the lab to the regulator.
+metric:
+  name: Regulatory approvals of cultivated meat, by country
+  unit: approvals
+  direction: higher
+  scale: linear
+  explainer: 'Cultivated meat is made by growing animal cells in a tank rather than raising and slaughtering an animal.
+    Before it can be sold, a national food regulator must review the safety data and approve the product, and an
+    approval usually covers one product from one company. So a count of approvals is a count of products cleared, not
+    of countries that have a market: a country can approve a product and still have no sales, and some approvals are
+    for pet food or for an ingredient rather than a whole meat product. Each item below names the jurisdiction and
+    the date given in the record it was taken from.'
+chart:
+  primary: natural-map
+  secondary:
+  - countdown-grid
+items:
+- id: sg-good-meat-chicken
+  label: 'Singapore: cultivated chicken from GOOD Meat (Eat Just)'
+  group: Singapore
+  status: done
+  status_detail: approved by the Singapore Food Agency
+  date_done: '2020-12-02'
+  url: https://www.foodsafetynews.com/2020/12/eat-just-inc-gets-approval-in-singapore-for-lab-grown-chicken/
+  source: foodsafetynews-sg-2020
+  note: The approval date comes from a news report of 3 December 2020, which gives 'Dec. 2' and places the approval in 2020. The Singapore Food Agency's own notice was not opened.
+- id: us-good-meat-chicken
+  label: 'United States: cultivated chicken from GOOD Meat (FDA pre-market consultation)'
+  group: United States
+  status: done
+  status_detail: FDA pre-market consultation completed; no further safety questions
+  date_done: '2023-03-20'
+  url: https://www.jdsupra.com/legalnews/fda-completes-second-premarket-1751821
+  source: jdsupra-fda-2023
+  note: The FDA's own announcement could not be opened, so the date comes from a law-firm summary of 12 May 2023. The USDA's separate role for meat and poultry products is not covered here.
+- id: au-nz-vow-quail
+  label: 'Australia and New Zealand: cell-cultured quail from Vow'
+  group: Australia and New Zealand
+  status: done
+  status_detail: food standard change gazetted (FSANZ application A1269)
+  date_done: '2025-06-18'
+  url: https://www.foodstandards.gov.au/food-standards-code/applications/A1269-Cultured-Quail-as-a-Novel-Food
+  source: fsanz-a1269
+  note: Date is the gazettal date on FSANZ's application page. The board approval date is not stated there.
+update:
+  cadence: monthly
+  last_checked: '2026-11-09'
+  notes: 'Three approvals are listed, all from records opened on 2026-11-09. Not yet listed, because the primary record
+    was not opened: the FDA consultation for UPSIDE Foods chicken (FDA page blocked; a secondary source says it came
+    four months before GOOD Meat''s, which would put it in late 2022, but that is not a date read from a source); the
+    other Singapore products (Vow quail and Parima chicken, reported in a FoodNavigator article of 18 February 2026
+    without dates); the UK pet food approval for Meatly; and any approval in Israel, Hong Kong, the EU (reported as not
+    yet granted) or elsewhere. Sources disagree on the US count (a 2026 FoodNavigator article gives five products but
+    says three were approved in 2025). Resolve against FDA and USDA records before marking live. No fetcher: no
+    machine-readable registry with approval dates was found.'
+sources:
+- id: fsanz-a1269
+  name: FSANZ, application A1269, Cultured Quail as a Novel Food (Vow Group Pty Ltd)
+  url: https://www.foodstandards.gov.au/food-standards-code/applications/A1269-Cultured-Quail-as-a-Novel-Food
+  kind: registry
+  primary: true
+  notes: Opened 2026-11-09. Gazettal date 18 June 2025. Page says the changes were 'gazetted to permit the use of
+    cell-cultured quail as a food'. Board approval date not stated. Footer shows copyright of Food Standards Australia New
+    Zealand; reuse terms are on its linked copyright page, which was not opened.
+- id: foodsafetynews-sg-2020
+  name: 'Food Safety News: Eat Just Inc gets approval in Singapore for lab-grown chicken (3 December 2020)'
+  url: https://www.foodsafetynews.com/2020/12/eat-just-inc-gets-approval-in-singapore-for-lab-grown-chicken/
+  kind: news
+  notes: Opened 2026-11-09. Reports the Singapore Food Agency approval of 2 December. The SFA notice was not opened.
+- id: jdsupra-fda-2023
+  name: 'JD Supra: FDA Completes Second Premarket Consultation for Cultivated Meat Production (12 May 2023)'
+  url: https://www.jdsupra.com/legalnews/fda-completes-second-premarket-1751821
+  kind: news
+  notes: Opened 2026-11-09. Gives the completion date of the GOOD Meat consultation as 20 March 2023. The FDA's pages
+    on cultured animal cell foods were blocked from this environment and were not read.
+- id: foodnavigator-2026
+  name: 'FoodNavigator: Where countries stand on cultivated meat regulation in 2026 (18 February 2026)'
+  url: https://www.foodnavigator.com/Article/2026/02/18/cultivated-meat-regulation-where-countries-stand-in-2026/
+  kind: news
+  notes: Opened 2026-11-09. Used only to find the other products and gaps listed in update.notes. Its figures conflict
+    with each other and are not used as data.
+events:
+- date: '2020-12-02'
+  kind: milestone
+  title: Singapore approves a cultivated chicken product from GOOD Meat for sale
+  why_it_matters: 'This is the approval recorded in this file that comes earliest, and it was the first national approval
+    of meat grown from animal cells that the source reports.'
+  url: https://www.foodsafetynews.com/2020/12/eat-just-inc-gets-approval-in-singapore-for-lab-grown-chicken/
+- date: '2023-03-20'
+  kind: milestone
+  title: The FDA completes its consultation on GOOD Meat's cultivated chicken, with no further safety questions
+  why_it_matters: 'A US safety review comes before sale in the US; the law-firm summary calls this the second completed
+    consultation, after UPSIDE Foods.'
+  url: https://www.jdsupra.com/legalnews/fda-completes-second-premarket-1751821
+- date: '2025-06-18'
+  kind: milestone
+  title: FSANZ's change allowing cell-cultured quail from Vow is gazetted
+  why_it_matters: 'The gazetted change covers a product made into logs, rolls and patties with other ingredients, rather than
+    a whole cut of meat.'
+  url: https://www.foodstandards.gov.au/food-standards-code/applications/A1269-Cultured-Quail-as-a-Novel-Food
