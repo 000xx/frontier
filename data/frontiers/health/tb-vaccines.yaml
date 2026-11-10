@@ -1,0 +1,107 @@
+# TB vaccine candidates. Only three candidates are in this file, because only three could be checked against sources
+# opened in this run (TAG's 2026 pipeline report summary on EATG, and a 2026 Frontiers paper). The full pipeline is
+# about 14 to 17 candidates. The other candidates named in the sources (BCG revaccination, H56:IC31, QTP101, GamTBvac,
+# Immuvac/MIP) have no stage or sponsor stated in the sources read, so they are not added.
+# The MTBVAC stage is taken from EATG and kept at phase 3, because the Frontiers paper says both "phase IIb" and "phase III".
+id: tb-vaccines
+title: TB vaccines
+domain: health
+subfield: Vaccines and treatments still missing
+status: draft
+summary: Which tuberculosis vaccine candidates are in the late-stage trials that could show whether a new vaccine
+  protects adults and children, and how far each has got on the way to use.
+metric:
+  name: TB vaccine candidates in clinical trials, by stage
+  unit: candidates
+  direction: higher
+  scale: linear
+  explainer: 'Tuberculosis is caused by bacteria that spread through the air. A new vaccine has to be tested in
+    trials large enough to show that it prevents disease, which takes years. A candidate moves through phase 1
+    (safety in a few people), phase 2 (dose and effect in more people) and phase 3 (a large trial that tests
+    whether the vaccine prevents disease). A candidate in phase 3 has not yet shown that it works, so the stage
+    is a sign of progress, not success. Trials can be started or stopped, so stages change between reports.'
+chart:
+  primary: stage-timeline
+stages:
+- Preclinical
+- Phase 1
+- Phase 2
+- Phase 3
+- Regulatory approval
+- WHO recommendation
+- Rollout
+series:
+- id: candidates
+  label: Candidates in trials
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Three candidates are added from sources opened in this run: M72/AS01E, MTBVAC and VPM1002. For M72/AS01E
+    and MTBVAC the trial identifiers (NCT06062238 and NCT06272812) are from the Frontiers paper; ClinicalTrials.gov
+    could not be read in this run, so the registry entries are not confirmed. VPM1002 has no developer or trial
+    identifier in the sources read. Not yet added: the full pipeline. The TAG pipeline pages (2025) give 17 candidates
+    but name only seven and give no stages. Owner: please confirm how to handle the MTBVAC phase conflict.'
+sources:
+- id: eatg-tag-2026
+  name: 'EATG, TAG''s 2026 Pipeline Report: TB Vaccines'
+  url: https://www.eatg.org/?p=29137
+  kind: news
+  primary: false
+  notes: 'Published 24 October 2026, per the article date. Summarises the Treatment Action Group pipeline report
+    and names M72/AS01E, MTBVAC and VPM1002 with their stages. Secondary: the underlying TAG report was not opened.'
+- id: frontiers-tb-patents-2026
+  name: 'Pignataro MF et al. TB vaccine development: monitoring international patent filings to anticipate access challenges. Front Public Health 2026;13:1726153'
+  url: https://public-pages-files-2025.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2025.1726153/pdf
+  kind: paper
+  notes: 'Published 16 January 2026. Gives sponsors and trial identifiers for M72/AS01E (NCT06062238) and MTBVAC
+    (NCT06272812). Its phase description for MTBVAC is inconsistent (see the notes on that candidate).'
+- id: tag-pipeline-page
+  name: Treatment Action Group, TAG launches TB Vaccines Pipeline Report
+  url: https://www.treatmentactiongroup.org/publication/tag-launches-tb-vaccines-pipeline-report/
+  kind: report
+  notes: 'Cross-check only. Page metadata shows a modified date of 2025-03-19. Says the report covers 17 candidates,
+    but names seven and gives no stages. Copyright notice: "Copyright © Treatment Action Group. All Rights Reserved."'
+- id: clinicaltrials-gov
+  name: 'ClinicalTrials.gov, registry entries NCT06062238 and NCT06272812'
+  url: https://clinicaltrials.gov/study/NCT06062238
+  kind: registry
+  notes: Listed for the identifiers. The records could not be read in this run, so no value comes from them.
+candidates:
+- id: m72-as01e
+  name: M72/AS01E
+  developer: GSK (initial development); Gates Medical Research Institute (trial sponsor)
+  stage: Phase 3
+  key_result: Phase 3 trial reported by EATG as fully enrolled.
+  source: eatg-tag-2026
+  url: https://www.eatg.org/?p=29137
+  note: 'Phase 3 is stated by both EATG and the Frontiers paper. Trial identifier NCT06062238 (Frontiers paper).
+    Serum Institute of India was named as commercial manufacturer by EATG; that is not the developer.'
+- id: mtbvac
+  name: MTBVAC
+  developer: University of Zaragoza with Pasteur Institute; trial sponsors Biofabri and IAVI
+  stage: Phase 3
+  key_result: EATG reports a phase IIb trial in adolescents and adults fully enrolled, and a phase III trial in infants ongoing.
+  source: eatg-tag-2026
+  url: https://www.eatg.org/?p=29137
+  note: 'Stage set to phase 3 from EATG, which names the infant phase III trial. The Frontiers paper calls the
+    trial a phase IIb in its introduction and phase III in its methods. Trial identifier NCT06272812 (Frontiers paper).'
+- id: vpm1002
+  name: VPM1002
+  stage: Phase 3
+  key_result: EATG reports results from two phase III trials published in 2026; the trial results were not read.
+  source: eatg-tag-2026
+  url: https://www.eatg.org/?p=29137
+  note: 'Only EATG was read for this candidate, so its developer and trial identifiers are not stated here.
+    Its trial results were not read, so no efficacy or safety figure is given.'
+reading: []
+events:
+- date: '2026-01-16'
+  kind: paper
+  title: Patent filings tracked as a guide to TB vaccine access
+  why_it_matters: A 2026 paper that names M72/AS01E and MTBVAC as late-stage efficacy trials and gives their trial identifiers.
+  url: https://public-pages-files-2025.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2025.1726153/pdf
+- date: '2026-10-24'
+  kind: news
+  title: TAG's 2026 pipeline report says the phase III trial of M72/AS01E is fully enrolled
+  why_it_matters: Full enrolment means the outcome of the trial will be known once follow-up ends; it does not mean the vaccine works.
+  url: https://www.eatg.org/?p=29137
