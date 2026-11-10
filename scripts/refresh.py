@@ -85,7 +85,7 @@ def needs_last_checked(frontier_path):
 
 
 def available_fetchers():
-    return sorted(m.name for m in pkgutil.iter_modules(fetchers.__path__) if m.name != "common")
+    return sorted(m.name for m in pkgutil.iter_modules(fetchers.__path__) if m.name != "common" and not m.name.startswith("_"))
 
 
 def main():
