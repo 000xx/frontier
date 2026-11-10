@@ -9,7 +9,7 @@ FRONTIER = "data/frontiers/health/guinea-worm.yaml"
 SPECS = [
     _owid.Spec(series="cases", source="owid-guinea-worm",
                url="https://ourworldindata.org/grapher/number-of-reported-guinea-worm-dracunculiasis-cases.csv?country=OWID_WRL",
-               column="Reported cases of guinea worm disease", decimals=0, first_year=1980, min_rows=20),
+               column="Reported cases of guinea worm disease in humans", decimals=0, first_year=1980, min_rows=20),
 ]
 
 
