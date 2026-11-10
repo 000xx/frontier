@@ -6,8 +6,7 @@ domain: ai
 subfield: Capability
 status: draft
 summary: The best score any AI model has reached on SimpleQA Verified, a set of 1,000 short factual questions
-  designed to check whether a model's answers are correct, as run by Epoch AI. It tests what a model has
-  memorised from its training, so it shows factual accuracy rather than reasoning.
+  designed to check whether a model's answers are correct, as run by Epoch AI.
 metric:
   name: Best SimpleQA Verified score (Epoch AI runs)
   unit: '% of questions answered correctly'
@@ -38,7 +37,7 @@ update:
   notes: 'Records are rebuilt from Epoch''s benchmark_data.zip (member simpleqa_verified.csv) by
     scripts/fetchers/simpleqa_verified.py; do not edit them by hand. Values are Epoch''s mean_score times 100,
     rounded to two decimals. A model is a record when its score beats every model with an earlier release
-    date. Dates are model release dates as Epoch lists them.
+    date. Dates are model release dates as Epoch lists them.'
 sources:
 - id: epoch-benchmarks
   name: Epoch AI, Benchmarking hub data (benchmark_data.zip)
