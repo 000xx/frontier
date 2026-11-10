@@ -3,6 +3,8 @@
 
   A frontier page is assembled from the blocks its data file holds:
     records               -> record chart, ranking of series, history table (and a two-axis chart when metric.axes exist)
+      + threshold-gauge   -> the current record is also drawn against the line it has to cross (metric.target or metric.limit)
+      + reign-timeline    -> a ribbon of who has held the record, one block per holder, and a table of holders
     observations          -> line chart with ranges and a table (or a points chart when each series is a single point)
       + coverage-meter    -> percentages are also drawn as a filled share of the whole, with what is left
       + race-to-zero      -> the first series is also drawn against zero: distance to go, and a log axis for big falls
@@ -52,6 +54,7 @@
     }
     if (a >= 1000) return Math.round(v).toLocaleString('en-US');
     if (a >= 100) return String(Math.round(v * 10) / 10);
+    if (a < 1 && a !== 0) return String(Number(v.toPrecision(3))); // small values keep three figures, so 0.0024 is not printed as 0
     return String(Math.round(v * 100) / 100);
   }
   function isPct(f) { return f.metric.unit === '%' || f.metric.unit === 'percent'; }
@@ -176,6 +179,33 @@
     var pos = rows.map(function (r) { return r[1]; }).filter(function (v) { return v > 0; });
     return pos.length > 1 && Math.max.apply(null, pos) / Math.min.apply(null, pos) >= 100 ? 'log' : 'linear';
   }
+  /* Threshold gauge: the line a record has to cross is the metric's target, or failing that its limit. */
+  function gaugeLine(f, sid) {
+    var out = null;
+    ['target', 'limit'].forEach(function (k) {
+      var m = f.metric[k];
+      if (!out && m && typeof m.value === 'number' && (!m.series || m.series === sid)) out = { kind: k, value: m.value, label: m.label || '', by: m.by || '' };
+    });
+    return out;
+  }
+  function gaugeMode(f, sid) {
+    var log = f.metric.scale === 'log', line = hasRecords(f) && hasShape(f, 'threshold-gauge') && f.metric.direction !== 'lower' ? gaugeLine(f, sid) : null;
+    return !!line && line.value > 0 && f.records[sid].every(function (r) { return log ? r[1] > 0 : r[1] >= 0; });
+  }
+  /* Reign timeline: consecutive records by the same holder are one reign, which lasts until someone else's record. */
+  function reigns(f, sid) {
+    var out = [];
+    progression(f, f.records[sid]).forEach(function (p) {
+      var last = out[out.length - 1], who = p.r[2] || '';
+      if (last && last.who === who) { last.n += 1; last.best = p.r; last.dates.push(p.r[0]); }
+      else out.push({ who: who, from: p.r[0], n: 1, best: p.r, dates: [p.r[0]], until: null });
+    });
+    out.forEach(function (x, i) { if (out[i + 1]) x.until = out[i + 1].from; });
+    return out;
+  }
+  function reignMode(f, sid) {
+    return hasRecords(f) && hasShape(f, 'reign-timeline') && reigns(f, sid).length > 1 && f.records[sid].every(function (r) { return r[2]; });
+  }
   function peakRow(rows) { var p = rows[0]; rows.forEach(function (r) { if (r[1] > p[1]) p = r; }); return p; }
   function selectedId(f) {
     var b = block(f); if (!b) return null;
@@ -240,9 +270,9 @@
       '<g clip-path="url(#' + id + ')">' + parts[1] + '</g>' +
       (cursor ? '<g class="sw-cursor" visibility="hidden"><path d="M0 -4 V' + H + '" stroke="#E4531A" stroke-width="1.5"/><text y="-9" text-anchor="middle" font-size="13" font-weight="500" fill="#E4531A"></text></g>' : '');
   }
-  function frame(o, W, H, aria, credit, span) {
+  function frame(o, W, H, aria, credit, span, box) {
     return '<div class="chart-box"><svg role="img" data-sweep data-w="' + W + '"' + (span ? ' data-t0="' + span[0] + '" data-t1="' + span[1] + '"' : '') +
-      ' aria-label="' + esc(aria) + '" viewBox="-96 -22 ' + (W + 114) + ' ' + (H + 58) + '">' + sweep(o, W, H, true) + '</svg></div>' +
+      ' aria-label="' + esc(aria) + '" viewBox="' + (box || '-96 -22 ' + (W + 114) + ' ' + (H + 58)) + '">' + sweep(o, W, H, true) + '</svg></div>' +
       (credit ? '<p class="credit">' + esc(credit) + '</p>' : '');
   }
   function creditLine(f) { return f.credits.map(function (c) { return c.line; }).filter(Boolean).join(' '); }
@@ -442,7 +472,7 @@
 
   /* ---------- front page ---------- */
   function bigNumber(f, h) {
-    return '<div class="big' + (fmt(h.value).length > 6 ? ' long' : '') + '">' + fmt(h.value) + (suffix(f) ? '<span class="unit">' + suffix(f) + '</span>' : '') + '</div>' +
+    return '<div class="big' + (fmt(h.value).length > 12 ? ' long xlong' : fmt(h.value).length > 6 ? ' long' : '') + '">' + fmt(h.value) + (suffix(f) ? '<span class="unit">' + suffix(f) + '</span>' : '') + '</div>' +
       (unitText(f) ? '<div class="unitline">' + esc(unitText(f)) + '</div>' : '');
   }
   function tile(f) {
@@ -552,7 +582,9 @@
     var rows = f.records[sid], prog = progression(f, rows), top = prog[prog.length - 1], meta = seriesMeta(f, sid), ids = seriesIds(f, 'records');
     var out = '<div class="wrap block"><h2>' + esc(seriesName(meta)) + '</h2><div class="card">' + recordsChart(f, sid, false) + '</div>' +
       '<p class="small">The dark line is the record for the selected series.' + (ids.length > 1 ? ' Thin lines are the other series.' : '') + (top.r[3] ? ' Current record: ' + esc(top.r[3]) + '.' : '') + '</p></div>';
+    if (gaugeMode(f, sid)) out += gaugeSection(f, sid);
     if (f.metric.axes.length) out += scatterChart(f, sid);
+    if (reignMode(f, sid)) out += reignSection(f, sid);
     if (ids.length > 1) {
       var board = ids.map(function (id) { var p = progression(f, f.records[id]); return { m: seriesMeta(f, id), top: p[p.length - 1].r }; })
         .sort(function (a, b) { return better(f, a.top[1], b.top[1]) ? -1 : 1; });
@@ -585,10 +617,72 @@
     var o = '<rect x="0" y="7" width="' + W + '" height="18" fill="#E3E5DF"/>' + FG +
       '<rect x="0" y="7" width="' + w.toFixed(1) + '" height="18" fill="#0F1317"/>' +
       '<rect x="' + (w - cap).toFixed(1) + '" y="7" width="' + cap.toFixed(1) + '" height="18" fill="#E4531A"/>' +
-      (ticks || []).map(function (t) { return '<rect x="' + (Math.max(0, Math.min(1, t.at)) * W - 1.5).toFixed(1) + '" y="0" width="3" height="32" fill="' + (t.blue ? '#1E34D8' : '#0F1317') + '"/>'; }).join('');
+      (ticks || []).map(function (t) { return '<rect x="' + Math.max(0, Math.min(W - 3, t.at * W - 1.5)).toFixed(1) + '" y="0" width="3" height="32" fill="' + (t.blue ? '#1E34D8' : '#0F1317') + '"/>'; }).join('');
     return '<svg class="scalebar" role="img" data-sweep data-w="' + W + '" aria-label="' + esc(aria) + '" viewBox="0 0 ' + W + ' 32" preserveAspectRatio="none">' + sweep(o, W, 32, false) + '</svg>';
   }
   function cell(cls, label, value) { return '<div class="' + cls + '"><dt>' + label + '</dt><dd>' + value + '</dd></div>'; }
+  /* Threshold gauge: the current record drawn against the line it has to cross. On a linear measure the bar starts
+     at zero; on a log measure, which has no zero, it starts at the first record in the series. */
+  function gaugeSection(f, sid) {
+    var line = gaugeLine(f, sid), prog = progression(f, f.records[sid]), top = prog[prog.length - 1].r, first = prog[0].r;
+    var L = line.value, log = f.metric.scale === 'log', reached = top[1] >= L, past = top[1] > L, span = Math.max(L, top[1]), hit = null;
+    prog.forEach(function (p) { if (!hit && p.r[1] >= L) hit = p.r; });
+    function lg(v) { return Math.log10(v); }
+    function at(v) { return log ? (lg(v) - lg(first[1])) / (lg(span) - lg(first[1])) : v / span; }
+    var drawn = !log || (prog.length > 1 && first[1] < span), ticks = [];
+    if (drawn && !log && prog.length > 1) ticks.push({ at: at(first[1]) });
+    if (drawn) ticks.push({ at: at(L), blue: true });
+    var name = line.kind === 'limit' ? 'limit' : 'line';
+    return '<div class="wrap block"><h2>Distance to the ' + name + '</h2>' +
+      (drawn ? scaleBar(at(top[1]), 'A bar running ' + (log ? 'on a log scale from the first record in this series, ' + val(f, first[1]) + ',' : 'from zero') + ' to ' +
+        (past ? 'the current record' : 'the ' + name + ', ' + val(f, L)) + '. The filled part is the current record, ' + val(f, top[1]) + ', set ' + fmtDate(top[0]) + '.' +
+        (past ? ' A blue tick marks the ' + name + ', ' + val(f, L) + '.' : ''), ticks) : '') +
+      '<dl class="split">' + cell('now', 'Current record · ' + esc(fmtDate(top[0])), val(f, top[1])) +
+        (reached ? cell('words', past ? 'Went past the ' + name : 'Reached the ' + name, esc(fmtDate(hit[0]))) : log ? '' : cell('', 'Still to go', val(f, L - top[1]))) +
+        (prog.length > 1 ? cell('', 'First record here · ' + esc(fmtDate(first[0])), val(f, first[1])) : '') +
+        cell('goal', (line.kind === 'limit' ? 'The limit' : 'The line to cross') + (line.by ? ' · by ' + esc(fmtDate(line.by)) : ''), val(f, L)) + '</dl>' +
+      '<p class="small">' + (unitText(f) ? 'Figures are in ' + esc(unitText(f)) + '. ' : '') +
+        (drawn ? (log ? 'The bar is a log scale, so equal lengths are equal multiples. It runs from the first record in this series to ' : 'The bar runs from zero to ') +
+          (past ? 'the current record, which is past the ' + name : 'the ' + name) + '. The dark part is the current record' +
+          (ticks.length > 1 ? ', the black tick is the first record in this series' : '') + ' and the blue tick is the ' + name + '. '
+          : 'This series has a single record, so there is no bar to draw on a log scale. ') +
+        (!reached && !log ? 'Still to go is the ' + name + ' minus the current record, worked out here and not a figure from the source. ' : '') +
+        (line.label ? (line.kind === 'limit' ? 'The limit: ' : 'The line: ') + esc(line.label) + '.' : '') + '</p></div>';
+  }
+  /* Reign timeline: a ribbon with one block per holder, from the date they took the record to the date it was beaten. */
+  function shortName(who) { var s = who.split(/[,(\/]/)[0].trim(); return s.length < who.length ? s + '…' : s; }
+  function reignSection(f, sid) {
+    var rs = reigns(f, sid), cur = rs[rs.length - 1], c = palette(false), W = 880, H = 62, tN = nowT(), out = '', holders = [], nRec = 0;
+    var t0 = Math.floor(parseDate(rs[0].from).t), t1 = Math.ceil(tN + 0.1);
+    function X(t) { return (t - t0) / (t1 - t0) * W; }
+    rs.forEach(function (x) { if (holders.indexOf(x.who) < 0) holders.push(x.who); nRec += x.n; });
+    out += '<path d="M0 ' + H + ' H' + W + '" stroke="' + c.axis + '" stroke-width="1"/>';
+    timeTicks(t0, t1).forEach(function (y) {
+      out += '<path d="M' + X(y).toFixed(1) + ' ' + H + ' V' + (H + 6) + '" stroke="' + c.axis + '" stroke-width="1"/>' +
+        '<text x="' + X(y).toFixed(1) + '" y="' + (H + 26) + '" fill="' + c.text + '" font-size="13" text-anchor="middle">' + y + '</text>';
+    });
+    out += FG;
+    rs.forEach(function (x, i) {
+      var on = x === cur, a = X(parseDate(x.from).t), b = x.until ? X(parseDate(x.until).t) : X(tN), w = Math.max(1.5, b - a - 1), label = shortName(x.who);
+      out += '<rect x="' + a.toFixed(1) + '" y="16" width="' + w.toFixed(1) + '" height="' + (H - 16) + '" fill="' + (on ? '#E4531A' : i % 2 ? '#4F5760' : '#0F1317') + '">' +
+        '<title>' + esc(x.who + ': ' + fmtDate(x.from) + (x.until ? ' to ' + fmtDate(x.until) : ' to now')) + '</title></rect>';
+      if (label.length * 7.9 + 16 <= w) out += '<text x="' + (a + 8).toFixed(1) + '" y="' + (16 + (H - 16) / 2 + 4.5).toFixed(1) + '" fill="' + (on ? '#0F1317' : '#F4F5F1') + '" font-size="13" font-weight="500" pointer-events="none">' + esc(label) + '</text>';
+      x.dates.forEach(function (d, k) { out += '<path d="M' + (X(parseDate(d).t) + 0.75).toFixed(1) + ' 4 V13" stroke="' + (on && k === x.dates.length - 1 ? '#E4531A' : c.axis) + '" stroke-width="1.5"/>'; });
+    });
+    var body = rs.slice().reverse().map(function (x) {
+      return '<tr class="' + (x === cur ? 'now' : '') + '"><td><strong>' + esc(x.who) + '</strong></td><td class="date">' + esc(fmtDate(x.from)) + '</td>' +
+        '<td class="date">' + (x.until ? esc(fmtDate(x.until)) : 'Holds it now') + '</td><td class="g">' + x.n + '</td><td class="v">' + val(f, x.best[1]) + '</td></tr>';
+    }).join('');
+    return '<div class="wrap block"><h2>Who has held the record</h2>' +
+      '<dl class="split">' + cell('now words', 'Current holder · since ' + esc(fmtDate(cur.from)), esc(cur.who)) +
+        cell('', 'Holders so far', fmt(holders.length)) + cell('', 'Records they set', fmt(nRec)) + '</dl>' +
+      '<div class="card">' + frame(out, W, H, 'A ribbon of who has held the record from ' + parseDate(rs[0].from).y + ' to now, one block per holder. ' + holders.length + ' holders. Current holder: ' + cur.who + ', since ' + fmtDate(cur.from) + '.',
+        creditLine(f), [t0, t1], '-10 -24 ' + (W + 20) + ' ' + (H + 58)) + '</div>' +
+      '<p class="small">Each block is one holder’s time with the record, from the date they took it to the date someone else beat it. The orange block is the current holder. ' +
+        'The marks above the ribbon are the records themselves, the newest in orange; a holder who beats their own record keeps the same block. Every holder is named in the table below' +
+        (seriesIds(f, 'records').length > 1 ? ', which covers the selected series only' : '') + '.</p>' +
+      '<div class="tbl"><table class="reigns"><thead><tr><th scope="col">Holder</th><th scope="col">Took the record</th><th scope="col">Held it until</th><th scope="col">Records set</th><th scope="col">Best in that time</th></tr></thead><tbody>' + body + '</tbody></table></div></div>';
+  }
   /* Coverage meter: the latest figure as a filled share of the whole, with what is left. */
   function coverageSection(f, sid) {
     var rows = f.observations[sid], first = rows[0], last = rows[rows.length - 1], t = f.metric.target, ticks = [];
@@ -737,7 +831,7 @@
 
   var Site = {
     home: home, frontier: frontier, itemsList: itemsList, tilesList: tilesList,
-    filterHome: function (q, domain, shape) { homeState = { q: q || '', domain: domain || 'all', shape: shape || 'all' }; }, anchors: HOME_ANCHORS, seriesIds: seriesIds, block: block,
+    filterHome: function (q, domain, shape) { homeState = { q: q || '', domain: domain || 'all', shape: shape || 'all' }; }, anchors: HOME_ANCHORS, seriesIds: seriesIds, block: block, gaugeMode: gaugeMode, reignMode: reignMode,
     select: function (fid, sid) { chosen[fid] = sid; }, data: function () { return D; }
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = Site;

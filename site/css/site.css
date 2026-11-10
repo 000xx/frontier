@@ -292,3 +292,10 @@ table.stages { min-width: 760px; }
 .tgroup h3 { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 20px; border-top: 2px solid var(--ink-2); padding-top: 12px; font-size: 22px; letter-spacing: -0.025em; }
 .tgroup + .tgroup { margin-top: 20px; }
 .empty { font-family: var(--display); font-weight: 500; font-size: 22px; letter-spacing: -0.02em; }
+
+/* Shape views: threshold gauge and the ribbon of record holders */
+.split .words dd { font-size: clamp(20px, 2.2vw, 28px); line-height: 1.15; letter-spacing: -0.02em; }
+table.reigns { min-width: 620px; }
+table.reigns td.g { font-variant-numeric: tabular-nums; }
+.big.xlong, .fr-title .big.xlong { font-size: clamp(28px, 7.4vw, 96px); letter-spacing: -0.04em; } /* a headline of 13 or more characters must still fit a phone */
+.read li > span:last-child { min-width: 0; overflow-wrap: anywhere; } /* a long file name in a source title must wrap, not widen the page */
