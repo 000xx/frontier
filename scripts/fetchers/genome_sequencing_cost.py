@@ -235,6 +235,11 @@ def fetch():
     print(f"NHGRI workbook {url}: {len(rows)} rows, newest months {newest}; "
           f"{len(existing)} existing observations, {mismatches} mismatches, {missing} missing")
 
+    # Disagreements with NHGRI are not data changes: fail so they are reported once in the
+    # "Data refresh failures" issue instead of producing a commit every day.
+    problems = [m for m in messages if not m.startswith("New ")]
+    if problems:
+        raise common.SourceError("the frontier disagrees with NHGRI's workbook:\n" + "\n".join(problems[:20]))
     if any(additions.values()):
         write_additions(additions)
     return messages
