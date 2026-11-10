@@ -1,0 +1,179 @@
+# Records are transcribed by hand from the pages listed under sources; each value was read in this run.
+# A record is an installed wind turbine (prototype or first unit) with a higher rated power than any installed
+# before it. Announced designs and nacelles on a factory floor do not count until the turbine is standing.
+id: largest-wind-turbine
+title: Most powerful wind turbine
+domain: energy
+subfield: Wind, heat and fuels
+status: draft
+summary: The highest rated power of any wind turbine actually installed, usually a prototype at a test site.
+  Bigger turbines cut the cost of offshore wind, and since 2023 Chinese makers have pushed the record from 16 to
+  26 megawatts in about two years.
+metric:
+  name: Rated power of the most powerful installed wind turbine
+  unit: MW
+  direction: higher
+  scale: linear
+  explainer: 'A wind turbine''s rated power is the most electricity it is designed to produce, reached once the
+    wind is strong enough. It depends mostly on the size of the rotor: the power in the wind that a rotor can
+    catch grows with the area its blades sweep, so a modest increase in blade length adds a lot of power. Bigger
+    turbines matter most at sea, where foundations, cables, installation ships and maintenance trips cost
+    much more per turbine; fewer, larger machines make each megawatt cheaper. New sizes are first put up as
+    prototypes, often at onshore or coastal test sites, and tested before they are sold in numbers, so the record is held by a test machine, not a working wind farm. All figures here come from
+    the manufacturers or trade press reporting their announcements. Rated power is not the same as output:
+    how much a turbine actually generates depends on the wind where it stands.'
+chart:
+  primary: record-chart
+  secondary:
+  - to-scale-lineup
+series:
+- id: installed
+  label: Most powerful installed turbine (any site)
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Draft because coverage starts only in 2023; earlier records (for example the Siemens Gamesa 14 MW, GE
+    Haliade-X and Vestas V164 prototypes) need dated sources. Open points for the owner: (1) all records are
+    company claims reported by the trade press, so they are claimed, except that Guinness World Records lists
+    the Mingyang MySE 16-260 as the largest wind turbine as of its grid connection on 18 July 2023, marked
+    confirmed. (2) Goldwind''s 16 MW turbine was reported as the first 16 MW unit installed offshore, about June
+    2023; no exact date was read. (3) Sources disagree on whether some prototypes are offshore or at coastal or
+    onshore test sites (Mingyang''s 20 MW in Hainan, Dongfang''s 18 MW in Shantou), so all are kept in one
+    series. (4) The Dongfang 26 MW turbine is placed at Dongying, Shandong, by offshoreWIND.biz and at a test
+    site off Fujian by heise; the record uses offshoreWIND.biz. Its installation was reported complete on 3
+    September 2025 and is dated to that month. (5) The Siemens Gamesa 21.5 MW figure comes from press reports;
+    no Siemens Gamesa release was opened. (6) CRRC''s 20 MW floating prototype (January 2025) and the CTG and
+    Goldwind 20 MW turbine installed at sea (January 2026) did not exceed the record and are not records.'
+sources:
+- id: offshorewind-2025-review
+  name: offshoreWIND.biz, "Offshore wind turbines in 2025" (1 January 2026)
+  url: https://www.offshorewind.biz/2026/01/01/offshore-wind-turbines-in-2025-china-continues-leading-in-single-unit-capacity-vestass-15-mw-turbine-installed-at-offshore-wind-farms/
+  kind: news
+  primary: true
+- id: offshorewind-dongfang-26
+  name: offshoreWIND.biz, "Dongfang installs world's largest single-capacity offshore wind turbine for testing" (3
+    September 2025)
+  url: https://www.offshorewind.biz/2025/09/03/dongfang-installs-worlds-largest-single-capacity-offshore-wind-turbine-for-testing
+  kind: news
+- id: heise-dongfang-26
+  name: heise online, report on Dongfang's 26 MW turbine (2025)
+  url: https://heise.de/-10630181
+  kind: news
+- id: powermag-sgre-2025
+  name: POWER Magazine, "Siemens Gamesa installs world's most powerful wind turbine at Denmark test site" (3 April
+    2025)
+  url: https://www.powermag.com/siemens-gamesa-installs-worlds-most-powerful-wind-turbine-at-denmark-test-site
+  kind: news
+- id: powermag-mingyang-20
+  name: POWER Magazine, "Mingyang says 20-MW offshore wind turbine installed in South China Sea" (30 August 2024)
+  url: https://www.powermag.com/mingyang-says-20-mw-offshore-wind-turbine-installed-in-south-china-sea
+  kind: news
+- id: offshorewind-dongfang-18
+  name: offshoreWIND.biz, "18 MW offshore wind turbine installed at test site in China" (10 June 2024)
+  url: https://www.offshorewind.biz/2024/06/10/18-mw-offshore-wind-turbine-installed-at-test-site-in-china
+  kind: news
+- id: offshorewind-2024-review
+  name: offshoreWIND.biz, "Offshore wind turbines in 2024" (1 January 2025)
+  url: https://www.offshorewind.biz/2025/01/01/offshore-wind-turbines-in-2024-20-mw-prototypes-rolling-out-in-europe-china-16-mw-remains-most-powerful-turbine-installed-offshore
+  kind: news
+- id: offshorewind-2023-review
+  name: offshoreWIND.biz, "Offshore wind turbines in 2023" (2 January 2024)
+  url: https://offshorewind.biz/2024/01/02/offshore-wind-turbines-in-2023-16-mw-model-installed-offshore-18-mw-wtgs-selected-for-new-project-22-mw-turbine-announced
+  kind: news
+- id: offshorewind-mingyang-16
+  name: offshoreWIND.biz, "Mingyang commissions 16 MW offshore wind turbine with 260-metre rotor diameter in China"
+    (18 July 2023)
+  url: https://www.offshorewind.biz/2023/07/18/mingyang-commissions-16-mw-offshore-wind-turbine-with-260-metre-rotor-diameter-in-china
+  kind: news
+- id: guinness-largest-wind
+  name: Guinness World Records, Largest wind turbine
+  url: https://guinnessworldrecords.de/world-records/largest-wind-generator
+  kind: registry
+  notes: Lists the Mingyang MySE 16-260 (16 MW, 260 m rotor), connected to the grid on 18 July 2023 off Pingtan,
+    Fujian. Not updated for later, larger turbines.
+- id: oedigital-ctg-20
+  name: Offshore Engineer, "China installs 'world's first' 20MW offshore wind turbine" (15 January 2026)
+  url: https://www.oedigital.com/amp/news/534456-china-installs-world-s-first-20mw-offshore-wind-turbine
+  kind: news
+records:
+- date: '2023-06'
+  value: 16
+  series: installed
+  holder: Goldwind and China Three Gorges (GWH252-16MW)
+  conditions: Offshore, Zhangpu Liuao wind farm phase two, Fujian; 252 m rotor
+  status: claimed
+  source: offshorewind-mingyang-16
+  note: Reported in July 2023 as the world's first 16 MW turbine installed offshore, the previous month.
+- date: '2023-07-18'
+  value: 16
+  series: installed
+  holder: Mingyang Smart Energy (MySE 16-260)
+  conditions: Offshore, Pingtan, Fujian; 260 m rotor; date is grid connection
+  status: confirmed
+  source: guinness-largest-wind
+  note: Same rated power as the Goldwind turbine but a larger rotor; Guinness lists it as the largest wind turbine.
+- date: '2024-06-05'
+  value: 18
+  series: installed
+  holder: Dongfang Electric Corporation
+  conditions: Coastal test base, Shantou, Guangdong; 260 m rotor
+  status: claimed
+  source: offshorewind-dongfang-18
+  note: The company called it the largest turbine installed in the world.
+- date: '2024-08-28'
+  value: 20
+  series: installed
+  holder: Mingyang Smart Energy (MySE18.X-20MW)
+  conditions: Hainan; rotor 260-292 m; rated up to 20 MW
+  status: claimed
+  source: powermag-mingyang-20
+  note: Described by POWER as offshore and by offshoreWIND.biz's 2024 review as at an onshore test site.
+- date: '2025-04-02'
+  value: 21.5
+  series: installed
+  holder: Siemens Gamesa (SG DD-276)
+  conditions: Østerild national test centre, Denmark; 276 m rotor; date is when the last blades were installed
+  status: claimed
+  source: powermag-sgre-2025
+- date: '2025-09'
+  value: 26
+  series: installed
+  holder: Dongfang Electric Corporation
+  conditions: Test base at Dongying, Shandong, per offshoreWIND.biz; 310 m rotor
+  status: claimed
+  source: offshorewind-2025-review
+  url: https://www.offshorewind.biz/2025/09/03/dongfang-installs-worlds-largest-single-capacity-offshore-wind-turbine-for-testing
+  note: The company claims the largest single-unit capacity and rotor diameter in the world.
+events:
+- date: '2023-07-18'
+  kind: milestone
+  title: Mingyang's 16 MW turbine is connected to the grid off Fujian
+  why_it_matters: It became the turbine Guinness World Records lists as the largest, the start of a rapid run of
+    Chinese records.
+  url: https://guinnessworldrecords.de/world-records/largest-wind-generator
+- date: '2025-04-02'
+  kind: milestone
+  title: Siemens Gamesa completes a 21.5 MW prototype in Denmark
+  why_it_matters: A European maker briefly took the record back, showing the size race is not only Chinese.
+  url: https://www.powermag.com/siemens-gamesa-installs-worlds-most-powerful-wind-turbine-at-denmark-test-site
+- date: '2025-09'
+  kind: milestone
+  title: Dongfang installs a 26 MW turbine with a 310 m rotor for testing
+  why_it_matters: It jumped the record by more than 4 MW in a single step, well ahead of any turbine in commercial
+    use.
+  url: https://www.offshorewind.biz/2025/09/03/dongfang-installs-worlds-largest-single-capacity-offshore-wind-turbine-for-testing
+- date: '2025-10'
+  kind: news
+  title: Mingyang unveils plans for a 50 MW floating turbine with two 25 MW rotors
+  why_it_matters: 'It points to another route to more power per structure: two rotors sharing one floating
+    platform.'
+  url: https://www.offshorewind.biz/2026/01/01/offshore-wind-turbines-in-2025-china-continues-leading-in-single-unit-capacity-vestass-15-mw-turbine-installed-at-offshore-wind-farms/
+- date: '2026-01-15'
+  kind: milestone
+  title: A 20 MW turbine is installed at sea off southern Fujian
+  why_it_matters: The largest turbines are now moving from test sites into real offshore conditions.
+  url: https://www.oedigital.com/amp/news/534456-china-installs-world-s-first-20mw-offshore-wind-turbine
+reading: []
+connections:
+- wind-capacity
+- renewables-cost
