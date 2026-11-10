@@ -1,0 +1,28 @@
+id: wikipedia-articles
+title: Wikipedia articles
+domain: knowledge
+subfield: Open knowledge
+status: draft
+summary: placeholder
+metric:
+  name: placeholder
+  unit: articles
+  direction: higher
+  scale: linear
+  explainer: placeholder
+chart:
+  primary: record-chart
+series:
+- id: en
+  label: English
+update:
+  cadence: monthly
+  last_checked: '2026-11-09'
+sources:
+- id: wikistats
+  name: placeholder
+  url: https://stats.wikimedia.org/
+  kind: dataset
+  primary: true
+events: []
+observations: []
