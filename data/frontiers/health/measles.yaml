@@ -26,7 +26,47 @@ series:
   label: Reported measles cases
 - id: coverage
   label: First-dose MCV1 coverage (%)
-observations: []
+observations:
+- {date: '2000', series: cases, value: 853479, source: owid-measles-cases}
+- {date: '2000', series: coverage, value: 71.0, source: owid-measles-coverage}
+- {date: '2001', series: cases, value: 849173, source: owid-measles-cases}
+- {date: '2001', series: coverage, value: 72.0, source: owid-measles-coverage}
+- {date: '2002', series: cases, value: 586471, source: owid-measles-cases}
+- {date: '2002', series: coverage, value: 72.0, source: owid-measles-coverage}
+- {date: '2003', series: cases, value: 679856, source: owid-measles-cases}
+- {date: '2003', series: coverage, value: 73.0, source: owid-measles-coverage}
+- {date: '2004', series: cases, value: 513406, source: owid-measles-cases}
+- {date: '2004', series: coverage, value: 75.0, source: owid-measles-coverage}
+- {date: '2005', series: cases, value: 585701, source: owid-measles-cases}
+- {date: '2005', series: coverage, value: 77.0, source: owid-measles-coverage}
+- {date: '2006', series: cases, value: 377576, source: owid-measles-cases}
+- {date: '2006', series: coverage, value: 79.0, source: owid-measles-coverage}
+- {date: '2007', series: cases, value: 285031, source: owid-measles-cases}
+- {date: '2007', series: coverage, value: 79.0, source: owid-measles-coverage}
+- {date: '2008', series: cases, value: 278751, source: owid-measles-cases}
+- {date: '2008', series: coverage, value: 81.0, source: owid-measles-coverage}
+- {date: '2009', series: cases, value: 278637, source: owid-measles-cases}
+- {date: '2009', series: coverage, value: 83.0, source: owid-measles-coverage}
+- {date: '2010', series: cases, value: 343806, source: owid-measles-cases}
+- {date: '2010', series: coverage, value: 84.0, source: owid-measles-coverage}
+- {date: '2011', series: cases, value: 359332, source: owid-measles-cases}
+- {date: '2011', series: coverage, value: 84.0, source: owid-measles-coverage}
+- {date: '2012', series: cases, value: 212376, source: owid-measles-cases}
+- {date: '2012', series: coverage, value: 84.0, source: owid-measles-coverage}
+- {date: '2013', series: cases, value: 275307, source: owid-measles-cases}
+- {date: '2013', series: coverage, value: 84.0, source: owid-measles-coverage}
+- {date: '2014', series: cases, value: 282078, source: owid-measles-cases}
+- {date: '2014', series: coverage, value: 84.0, source: owid-measles-coverage}
+- {date: '2015', series: cases, value: 214808, source: owid-measles-cases}
+- {date: '2015', series: coverage, value: 84.0, source: owid-measles-coverage}
+- {date: '2016', series: cases, value: 132490, source: owid-measles-cases}
+- {date: '2016', series: coverage, value: 85.0, source: owid-measles-coverage}
+- {date: '2017', series: cases, value: 173457, source: owid-measles-cases}
+- {date: '2017', series: coverage, value: 85.0, source: owid-measles-coverage}
+- {date: '2018', series: cases, value: 359295, source: owid-measles-cases}
+- {date: '2018', series: coverage, value: 86.0, source: owid-measles-coverage}
+- {date: '2019', series: cases, value: 873373, source: owid-measles-cases}
+- {date: '2019', series: coverage, value: 86.0, source: owid-measles-coverage}
 sources:
 - id: owid-measles-cases
   name: Our World in Data, Reported cases of measles (World Health Organization Global Health Observatory)
