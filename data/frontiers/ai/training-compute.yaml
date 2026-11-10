@@ -1,0 +1,87 @@
+# Records are rebuilt from Epoch AI's notable models file by scripts/fetchers/training_compute.py.
+# Edit the other fields by hand; never edit the records directly.
+id: training-compute
+title: Training compute of the largest AI models
+domain: ai
+subfield: Cost and scale
+status: draft
+summary: The largest amount of computation used to train any notable AI model, by publication date, as
+  estimated by Epoch AI. It is the clearest single measure of how fast AI training has scaled up.
+metric:
+  name: Estimated training compute of the largest notable model
+  unit: FLOP
+  direction: higher
+  scale: log
+  explainer: 'Training a neural network means running a huge number of arithmetic operations on numbers
+    with a decimal point, called floating-point operations or FLOP. The total count for a training run is
+    a rough measure of how much computing went into the model, and it depends on three things together:
+    how big the model is, how much data it sees, and how many passes it makes over that data. Larger
+    training runs have been the main way AI labs have made models more capable over the past fifteen
+    years, which is why this number is watched closely, and why some rules, such as the EU AI Act, use a
+    compute threshold to decide which models face extra obligations. Most developers do not publish the
+    figure. Epoch AI, an independent research group, estimates it from what is disclosed: model size and
+    data size, or the number and type of chips and how long they ran. Each estimate carries Epoch''s own
+    confidence rating, and some of the largest recent figures are rough. The chart is a log scale because
+    the record has grown by many powers of ten: each step up is a model that used more compute than any
+    notable model published before it. Epoch counts a model as notable if it was state of the art, widely
+    cited or widely used, or otherwise historically important, so very large but obscure runs may be
+    missing.'
+chart:
+  primary: record-chart
+  secondary:
+  - scale-ladder
+  - pace-board
+series:
+- id: notable-models
+  label: Largest notable model
+update:
+  cadence: monthly
+  last_checked: '2026-11-09'
+  notes: 'Records are rebuilt from Epoch''s notable models file by scripts/fetchers/training_compute.py;
+    do not edit them by hand. A model is a record when its estimated training compute beats every notable
+    model with an earlier publication date. Status follows Epoch''s confidence rating for each estimate:
+    confirmed when Epoch rates it Confident (an independent estimate from disclosed details), claimed
+    otherwise (Likely, Speculative or no rating). The schema has no status for an independent but
+    uncertain estimate, so claimed here does not mean the developer announced the figure. Epoch revises
+    estimates and adds models, so past records can change between runs. The file itself is not copied;
+    only the facts listed in each record are stored.'
+sources:
+- id: epoch-notable-models
+  name: Epoch AI, Data on AI models (notable AI models file)
+  url: https://epoch.ai/data/ai-models
+  kind: dataset
+  primary: true
+  notes: 'File https://epoch.ai/data/notable_ai_models.csv (updated 2026-11-09 when read). Licence CC BY 4.0:
+    the page says the data is free to use, distribute and reproduce with credit to the source and authors.
+    Credit line: "Data: Epoch AI, Data on AI models (epoch.ai/data/ai-models), CC BY 4.0."'
+- id: epoch-compute-growth
+  name: Epoch AI, Training compute of frontier AI models grows by 4-5x per year
+  url: https://epoch.ai/blog/training-compute-of-frontier-ai-models-grows-by-4-5x-per-year
+  kind: report
+- id: eu-gpai-obligations
+  name: European Commission, General-purpose AI obligations under the AI Act
+  url: https://digital-strategy.ec.europa.eu/en/factpages/general-purpose-ai-obligations-under-ai-act
+  kind: other
+events:
+- date: '2024-05-28'
+  kind: paper
+  title: Epoch AI estimates frontier training compute grows about 4 to 5 times a year
+  why_it_matters: Puts a number on the pace of scaling, roughly fivefold a year since 2010 for the
+    biggest models, with some sign of a slower rate after 2018.
+  url: https://epoch.ai/blog/training-compute-of-frontier-ai-models-grows-by-4-5x-per-year
+- date: '2025-01-08'
+  kind: paper
+  title: Epoch AI finds bigger chip clusters drive most of the growth in training compute
+  why_it_matters: Shows that since 2018 the main lever has been using more chips at once, with longer
+    runs and faster chips adding less, which ties the trend to data center build-out.
+  url: https://epoch.ai/data-insights/training-compute-decomposition
+- date: '2025-08-02'
+  kind: milestone
+  title: EU AI Act duties for general-purpose AI models start to apply
+  why_it_matters: Models trained with more than 10^25 FLOP are presumed to carry systemic risk under the
+    Act, making training compute a legal threshold as well as a research measure.
+  url: https://digital-strategy.ec.europa.eu/en/factpages/general-purpose-ai-obligations-under-ai-act
+reading: []
+connections:
+- ai-capabilities-index
+records: []
