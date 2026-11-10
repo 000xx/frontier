@@ -1,0 +1,89 @@
+# Records are rebuilt from Epoch AI's benchmark data by scripts/fetchers/otis_mock_aime.py.
+# Edit the other fields by hand; never edit the records directly.
+id: otis-mock-aime
+title: AI on olympiad-style maths problems (OTIS Mock AIME 2024-2025)
+domain: ai
+subfield: Capability
+status: live
+summary: The best score any AI model has reached on OTIS Mock AIME 2024-2025, a set of 45 olympiad-style maths
+  problems written by students of the OTIS training programme, as run by Epoch AI. It shows how close models
+  have come to the ceiling on this set.
+metric:
+  name: Best OTIS Mock AIME 2024-2025 score (Epoch AI runs)
+  unit: '% of problems solved'
+  direction: higher
+  scale: linear
+  limit:
+    value: 100
+    label: Every problem solved
+    source: epoch-benchmarks
+  explainer: 'OTIS Mock AIME is a set of practice exams in the style of the AIME maths contest, written by
+    students of the Olympiad Training for Individual Study programme. Epoch AI combined the 2024 and 2025
+    mock exams into one benchmark of 45 problems from three exams and runs AI models on it itself. Each
+    answer is checked by a computer, so the score is the share of problems a model solves. Epoch reported in
+    December 2025 that the benchmark was nearly saturated, with one problem still unsolved by any model. So
+    a high score here shows that a model can solve competition-style problems reliably, but it does not
+    show ability on research mathematics, and the benchmark has little room left to separate the best models.'
+chart:
+  primary: record-chart
+  secondary:
+  - threshold-gauge
+series:
+- id: epoch-runs
+  label: Best model, Epoch AI runs
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Records are rebuilt from Epoch''s benchmark_data.zip (member otis_mock_aime_2024_2025.csv) by
+    scripts/fetchers/otis_mock_aime.py; do not edit them by hand. Values are Epoch''s mean_score times 100,
+    rounded to two decimals. A model is a record when its score beats every model with an earlier release
+    date. Dates are model release dates as Epoch lists them.'
+sources:
+- id: epoch-benchmarks
+  name: Epoch AI, Benchmarking hub data (benchmark_data.zip)
+  url: https://epoch.ai/benchmarks/use-this-data
+  kind: dataset
+  primary: true
+  notes: 'File https://epoch.ai/data/benchmark_data.zip (updated 2026-11-09 when read), member
+    otis_mock_aime_2024_2025.csv. Licence CC BY 4.0 for Epoch data: free to use, distribute and reproduce with
+    credit to the source and authors. Credit line: "Data: Epoch AI, Benchmarking hub (epoch.ai/benchmarks),
+    CC BY 4.0."'
+- id: otis-mock-aime-dataset
+  name: Epoch AI, OTIS Mock AIME 2024-2025 dataset on Hugging Face
+  url: https://huggingface.co/datasets/EpochAI/otis-mock-aime-24-25/blob/main/README.md
+  kind: dataset
+  notes: 'Describes the 45 problems from three exams and says they were written by OTIS students. Licence
+    listed as Apache-2.0 on that page; the problems themselves are not copied here.'
+events:
+- date: '2024-12-19'
+  kind: milestone
+  title: OTIS Mock AIME 2025 contest period opens, with the 2024 and 2025 mock exams as the test set
+  why_it_matters: The exam is written by students as practice for a real contest, so its problems were not made as AI tests.
+  url: https://blog.evanchen.cc/2024/12/
+- date: '2025-12-15'
+  kind: news
+  title: Epoch says OTIS Mock AIME 2024-2025 is nearly saturated, with one problem still unsolved by any model
+  why_it_matters: When the best models are close to the ceiling, a benchmark stops separating them, which is why this frontier is near 100%.
+  url: https://substack.com/@epochai/note/c-187985664
+reading: []
+records:
+- {date: '2023-03-14', value: 0.56, series: epoch-runs, holder: gpt-4-0314, conditions: developer OpenAI; standard error 0.39 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2023-06-13', value: 1.11, series: epoch-runs, holder: gpt-4-0613, conditions: developer OpenAI; standard error 0.54 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2023-07-11', value: 2.5, series: epoch-runs, holder: claude-2.0, conditions: developer Anthropic; standard error 1.52 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-02-29', value: 4.72, series: epoch-runs, holder: claude-3-opus-20240229, conditions: developer Anthropic; standard error 1.96 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-04-09', value: 6.67, series: epoch-runs, holder: gpt-4-turbo-2024-04-09, conditions: developer OpenAI; standard error 2.4 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-05-14', value: 6.81, series: epoch-runs, holder: gemini-1.5-pro-001, conditions: developer Google DeepMind; standard error 1.89 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-07-18', value: 6.94, series: epoch-runs, holder: gpt-4o-mini-2024-07-18, conditions: developer OpenAI; standard error 2.74 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-07-23', value: 9.72, series: epoch-runs, holder: Llama-3.1-405B-Instruct, conditions: developer Meta AI; standard error 3.22 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-09-12', value: 46.94, series: epoch-runs, holder: o1-mini-2024-09-12_high, conditions: developer OpenAI; standard error 6.46 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-12-17', value: 73.33, series: epoch-runs, holder: o1-2024-12-17_high, conditions: developer OpenAI; standard error 6.67 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-01-31', value: 76.94, series: epoch-runs, holder: o3-mini-2025-01-31_high, conditions: developer OpenAI; standard error 5.24 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-04-09', value: 77.78, series: epoch-runs, holder: grok-3-mini-beta_high, conditions: developer xAI; standard error 6.27 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-04-16', value: 84.44, series: epoch-runs, holder: o3-2025-04-16_medium, conditions: developer OpenAI; standard error 5.46 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-07-25', value: 86.67, series: epoch-runs, holder: Qwen3-235B-A22B-Thinking-2507, conditions: developer Alibaba; standard error 5.12 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-08-05', value: 88.89, series: epoch-runs, holder: openai/gpt-oss-120b_high, conditions: developer OpenAI; standard error 4.46 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-08-07', value: 91.39, series: epoch-runs, holder: gpt-5-2025-08-07_high, conditions: developer OpenAI; standard error 3.66 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-12-11', value: 96.11, series: epoch-runs, holder: gpt-5.2-2025-12-11_high, conditions: developer OpenAI; standard error 2.6 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-03-05', value: 97.78, series: epoch-runs, holder: gpt-5.4-2026-03-05_high, conditions: developer OpenAI; standard error 2.22 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-04-16', value: 97.8, series: epoch-runs, holder: claude-opus-4-7_xhigh, conditions: developer Anthropic; standard error 2.2 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-04-23', value: 100.0, series: epoch-runs, holder: gpt-5.5-pre-release_xhigh, conditions: developer OpenAI; standard error 0.0 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
