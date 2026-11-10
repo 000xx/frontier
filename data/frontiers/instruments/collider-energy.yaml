@@ -1,0 +1,226 @@
+# Records are transcribed by hand from the pages listed under sources; each value was read in this run.
+# A record is a collider reaching a higher centre-of-mass collision energy than any earlier collider of its kind.
+# Hadron and electron-positron colliders are separate series and should not be ranked against each other.
+id: collider-energy
+title: Highest collision energy in a particle collider
+domain: instruments
+subfield: Big projects
+status: live
+summary: The highest energy at which particle beams have been smashed together, from the first proton collider in
+  1971 to the Large Hadron Collider's 13.6 TeV today. Higher energy lets physicists make heavier particles and
+  look at nature on smaller scales.
+metric:
+  name: Highest centre-of-mass collision energy reached
+  unit: TeV
+  direction: higher
+  scale: log
+  explainer: 'A collider accelerates two beams of particles in opposite directions and steers them into each
+    other. The energy available to make new particles is the centre-of-mass energy, the total energy of the
+    two colliding particles. It is quoted in electronvolts: a teraelectronvolt (TeV) is a trillion of them.
+    By Einstein''s E = mc², more energy means heavier particles can appear in the debris, so each new energy
+    record opens a window on things no earlier machine could make. Colliding two beams head-on wins far more
+    usable energy than firing one beam at a fixed target, which is why colliders took over in the 1970s.
+    Protons are made of smaller parts (quarks and gluons), so only part of a proton collision''s energy goes
+    into any single interaction; electron-positron collisions are cleaner but electrons lose energy as
+    radiation when bent in a ring, which has kept their record far lower. The two kinds are shown as
+    separate series. Today''s proton record is set by the Large Hadron Collider at CERN, which stopped in
+    mid-2026 for a long upgrade into the High-Luminosity LHC. A proton machine of up to 100 TeV has been
+    proposed for a new 91 kilometre tunnel near Geneva, but it would come decades from now, if at all.'
+chart:
+  primary: record-chart
+  secondary:
+  - reign-timeline
+series:
+- id: hadron
+  label: Proton and antiproton colliders
+- id: electron-positron
+  label: Electron-positron colliders
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Open points for the owner: (1) every record rests on a lab announcement, a lab history page, a
+    trade-magazine report or a Fermilab review that was not checked for a journal, so all are claimed; the
+    energies are not in doubt, but no peer-reviewed paper was opened for them. (2) The ISR value is its
+    maximum energy; the date is its first collisions (27 January 1971), and the date it first reached 62 GeV
+    was not found. (3) The Tevatron reached 1.8 TeV during Run I, but no date for that step was read, so it is
+    missing; the 1.96 TeV record is dated to the start of Run II in March 2001. (4) Fermilab''s Shiltsev
+    review says the LHC took the lead in colliding beam energy on 29 November 2009, the day its beams reached
+    1.18 TeV each; the 2.36 TeV collisions followed in December, and that month is used. (5) The 13 TeV date
+    is the start of physics data taking; first test collisions at that energy came earlier and were not dated
+    in the source read. (6) Electron-positron coverage holds only LEP''s final energy; earlier lepton records
+    are not yet added. Heavy-ion collision energies are not covered. Wikipedia and the CERN timeline could
+    not be opened in this run.'
+sources:
+- id: cms-13-6-tev
+  name: CMS Communication (F. Baldassari and I. Khalid), news item on first collisions at 13.6 TeV (July 2022)
+  url: https://cms.cern/node/2106
+  kind: press
+  primary: true
+  notes: Gives first collisions at 13.6 TeV on 5 July 2022, described as a new world record.
+- id: appec-13-tev
+  name: APPEC, "LHC Experiments Are Back in Business at a New Record Energy" (24 June 2015, citing the CERN
+    press release of 3 June 2015)
+  url: https://appec.org/news/lhc-experiments-are-back-in-business-at-a-new-record-energy/
+  kind: news
+- id: cern-8-tev
+  name: CERN, "LHC physics data taking gets underway at new record collision energy of 8TeV" (5 April 2012)
+  url: https://home.cern/lhc-physics-data-taking-gets-underway-at-new-record-collision-energy-of-8tev/
+  kind: press
+- id: cern-courier-7-tev
+  name: CERN Courier, "The LHC's new frontier" (5 May 2010)
+  url: https://cerncourier.com/a/the-lhcs-new-frontier/
+  kind: news
+- id: cern-2009-run
+  name: CERN, "LHC ends 2009 run on a high note" (18 December 2009)
+  url: https://home.cern/lhc-ends-2009-run-on-a-high-note/
+  kind: press
+- id: physics-today-lhc-2009
+  name: Physics Today, "LHC now world's most powerful collider" (9 December 2009)
+  url: https://physicstoday.aip.org/news/lhc-now-worlds-most-powerful-collider
+  kind: news
+  notes: Gives 2.36 TeV collisions (1.18 TeV per beam) and the Tevatron's 1.96 TeV as the previous record.
+- id: shiltsev-tevatron
+  name: V. Shiltsev (Fermilab), "Accelerator Science and Technology Breakthroughs, Achievements and Lessons from
+    the Tevatron", arXiv:1109.1864
+  url: https://arxiv.org/abs/1109.1864
+  kind: paper
+  notes: Gives Run II from March 2001 at up to 1.96 TeV, Run I at 1800 GeV, and the LHC overtaking the
+    Tevatron in colliding beam energy on 29 November 2009. No journal was named in the copy read.
+- id: physics-today-tevatron-1985
+  name: Physics Today, "First proton-antiproton collisions at Tevatron" (1 December 1985)
+  url: https://physicstoday.aip.org/news/first-proton-antiproton-collisions-at-tevatron
+  kind: news
+- id: cern-stochastic-cooling
+  name: CERN, "Stochastic cooling" (archived CERN discoveries story, part 3)
+  url: https://cern-discoveries.web.cern.ch/archived/Story/StochasticCooling3.html
+  kind: other
+  notes: Says first proton-antiproton collisions in the SPS were detected by July 1981 at a record 540 GeV.
+- id: physics-today-sps-1982
+  name: Physics Today, "CERN SPS now running as 540-GeV p̄p collider" (1 February 1982)
+  url: https://physicstoday.aip.org/news/cern-sps-now-running-as-540-gev-pp-collider
+  kind: news
+- id: cern-isr
+  name: CERN, "The Intersecting Storage Rings"
+  url: https://www.home.cern/science/accelerators/intersecting-storage-rings
+  kind: other
+- id: cern-lep-fr
+  name: CERN, "Grand collisionneur électron-positon (LEP)"
+  url: https://home.cern/fr/science/accelerators/large-electron-positron-collider/
+  kind: other
+  notes: Gives start in July 1989, 209 GeV reached in 2000, and shutdown on 2 November 2000.
+- id: sciencetimes-ls3
+  name: Science Times, "Large Hadron Collider waves goodbye as it enters Long Shutdown 3 after nearly 20 years of
+    service" (6 July 2026)
+  url: https://www.sciencetimes.com/articles/62039/20260706/large-hadron-collider-waves-goodbye-it-enters-long-shutdown-3-after-nearly-20-years-service.htm
+  kind: news
+- id: cern-fcc
+  name: CERN, "The Future Circular Collider"
+  url: https://home.cern/science/future-circular-collider
+  kind: other
+- id: inn-fcc-2026
+  name: Innovation News Network, "CERN backs Future Circular Collider in new European Strategy for Particle
+    Physics" (27 May 2026)
+  url: https://www.innovationnewsnetwork.com/cern-backs-future-circular-collider-in-new-european-strategy-for-particle-physics/70049/
+  kind: news
+records:
+- date: '1971'
+  value: 0.062
+  series: hadron
+  holder: Intersecting Storage Rings, CERN
+  conditions: Proton-proton; 62 GeV is the machine's maximum centre-of-mass energy
+  status: claimed
+  source: cern-isr
+  note: CERN calls it the world's first hadron collider; first collisions on 27 January 1971.
+- date: '1981-07'
+  value: 0.54
+  series: hadron
+  holder: SPS proton-antiproton collider, CERN
+  conditions: Proton-antiproton; 540 GeV
+  status: claimed
+  source: cern-stochastic-cooling
+  note: Physics Today reported the collider running at 540 GeV in February 1982.
+- date: '1985-10-13'
+  value: 1.6
+  series: hadron
+  holder: Tevatron, Fermilab
+  conditions: Proton-antiproton; 1.6 TeV at first collisions
+  status: claimed
+  source: physics-today-tevatron-1985
+- date: '2001-03'
+  value: 1.96
+  series: hadron
+  holder: Tevatron, Fermilab
+  conditions: Proton-antiproton, Run II; up to 1.96 TeV
+  status: claimed
+  source: shiltsev-tevatron
+  note: Run I ran at 1.8 TeV; the date that energy was first reached was not read.
+- date: '2009-12'
+  value: 2.36
+  series: hadron
+  holder: Large Hadron Collider, CERN
+  conditions: Proton-proton; 1.18 TeV per beam
+  status: claimed
+  source: physics-today-lhc-2009
+  note: CERN's release of 18 December 2009 calls the 2.36 TeV collisions a new world record.
+- date: '2010-03-30'
+  value: 7
+  series: hadron
+  holder: Large Hadron Collider, CERN
+  conditions: Proton-proton; 3.5 TeV per beam
+  status: claimed
+  source: cern-courier-7-tev
+- date: '2012-04-05'
+  value: 8
+  series: hadron
+  holder: Large Hadron Collider, CERN
+  conditions: Proton-proton; stable beams for physics
+  status: claimed
+  source: cern-8-tev
+- date: '2015-06-03'
+  value: 13
+  series: hadron
+  holder: Large Hadron Collider, CERN
+  conditions: Proton-proton; start of physics data taking in Run 2
+  status: claimed
+  source: appec-13-tev
+- date: '2022-07-05'
+  value: 13.6
+  series: hadron
+  holder: Large Hadron Collider, CERN
+  conditions: Proton-proton; start of Run 3 physics
+  status: claimed
+  source: cms-13-6-tev
+- date: '2000'
+  value: 0.209
+  series: electron-positron
+  holder: Large Electron-Positron Collider (LEP), CERN
+  conditions: Electron-positron; final energy before shutdown on 2 November 2000
+  status: claimed
+  source: cern-lep-fr
+events:
+- date: '2009-12'
+  kind: milestone
+  title: The LHC passes the Tevatron with 2.36 TeV collisions
+  why_it_matters: The energy record moved back to Europe after 24 years at Fermilab, months before the LHC's
+    full-energy physics began.
+  url: https://physicstoday.aip.org/news/lhc-now-worlds-most-powerful-collider
+- date: '2022-07-05'
+  kind: milestone
+  title: LHC Run 3 starts at 13.6 TeV
+  why_it_matters: This is the current record, a modest step above the 13 TeV of Run 2.
+  url: https://cms.cern/node/2106
+- date: '2026-05-27'
+  kind: news
+  title: Updated European strategy backs an electron-positron Future Circular Collider
+  why_it_matters: The tunnel it needs could later hold a proton collider of up to 100 TeV, the most likely
+    route to a new record; a decision to build is expected by 2028.
+  url: https://www.innovationnewsnetwork.com/cern-backs-future-circular-collider-in-new-european-strategy-for-particle-physics/70049/
+- date: '2026-06'
+  kind: milestone
+  title: The LHC stops for Long Shutdown 3
+  why_it_matters: With the collider off until it restarts as the High-Luminosity LHC, targeted for June 2030, the
+    record cannot move for years.
+  url: https://www.sciencetimes.com/articles/62039/20260706/large-hadron-collider-waves-goodbye-it-enters-long-shutdown-3-after-nearly-20-years-service.htm
+reading: []
+connections:
+- superheavy-elements
