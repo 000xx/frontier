@@ -35,7 +35,7 @@ def read_world(raw):
         if row["Entity"] != "World" or row["Code"] != "OWID_WRL":
             continue
         year = row["Year"].strip()
-        if not re.fullmatch(r"-?\d{1,4}", year):
+        if not re.fullmatch(r"-?\d+", year):
             raise common.SourceError(f"World row has a bad year: {year!r}")
         if int(year) < FIRST_YEAR:
             continue  # the source's placeholder and early rows; the frontier starts at FIRST_YEAR
