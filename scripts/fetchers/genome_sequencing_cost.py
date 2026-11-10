@@ -17,8 +17,7 @@ from . import common
 FRONTIER = "data/frontiers/biology/genome-sequencing-cost.yaml"
 FACT_SHEET = "https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Costs-Data"
 SOURCE_ID = "nhgri-table"
-SERIES_HEADERS = {"cost-per-genome": "genome", "cost-per-megabase": "megabase"}
-TOLERANCE = 0.0005    # the frontier keeps three decimal places
+SERIES_HEADERS = {"cost-per-genome": r"genome", "cost-per-megabase": r"megabase|\bmb\b"}
 MIN_ROW_SHARE = 0.9   # fail if the workbook holds fewer months than this share of the frontier
 OBS_LINE = re.compile(r"^- \{date: '(\d{4}-\d{2})', value: ([0-9.eE+-]+), series: ([a-z-]+), source: ([a-z-]+)")
 DATE_FORMATS = ("%Y-%m-%d", "%Y-%m", "%m/%d/%Y", "%b-%y", "%b-%Y", "%b %Y", "%B %Y")
@@ -79,8 +78,8 @@ def find_table(sheets):
                 text = str(cell or "").lower()
                 if "date" in text and "date" not in cols:
                     cols["date"] = c
-                for series, word in SERIES_HEADERS.items():
-                    if word in text and series not in cols:
+                for series, pattern in SERIES_HEADERS.items():
+                    if re.search(pattern, text) and series not in cols:
                         cols[series] = c
             if {"date", *SERIES_HEADERS} <= cols.keys():
                 return rows, i, cols
@@ -187,9 +186,18 @@ def fetch():
     rows, header_index, cols = find_table(sheets)
     nhgri = parse_table(rows, header_index, cols)
 
-    existing = {}
-    for obs in common.load(FRONTIER).get("observations") or []:
-        existing[(obs["series"], str(obs["date"])[:7])] = float(obs["value"])
+    # Each stored value is compared to within half a unit of its last written decimal place,
+    # so a value stored as 0.006 matches anything that rounds to it and nothing else.
+    existing, tolerance = {}, {}
+    for line in (common.ROOT / FRONTIER).read_text(encoding="utf-8").split("\n"):
+        match = OBS_LINE.match(line)
+        if not match:
+            continue
+        key = (match.group(3), match.group(1))
+        text = match.group(2)
+        decimals = len(text.split(".")[1]) if "." in text else 0
+        existing[key] = float(text)
+        tolerance[key] = 0.5 * 10 ** -decimals
 
     for series in SERIES_HEADERS:
         have = sum(1 for s, _ in existing if s == series)
@@ -205,7 +213,7 @@ def fetch():
         if new is None:
             missing += 1
             messages.append(f"Not in NHGRI workbook: {month} {series} (frontier {old:,.3f}; not changed)")
-        elif abs(old - new) > TOLERANCE:
+        elif abs(old - new) > tolerance[(series, month)]:
             mismatches += 1
             messages.append(f"Mismatch {month} {series}: frontier {old:,.3f}, NHGRI {new:,.3f} (not changed)")
 
