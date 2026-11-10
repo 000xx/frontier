@@ -1,0 +1,354 @@
+# Records are transcribed from the GIMPS table and checked against the PrimePages table.
+# Edit the other fields by hand; add records only from pages opened in the update run.
+id: largest-known-prime
+title: Largest known prime
+domain: mathematics
+subfield: Computation
+status: live
+summary: The largest prime number anyone has proved prime, measured in decimal digits, from the first
+  computer search in 1952 to today. Almost every record since 1952 is a Mersenne prime, a number of the
+  form 2 to the power p minus one, and most come from a volunteer network that runs the same tests on
+  spare computers.
+metric:
+  name: Digits in the largest known prime
+  unit: decimal digits
+  direction: higher
+  scale: log
+  explainer: 'A prime is a whole number greater than one that has no divisors except one and itself.
+    The largest known prime is the one with the most digits among those whose primality has been proved.
+    Since 1952 nearly every record has been a Mersenne prime, written 2^p − 1 for a prime exponent p.
+    Testing such a number is cheap compared with testing a random number of the same size, because the
+    Lucas-Lehmer test works directly on the exponent. That is why records are almost all Mersenne primes.
+    The number of digits grows very quickly with the exponent (doubling p roughly doubles the digit count),
+    so the chart uses a log scale. A record needs a full, reproducible primality proof, and the strongest
+    records are run again on different hardware and software before they are announced. Digit counts are
+    shown rather than the full numbers because the primes have tens of millions of digits.'
+chart:
+  primary: record-chart
+  secondary:
+  - reign-timeline
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Records come from the GIMPS table at mersenne.org/primes and were cross-checked against the
+    PrimePages table at t5k.org/mersenne. The table is the ranking of Mersenne primes by exponent, so a
+    record is the entry whose discovery date is later than every larger-digit prime found before it. Only the
+    computer era (1952 on) is covered; the earlier list of Mersenne primes (exponents 2 to 127, 1456 to 1876)
+    is not yet added. Open points for the owner: (1) the GIMPS table dates M42643801 to 2009-06-04, while its
+    press release gives discovery on 2009-04-12; the 2009 entry is not a record, so no record is added for it;
+    (2) M37156667 (table date 2008-09-06) is smaller than M43112609 (table date 2008-08-23) and so is not a
+    record by discovery date, and its press release was not reachable (it redirects to the M43112609 page);
+    (3) the press release for M43112609 gives its exponent as 243,112,609, which looks like a lost
+    superscript, so the table value 43112609 is used; (4) the GIMPS page marks the 2024 entry as a
+    provisional ranking because not all candidates between M82589933 and M136279841 have been eliminated;
+    (5) the PrimePages page largest.html could not be read in this run (two client errors), so the
+    PrimePages cross-check used the Mersenne table only. Records marked claimed have no independent
+    verification statement in the sources read for this run. Dates are discovery dates from the GIMPS
+    table, or from the press release where the table and press release differ.'
+sources:
+- id: gimps-primes
+  name: GIMPS, Mersenne prime list (largest known primes)
+  url: https://www.mersenne.org/primes/
+  kind: registry
+  primary: true
+  notes: 'Run by the Great Internet Mersenne Prime Search. Copyright "©1996-2026 Mersenne Research, Inc.".
+    Its Terms and Conditions say that GIMPS owns all collected data and may publish limited subsets of it for
+    public reference. The terms give no licence to copy the list, so only individual facts are recorded here,
+    each with a link. Ask the owner before copying the dataset.'
+- id: gimps-press
+  name: GIMPS press releases for individual Mersenne primes
+  url: https://www.mersenne.org/primes/press/
+  kind: press
+  notes: Individual pages per exponent, for example M136279841.html. Used for discovery and verification
+    details. The press pages carry no licence statement; the copyright line on the main site applies.
+- id: primepages-mersenne
+  name: PrimePages, Mersenne primes table (Chris Caldwell)
+  url: https://t5k.org/mersenne/
+  kind: registry
+  notes: Used to cross-check digit counts and dates. The page credits its table to "Printed from the PrimePages
+    <t5k.org> © Reginald McLean" and its author in the metadata as Chris K. Caldwell. No licence or reuse
+    terms were found on the pages read, so only facts are recorded.
+- id: primepages-largest
+  name: PrimePages, the largest known primes (Chris Caldwell)
+  url: https://t5k.org/notes/largest.html
+  kind: registry
+  notes: Named in the brief. Could not be read in this run (two client errors from the fetch tool). Not used
+    for any value here.
+records:
+- date: '1952-01-30'
+  value: 157
+  holder: Raphael M. Robinson
+  conditions: '2^p − 1, p = 521'
+  status: claimed
+  source: gimps-primes
+  note: First computer-era record in the table. No verification statement read for this entry.
+- date: '1952-01-30'
+  value: 183
+  holder: Raphael M. Robinson
+  conditions: '2^p − 1, p = 607'
+  status: claimed
+  source: gimps-primes
+  note: Found the same day as 2^521 − 1. No verification statement read for this entry.
+- date: '1952-06-25'
+  value: 386
+  holder: Raphael M. Robinson
+  conditions: '2^p − 1, p = 1279'
+  status: claimed
+  source: gimps-primes
+- date: '1952-10-07'
+  value: 664
+  holder: Raphael M. Robinson
+  conditions: '2^p − 1, p = 2203'
+  status: claimed
+  source: gimps-primes
+- date: '1952-10-09'
+  value: 687
+  holder: Raphael M. Robinson
+  conditions: '2^p − 1, p = 2281'
+  status: claimed
+  source: gimps-primes
+- date: '1957-09-08'
+  value: 969
+  holder: Hans Riesel
+  conditions: '2^p − 1, p = 3217'
+  status: claimed
+  source: gimps-primes
+- date: '1961-11-03'
+  value: 1281
+  holder: Alexander Hurwitz
+  conditions: '2^p − 1, p = 4253'
+  status: claimed
+  source: gimps-primes
+- date: '1961-11-03'
+  value: 1332
+  holder: Alexander Hurwitz
+  conditions: '2^p − 1, p = 4423'
+  status: claimed
+  source: gimps-primes
+- date: '1963-05-11'
+  value: 2917
+  holder: Donald B. Gillies
+  conditions: '2^p − 1, p = 9689'
+  status: claimed
+  source: gimps-primes
+- date: '1963-05-16'
+  value: 2993
+  holder: Donald B. Gillies
+  conditions: '2^p − 1, p = 9941'
+  status: claimed
+  source: gimps-primes
+- date: '1963-06-02'
+  value: 3376
+  holder: Donald B. Gillies
+  conditions: '2^p − 1, p = 11213'
+  status: claimed
+  source: gimps-primes
+- date: '1971-03-04'
+  value: 6002
+  holder: Bryant Tuckerman
+  conditions: '2^p − 1, p = 19937'
+  status: claimed
+  source: gimps-primes
+- date: '1978-10-30'
+  value: 6533
+  holder: Landon Curt Noll & Laura Nickel
+  conditions: '2^p − 1, p = 21701'
+  status: claimed
+  source: gimps-primes
+- date: '1979-02-09'
+  value: 6987
+  holder: Landon Curt Noll
+  conditions: '2^p − 1, p = 23209'
+  status: claimed
+  source: gimps-primes
+- date: '1979-04-08'
+  value: 13395
+  holder: Harry Lewis Nelson & David Slowinski
+  conditions: '2^p − 1, p = 44497'
+  status: claimed
+  source: gimps-primes
+- date: '1982-09-25'
+  value: 25962
+  holder: David Slowinski
+  conditions: '2^p − 1, p = 86243'
+  status: claimed
+  source: gimps-primes
+- date: '1983-09-19'
+  value: 39751
+  holder: David Slowinski
+  conditions: '2^p − 1, p = 132049'
+  status: claimed
+  source: gimps-primes
+- date: '1985-09-01'
+  value: 65050
+  holder: David Slowinski
+  conditions: '2^p − 1, p = 216091'
+  status: claimed
+  source: gimps-primes
+- date: '1992-02-19'
+  value: 227832
+  holder: David Slowinski & Paul Gage
+  conditions: '2^p − 1, p = 756839'
+  status: claimed
+  source: gimps-primes
+- date: '1994-01-04'
+  value: 258716
+  holder: David Slowinski & Paul Gage
+  conditions: '2^p − 1, p = 859433'
+  status: claimed
+  source: gimps-primes
+- date: '1996-09-03'
+  value: 378632
+  holder: David Slowinski & Paul Gage
+  conditions: '2^p − 1, p = 1257787'
+  status: claimed
+  source: gimps-primes
+- date: '1996-11-13'
+  value: 420921
+  holder: GIMPS / Joel Armengaud
+  conditions: '2^p − 1, p = 1398269'
+  status: confirmed
+  source: gimps-primes
+  url: https://www.mersenne.org/primes/press/M1398269.html
+  note: Press release says it was independently verified by David Slowinski.
+- date: '1997-08-24'
+  value: 895932
+  holder: GIMPS / Gordon Spence
+  conditions: '2^p − 1, p = 2976221'
+  status: confirmed
+  source: gimps-primes
+  url: https://www.mersenne.org/primes/press/M2976221.html
+  note: Press release says it was independently verified on a Cray T90 by David Slowinski.
+- date: '1998-01-27'
+  value: 909526
+  holder: GIMPS / Roland Clarkson
+  conditions: '2^p − 1, p = 3021377'
+  status: confirmed
+  source: gimps-primes
+  url: https://www.mersenne.org/primes/press/M3021377.html
+  note: Press release says it was independently verified on a Cray by David Slowinski.
+- date: '1999-06-01'
+  value: 2098960
+  holder: GIMPS / Nayan Hajratwala
+  conditions: '2^p − 1, p = 6972593'
+  status: confirmed
+  source: gimps-primes
+  url: https://www.mersenne.org/primes/press/M6972593.html
+  note: Press release says it was independently verified by David Willmore on a 500 MHz Alpha workstation.
+- date: '2001-11-14'
+  value: 4053946
+  holder: GIMPS / Michael Cameron
+  conditions: '2^p − 1, p = 13466917'
+  status: confirmed
+  source: gimps-primes
+  url: https://www.mersenne.org/primes/press/M13466917.html
+  note: Press release says it was independently verified by Ernst Mayer and Paul Victor Novarese.
+- date: '2003-11-17'
+  value: 6320430
+  holder: GIMPS / Michael Shafer
+  conditions: '2^p − 1, p = 20996011'
+  status: confirmed
+  source: gimps-primes
+  url: https://www.mersenne.org/primes/press/M20996011.html
+  note: Press release says two people verified it on different hardware (Guillermo Ballester Valor and Ernst Mayer).
+- date: '2004-05-15'
+  value: 7235733
+  holder: GIMPS / Josh Findley
+  conditions: '2^p − 1, p = 24036583'
+  status: confirmed
+  source: gimps-primes
+  url: https://www.mersenne.org/primes/press/M24036583.html
+  note: Press release says two separate groups verified it (Tony Reix, and Jeff Gilchrist).
+- date: '2005-02-18'
+  value: 7816230
+  holder: GIMPS / Martin Nowak
+  conditions: '2^p − 1, p = 25964951'
+  status: confirmed
+  source: gimps-primes
+  url: https://www.mersenne.org/primes/press/M25964951.html
+  note: Press release says two independent verifications (Tony Reix, and Jeff Gilchrist).
+- date: '2005-12-15'
+  value: 9152052
+  holder: GIMPS / Curtis Cooper & Steven Boone
+  conditions: '2^p − 1, p = 30402457'
+  status: confirmed
+  source: gimps-primes
+  url: https://www.mersenne.org/primes/press/M30402457.html
+  note: Press release says two independent verifications (Tony Reix, and Jeff Gilchrist).
+- date: '2006-09-04'
+  value: 9808358
+  holder: GIMPS / Curtis Cooper & Steven Boone
+  conditions: '2^p − 1, p = 32582657'
+  status: confirmed
+  source: gimps-primes
+  url: https://www.mersenne.org/primes/press/M32582657.html
+  note: Press release says it was independently verified by Tony Reix and then by Jeff Gilchrist.
+- date: '2008-08-23'
+  value: 12978189
+  holder: GIMPS / Edson Smith
+  conditions: '2^p − 1, p = 43112609'
+  status: claimed
+  source: gimps-primes
+  url: https://www.mersenne.org/primes/press/M43112609.html
+  note: Date from the GIMPS table. The press release gives an announcement date of 2008-09-15 and no discovery date, and it does not mention verification.
+- date: '2013-01-25'
+  value: 17425170
+  holder: GIMPS / Curtis Cooper
+  conditions: '2^p − 1, p = 57885161'
+  status: confirmed
+  source: gimps-primes
+  url: https://www.mersenne.org/primes/press/M57885161.html
+  note: Press release says it was independently verified with different programs on different hardware (three checks).
+- date: '2016-01-07'
+  value: 22338618
+  holder: GIMPS / Curtis Cooper
+  conditions: '2^p − 1, p = 74207281'
+  status: confirmed
+  source: gimps-primes
+  url: https://www.mersenne.org/primes/press/M74207281.html
+  note: Date is when the result was noticed. The computer first reported it on 2015-09-17. Press release says it was independently verified with different software and hardware.
+- date: '2017-12-26'
+  value: 23249425
+  holder: GIMPS / Jon Pace
+  conditions: '2^p − 1, p = 77232917'
+  status: confirmed
+  source: gimps-primes
+  url: https://www.mersenne.org/primes/press/M77232917.html
+  note: Press release says it was independently verified with four programs on four hardware configurations.
+- date: '2018-12-07'
+  value: 24862048
+  holder: GIMPS / Patrick Laroche
+  conditions: '2^p − 1, p = 82589933'
+  status: confirmed
+  source: gimps-primes
+  url: https://www.mersenne.org/primes/press/M82589933.html
+  note: Press release says it was independently verified using three programs on three hardware configurations.
+- date: '2024-10-12'
+  value: 41024320
+  holder: GIMPS / Luke Durant
+  conditions: '2^p − 1, p = 136279841'
+  status: confirmed
+  source: gimps-primes
+  url: https://www.mersenne.org/primes/press/M136279841.html
+  note: Found by a GPU search. Press release reports several Lucas-Lehmer runs on different hardware and software. GIMPS marks the ranking as provisional.
+events:
+- date: '2013-02-05'
+  kind: milestone
+  title: Record prime found on a university computer, confirmed on three setups
+  why_it_matters: A campus PC running volunteer software produced a record, and independent reruns on other hardware checked it before the announcement.
+  url: https://www.mersenne.org/primes/press/M57885161.html
+- date: '2016-01-07'
+  kind: milestone
+  title: A 2015 record sat unnoticed until a routine data check found it
+  why_it_matters: A machine reported the result in September 2015, and it was recognised only months later, which shows that records can sit unseen in search output.
+  url: https://www.mersenne.org/primes/press/M74207281.html
+- date: '2018-12-21'
+  kind: milestone
+  title: Record prime found by a volunteer's home computer
+  why_it_matters: One volunteer's ordinary processor found the record in 12 days, which shows that a distributed search can still reach the frontier with consumer hardware.
+  url: https://www.mersenne.org/primes/press/M82589933.html
+- date: '2024-10-21'
+  kind: milestone
+  title: Largest known prime, 2 to the power 136,279,841 minus one, announced
+  why_it_matters: The number has 41 million digits, and the announcement followed several independent checks on different hardware, though GIMPS still calls its ranking provisional.
+  url: https://www.mersenne.org/primes/press/M136279841.html
