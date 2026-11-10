@@ -6,7 +6,7 @@ id: open-access
 title: Open access
 domain: knowledge
 subfield: Open knowledge
-status: draft
+status: live
 summary: The share of published journal and conference articles that readers can get free of charge, as recorded in
   the OpenAlex index. It shows whether the research literature is moving from paywalls to free access.
 metric:
@@ -52,7 +52,7 @@ events:
   kind: milestone
   title: The open-access share peaks at 74.9 per cent for 2023 articles
   why_it_matters: 'The 2024 and 2025 values are slightly lower (73.9 and 73.6 per cent) in the same snapshot, but those years
-    are the least complete and may still change.'
+    may still change as OpenAlex updates its records.'
   url: https://api.openalex.org/works?filter=publication_year:2023,type:article&group_by=open_access.is_oa
 observations:
 - {date: '2000', series: articles, value: 17.8, source: openalex}
