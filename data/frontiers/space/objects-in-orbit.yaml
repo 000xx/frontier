@@ -4,7 +4,7 @@ id: objects-in-orbit
 title: Objects launched into space
 domain: space
 subfield: Getting to orbit
-status: draft
+status: live
 summary: How many objects the world launched into space each year, counted from the UN register of launched
   objects. The count shows how quickly the amount of hardware above us has grown, and which launches are
   adding to it.
@@ -117,4 +117,10 @@ events:
   why_it_matters: Rocket launches set a new yearly high, and each one can carry several registered objects,
     so the object count rises with the launch count.
   url: https://en.wikipedia.org/wiki/2025_in_spaceflight
+- date: '2026'
+  kind: dataset
+  title: Our World in Data publishes the UNOOSA launch index through 2025, the series this page charts
+  why_it_matters: The count is now public through 2025 in a machine-readable form, so each new year of
+    registrations can be checked against the series rather than read from news reports.
+  url: https://ourworldindata.org/grapher/yearly-number-of-objects-launched-into-outer-space
 reading: []
