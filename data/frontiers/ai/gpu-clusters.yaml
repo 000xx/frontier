@@ -1,0 +1,26 @@
+# placeholder until the source has been read; records come from scripts/fetchers/gpu_clusters.py.
+id: gpu-clusters
+title: Largest AI supercomputer (GPU clusters)
+domain: ai
+subfield: Cost and scale
+status: draft
+summary: placeholder until the source has been read.
+metric:
+  name: placeholder
+  unit: placeholder
+  direction: higher
+  explainer: placeholder
+chart:
+  primary: record-chart
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'placeholder'
+sources:
+- id: epoch-gpu-clusters
+  name: Epoch AI, GPU Clusters data
+  url: https://epoch.ai/data/gpu-clusters
+  kind: dataset
+  primary: true
+events: []
+reading: []
