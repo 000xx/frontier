@@ -5,7 +5,7 @@ id: undernourishment
 title: Undernourishment
 domain: food
 subfield: The food system
-status: draft
+status: live
 summary: The share of the world's people whose usual food intake is too low to give them the energy their bodies need.
   It is the headline measure of hunger that the UN tracks towards the goal of zero hunger by 2030.
 metric:
@@ -53,14 +53,14 @@ events:
 - date: '2020'
   kind: setback
   title: The world share of undernourished people rises from 7.5 per cent in 2019 to 8.5 per cent in 2020
-  why_it_matters: 'A one-year rise of a full point reversed most of the progress of the previous three years; the share
-    stayed between 8.2 and 8.8 per cent through 2024.'
+  why_it_matters: 'A one-year rise of a full point. The share stayed between 8.2 and 8.8 per cent in every year from 2020
+    to 2024, all above the 2019 level.'
   url: https://ourworldindata.org/grapher/prevalence-of-undernourishment
 - date: '2026-07-24'
   kind: milestone
   title: FAO reports 645 million people faced hunger in 2025, 7.8 per cent of the population, 14 million fewer than in 2024
-  why_it_matters: 'The 2025 estimate is lower than 2024 but is still above the level before the 2020 rise, as reported in
-    the press release summary.'
+  why_it_matters: 'The 2025 figure of 7.8 per cent is below the 2024 value of 8.2 in this series, but above the 7.5 per
+    cent recorded for 2019.'
   url: https://cathnews.com/2026/07/24/un-report-estimates-645-million-people-faced-hunger-in-2025/
 observations:
 - {date: '2000', series: world, value: 12.7, source: owid-undernourishment}
