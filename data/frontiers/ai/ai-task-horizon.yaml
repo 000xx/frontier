@@ -47,7 +47,7 @@ series:
   group: Time Horizon 1.1 task suite
 update:
   cadence: quarterly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-10'
   notes: 'Status stays draft: the post-correction Time Horizon 1.1 series, which is the current one, still
     holds only Claude Opus 4.6. On 2026-11-09 METR''s full table (https://metr.org/assets/benchmark_results_1_1.yaml)
     could again not be read: the fetch tool returns it as binary, and the shell''s proxy refuses metr.org.
@@ -387,6 +387,198 @@ records:
     METR's private tasks only. Claimed because it is METR's own measurement in a research note, not a
     refereed paper. METR says other reasonable modelling choices move this estimate by about 1.5x. Date
     from METR's release_dates.yaml.
+- date: '2019-02-14'
+  value: 0.0538
+  series: th1-1-corrected
+  holder: "GPT-2"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [0.00999, 0.142] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2020-05-28'
+  value: 0.144
+  series: th1-1-corrected
+  holder: "davinci-002 (GPT-3)"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [0.0933, 0.221] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2022-03-15'
+  value: 0.599
+  series: th1-1-corrected
+  holder: "gpt-3.5-turbo-instruct"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [0.255, 1.12] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2023-03-14'
+  value: 3.99
+  series: th1-1-corrected
+  holder: "GPT-4 0314"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [1.93, 8] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2023-11-06'
+  value: 4.04
+  series: th1-1-corrected
+  holder: "GPT-4 1106"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [1.87, 8.44] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2024-03-04'
+  value: 3.95
+  series: th1-1-corrected
+  holder: "Claude 3 Opus"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [1.71, 8.76] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2024-04-09'
+  value: 3.73
+  series: th1-1-corrected
+  holder: "GPT-4 Turbo"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [1.98, 6.74] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2024-05-13'
+  value: 6.99
+  series: th1-1-corrected
+  holder: "GPT-4o"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [4, 12.9] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2024-06-20'
+  value: 11.4
+  series: th1-1-corrected
+  holder: "Claude 3.5 Sonnet (Old)"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [5.49, 22.4] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2024-09-12'
+  value: 20.3
+  series: th1-1-corrected
+  holder: "o1-preview"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [11.7, 33.4] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2024-10-22'
+  value: 20.5
+  series: th1-1-corrected
+  holder: "Claude 3.5 Sonnet (New)"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [10.1, 40.8] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2024-12-05'
+  value: 38.8
+  series: th1-1-corrected
+  holder: "o1"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [21.2, 65] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2025-02-24'
+  value: 60.4
+  series: th1-1-corrected
+  holder: "Claude 3.7 Sonnet"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [33, 104] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2025-04-16'
+  value: 120
+  series: th1-1-corrected
+  holder: "o3"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [74.6, 191] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2025-05-22'
+  value: 100
+  series: th1-1-corrected
+  holder: "Claude 4 Opus"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [60, 163] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2025-08-05'
+  value: 100
+  series: th1-1-corrected
+  holder: "Claude 4.1 Opus"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [59.3, 159] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2025-08-07'
+  value: 203
+  series: th1-1-corrected
+  holder: "GPT-5"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [113, 406] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2025-11-18'
+  value: 224
+  series: th1-1-corrected
+  holder: "Gemini 3 Pro"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [140, 379] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2025-11-19'
+  value: 224
+  series: th1-1-corrected
+  holder: "GPT-5.1-Codex-Max"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [134, 396] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2025-11-24'
+  value: 293
+  series: th1-1-corrected
+  holder: "Claude Opus 4.5"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [162, 624] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2025-12-11'
+  value: 352
+  series: th1-1-corrected
+  holder: "GPT-5.2"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [198, 815] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2026-02-05'
+  value: 350
+  series: th1-1-corrected
+  holder: "GPT-5.3-Codex"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [195, 816] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2026-02-19'
+  value: 384
+  series: th1-1-corrected
+  holder: "Gemini 3.1 Pro"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [234, 695] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
+- date: '2026-03-05'
+  value: 342
+  series: th1-1-corrected
+  holder: "GPT-5.4"
+  conditions: "TH1.1 task suite; METR's benchmark_results_1_1.yaml; fit after the 3 March 2026 correction; confidence interval [187, 769] min"
+  status: claimed
+  source: metr-time-horizons
+  note: "Claimed because it is METR's own estimate in its published agent results file, not a refereed paper. Date is the model's release_date in that file."
 events:
 - date: '2025-03-18'
   kind: paper
