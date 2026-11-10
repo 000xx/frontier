@@ -1,7 +1,7 @@
 """Refresh the global temperature frontier from NASA GISS's Global Land-Ocean Temperature Index.
 
 The CSV has a title line and a header row beginning "Year" and containing "J-D" (the annual mean). Annual values are
-in hundredths of a degree Celsius against the 1951 to 1980 baseline; "***" means the year is not yet complete.
+in degrees Celsius (two decimals) against the 1951 to 1980 baseline; "***" means the year is not yet complete.
 NASA revises past years, so changed values are written and reported; refresh.py flags large changes for review.
 Years that disappear from the source are an error, not a silent removal.
 """
@@ -39,9 +39,9 @@ def read_annual(raw):
         cell = row[jd].strip() if jd < len(row) else ""
         if cell in ("", "***"):
             continue  # year not yet complete
-        if not re.fullmatch(r"-?\d+", cell):
-            raise common.SourceError(f"J-D for {year} is not a whole number of hundredths: {cell!r}")
-        value = int(cell) / 100
+        if not re.fullmatch(r"-?(\d+\.?\d*|\.\d+)", cell):
+            raise common.SourceError(f"J-D for {year} is not a number: {cell!r}")
+        value = float(cell)
         if not -2 < value < 3:
             raise common.SourceError(f"J-D for {year} is outside a plausible range: {value}")
         years[year] = round(value, 2)
