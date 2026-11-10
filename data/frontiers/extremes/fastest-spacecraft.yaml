@@ -1,0 +1,179 @@
+# Records are transcribed by hand from the NASA pages listed under sources; each value was read in this run.
+# Speeds are heliocentric (relative to the Sun) at closest approach, in miles per hour as NASA reports them.
+id: fastest-spacecraft
+title: Fastest spacecraft
+domain: extremes
+subfield: Biggest, deepest, longest
+status: live
+summary: The highest speed any human-made object has reached, measured relative to the Sun. NASA's Parker Solar
+  Probe took the record from Helios 2 in 2018 and pushed it to about 430,000 miles per hour in December 2024 by
+  falling ever closer to the Sun.
+metric:
+  name: Highest speed relative to the Sun reached by a spacecraft
+  unit: miles per hour
+  direction: higher
+  scale: linear
+  explainer: 'Speed in space depends on what you measure it against. These records are heliocentric: the speed
+    of the spacecraft relative to the Sun. The fastest objects are not the ones launched hardest but the ones
+    that fall closest to the Sun. A spacecraft on a stretched-out orbit speeds up as it drops toward the Sun,
+    the way a ball speeds up rolling downhill, and is fastest at its closest point, called perihelion. Getting
+    close is the hard part: Earth itself moves around the Sun quickly, and a probe has to shed most of that
+    sideways motion to fall inward. Parker Solar Probe did this with repeated flybys of Venus, each of which
+    lowered its closest point, so every few passes it set new records for both distance and speed. NASA
+    describes the December 2024 pass as the mission''s closest, and later passes follow the same orbit, so
+    they repeat that speed instead of beating it. The figures here are the speeds the mission team reported, usually rounded.'
+chart:
+  primary: record-chart
+  secondary:
+  - reign-timeline
+series:
+- id: heliocentric
+  label: Speed relative to the Sun at closest approach
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Open points for the owner: (1) all records come from NASA mission pages, so they are claimed; no
+    independent tracking or refereed paper was opened. (2) The September 2020 value is from a NASA post written
+    two days before that perihelion, so it is the planned speed. (3) NASA gives the December 2024 speed only as
+    "about 430,000 miles per hour"; the earlier values are given more precisely. (4) The April 2021 value is
+    given as "faster than 330,000 miles per hour". (5) Perihelia between those listed (for example the 2nd,
+    3rd, 5th, 7th and 9th) are not added because they were not reported as new speed records in the pages
+    read; check whether any of them set one. (6) Coverage starts with Helios 2; earlier record holders such
+    as Helios 1 are not yet added. The NASA Parker blog index could not be opened in this run.'
+sources:
+- id: nasa-psp-2024-12
+  name: NASA Science, Parker Solar Probe blog, "NASA's Parker Solar Probe Reports Successful Closest Approach to
+    Sun" (27 December 2024)
+  url: https://science.nasa.gov/blogs/parker-solar-probe/2024/12/27/nasas-parker-solar-probe-reports-successful-closest-approach-to-sun
+  kind: press
+  primary: true
+- id: nasa-svs-5534
+  name: 'NASA Scientific Visualization Studio, "Parker Solar Probe: Extended Mission" (5534)'
+  url: https://svs.gsfc.nasa.gov/5534
+  kind: other
+  notes: Calls the December 2024 pass the fastest any human-made object has travelled, and describes it as the
+    ultimate perihelion, with the projected orbit continuing through 2029.
+- id: nasa-psp-2023-09
+  name: 'NASA Science, Parker Solar Probe blog, "For the Record: Parker Solar Probe Sets Distance, Speed Marks on
+    17th Swing by the Sun" (28 September 2023)'
+  url: https://science.nasa.gov/?p=483211
+  kind: press
+- id: nasa-psp-2021-11
+  name: NASA Science, Parker Solar Probe blog, "Parker Solar Probe Completes a Record-Setting Swing by the Sun"
+    (24 November 2021)
+  url: https://science.nasa.gov/blogs/parker-solar-probe/2021/11/24/parker-solar-probe-completes-a-record-setting-swing-by-the-sun
+  kind: press
+- id: nasa-psp-2021-05
+  name: NASA Science, Parker Solar Probe blog, "Successful Eighth Solar Flyby for Parker Solar Probe" (3 May 2021)
+  url: https://science.nasa.gov/blogs/parker-solar-probe/2021/05/03/successful-eighth-solar-flyby-for-parker-solar-probe
+  kind: press
+- id: nasa-psp-2020-09
+  name: NASA Science, Parker Solar Probe blog, "Parker Solar Probe Speeds Toward Record-Setting Close Approach to
+    the Sun" (25 September 2020)
+  url: https://science.nasa.gov/blogs/parker-solar-probe/2020/09/25/parker-solar-probe-speeds-toward-record-setting-close-approach-to-the-sun
+  kind: press
+- id: nasa-psp-2020-01
+  name: NASA Science, Parker Solar Probe blog, "Parker Solar Probe Completes Fourth Closest Approach, Breaks New
+    Speed and Distance Records" (29 January 2020)
+  url: https://science.nasa.gov/blogs/parker-solar-probe/2020/01/29/parker-solar-probe-completes-fourth-closest-approach-breaks-new-speed-and-distance-records
+  kind: press
+- id: nasa-psp-2018-11
+  name: NASA, "Parker Solar Probe Reports Good Status After Close Solar Approach" (7 November 2018)
+  url: https://www.nasa.gov/solar-system/parker-solar-probe-reports-good-status-after-close-solar-approach
+  kind: press
+- id: nasa-psp-2018-10
+  name: NASA, "Parker Solar Probe Breaks Record, Becomes Closest Spacecraft to Sun" (29 October 2018)
+  url: https://www.nasa.gov/solar-system/parker-solar-probe-breaks-record-becomes-closest-spacecraft-to-sun/
+  kind: press
+  notes: Gives the Helios 2 heliocentric speed record of 153,454 mph, set in April 1976, and Parker's expected
+    passing of it on 29 October 2018 at about 10:54 p.m. EDT.
+- id: space-com-2023
+  name: Space.com, "NASA's Parker Solar Probe smashes record for fastest human-made object" (18 October 2023)
+  url: https://www.space.com/nasa-parker-solar-probe-fastest-man-made-object-breaks-record
+  kind: news
+records:
+- date: '1976-04'
+  value: 153454
+  series: heliocentric
+  holder: Helios 2
+  conditions: Heliocentric speed at closest approach
+  status: claimed
+  source: nasa-psp-2018-10
+  note: Value and date as given by NASA in 2018 when describing the record Parker was about to break.
+- date: '2018-11-05'
+  value: 213200
+  series: heliocentric
+  holder: Parker Solar Probe (NASA, Johns Hopkins APL)
+  conditions: Heliocentric speed at perihelion 1
+  status: claimed
+  source: nasa-psp-2018-11
+  note: Parker passed the Helios 2 speed on 29 October 2018, a week before this first perihelion.
+- date: '2020-01-29'
+  value: 244225
+  series: heliocentric
+  holder: Parker Solar Probe (NASA, Johns Hopkins APL)
+  conditions: Heliocentric speed at perihelion 4, 4:37 a.m. EST
+  status: claimed
+  source: nasa-psp-2020-01
+- date: '2020-09-27'
+  value: 289927
+  series: heliocentric
+  holder: Parker Solar Probe (NASA, Johns Hopkins APL)
+  conditions: Heliocentric speed at perihelion 6
+  status: claimed
+  source: nasa-psp-2020-09
+  note: NASA gave this as the speed expected at perihelion, in a post two days before it; 466,592 km/h.
+- date: '2021-04-29'
+  value: 330000
+  series: heliocentric
+  holder: Parker Solar Probe (NASA, Johns Hopkins APL)
+  conditions: Heliocentric speed at perihelion 8
+  status: claimed
+  source: nasa-psp-2021-05
+  note: NASA says "faster than" 330,000 mph (532,000 km/h); the value is a lower bound.
+- date: '2021-11-21'
+  value: 364660
+  series: heliocentric
+  holder: Parker Solar Probe (NASA, Johns Hopkins APL)
+  conditions: Heliocentric speed at perihelion 10, 4:25 a.m. EST
+  status: claimed
+  source: nasa-psp-2021-11
+  note: 586,864 km/h per NASA.
+- date: '2023-09-27'
+  value: 394736
+  series: heliocentric
+  holder: Parker Solar Probe (NASA, Johns Hopkins APL)
+  conditions: Heliocentric speed at perihelion 17, 7:28 p.m. EDT
+  status: claimed
+  source: nasa-psp-2023-09
+  note: 635,266 km/h per NASA.
+- date: '2024-12-24'
+  value: 430000
+  series: heliocentric
+  holder: Parker Solar Probe (NASA, Johns Hopkins APL)
+  conditions: Heliocentric speed at perihelion 22, 3.8 million miles from the solar surface
+  status: claimed
+  source: nasa-psp-2024-12
+  note: NASA gives the speed as "about" 430,000 mph. Later perihelia follow the same orbit.
+events:
+- date: '2018-10-29'
+  kind: milestone
+  title: Parker Solar Probe passes Helios 2, fastest for 42 years
+  why_it_matters: A record that had stood since 1976 fell before Parker's first close pass, with many faster
+    passes still to come.
+  url: https://www.nasa.gov/solar-system/parker-solar-probe-breaks-record-becomes-closest-spacecraft-to-sun/
+- date: '2023-09-27'
+  kind: milestone
+  title: Parker reaches 394,736 mph on its 17th pass
+  why_it_matters: The record kept climbing in steps as the orbit was pulled tighter, and this pass also set a
+    new distance record.
+  url: https://science.nasa.gov/?p=483211
+- date: '2024-12-24'
+  kind: milestone
+  title: Parker makes its closest pass, about 430,000 mph and 3.8 million miles from the Sun's surface
+  why_it_matters: This is the fastest any human-made object has gone, and the orbit is now fixed, so the record
+    is likely to stand until a new mission dives closer.
+  url: https://svs.gsfc.nasa.gov/14741/
+reading: []
+connections:
+- worlds-explored
