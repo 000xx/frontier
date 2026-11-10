@@ -1,0 +1,287 @@
+# Observations mirror data/datasets/pdb-released-structures/released-per-year.csv (cumulative_total column).
+# Change the CSV first, then regenerate the observations from it.
+id: protein-structures
+title: Protein structures
+domain: biology
+subfield: Predicting and designing
+status: live
+summary: The number of three-dimensional molecular structures in the Protein Data Bank, year by year, and the size of the AI-predicted AlphaFold Database that now sits beside it.
+metric:
+  name: Structures in the Protein Data Bank, cumulative
+  unit: structures
+  direction: higher
+  scale: linear
+  explainer: 'A structure is a three-dimensional map of where the atoms in a molecule sit. Most are proteins, and most
+    are measured by X-ray crystallography, cryo-electron microscopy or NMR. The Protein Data Bank is the public archive
+    where those measurements are deposited, and this count is its running total of released entries. The RCSB table
+    behind it covers every molecule type and every method in the archive, so it counts archive entries, not proteins
+    alone. Its yearly releases rose from 13 in 1976 to 15,321 in 2024. AlphaFold Database entries are computer
+    predictions rather than measurements, so they are not part of this count; their size is tracked separately as
+    dated events.'
+chart:
+  primary: coverage-meter
+  secondary:
+  - record-chart
+series:
+- id: pdb-cumulative
+  label: Structures in the PDB archive
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Observations run from 1976 to 2024 and were read on 2026-11-09 from the RCSB statistics page. No 2025 row
+    was available: the release.rcsb.org copy of the page was refused by the fetch tool, and the www.rcsb.org copy did
+    not return the table. Add 2025 once it can be read. The coverage meter needs a denominator, meaning a whole to
+    measure against; none has been sourced, so the site cannot draw a meaningful percentage yet. AlphaFold Database
+    size is unresolved: the EBI homepage says "over 260 million protein structure predictions" and also says "the
+    latest database release contains over 200 million entries" on the same page. The 2022 EMBL-EBI release figure
+    ("over 200 million") is used in events; the homepage figure is not used until the conflict is resolved.'
+sources:
+- id: rcsb-growth-stats
+  name: 'RCSB PDB, PDB Statistics: Overall Growth of Released Structures Per Year'
+  url: https://bioinformatics.rcsb.org/stats/growth/growth-released-structures
+  kind: dataset
+  primary: true
+  notes: Yearly released count and cumulative total, 1976 to 2024. Read 2026-11-09. Copied to data/datasets/pdb-released-structures.
+- id: rcsb-policies
+  name: 'RCSB PDB, Policies and Logo'
+  url: https://rcsb.org/pages/policies
+  kind: other
+  notes: 'States that PDB archive data files are available under CC0 1.0 Universal. Gives the citations and asks users to attribute original authors where possible.'
+- id: alphafold-db-home
+  name: AlphaFold Protein Structure Database, EMBL-EBI
+  url: https://alphafold.ebi.ac.uk/
+  kind: dataset
+  notes: 'States CC-BY-4.0 licence and that EMBL-EBI expects attribution. Size figures conflict on this page; see update notes.'
+- id: alphafold-license-pdf
+  name: AlphaFold Database License Disclaimer
+  url: https://alphafold.ebi.ac.uk/assets/License-Disclaimer.pdf
+  kind: other
+  notes: 'Gives the CC-BY-4.0 licence and the copyright line "AlphaFold Data Copyright (2021) DeepMind Technologies Limited." Asks users to cite Jumper et al., Nature (2021).'
+- id: embl-alphafold-200-million
+  name: 'EMBL-EBI news, AlphaFold DB expanded to over 200 million predicted structures'
+  url: https://www.embl.org/news/science/alphafold-200-million/
+  kind: press
+  notes: Published 28 July 2022.
+- id: embl-alphafold-complexes
+  name: 'EMBL news, Millions of protein complexes added to AlphaFold Database'
+  url: https://www.embl.org/news/?p=78875
+  kind: press
+  notes: Published 16 March 2026. The page also shows a May 2026 update on heterodimers.
+events:
+- date: '2022-07-28'
+  kind: milestone
+  title: AlphaFold Database grows from about one million to over 200 million predicted structures
+  why_it_matters: The predicted set is now roughly a thousand times the size of the PDB's experimental archive, so computed models have become a first stop for most proteins.
+  url: https://www.embl.org/news/science/alphafold-200-million/
+- date: '2023'
+  kind: milestone
+  title: Released structures in the PDB pass 200,000 cumulative
+  why_it_matters: The archive's running total crossed two hundred thousand during 2023, after the 2022 total stood just below that line.
+  url: https://bioinformatics.rcsb.org/stats/growth/growth-released-structures
+- date: '2024'
+  kind: milestone
+  title: PDB releases 15,321 structures in 2024, the most in the table so far
+  why_it_matters: Annual output has nearly tripled since 2005, so the archive is growing faster in absolute terms than at any point in the table.
+  url: https://bioinformatics.rcsb.org/stats/growth/growth-released-structures
+- date: '2026-03-16'
+  kind: dataset
+  title: AlphaFold Database adds predictions for 30 million protein complexes
+  why_it_matters: The database now covers groups of proteins that bind together, not just single chains, which widens what computed models can answer.
+  url: https://www.embl.org/news/?p=78875
+observations:
+- date: '1976'
+  series: pdb-cumulative
+  value: 13
+  source: rcsb-growth-stats
+- date: '1977'
+  series: pdb-cumulative
+  value: 36
+  source: rcsb-growth-stats
+- date: '1978'
+  series: pdb-cumulative
+  value: 42
+  source: rcsb-growth-stats
+- date: '1979'
+  series: pdb-cumulative
+  value: 53
+  source: rcsb-growth-stats
+- date: '1980'
+  series: pdb-cumulative
+  value: 69
+  source: rcsb-growth-stats
+- date: '1981'
+  series: pdb-cumulative
+  value: 85
+  source: rcsb-growth-stats
+- date: '1982'
+  series: pdb-cumulative
+  value: 117
+  source: rcsb-growth-stats
+- date: '1983'
+  series: pdb-cumulative
+  value: 153
+  source: rcsb-growth-stats
+- date: '1984'
+  series: pdb-cumulative
+  value: 175
+  source: rcsb-growth-stats
+- date: '1985'
+  series: pdb-cumulative
+  value: 195
+  source: rcsb-growth-stats
+- date: '1986'
+  series: pdb-cumulative
+  value: 213
+  source: rcsb-growth-stats
+- date: '1987'
+  series: pdb-cumulative
+  value: 238
+  source: rcsb-growth-stats
+- date: '1988'
+  series: pdb-cumulative
+  value: 291
+  source: rcsb-growth-stats
+- date: '1989'
+  series: pdb-cumulative
+  value: 365
+  source: rcsb-growth-stats
+- date: '1990'
+  series: pdb-cumulative
+  value: 507
+  source: rcsb-growth-stats
+- date: '1991'
+  series: pdb-cumulative
+  value: 694
+  source: rcsb-growth-stats
+- date: '1992'
+  series: pdb-cumulative
+  value: 886
+  source: rcsb-growth-stats
+- date: '1993'
+  series: pdb-cumulative
+  value: 1582
+  source: rcsb-growth-stats
+- date: '1994'
+  series: pdb-cumulative
+  value: 2871
+  source: rcsb-growth-stats
+- date: '1995'
+  series: pdb-cumulative
+  value: 3812
+  source: rcsb-growth-stats
+- date: '1996'
+  series: pdb-cumulative
+  value: 4984
+  source: rcsb-growth-stats
+- date: '1997'
+  series: pdb-cumulative
+  value: 6548
+  source: rcsb-growth-stats
+- date: '1998'
+  series: pdb-cumulative
+  value: 8603
+  source: rcsb-growth-stats
+- date: '1999'
+  series: pdb-cumulative
+  value: 10959
+  source: rcsb-growth-stats
+- date: '2000'
+  series: pdb-cumulative
+  value: 13583
+  source: rcsb-growth-stats
+- date: '2001'
+  series: pdb-cumulative
+  value: 16394
+  source: rcsb-growth-stats
+- date: '2002'
+  series: pdb-cumulative
+  value: 19388
+  source: rcsb-growth-stats
+- date: '2003'
+  series: pdb-cumulative
+  value: 23535
+  source: rcsb-growth-stats
+- date: '2004'
+  series: pdb-cumulative
+  value: 28684
+  source: rcsb-growth-stats
+- date: '2005'
+  series: pdb-cumulative
+  value: 34018
+  source: rcsb-growth-stats
+- date: '2006'
+  series: pdb-cumulative
+  value: 40423
+  source: rcsb-growth-stats
+- date: '2007'
+  series: pdb-cumulative
+  value: 47557
+  source: rcsb-growth-stats
+- date: '2008'
+  series: pdb-cumulative
+  value: 54460
+  source: rcsb-growth-stats
+- date: '2009'
+  series: pdb-cumulative
+  value: 61748
+  source: rcsb-growth-stats
+- date: '2010'
+  series: pdb-cumulative
+  value: 69491
+  source: rcsb-growth-stats
+- date: '2011'
+  series: pdb-cumulative
+  value: 77416
+  source: rcsb-growth-stats
+- date: '2012'
+  series: pdb-cumulative
+  value: 86167
+  source: rcsb-growth-stats
+- date: '2013'
+  series: pdb-cumulative
+  value: 95505
+  source: rcsb-growth-stats
+- date: '2014'
+  series: pdb-cumulative
+  value: 105059
+  source: rcsb-growth-stats
+- date: '2015'
+  series: pdb-cumulative
+  value: 114303
+  source: rcsb-growth-stats
+- date: '2016'
+  series: pdb-cumulative
+  value: 125106
+  source: rcsb-growth-stats
+- date: '2017'
+  series: pdb-cumulative
+  value: 136165
+  source: rcsb-growth-stats
+- date: '2018'
+  series: pdb-cumulative
+  value: 147320
+  source: rcsb-growth-stats
+- date: '2019'
+  series: pdb-cumulative
+  value: 158792
+  source: rcsb-growth-stats
+- date: '2020'
+  series: pdb-cumulative
+  value: 172777
+  source: rcsb-growth-stats
+- date: '2021'
+  series: pdb-cumulative
+  value: 185348
+  source: rcsb-growth-stats
+- date: '2022'
+  series: pdb-cumulative
+  value: 199604
+  source: rcsb-growth-stats
+- date: '2023'
+  series: pdb-cumulative
+  value: 214059
+  source: rcsb-growth-stats
+- date: '2024'
+  series: pdb-cumulative
+  value: 229380
+  source: rcsb-growth-stats

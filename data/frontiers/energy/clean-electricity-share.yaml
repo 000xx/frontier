@@ -1,0 +1,98 @@
+# Observations are annual shares as Ember published them. Only figures from pages opened on 2026-11-09 are included.
+# Ember's 2025 review gives 2023 and 2024 low-carbon shares. Its 2026 review (figures relayed by press) gives
+# a 2025 renewables share but no 2025 low-carbon total, so 2025 is left out until Ember's own page can be read.
+id: clean-electricity-share
+title: Clean electricity share
+domain: energy
+subfield: Grid and transition
+status: draft
+summary: The share of the world's electricity that comes from low-carbon sources (renewables plus nuclear),
+  with solar and wind shown separately. It shows how far the grid has moved away from fossil fuels.
+metric:
+  name: Share of global electricity generation from low-carbon sources
+  unit: '%'
+  direction: higher
+  scale: linear
+  explainer: 'Electricity generation is split by source: fossil fuels, nuclear, hydro, wind, solar and other
+    renewables. Low-carbon power is the nuclear and renewable part, so the share is the fraction of all
+    electricity produced worldwide that does not burn fuel. The measure says nothing about total demand: when
+    demand grows fast, clean power can add a lot and still lose share, or gain share while fossil output
+    also rises. Wind and solar are shown on their own because they are the fastest-growing parts of the
+    renewable mix.'
+chart:
+  primary: coverage-meter
+  secondary:
+  - record-chart
+series:
+- id: low-carbon
+  label: Low-carbon (renewables and nuclear)
+- id: wind
+  label: Wind
+- id: solar
+  label: Solar
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Ember publishes its Global Electricity Review once a year. To update, open the new review and the data
+    explorer, add the new year for each series, and check whether earlier years have been revised. Still to add:
+    a 2025 low-carbon total from Ember''s own page, earlier years from the data explorer, and the reading list.'
+sources:
+- id: ember-ger-2025
+  name: Ember, Global Electricity Review 2025 (2024 in review)
+  url: https://ember-energy.org/latest-insights/global-electricity-review-2025/2024-in-review/
+  kind: report
+  primary: true
+  notes: Source of the 2023 and 2024 observations. Content is released under CC BY 4.0. Ember's page gives no
+    exact credit wording, so the credit line used on the site is in the notes below.
+- id: ember-ger-2025-overview
+  name: Ember, Global Electricity Review 2025 (overview page)
+  url: https://ember-energy.org/latest-insights/global-electricity-review-2025/
+  kind: report
+  notes: Overview of the same review. Used to check the 2024 and 2023 figures and the licence.
+- id: ember-ger-2026-energyconnects
+  name: 'EnergyConnects: Renewables Topped Coal in Global Power Mix in 2025, Ember Says (April 2026)'
+  url: https://www.energyconnects.com/news/renewables/2026/april/renewables-topped-coal-in-global-power-mix-in-2025-ember-says/
+  kind: news
+  notes: Press report of Ember's 2026 review. Relayed figures only; not read directly from Ember.
+- id: ember-ger-2026-pv-tech
+  name: 'pv-tech: Global solar generation met three-quarters of new power demand in 2025 (Ember)'
+  url: https://www.pv-tech.org/global-solar-generation-met-three-quarters-of-new-power-demand-in-2025-ember
+  kind: news
+  notes: Press report of Ember's 2026 review. Relayed figures only; not read directly from Ember.
+events:
+- date: '2024'
+  kind: milestone
+  title: Low-carbon sources pass 40% of global electricity for the first time since the 1940s
+  why_it_matters: The grid's clean share crossed the symbolic 40% line, and the record-setting growth came mainly from solar.
+  url: https://ember-energy.org/latest-insights/global-electricity-review-2025/2024-in-review/
+- date: '2025'
+  kind: milestone
+  title: Renewables overtake coal in the global power mix in 2025
+  why_it_matters: Renewables produced more of the world's electricity than coal for the first time in the year, a clear break with the coal-dominated mix.
+  url: https://www.energyconnects.com/news/renewables/2026/april/renewables-topped-coal-in-global-power-mix-in-2025-ember-says/
+- date: '2025'
+  kind: milestone
+  title: Solar generation overtakes wind worldwide for the first time
+  why_it_matters: Solar is now the largest of the two variable renewables, so its growth drives most of the rise in clean power.
+  url: https://www.pv-tech.org/global-solar-generation-met-three-quarters-of-new-power-demand-in-2025-ember
+observations:
+- date: '2023'
+  series: low-carbon
+  value: 39.4
+  source: ember-ger-2025
+  note: Low-carbon share of global electricity generation, as given in Ember's 2025 review.
+- date: '2024'
+  series: low-carbon
+  value: 40.9
+  source: ember-ger-2025
+  note: Low-carbon share of global electricity generation (12,609 TWh), as given in Ember's 2025 review.
+- date: '2024'
+  series: wind
+  value: 8.1
+  source: ember-ger-2025
+  note: Wind share of global electricity generation, as given in Ember's 2025 review.
+- date: '2024'
+  series: solar
+  value: 6.9
+  source: ember-ger-2025
+  note: Solar share of global electricity generation, as given in Ember's 2025 review.

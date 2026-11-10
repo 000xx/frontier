@@ -1,0 +1,423 @@
+# Launch cost to low Earth orbit.
+# observations transcribe Table A1 of Jones (2018), one series per vehicle, values exactly as printed in
+# thousands of US dollars per kg. Do not add figures from other compilations (CSIS, OWID, company price
+# lists) to these series: they use different dollar years, payload assumptions and price/cost bases.
+id: launch-cost
+title: Cost of launch to low Earth orbit
+domain: space
+subfield: Getting to orbit
+status: draft
+summary: What it costs to put one kilogram into low Earth orbit on each launch vehicle, plotted against the
+  year the vehicle first flew. Cheaper access to orbit underpins almost everything else done in space.
+metric:
+  name: Launch cost per kilogram to low Earth orbit, by vehicle
+  unit: thousand US$ per kg (CPI-adjusted to 2018 dollars)
+  direction: lower
+  scale: log
+  explainer: 'Each point is one rocket: the cost of a launch divided by the most mass that rocket can lift
+    to low Earth orbit, placed at the year the rocket first flew. The figures come from a single table in a
+    2018 NASA conference paper by Harry Jones, which gathers numbers from older compilations and company
+    price lists and converts them all to 2018 US dollars with the Consumer Price Index. Read the chart as a
+    rough picture, not a precise ranking. The figures are not all the same kind of number: the Falcon 9
+    and Falcon Heavy points are prices SpaceX advertised in 2018, while older points come from engineering
+    cost studies and reference books whose basis Jones does not always state. Real missions rarely use a
+    rocket''s full capacity, so the cost per kilogram actually delivered is usually higher. A rocket''s
+    cost also changes over its life, but each vehicle appears here once, at its first-flight year, with
+    whatever estimate the cited reference gave. Other compilations, such as the one by the CSIS Aerospace
+    Security Project, use a different inflation index and dollar year (2021) and different payload
+    assumptions, so their numbers should not be mixed into this series.'
+chart:
+  primary: cost-curve
+series:
+- id: ariane-44
+  label: Ariane 44
+  group: 'Reference: Wertz and Larson, 1996'
+- id: ariane-5g
+  label: Ariane 5G
+  group: 'Reference: Futron, 2002'
+- id: athena-1
+  label: Athena 1
+  group: 'Reference: Wertz and Larson, 1996'
+- id: athena-2
+  label: Athena 2
+  group: 'Reference: Futron, 2002'
+- id: atlas-iia
+  label: Atlas IIA
+  group: 'Reference: Wertz and Larson, 1996'
+- id: atlas-centaur
+  label: Atlas-Centaur
+  group: 'Reference: Koelle, 1991'
+- id: cosmos
+  label: Cosmos
+  group: 'Reference: Futron, 2002'
+- id: delta-3910
+  label: Delta 3910
+  group: 'Reference: Koelle, 1991'
+- id: delta-e
+  label: Delta E
+  group: 'Reference: Koelle, 1991'
+- id: delta-ii
+  label: Delta II
+  group: 'Reference: Futron, 2002'
+- id: delta-iii
+  label: Delta III
+  group: 'Reference: Koelle, 1991'
+- id: dnepr
+  label: Dnepr
+  group: 'Reference: Futron, 2002'
+- id: falcon-9
+  label: Falcon 9
+  group: 'Reference: SpaceX.com, 2018'
+- id: falcon-heavy
+  label: Falcon Heavy
+  group: 'Reference: SpaceX.com, 2018'
+- id: h-2
+  label: H-2
+  group: 'Reference: Wertz and Larson, 1996'
+- id: kosmos
+  label: Kosmos
+  group: 'Reference: Wikipedia, Comparison, 2018'
+- id: long-march-2c
+  label: Long March 2C
+  group: 'Reference: Futron, 2002'
+- id: long-march-2e
+  label: Long March 2E
+  group: 'Reference: Wertz and Larson, 1996'
+- id: long-march-3b
+  label: Long March 3B
+  group: 'Reference: Futron, 2002'
+- id: pegasus-xl
+  label: Pegasus XL
+  group: 'Reference: Futron, 2002'
+- id: proton-sl-13
+  label: Proton SL-13
+  group: 'Reference: Wertz and Larson, 1996'
+- id: rockot
+  label: Rockot
+  group: 'Reference: Futron, 2002'
+- id: saturn-v
+  label: Saturn V
+  group: 'Reference: Williams, 2016'
+- id: saturn-ib
+  label: Saturn IB
+  group: 'Reference: Koelle, 1991'
+- id: scout
+  label: Scout
+  group: 'Reference: Koelle, 1991'
+- id: space-shuttle
+  label: Space shuttle
+  group: 'Reference: Pielke and Byerly, 2011'
+- id: soyuz
+  label: Soyuz
+  group: 'Reference: Futron, 2002'
+- id: start
+  label: Start
+  group: 'Reference: Futron, 2002'
+- id: taurus
+  label: Taurus
+  group: 'Reference: Wertz and Larson, 1996'
+- id: titan-ii
+  label: Titan II
+  group: 'Reference: Wertz and Larson, 1996'
+- id: titan-iv
+  label: Titan IV
+  group: 'Reference: Wertz and Larson, 1996'
+- id: titan-centaur
+  label: Titan-Centaur
+  group: 'Reference: Koelle, 1991'
+- id: vanguard
+  label: Vanguard
+  group: 'Reference: Koelle, 1991'
+- id: vega
+  label: Vega
+  group: 'Reference: Wikipedia, Comparison, 2018'
+- id: zenit-2
+  label: Zenit 2
+  group: 'Reference: Futron, 2002'
+- id: zenit-3sl
+  label: Zenit 3SL
+  group: 'Reference: Futron, 2002'
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'All observations are from Jones (2018), Table A1, "Launch cost to LEO in current dollars", checked
+    twice against the NASA NTRS PDF. Its newest vehicle first flew in 2018, so nothing after Falcon Heavy is
+    covered. The preferred replacement is the CSIS Aerospace Security Project compilation (61 vehicles,
+    first flights 1962-2019, FY2021 dollars, unit flyaway cost), but its values sit in a Google Sheet behind
+    an interactive chart and in an OWID CSV, and neither could be opened in this run. If that series is
+    adopted, replace the Jones series wholesale rather than mixing the two. OWID lists its next expected
+    update of the CSIS data for December 2026. First-launch years are as Jones prints them and some look
+    doubtful (see the Delta III note); they were not checked against launch logs.'
+sources:
+- id: jones-2018
+  name: 'H. W. Jones, "The Recent Large Reduction in Space Launch Cost", 48th International Conference on
+    Environmental Systems, ICES-2018-81, Albuquerque, July 2018 (NASA Ames Research Center)'
+  url: https://ntrs.nasa.gov/api/citations/20200001093/downloads/20200001093.pdf
+  kind: paper
+  primary: true
+  notes: NTRS record 20200001093 (https://ntrs.nasa.gov/citations/20200001093), rights determination
+    "GOV_PUBLIC_USE_PERMITTED". Table A1 gives first-launch year and thousand $/kg for 36 entries, each
+    with its own reference (Koelle 1991, Wertz and Larson 1996, Futron 2002, SpaceX.com 2018, Wikipedia
+    2018 and others), corrected to 2018 dollars with the CPI. Table A2 shows the arithmetic for Saturn V,
+    the Space Shuttle, Falcon 9 and Falcon Heavy. Conference proceedings, not a refereed journal.
+- id: csis-launch-cost
+  name: 'CSIS Aerospace Security Project, "Space Launch to Low Earth Orbit: How Much Does It Cost?"'
+  url: https://aerospace.csis.org/data/space-launch-to-low-earth-orbit-how-much-does-it-cost/
+  kind: dataset
+  notes: By Thomas G. Roberts, last updated 1 September 2022. Cost per kg on a dedicated launch, usually
+    unit flyaway cost, divided by the maximum payload to LEO the provider reports; FY2021 dollars via the
+    OMB GDP chained price index, or then-year dollars. The values are not on the page; the interactive
+    chart (https://csis-ilab.github.io/aerospace-viz/LaunchCostSuccessComparison/) loads them from a Google
+    Sheet, which could not be opened in this run. The site footer says "All rights reserved" and no
+    licence was found, so no values are used here yet.
+- id: owid-launch-cost
+  name: Our World in Data, "Cost of space launches to low Earth orbit"
+  url: https://ourworldindata.org/grapher/cost-space-launches-low-earth-orbit
+  kind: dataset
+  notes: OWID's copy of the CSIS data (61 vehicles, 1962-2019, constant 2021 US$ per kg), retrieved by
+    OWID on 2025-03-04. OWID's metadata labels the CSIS data CC BY 4.0, which the CSIS site itself does not
+    state. The CSV download could not be opened in this run.
+observations:
+- date: '1988'
+  series: ariane-44
+  value: 17.9
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Wertz and Larson, 1996. Date is the first-launch year Jones gives.'
+- date: '1996'
+  series: ariane-5g
+  value: 13.1
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Futron, 2002. Date is the first-launch year Jones gives.'
+- date: '1995'
+  series: athena-1
+  value: 31.7
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Wertz and Larson, 1996. Date is the first-launch year Jones gives.'
+- date: '1995'
+  series: athena-2
+  value: 16.6
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Futron, 2002. Date is the first-launch year Jones gives.'
+- date: '1991'
+  series: atlas-iia
+  value: 19.8
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Wertz and Larson, 1996. Date is the first-launch year Jones gives.'
+- date: '1964'
+  series: atlas-centaur
+  value: 28.0
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Koelle, 1991. Date is the first-launch year Jones gives.'
+- date: '1967'
+  series: cosmos
+  value: 12.4
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Futron, 2002. Date is the first-launch year Jones gives. Jones
+    lists this vehicle twice, as Cosmos (Futron 2002) and Kosmos (Wikipedia 2018), with different values; both are
+    kept as printed.'
+- date: '1975'
+  series: delta-3910
+  value: 28.0
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Koelle, 1991. Date is the first-launch year Jones gives.'
+- date: '1960'
+  series: delta-e
+  value: 167.8
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Koelle, 1991. Date is the first-launch year Jones gives.'
+- date: '1989'
+  series: delta-ii
+  value: 15.3
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Futron, 2002. Date is the first-launch year Jones gives.'
+- date: '1998'
+  series: delta-iii
+  value: 11.7
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Koelle, 1991. Date is the first-launch year Jones gives. The
+    cited reference (1991) is older than the first-launch year Jones gives (1998), so this is probably a pre-flight
+    estimate.'
+- date: '1999'
+  series: dnepr
+  value: 4.9
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Futron, 2002. Date is the first-launch year Jones gives.'
+- date: '2010'
+  series: falcon-9
+  value: 2.7
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: SpaceX.com, 2018. Date is the first-launch year Jones gives.
+    An advertised price, not a cost: Jones uses SpaceX''s listed $62 million for 22,800 kg to LEO (Table A2: 2.72
+    thousand $/kg).'
+- date: '2018'
+  series: falcon-heavy
+  value: 1.4
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: SpaceX.com, 2018. Date is the first-launch year Jones gives.
+    An advertised price, not a cost: Jones Table A2 gives 90 million 2018 dollars per launch and 63,800 kg to LEO
+    (1.41 thousand $/kg).'
+- date: '1994'
+  series: h-2
+  value: 26.4
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Wertz and Larson, 1996. Date is the first-launch year Jones gives.'
+- date: '1967'
+  series: kosmos
+  value: 8.0
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Wikipedia, Comparison, 2018. Date is the first-launch year Jones
+    gives. Jones lists this vehicle twice, as Cosmos (Futron 2002) and Kosmos (Wikipedia 2018), with different values;
+    both are kept as printed. A Wikipedia comparison table is a weak reference.'
+- date: '1974'
+  series: long-march-2c
+  value: 10
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Futron, 2002. Date is the first-launch year Jones gives.'
+- date: '1971'
+  series: long-march-2e
+  value: 7.7
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Wertz and Larson, 1996. Date is the first-launch year Jones gives.'
+- date: '1984'
+  series: long-march-3b
+  value: 6.3
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Futron, 2002. Date is the first-launch year Jones gives.'
+- date: '1990'
+  series: pegasus-xl
+  value: 43.5
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Futron, 2002. Date is the first-launch year Jones gives.'
+- date: '1965'
+  series: proton-sl-13
+  value: 4.1
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Wertz and Larson, 1996. Date is the first-launch year Jones gives.'
+- date: '1994'
+  series: rockot
+  value: 10.4
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Futron, 2002. Date is the first-launch year Jones gives.'
+- date: '1968'
+  series: saturn-v
+  value: 5.2
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Williams, 2016. Date is the first-launch year Jones gives. Jones
+    Table A2 gives 728 million 2018 dollars per launch and 140,000 kg to LEO (5.20 thousand $/kg).'
+- date: '1966'
+  series: saturn-ib
+  value: 17.3
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Koelle, 1991. Date is the first-launch year Jones gives.'
+- date: '1961'
+  series: scout
+  value: 111.8
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Koelle, 1991. Date is the first-launch year Jones gives.'
+- date: '1981'
+  series: space-shuttle
+  value: 61.7
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Pielke and Byerly, 2011. Date is the first-launch year Jones
+    gives. Jones Table A2 gives 1,697 million 2018 dollars per launch and 27,500 kg to LEO (61.72 thousand $/kg).'
+- date: '1966'
+  series: soyuz
+  value: 7.6
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Futron, 2002. Date is the first-launch year Jones gives.'
+- date: '1993'
+  series: start
+  value: 16.7
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Futron, 2002. Date is the first-launch year Jones gives.'
+- date: '1989'
+  series: taurus
+  value: 20.4
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Wertz and Larson, 1996. Date is the first-launch year Jones gives.'
+- date: '1962'
+  series: titan-ii
+  value: 31.0
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Wertz and Larson, 1996. Date is the first-launch year Jones gives.'
+- date: '1989'
+  series: titan-iv
+  value: 24.7
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Wertz and Larson, 1996. Date is the first-launch year Jones gives.'
+- date: '1974'
+  series: titan-centaur
+  value: 11.2
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Koelle, 1991. Date is the first-launch year Jones gives.'
+- date: '1957'
+  series: vanguard
+  value: 894.7
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Koelle, 1991. Date is the first-launch year Jones gives.'
+- date: '2012'
+  series: vega
+  value: 10.0
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Wikipedia, Comparison, 2018. Date is the first-launch year Jones
+    gives. Reference is a Wikipedia comparison table, a weak reference.'
+- date: '1985'
+  series: zenit-2
+  value: 4.4
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Futron, 2002. Date is the first-launch year Jones gives.'
+- date: '1999'
+  series: zenit-3sl
+  value: 7.6
+  source: jones-2018
+  note: 'Jones 2018, Table A1; Jones''s reference: Futron, 2002. Date is the first-launch year Jones gives.'
+events:
+- date: '2015-12-21'
+  kind: milestone
+  title: A Falcon 9 first stage lands back at Cape Canaveral after an orbital launch
+  why_it_matters: It was the first time the expensive first stage of an orbital rocket came back intact,
+    the step that made reusing boosters possible.
+  url: https://www.af.mil/News/Article-Display/Article/637696/45th-sw-launches-orbcomm-lands-first-stage-booster
+- date: '2017-03-30'
+  kind: milestone
+  title: A previously flown Falcon 9 booster launches SES-10 and lands again
+  why_it_matters: Flying a recovered orbital booster a second time showed that recovery could actually
+    save hardware, not just retrieve it.
+  url: https://www.scientificamerican.com/article/used-spacex-rocket-launches-satellite-then-lands-in-historic-first-reflight1/
+- date: '2018-07'
+  kind: paper
+  title: NASA Ames paper estimates commercial launch has cut the cost to LEO about twentyfold
+  why_it_matters: It put old government rockets and new commercial prices into one inflation-adjusted
+    table, which is the series this page charts.
+  url: https://ntrs.nasa.gov/api/citations/20200001093/downloads/20200001093.pdf
+- date: '2022-09-01'
+  kind: dataset
+  title: CSIS updates its launch-cost-per-kilogram compilation of 61 vehicles
+  why_it_matters: It is the broadest public comparison of launch costs on one dollar basis and the likely
+    future primary source for this page.
+  url: https://aerospace.csis.org/data/space-launch-to-low-earth-orbit-how-much-does-it-cost/
+- date: '2024-10-13'
+  kind: milestone
+  title: Starship's Super Heavy booster is caught by the launch tower on Flight 5
+  why_it_matters: Catching the booster at the pad is meant to let the largest rocket yet fly again quickly,
+    which is how full reuse could push costs far lower.
+  url: https://www.scientificamerican.com/article/spacex-catches-a-falling-starship-a-first-in-spaceflight-history/
+- date: '2025-11-13'
+  kind: milestone
+  title: Blue Origin lands a New Glenn booster at sea after launching NASA's ESCAPADE
+  why_it_matters: A second company can now recover an orbital booster, so reuse is no longer a single
+    provider's advantage.
+  url: https://space.com/space-exploration/launches-spacecraft/blue-origin-lands-huge-new-glenn-rocket-booster-for-1st-time-after-acing-mars-escapade-launch-for-nasa
+reading:
+- level: 5min
+  title: 'Space Launch to Low Earth Orbit: How Much Does It Cost?'
+  author: Thomas G. Roberts, CSIS Aerospace Security Project
+  kind: article
+  url: https://aerospace.csis.org/data/space-launch-to-low-earth-orbit-how-much-does-it-cost/
+  note: The method behind cost-per-kilogram comparisons, with an interactive chart of 61 vehicles.
+- level: deep
+  title: The Recent Large Reduction in Space Launch Cost
+  author: Harry W. Jones, NASA Ames Research Center
+  kind: paper
+  url: https://ntrs.nasa.gov/api/citations/20200001093/downloads/20200001093.pdf
+  note: The source of this page's data, with the arithmetic for Saturn V, the Shuttle and Falcon.
