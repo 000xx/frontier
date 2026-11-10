@@ -4,8 +4,10 @@
     "solar-cell-efficiency": "hybrid-tandems-perovskite-si"
   },
   "planned": [
-    { "title": "Erdős problems solved", "domain": "Mathematics", "shape": "Countdown grid" },
-    { "title": "Malaria", "domain": "Health and medicine", "shape": "Stage timeline" },
-    { "title": "Fusion", "domain": "Energy", "shape": "Target-zone scatter" }
+    {
+      "title": "Malaria",
+      "domain": "Health and medicine",
+      "shape": "Stage timeline"
+    }
   ]
 }
