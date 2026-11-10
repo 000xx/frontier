@@ -1,13 +1,8 @@
 {
   "name": "Frontier in Numbers",
+  "lead": "solar-cell-efficiency",
   "featured": {
     "solar-cell-efficiency": "hybrid-tandems-perovskite-si"
   },
-  "planned": [
-    {
-      "title": "Malaria",
-      "domain": "Health and medicine",
-      "shape": "Stage timeline"
-    }
-  ]
+  "planned": []
 }

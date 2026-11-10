@@ -1,0 +1,40 @@
+// Renders the front page and every frontier page from site/js/data.js without a browser,
+// and fails if any page throws or prints a broken value. Run after scripts/build_site_data.py.
+// Usage: node scripts/check_site.js
+const path = require('path');
+globalThis.window = globalThis;
+require(path.join(__dirname, '..', 'site', 'js', 'data.js'));
+const Site = require(path.join(__dirname, '..', 'site', 'js', 'app.js'));
+
+const BROKEN = /\bNaN\b|\bundefined\b|\bInfinity\b|\[object Object\]/;
+let failures = 0, pages = 0;
+
+function check(name, make) {
+  pages += 1;
+  try {
+    const html = make();
+    const bad = html.replace(/<title>[^<]*<\/title>/g, '').match(BROKEN);
+    if (!html || html.length < 400) throw new Error('page is empty');
+    if (bad) throw new Error('page contains "' + bad[0] + '" near: ' + html.slice(Math.max(0, bad.index - 80), bad.index + 40).replace(/\s+/g, ' '));
+  } catch (err) {
+    failures += 1;
+    console.error('FAIL ' + name + ': ' + err.message);
+  }
+}
+
+const data = Site.data();
+check('front page', () => Site.home());
+for (const f of data.frontiers) {
+  const block = Site.block(f);
+  if (!block && !f.items.length && !f.candidates.length) {
+    failures += 1;
+    console.error('FAIL ' + f.id + ': no records, observations, items or candidates, so the page would be empty');
+    continue;
+  }
+  check(f.id, () => Site.frontier(f));
+  if (block) for (const sid of Site.seriesIds(f, block)) {
+    check(f.id + ' / ' + sid, () => { Site.select(f.id, sid); return Site.frontier(f); });
+  }
+}
+console.log('Checked ' + pages + ' page views across ' + data.frontiers.length + ' frontiers: ' + failures + ' failure(s).');
+process.exit(failures ? 1 : 0);
