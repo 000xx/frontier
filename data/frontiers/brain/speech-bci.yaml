@@ -1,0 +1,111 @@
+id: speech-bci
+title: Speech brain-computer interfaces
+domain: brain
+subfield: Interfaces and treatment
+status: draft
+summary: The fastest rate at which a person who cannot speak has communicated through an implanted brain-computer
+  interface, in words per minute, against the pace of ordinary conversation. The gap has closed fast since 2023.
+metric:
+  name: Communication rate by an implanted speech brain-computer interface
+  unit: words per minute
+  direction: higher
+  scale: linear
+  target:
+    value: 150
+    label: Ordinary speech, about 150 words per minute
+  explainer: 'A speech brain-computer interface reads the electrical activity of the brain through implanted
+    electrodes, usually in the area that controls the mouth and throat, and turns the signals into words on a
+    screen or into synthesised sound. Speed is measured as the words per minute a participant reaches in tests,
+    and papers also report how many words are wrong, because a fast system that often misreads is of little use.
+    Results depend heavily on the vocabulary size, so a figure for a 50-word test is not comparable with one for a
+    125,000-word test. Records here are the rates reported in peer-reviewed papers. Ordinary speech is about
+    150 words per minute, and that is the line the field is measured against.'
+chart:
+  primary: record-chart
+  secondary:
+  - threshold-gauge
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Draft because the 2025 UC Davis paper on instantaneous voice synthesis (Nature, June 2025) was read through
+    press releases only, and neither press release gives a words-per-minute figure, so it is not in records. Its
+    speed figure should be read from the paper before this frontier goes live. The 2023 Stanford and UCSF papers
+    were read through a news report and a company page quoting the abstract; check the papers themselves. Two
+    rates disagree in the source for the Stanford study: 62 words per minute in the headline and 78 in the
+    UCSF abstract, which is for a different study. The record for Metzger et al. uses median rates, as the
+    abstract reports them. The Nature Medicine study (June 2026, 56 words per minute) is an event, not a record,
+    because it reports an average over a sustained trial, not a best rate. Owner to confirm this rule.'
+sources:
+- id: futurity-willett
+  name: Futurity, report on the Stanford and BrainGate speech implant study (Nature, August 2023)
+  url: https://www.futurity.org/brain-computer-interface-als-speech-2965172-2/
+  kind: news
+  primary: true
+  notes: Reports the 62 words per minute rate and the error rates. Dated 24 August 2023. Terms not stated.
+- id: blackrock-62-wpm
+  name: Blackrock Neurotech, Speech BCI Achieves 62 WPM (company page quoting the UCSF abstract)
+  url: https://blackrockneurotech.com/insights/speech-bci-achieves-62-wpm/
+  kind: press
+  notes: A company page. Its abstract text gives the median rate of 78 words per minute and a median word error rate
+    of 25 percent for the Metzger et al. paper (Nature, DOI 10.1038/s41586-023-06443-4). Read the paper itself.
+- id: freevacy-78
+  name: Freevacy, brain implant enables paralysed woman to speak 78 words a minute
+  url: https://www.freevacy.com/news/nature/brain-implant-enables-paralysed-woman-to-speak-78-words-a-minute/4492
+  kind: news
+  notes: Reports 78 words per minute and a Nature link. Date given as 08/11/2023, read as 8 November 2023, which
+    conflicts with the August 2023 issue date; left as 2023-08 in the records. Terms not stated.
+- id: eurekalert-ucdavis-2025
+  name: EurekAlert, UC Davis release on the instantaneous voice-synthesis neuroprosthesis (Nature, June 2025)
+  url: https://www.eurekalert.org/news-releases/1087025
+  kind: press
+  notes: Reports one-fortieth of a second latency and almost 60 percent of synthesised words understood. No speed
+    figure in words per minute. Copyright AAAS; the release says content may be edited for style and length.
+- id: sciencedaily-ucdavis-2025
+  name: ScienceDaily, UC Davis release on real-time speech for a man with ALS (June 2025)
+  url: https://sciencedaily.com/releases/2025/06/250612081317.htm
+  kind: press
+  notes: Same study as the EurekAlert release. Copyright notices cover third-party content. Content may be edited.
+- id: thenextweb-2026
+  name: The Next Web, report on the UC Davis Nature Medicine study (June 2026)
+  url: https://thenextweb.com/news/uc-davis-brain-computer-interface-als-speech-casey-harrell-3800-hours
+  kind: news
+  notes: Reports 56 words per minute on average, over 99 percent word accuracy with a 125,000-word vocabulary and a
+    longest sustained demonstration. The article says Nature Medicine. Terms not stated.
+- id: ieee-spectrum-150
+  name: IEEE Spectrum, implant translates brain activity into spoken sentences
+  url: https://spectrum.ieee.org/implant-translates-brain-activity-into-spoken-sentences
+  kind: news
+  notes: Gives the figure of about 150 words per minute for natural speech as a target. The article is dated 2019 and
+    its 8 words per minute typing record is a different (typing) measure, not used here.
+records:
+- date: '2023-08'
+  value: 62
+  holder: BrainGate consortium (Willett et al., Stanford)
+  conditions: Intracortical implant; 9.1 percent word error with a 50-word vocabulary, 23.8 percent with a 125,000-word vocabulary. Average rate not stated.
+  status: peer_reviewed
+  source: futurity-willett
+  note: Reported in Nature. Confirms the study's own rate; the paper was not opened.
+- date: '2023-08'
+  value: 78
+  holder: UCSF (Metzger et al.)
+  conditions: Median rate across the study; median word error rate 25 percent with a large vocabulary.
+  status: peer_reviewed
+  source: blackrock-62-wpm
+  note: Reported in Nature. Its abstract gives 78 words per minute as a median, so it is not strictly comparable with the mean reported for other studies. Figure taken from a company page quoting the abstract.
+events:
+- date: '2023-08'
+  kind: paper
+  title: Stanford and BrainGate study on speech decoding at 62 words per minute, in Nature
+  why_it_matters: Shows that a paralysed person could communicate at more than three times the rate of earlier implant systems, with a much larger vocabulary than before.
+  url: https://www.futurity.org/brain-computer-interface-als-speech-2965172-2/
+- date: '2025-06'
+  kind: paper
+  title: Instantaneous voice-synthesis neuroprosthesis, UC Davis, in Nature
+  why_it_matters: Cuts the delay between brain signal and synthesised sound to about a fortieth of a second, and makes almost 60 percent of words understandable, where the participant was understood 4 percent of the time without the system. This study is about speech in near real time, not about a faster rate in words per minute.
+  url: https://www.eurekalert.org/news-releases/1087025
+- date: '2026-06'
+  kind: paper
+  title: UC Davis Nature Medicine study on a daily-use speech implant
+  why_it_matters: Reports the longest sustained use of a speech implant outside a laboratory, at an average of 56 words per minute, which is below the 2023 peak but shows that the system works day to day.
+  url: https://thenextweb.com/news/uc-davis-brain-computer-interface-als-speech-casey-harrell-3800-hours
+reading: []
