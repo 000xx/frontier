@@ -1,0 +1,282 @@
+# Items are transcribed by hand from IUPAC pages and laboratory news; each fact was read in this run.
+# date_done is the date IUPAC approved the element's permanent name, which follows IUPAC/IUPAP recognition of its discovery.
+id: superheavy-elements
+title: Superheavy elements
+domain: physics
+subfield: Particles and matter
+status: live
+summary: The heaviest chemical elements, from 104 to 118, each made a few atoms at a time in particle accelerators
+  and accepted into the periodic table only after an international review. The seventh row of the table has
+  been full since 2016; the race now is to make element 119 or 120 and start an eighth row.
+metric:
+  name: Superheavy elements (atomic number 104 and above) with an IUPAC-approved name
+  unit: elements
+  direction: higher
+  scale: linear
+  explainer: 'Elements heavier than uranium do not survive in nature in useful amounts, so they are made by firing
+    a beam of lighter nuclei at a target of heavy ones and hoping that, very occasionally, two nuclei fuse.
+    For the heaviest elements this happens a handful of times in weeks or months of beam time, and the new
+    nucleus lives for a fraction of a second before it decays. Labs identify it by the chain of decays that
+    follows, which ends in known nuclei. Because the evidence is so thin, a claimed discovery is judged by a
+    joint working party of the international unions of chemistry (IUPAC) and physics (IUPAP). Once that panel
+    credits a team, the team proposes a name, and IUPAC approves it after a public comment period. Elements 104
+    to 118 complete the seventh row of the periodic table. Element 119 and 120 would start the eighth, but
+    making them needs targets of rare man-made elements and heavier beams than before, which lowers the odds
+    of fusion further.'
+chart:
+  primary: natural-map
+  secondary:
+  - countdown-grid
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Each item was read from an IUPAC page or report, or from a laboratory or news page where stated. date_done
+    is the naming date, the one date found for every element; discovery-recognition dates are in notes where read.
+    Open points for the owner: (1) the IUPAC 1997 recommendations for elements 104 to 109 give the names but not
+    the discoverers, so `by` is left empty for those; their discovery history (the "transfermium" disputes) is not
+    covered yet. (2) The IUPAC page for element 110 does not name the discovering laboratory, so `by` is empty.
+    (3) The LLNL news item dates the naming of 114 and 116 to 31 May 2012, the IUPAC Chemistry International page
+    to 30 May 2012; the IUPAC date is used. (4) The iupac.org periodic table page could not be opened in this run
+    (blocked fetch). (5) The JINR June 2026 report is internally inconsistent about whether the element 119 run
+    had already started; check JINR, RIKEN and Berkeley Lab news for any element 119 or 120 claim. A claim alone
+    would be an event; an item turns done only after IUPAC/IUPAP recognition and naming.'
+sources:
+- id: iupac-2015-discovery
+  name: IUPAC, "Discovery and Assignment of Elements with Atomic Numbers 113, 115, 117 and 118" (30 December 2015)
+  url: https://iupac.org/discovery-and-assignment-of-elements-with-atomic-numbers-113-115-117-and-118/
+  kind: registry
+  primary: true
+  notes: IUPAC pages carry "Copyright © 2026 IUPAC. All Rights Reserved." and no reuse licence, so only facts are
+    recorded, with links.
+- id: iupac-2016-names
+  name: IUPAC, "IUPAC Announces the Names of the Elements 113, 115, 117, and 118" (30 November 2016)
+  url: https://iupac.org/iupac-announces-the-names-of-the-elements-113-115-117-and-118/
+  kind: registry
+- id: iupac-ci-2012
+  name: IUPAC Chemistry International, note on flerovium and livermorium (2012, vol. 34 no. 4)
+  url: https://publications.iupac.org/ci/2012/3404/iw1_periodic_table.html
+  kind: registry
+- id: llnl-2012
+  name: LLNL, "Livermorium and Flerovium join the periodic table of elements" (31 May 2012)
+  url: https://www.llnl.gov/news/livermorium-and-flerovium-join-periodic-table-elements
+  kind: press
+- id: iupac-ci-2010-112
+  name: IUPAC Chemistry International, note on copernicium (2010, vol. 32 no. 5)
+  url: https://publications.iupac.org/ci/2010/3205/iw1_112.html
+  kind: registry
+- id: iupac-2004-111
+  name: IUPAC press release on the name of element 111, roentgenium (8 November 2004)
+  url: https://list.iupac.org/news/archives/2004/naming111.html
+  kind: registry
+- id: iupac-2003-110
+  name: IUPAC, "Name and Symbol of the Element with Atomic Number 110", Pure Appl. Chem. 75, 1613-1615 (2003)
+  url: https://publications.iupac.org/pac/2003/7510/7510x1613.html
+  kind: registry
+- id: iupac-1997-transfermium
+  name: IUPAC, "Names and Symbols of Transfermium Elements (IUPAC Recommendations 1997)", Pure Appl. Chem. 69,
+    2471-2473 (1997)
+  url: https://list.iupac.org/reports/1997/6912transfermium/index.html
+  kind: registry
+- id: gates-2024
+  name: 'J. M. Gates et al., "Towards the Discovery of New Elements: Production of Livermorium (Z=116) with 50Ti"
+    (arXiv:2407.16079)'
+  url: https://arxiv.org/abs/2407.16079
+  kind: paper
+- id: chemistryworld-2024
+  name: Chemistry World, "Element 120 may now be in reach and the hunt for it could begin next year" (2024)
+  url: https://chemistryworld.com/news/element-120-may-now-be-in-reach-and-the-hunt-for-it-could-begin-next-year/4019871.article
+  kind: news
+- id: www1-2026
+  name: www1.ru, "New element of the periodic table will be created in Russia" (26 March 2026)
+  url: https://www1.ru/en/articles/2026/03/26/novyi-element-tablicy-mendeleeva-sozdadut-v-rossii.html
+  kind: news
+- id: jinr-pac-2026
+  name: JINR newspaper, report on the June 2026 Programme Advisory Committee for Nuclear Physics (issue 28, 2026)
+  url: https://jinrmag.jinr.ru/eng/2026/28/nb28.html
+  kind: news
+items:
+- id: z104
+  label: 104 Rutherfordium (Rf)
+  group: Seventh row
+  status: done
+  status_detail: name and symbol in the IUPAC Recommendations 1997
+  date_done: '1997'
+  url: https://list.iupac.org/reports/1997/6912transfermium/index.html
+  source: iupac-1997-transfermium
+- id: z105
+  label: 105 Dubnium (Db)
+  group: Seventh row
+  status: done
+  status_detail: name and symbol in the IUPAC Recommendations 1997
+  date_done: '1997'
+  url: https://list.iupac.org/reports/1997/6912transfermium/index.html
+  source: iupac-1997-transfermium
+- id: z106
+  label: 106 Seaborgium (Sg)
+  group: Seventh row
+  status: done
+  status_detail: name and symbol in the IUPAC Recommendations 1997
+  date_done: '1997'
+  url: https://list.iupac.org/reports/1997/6912transfermium/index.html
+  source: iupac-1997-transfermium
+- id: z107
+  label: 107 Bohrium (Bh)
+  group: Seventh row
+  status: done
+  status_detail: name and symbol in the IUPAC Recommendations 1997
+  date_done: '1997'
+  url: https://list.iupac.org/reports/1997/6912transfermium/index.html
+  source: iupac-1997-transfermium
+- id: z108
+  label: 108 Hassium (Hs)
+  group: Seventh row
+  status: done
+  status_detail: name and symbol in the IUPAC Recommendations 1997
+  date_done: '1997'
+  url: https://list.iupac.org/reports/1997/6912transfermium/index.html
+  source: iupac-1997-transfermium
+- id: z109
+  label: 109 Meitnerium (Mt)
+  group: Seventh row
+  status: done
+  status_detail: name and symbol in the IUPAC Recommendations 1997
+  date_done: '1997'
+  url: https://list.iupac.org/reports/1997/6912transfermium/index.html
+  source: iupac-1997-transfermium
+- id: z110
+  label: 110 Darmstadtium (Ds)
+  group: Seventh row
+  status: done
+  status_detail: name adopted by the IUPAC Council at Ottawa, 16 August 2003
+  date_done: '2003-08-16'
+  url: https://publications.iupac.org/pac/2003/7510/7510x1613.html
+  source: iupac-2003-110
+  note: The IUPAC page says a joint IUPAC-IUPAP working party confirmed the discovery but does not name the laboratory.
+- id: z111
+  label: 111 Roentgenium (Rg)
+  group: Seventh row
+  status: done
+  status_detail: name officially approved as of 1 November 2004
+  date_done: '2004-11-01'
+  by: GSI, Darmstadt
+  url: https://list.iupac.org/news/archives/2004/naming111.html
+  source: iupac-2004-111
+  note: A joint IUPAC-IUPAP working party confirmed the discovery in 2003.
+- id: z112
+  label: 112 Copernicium (Cn)
+  group: Seventh row
+  status: done
+  status_detail: official name and symbol since 19 February 2010
+  date_done: '2010-02-19'
+  by: GSI, Darmstadt (team led by Sigurd Hofmann)
+  url: https://publications.iupac.org/ci/2010/3205/iw1_112.html
+  source: iupac-ci-2010-112
+- id: z113
+  label: 113 Nihonium (Nh)
+  group: Seventh row
+  status: done
+  status_detail: name approved by IUPAC on 28 November 2016
+  date_done: '2016-11-28'
+  by: RIKEN collaboration, Japan
+  url: https://iupac.org/iupac-announces-the-names-of-the-elements-113-115-117-and-118/
+  source: iupac-2016-names
+  note: Discovery credited by IUPAC on 30 December 2015.
+- id: z114
+  label: 114 Flerovium (Fl)
+  group: Seventh row
+  status: done
+  status_detail: name approved by IUPAC on 30 May 2012
+  date_done: '2012-05-30'
+  by: JINR Dubna and LLNL collaboration
+  url: https://publications.iupac.org/ci/2012/3404/iw1_periodic_table.html
+  source: iupac-ci-2012
+  note: Priority assigned in 2011 by the joint IUPAC-IUPAP working party, whose report appeared in Pure and Applied
+    Chemistry in July 2011.
+- id: z115
+  label: 115 Moscovium (Mc)
+  group: Seventh row
+  status: done
+  status_detail: name approved by IUPAC on 28 November 2016
+  date_done: '2016-11-28'
+  by: JINR Dubna, LLNL and Oak Ridge collaboration
+  url: https://iupac.org/iupac-announces-the-names-of-the-elements-113-115-117-and-118/
+  source: iupac-2016-names
+  note: Discovery credited by IUPAC on 30 December 2015.
+- id: z116
+  label: 116 Livermorium (Lv)
+  group: Seventh row
+  status: done
+  status_detail: name approved by IUPAC on 30 May 2012
+  date_done: '2012-05-30'
+  by: JINR Dubna and LLNL collaboration
+  url: https://publications.iupac.org/ci/2012/3404/iw1_periodic_table.html
+  source: iupac-ci-2012
+  note: Priority assigned in 2011 by the joint IUPAC-IUPAP working party.
+- id: z117
+  label: 117 Tennessine (Ts)
+  group: Seventh row
+  status: done
+  status_detail: name approved by IUPAC on 28 November 2016
+  date_done: '2016-11-28'
+  by: JINR Dubna, LLNL and Oak Ridge collaboration
+  url: https://iupac.org/iupac-announces-the-names-of-the-elements-113-115-117-and-118/
+  source: iupac-2016-names
+  note: Discovery credited by IUPAC on 30 December 2015.
+- id: z118
+  label: 118 Oganesson (Og)
+  group: Seventh row
+  status: done
+  status_detail: name approved by IUPAC on 28 November 2016
+  date_done: '2016-11-28'
+  by: JINR Dubna and LLNL collaboration
+  url: https://iupac.org/iupac-announces-the-names-of-the-elements-113-115-117-and-118/
+  source: iupac-2016-names
+  note: Discovery credited by IUPAC on 30 December 2015.
+- id: z119
+  label: 119 (not yet made)
+  group: Eighth row
+  status: open
+  status_detail: no discovery claimed
+  url: https://jinrmag.jinr.ru/eng/2026/28/nb28.html
+  source: jinr-pac-2026
+  note: JINR reported in June 2026 that a berkelium-249 plus titanium-50 run had begun on 1 June 2026; RIKEN has
+    planned a vanadium-beam attempt.
+- id: z120
+  label: 120 (not yet made)
+  group: Eighth row
+  status: open
+  status_detail: no discovery claimed
+  url: https://www1.ru/en/articles/2026/03/26/novyi-element-tablicy-mendeleeva-sozdadut-v-rossii.html
+  source: www1-2026
+  note: Berkeley Lab is preparing a titanium-50 beam attempt; JINR has announced a curium-248 plus chromium-54 search.
+events:
+- date: '2015-12-30'
+  kind: milestone
+  title: IUPAC credits the discoveries of elements 113, 115, 117 and 118
+  why_it_matters: The decision completed the seventh row of the periodic table, four years after elements 114 and
+    116 were credited.
+  url: https://iupac.org/discovery-and-assignment-of-elements-with-atomic-numbers-113-115-117-and-118/
+- date: '2016-11-28'
+  kind: milestone
+  title: Nihonium, moscovium, tennessine and oganesson approved as names
+  why_it_matters: These are the most recent permanent additions to the periodic table; no element has joined since.
+  url: https://iupac.org/iupac-announces-the-names-of-the-elements-113-115-117-and-118/
+- date: '2024-07-22'
+  kind: paper
+  title: Berkeley Lab makes livermorium with a titanium-50 beam
+  why_it_matters: Two atoms showed that beams heavier than calcium-48 can still make superheavy nuclei, the method
+    any attempt at element 120 will need.
+  url: https://arxiv.org/abs/2407.16079
+- date: '2026-03-26'
+  kind: news
+  title: JINR announces searches for elements 119 and 120
+  why_it_matters: The Dubna laboratory behind five of the last six elements is now aiming at the eighth row too, with
+    first results hoped for in late 2026.
+  url: https://www1.ru/en/articles/2026/03/26/novyi-element-tablicy-mendeleeva-sozdadut-v-rossii.html
+- date: '2026-06-19'
+  kind: news
+  title: JINR advisers report the element 119 run under way
+  why_it_matters: Its own physicists expect about a year to see a couple of atoms, so a claim is unlikely before 2027
+    and recognition would take longer.
+  url: https://jinrmag.jinr.ru/eng/2026/28/nb28.html
+reading: []
