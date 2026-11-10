@@ -5,9 +5,9 @@ Two files in the zip are used, one per series:
   frontiermath.csv               -> series tiers-1-3-v1 (the original problem set)
   frontiermath_tiers_1_3_v2.csv  -> series tiers-1-3-v2 (corrected set released 2026-06-12)
 Epoch runs these evaluations itself. A model is a record when its mean score beats every model with
-an earlier release date in the same file (models released the same day are taken best first). The
-records block is rebuilt from the files each time; only facts derived from them are stored, and the
-zip is not copied. DIAG lines show counts, the latest records and every difference from the file.
+an earlier release date in the same file (models released the same day are taken best first); a
+score of zero is never a record. The records block is rebuilt from the files each time; only facts
+derived from them are stored, and the zip is not copied. DIAG lines show counts, the latest records and every difference from the file.
 """
 import csv
 import io
@@ -88,7 +88,7 @@ def build(zf):
     for series, name in FILES.items():
         best = None
         for date, value, r in sorted(_read(zf, series, name), key=lambda t: (t[0], -t[1], t[2][MODEL])):
-            if best is not None and value <= best:
+            if value <= 0 or (best is not None and value <= best):
                 continue
             best = value
             records.append(_record(series, date, value, r))

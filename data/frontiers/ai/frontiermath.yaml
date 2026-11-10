@@ -4,7 +4,7 @@ id: frontiermath
 title: AI on FrontierMath research-level maths problems
 domain: ai
 subfield: AI doing science
-status: draft
+status: live
 summary: The best score any AI model has reached on FrontierMath Tiers 1 to 3, a set of several hundred
   unpublished, hard maths problems written by mathematicians, as evaluated by Epoch AI. It shows how far
   models are from doing the kind of mathematics that takes experts hours or days.
@@ -17,21 +17,19 @@ metric:
     value: 100
     label: Every problem solved
     source: epoch-benchmarks
-  explainer: 'FrontierMath is a benchmark made by Epoch AI with a few dozen professional mathematicians.
-    Each problem is new and unpublished, so a model cannot have seen it during training, and each has a
-    single exact answer, usually a large number or a formula, that a computer can check without human
-    grading. Guessing is hopeless because the answers are not multiple choice. The problems are sorted by
-    difficulty: Tiers 1 to 3 run from hard undergraduate and graduate questions up to problems that
-    would take a specialist many hours, and a smaller Tier 4 goes further still. Models work on each
-    problem with a Python environment, can run code to test ideas, and submit an answer that is either
-    right or wrong. When the benchmark appeared in late 2024 the best models solved only a couple of
-    percent. In June 2026 Epoch released a corrected second version after finding mistakes in many
-    problems, so this page keeps the two versions as separate lines rather than joining them. A high
-    score means a model can reliably reach correct answers to hard, well-posed calculations; it does not
-    mean the model can choose good research questions or write full proofs. Two caveats: the benchmark
-    was funded by OpenAI, which owns the core problems and can see most of them, although Epoch keeps a
-    holdout set whose solutions OpenAI has not seen; and scores come from Epoch''s own runs, which can
-    differ from numbers that developers report.'
+  explainer: 'FrontierMath is a benchmark made by Epoch AI with expert mathematicians. Each problem is
+    new and unpublished, so a model cannot have seen it during training, and each has an exact answer
+    that a computer checks automatically, with no human grading. The problems are sorted by difficulty:
+    Tiers 1 to 3 hold problems that would take an expert researcher hours, and the hardest days, and a
+    smaller Tier 4 goes further still. Models work on each problem with a Python environment, can run
+    code to test ideas, and submit an answer that is either right or wrong. When the benchmark appeared in
+    late 2024 the best models solved under 2% of problems. In June 2026 Epoch released a corrected second
+    version after finding errors in many problems, so this page keeps the two versions as separate lines
+    rather than joining them. A high score means a model can reliably reach correct answers to hard,
+    well-posed problems; it does not mean the model can choose good research questions or write full
+    proofs. Two caveats: the benchmark was funded by OpenAI, which owns the core problems and can see most
+    of them, although Epoch keeps a holdout set whose solutions OpenAI has not seen; and scores come from
+    Epoch''s own runs, which can differ from numbers that developers report.'
 chart:
   primary: record-chart
   secondary:
@@ -99,4 +97,29 @@ events:
 reading: []
 connections:
 - ai-capabilities-index
-records: []
+records:
+- {date: '2024-06-20', value: 1.03, series: tiers-1-3-v1, holder: claude-3-5-sonnet-20240620, conditions: developer Anthropic; standard error 0.6 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-09-12', value: 1.72, series: tiers-1-3-v1, holder: o1-mini-2024-09-12_medium, conditions: developer OpenAI; standard error 0.77 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-10-22', value: 2.07, series: tiers-1-3-v1, holder: claude-3-5-sonnet-20241022, conditions: developer Anthropic; standard error 0.84 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-12-17', value: 9.31, series: tiers-1-3-v1, holder: o1-2024-12-17_high, conditions: developer OpenAI; standard error 1.71 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-01-31', value: 12.41, series: tiers-1-3-v1, holder: o3-mini-2025-01-31_high, conditions: developer OpenAI; standard error 1.94 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-04-16', value: 24.83, series: tiers-1-3-v1, holder: o4-mini-2025-04-16_high, conditions: developer OpenAI; standard error 2.54 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-08-01', value: 29.0, series: tiers-1-3-v1, holder: gemini-2.5-deep-think-2025-08-01-webapp, conditions: 'developer Google, Google DeepMind; standard error 2.7 points; Epoch AI evaluation; date is the model''s release date', status: confirmed, source: epoch-benchmarks}
+- {date: '2025-08-07', value: 32.41, series: tiers-1-3-v1, holder: gpt-5-2025-08-07_high, conditions: developer OpenAI; standard error 2.75 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-11-18', value: 37.6, series: tiers-1-3-v1, holder: gemini-3-pro-preview, conditions: developer Google DeepMind; standard error 2.84 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-12-11', value: 40.7, series: tiers-1-3-v1, holder: gpt-5.2-2025-12-11_xhigh, conditions: developer OpenAI; standard error 2.9 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-03-05', value: 50.0, series: tiers-1-3-v1, holder: gpt-5.4-pro-2026-03-05_xhigh, conditions: developer OpenAI; standard error 2.9 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-04-23', value: 52.4, series: tiers-1-3-v1, holder: gpt-5.5-pro-pre-release_high, conditions: developer OpenAI; standard error 2.9 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-04-09', value: 0.7, series: tiers-1-3-v2, holder: gpt-4-turbo-2024-04-09, conditions: developer OpenAI; standard error 0.5 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-12-17', value: 14.74, series: tiers-1-3-v2, holder: o1-2024-12-17_high, conditions: developer OpenAI; standard error 2.1 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-01-31', value: 18.6, series: tiers-1-3-v2, holder: o3-mini-2025-01-31_high, conditions: developer OpenAI; standard error 2.31 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-04-16', value: 36.14, series: tiers-1-3-v2, holder: o4-mini-2025-04-16_high, conditions: developer OpenAI; standard error 2.85 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-08-07', value: 55.44, series: tiers-1-3-v2, holder: gpt-5-2025-08-07_high, conditions: developer OpenAI; standard error 2.95 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-10-07', value: 55.79, series: tiers-1-3-v2, holder: gpt-5-pro-2025-10-06_high, conditions: developer OpenAI; standard error 2.95 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-12-11', value: 74.0, series: tiers-1-3-v2, holder: gpt-5.2-pro-2025-12-11_xhigh, conditions: developer OpenAI; standard error 2.63 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-03-05', value: 82.46, series: tiers-1-3-v2, holder: gpt-5.4-pro-2026-03-05_xhigh, conditions: developer OpenAI; standard error 2.26 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-04-23', value: 87.72, series: tiers-1-3-v2, holder: gpt-5.5-pro_xhigh, conditions: developer OpenAI; standard error 1.95 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-07-09', value: 89.12, series: tiers-1-3-v2, holder: gpt-5.6-sol_max, conditions: developer OpenAI; standard error 1.85 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-09-01', value: 90.18, series: tiers-1-3-v2, holder: claude-fable-5-1_max, conditions: developer Anthropic; standard error 1.77 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-09-03', value: 93.68, series: tiers-1-3-v2, holder: gpt-6-astra_max, conditions: developer OpenAI; standard error 1.44 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-11-09', value: 95.09, series: tiers-1-3-v2, holder: claude-fable-5-2_max, conditions: developer Anthropic; standard error 1.28 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
