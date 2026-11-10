@@ -1,0 +1,248 @@
+# Guinea worm: human cases reported each year, from the World row of Our World in Data's export of WHO data.
+# observations are rewritten by scripts/fetchers/guinea_worm.py; do not edit them by hand.
+# Latest-year figures are provisional and can be revised.
+id: guinea-worm
+title: Guinea worm disease
+domain: health
+subfield: Diseases being eliminated
+status: live
+summary: How many people are reported with Guinea worm disease each year, and how close the world is to
+  eradicating a parasite that has no vaccine and no drug to prevent it.
+metric:
+  name: Reported human Guinea worm cases per year, worldwide
+  unit: cases per year
+  direction: lower
+  scale: linear
+  explainer: 'Guinea worm disease is caused by a parasitic worm. A person who drinks water containing a carrier
+    organism gets infected, and months later a worm can emerge through the skin, which is painful and disabling
+    while it lasts. The count is of human cases reported through surveillance, so it measures reports rather than
+    every infection. The most recent year is provisional and can be revised when late reports arrive, so check
+    whether the latest figure is still provisional before comparing it with earlier years.'
+chart:
+  primary: race-to-zero
+series:
+- id: cases
+  label: Reported human cases
+observations:
+- date: '1980'
+  series: cases
+  value: 35894
+  source: owid-guinea-worm
+- date: '1981'
+  series: cases
+  value: 18741
+  source: owid-guinea-worm
+- date: '1982'
+  series: cases
+  value: 51765
+  source: owid-guinea-worm
+- date: '1983'
+  series: cases
+  value: 56520
+  source: owid-guinea-worm
+- date: '1984'
+  series: cases
+  value: 75797
+  source: owid-guinea-worm
+- date: '1985'
+  series: cases
+  value: 55173
+  source: owid-guinea-worm
+- date: '1986'
+  series: cases
+  value: 46043
+  source: owid-guinea-worm
+- date: '1987'
+  series: cases
+  value: 260140
+  source: owid-guinea-worm
+- date: '1988'
+  series: cases
+  value: 758217
+  source: owid-guinea-worm
+- date: '1989'
+  series: cases
+  value: 892055
+  source: owid-guinea-worm
+- date: '1990'
+  series: cases
+  value: 623579
+  source: owid-guinea-worm
+- date: '1991'
+  series: cases
+  value: 543585
+  source: owid-guinea-worm
+- date: '1992'
+  series: cases
+  value: 374202
+  source: owid-guinea-worm
+- date: '1993'
+  series: cases
+  value: 229773
+  source: owid-guinea-worm
+- date: '1994'
+  series: cases
+  value: 164977
+  source: owid-guinea-worm
+- date: '1995'
+  series: cases
+  value: 129852
+  source: owid-guinea-worm
+- date: '1996'
+  series: cases
+  value: 152814
+  source: owid-guinea-worm
+- date: '1997'
+  series: cases
+  value: 77863
+  source: owid-guinea-worm
+- date: '1998'
+  series: cases
+  value: 78557
+  source: owid-guinea-worm
+- date: '1999'
+  series: cases
+  value: 96293
+  source: owid-guinea-worm
+- date: '2000'
+  series: cases
+  value: 75223
+  source: owid-guinea-worm
+- date: '2001'
+  series: cases
+  value: 63718
+  source: owid-guinea-worm
+- date: '2002'
+  series: cases
+  value: 54638
+  source: owid-guinea-worm
+- date: '2003'
+  series: cases
+  value: 32193
+  source: owid-guinea-worm
+- date: '2004'
+  series: cases
+  value: 16026
+  source: owid-guinea-worm
+- date: '2005'
+  series: cases
+  value: 10674
+  source: owid-guinea-worm
+- date: '2006'
+  series: cases
+  value: 25217
+  source: owid-guinea-worm
+- date: '2007'
+  series: cases
+  value: 9589
+  source: owid-guinea-worm
+- date: '2008'
+  series: cases
+  value: 4619
+  source: owid-guinea-worm
+- date: '2009'
+  series: cases
+  value: 3190
+  source: owid-guinea-worm
+- date: '2010'
+  series: cases
+  value: 1797
+  source: owid-guinea-worm
+- date: '2011'
+  series: cases
+  value: 1058
+  source: owid-guinea-worm
+- date: '2012'
+  series: cases
+  value: 542
+  source: owid-guinea-worm
+- date: '2013'
+  series: cases
+  value: 148
+  source: owid-guinea-worm
+- date: '2014'
+  series: cases
+  value: 126
+  source: owid-guinea-worm
+- date: '2015'
+  series: cases
+  value: 22
+  source: owid-guinea-worm
+- date: '2016'
+  series: cases
+  value: 25
+  source: owid-guinea-worm
+- date: '2017'
+  series: cases
+  value: 30
+  source: owid-guinea-worm
+- date: '2018'
+  series: cases
+  value: 28
+  source: owid-guinea-worm
+- date: '2019'
+  series: cases
+  value: 54
+  source: owid-guinea-worm
+- date: '2020'
+  series: cases
+  value: 27
+  source: owid-guinea-worm
+- date: '2021'
+  series: cases
+  value: 15
+  source: owid-guinea-worm
+- date: '2022'
+  series: cases
+  value: 13
+  source: owid-guinea-worm
+- date: '2023'
+  series: cases
+  value: 14
+  source: owid-guinea-worm
+- date: '2024'
+  series: cases
+  value: 15
+  source: owid-guinea-worm
+- date: '2025'
+  series: cases
+  value: 10
+  source: owid-guinea-worm
+sources:
+- id: owid-guinea-worm
+  name: Our World in Data, Reported cases of guinea worm disease (World, from WHO data)
+  url: https://ourworldindata.org/grapher/number-of-reported-guinea-worm-dracunculiasis-cases
+  kind: dataset
+  primary: true
+  notes: World rows of the CSV export, read by the refresh. OWID credits World Health Organization (2026), with
+    major processing by Our World in Data, and gives 17 March 2026 as the last update. OWID's own work is CC BY;
+    the underlying WHO data keeps WHO's terms (see who-data-terms in the malaria dataset NOTICE.md).
+- id: carter-2026-01-30
+  name: The Carter Center, provisional 2025 Guinea worm count (release of 30 January 2026)
+  url: https://www.cartercenter.org/?p=22014
+  kind: press
+  notes: Gives 10 provisional human cases for 2025 and says that is a 33% decline from 15 in 2024. Read 10 November 2026.
+- id: carter-2025-05-13
+  name: 'The Carter Center, Update: 15 human Guinea worm cases reported in 2024 (13 May 2025)'
+  url: https://www.cartercenter.org/?p=12860
+  kind: press
+  notes: Gives 15 human cases for 2024. Read 10 November 2026.
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Observations are the World values in OWID''s CSV export (WHO data, 1980 to 2025), copied exactly by
+    scripts/fetchers/guinea_worm.py. The Carter Center''s 2025 figure of 10 is provisional; the fetcher will
+    update it when WHO revises it. Not yet sourced: the number of endemic countries in 2025 (the Carter Center
+    release names countries with cases but gives no count), and any reading list.'
+events:
+- date: '2026-01-30'
+  kind: milestone
+  title: Carter Center reports 10 provisional human Guinea worm cases for 2025
+  why_it_matters: The provisional count is a third below the 15 cases reported for 2024.
+  url: https://www.cartercenter.org/?p=22014
+- date: '2025-05-13'
+  kind: news
+  title: Carter Center reports 15 human Guinea worm cases for 2024
+  why_it_matters: The 2024 figure is the baseline the 2025 provisional count is measured against.
+  url: https://www.cartercenter.org/?p=12860
+reading: []
