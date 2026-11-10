@@ -33,6 +33,7 @@ Every record carries a status: `claimed`, `peer_reviewed`, `confirmed` or `retra
 ## Data credits
 
 Each dataset folder has a NOTICE.md with its source's terms and the credit line the site must show. Solar cell records: data courtesy of the National Laboratory of the Rockies (U.S. Department of Energy / NLR / Alliance for Energy Innovation).
+Erdős problems: data from the Erdős problems database (github.com/teorth/erdosproblems), Erdős problems database contributors, maintained by Thomas Bloom and Terence Tao; problems from erdosproblems.com.
 
 ## How updates work
 
