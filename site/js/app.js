@@ -64,6 +64,7 @@
     f.series.forEach(function (s) { (f.records[s.id] || []).forEach(function (r) { if (r[1] > v) { v = r[1]; best = s.id; } }); });
     return best;
   }
+  function supported(f) { return f.shape === 'Record chart' && !!bestSeries(f); }
   function selectedId(f) { return hasRows(f, chosen[f.id]) ? chosen[f.id] : hasRows(f, f.featured) ? f.featured : bestSeries(f); }
 
   /* Every series as a faint record line, with the selected one drawn in full. */
@@ -79,9 +80,10 @@
     function X(t) { return (t - t0) / (t1 - t0) * W; }
     function Y(v) { return H - v / y1 * H; }
     var o = '', v, yr;
-    for (v = 10; v <= y1; v += 10) {
+    var tick = y1 <= 100 ? 10 : y1 / 5;
+    for (v = tick; v <= y1 * 1.0001; v += tick) {
       o += '<path d="M0 ' + Y(v).toFixed(1) + ' H' + W + '" stroke="' + c.grid + '" stroke-width="1"/>' +
-        '<text x="-12" y="' + (Y(v) + 4.5).toFixed(1) + '" fill="' + c.text + '" font-size="13" text-anchor="end">' + v + esc(f.unit) + '</text>';
+        '<text x="-12" y="' + (Y(v) + 4.5).toFixed(1) + '" fill="' + c.text + '" font-size="13" text-anchor="end">' + fmtNum(v) + (f.unit === '%' ? '%' : '') + '</text>';
     }
     o += '<path d="M0 ' + H + ' H' + W + '" stroke="' + c.axis + '" stroke-width="1"/>';
     var step = (t1 - t0) > 25 ? 10 : (t1 - t0) > 8 ? 2 : 1;
@@ -121,10 +123,12 @@
   }
 
   function home() {
-    var f = D.frontiers.filter(function (x) { return bestSeries(x); })[0];
+    var live = D.frontiers.filter(supported), f = live[0];
     var sid = f ? selectedId(f) : null, s = f ? seriesInfo(f, sid) : null, top = s ? s.top : null;
-    var liveDomains = {}; D.frontiers.forEach(function (x) { liveDomains[x.domain] = (liveDomains[x.domain] || 0) + 1; });
+    var liveDomains = {}; live.forEach(function (x) { liveDomains[x.domain] = (liveDomains[x.domain] || 0) + 1; });
     var rows = D.frontiers.map(function (x) {
+      if (!supported(x)) return '<li><span class="d">' + esc(x.domain) + '</span><span class="t">' + esc(x.title) + '</span>' +
+        '<span class="s">' + esc(x.shape) + '</span><span class="w">Data in, chart to come</span></li>';
       return '<li class="live"><span class="d">' + esc(x.domain) + '</span><span class="t"><a href="#' + esc(x.id) + '">' + esc(x.title) + '</a></span>' +
         '<span class="s">' + esc(x.shape) + '</span><span class="w">Live</span></li>';
     }).join('') + D.planned.map(function (x) {
@@ -249,7 +253,7 @@
   }
 
   var current = null;
-  function findFrontier(h) { return D.frontiers.filter(function (x) { return x.id === h; })[0]; }
+  function findFrontier(h) { return D.frontiers.filter(function (x) { return x.id === h && supported(x); })[0]; }
   function render(f) { app.innerHTML = f ? frontier(f) : home(); }
   function route() {
     var h = (location.hash || '#home').slice(1), f = findFrontier(h), view = f ? f.id : 'home';
