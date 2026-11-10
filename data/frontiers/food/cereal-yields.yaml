@@ -1,0 +1,125 @@
+# Observations are world cereal yields, tonnes per hectare, 1961 to 2024, read from Our World in Data's copy of
+# FAO's crop data (grapher cereal-yield, World row OWID_WRL), opened 2026-11-09 through the refresh workflow's
+# dry run. Values are the source's own, rounded to four decimals.
+id: cereal-yields
+title: Cereal yields
+domain: food
+subfield: Crops
+status: live
+summary: How many tonnes of cereal grain the world harvests from each hectare of cropland, on average. Cereals
+  (wheat, rice, maize and others) supply most of the calories people eat, so yield growth is what lets output keep
+  up with a growing population without clearing more land.
+metric:
+  name: World cereal yield
+  unit: t/ha
+  direction: higher
+  scale: linear
+  explainer: 'Cereal yield is the harvest of grain crops divided by the area they are grown on, so it measures how
+    much each hectare produces, not how much land is used. It is an average over all countries, weighted by
+    where the crops grow, so it can rise because better farms in one region gain more weight than poor ones. Read
+    the trend over decades rather than single years: a drought can cut one harvest by a tenth without changing the
+    long-run path.'
+chart:
+  primary: record-chart
+series:
+- id: world
+  label: World
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Observations come from the Our World in Data grapher cereal-yield (World row), which carries FAO''s
+    cereal yield series. The refresh fetcher reads the same CSV and updates only changed or new years. Still to
+    add: a reading list, and a check of the FAO item code against FAOSTAT.'
+sources:
+- id: owid-cereal-yield
+  name: Our World in Data, cereal yield (World), built from FAO data
+  url: https://ourworldindata.org/grapher/cereal-yield
+  kind: dataset
+  primary: true
+  notes: CSV read through the refresh workflow's dry run at https://ourworldindata.org/grapher/cereal-yield.csv?country=OWID_WRL
+    on 2026-11-09. The column is 'Cereals - Yield (tonnes per hectare)'. Cite OWID and FAO.
+- id: fao-faostat
+  name: FAO, FAOSTAT crops and livestock statistics
+  url: https://www.fao.org/faostat/
+  kind: dataset
+  notes: 'FAO database terms (opened 2026-11-09 at https://www.fao.org/contact-us/terms/db-terms-of-use) say datasets
+    are CC BY 4.0 unless stated otherwise, require attribution to FAO with the database, dataset, access date and
+    URL and ''Licence: CC-BY-4.0'', say datasets shall not be used for or in conjunction with the promotion of a
+    commercial enterprise, and say they may not be redistributed without the consent of the original data provider.
+    Only facts are recorded here, with this citation.'
+events:
+- date: '2016'
+  kind: milestone
+  title: World cereal yield passes 4 tonnes per hectare for the first time in the series
+  why_it_matters: 'The 2016 figure is 4.017 tonnes per hectare, against 1.3532 in 1961, the first year of the series.'
+  url: https://ourworldindata.org/grapher/cereal-yield
+- date: '2024'
+  kind: milestone
+  title: World cereal yield peaks in 2023 at 4.2283 tonnes per hectare, and 2024 is slightly lower
+  why_it_matters: 'The 2024 value of 4.2058 is just below the 2023 peak, so the latest year did not set a new record.'
+  url: https://ourworldindata.org/grapher/cereal-yield
+observations:
+- {date: '1961', series: world, value: 1.3532, source: owid-cereal-yield}
+- {date: '1962', series: world, value: 1.4275, source: owid-cereal-yield}
+- {date: '1963', series: world, value: 1.4401, source: owid-cereal-yield}
+- {date: '1964', series: world, value: 1.4938, source: owid-cereal-yield}
+- {date: '1965', series: world, value: 1.4967, source: owid-cereal-yield}
+- {date: '1966', series: world, value: 1.6102, source: owid-cereal-yield}
+- {date: '1967', series: world, value: 1.6533, source: owid-cereal-yield}
+- {date: '1968', series: world, value: 1.6964, source: owid-cereal-yield}
+- {date: '1969', series: world, value: 1.7088, source: owid-cereal-yield}
+- {date: '1970', series: world, value: 1.7655, source: owid-cereal-yield}
+- {date: '1971', series: world, value: 1.8922, source: owid-cereal-yield}
+- {date: '1972', series: world, value: 1.8582, source: owid-cereal-yield}
+- {date: '1973', series: world, value: 1.9404, source: owid-cereal-yield}
+- {date: '1974', series: world, value: 1.8926, source: owid-cereal-yield}
+- {date: '1975', series: world, value: 1.9126, source: owid-cereal-yield}
+- {date: '1976', series: world, value: 2.0259, source: owid-cereal-yield}
+- {date: '1977', series: world, value: 2.0253, source: owid-cereal-yield}
+- {date: '1978', series: world, value: 2.2126, source: owid-cereal-yield}
+- {date: '1979', series: world, value: 2.1761, source: owid-cereal-yield}
+- {date: '1980', series: world, value: 2.1611, source: owid-cereal-yield}
+- {date: '1981', series: world, value: 2.2468, source: owid-cereal-yield}
+- {date: '1982', series: world, value: 2.3693, source: owid-cereal-yield}
+- {date: '1983', series: world, value: 2.3086, source: owid-cereal-yield}
+- {date: '1984', series: world, value: 2.4991, source: owid-cereal-yield}
+- {date: '1985', series: world, value: 2.5288, source: owid-cereal-yield}
+- {date: '1986', series: world, value: 2.5567, source: owid-cereal-yield}
+- {date: '1987', series: world, value: 2.5397, source: owid-cereal-yield}
+- {date: '1988', series: world, value: 2.4599, source: owid-cereal-yield}
+- {date: '1989', series: world, value: 2.6292, source: owid-cereal-yield}
+- {date: '1990', series: world, value: 2.7576, source: owid-cereal-yield}
+- {date: '1991', series: world, value: 2.6834, source: owid-cereal-yield}
+- {date: '1992', series: world, value: 2.7891, source: owid-cereal-yield}
+- {date: '1993', series: world, value: 2.7377, source: owid-cereal-yield}
+- {date: '1994', series: world, value: 2.8141, source: owid-cereal-yield}
+- {date: '1995', series: world, value: 2.7673, source: owid-cereal-yield}
+- {date: '1996', series: world, value: 2.9256, source: owid-cereal-yield}
+- {date: '1997', series: world, value: 2.9938, source: owid-cereal-yield}
+- {date: '1998', series: world, value: 3.0511, source: owid-cereal-yield}
+- {date: '1999', series: world, value: 3.1126, source: owid-cereal-yield}
+- {date: '2000', series: world, value: 3.0589, source: owid-cereal-yield}
+- {date: '2001', series: world, value: 3.1350, source: owid-cereal-yield}
+- {date: '2002', series: world, value: 3.0783, source: owid-cereal-yield}
+- {date: '2003', series: world, value: 3.1183, source: owid-cereal-yield}
+- {date: '2004', series: world, value: 3.3635, source: owid-cereal-yield}
+- {date: '2005', series: world, value: 3.2798, source: owid-cereal-yield}
+- {date: '2006', series: world, value: 3.2811, source: owid-cereal-yield}
+- {date: '2007', series: world, value: 3.3701, source: owid-cereal-yield}
+- {date: '2008', series: world, value: 3.5449, source: owid-cereal-yield}
+- {date: '2009', series: world, value: 3.5589, source: owid-cereal-yield}
+- {date: '2010', series: world, value: 3.5614, source: owid-cereal-yield}
+- {date: '2011', series: world, value: 3.6553, source: owid-cereal-yield}
+- {date: '2012', series: world, value: 3.6121, source: owid-cereal-yield}
+- {date: '2013', series: world, value: 3.8302, source: owid-cereal-yield}
+- {date: '2014', series: world, value: 3.8935, source: owid-cereal-yield}
+- {date: '2015', series: world, value: 3.9325, source: owid-cereal-yield}
+- {date: '2016', series: world, value: 4.0170, source: owid-cereal-yield}
+- {date: '2017', series: world, value: 4.0661, source: owid-cereal-yield}
+- {date: '2018', series: world, value: 4.0225, source: owid-cereal-yield}
+- {date: '2019', series: world, value: 4.1246, source: owid-cereal-yield}
+- {date: '2020', series: world, value: 4.1135, source: owid-cereal-yield}
+- {date: '2021', series: world, value: 4.1719, source: owid-cereal-yield}
+- {date: '2022', series: world, value: 4.1826, source: owid-cereal-yield}
+- {date: '2023', series: world, value: 4.2283, source: owid-cereal-yield}
+- {date: '2024', series: world, value: 4.2058, source: owid-cereal-yield}
