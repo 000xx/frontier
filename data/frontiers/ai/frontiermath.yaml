@@ -1,4 +1,102 @@
+# Records are rebuilt from Epoch AI's benchmark data by scripts/fetchers/frontiermath.py.
+# Edit the other fields by hand; never edit the records directly.
 id: frontiermath
+title: AI on FrontierMath research-level maths problems
+domain: ai
+subfield: AI doing science
 status: draft
+summary: The best score any AI model has reached on FrontierMath Tiers 1 to 3, a set of several hundred
+  unpublished, hard maths problems written by mathematicians, as evaluated by Epoch AI. It shows how far
+  models are from doing the kind of mathematics that takes experts hours or days.
+metric:
+  name: Best FrontierMath Tiers 1-3 score
+  unit: '% of problems solved'
+  direction: higher
+  scale: linear
+  limit:
+    value: 100
+    label: Every problem solved
+    source: epoch-benchmarks
+  explainer: 'FrontierMath is a benchmark made by Epoch AI with a few dozen professional mathematicians.
+    Each problem is new and unpublished, so a model cannot have seen it during training, and each has a
+    single exact answer, usually a large number or a formula, that a computer can check without human
+    grading. Guessing is hopeless because the answers are not multiple choice. The problems are sorted by
+    difficulty: Tiers 1 to 3 run from hard undergraduate and graduate questions up to problems that
+    would take a specialist many hours, and a smaller Tier 4 goes further still. Models work on each
+    problem with a Python environment, can run code to test ideas, and submit an answer that is either
+    right or wrong. When the benchmark appeared in late 2024 the best models solved only a couple of
+    percent. In June 2026 Epoch released a corrected second version after finding mistakes in many
+    problems, so this page keeps the two versions as separate lines rather than joining them. A high
+    score means a model can reliably reach correct answers to hard, well-posed calculations; it does not
+    mean the model can choose good research questions or write full proofs. Two caveats: the benchmark
+    was funded by OpenAI, which owns the core problems and can see most of them, although Epoch keeps a
+    holdout set whose solutions OpenAI has not seen; and scores come from Epoch''s own runs, which can
+    differ from numbers that developers report.'
+chart:
+  primary: record-chart
+  secondary:
+  - threshold-gauge
+series:
+- id: tiers-1-3-v1
+  label: Tiers 1-3, original version
+- id: tiers-1-3-v2
+  label: Tiers 1-3, corrected version (v2, from June 2026)
 update:
+  cadence: monthly
   last_checked: '2026-11-09'
+  notes: 'Records are rebuilt from Epoch''s benchmark_data.zip by scripts/fetchers/frontiermath.py; do
+    not edit them by hand. Values are Epoch''s mean_score column times 100, rounded to two decimals; the
+    file also has a "Best score (across scorers)" column, which is not used. A model is a record when its
+    score beats every model with an earlier release date in the same version. Dates are model release
+    dates as Epoch lists them, not evaluation dates, so a model evaluated late can enter the record line
+    at an earlier date. Status confirmed is used because Epoch, an independent organisation, runs the
+    evaluations. Tier 4 and FrontierMath Erdos are in the same file but not tracked here.'
+sources:
+- id: epoch-benchmarks
+  name: Epoch AI, Benchmarking hub data (benchmark_data.zip)
+  url: https://epoch.ai/benchmarks/use-this-data
+  kind: dataset
+  primary: true
+  notes: 'File https://epoch.ai/data/benchmark_data.zip (updated 2026-11-09 when read), members
+    frontiermath.csv and frontiermath_tiers_1_3_v2.csv. Licence CC BY 4.0: the page says the data is free
+    to use, distribute and reproduce with credit to the source and authors; benchmark questions and
+    answers belong to their creators and are not copied here. Credit line: "Data: Epoch AI, Benchmarking
+    hub (epoch.ai/benchmarks), CC BY 4.0."'
+- id: epoch-frontiermath-v2
+  name: Epoch AI, FrontierMath Tiers 1-3 (v2)
+  url: https://epoch.ai/benchmarks/frontiermath-tiers-1-3-v2
+  kind: other
+  notes: Describes the v2 release of 2026-06-12 (errors corrected in 123 Tiers 1-3 problems, 5 removed,
+    295 Tiers 1-3 problems in v2) and states that OpenAI funded the benchmark and has exclusive access to
+    a subset.
+- id: frontiermath-paper
+  name: Glazer et al., FrontierMath, arXiv:2411.04872
+  url: https://arxiv.org/abs/2411.04872
+  kind: paper
+- id: epoch-openai-clarification
+  name: Epoch AI, Clarifying the creation and use of the FrontierMath benchmark
+  url: https://epoch.ai/blog/openai-and-frontiermath
+  kind: report
+events:
+- date: '2024-11-07'
+  kind: paper
+  title: FrontierMath paper released, with the best models solving under 2% of problems
+  why_it_matters: Set a maths test built to stay unsolved for years, with fresh problems that models
+    could not have memorised.
+  url: https://arxiv.org/abs/2411.04872
+- date: '2025-01-23'
+  kind: news
+  title: Epoch sets out OpenAI's funding of FrontierMath and its access to the problems
+  why_it_matters: Readers need to know that one developer owns and can see most of the core problems;
+    Epoch keeps a holdout set with unseen solutions to check results.
+  url: https://epoch.ai/blog/openai-and-frontiermath
+- date: '2026-06-12'
+  kind: dataset
+  title: Epoch releases FrontierMath v2 after finding errors in 42% of problems
+  why_it_matters: Scores on the corrected set are not directly comparable with the original, which is
+    why this page tracks the two versions separately.
+  url: https://epoch.ai/benchmarks/frontiermath-tiers-1-3-v2
+reading: []
+connections:
+- ai-capabilities-index
+records: []
