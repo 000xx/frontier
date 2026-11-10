@@ -84,7 +84,14 @@ def find_table(sheets):
                         cols[series] = c
             if {"date", *SERIES_HEADERS} <= cols.keys():
                 return rows, i, cols
-    raise common.SourceError("no table with date, genome and megabase columns was found in the workbook")
+    preview = []
+    for n, rows in enumerate(sheets):
+        for row in rows[:12]:
+            cells = [str(c) for c in row if c not in (None, "")]
+            if cells:
+                preview.append(f"sheet {n}: " + " | ".join(cells)[:200])
+    raise common.SourceError("no table with date, genome and megabase columns was found in the workbook; "
+                             "first rows: " + " ;; ".join(preview[:30]))
 
 
 def month_of(cell):
