@@ -1,0 +1,126 @@
+id: connectomes
+title: Connectomes
+domain: brain
+subfield: Mapping and reading the brain
+status: live
+summary: The largest brain or whole-nervous-system wiring diagram ever completed, counted by neurons, from a
+  worm with 302 neurons to a fly's brain and nerve cord with about 166,000. Each step has come from a map that
+  traces every cell and connection, not a sample.
+metric:
+  name: Neurons in the largest complete connectome
+  unit: neurons
+  direction: higher
+  scale: log
+  explainer: 'A connectome is a wiring diagram: every neuron in an animal''s nervous system, and every connection
+    between them, traced from electron-microscope images of slices of tissue. Counting neurons is a rough
+    measure of how much of a nervous system has been mapped, and it is the only measure we track here.
+    Only complete maps count, meaning every neuron in the chosen part of the nervous system has been traced.
+    Larger partial maps, such as a single region or a sample of cubic millimetres of mouse cortex, are
+    reported as events but are not counted as records, because a sample cannot be compared with a whole
+    nervous system. Human connectomes are not yet close: no complete human map exists.'
+chart:
+  primary: record-chart
+  secondary:
+  - scale-ladder
+  - coverage-meter
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Records were read from press releases and a news summary of each paper, because the Nature
+    (FlyWire) and Cell (male central nervous system) papers could not be opened from the update environment.
+    Check the papers themselves at the next run. The Janelia release gives a count of more than 166,000 neurons
+    while Sci.News reports 166,700; the record keeps 166000, the lower figure the release states. MICrONS
+    (mouse cortex) is an event, not a record, because it is a sample of about 200,000 cells, not a complete
+    nervous system. Partial fly maps, such as the adult nerve cord and central brain, are also left out of
+    records for the same reason. Owner to confirm this rule for "complete".'
+sources:
+- id: janelia-male-cns
+  name: Janelia (HHMI), release on the complete male fruit fly central nervous system connectome
+  url: https://www.janelia.org/news/researchers-reveal-connectome-of-the-male-fruit-fly-central-nervous-system
+  kind: press
+  primary: true
+  notes: 'Announcement only. It cites bioRxiv preprint 10.1101/2025.10.09.680999 and gives no publication date.
+    Terms: no licence stated; the release says the data and tools are free for researchers worldwide.'
+- id: sci-news-male-cns
+  name: Sci.News, report on the complete male fly connectome
+  url: https://www.sci.news/biology/complete-fruit-fly-connectome-15053.html
+  kind: news
+  notes: Gives the journal (Cell), the online publication date (3 September 2026) and the DOI 10.1016/j.cell.2026.08.015.
+    No reuse terms stated.
+- id: cambridge-larva
+  name: University of Cambridge, first complete map of the larval fruit fly brain
+  url: https://www.pdn.cam.ac.uk/news/first-map-showing-every-neuron-wiring-fruit-fly-larva-complete
+  kind: press
+  notes: Reports the Science paper (Winding et al., 10 March 2023, DOI 10.1126/science.add9330). The page's
+    terms are not stated in the text we could read.
+- id: flywire-azo
+  name: AZoLifeSciences, report on the complete adult fly brain connectome (FlyWire, Nature 2024)
+  url: https://www.azolifesciences.com/news/20241014/Groundbreaking-Map-Reveals-the-Complete-Neural-Network-of-an-Adult-Brain-For-The-First-Time.aspx
+  kind: press
+  notes: 'Reports Dorkenwald et al., Nature. Terms: AZoNetwork site terms; the figure is credited to Nature.'
+- id: openworm-white-1986
+  name: OpenWorm Connectome Toolbox, White 1986 C. elegans nervous system dataset
+  url: https://openworm.org/ConnectomeToolbox/White_1986/
+  kind: dataset
+  notes: Gives the 302-neuron count and the citation (Phil. Trans. R. Soc. Lond. B, 12 November 1986). The
+    volume and page string is run together on the page; read as 314, pages 1 to 340, and not yet checked against
+    the DOI. No licence stated.
+- id: sciencedaily-microns
+  name: ScienceDaily, MICrONS mouse cortex wiring diagram (Nature, April 2025)
+  url: https://sciencedaily.com/releases/2025/04/250409114838.htm
+  kind: press
+  notes: Reports more than 200,000 cells and 523 million synapses in a cubic millimetre sample. Not a complete nervous
+    system, so not a record.
+records:
+- date: '1986-11'
+  value: 302
+  holder: White et al.
+  conditions: Whole nervous system of the nematode C. elegans, every neuron traced
+  status: peer_reviewed
+  source: openworm-white-1986
+  note: The first complete connectome. Published in Philosophical Transactions of the Royal Society B.
+- date: '2023-03'
+  value: 3016
+  holder: University of Cambridge and Johns Hopkins University (Winding et al.)
+  conditions: Whole brain of the larval fruit fly, every neuron traced
+  status: peer_reviewed
+  source: cambridge-larva
+  note: Reported in Science, 10 March 2023, with 548,000 synapses.
+- date: '2024-10'
+  value: 139255
+  holder: FlyWire Consortium, Princeton University (Dorkenwald et al.)
+  conditions: Whole adult fruit fly brain, every neuron traced
+  status: peer_reviewed
+  source: flywire-azo
+  note: Reported in Nature. The two press reports we read give 54.5 million and over 50 million synapses; the
+    neuron count is the same in both.
+- date: '2026-09-03'
+  value: 166000
+  holder: Janelia (HHMI), Google Research, MRC Laboratory of Molecular Biology and University of Cambridge
+  conditions: Brain and ventral nerve cord of the adult male fruit fly, every neuron traced. The release says more than 166,000.
+  status: peer_reviewed
+  source: janelia-male-cns
+  note: Reported in Cell, online 3 September 2026. Sci.News gives 166,700 neurons. Journal and date come from Sci.News,
+    because the Cell paper itself could not be opened.
+events:
+- date: '2023-03-10'
+  kind: paper
+  title: Winding et al., the connectome of an insect brain, in Science
+  why_it_matters: The first complete map of a whole insect brain, at 3,016 neurons, nearly ten times the worm.
+  url: https://www.pdn.cam.ac.uk/news/first-map-showing-every-neuron-wiring-fruit-fly-larva-complete
+- date: '2024-10'
+  kind: paper
+  title: FlyWire adult fly brain connectome in Nature
+  why_it_matters: The first complete adult brain connectome in any animal of this size, and the first to be proofread by a large community of researchers.
+  url: https://www.azolifesciences.com/news/20241014/Groundbreaking-Map-Reveals-the-Complete-Neural-Network-of-an-Adult-Brain-For-The-First-Time.aspx
+- date: '2025-04-09'
+  kind: paper
+  title: MICrONS cubic millimetre of mouse cortex in Nature
+  why_it_matters: Maps more than 200,000 cells and 523 million synapses in a sample of mouse cortex; a large step, but a sample rather than a complete nervous system, so it is not a record.
+  url: https://sciencedaily.com/releases/2025/04/250409114838.htm
+- date: '2026-09-03'
+  kind: paper
+  title: Complete male fruit fly central nervous system connectome in Cell
+  why_it_matters: Takes the record from the adult female brain to the brain and nerve cord of the male, with about 166,000 neurons, and makes the data public for researchers.
+  url: https://www.sci.news/biology/complete-fruit-fly-connectome-15053.html
+reading: []
