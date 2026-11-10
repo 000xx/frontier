@@ -82,6 +82,7 @@ def build():
             "subfield": d.get("subfield", ""),
             "dataStatus": d.get("status", ""),
             "summary": one_line(d.get("summary")),
+            "about": {"what": one_line((d.get("about") or {}).get("what")), "why": one_line((d.get("about") or {}).get("why"))},
             "metric": {
                 "name": metric.get("name", ""), "unit": metric.get("unit", ""),
                 "direction": metric.get("direction", "higher"), "scale": metric.get("scale", "linear"),
@@ -89,6 +90,7 @@ def build():
             },
             "explainer": one_line(metric.get("explainer")),
             "shape": (d.get("chart") or {}).get("primary", ""),
+            "shapes": [(d.get("chart") or {}).get("primary", "")] + list((d.get("chart") or {}).get("secondary") or []),
             "series": d.get("series") or [],
             "records": by_series(d.get("records"), lambda r: [
                 str(r["date"]), r["value"], r.get("holder") or "", r.get("conditions") or "",
@@ -96,11 +98,15 @@ def build():
             "observations": by_series(d.get("observations"), lambda r: [
                 str(r["date"]), r["value"], r.get("low"), r.get("high"), r.get("source") or "", one_line(r.get("note"))]),
             "items": [[str(i["id"]), i["label"], i.get("group") or "", i["status"], i.get("status_detail") or "",
-                       str(i.get("date_done") or ""), i.get("url") or "", i.get("ai_involvement") or ""]
+                       str(i.get("date_done") or ""), i.get("url") or "", i.get("ai_involvement") or "",
+                       i.get("by") or "", one_line(i.get("note"))]
                       for i in d.get("items") or []],
             "stages": d.get("stages") or [],
             "candidates": [{"name": c["name"], "developer": c.get("developer") or "", "kind": c.get("kind") or "",
-                            "stage": c.get("stage") or "", "key": one_line(c.get("key_result")), "url": c.get("url") or ""}
+                            "stage": c.get("stage") or "", "key": one_line(c.get("key_result")), "url": c.get("url") or "",
+                            "history": [{"stage": h["stage"], "date": str(h["date"]), "source": h.get("source") or "",
+                                         "url": h.get("url") or "", "note": one_line(h.get("note"))}
+                                        for h in c.get("history") or []]}
                            for c in d.get("candidates") or []],
             "events": [{"date": str(e["date"]), "kind": e.get("kind") or "", "title": e["title"],
                         "why": one_line(e.get("why_it_matters")), "url": e.get("url")} for e in d.get("events") or []],

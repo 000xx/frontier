@@ -9479,3 +9479,6 @@ items:
   url: https://www.erdosproblems.com/1221
   source: erdos-database
   note: The database marks the statement as ambiguous.
+about:
+  what: "The status of the mathematical problems Paul Erdős posed over his career, as tracked by the community around erdosproblems.com: which are solved, which remain open, and how each was settled."
+  why: "Many of the problems are easy to state and have resisted proof for decades, so they are a concrete test of new methods. Since AI systems began contributing to solutions, the list has also become one of the clearest places to watch what machine help in research mathematics looks like. It is shown as a list and not a score, because the problems differ enormously in difficulty."

@@ -132,3 +132,6 @@ observations:
   series: cumulative-all-runs
   source: ligo-gwtc-4-0
   note: 'GWTC-4.0, end of O4a (May 2023 to January 2024). Stated as 218 candidates in the catalog overall, with 128 new from O4a.'
+about:
+  what: "The running count of gravitational-wave signals that the detector collaborations have catalogued as confident detections, mostly from pairs of black holes or neutron stars merging."
+  why: "Gravitational waves are a way of observing the universe that does not depend on light, so they reveal events that telescopes cannot see. A growing catalogue turns single discoveries into statistics: how many black holes there are, how massive they are, and how they form."
