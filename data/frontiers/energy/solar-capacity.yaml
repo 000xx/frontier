@@ -57,4 +57,30 @@ events:
   title: World solar PV capacity reached 2,392 GW at the end of 2025
   why_it_matters: IRENA describes solar as the largest share of global renewable power capacity, unchanged from the previous year.
   url: https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_capacity_highlights_2026.pdf
-observations: []
+observations:
+- {date: '2000', series: solar-pv, value: 1.2213535, source: owid-installed-solar-pv-capacity}
+- {date: '2001', series: solar-pv, value: 1.3319664, source: owid-installed-solar-pv-capacity}
+- {date: '2002', series: solar-pv, value: 1.6317205, source: owid-installed-solar-pv-capacity}
+- {date: '2003', series: solar-pv, value: 2.3429854, source: owid-installed-solar-pv-capacity}
+- {date: '2004', series: solar-pv, value: 3.427396, source: owid-installed-solar-pv-capacity}
+- {date: '2005', series: solar-pv, value: 4.9233394, source: owid-installed-solar-pv-capacity}
+- {date: '2006', series: solar-pv, value: 6.4868364, source: owid-installed-solar-pv-capacity}
+- {date: '2007', series: solar-pv, value: 8.956226, source: owid-installed-solar-pv-capacity}
+- {date: '2008', series: solar-pv, value: 15.22942, source: owid-installed-solar-pv-capacity}
+- {date: '2009', series: solar-pv, value: 23.544443, source: owid-installed-solar-pv-capacity}
+- {date: '2010', series: solar-pv, value: 41.488235, source: owid-installed-solar-pv-capacity}
+- {date: '2011', series: solar-pv, value: 72.6579, source: owid-installed-solar-pv-capacity}
+- {date: '2012', series: solar-pv, value: 102.81575, source: owid-installed-solar-pv-capacity}
+- {date: '2013', series: solar-pv, value: 139.68687, source: owid-installed-solar-pv-capacity}
+- {date: '2014', series: solar-pv, value: 178.84773, source: owid-installed-solar-pv-capacity}
+- {date: '2015', series: solar-pv, value: 226.5979, source: owid-installed-solar-pv-capacity}
+- {date: '2016', series: solar-pv, value: 298.50723, source: owid-installed-solar-pv-capacity}
+- {date: '2017', series: solar-pv, value: 392.3427, source: owid-installed-solar-pv-capacity}
+- {date: '2018', series: solar-pv, value: 487.84647, source: owid-installed-solar-pv-capacity}
+- {date: '2019', series: solar-pv, value: 590.1197, source: owid-installed-solar-pv-capacity}
+- {date: '2020', series: solar-pv, value: 721.2222, source: owid-installed-solar-pv-capacity}
+- {date: '2021', series: solar-pv, value: 865.921, source: owid-installed-solar-pv-capacity}
+- {date: '2022', series: solar-pv, value: 1057.8683, source: owid-installed-solar-pv-capacity}
+- {date: '2023', series: solar-pv, value: 1423.988, source: owid-installed-solar-pv-capacity}
+- {date: '2024', series: solar-pv, value: 1883.1776, source: owid-installed-solar-pv-capacity}
+- {date: '2025', series: solar-pv, value: 2396.7092, source: owid-installed-solar-pv-capacity}
