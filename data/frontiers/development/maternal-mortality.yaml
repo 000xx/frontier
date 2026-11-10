@@ -22,7 +22,28 @@ chart:
 series:
 - id: world
   label: World maternal mortality ratio
-observations: []
+observations:
+- {date: '2000', series: world, value: 334.10532, source: owid-maternal-mortality}
+- {date: '2001', series: world, value: 329.2917, source: owid-maternal-mortality}
+- {date: '2002', series: world, value: 317.67972, source: owid-maternal-mortality}
+- {date: '2003', series: world, value: 307.0511, source: owid-maternal-mortality}
+- {date: '2004', series: world, value: 299.8426, source: owid-maternal-mortality}
+- {date: '2005', series: world, value: 291.26068, source: owid-maternal-mortality}
+- {date: '2006', series: world, value: 276.11456, source: owid-maternal-mortality}
+- {date: '2007', series: world, value: 270.64816, source: owid-maternal-mortality}
+- {date: '2008', series: world, value: 265.16806, source: owid-maternal-mortality}
+- {date: '2009', series: world, value: 258.04745, source: owid-maternal-mortality}
+- {date: '2010', series: world, value: 248.80334, source: owid-maternal-mortality}
+- {date: '2011', series: world, value: 241.46191, source: owid-maternal-mortality}
+- {date: '2012', series: world, value: 231.28264, source: owid-maternal-mortality}
+- {date: '2013', series: world, value: 228.95949, source: owid-maternal-mortality}
+- {date: '2014', series: world, value: 223.14148, source: owid-maternal-mortality}
+- {date: '2015', series: world, value: 219.4542, source: owid-maternal-mortality}
+- {date: '2016', series: world, value: 215.49913, source: owid-maternal-mortality}
+- {date: '2017', series: world, value: 213.16835, source: owid-maternal-mortality}
+- {date: '2018', series: world, value: 215.09969, source: owid-maternal-mortality}
+- {date: '2019', series: world, value: 214.92525, source: owid-maternal-mortality}
+- {date: '2020', series: world, value: 212.23637, source: owid-maternal-mortality}
 sources:
 - id: owid-maternal-mortality
   name: Our World in Data, Maternal mortality ratio (UN MMEIG 2023 and other sources, processed by Our World in Data)
@@ -32,6 +53,13 @@ sources:
   notes: World rows of the CSV export, read by the refresh. OWID's About text credits UN MMEIG (2023), WHO Mortality
     Database (2026), UN World Population Prospects (2024) and Gapminder (2010), last updated 13 October 2026. OWID's
     own work is CC BY. The UN MMEIG source is licensed CC BY-NC-SA 3.0 IGO, as OWID's page states; see update.notes.
+- id: who-trends-maternal-2023
+  name: WHO, UNICEF, UNFPA, World Bank Group and UN DESA, Trends in maternal mortality 2000 to 2023 (7 April 2025)
+  url: https://www.who.int/publications/i/item/9789240108462
+  kind: report
+  notes: The report behind the UN MMEIG series. The WHO page is licensed CC BY-NC-SA 3.0 IGO, which the page states with a
+    link to the licence details. It gives no 2023 global ratio on the page; it says over 700 women died each day in 2023.
+    Read 10 November 2026.
 update:
   cadence: yearly
   last_checked: '2026-11-09'
@@ -39,4 +67,15 @@ update:
     scripts/fetchers/maternal_mortality.py. Terms to check before the site is used commercially: the UN MMEIG licence
     is CC BY-NC-SA 3.0 IGO (non-commercial, share-alike), as stated on OWID''s page. Not yet sourced: the UN MMEIG report
     itself, the events feed, and a reading list.'
+events:
+- date: '2025-04-07'
+  kind: news
+  title: UN agencies publish maternal mortality estimates for 2000 to 2023
+  why_it_matters: The release is the source of the series; each new edition can revise the earlier years.
+  url: https://www.who.int/publications/i/item/9789240108462
+- date: '2025-04-07'
+  kind: setback
+  title: Over 700 women a day died from pregnancy-related causes in 2023
+  why_it_matters: The daily count shows the scale of deaths that a rate figure can hide.
+  url: https://www.who.int/publications/i/item/9789240108462
 reading: []
