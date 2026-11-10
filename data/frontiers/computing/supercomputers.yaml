@@ -1,0 +1,329 @@
+# Records are transcribed by hand from the TOP500 list pages (top500.org/lists/top500/YYYY/MM/).
+# Values are converted to PFlop/s on one scale; each record's conditions field keeps the figure as published.
+id: supercomputers
+title: Supercomputer speed (TOP500 number one)
+domain: computing
+subfield: Chips and hardware
+status: live
+summary: The speed of the fastest supercomputer on the TOP500 list, checked every June and November since June 1993. It shows how the top machine's benchmark score has grown from about 60 GFlop/s to over 2 EFlop/s.
+metric:
+  name: Rmax, number-one system
+  unit: PFlop/s
+  direction: higher
+  scale: log
+  explainer: TOP500 ranks the world's largest computers twice a year, in June and November. Each system is run on the High Performance Linpack (HPL) benchmark, and Rmax is the speed it reaches on that test, counted in floating-point operations per second. This tracker follows only the top system on each list and records a new entry only when the top system changes or its score improves. Early lists published scores in GFlop/s and later ones in TFlop/s or PFlop/s; the tracker converts them all to PFlop/s, so the same number can look different on the source page. A benchmark score is not the same as how fast a machine runs real research code, and that gap is worth keeping in mind when reading the line.
+chart:
+  primary: record-chart
+  secondary:
+  - reign-timeline
+sources:
+- id: top500-lists
+  name: TOP500 lists
+  url: https://top500.org/lists/top500/
+  kind: dataset
+  primary: true
+  notes: One edition per June and November, at /lists/top500/YYYY/MM/. The site shows no licence for reusing list data; see top500-imprint. Opened 2026-11-09 for each edition from 1993-06 to 2026-06.
+- id: top500-imprint
+  name: TOP500 imprint and logo usage
+  url: https://top500.org/imprint
+  kind: other
+  notes: Says the site is copyright 1993-2026 TOP500.org and that TOP500 is a registered trademark. It gives no terms for reusing list data. The logo page (top500.org/resources/top500-logo-usage/) allows logo use only for referencing the list and its data. Opened 2026-11-09.
+update:
+  cadence: quarterly
+  last_checked: 2026-11-09
+  notes: The list changes twice a year, so a quarterly check catches each new edition within three months. The November 2008 page gives the Roadrunner score as 1,105 TFlop/s in its table and 1.059 PFlop/s in its article; the table value is used. The November 2018 table header says GFlop/s, but the article says 143.5 petaflops, so 143.5 PFlop/s is used.
+records:
+- date: '1993-06'
+  value: 0.0000597
+  holder: CM-5/1024, Los Alamos National Laboratory
+  conditions: HPL Rmax, published as 59.70 GFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/1993/06/
+- date: '1993-11'
+  value: 0.000124
+  holder: Numerical Wind Tunnel, National Aerospace Laboratory of Japan
+  conditions: HPL Rmax, published as 124.00 GFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/1993/11/
+- date: '1994-06'
+  value: 0.0001434
+  holder: XP/S140, Sandia National Laboratories
+  conditions: HPL Rmax, published as 143.40 GFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/1994/06/
+- date: '1994-11'
+  value: 0.00017
+  holder: Numerical Wind Tunnel, National Aerospace Laboratory of Japan
+  conditions: HPL Rmax, published as 170.00 GFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/1994/11/
+- date: '1996-06'
+  value: 0.0002204
+  holder: SR2201/1024, University of Tokyo
+  conditions: HPL Rmax, published as 220.40 GFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/1996/06/
+- date: '1996-11'
+  value: 0.0003682
+  holder: CP-PACS/2048, Center for Computational Sciences, University of Tsukuba
+  conditions: HPL Rmax, published as 368.20 GFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/1996/11/
+- date: '1997-06'
+  value: 0.001068
+  holder: ASCI Red, Sandia National Laboratories
+  conditions: HPL Rmax, published as 1,068.00 GFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/1997/06/
+- date: '1997-11'
+  value: 0.001338
+  holder: ASCI Red, Sandia National Laboratories
+  conditions: HPL Rmax, published as 1,338.00 GFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/1997/11/
+- date: '1999-06'
+  value: 0.002121
+  holder: ASCI Red, Sandia National Laboratories
+  conditions: HPL Rmax, published as 2,121.00 GFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/1999/06/
+- date: '1999-11'
+  value: 0.002379
+  holder: ASCI Red, Sandia National Laboratories
+  conditions: HPL Rmax, published as 2,379.00 GFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/1999/11/
+- date: '2000-11'
+  value: 0.004938
+  holder: ASCI White, Lawrence Livermore National Laboratory
+  conditions: HPL Rmax, published as 4,938.00 GFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2000/11/
+- date: '2001-06'
+  value: 0.007226
+  holder: ASCI White, Lawrence Livermore National Laboratory
+  conditions: HPL Rmax, published as 7,226.00 GFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2001/06/
+- date: '2002-06'
+  value: 0.03586
+  holder: Earth-Simulator, Japan Agency for Marine-Earth Science and Technology
+  conditions: HPL Rmax, published as 35,860.00 GFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2002/06/
+- date: '2004-11'
+  value: 0.07072
+  holder: BlueGene/L beta-System, IBM/DOE
+  conditions: HPL Rmax, published as 70,720.00 GFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2004/11/
+- date: '2005-06'
+  value: 0.1368
+  holder: BlueGene/L, DOE/NNSA/LLNL
+  conditions: HPL Rmax, published as 136.80 TFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2005/06/
+- date: '2005-11'
+  value: 0.2806
+  holder: BlueGene/L, DOE/NNSA/LLNL
+  conditions: HPL Rmax, published as 280.60 TFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2005/11/
+- date: '2007-11'
+  value: 0.4782
+  holder: BlueGene/L, DOE/NNSA/LLNL
+  conditions: HPL Rmax, published as 478.20 TFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2007/11/
+- date: '2008-06'
+  value: 1.026
+  holder: Roadrunner, DOE/NNSA/LANL
+  conditions: HPL Rmax, published as 1,026.00 TFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2008/06/
+- date: '2008-11'
+  value: 1.105
+  holder: Roadrunner, DOE/NNSA/LANL
+  conditions: HPL Rmax, published as 1,105.00 TFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2008/11/
+  note: The list article gives 1.059 PFlop/s for this system, which does not match the table. The table value is used.
+- date: '2009-11'
+  value: 1.759
+  holder: Jaguar, DOE/SC/Oak Ridge National Laboratory
+  conditions: HPL Rmax, published as 1,759.00 TFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2009/11/
+- date: '2010-11'
+  value: 2.566
+  holder: Tianhe-1A, National Supercomputing Center in Tianjin
+  conditions: HPL Rmax, published as 2,566.00 TFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2010/11/
+- date: '2011-06'
+  value: 8.162
+  holder: K computer, RIKEN Advanced Institute for Computational Science
+  conditions: HPL Rmax, published as 8,162.00 TFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2011/06/
+- date: '2011-11'
+  value: 10.51
+  holder: K computer, RIKEN Advanced Institute for Computational Science
+  conditions: HPL Rmax, published as 10,510.00 TFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2011/11/
+- date: '2012-06'
+  value: 16.32475
+  holder: Sequoia, DOE/NNSA/LLNL
+  conditions: HPL Rmax, published as 16,324.75 TFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2012/06/
+- date: '2012-11'
+  value: 17.59
+  holder: Titan, DOE/SC/Oak Ridge National Laboratory
+  conditions: HPL Rmax, published as 17,590.00 TFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2012/11/
+- date: '2013-06'
+  value: 33.8627
+  holder: Tianhe-2A (Tianhe-2), National Super Computer Center in Guangzhou
+  conditions: HPL Rmax, published as 33,862.70 TFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2013/06/
+- date: '2016-06'
+  value: 93.01459
+  holder: Sunway TaihuLight, National Supercomputing Center in Wuxi
+  conditions: HPL Rmax, published as 93,014.59 TFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2016/06/
+- date: '2018-06'
+  value: 122.3
+  holder: Summit, DOE/SC/Oak Ridge National Laboratory
+  conditions: HPL Rmax, published as 122,300.00 TFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2018/06/
+- date: '2018-11'
+  value: 143.5
+  holder: Summit, DOE/SC/Oak Ridge National Laboratory
+  conditions: HPL Rmax, published as 143,500.00 in a table headed GFlop/s, read as TFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2018/11/
+  note: The table header says GFlop/s, which would make the score about 0.14 PFlop/s. The list article gives 143.5 petaflops, so the value is read as TFlop/s. Check against the table before relying on this line.
+- date: '2019-06'
+  value: 148.6
+  holder: Summit, DOE/SC/Oak Ridge National Laboratory
+  conditions: HPL Rmax, published as 148.60 PFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2019/06/
+- date: '2020-06'
+  value: 415.53
+  holder: Supercomputer Fugaku, RIKEN Center for Computational Science
+  conditions: HPL Rmax, published as 415.53 PFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2020/06/
+- date: '2020-11'
+  value: 442.01
+  holder: Supercomputer Fugaku, RIKEN Center for Computational Science
+  conditions: HPL Rmax, published as 442.01 PFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2020/11/
+- date: '2022-06'
+  value: 1102
+  holder: Frontier, DOE/SC/Oak Ridge National Laboratory
+  conditions: HPL Rmax, published as 1,102.00 PFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2022/06/
+- date: '2023-06'
+  value: 1194
+  holder: Frontier, DOE/SC/Oak Ridge National Laboratory
+  conditions: HPL Rmax, published as 1,194.00 PFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2023/06/
+- date: '2024-06'
+  value: 1206
+  holder: Frontier, DOE/SC/Oak Ridge National Laboratory
+  conditions: HPL Rmax, published as 1,206.00 PFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2024/06/
+- date: '2024-11'
+  value: 1742
+  holder: El Capitan, DOE/NNSA/LLNL
+  conditions: HPL Rmax, published as 1,742.00 PFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2024/11/
+- date: '2025-11'
+  value: 1809
+  holder: El Capitan, DOE/NNSA/LLNL
+  conditions: HPL Rmax, published as 1,809.00 PFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2025/11/
+- date: '2026-06'
+  value: 2198.4
+  holder: LineShine, National Supercomputing Centre in Shenzhen
+  conditions: HPL Rmax, published as 2,198.40 PFlop/s
+  status: confirmed
+  source: top500-lists
+  url: https://top500.org/lists/top500/2026/06/
+events:
+- date: '2002-06'
+  kind: milestone
+  title: Earth-Simulator takes the number-one spot at 35.86 TFlop/s
+  why_it_matters: The top score jumped from 7.23 TFlop/s on the previous list to almost five times that in one step, a reminder that the top spot can change hands by a wide margin.
+  url: https://top500.org/lists/top500/2002/06/
+- date: '2004-11'
+  kind: milestone
+  title: BlueGene/L beta-System overtakes Earth-Simulator at 70.72 TFlop/s
+  why_it_matters: The top score doubled again within two and a half years, which shows how quickly the peak moved in the early 2000s.
+  url: https://top500.org/lists/top500/2004/11/
+- date: '2008-06'
+  kind: milestone
+  title: Roadrunner's score passes 1 PFlop/s for the first time in this record
+  why_it_matters: The number-one score rose from 478.20 TFlop/s in November 2007 to 1,026 TFlop/s, the first time the top system in this record passed a petaflop.
+  url: https://top500.org/lists/top500/2008/06/
+- date: '2022-06'
+  kind: milestone
+  title: Frontier's score of 1,102 PFlop/s puts the top system above one exaflop
+  why_it_matters: Above one exaflop per second on the benchmark, the top machine was running at a speed that had been a long-term target for high-performance computing.
+  url: https://top500.org/lists/top500/2022/06/
+- date: '2026-06'
+  kind: milestone
+  title: LineShine debuts at number one with 2,198.40 PFlop/s
+  why_it_matters: The new top system scored more than 20% above the number-two system on the list, which is a larger lead than the top spot usually shows.
+  url: https://top500.org/lists/top500/2026/06/
