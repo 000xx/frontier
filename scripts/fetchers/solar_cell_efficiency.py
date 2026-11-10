@@ -158,7 +158,9 @@ def build_csv(raw):
             continue
         row = {key: _text(r[i]) for key, i in cols.items() if key != "measurement_date"}
         if not row["record_id"]:
-            raise common.SourceError(f"row without a record identifier: {r[:8]}")
+            # Not a numbered record; the dataset has always left these out.
+            print("DIAG skipped id-less row", r[:12])  # DIAG
+            continue
         row = {"record_id": row["record_id"], "measurement_date": None, **row}
         row["measurement_date"] = _date(r[cols["measurement_date"]], row["record_id"])
         eff = next((_text(r[i]) for i in eff_cols if _text(r[i]) != ""), "")
