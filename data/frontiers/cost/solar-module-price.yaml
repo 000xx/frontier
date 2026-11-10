@@ -1,0 +1,65 @@
+# Solar module price: observations are the average price of a solar PV module in constant 2025 US dollars per watt, one per
+# year from 1975. They are read by scripts/fetchers/solar_module_price.py from Our World in Data's solar PV prices table
+# (grapher solar-pv-prices, World rows). OWID's page states the source is IRENA (2025 and 2026) with processing by OWID, and
+# lists Nemet (2009) and Farmer and Lafond (2016) for early years; from 2010 the benchmark is for modules sold in Europe.
+id: solar-module-price
+title: Solar module price
+domain: cost
+subfield: Cost curves
+status: draft
+summary: The average price of a solar panel (the module, without installation), per watt of peak power, adjusted for
+  inflation. It is the part of solar's cost that has fallen fastest.
+metric:
+  name: Average solar PV module price, constant 2025 US dollars
+  unit: USD/W
+  direction: lower
+  scale: log
+  explainer: 'A module is the sealed panel of solar cells, and its price is quoted per watt of peak output, the power it
+    makes in full sun. The series is adjusted for inflation to 2025 dollars, so a rise or fall reflects the price of
+    the panel itself rather than the general level of prices. It does not include inverters, mounting or labour, which
+    make up much of the cost of a finished solar system. The series combines older estimates for the early decades with
+    European trading benchmarks from 2010, so changes between those two periods depend partly on the source. The scale
+    is logarithmic because the price has fallen by well over an order of magnitude since the 1970s.'
+chart:
+  primary: cost-curve
+series:
+- id: module
+  label: Solar PV module price
+update:
+  cadence: yearly
+  last_checked: '2026-11-10'
+  notes: 'OWID restates earlier years when it re-adjusts for inflation, so the fetcher will report many changed values
+    when that happens; those runs go to review and should be checked against the source before merging. To update, run
+    the solar_module_price fetcher and read its change list. Open item: the terms of IRENA''s data were not checked, and
+    the price benchmark is for Europe from 2010.'
+sources:
+- id: owid-solar-pv-prices
+  name: Our World in Data, solar (photovoltaic) module price, with IRENA and earlier sources
+  url: https://ourworldindata.org/grapher/solar-pv-prices
+  kind: dataset
+  primary: true
+  notes: 'Page opened 2026-11-10. OWID states that its own work is CC BY and that third-party data is subject to the
+    original providers'' licence terms. The page gives a long citation listing IRENA (2025), IRENA (2026), Nemet (2009)
+    and Farmer and Lafond (2016); the full wording is in its "How to cite this data" section and was not copied.'
+- id: pv-index-oct-2024
+  name: pv-tech, pv.index report for October 2024 (sun.store)
+  url: https://pv-tech.org/pv-index-module-price-continues-to-decline-in-europe
+  kind: news
+  notes: 'Opened 2026-11-10. Reports a fall in European module prices for a sixth month, to EUR 0.098/Wp in October 2024.'
+- id: pvxchange-june-2025
+  name: TaiyangNews, module prices in June 2025 (pvXchange)
+  url: https://taiyangnews.info/business/solar-module-prices-june-2025-pvxchange
+  kind: news
+  notes: 'Opened 2026-11-10. Reports selective declines in June 2025 and EUR 0.110/W for mainstream modules.'
+events:
+- date: '2024-11'
+  kind: news
+  title: European module prices fell for a sixth month in a row in October 2024
+  why_it_matters: The European benchmark kept sliding even as demand softened, which kept pressure on the panel price.
+  url: https://pv-tech.org/pv-index-module-price-continues-to-decline-in-europe
+- date: '2025-06'
+  kind: news
+  title: Module prices saw only selective declines in June 2025 as demand weakened and stocks built up
+  why_it_matters: The benchmark stopped falling steadily in mid-2025, which shows the price is sensitive to demand and inventory.
+  url: https://taiyangnews.info/business/solar-module-prices-june-2025-pvxchange
+observations: []
