@@ -6,7 +6,8 @@ The yearly count of structures released to the Protein Data Bank, 1976 to 2024, 
 | --- | --- |
 | Publisher | RCSB Protein Data Bank (RCSB PDB), a member of the wwPDB |
 | Source page | PDB Statistics: Overall Growth of Released Structures Per Year, https://bioinformatics.rcsb.org/stats/growth/growth-released-structures |
-| Page as read | The table was read from the page at the URL above. The same page on www.rcsb.org did not return the table when read. |
+| Page as read | The table was read from the page at the URL above. On 2026-11-09 it was read again and matched this CSV on all 49 rows. The www.rcsb.org copy of the page had no table. |
+| Machine-readable check | Not done. The RCSB search API and holdings API could not be fetched (the search API URL was rejected by the proxy and the holdings API is disallowed by robots.txt). The counts are checked against the statistics page only. |
 | Coverage | Years 1976 to 2024. No row for 2025 was available when this was built. |
 | Retrieved | 2026-11-09 |
 | released-per-year.csv SHA-256 | 6b2a55777d914117a2b636ca28a3c3320bddbc3e26af7f33954891583f1e6e8a |
