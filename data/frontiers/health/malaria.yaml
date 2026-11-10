@@ -1,0 +1,1041 @@
+# Malaria: the template for disease pages.
+# observations mirror data/datasets/who-malaria-estimates/estimates.csv; change the CSV first, then copy the values here.
+# Efficacy figures in candidates come from different trials, endpoints, ages and follow-up periods.
+# They are never comparable with each other, and the site must not rank or chart them side by side.
+id: malaria
+title: Malaria
+domain: health
+subfield: Diseases being eliminated
+status: draft
+summary: How many people catch and die of malaria each year, which countries WHO has certified free of it, and
+  how far each new vaccine, antibody and medicine has got on the way to children who need it.
+metric:
+  name: Estimated malaria deaths per year, worldwide
+  unit: deaths per year
+  direction: lower
+  scale: linear
+  explainer: 'Malaria is caused by a parasite passed on by mosquito bites. About 95% of deaths are in WHO''s
+    African Region. Nobody counts every case or death: many sick people never see a health worker, and many deaths are
+    never recorded with a cause. So each year WHO estimates the totals for every country, and gives a range as
+    well as a central figure. The range matters: in 2024 the central estimate was about 610 000 deaths, but
+    WHO''s range ran from about 561 000 to 738 000. WHO can revise earlier years when it publishes a new report,
+    so compare years within one report, not across reports. A country is certified malaria-free when WHO is
+    satisfied that local transmission has stopped; it can apply after at least three years in a row without a
+    locally acquired case.'
+chart:
+  primary: stage-timeline
+  secondary:
+  - natural-map
+  - race-to-zero
+series:
+- id: deaths
+  label: Estimated deaths
+- id: cases
+  label: Estimated cases
+stages:
+- Preclinical
+- Phase 1
+- Phase 2
+- Phase 3
+- Regulatory approval
+- WHO recommendation
+- WHO prequalification
+- Rollout
+update:
+  cadence: monthly
+  last_checked: '2026-11-09'
+  notes: 'Observations are from the World malaria report 2025, read from the WHO Global Health Observatory (see
+    data/datasets/who-malaria-estimates). The next report usually comes out in December; replace all years then,
+    not just the newest. Certified countries come from WHO''s certification list (last updated by WHO on
+    2025-07-15); exact dates are given only where a WHO news release was opened, otherwise the year from the
+    list. WHO''s list also footnotes northern Venezuela (certified June 1961) and Taiwan (China) (November 1965);
+    they are outside WHO''s count of 47 countries and 1 territory and are left out of items. Not yet sourced: phase 1 and phase 2 dates for most candidates, the start dates of the RH5.1, L9LS and
+    KALUMA trials (ClinicalTrials.gov could not be read), the developer of L9LS, and a reading list.'
+sources:
+- id: who-wmr-2025
+  name: WHO World malaria report 2025
+  url: https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2025
+  kind: report
+  primary: true
+  notes: Published 4 December 2025, with estimates to 2024. Licence CC BY-NC-SA 3.0 IGO
+    (https://www.who.int/publications/i/item/9789240117822). Country tables are in the Excel annexes at
+    https://www.who.int/publications/m/item/annexes-world-malaria-report-2025.
+- id: who-wmr-2025-summary
+  name: WHO World malaria report 2025, executive summary
+  url: https://cdn.who.int/media/docs/default-source/malaria/world-malaria-reports/world-malaria-report-2025-executive-summary-eng.pdf?sfvrsn=154ea8d5_26&download=true
+  kind: report
+- id: who-gho-malaria-estimates
+  name: WHO Global Health Observatory, estimated malaria cases and deaths (global)
+  url: https://www.who.int/data/gho/data/indicators/indicator-details/GHO/estimated-number-of-malaria-cases
+  kind: dataset
+  notes: Read through the GHO API (indicators MALARIA_EST_CASES and MALARIA_EST_DEATHS). Records updated
+    2025-12-19 and match the World malaria report 2025. Copied to data/datasets/who-malaria-estimates; WHO data
+    terms and the required credit are in its NOTICE.md.
+- id: who-certified-list
+  name: WHO, Countries and territories certified malaria-free by WHO
+  url: https://www.who.int/teams/global-malaria-programme/elimination/countries-and-territories-certified-malaria-free-by-who
+  kind: registry
+  notes: WHO's register of certifications, 1955 onward, last updated 15 July 2025. Gives the year of each
+    certification. A separate column lists countries where malaria never existed or disappeared without
+    specific measures; those are not certifications and are not included here.
+- id: who-news
+  name: WHO news releases
+  url: https://www.who.int/news
+  kind: press
+  notes: Individual releases are linked from each entry that uses them.
+- id: paho-news
+  name: PAHO/WHO news releases
+  url: https://www.paho.org/en/news
+  kind: press
+- id: ema-mosquirix-2015
+  name: 'EMA: First malaria vaccine receives positive scientific opinion from EMA'
+  url: https://www.ema.europa.eu/en/news/first-malaria-vaccine-receives-positive-scientific-opinion-ema
+  kind: press
+- id: lancet-2015-rtss-phase3
+  name: 'RTS,S Clinical Trials Partnership. Efficacy and safety of RTS,S/AS01 malaria vaccine with or without a
+    booster dose in infants and children in Africa: final results of a phase 3, individually randomised,
+    controlled trial. Lancet 2015;386:31-45'
+  url: https://doi.org/10.1016/S0140-6736(15)60721-8
+  kind: paper
+- id: lancet-2024-r21-phase3
+  name: 'Datoo MS et al. Safety and efficacy of malaria vaccine candidate R21/Matrix-M in African children: a
+    multicentre, double-blind, randomised, phase 3 trial. Lancet 2024;403:533-544'
+  url: https://doi.org/10.1016/S0140-6736(23)02511-4
+  kind: paper
+- id: oxford-news
+  name: University of Oxford news releases
+  url: https://www.ox.ac.uk/news
+  kind: press
+- id: lancet-id-2025-rh5
+  name: 'Natama HM et al. Safety and efficacy of the blood-stage malaria vaccine RH5.1/Matrix-M in Burkina Faso:
+    interim results of a double-blind, randomised, controlled, phase 2b trial in children. Lancet Infect Dis
+    25(5):495-506'
+  url: https://doi.org/10.1016/S1473-3099(24)00752-7
+  kind: paper
+- id: lancet-2026-l9ls-kenya
+  name: 'Safety and efficacy of the monoclonal antibody L9LS for malaria prevention in children exposed to
+    perennial malaria transmission in Kenya: a randomised, double-blind, placebo-controlled, phase 2 trial.
+    Lancet 2026;407:1614-1625'
+  url: https://doi.org/10.1016/S0140-6736(26)00258-8
+  kind: paper
+- id: novartis-news
+  name: Novartis media releases
+  url: https://www.novartis.com/news/media-releases
+  kind: press
+- id: tmh-2025-calina
+  name: 'Pharmacokinetics, safety and efficacy of an optimized dose of artemether-lumefantrine in neonates and
+    infants of less than 5 kg body weight: a phase 2/3 study (CALINA). Trop Med Health 2025;53:151'
+  url: https://doi.org/10.1186/s41182-025-00828-z
+  kind: paper
+- id: who-wmr-2025-briefing
+  name: WHO World malaria report 2025, partner briefing
+  url: https://cdn.who.int/media/docs/default-source/malaria/world-malaria-reports/world-malaria-report-2025-partner-briefing-eng.pdf
+  kind: report
+  notes: Source for the share of deaths in the WHO African Region (about 95%, 579 000 of 610 000 in 2024).
+observations:
+- date: '2000'
+  series: deaths
+  value: 863523
+  low: 833000
+  high: 904000
+  source: who-gho-malaria-estimates
+- date: '2001'
+  series: deaths
+  value: 872604
+  low: 840000
+  high: 916000
+  source: who-gho-malaria-estimates
+- date: '2002'
+  series: deaths
+  value: 839722
+  low: 809000
+  high: 881000
+  source: who-gho-malaria-estimates
+- date: '2003'
+  series: deaths
+  value: 810977
+  low: 781000
+  high: 854000
+  source: who-gho-malaria-estimates
+- date: '2004'
+  series: deaths
+  value: 805560
+  low: 770000
+  high: 863000
+  source: who-gho-malaria-estimates
+- date: '2005'
+  series: deaths
+  value: 766588
+  low: 734000
+  high: 815000
+  source: who-gho-malaria-estimates
+- date: '2006'
+  series: deaths
+  value: 770629
+  low: 739000
+  high: 818000
+  source: who-gho-malaria-estimates
+- date: '2007'
+  series: deaths
+  value: 747217
+  low: 717000
+  high: 790000
+  source: who-gho-malaria-estimates
+- date: '2008'
+  series: deaths
+  value: 707532
+  low: 679000
+  high: 745000
+  source: who-gho-malaria-estimates
+- date: '2009'
+  series: deaths
+  value: 715496
+  low: 683000
+  high: 762000
+  source: who-gho-malaria-estimates
+- date: '2010'
+  series: deaths
+  value: 692678
+  low: 659000
+  high: 744000
+  source: who-gho-malaria-estimates
+- date: '2011'
+  series: deaths
+  value: 654715
+  low: 625000
+  high: 696000
+  source: who-gho-malaria-estimates
+- date: '2012'
+  series: deaths
+  value: 610323
+  low: 583000
+  high: 651000
+  source: who-gho-malaria-estimates
+- date: '2013'
+  series: deaths
+  value: 583041
+  low: 554000
+  high: 625000
+  source: who-gho-malaria-estimates
+- date: '2014'
+  series: deaths
+  value: 579066
+  low: 546000
+  high: 632000
+  source: who-gho-malaria-estimates
+- date: '2015'
+  series: deaths
+  value: 578270
+  low: 543000
+  high: 635000
+  source: who-gho-malaria-estimates
+- date: '2016'
+  series: deaths
+  value: 576447
+  low: 542000
+  high: 634000
+  source: who-gho-malaria-estimates
+- date: '2017'
+  series: deaths
+  value: 574421
+  low: 540000
+  high: 638000
+  source: who-gho-malaria-estimates
+- date: '2018'
+  series: deaths
+  value: 574784
+  low: 536000
+  high: 649000
+  source: who-gho-malaria-estimates
+- date: '2019'
+  series: deaths
+  value: 567186
+  low: 527000
+  high: 649000
+  source: who-gho-malaria-estimates
+- date: '2020'
+  series: deaths
+  value: 621344
+  low: 575000
+  high: 736000
+  source: who-gho-malaria-estimates
+- date: '2021'
+  series: deaths
+  value: 600935
+  low: 558000
+  high: 716000
+  source: who-gho-malaria-estimates
+- date: '2022'
+  series: deaths
+  value: 598407
+  low: 554000
+  high: 722000
+  source: who-gho-malaria-estimates
+- date: '2023'
+  series: deaths
+  value: 598446
+  low: 550000
+  high: 725000
+  source: who-gho-malaria-estimates
+- date: '2024'
+  series: deaths
+  value: 609930
+  low: 561000
+  high: 738000
+  source: who-gho-malaria-estimates
+- date: '2000'
+  series: cases
+  value: 239469485
+  low: 224000000
+  high: 258000000
+  source: who-gho-malaria-estimates
+- date: '2001'
+  series: cases
+  value: 246440863
+  low: 230000000
+  high: 268000000
+  source: who-gho-malaria-estimates
+- date: '2002'
+  series: cases
+  value: 244121809
+  low: 228000000
+  high: 265000000
+  source: who-gho-malaria-estimates
+- date: '2003'
+  series: cases
+  value: 248948936
+  low: 232000000
+  high: 272000000
+  source: who-gho-malaria-estimates
+- date: '2004'
+  series: cases
+  value: 251183158
+  low: 232000000
+  high: 280000000
+  source: who-gho-malaria-estimates
+- date: '2005'
+  series: cases
+  value: 250827779
+  low: 233000000
+  high: 276000000
+  source: who-gho-malaria-estimates
+- date: '2006'
+  series: cases
+  value: 244771914
+  low: 227000000
+  high: 269000000
+  source: who-gho-malaria-estimates
+- date: '2007'
+  series: cases
+  value: 239666413
+  low: 222000000
+  high: 262000000
+  source: who-gho-malaria-estimates
+- date: '2008'
+  series: cases
+  value: 237637562
+  low: 221000000
+  high: 258000000
+  source: who-gho-malaria-estimates
+- date: '2009'
+  series: cases
+  value: 242784645
+  low: 225000000
+  high: 265000000
+  source: who-gho-malaria-estimates
+- date: '2010'
+  series: cases
+  value: 244506717
+  low: 226000000
+  high: 269000000
+  source: who-gho-malaria-estimates
+- date: '2011'
+  series: cases
+  value: 237796199
+  low: 220000000
+  high: 259000000
+  source: who-gho-malaria-estimates
+- date: '2012'
+  series: cases
+  value: 233131290
+  low: 217000000
+  high: 255000000
+  source: who-gho-malaria-estimates
+- date: '2013'
+  series: cases
+  value: 227922326
+  low: 213000000
+  high: 247000000
+  source: who-gho-malaria-estimates
+- date: '2014'
+  series: cases
+  value: 225053154
+  low: 209000000
+  high: 243000000
+  source: who-gho-malaria-estimates
+- date: '2015'
+  series: cases
+  value: 229741247
+  low: 214000000
+  high: 249000000
+  source: who-gho-malaria-estimates
+- date: '2016'
+  series: cases
+  value: 231997173
+  low: 216000000
+  high: 251000000
+  source: who-gho-malaria-estimates
+- date: '2017'
+  series: cases
+  value: 239684772
+  low: 223000000
+  high: 259000000
+  source: who-gho-malaria-estimates
+- date: '2018'
+  series: cases
+  value: 238083200
+  low: 221000000
+  high: 258000000
+  source: who-gho-malaria-estimates
+- date: '2019'
+  series: cases
+  value: 239500520
+  low: 221000000
+  high: 261000000
+  source: who-gho-malaria-estimates
+- date: '2020'
+  series: cases
+  value: 251140747
+  low: 229000000
+  high: 278000000
+  source: who-gho-malaria-estimates
+- date: '2021'
+  series: cases
+  value: 254322591
+  low: 232000000
+  high: 283000000
+  source: who-gho-malaria-estimates
+- date: '2022'
+  series: cases
+  value: 258841993
+  low: 235000000
+  high: 288000000
+  source: who-gho-malaria-estimates
+- date: '2023'
+  series: cases
+  value: 272878620
+  low: 248000000
+  high: 304000000
+  source: who-gho-malaria-estimates
+- date: '2024'
+  series: cases
+  value: 281741573
+  low: 256000000
+  high: 313000000
+  source: who-gho-malaria-estimates
+items:
+- id: mus
+  label: 'Mauritius'
+  group: African Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1973'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: dza
+  label: 'Algeria'
+  group: African Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2019'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: cpv
+  label: 'Cabo Verde'
+  group: African Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2024-01-12'
+  url: https://www.who.int/news/item/12-01-2024-who-certifies-cabo-verde-as-malaria-free--marking-a-historic-milestone-in-the-fight-against-malaria
+  source: who-news
+  note: Date of the news release announcing the certification; WHO's list gives 2024.
+- id: are
+  label: 'United Arab Emirates'
+  group: Eastern Mediterranean Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2007'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: mar
+  label: 'Morocco'
+  group: Eastern Mediterranean Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2010'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: egy
+  label: 'Egypt'
+  group: Eastern Mediterranean Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2024-10-20'
+  url: https://www.who.int/news/item/20-10-2024-egypt-is-certified-malaria-free-by-who
+  source: who-news
+  note: Date of the news release announcing the certification; WHO's list gives 2024.
+- id: hun
+  label: 'Hungary'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1964'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: esp
+  label: 'Spain'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1964'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: bgr
+  label: 'Bulgaria'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1965'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: cyp
+  label: 'Cyprus'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1967'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: pol
+  label: 'Poland'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1967'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: rou
+  label: 'Romania'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1967'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: ita
+  label: 'Italy'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1970'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: nld
+  label: 'Netherlands (Kingdom of the)'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1970'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: bih
+  label: 'Bosnia and Herzegovina'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1973'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: hrv
+  label: 'Croatia'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1973'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: mne
+  label: 'Montenegro'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1973'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: prt
+  label: 'Portugal'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1973'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: mkd
+  label: 'Republic of North Macedonia'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1973'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: srb
+  label: 'Serbia'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1973'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: svn
+  label: 'Slovenia'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1973'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: reu
+  label: 'La Réunion (France)'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1979'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet. A French overseas region, certified separately from metropolitan France; the only non-country on the list, so presumably the territory in WHO's count of 47 countries and 1 territory.
+- id: tkm
+  label: 'Turkmenistan'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2010'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: arm
+  label: 'Armenia'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2011'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: kgz
+  label: 'Kyrgyzstan'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2016'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: uzb
+  label: 'Uzbekistan'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2018'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: aze
+  label: 'Azerbaijan'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2023-03-29'
+  url: https://www.who.int/news/item/29-03-2023-who-certifies-azerbaijan-and-tajikistan-as-malaria-free
+  source: who-news
+  note: Date of the news release announcing the certification; WHO's list gives 2023.
+- id: tjk
+  label: 'Tajikistan'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2023-03-29'
+  url: https://www.who.int/news/item/29-03-2023-who-certifies-azerbaijan-and-tajikistan-as-malaria-free
+  source: who-news
+  note: Date of the news release announcing the certification; WHO's list gives 2023.
+- id: geo
+  label: 'Georgia'
+  group: European Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2025-01-23'
+  url: https://www.who.int/news/item/23-01-2025-georgia-certified-malaria-free-by-who
+  source: who-news
+  note: Date of the news release announcing the certification; WHO's list gives 2025.
+- id: grd
+  label: 'Grenada'
+  group: Region of the Americas
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1962'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: lca
+  label: 'Saint Lucia'
+  group: Region of the Americas
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1962'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: tto
+  label: 'Trinidad and Tobago'
+  group: Region of the Americas
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1965'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: dma
+  label: 'Dominica'
+  group: Region of the Americas
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1966'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: jam
+  label: 'Jamaica'
+  group: Region of the Americas
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1966'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: usa
+  label: 'United States of America'
+  group: Region of the Americas
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1970'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: cub
+  label: 'Cuba'
+  group: Region of the Americas
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1973'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: pry
+  label: 'Paraguay'
+  group: Region of the Americas
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2018'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: arg
+  label: 'Argentina'
+  group: Region of the Americas
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2019'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: slv
+  label: 'El Salvador'
+  group: Region of the Americas
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2021-02-25'
+  url: https://www.paho.org/en/news/25-2-2021-salvador-certified-malaria-free-who
+  source: paho-news
+  note: Date of the news release announcing the certification; WHO's list gives 2021.
+- id: blz
+  label: 'Belize'
+  group: Region of the Americas
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2023-06-21'
+  url: https://www.who.int/news/item/21-06-2023-belize-certified-malaria-free-by-who
+  source: who-news
+  note: Date of the news release announcing the certification; WHO's list gives 2023.
+- id: sur
+  label: 'Suriname'
+  group: Region of the Americas
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2025-06-30'
+  url: https://www.who.int/news/item/30-06-2025-suriname-certified-malaria-free-by-who
+  source: who-news
+  note: Date of the news release announcing the certification; WHO's list gives 2025.
+- id: mdv
+  label: 'Maldives'
+  group: South-East Asia Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2015'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: lka
+  label: 'Sri Lanka'
+  group: South-East Asia Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2016'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: tls
+  label: 'Timor-Leste'
+  group: South-East Asia Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2025-07-24'
+  url: https://www.who.int/news/item/24-07-2025-timor-leste-certified-malaria-free-by-who
+  source: who-news
+  note: Date of the news release announcing the certification; WHO's list gives 2025.
+- id: aus
+  label: 'Australia'
+  group: Western Pacific Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1981'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: sgp
+  label: 'Singapore'
+  group: Western Pacific Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1982'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: brn
+  label: 'Brunei Darussalam'
+  group: Western Pacific Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '1987'
+  source: who-certified-list
+  note: Year from WHO's list; no exact date sourced yet.
+- id: chn
+  label: 'China'
+  group: Western Pacific Region
+  status: done
+  status_detail: certified malaria-free
+  date_done: '2021-06-30'
+  url: https://www.who.int/news/item/30-06-2021-from-30-million-cases-to-zero-china-is-certified-malaria-free-by-who
+  source: who-news
+  note: Date of the news release announcing the certification; WHO's list gives 2021.
+candidates:
+- id: rts-s-as01
+  name: RTS,S/AS01 (Mosquirix)
+  developer: GlaxoSmithKline Biologicals
+  kind: Vaccine, pre-erythrocytic (liver stage)
+  stage: Rollout
+  source: who-news
+  key_result: 'Efficacy 36.3% (95% CI 31.8-40.5) against clinical malaria, in children aged 5-17 months at first
+    dose who got three doses plus a booster at month 20, over a median 48 months of follow-up after dose 1; phase
+    3 trial in Africa, enrolled 2009-2011 (Lancet 2015). In the same trial, infants aged 6-12 weeks with the same
+    schedule: 25.9% (19.9-31.5) over a median 38 months. Not comparable with R21 or any other trial.'
+  url: https://doi.org/10.1016/S0140-6736(15)60721-8
+  history:
+  - stage: Phase 3
+    date: '2009-03-27'
+    source: lancet-2015-rtss-phase3
+    note: First enrolment in the phase 3 trial (NCT00866619).
+  - stage: Regulatory approval
+    date: '2015-07-24'
+    source: ema-mosquirix-2015
+    note: Positive scientific opinion from EMA's CHMP under Article 58, for use outside the EU in children aged 6
+      weeks to 17 months. This is an opinion for regulators in endemic countries, not an EU marketing licence.
+  - stage: Rollout
+    date: '2019-04-23'
+    source: who-news
+    url: https://www.who.int/news/item/23-04-2019-malaria-vaccine-pilot-launched-in-malawi
+    note: Pilot introduction began in Malawi, followed by Ghana and Kenya; a WHO-coordinated pilot, not routine
+      national rollout.
+  - stage: WHO recommendation
+    date: '2021-10-06'
+    source: who-news
+    url: https://www.who.int/News/Item/06-10-2021-Who-Recommends-Groundbreaking-Malaria-Vaccine-for-Children-at-Risk
+    note: Recommended for children in areas of moderate to high P. falciparum transmission, four doses from 5
+      months of age.
+  - stage: WHO prequalification
+    date: 2022-07
+    source: who-news
+    url: https://www.who.int/news/item/21-12-2023-who-prequalifies-a-second-malaria-vaccine-a-significant-milestone-in-prevention-of-the-disease
+    note: Month only, as stated in WHO's December 2023 release.
+  note: WHO said in December 2025 that 24 countries had introduced malaria vaccines (RTS,S or R21) into
+    routine immunization; country-by-country introduction dates are not yet recorded here.
+- id: r21-matrix-m
+  name: R21/Matrix-M
+  developer: University of Oxford; manufactured by Serum Institute of India
+  kind: Vaccine, pre-erythrocytic (liver stage)
+  stage: Rollout
+  source: who-news
+  key_result: 'Efficacy 75% (95% CI 71-79) at seasonal-transmission sites and 68% (61-74) at standard sites,
+    against a first episode of clinical malaria over 12 months after the three-dose primary series, in children
+    aged 5-36 months; phase 3 trial in Africa, enrolled April 2021 to January 2022 (Lancet 2024). WHO''s
+    recommendation cites 66% for the age-based schedule. Not comparable with RTS,S or any other trial.'
+  url: https://doi.org/10.1016/S0140-6736(23)02511-4
+  history:
+  - stage: Phase 3
+    date: '2021-04-26'
+    source: lancet-2024-r21-phase3
+    note: First screening in the phase 3 trial (NCT04704830).
+  - stage: Regulatory approval
+    date: '2023-04-13'
+    source: oxford-news
+    url: https://www.ox.ac.uk/node/8209487
+    note: Licensed by Ghana's Food and Drugs Authority for children aged 5-36 months; the first approval
+      anywhere.
+  - stage: WHO recommendation
+    date: '2023-10-02'
+    source: who-news
+    url: https://www.who.int/news/item/02-10-2023-who-recommends-r21-matrix-m-vaccine-for-malaria-prevention-in-updated-advice-on-immunization
+  - stage: WHO prequalification
+    date: '2023-12-21'
+    source: who-news
+    url: https://www.who.int/news/item/21-12-2023-who-prequalifies-a-second-malaria-vaccine-a-significant-milestone-in-prevention-of-the-disease
+    note: Date of WHO's announcement.
+  - stage: Rollout
+    date: '2024-07-15'
+    source: oxford-news
+    url: https://www.ox.ac.uk/news/2024-07-15-c-te-d-ivoire-makes-history-first-nation-deploy-r21matrix-m-malaria-vaccine
+    note: Côte d'Ivoire became the first country to use it, starting in Abidjan; the date is from the release's
+      address, which says the first vaccination was due that morning.
+- id: rh5-1-matrix-m
+  name: RH5.1/Matrix-M
+  developer: University of Oxford
+  kind: Vaccine, blood stage
+  stage: Phase 2
+  source: lancet-id-2025-rh5
+  key_result: 'Efficacy 55% (95% CI 20-75) against a first episode of clinical malaria from 14 days to 6 months
+    after the third dose, with doses at months 0, 1 and 5; 40% (-3 to 65) with doses at months 0, 1 and 2;
+    children aged 5-17 months in Nanoro, Burkina Faso; interim results of a phase 2b trial (Lancet Infect Dis
+    2025). Not comparable with any other trial.'
+  url: https://doi.org/10.1016/S1473-3099(24)00752-7
+  history:
+  - stage: Phase 2
+    date: '2024-12-11'
+    source: oxford-news
+    url: https://www.ox.ac.uk/news/2024-12-11-first-vaccine-against-blood-stage-malaria-well-tolerated-and-offers-effective
+    note: Date the interim phase 2b results were announced; the trial start date is not yet sourced.
+  note: Oxford plans to test it in combination with the approved liver-stage vaccines.
+- id: l9ls
+  name: L9LS
+  kind: Monoclonal antibody, given by injection to prevent infection
+  stage: Phase 2
+  source: lancet-2026-l9ls-kenya
+  key_result: 'Protective efficacy 42.7% (95% CI 22.5-57.7) against P. falciparum infection detected by blood smear
+    (not clinical malaria), two doses of 10-20 mg/kg six months apart, children aged 5-59 months in western
+    Kenya, perennial transmission, 12 months of follow-up; phase 2 trial (Lancet 2026). The authors suggest a
+    higher dose may be needed. Not comparable with any vaccine trial.'
+  url: https://doi.org/10.1016/S0140-6736(26)00258-8
+  history:
+  - stage: Phase 2
+    date: 2026-04
+    source: lancet-2026-l9ls-kenya
+    note: Month the Kenya phase 2 results were published; the trial start date and earlier phases are not yet
+      sourced.
+  note: Developer not stated in the source opened.
+- id: ganaplacide-lumefantrine
+  name: Ganaplacide-lumefantrine (KLU156, GanLum)
+  developer: Novartis, with Medicines for Malaria Venture
+  kind: Medicine, treatment of uncomplicated P. falciparum malaria (new non-artemisinin combination)
+  stage: Phase 3
+  source: novartis-news
+  key_result: 'Cure rate 97.4% with GanLum vs 94.0% with artemether-lumefantrine (Coartem): PCR-corrected share of
+    patients free of symptoms and of baseline parasites at day 29, estimand analysis counting missing data as
+    failures; adults and children of 10 kg or more, 34 sites in 12 African countries; phase 3 KALUMA trial,
+    announced by Novartis in November 2025 (company announcement, not yet a refereed paper). A treatment cure
+    rate, not a prevention efficacy.'
+  url: https://www.novartis.com/news/media-releases/novartis-phase-iii-trial-next-generation-malaria-treatment-klu156-ganlum-meets-primary-endpoint-potential-combat-antimalarial-resistance
+  history:
+  - stage: Phase 3
+    date: '2022-11-23'
+    source: novartis-news
+    url: https://www.novartis.com/news/media-releases/novartis-and-medicines-malaria-venture-announce-decision-move-phase-3-study-novel-ganaplacidelumefantrine-sdf-combination-adults-and-children-malaria
+    note: Date Novartis and MMV announced the move to phase 3; the trial was planned to start in 2023.
+  note: Novartis reported in its third-quarter 2026 results (27 October 2026) that the US regulatory submission
+    was complete and had priority review. Not approved anywhere in the sources opened.
+- id: artemether-lumefantrine-neonates
+  name: Artemether-lumefantrine for newborns and young infants (Coartem Baby / Riamet Baby)
+  developer: Novartis, with Medicines for Malaria Venture
+  kind: Medicine, treatment for babies weighing 2 to under 5 kg
+  stage: WHO prequalification
+  source: novartis-news
+  key_result: 'PCR-corrected adequate clinical and parasitological response at day 29: 95.5% in infants older than
+    28 days (22 patients) and 100% in neonates aged 1-28 days (6 patients), all under 5 kg; single-arm phase 2/3
+    CALINA study, no comparison group; the primary endpoint was drug exposure, not cure (Trop Med Health 2025).
+    Not comparable with any other trial.'
+  url: https://doi.org/10.1186/s41182-025-00828-z
+  history:
+  - stage: Phase 3
+    date: '2020-12-21'
+    source: tmh-2025-calina
+    note: First patient visit in CALINA, a combined phase 2/3 study.
+  - stage: Regulatory approval
+    date: '2025-07-08'
+    source: novartis-news
+    url: https://www.novartis.com/news/media-releases/novartis-receives-approval-first-malaria-medicine-newborn-babies-and-young-infants
+    note: Approved by Swissmedic under its procedure for global health products; eight African countries took
+      part in the assessment.
+  - stage: WHO prequalification
+    date: '2026-04-24'
+    source: who-news
+    url: https://www.who.int/news/item/24-04-2026-who-prequalifies-first-ever-malaria-treatment-for-newborns-and-infants-adds-new-diagnostic-tests
+    note: Date of WHO's announcement; WHO named the product by its ingredients only.
+events:
+- date: '2026-10-27'
+  kind: milestone
+  title: Novartis files ganaplacide-lumefantrine with US regulators, who grant priority review
+  why_it_matters: A malaria treatment that does not rely on artemisinin is now in regulatory review, at a time when
+    resistance to today's artemisinin combinations is spreading in Africa.
+  url: https://www.novartis.com/sites/novartis_com/files/q3-2026-media-release-en.pdf
+- date: 2026-04
+  kind: paper
+  title: Antibody L9LS gives partial protection to young children in Kenya
+  why_it_matters: Two injections of the antibody cut infections by less than half where transmission is intense,
+    so the approach probably needs higher doses before it can protect children where malaria is heaviest.
+  url: https://doi.org/10.1016/S0140-6736(26)00258-8
+- date: '2026-04-24'
+  kind: milestone
+  title: WHO prequalifies the first malaria treatment for newborns, and new tests that do not rely on HRP2
+  why_it_matters: Prequalification lets international buyers supply the newborn treatment, and the new tests look
+    for a different parasite protein, so they can catch parasites that have lost the HRP2 gene most rapid tests rely on.
+  url: https://www.who.int/news/item/24-04-2026-who-prequalifies-first-ever-malaria-treatment-for-newborns-and-infants-adds-new-diagnostic-tests
+- date: '2025-12-04'
+  kind: dataset
+  title: World malaria report 2025 estimates 610 000 deaths and 282 million cases in 2024
+  why_it_matters: Both numbers rose from the year before, so the world is moving away from zero, not towards
+    it, despite new vaccines and nets.
+  url: https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2025
+- date: '2025-12-04'
+  kind: setback
+  title: Artemisinin partial resistance confirmed in four African countries and suspected in four more
+  why_it_matters: The main drug in today's standard treatment is losing its grip in the region with most malaria
+    deaths, and WHO also sees early signs that the partner drugs are weakening.
+  url: https://www.who.int/news/item/04-12-2025-new-tools-saved-a-million-lives-from-malaria-last-year-but-progress-under-threat-as-drug-resistance-rises
+- date: '2025-12-04'
+  kind: setback
+  title: Mosquitoes resist pyrethroid insecticides in 48 of 53 countries that tested, and Anopheles stephensi
+    reaches nine African countries
+  why_it_matters: The insecticide on most bed nets is working less well, and an invasive mosquito that shrugs off
+    many common insecticides keeps spreading across Africa.
+  url: https://cdn.who.int/media/docs/default-source/malaria/world-malaria-reports/world-malaria-report-2025-executive-summary-eng.pdf?sfvrsn=154ea8d5_26&download=true
+- date: '2025-11-12'
+  kind: news
+  title: Ganaplacide-lumefantrine meets its phase 3 goal against the standard treatment
+  why_it_matters: A non-artemisinin combination proved at least as good as the standard treatment in a large African
+    trial, with a higher cure rate, giving a possible answer to rising artemisinin resistance.
+  url: https://www.novartis.com/news/media-releases/novartis-phase-iii-trial-next-generation-malaria-treatment-klu156-ganlum-meets-primary-endpoint-potential-combat-antimalarial-resistance
+- date: '2025-07-08'
+  kind: milestone
+  title: Swissmedic approves the first malaria medicine for newborns and young infants
+  why_it_matters: Babies under 5 kg now have an approved malaria medicine with a dose tested in babies their size,
+    where before there was none.
+  url: https://www.novartis.com/news/media-releases/novartis-receives-approval-first-malaria-medicine-newborn-babies-and-young-infants
+reading: []
