@@ -1,0 +1,223 @@
+# Records are transcribed by hand from the papers listed under sources; each value was read in this run.
+# A record is a clock whose evaluated total systematic uncertainty is lower than every earlier clock in its series.
+id: optical-clocks
+title: Most accurate atomic clocks
+domain: physics
+subfield: Precision measurement
+status: live
+summary: The smallest total systematic uncertainty reported for any atomic clock, which says how well a clock's
+  ticking is understood. Optical clocks built on single trapped ions or on lattices of thousands of atoms have
+  taken turns at the record, and the best now sit below one part in a billion billion.
+metric:
+  name: Total systematic uncertainty of the best atomic clock
+  unit: fractional frequency
+  direction: lower
+  scale: log
+  explainer: 'An atomic clock counts the oscillations of light that atoms absorb at one very exact frequency.
+    Real atoms are nudged slightly by their surroundings: heat radiation from the room, the electric fields of
+    the trap that holds them, their own motion, gravity and more. Each nudge shifts the frequency a tiny amount.
+    Building a clock means measuring or calculating every such shift and correcting for it. The systematic
+    uncertainty is the leftover doubt in all those corrections added together, written as a fraction of the
+    clock frequency. A value of 1×10^-18 means the clock''s frequency is known to within one part in a billion
+    billion, so it would gain or lose less than a second over the age of the universe. This is different from
+    stability, which is how quickly a clock averages away random noise; the record here is for accuracy. The
+    official second is still defined by caesium microwave clocks, which are far less accurate than the
+    best optical clocks, and the international bodies that run the SI are preparing to
+    redefine it with optical clocks. At this level a clock is sensitive to height: raising it by one centimetre
+    changes its rate by about one part in 10^18, so such clocks can also measure gravity and test physics.'
+chart:
+  primary: record-chart
+  secondary:
+  - reign-timeline
+series:
+- id: single-ion
+  label: Single trapped-ion clocks
+- id: optical-lattice
+  label: Neutral-atom optical lattice clocks
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Values are the total systematic uncertainty each paper reports, read from its abstract or text in this
+    run. Dates are the first arXiv submission date, or the publication date where no arXiv date was read.
+    Coverage starts in 2008; earlier caesium fountain and optical records are not yet added. Open points for
+    the owner: (1) the 2008 NIST release says the mercury clock stayed the most accurate "by a margin of 20
+    percent" over the aluminium clock, while the paper gives 1.6×10^-17 and 2.4×10^-17, a larger gap; the
+    paper values are used. (2) Bloom et al. give 6×10^-18 in the abstract and 6.4×10^-18 in the text and
+    table; 6.4×10^-18 is used. (3) No paper or NIST page read claims the 2025 aluminium ion result as a
+    record; it is lower than the 2024 strontium value, and a trade article reports it as 41% more accurate
+    than that clock. (4) Systematic uncertainty budgets are evaluated by each lab, not replicated, so every
+    record is peer_reviewed and none is confirmed. Check NIST, JILA, PTB, RIKEN, NPL, SYRTE and other
+    national labs, and arXiv physics.atom-ph, for new clock evaluations.'
+sources:
+- id: marshall-2025
+  name: M. C. Marshall, D. A. Rodriguez Castillo et al., "High-Stability Single-Ion Clock with 5.5×10^-19
+    Systematic Uncertainty", Phys. Rev. Lett. 135 (2025), arXiv:2504.13071, DOI 10.1103/hb3c-dk28
+  url: https://arxiv.org/abs/2504.13071
+  kind: paper
+  primary: true
+  notes: Current record. Publication details from the NIST record
+    (https://nist.gov/publications/high-stability-single-ion-clock-55-x-10-19-systematic-uncertainty), published
+    14 July 2025.
+- id: labonline-2025
+  name: LabOnline, "Ion clock claimed to be the most accurate ever" (24 July 2025)
+  url: https://www.labonline.com.au/content/analytical-instrumentation/article/ion-clock-claimed-to-be-the-most-accurate-ever-281077855
+  kind: news
+- id: aeppli-2024
+  name: A. Aeppli et al., "A clock with 8×10^-19 systematic uncertainty", Phys. Rev. Lett. 133, 023401 (2024),
+    arXiv:2403.10664
+  url: https://arxiv.org/abs/2403.10664
+  kind: paper
+- id: brewer-2019
+  name: S. M. Brewer et al., "An 27Al+ quantum-logic clock with systematic uncertainty below 10^-18", Phys. Rev.
+    Lett. 123, 033201 (2019), arXiv:1902.07694
+  url: https://arxiv.org/abs/1902.07694
+  kind: paper
+- id: physics-2019
+  name: APS Physics, Viewpoint on the NIST aluminium ion clock (Physics 12, 79)
+  url: https://physics.aps.org/articles/v12/79
+  kind: news
+- id: mcgrew-2018
+  name: W. F. McGrew et al., "Atomic clock performance beyond the geodetic limit" (arXiv:1807.11282), DOI
+    10.1038/s41586-018-0738-2
+  url: https://arxiv.org/abs/1807.11282
+  kind: paper
+- id: huntemann-2016
+  name: N. Huntemann et al., "Single-Ion Atomic Clock with 3×10^-18 Systematic Uncertainty", Phys. Rev. Lett.
+    116, 063001 (2016), arXiv:1602.03908
+  url: https://arxiv.org/abs/1602.03908
+  kind: paper
+- id: nicholson-2015
+  name: T. L. Nicholson et al., "Systematic evaluation of an atomic clock at 2e-18 total uncertainty"
+    (arXiv:1412.8261), DOI 10.1038/ncomms7896
+  url: https://arxiv.org/abs/1412.8261
+  kind: paper
+- id: bloom-2014
+  name: B. J. Bloom et al., "An Optical Lattice Clock with Accuracy and Stability at the 10^-18 Level"
+    (arXiv:1309.1137), DOI 10.1038/nature12941
+  url: https://arxiv.org/abs/1309.1137
+  kind: paper
+- id: chou-2010
+  name: C.-W. Chou et al., "Frequency Comparison of Two High-Accuracy Al+ Optical Clocks", Phys. Rev. Lett.
+    104, 070802 (2010), arXiv:0911.4527
+  url: https://arxiv.org/abs/0911.4527
+  kind: paper
+- id: rosenband-2008
+  name: T. Rosenband et al., "Frequency ratio of Al+ and Hg+ single-ion optical clocks; metrology at the 17th
+    decimal place", Science (2008), NIST publication record
+  url: https://nist.gov/publications/frequency-ratio-al-and-hg-single-ion-optical-clocks-metrology-17th-decimal-place
+  kind: paper
+- id: nist-2008-release
+  name: NIST, "NIST 'Quantum Logic Clock' Rivals Mercury Ion as World's Most Accurate Clock" (18 March 2008,
+    archived copy)
+  url: https://webarchive.library.unt.edu/web/20121007100124/http://www.nist.gov/pml/div688/clock-031808.cfm
+  kind: press
+- id: bipm-faq-second
+  name: BIPM, "Frequently Asked Questions concerning the Redefinition of the Second" (version 2.2, updated
+    2026-10-13)
+  url: https://www.bipm.org/faq-redefinition-second
+  kind: report
+records:
+- date: '2008-03-06'
+  value: 1.6e-17
+  series: single-ion
+  holder: NIST (T. Rosenband et al.)
+  conditions: Mercury ion (Hg+) clock; total systematic uncertainty
+  status: peer_reviewed
+  source: rosenband-2008
+  note: The NIST release of 18 March 2008 calls the mercury clock the world's most accurate at the time. The
+    aluminium clock in the same paper had 2.4×10^-17. Date is the publication date on the NIST record.
+- date: '2009-11-24'
+  value: 8.6e-18
+  series: single-ion
+  holder: NIST (C.-W. Chou et al.)
+  conditions: Aluminium ion (27Al+) quantum-logic clock; fractional frequency inaccuracy
+  status: peer_reviewed
+  source: chou-2010
+- date: '2013-09-04'
+  value: 6.4e-18
+  series: optical-lattice
+  holder: JILA (B. J. Bloom et al.)
+  conditions: Strontium-87 optical lattice clock; total systematic uncertainty
+  status: peer_reviewed
+  source: bloom-2014
+  note: The abstract rounds to 6×10^-18; the text and Table 1 give 6.4×10^-18. The paper says this is now the
+    best among all atomic clocks.
+- date: '2014-12-29'
+  value: 2.1e-18
+  series: optical-lattice
+  holder: JILA (T. L. Nicholson et al.)
+  conditions: Strontium-87 optical lattice clock; total uncertainty
+  status: peer_reviewed
+  source: nicholson-2015
+- date: '2016-02-11'
+  value: 3.2e-18
+  series: single-ion
+  holder: PTB (N. Huntemann et al.)
+  conditions: Ytterbium ion (171Yb+) clock, electric octupole transition; total systematic uncertainty
+  status: peer_reviewed
+  source: huntemann-2016
+  note: Best ion clock at the time, but not lower than the 2.1×10^-18 strontium lattice clock.
+- date: '2018-07-30'
+  value: 1.4e-18
+  series: optical-lattice
+  holder: NIST (W. F. McGrew et al.)
+  conditions: Ytterbium-171 optical lattice clock; systematic uncertainty
+  status: peer_reviewed
+  source: mcgrew-2018
+- date: '2019-02-20'
+  value: 9.4e-19
+  series: single-ion
+  holder: NIST (S. M. Brewer et al.)
+  conditions: Aluminium ion (27Al+) quantum-logic clock; total systematic uncertainty
+  status: peer_reviewed
+  source: brewer-2019
+  note: The paper calls this the lowest systematic uncertainty reported for any clock to date, the first below
+    10^-18.
+- date: '2024-03-15'
+  value: 8.1e-19
+  series: optical-lattice
+  holder: JILA (A. Aeppli et al.)
+  conditions: Strontium optical lattice clock; total systematic uncertainty
+  status: peer_reviewed
+  source: aeppli-2024
+  note: The abstract calls this the lowest uncertainty of any clock to date.
+- date: '2025-04-17'
+  value: 5.5e-19
+  series: single-ion
+  holder: NIST (M. C. Marshall, D. A. Rodriguez Castillo et al.)
+  conditions: Aluminium ion (27Al+) quantum-logic clock; fractional frequency uncertainty
+  status: peer_reviewed
+  source: marshall-2025
+  note: The paper makes no record claim; LabOnline reports it as 41% more accurate than the JILA strontium clock.
+events:
+- date: '2013-09-04'
+  kind: milestone
+  title: A strontium lattice clock overtakes the best ion clocks
+  why_it_matters: Clocks that interrogate thousands of atoms at once had been the most stable; this one became the
+    most accurate as well, ending a long run of ion-clock records.
+  url: https://arxiv.org/abs/1309.1137
+- date: '2019-02-20'
+  kind: milestone
+  title: First clock evaluated below one part in 10^18
+  why_it_matters: Crossing 10^-18 was a long-standing goal, because it is the level at which a clock can sense a
+    one-centimetre change in height.
+  url: https://physics.aps.org/articles/v12/79
+- date: '2024-03-15'
+  kind: paper
+  title: JILA strontium clock reaches 8.1×10^-19
+  why_it_matters: The lattice clock took the record back from the aluminium ion, showing both designs are still
+    improving fast.
+  url: https://arxiv.org/abs/2403.10664
+- date: '2025-07-14'
+  kind: paper
+  title: NIST aluminium ion clock published at 5.5×10^-19
+  why_it_matters: A redesigned ion trap cut the remaining shifts and also made the clock much more stable, so it
+    reaches its accuracy in far less averaging time.
+  url: https://nist.gov/publications/high-stability-single-ion-clock-55-x-10-19-systematic-uncertainty
+- date: '2026-10-13'
+  kind: news
+  title: BIPM keeps 2030 as the decision point for redefining the second
+  why_it_matters: The official definition still rests on caesium; a switch to optical clocks depends on records
+    like these being reproduced and compared between countries first.
+  url: https://www.bipm.org/faq-redefinition-second
+reading: []
