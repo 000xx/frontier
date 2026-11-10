@@ -1,0 +1,163 @@
+# Observations are dated totals copied from the NASA Exoplanet Archive's own news log and counts page.
+# Each value is the archive's stated confirmed total on that date. Add a row when the archive states a new total.
+id: exoplanets
+title: Confirmed exoplanets
+domain: astronomy
+subfield: Planets and life
+status: draft
+summary: The number of planets outside the Solar System that have been confirmed, as counted by the NASA Exoplanet
+  Archive. It has grown from a few thousand in the mid-2010s to more than six thousand, and it is the simplest
+  measure of how fast astronomers are finding worlds.
+metric:
+  name: Confirmed exoplanets
+  unit: planets
+  direction: higher
+  scale: linear
+  explainer: 'A planet only joins the count after it has been confirmed, meaning that other observations or
+    independent checks have backed up the first signal. Many candidates never get that far, and some confirmed
+    planets are later demoted to false positives when new data show that the signal came from something else,
+    such as a background star. So the total can go down as well as up. Most planets were found indirectly: a
+    transit method sees a star dim as a planet crosses in front of it, and a radial velocity method sees the star
+    wobble. Fewer than 100 have been photographed directly. The count is a measure of how many worlds have been
+    checked, not of how many exist.'
+chart:
+  primary: record-chart
+  secondary:
+  - live-counter
+series:
+- id: confirmed-planets
+  label: Confirmed planets
+update:
+  cadence: monthly
+  last_checked: '2026-11-09'
+  notes: 'Observations are dated totals from the archive news log (2024news, 2025news and the 2026 news page) and the
+    counts page. The counts page carries no date, so its value is recorded on the retrieval date. Still missing: a total
+    by discovery year. The archive''s discovery-year plots are images with no numbers, and its TAP query service
+    could not be read on 2026-11-09. Also missing: the counts by discovery method, which the counts page gives
+    but without a date. To update: add a row for each new total the archive news log states, and check the counts
+    page for the current figure.'
+sources:
+- id: exoplanet-archive-counts
+  name: NASA Exoplanet Archive, Exoplanet and Candidate Statistics
+  url: https://exoplanetarchive.ipac.caltech.edu/docs/counts_detail.html
+  kind: dataset
+  primary: true
+  notes: 'Summary counts for confirmed planets, candidates and discovery methods. The page shows no date for its figures.
+    Credit wording, from the archive''s acknowledgement page: "This research has made use of the NASA Exoplanet Archive,
+    which is operated by the California Institute of Technology, under contract with the National Aeronautics and
+    Space Administration under the Exoplanet Exploration Program." Cite Christiansen et al. (2025) in the Planetary
+    Science Journal, which replaces Akeson et al. (2013). The archive states no licence; its only terms are the
+    acknowledgement and citation requirements.'
+- id: exoplanet-archive-news-2024
+  name: NASA Exoplanet Archive, 2024 news
+  url: https://exoplanetarchive.ipac.caltech.edu/docs/2024news.html
+  kind: other
+  notes: Dated archive news log. Source of the 2024 totals.
+- id: exoplanet-archive-news-2025
+  name: NASA Exoplanet Archive, 2025 news
+  url: https://exoplanetarchive.ipac.caltech.edu/docs/2025news.html
+  kind: other
+  notes: Dated archive news log. Source of the 2025 totals.
+- id: exoplanet-archive-news-2026
+  name: NASA Exoplanet Archive, 2026 news
+  url: https://exoplanetarchive.ipac.caltech.edu/docs/exonews_archive.html
+  kind: other
+  notes: Dated archive news log. Source of the 2026 totals and of the 2026 events. Entries are newest first.
+- id: nasa-6000-planets
+  name: 'NASA: Tally of planets outside our solar system reaches 6,000 (17 September 2025)'
+  url: https://www.nasa.gov/universe/exoplanets/nasas-tally-of-planets-outside-our-solar-system-reaches-6000/
+  kind: press
+  notes: NASA Jet Propulsion Laboratory article. Source of the 6,000 milestone event.
+- id: exoplanet-archive-acknowledgement
+  name: Acknowledging the NASA Exoplanet Archive
+  url: https://exoplanetarchive.ipac.caltech.edu/docs/acknowledge.html
+  kind: other
+  notes: Source of the required credit line and citation. Opened to read the terms.
+records: []
+events:
+- date: '2025-09-17'
+  kind: milestone
+  title: NASA's tally of confirmed planets reaches 6,000
+  why_it_matters: The count passed 6,000 about thirty years after the first planet around a Sun-like star was confirmed in 1995.
+  url: https://www.nasa.gov/universe/exoplanets/nasas-tally-of-planets-outside-our-solar-system-reaches-6000/
+- date: '2026-04-23'
+  kind: milestone
+  title: 114 TESS planets get masses in one batch
+  why_it_matters: This is the largest single batch of mass measurements for planets found by TESS so far, and mass is what tells rocky worlds from gas giants.
+  url: https://exoplanetarchive.ipac.caltech.edu/docs/exonews_archive.html
+- date: '2026-09-03'
+  kind: setback
+  title: WASP-126 c demoted to false positive
+  why_it_matters: Confirmed planets can be overturned after they have been counted, so the total can fall as well as rise.
+  url: https://exoplanetarchive.ipac.caltech.edu/docs/exonews_archive.html
+- date: '2026-10-08'
+  kind: milestone
+  title: TESS-discovered planets reach 1,000
+  why_it_matters: One space mission now accounts for a thousand confirmed planets, which shows how much of the count comes from transit surveys.
+  url: https://exoplanetarchive.ipac.caltech.edu/docs/exonews_archive.html
+observations:
+- date: '2024-03-14'
+  series: confirmed-planets
+  value: 5599
+  source: exoplanet-archive-news-2024
+  note: Stated as the official confirmed planet count in the archive's news log.
+- date: '2024-05-16'
+  series: confirmed-planets
+  value: 5630
+  source: exoplanet-archive-news-2024
+  note: Stated total in the archive's news log.
+- date: '2024-12-19'
+  series: confirmed-planets
+  value: 5811
+  source: exoplanet-archive-news-2024
+  note: Stated total in the archive's news log.
+- date: '2025-04-17'
+  series: confirmed-planets
+  value: 5876
+  source: exoplanet-archive-news-2025
+  note: Stated total in the archive's news log.
+- date: '2025-05-15'
+  series: confirmed-planets
+  value: 5903
+  source: exoplanet-archive-news-2025
+  note: Stated total in the archive's news log.
+- date: '2025-08-28'
+  series: confirmed-planets
+  value: 5989
+  source: exoplanet-archive-news-2025
+  note: Stated total in the archive's news log.
+- date: '2025-09-17'
+  series: confirmed-planets
+  value: 6007
+  source: exoplanet-archive-news-2025
+  note: Stated total in the archive's news log, on the day NASA marked 6,000.
+- date: '2025-12-11'
+  series: confirmed-planets
+  value: 6061
+  source: exoplanet-archive-news-2025
+  note: Stated total in the archive's news log.
+- date: '2025-12-18'
+  series: confirmed-planets
+  value: 6065
+  source: exoplanet-archive-news-2025
+  note: Stated total in the archive's news log.
+- date: '2026-03-12'
+  series: confirmed-planets
+  value: 6147
+  source: exoplanet-archive-news-2026
+  note: Stated total in the archive's news log.
+- date: '2026-09-11'
+  series: confirmed-planets
+  value: 6366
+  source: exoplanet-archive-news-2026
+  note: Stated total in the archive's news log.
+- date: '2026-10-08'
+  series: confirmed-planets
+  value: 6445
+  source: exoplanet-archive-news-2026
+  note: Stated total in the archive's news log.
+- date: '2026-11-09'
+  series: confirmed-planets
+  value: 6464
+  source: exoplanet-archive-counts
+  note: Total on the counts page, which carries no date. Recorded on the retrieval date.
