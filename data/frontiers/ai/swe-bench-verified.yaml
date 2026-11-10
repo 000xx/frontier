@@ -6,8 +6,8 @@ domain: ai
 subfield: Capability
 status: live
 summary: The best share of real GitHub bug reports an AI model can fix on SWE-bench Verified, as run by
-  Epoch AI. It was the most watched test of AI coding ability, though by 2026 it was close to saturated
-  and known to be flawed and contaminated.
+  Epoch AI. It was a widely watched test of AI coding ability, though by 2026 it was known to be flawed
+  and contaminated.
 metric:
   name: Best SWE-bench Verified score (Epoch AI runs)
   unit: '% of issues resolved'
