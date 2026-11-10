@@ -78,7 +78,7 @@ observations:
 - {date: '1887', series: gistemp-land-ocean, value: -0.36, source: nasa-gistemp-annual}
 - {date: '1888', series: gistemp-land-ocean, value: -0.18, source: nasa-gistemp-annual}
 - {date: '1889', series: gistemp-land-ocean, value: -0.11, source: nasa-gistemp-annual}
-- {date: '1890', series: gistemp-land-ocean, value: -0.35, source: nasa-gistemp-annual}
+- {date: '1890', series: gistemp-land-ocean, value: -0.36, source: nasa-gistemp-annual}
 - {date: '1891', series: gistemp-land-ocean, value: -0.22, source: nasa-gistemp-annual}
 - {date: '1892', series: gistemp-land-ocean, value: -0.27, source: nasa-gistemp-annual}
 - {date: '1893', series: gistemp-land-ocean, value: -0.31, source: nasa-gistemp-annual}
@@ -89,7 +89,7 @@ observations:
 - {date: '1898', series: gistemp-land-ocean, value: -0.28, source: nasa-gistemp-annual}
 - {date: '1899', series: gistemp-land-ocean, value: -0.18, source: nasa-gistemp-annual}
 - {date: '1900', series: gistemp-land-ocean, value: -0.08, source: nasa-gistemp-annual}
-- {date: '1901', series: gistemp-land-ocean, value: -0.15, source: nasa-gistemp-annual}
+- {date: '1901', series: gistemp-land-ocean, value: -0.16, source: nasa-gistemp-annual}
 - {date: '1902', series: gistemp-land-ocean, value: -0.28, source: nasa-gistemp-annual}
 - {date: '1903', series: gistemp-land-ocean, value: -0.37, source: nasa-gistemp-annual}
 - {date: '1904', series: gistemp-land-ocean, value: -0.47, source: nasa-gistemp-annual}
@@ -98,7 +98,7 @@ observations:
 - {date: '1907', series: gistemp-land-ocean, value: -0.38, source: nasa-gistemp-annual}
 - {date: '1908', series: gistemp-land-ocean, value: -0.42, source: nasa-gistemp-annual}
 - {date: '1909', series: gistemp-land-ocean, value: -0.48, source: nasa-gistemp-annual}
-- {date: '1910', series: gistemp-land-ocean, value: -0.43, source: nasa-gistemp-annual}
+- {date: '1910', series: gistemp-land-ocean, value: -0.44, source: nasa-gistemp-annual}
 - {date: '1911', series: gistemp-land-ocean, value: -0.44, source: nasa-gistemp-annual}
 - {date: '1912', series: gistemp-land-ocean, value: -0.37, source: nasa-gistemp-annual}
 - {date: '1913', series: gistemp-land-ocean, value: -0.34, source: nasa-gistemp-annual}
@@ -114,8 +114,8 @@ observations:
 - {date: '1923', series: gistemp-land-ocean, value: -0.26, source: nasa-gistemp-annual}
 - {date: '1924', series: gistemp-land-ocean, value: -0.27, source: nasa-gistemp-annual}
 - {date: '1925', series: gistemp-land-ocean, value: -0.22, source: nasa-gistemp-annual}
-- {date: '1926', series: gistemp-land-ocean, value: -0.10, source: nasa-gistemp-annual}
-- {date: '1927', series: gistemp-land-ocean, value: -0.21, source: nasa-gistemp-annual}
+- {date: '1926', series: gistemp-land-ocean, value: -0.11, source: nasa-gistemp-annual}
+- {date: '1927', series: gistemp-land-ocean, value: -0.22, source: nasa-gistemp-annual}
 - {date: '1928', series: gistemp-land-ocean, value: -0.20, source: nasa-gistemp-annual}
 - {date: '1929', series: gistemp-land-ocean, value: -0.36, source: nasa-gistemp-annual}
 - {date: '1930', series: gistemp-land-ocean, value: -0.15, source: nasa-gistemp-annual}
@@ -148,7 +148,7 @@ observations:
 - {date: '1957', series: gistemp-land-ocean, value: 0.05, source: nasa-gistemp-annual}
 - {date: '1958', series: gistemp-land-ocean, value: 0.06, source: nasa-gistemp-annual}
 - {date: '1959', series: gistemp-land-ocean, value: 0.03, source: nasa-gistemp-annual}
-- {date: '1960', series: gistemp-land-ocean, value: -0.03, source: nasa-gistemp-annual}
+- {date: '1960', series: gistemp-land-ocean, value: -0.02, source: nasa-gistemp-annual}
 - {date: '1961', series: gistemp-land-ocean, value: 0.06, source: nasa-gistemp-annual}
 - {date: '1962', series: gistemp-land-ocean, value: 0.03, source: nasa-gistemp-annual}
 - {date: '1963', series: gistemp-land-ocean, value: 0.05, source: nasa-gistemp-annual}
@@ -171,8 +171,8 @@ observations:
 - {date: '1980', series: gistemp-land-ocean, value: 0.26, source: nasa-gistemp-annual}
 - {date: '1981', series: gistemp-land-ocean, value: 0.32, source: nasa-gistemp-annual}
 - {date: '1982', series: gistemp-land-ocean, value: 0.14, source: nasa-gistemp-annual}
-- {date: '1983', series: gistemp-land-ocean, value: 0.32, source: nasa-gistemp-annual}
-- {date: '1984', series: gistemp-land-ocean, value: 0.15, source: nasa-gistemp-annual}
+- {date: '1983', series: gistemp-land-ocean, value: 0.31, source: nasa-gistemp-annual}
+- {date: '1984', series: gistemp-land-ocean, value: 0.16, source: nasa-gistemp-annual}
 - {date: '1985', series: gistemp-land-ocean, value: 0.12, source: nasa-gistemp-annual}
 - {date: '1986', series: gistemp-land-ocean, value: 0.18, source: nasa-gistemp-annual}
 - {date: '1987', series: gistemp-land-ocean, value: 0.32, source: nasa-gistemp-annual}
@@ -195,7 +195,7 @@ observations:
 - {date: '2004', series: gistemp-land-ocean, value: 0.53, source: nasa-gistemp-annual}
 - {date: '2005', series: gistemp-land-ocean, value: 0.68, source: nasa-gistemp-annual}
 - {date: '2006', series: gistemp-land-ocean, value: 0.64, source: nasa-gistemp-annual}
-- {date: '2007', series: gistemp-land-ocean, value: 0.67, source: nasa-gistemp-annual}
+- {date: '2007', series: gistemp-land-ocean, value: 0.66, source: nasa-gistemp-annual}
 - {date: '2008', series: gistemp-land-ocean, value: 0.54, source: nasa-gistemp-annual}
 - {date: '2009', series: gistemp-land-ocean, value: 0.66, source: nasa-gistemp-annual}
 - {date: '2010', series: gistemp-land-ocean, value: 0.72, source: nasa-gistemp-annual}
@@ -203,14 +203,14 @@ observations:
 - {date: '2012', series: gistemp-land-ocean, value: 0.65, source: nasa-gistemp-annual}
 - {date: '2013', series: gistemp-land-ocean, value: 0.67, source: nasa-gistemp-annual}
 - {date: '2014', series: gistemp-land-ocean, value: 0.75, source: nasa-gistemp-annual}
-- {date: '2015', series: gistemp-land-ocean, value: 0.90, source: nasa-gistemp-annual}
+- {date: '2015', series: gistemp-land-ocean, value: 0.89, source: nasa-gistemp-annual}
 - {date: '2016', series: gistemp-land-ocean, value: 1.01, source: nasa-gistemp-annual}
 - {date: '2017', series: gistemp-land-ocean, value: 0.91, source: nasa-gistemp-annual}
 - {date: '2018', series: gistemp-land-ocean, value: 0.85, source: nasa-gistemp-annual}
 - {date: '2019', series: gistemp-land-ocean, value: 0.98, source: nasa-gistemp-annual}
-- {date: '2020', series: gistemp-land-ocean, value: 1.00, source: nasa-gistemp-annual}
+- {date: '2020', series: gistemp-land-ocean, value: 1.01, source: nasa-gistemp-annual}
 - {date: '2021', series: gistemp-land-ocean, value: 0.85, source: nasa-gistemp-annual}
 - {date: '2022', series: gistemp-land-ocean, value: 0.89, source: nasa-gistemp-annual}
 - {date: '2023', series: gistemp-land-ocean, value: 1.17, source: nasa-gistemp-annual}
 - {date: '2024', series: gistemp-land-ocean, value: 1.28, source: nasa-gistemp-annual}
-- {date: '2025', series: gistemp-land-ocean, value: 1.19, source: nasa-gistemp-annual}
+- {date: '2025', series: gistemp-land-ocean, value: 1.18, source: nasa-gistemp-annual}
