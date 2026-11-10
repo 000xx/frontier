@@ -1,13 +1,13 @@
 # Observations are yearly world tree cover loss, in million hectares, for 2001 onward.
 # They come from Our World in Data's copy of Global Forest Watch's tree cover loss data (University of Maryland GLAD lab),
 # CC BY 4.0 on Our World in Data, with the third-party terms of Global Forest Watch also applying. The grapher CSV could not be
-# opened with WebFetch in this run (only its page), so the observations are to be written from the fetcher (scripts/fetchers/tree_cover_loss.py)
-# dry-run log, which reads the same CSV, and then checked by a second dry run.
+# opened with WebFetch in this run (only its page), so the observations were written from the fetcher (scripts/fetchers/tree_cover_loss.py)
+# dry-run log, which reads the same CSV; a second dry run then reported "No change".
 id: tree-cover-loss
 title: Global tree cover loss
 domain: earth
 subfield: Life on Earth
-status: draft
+status: live
 summary: The area of tree cover lost each year across the world, from satellite records that start in 2001.
   Forests store carbon and hold most land species, so losing them matters for climate and for nature.
 metric:
@@ -58,3 +58,27 @@ events:
   why_it_matters: Primary forests hold the most carbon and biodiversity, so losing them is the most damaging kind of loss.
   url: https://wri.org/news/release-global-forest-loss-shatters-records-2024-fueled-massive-fires
 observations:
+- {date: '2001', series: world-tree-cover-loss, value: 13.23, source: owid-tree-cover-loss}
+- {date: '2002', series: world-tree-cover-loss, value: 16.35, source: owid-tree-cover-loss}
+- {date: '2003', series: world-tree-cover-loss, value: 14.40, source: owid-tree-cover-loss}
+- {date: '2004', series: world-tree-cover-loss, value: 19.79, source: owid-tree-cover-loss}
+- {date: '2005', series: world-tree-cover-loss, value: 18.00, source: owid-tree-cover-loss}
+- {date: '2006', series: world-tree-cover-loss, value: 17.55, source: owid-tree-cover-loss}
+- {date: '2007', series: world-tree-cover-loss, value: 18.29, source: owid-tree-cover-loss}
+- {date: '2008', series: world-tree-cover-loss, value: 18.51, source: owid-tree-cover-loss}
+- {date: '2009', series: world-tree-cover-loss, value: 16.89, source: owid-tree-cover-loss}
+- {date: '2010', series: world-tree-cover-loss, value: 18.44, source: owid-tree-cover-loss}
+- {date: '2011', series: world-tree-cover-loss, value: 17.47, source: owid-tree-cover-loss}
+- {date: '2012', series: world-tree-cover-loss, value: 23.33, source: owid-tree-cover-loss}
+- {date: '2013', series: world-tree-cover-loss, value: 20.52, source: owid-tree-cover-loss}
+- {date: '2014', series: world-tree-cover-loss, value: 23.62, source: owid-tree-cover-loss}
+- {date: '2015', series: world-tree-cover-loss, value: 19.57, source: owid-tree-cover-loss}
+- {date: '2016', series: world-tree-cover-loss, value: 29.61, source: owid-tree-cover-loss}
+- {date: '2017', series: world-tree-cover-loss, value: 29.31, source: owid-tree-cover-loss}
+- {date: '2018', series: world-tree-cover-loss, value: 24.71, source: owid-tree-cover-loss}
+- {date: '2019', series: world-tree-cover-loss, value: 24.14, source: owid-tree-cover-loss}
+- {date: '2020', series: world-tree-cover-loss, value: 25.76, source: owid-tree-cover-loss}
+- {date: '2021', series: world-tree-cover-loss, value: 25.23, source: owid-tree-cover-loss}
+- {date: '2022', series: world-tree-cover-loss, value: 22.77, source: owid-tree-cover-loss}
+- {date: '2023', series: world-tree-cover-loss, value: 28.23, source: owid-tree-cover-loss}
+- {date: '2024', series: world-tree-cover-loss, value: 29.56, source: owid-tree-cover-loss}
