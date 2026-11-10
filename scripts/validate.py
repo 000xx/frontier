@@ -43,14 +43,14 @@ def parse_date(text):
 
 
 def check_frontier(path, data, schema, domains, shapes, today):
-    errors, warnings = [], []
+    errors, warnings, notes = [], [], []
     rel = path.relative_to(ROOT)
 
     for err in Draft202012Validator(schema).iter_errors(data):
         where = "/".join(str(p) for p in err.absolute_path) or "(top level)"
         errors.append(f"{rel}: {where}: {err.message}")
     if errors:
-        return errors, warnings
+        return errors, warnings, False, notes
 
     if data["id"] != path.stem:
         errors.append(f"{rel}: id '{data['id']}' does not match the file name '{path.stem}'")
@@ -86,7 +86,8 @@ def check_frontier(path, data, schema, domains, shapes, today):
         if parse_date(rec["date"]) > today:
             errors.append(f"{label}: date {rec['date']} is in the future")
 
-    # A record must beat the previous best in its series, unless it is a retraction.
+    # Count entries that do not beat the earlier best in their series. Some sources list
+    # every certified result, so this is informational; --verbose prints each one.
     best = {}
     higher = data["metric"]["direction"] == "higher"
     ordered = sorted(
@@ -97,7 +98,7 @@ def check_frontier(path, data, schema, domains, shapes, today):
         key = rec.get("series")
         prev = best.get(key)
         if prev is not None and ((rec["value"] <= prev) if higher else (rec["value"] >= prev)):
-            warnings.append(
+            notes.append(
                 f"{rel}: {rec['date']} value {rec['value']} in series '{key}' does not beat the earlier best {prev}"
             )
         else:
@@ -113,12 +114,13 @@ def check_frontier(path, data, schema, domains, shapes, today):
     if overdue:
         warnings.append(f"{rel}: overdue for a check (last checked {last}, cadence {data['update']['cadence']})")
 
-    return errors, warnings, overdue
+    return errors, warnings, overdue, notes
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--strict", action="store_true", help="fail on overdue frontiers")
+    parser.add_argument("--verbose", action="store_true", help="list entries that do not beat the earlier best")
     parser.add_argument("--today", help="override today's date (YYYY-MM-DD), for testing")
     args = parser.parse_args()
     today = dt.date.fromisoformat(args.today) if args.today else dt.date.today()
@@ -127,14 +129,13 @@ def main():
     domains = {d["id"]: d for d in load_yaml(DATA / "domains.yaml")}
     shapes = {s["id"] for s in load_yaml(DATA / "chart-shapes.yaml")}
 
-    all_errors, all_warnings, overdue_count, ids = [], [], 0, {}
+    all_errors, all_warnings, all_notes, overdue_count, ids = [], [], [], 0, {}
     files = sorted((DATA / "frontiers").rglob("*.yaml"))
     for path in files:
         data = load_yaml(path)
-        result = check_frontier(path, data, schema, domains, shapes, today)
-        errors, warnings = result[0], result[1]
-        overdue = result[2] if len(result) > 2 else False
+        errors, warnings, overdue, notes = check_frontier(path, data, schema, domains, shapes, today)
         all_errors += errors
+        all_notes += notes
         all_warnings += warnings
         overdue_count += overdue
         if isinstance(data, dict) and "id" in data:
@@ -142,11 +143,14 @@ def main():
                 all_errors.append(f"duplicate frontier id '{data['id']}' in {path} and {ids[data['id']]}")
             ids[data["id"]] = path
 
+    if args.verbose:
+        for n in all_notes:
+            print(f"NOTE    {n}")
     for w in all_warnings:
         print(f"WARNING {w}")
     for e in all_errors:
         print(f"ERROR   {e}")
-    print(f"\nChecked {len(files)} frontier(s): {len(all_errors)} error(s), {len(all_warnings)} warning(s), {overdue_count} overdue.")
+    print(f"\nChecked {len(files)} frontier(s): {len(all_errors)} error(s), {len(all_warnings)} warning(s), {overdue_count} overdue, {len(all_notes)} non-improving entries (see --verbose).")
 
     if all_errors or (args.strict and overdue_count):
         sys.exit(1)

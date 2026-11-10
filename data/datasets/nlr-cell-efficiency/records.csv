@@ -1,0 +1,563 @@
+record_id,measurement_date,material_class,cell_type,description,groups,efficiency_pct,uncertainty_pct,area_cm2,area_type,suns,test_center
+00001,1976-01-01,Thin-Film Technologies,Amorphous Si:H (stabilized),Heterojunction (adj for total area),RCA,0.6,,0.2,,1,
+00002,1976-01-01,Thin-Film Technologies,CdTe,CdS/CdTe (70 mW/cm2) [NASA],Matsushita,8.874,,0.9,,1,
+00003,1976-08-01,Thin-Film Technologies,CIGS,CdS/CuInSe2/Au-Zn (AM1 NASA),University of Maine,5.757,,1.2,,1,
+00004,1977-02-01,Single-Junction GaAs,Single crystal,Measured under 93.9 mW/cm2 AM1 at NASA,IBM/ TJ Watson Research Center,22.2285,,,,,NASA
+00005,1977-04-01,Crystalline Si Cells,Single crystal (non-concentrator),EFG [NASA],Mobil Solar,13.938,,1.01,,1,Unknown
+00006,1977-05-01,Thin-Film Technologies,CIGS,CdS/CuInSe2/Au-Zn (AM1 NASA),University of Maine,6.767,,1.2,,1,
+00007,1978-01-01,Thin-Film Technologies,Amorphous Si:H (stabilized),"Glow-discharge a-Si:H, heterojunction (adj for total area)",RCA,1.2,,0.25,,1,
+00008,1978-02-01,Crystalline Si Cells,Single crystal (non-concentrator),AM1 [NASA] 100.3 mW/cm2,RCA,15.049,,1.02,,1,
+00009,1979-02-01,Thin-Film Technologies,Amorphous Si:H (stabilized),"Glass-covered, p-i-n (adj for total area)",RCA,2.4,,0.25,,1,
+00010,1979-11-01,Thin-Film Technologies,CdTe,CdS/CdHgTe (~4%Hg) [NASA],Monosolar,9.027,,0.48,,1,
+00011,1979-12-01,Thin-Film Technologies,CIGS,CdS/CuInSe2 3-source deposition (NASA),Boeing,7.474,,1.02,,1,
+00012,1980-01-01,Crystalline Si Cells,Single crystal (non-concentrator),Back surface field p+-n-n+ AM1 [Sandia],Sandia National Laboratory,16.059,,2,,1,
+00013,1980-01-01,Thin-Film Technologies,Amorphous Si:H (stabilized),p-i-n (adj for total area),RCA,3.1,,1.45,,1,
+00014,1980-05-01,Thin-Film Technologies,CdTe,Au/CdTe/CdS/ITO/glass (90mW/cm2),Kodak,9.2004,,,,1,
+00015,1980-09-01,Thin-Film Technologies,CIGS,CdS/CuInSe2 (AM1 100 mW/cm2),Boeing,9.6253,,1.02,,1,
+00016,1981-02-01,Thin-Film Technologies,Amorphous Si:H (stabilized),p-i-n (adj for total area),RCA,3.37,,1.6,,1,
+00017,1981-03-01,Thin-Film Technologies,CIGS,CdZnS/CuInSe2 (AM1 100mW/cm2),Boeing,10.1101,,1.02,,1,
+00018,1981-09-01,Thin-Film Technologies,CdTe,Au/CdTe/CdS/ITO/glass (90mW/cm2),Kodak,10.71,,,,1,
+00019,1982-02-01,Thin-Film Technologies,CIGS,CdZnS/CunSe2 (101.5 mW/cm2),Boeing,10.504,,1,,1,
+00020,1982-03-01,Thin-Film Technologies,Amorphous Si:H (stabilized),p-i-n (adj for total area),RCA,4.2,,0.4,,1,
+00021,1982-11-01,Crystalline Si Cells,Single crystal (non-concentrator),AM1 Monocrystalline,Westinghouse,16.665,,1.004,,1,
+00022,1982-12-01,III-V Multijunction Cells,Concentrator,"AlGaAs-GaAs tandem (IEEE PVSC, 1981, pp. 21-26)",North Carolina State University,16.4,,,,,
+00023,1983-02-01,Thin-Film Technologies,Amorphous Si:H (stabilized),p-i-n (adj for total area),RCA,5.5,,0.02,,1,
+00024,1983-05-01,Crystalline Si Cells,Single crystal (non-concentrator),AM1 Monocrystalline,ARCO,18.382,,1,,1,
+00025,1983-07-01,Thin-Film Technologies,CdTe,Au/CdTe/CdS/ITO/glass (90mW/cm2),Kodak,11.22,,,,1,
+00026,1983-10-28,Crystalline Si Cells,Single crystal (non-concentrator),AM1 MINP,UNSW,18.887,,4.01,,1,
+00027,1983-12-22,Crystalline Si Cells,Single crystal (non-concentrator),"AM, MINP",UNSW,19.2607,,4.068,,1,
+00028,1984-01-01,Crystalline Si Cells,Multicrystalline,Semicrystalline cast [Sandia],Solarex,15.15,,4,,1,
+00029,1984-02-01,Thin-Film Technologies,CdTe,Au/CdTe/CdS/ITO/glass (90mW/cm2),Kodak,11.373,,,,,
+00030,1984-11-01,Thin-Film Technologies,CIGS,CdZnS/CuInSe2,Boeing,10.908,,1.074,,1,
+00031,1985-02-01,Crystalline Si Cells,Multicrystalline,Semicrystalline cast [Sandia],Solarex,15.756,,4,,1,
+00032,1985-04-01,Crystalline Si Cells,Single crystal (non-concentrator),Conventional p-n cell,Spire,19.7051,,4.02,,1,
+00033,1985-05-21,Crystalline Si Cells,Single crystal (non-concentrator),AM1,UNSW,19.998,,3.99,,1,
+00034,1985-09-01,Crystalline Si Cells,Single crystal (non-concentrator),Conventional p-n cell (not a record),Spire,18.988,,4.02,,1,
+00035,1985-10-15,Crystalline Si Cells,Single crystal (non-concentrator),,UNSW,20.2,,4.02,,1,
+00036,1985-12-11,Crystalline Si Cells,Single crystal (non-concentrator),,UNSW,20.301,,4.01,,1,
+00037,1986-02-01,Thin-Film Technologies,Amorphous Si:H (stabilized),(stabilized; initial efficiency 11.9%) 2-junction,Solarex,7.5,,0.758,,1,
+00038,1986-02-01,Thin-Film Technologies,CIGS,"ZnO/(Cd,Zn)S/CuIn(S,Se)2",ARCO,11.5645,,2.4,,1,
+00039,1986-02-01,Thin-Film Technologies,CIGS,"ZnO/(Cd,Zn)S/CuIn(S,Se)2",ARCO,11.5645,,2.4,,1,
+00040,1986-02-07,Crystalline Si Cells,Single crystal (non-concentrator),ASTM-85,UNSW,20.604,,4.02,,1,
+00041,1986-06-15,Crystalline Si Cells,Single crystal (non-concentrator),PESC,UNSW,20.705,,1.01,,1,
+00042,1986-07-30,Crystalline Si Cells,Single crystal (non-concentrator),ASTM-86,UNSW,20.806,,4.006,,1,
+00043,1986-08-01,Crystalline Si Cells,Single crystal (concentrator),Si - laser grooved,UNSW,19.089,,46.9,,1,
+00044,1987-04-01,Thin-Film Technologies,Amorphous Si:H (stabilized),a-Si thin film,Solarex,11.5,,1.08,ap,1,NREL
+00045,1987-05-01,Crystalline Si Cells,Single crystal (concentrator),,Stanford,26.765,,0.15,da,140,Sandia
+00046,1987-06-01,Crystalline Si Cells,Single crystal (non-concentrator),Point Contact [Sandia],Stanford,22.119,,0.152,,1,
+00047,1988-02-01,Thin-Film Technologies,(not on chart),a-Si/a-Si/a-SiGe,Energy Conversion Devices,12.4,,0.27,t,1,NREL
+00048,1988-03-01,III-V Multijunction Cells,Concentrator,AlGaAs-GaAs tandem,Varian,17.6,,,,,
+00049,1988-04-01,Single-Junction GaAs,Concentrator,Prism cover,Varian,27.9125,,0.126,da,205,Sandia
+00050,1988-06-01,Thin-Film Technologies,(not on chart),a-Si/CIGS thin film 4 terminal,ARCO,14.6,0.7,2.4,ap,1,NREL
+00051,1988-06-01,Thin-Film Technologies,CIGS,"ZnO/(Cd,Zn)S/CuIn(S,Se)2",ARCO,11.817,,2.4,,1,NREL
+00052,1988-08-01,Single-Junction GaAs,Concentrator,ENTECH cover recalibrated,Varian,28.2,1,0.203,da,216,Sandia
+00053,1988-08-01,Single-Junction GaAs,Concentrator,GaAs under very high concentration,Varian,26.6,1,0.203,da,1000,Sandia
+00054,1988-09-01,Hybrid Tandems,III-V/Si,GaAs/Si mech. Stack,Sandia National Laboratory,29.6,,0.317,da,350,Sandia
+00055,1988-09-01,Thin-Film Technologies,CIGS,"ZnO/CdS/Cu(In,Ga)Se2",Boeing,12.625,,0.987,,1,NREL
+00056,1988-10-01,Thin-Film Technologies,CdTe,Glass/SnO2/CdS/CdTe,AMETEK,11.5056,,1.068,,1,NREL
+00057,1988-12-01,Crystalline Si Cells,Thin-film crystal,,AstroPower,15.049,,1.02,ap,1,Sandia
+00058,1989-01-01,Thin-Film Technologies,Amorphous Si:H (stabilized),p-i-n (stablized),ARCO,9.7,,3.969,,1,
+00059,1989-03-01,III-V Multijunction Cells,Two-junction (non-concentrator),"GaAlAs/GaAs, monolithic",Varian,27.6,,0.5,t,1,NREL
+00061,1989-03-01,Single-Junction GaAs,Single crystal,GaAs (Ge substrate) AlGaAs window,ASEC,24.543,,4,t,1,NREL
+00060,1989-03-01,Single-Junction GaAs,Single crystal,GaAs with AlGaAs window,Varian,24.644,,4,,1,NREL
+00062,1989-05-01,Thin-Film Technologies,CdTe,Glass/SnO2/CdS/CdTe,Photon Energy,12.546,,0.313,,1,NREL
+00063,1989-06-01,III-V Multijunction Cells,Concentrator,AlGaAs-GaAs tandem 40x,Spire,24.1,,,,,
+00064,1989-08-01,Crystalline Si Cells,Multicrystalline,UNSW PESC,UNSW,17.473,,4.12,t,1,NREL
+00065,1989-08-01,III-V Multijunction Cells,Two-junction (non-concentrator),"GaInP/GaAs, monolithic",NREL,27.3,,0.25,t,1,NREL
+00066,1989-10-01,III-V Multijunction Cells,Concentrator,"GaAs/GaSb, mech. Stack",Boeing,32.6,,0.053,da,100,Sandia
+00067,1989-11-01,Hybrid Tandems,III-V/CIS,GaAs/CIS thin film 4 terminal,Kopin/Boeing,25.8,1.3,4,t,1,NREL
+00068,1989-12-01,Single-Junction GaAs,Single crystal,GaAs/GaInP heterojunction,NREL,25.957,,0.17,,1,NREL
+00069,1990-02-01,Crystalline Si Cells,Single crystal (concentrator),"PERL, crystalline",UNSW,23.331,,4.03,ap,1,Sandia
+00070,1990-03-01,Single-Junction GaAs,Single crystal,GaAs (crystalline) AlGaAs window,Kopin,25.351,0.8,3.91,t,1,NREL
+00071,1990-04-01,Single-Junction GaAs,Thin-film crystal,"GaAs (thin film), 5-µm CLEFT",Kopin,23.533,0.7,4,ap,1,NREL
+00072,1990-04-01,Single-Junction GaAs,Single crystal,"InP, (crystalline), epitaxial",Spire,22.1,0.7,4.02,t,1,NREL
+00073,1990-05-01,Crystalline Si Cells,Single crystal (non-concentrator),point contact,Stanford,21.816,,37.5,da,1,Sandia
+00074,1990-08-01,III-V Multijunction Cells,Concentrator,"GaInP/GaInAs, monolithic, 3-terminal",NREL,31.7,1.6,0.063,da,50,NREL
+00075,1990-08-01,III-V Multijunction Cells,Concentrator,InP/GaInAs monolithic 3 terminal,NREL,31.7,1.6,0.063,da,50,NREL
+00076,1990-09-01,Crystalline Si Cells,Single crystal (concentrator),Laser grooved,UNSW,21.7,70,20,da,11,Sandia
+00077,1990-09-01,Crystalline Si Cells,Single crystal (concentrator),PERL prism cover,UNSW,25.048,,1.56,da,21,Sandia
+00078,1990-10-01,III-V Multijunction Cells,Concentrator,"GaAs/GaInAsP, stacked, 4-terminal",NREL,30.2,1.5,0.053,da,40,NREL
+00079,1991-02-01,Emerging PV,Dye-sensitized cells,Nanocrystalline dye,EPFL,6.4,,0.53,,1,NREL
+00080,1991-02-01,Single-Junction GaAs,Concentrator,GaInAsP ENTECH cover,NREL,27.775,1.4,0.075,da,171,NREL
+00081,1991-02-01,Single-Junction GaAs,Concentrator,InP ENTECH cover,NREL,24.543,1.2,0.075,da,99,NREL
+00082,1991-02-01,Single-Junction GaAs,Concentrator,InP grown on GaAs substrate; ENTECH cover,NREL,21.21,1.1,0.075,ap,88,NREL
+00083,1991-03-01,Thin-Film Technologies,CdTe,Glass/SnO2/CdS/CdTe/ZnTe/Ni,Photon Energy,12.954,,0.3,,1,NREL
+00084,1991-05-01,Single-Junction GaAs,Concentrator,,Spire,28.014,,0.126,da,255,Sandia
+00085,1991-05-01,Single-Junction GaAs,Concentrator,GaAs (Si substrate),Spire,21.6195,,0.126,da,237,Sandia
+00086,1991-05-24,Thin-Film Technologies,CdTe,Glass/SnO2/CdS/CdTe/C/Ag,Univ. South Florida,13.668,,1.197,,1,NREL
+00087,1991-08-01,Thin-Film Technologies,CIGS,,Boeing,13.15,,0.979,,1,NREL
+00088,1991-11-19,Thin-Film Technologies,CdTe,MgF2/SnO2/CdS/CdTe/C/Ag,Univ. South Florida,14.892,,1.08,,1,NREL
+00089,1992-01-01,Thin-Film Technologies,(not on chart),a-Si:H/a-Si:H/a-SiGe (stabilized) 12.4% initial,United Solar,10.05,,0.26,,1,
+00090,1992-01-01,Crystalline Si Cells,Multicrystalline,,Georgia Tech,17.877,,1,ap,1,NREL
+00091,1992-01-01,Thin-Film Technologies,Amorphous Si:H (stabilized),a-Si:H/a-Si:H/a-SiGe (stabilized),United Solar,10.05,,0.26,,,
+00092,1992-04-01,Thin-Film Technologies,Amorphous Si:H (stabilized),,Sanyo,12.7,0.4,1,da,1,JQA
+00093,1992-06-01,Thin-Film Technologies,CdTe,MgF2/7059 glass/SnO2/CdS/CdTe/C/Ag,Univ. South Florida,16.014,,1.047,,1,NREL
+00094,1992-06-01,Thin-Film Technologies,CdTe,CdTe CSVT thin film,South Florida,16.116,,1.05,ap,1,NREL
+00095,1992-07-01,Thin-Film Technologies,CIGS,"CIGS thin film, ZnO/CdS/Cu(In,Ga)Se2",Boeing,13.837,,0.9895,ap,1,NREL
+00096,1992-08-01,Thin-Film Technologies,(not on chart),a-Si/a-SiGe monolithic,USSC/Cannon,12.5,,0.26,ap,1,NREL
+00097,1992-11-01,Crystalline Si Cells,Multicrystalline,Bayer wafer,DASA,16.564,,98,t,1,F-ISE
+00098,1992-12-01,Thin-Film Technologies,(not on chart),a-Si/a-SiGe/a-SiGe monolithic,Sharp,12.4,,1,da,1,JMI
+00099,1993-02-01,Thin-Film Technologies,(not on chart),a-Si:H/a-Si:H/a-SiGe (stabilized) 12.2% initial,United Solar,11.1,,0.26,,1,
+00100,1993-02-01,Crystalline Si Cells,Single crystal (concentrator),Rear contact,SunPower,25.957,,1.21,da,74,Sandia
+00101,1993-02-01,Thin-Film Technologies,Amorphous Si:H (stabilized),a-Si:H/a-Si:H/a-SiGe (stabilized),United Solar,11.1,,0.26,,,
+00102,1993-03-01,Crystalline Si Cells,Multicrystalline,mech. Textured,Sharp,17.372,0.3,100,t,1,JQA
+00103,1993-03-01,Crystalline Si Cells,Thin-film crystal,60 µm on SiO2,Mitsubishi,14.342,,100,t,1,JQA
+00104,1993-04-01,Crystalline Si Cells,Single crystal (non-concentrator),PERL,UNSW,21.816,,45.7,ap,1,Sandia
+00105,1993-06-01,III-V Multijunction Cells,Two-junction (non-concentrator),"GaInP/GaAs, monolithic",NREL,29.5,,0.25,t,1,NREL
+00106,1993-06-01,Thin-Film Technologies,CIGS,on glass,NREL,14.039,,6.636,t,1,NREL
+00107,1993-07-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs, monolithic, 2-terminal",NREL,29.7,,0.103,da,350,Sandia
+00108,1993-07-01,Thin-Film Technologies,CIGS,"ZnO/(Cd,Zn)S/Cu(In,Ga)Se2/Mo",EuroCIS,14.1,,1.003,,1,NREL
+00109,1993-08-01,Thin-Film Technologies,CIGS,EuroCIS CIGS/Glass,EuroCIS,14.9,,0.502,,1,NREL
+00110,1993-09-01,Thin-Film Technologies,CIGS,"MgF2/ZnO/CdS/Cu(In,Ga)Se2",NREL,15,,0.422,,1,NREL
+00111,1993-10-01,Thin-Film Technologies,CIGS,"MgF2/ZnO/CdS/Cu(In,Ga)Se2",NREL,15.9,,0.437,,1,NREL
+00112,1994-01-01,Thin-Film Technologies,CIGS,"MgF2/ZnO/CdS/Cu(In,Ga)Se2",NREL,16.4,,0.418,,1,NREL
+00113,1994-03-01,Crystalline Si Cells,Single crystal (non-concentrator),PERL,UNSW,23.735,,4,ap,1,Sandia
+00114,1994-03-01,Crystalline Si Cells,Multicrystalline,,Georgia Tech,17.978,,1,ap,1,Sandia
+00115,1994-03-01,III-V Multijunction Cells,Concentrator,GaInP/GaAs,NREL,30.2,,0.103,da,180,Sandia
+00116,1994-03-01,Thin-Film Technologies,Amorphous Si:H (stabilized),a-Si:H/a-Si:H/a-SiGe (stabilized),United Solar,11.3,,0.26,,,
+00117,1994-04-01,Thin-Film Technologies,(not on chart),a-Si:H/a-Si:H/a-SiGe (stabilized) 12.9% initial,United Solar,11.27,,0.27,,1,
+00118,1994-04-01,Crystalline Si Cells,Thin-film crystal,48-µm epi/thick substrate,"Max Planck Institute, Stuttgart",17.473,,4,ap,1,FhG-ISE
+00119,1994-04-01,Thin-Film Technologies,CIGS,on glass,NREL,17.271,,0.413,t,1,NREL
+00120,1994-09-01,Crystalline Si Cells,Single crystal (non-concentrator),PERL,UNSW,24.24,,4,ap,1,Sandia
+00121,1994-09-01,Crystalline Si Cells,Thin-film crystal,20-µm thick,ANU,17.17,,4.02,ap,1,Sandia
+00122,1994-10-01,Thin-Film Technologies,CIGS,CIGS/Glass,NREL,17.1,,0.413,,1,
+00123,1994-11-01,Thin-Film Technologies,CIGS,on glass,NREL,16.564,0.5,1.025,t,1,NREL
+00124,1994-12-01,Emerging PV,Dye-sensitized cells,photoelectrochemical nanocrystalline dye,EPFL,7.5,,0.53,t,1,FhG-ISE
+00125,1995-02-01,Thin-Film Technologies,(not on chart),a-Si:H/a-Si:H/a-SiGe (stabilized),United Solar,11.5,,0.26,,1,
+00126,1995-02-01,Emerging PV,Dye-sensitized cells,photoelectrochemical nanocrystalline dye,EPFL,8.6,,0.53,t,1,NREL
+00127,1995-02-01,Thin-Film Technologies,Amorphous Si:H (stabilized),a-Si:H/a-Si:H/a-SiGe (stabilized),United Solar,11.5,,0.26,,,
+00128,1995-04-01,Thin-Film Technologies,CIGS,CIGS/Glass,NREL,17.6,,0.433,,1,
+00129,1995-05-01,Crystalline Si Cells,Thin-film crystal,CVD/CZ substrate,UNSW,17.776,,4,ap,1,Sandia
+00130,1995-05-01,Crystalline Si Cells,Thin-film crystal,LPE/FZ substrate (48 µm),ANU,18.281,,4.04,ap,1,Sandia
+00131,1995-08-01,Crystalline Si Cells,Thin-film crystal,47-µm thick,UNSW,21.715,0.5,4.044,ap,1,Sandia
+00132,1995-10-01,Crystalline Si Cells,Single crystal (concentrator),back-contact,SunPower,27.068,,1.6,ap,96,FhG-ISE
+00133,1995-11-01,Single-Junction GaAs,Single crystal,GaAs (Ge substrate) multicrystalline,RTI,18.4,0.5,4.011,t,1,NREL
+00134,1995-12-01,Crystalline Si Cells,Single crystal (non-concentrator),PERL,UNSW,23.432,,22.13,da,1,Sandia
+00135,1995-12-01,Crystalline Si Cells,Multicrystalline,Heat exchanger method,Georgia Tech,18.786,0.6,1,ap,1,NREL
+00136,1996-03-01,Thin-Film Technologies,CIGS,"MgF2/ZnO/CdS/Cu(In,Ga)Se2 ;  ASTM E 892-87 spectrum",NREL,17.7,,0.41,,1,
+00137,1996-03-01,Thin-Film Technologies,CIGS,on glass,NREL,17.877,0.5,0.413,t,1,NREL
+00138,1996-04-01,III-V Multijunction Cells,Two-junction (non-concentrator),"GaInP/GaAs, monolithic",Japan Energy,30.3,,4,t,1,JQA
+00139,1996-05-01,Crystalline Si Cells,Single crystal (non-concentrator),PERL,UNSW,23.634,,22.1,da,1,Sandia
+00140,1996-08-01,Crystalline Si Cells,Single crystal (non-concentrator),PERL,UNSW,23.9,0.5,22.1,da,1,Sandia
+00141,1996-09-01,Thin-Film Technologies,Amorphous Si:H (stabilized),a-Si:H/a-Si:H/a-SiGe (stabilized),United Solar,12.04,,0.26,,,
+00142,1996-10-01,Thin-Film Technologies,(not on chart),a-Si:H/a-Si:H/a-SiGe (stabilized) 13.4% initial efficiency,United Solar,12.04,,0.27,,1,NREL
+00143,1996-10-01,Thin-Film Technologies,(not on chart),a-Si/a-Si/a-SiGe,USSC,13.5,0.7,0.27,da,1,NREL
+00144,1996-10-01,Crystalline Si Cells,Single crystal (non-concentrator),Cz substrate,Fraunhofer ISE,21.917,,4,ap,1,FhG-ISE
+00145,1996-12-01,Crystalline Si Cells,Single crystal (non-concentrator),Cz substrate,Fraunhofer ISE,22.22,0.4,4,da,1,FhG-ISE
+00146,1996-12-01,Emerging PV,Dye-sensitized cells,photoelectrochemical nanocrystalline dye,EPFL,11.1,0.5,0.25,ap,1,FhG-ISE
+00147,1997-01-01,Thin-Film Technologies,(not on chart),a-Si:H/a-Si:H/a-SiGe (stabilized),United Solar,12.1,,0.27,,1,NREL
+00148,1997-01-01,Emerging PV,Dye-sensitized cells,Nanocrystalline dye,INAP,6.6,0.3,1.6,ap,1,FhG-ISE
+00149,1997-02-01,Crystalline Si Cells,Thin-film crystal,3.5 µm on glass,Kaneka,9.494,0.2,1,ap,1,JQA
+00150,1997-02-01,Crystalline Si Cells,Thin-film crystal,77-µm thick,Mitsubishi,16.16,0.2,95.8,ap,1,JQA
+00151,1997-03-01,Crystalline Si Cells,Multicrystalline,Eurosolare wafer,Fraunhofer ISE,17.574,0.4,21.2,t,1,FhG-ISE
+00152,1997-03-01,Crystalline Si Cells,Thin-film crystal,Si supported film,AstroPower,16.766,0.5,0.98,ap,1,NREL
+00153,1997-03-01,Thin-Film Technologies,CdTe,3.5 µm CSS,Matsushita,16.32,0.2,1,ap,1,JQA
+00154,1997-04-01,Crystalline Si Cells,Thin-film crystal,"CVD-SOI (Si on oxide); 46-µm thick, front contacted",Fraunhofer ISE,19.392,0.4,4,ap,1,FhG-ISE
+00155,1997-04-01,Thin-Film Technologies,CdTe,3.5 µm CdTe CSS [JQA],Matsushita,16.32,,1,,1,
+00156,1997-05-01,Crystalline Si Cells,Thin-film crystal,30 µm on SiC-graphite,ASE/ISE,11.11,0.3,1.03,ap,1,FhG-ISE
+00157,1997-12-01,Crystalline Si Cells,Thin-film crystal,2-µm on glass,Kaneka,10.201,0.2,1.199,ap,1,JQA
+00158,1998-02-01,Crystalline Si Cells,Single crystal (non-concentrator),PERL,UNSW,24.644,0.5,4,da,1,Sandia
+00159,1998-02-01,Crystalline Si Cells,Multicrystalline,,UNSW/Eurosolare,19.998,0.5,1.09,ap,1,Sandia
+00160,1998-11-01,Crystalline Si Cells,Single crystal (non-concentrator),PERL,UNSW,24.745,0.5,4,da,1,Sandia
+00161,1998-12-01,Thin-Film Technologies,CIGS,on glass,NREL,18.988,0.5,0.449,t,1,NREL
+00162,1998-12-28,Thin-Film Technologies,CIGS,"ZnO/CdS/Cu(In,Ga)Se2 ;  ASTM E 892-87 spectrum",NREL,18.8,,0.4387,,1,
+00163,1999-02-01,Crystalline Si Cells,Thin-film crystal,28-8µm thick,"Univ. Stuttgart, IPE",14.14,0.4,3.94,ap,1,FhG-ISE
+00164,1999-02-01,Thin-Film Technologies,CIGS,on glass,NREL,18.382,0.5,1.129,t,1,NREL
+00165,1999-03-01,Crystalline Si Cells,Single crystal (non-concentrator),Si PERL top/rear contacts,UNSW,25,0.5,4,da,1,Sandia
+00166,1999-05-19,Thin-Film Technologies,CdTe,W344-A,NREL,16.116,,0.6471,,1,
+00167,1999-07-01,Crystalline Si Cells,Single crystal (non-concentrator),Magnetically confined CZ PERT SEH technique,UNSW,24.745,0.5,4,da,1,Sandia
+00168,1999-07-01,Crystalline Si Cells,Single crystal (non-concentrator),Ga-doped CZ using SEH  technique,Fraunhofer ISE,22.725,0.5,4.011,ap,1,FhG-ISE
+00169,1999-07-01,Thin-Film Technologies,CIGS,CIGS/Glass [FhG-ISE],NREL,18.9,,0.4049,,1,
+00170,1999-09-01,III-V Multijunction Cells,Three-junction or more (non-concentrator),"GaInP/GaAs/Ge, monolithic",Spectrolab,28.7,1.4,29.93,t,1,NREL
+00171,1999-09-01,III-V Multijunction Cells,Concentrator,GaInP/GaAs/Ge,Spectrolab,32.3,2,0.104,da,47,NREL
+00172,1999-11-01,Thin-Film Technologies,Amorphous Si:H (stabilized),a-Si:H/a-Si:H/a-SiGe (stabilized),United Solar,12.15,,0.26,,,
+00173,1999-12-01,Thin-Film Technologies,(not on chart),a-Si:H/a-Si:H/a-SiGe (stabilized) 13.5% initial efficiency,United Solar,12.15,,0.26,,1,NREL
+00174,2000-06-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs/Ge, monolithic",Spectrolab,32.4,2,0.1025,da,414,NREL
+00175,2000-08-01,Crystalline Si Cells,Silicon heterostructures (HIT),HIT n-type CZ substrate,Sanyo,20.907,0.3,100.5,t,1,JQA
+00176,2000-09-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs/Ge, monolithic",Spectrolab,30.6,1.5,1.05,da,234,NREL
+00177,2000-10-01,III-V Multijunction Cells,Three-junction or more (non-concentrator),"GaInP/GaAs/Ge, tandem, monolithic",Spectrolab,31,1.5,0.2496,t,1,NREL
+00178,2000-11-25,Thin-Film Technologies,CIGS,"ZnO/CdS/Cu(In,Ga)Se2 ;  Original ASTM E 892-87 spectrum",NREL,19.2,,0.408,,1,
+00179,2001-01-01,Crystalline Si Cells,Thin-film crystal,24-µm thick,U. Stuttgart,15.453,0.4,1.015,ap,1,FhG-ISE
+00180,2001-02-01,Thin-Film Technologies,CdTe,on glass,NREL,16.728,0.5,1.131,ap,1,NREL
+00181,2001-02-01,Thin-Film Technologies,CIGS (concentrator),,NREL,21.8,1.5,0.102,da,14,NREL
+00182,2001-02-01,Thin-Film Technologies,CIGS,on glass,NREL,18.584,0.5,1.04,t,1,NREL
+00183,2001-02-01,Thin-Film Technologies,CIGS (concentrator),"thin  film, ZnO/CdS/CIGS",NREL,21.715,1.5,1.02,da,14.05,NREL
+00184,2001-03-01,Crystalline Si Cells,Silicon heterostructures (HIT),HIT n-type CZ substrate,Sanyo,21.21,0.3,100,t,1,JQA
+00185,2001-03-01,Emerging PV,Organic cells,Organic,Linz,2.8,,,,,FhG-ISE
+00186,2001-06-01,III-V Multijunction Cells,Concentrator,"GaInP/GaInAs/GaSb, mech. stack, 4-terminal",Fraunhofer ISE,33.5,1.7,0.1326,da,308,FhG-ISE
+00187,2001-06-01,III-V Multijunction Cells,Concentrator,"GaInP/GaInAs,monolithic, 2-terminal",Fraunhofer ISE,30.2,1.2,0.1326,da,300,NREL/FhG-ISE
+00188,2001-07-01,Crystalline Si Cells,Thin-film crystal,45-µm thick,U. Stuttgart,16.7,0.4,4.017,ap,1,FhG-ISE
+00189,2001-07-01,Emerging PV,Dye-sensitized cells,Nanocrystalline dye,ECN,8.3,0.3,2.36,ap,1,FhG-ISE
+00190,2001-07-01,Thin-Film Technologies,CIGS,on glass,NREL,19.089,0.6,0.4049,ap,1,FhG-ISE
+00191,2001-09-01,Thin-Film Technologies,CdTe,mesa on glass,NREL,16.7,0.5,1.032,ap,1,NREL
+00192,2002-02-01,Crystalline Si Cells,Multicrystalline,Photowatt safer (mechanically textured),"University of Konstan, BP Solar",17.675,0.5,143.6,t,1,FhG-ISE
+00193,2002-09-01,Crystalline Si Cells,Single crystal (non-concentrator),Laser grooved,BP Solar,18.483,0.5,147.5,t,1,FhG-ISE
+00194,2002-11-03,Thin-Film Technologies,CIGS,"ZnO/CdS/Cu(In,Ga)Se2 ;  Original ASTM E 892-87 spectrum",NREL,19.3,,0.406,,1,
+00195,2003-01-01,III-V Multijunction Cells,Three-junction or more (non-concentrator),"GaInP/GaAs/Ge, monolithic",Spectrolab,32,1.5,3.989,t,1,NREL
+00196,2003-01-01,III-V Multijunction Cells,Three-junction or more (non-concentrator),"GaInP/GaInAs/Ge, tandem, monolithic, metamorphic",Spectrolab,31.3,1.5,4,t,1,NREL
+00197,2003-02-01,III-V Multijunction Cells,Concentrator,GaInP/GaAs/Ge,Spectrolab,35.2,1.5,0.266,da,66.3,NREL
+00198,2003-04-01,Emerging PV,Organic cells,Organic,Linz,3.1,,,,,FhG-ISE
+00199,2003-04-01,Thin-Film Technologies,Amorphous Si:H (stabilized),"stabilized, explaining the drop",University of Neuchatel,9.5,0.3,1.07,ap,1,NREL
+00200,2003-06-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs/Ge, monolithic; 2-terminal",Spectrolab,36.9,1.8,0.2665,da,309,NREL
+00201,2003-07-01,Crystalline Si Cells,Multicrystalline,Photowatt wafer (mechanically textured),"University of Konstan, BP Solar",17.776,0.5,144,t,1,FhG-ISE
+00202,2003-07-01,Thin-Film Technologies,CIGS,on glass,NREL,19.392,0.6,0.408,ap,1,NREL
+00203,2003-09-01,Crystalline Si Cells,Single crystal (non-concentrator),Floatzone commercial,SunPower,21.715,0.6,148.9,t,1,NREL
+00204,2003-09-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs/Ge, monolithic; 2-terminal; direct spectrum",Spectrolab,34.7,1.7,0.2665,da,333,NREL
+00205,2003-11-01,Emerging PV,Organic cells,Organic,Groningen,4,,,,,
+00206,2004-01-01,Emerging PV,Organic cells,Organic,Siemens,4.65,,0.05,,,FhG-ISE
+00207,2004-03-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs/Ge, monolithic; 2-terminal",Spectrolab,37.3,1.9,0.2639,da,175,NREL
+00208,2004-05-01,Crystalline Si Cells,Multicrystalline,,Fraunhofer ISE,20.4,0.5,1.002,ap,1,NREL
+00209,2004-08-18,Thin-Film Technologies,CIGS,"ZnO/CdS/Cu(In,Ga)Se2 ;  ASTM E 892-87 spectrum: Published Prog.Photovolt.: 13, 209 (2005) (Also measured at ISE with same efficiency--date is 9/04 there)",NREL,19.5,,0.41,,1,
+00210,2004-09-01,Thin-Film Technologies,CIGS,on glass,NREL,19.695,0.6,0.41,ap,1,FhG-ISE
+00211,2004-12-01,Crystalline Si Cells,Silicon heterostructures (HIT),HIT n-type CZ substrate,Sanyo,21.715,0.3,100.3,t,1,AIST
+00212,2005-04-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs/GaInAs, monolithic; 2-terminal",NREL,37.9,2.3,0.2428,da,10,NREL
+00213,2005-05-01,III-V Multijunction Cells,Concentrator,GaInP/GaInAs/Ge; 2-terminal; metamorphic,Spectrolab,38.8,2.3,0.254,da,241,NREL
+00214,2005-05-01,III-V Multijunction Cells,Concentrator,"GaInP/GaInAs/Ge, monolithic; 2-terminal",Spectrolab,39,2.3,0.2691,da,236,NREL
+00215,2005-05-01,Single-Junction GaAs,Thin-film crystal,GaAs - thin film - epitaxial liftoff,"Radboud U., Nijmegen, NL",24.745,0.5,1.002,t,1,FhG-ISE
+00216,2005-07-01,Emerging PV,Organic cells,"Organic polymer (small), PCBM blend",Konarka,4.8,0.2,0.142,ap,1,NREL
+00217,2005-08-01,Crystalline Si Cells,Multicrystalline,Laser grooved,U. Konstanz,18.281,0.5,137.7,t,1,FhG-ISE
+00218,2005-08-01,Emerging PV,Dye-sensitized cells,Nanocrystalline dye,Sharp,10.5,0.3,1.004,ap,1,AIST
+00219,2005-12-01,Crystalline Si Cells,Silicon heterostructures (HIT),,Sanyo,22.22,,,,1,
+00220,2006-02-01,Thin-Film Technologies,CIGS,"ZnO/CdS/Cu(In,Ga)Se2",NREL,19.7,,0.419,,1,
+00221,2006-02-01,Thin-Film Technologies,CIGS,on glass,NREL,18.988,0.5,0.998,ap,1,NREL
+00222,2006-03-01,Crystalline Si Cells,Single crystal (non-concentrator),FZ substrate,SunPower,22,0.7,147.4,t,1,FhG-ISE
+00223,2006-03-01,Emerging PV,Dye-sensitized cells,Dye sensitized,Sharp,11.2,0.3,0.219,ap,1,AIST
+00224,2006-03-01,Emerging PV,Organic cells,"Organic polymer, fullerene derivative",Sharp,3,0.1,1.001,ap,1,AIST
+00225,2006-04-01,Crystalline Si Cells,Silicon heterostructures (HIT),HIT n-type CZ substrate,Sanyo,22.018,0.5,100.4,t,1,AIST
+00226,2006-04-01,Crystalline Si Cells,Thin-film crystal,1-2 µm on glass; 20 cells,CSG Solar,9.494,0.3,94.9,ap,1,Sandia
+00227,2006-08-01,Crystalline Si Cells,Single crystal (non-concentrator),Si n-type top/rear contacts,Fraunhofer ISE,25.3,0.3,4.014,da,1,FhG-ISE
+00228,2006-08-01,Crystalline Si Cells,Thin-film crystal,1-2 µm on glass; 20 cells,CSG Solar,9.898,0.3,96.3,ap,1,Sandia
+00229,2006-08-01,III-V Multijunction Cells,Concentrator,"GaInP/GaInAs/Ge, 2-terminal; lattice-mismatched",Spectrolab,39.4,2.3,0.378,da,179,NREL
+00230,2006-08-01,Thin-Film Technologies,CIGS,on glass,NREL,18.988,0.6,0.998,ap,1,FhG-ISE
+00231,2006-09-01,III-V Multijunction Cells,Concentrator,"GaInP/GaInAs/Ge, 2-terminal; lattice-mismatched",Spectrolab,40.7,2.4,0.267,da,240,NREL
+00232,2006-12-01,Emerging PV,Organic cells,Organic polymer,Konarka,5.15,0.3,1.021,ap,1,NREL
+00233,2007-01-01,III-V Multijunction Cells,Three-junction or more (non-concentrator),"GaInP/Ga(In)As/GaInAs, tandem, monolithic",NREL,33.8,2,0.25,t,1,NREL
+00234,2007-07-01,Crystalline Si Cells,Silicon heterostructures (HIT),HIT n-type CZ substrate,Sanyo,22.5,0.6,100.5,t,1,AIST
+00235,2007-07-01,Emerging PV,Organic cells,Organic,Plextronics,5.4,0.3,0.096,ap,1,NREL
+00236,2007-08-01,Crystalline Si Cells,Thin-film crystal,1-2 µm on glass; 20 cells,CSG Solar,10.5,0.3,94,ap,1,FhG-ISE
+00237,2007-09-01,Crystalline Si Cells,Single crystal (concentrator),back contact,Amonix,27.6,1,1,da,93,FhG-ISE
+00238,2007-10-01,Thin-Film Technologies,CIGS,on glass,NREL,20,0.6,0.419,ap,1,NREL
+00239,2007-10-16,Thin-Film Technologies,CIGS,"ZnO/CdS/Cu(In,Ga)Se2",NREL,20,,0.419,,1,
+00240,2007-12-01,Crystalline Si Cells,Thin-film crystal,Si thin film crystal,U. Stuttgart,17.069,0,1.367,,1,FhG-ISE
+00241,2007-12-01,Single-Junction GaAs,Single crystal,GaAs Crystalline - on wafer,Radboud U. Nijmegen,26.1,0.8,0.998,ap,1,FhG-ISE
+00242,2008-01-01,Thin-Film Technologies,CIGS,on glass,NREL,19.4,0.6,0.994,ap,1,NREL
+00243,2008-02-01,Crystalline Si Cells,Silicon heterostructures (HIT),HIT n-type substrate,Sanyo,23,0.6,100.4,t,1,AIST
+00244,2008-02-01,Crystalline Si Cells,Multicrystalline,Honeycomb multicrystalline,Mitsubishi Electric,18.7,0.6,217.4,t,1,AIST
+00245,2008-04-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs/GaInAs, inverted monolithic",NREL,40.1,2.4,0.0976,da,143,NREL
+00246,2008-07-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs/GaInAs, 2-terminal, inverted monolithic",NREL,40.8,2.4,0.0976,da,140,NREL
+00247,2008-07-01,Single-Junction GaAs,Thin-film crystal,GaAs - thin film - epitaxial liftoff,Radboud U. Nijmegen,26.1,0.8,1.001,ap,1,FhG-ISE
+00248,2008-08-01,Emerging PV,Organic tandem cells,Organic tandem,TU Dresden,3.7,,0.0425,,1,NREL
+00249,2008-08-01,Emerging PV,Organic cells,Organic cells various types,Plextronics,5.8,,0.044,,1,NREL
+00250,2008-09-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs, 2-terminal",U. Polytecnica de Madrid,32.6,2,0.01,da,1026,FhG-ISE
+00251,2008-12-01,Emerging PV,Organic cells,Active layer polymer/fullerene blend,Konarka,6.4,0.3,0.759,ap,1,NREL
+00252,2009-01-01,III-V Multijunction Cells,Concentrator,"GaInP/GaInAs/Ge, 2-terminal, metamorphic",Fraunhofer ISE,41.1,2.5,0.0509,da,454,FhG-ISE
+00253,2009-01-01,Single-Junction GaAs,Concentrator,,Fraunhofer ISE,28.8,1.2,0.0504,da,232,FhG-ISE
+00254,2009-03-01,Thin-Film Technologies,(not on chart),"a-Si:H/nc-Si:H/nc-Si:H, stabilized, tandem cell stack",United Solar,12.5,0.7,0.27,da,1,NREL
+00255,2009-03-01,Thin-Film Technologies,Amorphous Si:H (stabilized),a-Si:H/nc-Si/nc-Si (stabilized),United Solar,12.4,,0.26,,,
+00256,2009-04-01,Emerging PV,Organic tandem cells,Organic tandem,Heliatek; TU Dresden,5.9,,1.974,,1,NREL
+00257,2009-04-01,Thin-Film Technologies,CIGS,CIGS on glass,NREL,19.6,0.6,0.996,ap,1,NREL
+00258,2009-05-01,Emerging PV,Organic cells,Organic cells various types,Solarmer,6.8,,0.0473,,1,NREL
+00259,2009-07-01,Crystalline Si Cells,Multicrystalline,Honeycomb multicrystalline,Mitsubishi Electric,19.1,0.5,217.6,t,1,AIST
+00260,2009-07-01,Crystalline Si Cells,Multicrystalline,Honeycomb multicrystalline,Mitsubishi Electric,19.3,0.5,217.7,t,1,AIST
+00261,2009-07-01,Emerging PV,Organic tandem cells,OPV 2-cell tandem,Heliatek,6.1,0.2,1.989,,1,FhG-ISE
+00262,2009-07-01,Thin-Film Technologies,Amorphous Si:H (stabilized),amorphous,"Oerliken Solar Lab, Neuchatel",10.1,0.3,1.036,ap,1,NREL
+00263,2009-08-01,III-V Multijunction Cells,Concentrator,"GaInP/GaInAs/Ge, 2-terminal, lattice-matched",Spectrolab,41.6,2.5,0.3174,da,364,NREL
+00264,2009-08-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs; GaInAsP/GaInAs, 4-terminal, split spectrum",U. Delaware,36.1,2.2,0.313,ap,30,NREL
+00265,2009-08-01,Emerging PV,CZTSSe cells,CZTSS thin film solution growth,IBM,9.7,0.3,0.4362,ap,1,NREL
+00266,2009-09-01,III-V Multijunction Cells,Three-junction or more (non-concentrator),"GaInP/GaAs/GaInAs, tandem, Monolithic",Sharp,35.8,1.5,0.88,ap,1,AIST
+00267,2009-09-01,III-V Multijunction Cells,Three-junction or more (non-concentrator),"GaInP/GaInAs/Ge, monolithic",AZUR,34.1,1.2,30.17,t,1,FhG-ISE
+00268,2009-10-14,Emerging PV,Organic cells,Organic,Solarmer,7.6,,0.0401,,,Newport
+00269,2009-11-01,Emerging PV,Organic cells,Organic,Solarmer,7.9,0.3,0.0441,ap,1,NREL
+00270,2009-12-01,Thin-Film Technologies,(not on chart),a-Si:H/nc-Si:H/nc-Si:H,USSC,13.4,0,0.267,,1,NREL
+00271,2010-02-01,Emerging PV,Quantum dot cells,ZnO/PbS-QD,NREL,2.9,,,,,NREL
+00272,2010-03-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs/GaInAs, 2-terminal, bi-facial epigrowth",Spire,41.3,2.5,1.008,ap,343,NREL
+00273,2010-03-01,Single-Junction GaAs,Concentrator,GaAs,Fraunhofer ISE,29.1,1.3,0.0505,da,117,FhG-ISE
+00274,2010-03-01,Single-Junction GaAs,Single crystal,(Crystalline),Fraunhofer ISE,26.4,0.8,1.006,t,1,FhG-ISE
+00275,2010-04-01,Thin-Film Technologies,CIGS,CIGS on glass,ZSW Stuttgart,20.1,0.6,0.503,t,1,FhG-ISE
+00276,2010-04-10,Thin-Film Technologies,CIGS,CIGS on glass [FhG-ISE],ZSW,20.1,,0.503,,1,
+00277,2010-05-01,Crystalline Si Cells,Single crystal (non-concentrator),n-type CZ substrate,SunPower,24.2,0.7,155.1,t,1,NREL
+00278,2010-06-01,Thin-Film Technologies,CIGS,CIGS on glass,ZSW Stuttgart,20.3,0.6,0.5015,ap,1,FhG-ISE
+00279,2010-07-01,Emerging PV,Organic cells,Organic cells various types,Solarmer,8.1,,0.0388,,1,NREL
+00280,2010-08-01,Thin-Film Technologies,(not on chart),a-Si/µc-Si (thin film cell),"Oerliken Solar Lab, Neuchatel",11.9,0.8,1.227,,1,NREL
+00281,2010-08-01,Thin-Film Technologies,CIGS,New CIGS on glass [FhG-ISE],ZSW,20.3,,0.5015,,1,
+00282,2010-09-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs/GaInAs, 2-terminal, bi-facial epigrowth",Spire,42.3,2.5,0.9756,ap,406,NREL
+00283,2010-10-01,Emerging PV,Organic tandem cells,2-cell tandem,Heliatek,8.3,0.3,1.087,ap,1,FhG-ISE
+00284,2010-11-01,Emerging PV,Organic cells,polymer,Konarka,8.3,0.3,1.031,ap,1,NREL
+00285,2010-11-01,Single-Junction GaAs,Thin-film crystal,GaAs - thin film - epitaxial liftoff,Alta Devices,27.6,0.8,0.9989,ap,1,NREL
+00286,2010-12-01,Emerging PV,CZTSSe cells,"CZTSSe, Cu2ZnSnS4-ySey thin film solution grown",IBM,10.1,0.2,0.448,ap,1,Newport
+00287,2011-01-01,Emerging PV,Dye-sensitized cells,Dye sensitized,Sharp,10.9,0.3,1.008,da,1,AIST
+00288,2011-02-01,Crystalline Si Cells,Thin-film crystal,43-µm thick thin film,ISFH,19.1,0.4,3.983,ap,1,FhG-ISE
+00289,2011-03-01,Thin-Film Technologies,(not on chart),a-Si/nc-Si/nc-Si thin film,United Solar,12.4,0.7,1.05,ap,1,NREL
+00290,2011-03-01,Crystalline Si Cells,Multicrystalline,Si laser fired contacts,Q-Cells,19.5,0.4,242.7,t,1,FhG-ISE
+00291,2011-03-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs/GaInNAs, 2-terminal",Solar Junction,43.5,2.6,0.3124,ap,418,NREL
+00292,2011-03-01,Single-Junction GaAs,Thin-film crystal,GaAs - thin film - epitaxial liftoff,Alta Devices,28.1,0.8,0.998,ap,1,NREL
+00293,2011-03-09,Emerging PV,Quantum dot cells,ZnO/PbS Quantum Dot,NREL,4.4,,0.029,,1,NREL
+00294,2011-04-01,Emerging PV,CZTSSe cells,"CZTS thermal evaporation, Cu2ZnSnS4",IBM,8.4,0.2,0.4463,ap,1,Newport
+00295,2011-05-01,Crystalline Si Cells,Silicon heterostructures (HIT),HIT n-type substrate,Sanyo,23.7,0.6,100.7,t,1,AIST
+00296,2011-06-01,Emerging PV,Dye-sensitized cells,Dye sensitized,NIMS,11.4,0.3,0.231,ap,1,AIST
+00297,2011-07-01,Thin-Film Technologies,(not on chart),a-Si/nc-Si thin film,Kaneka,12.3,0.3,0.962,ap,1,AIST
+00298,2011-07-01,Thin-Film Technologies,CdTe,CdTe on glass,First Solar,17.3,0.5,1.066,ap,1,NREL
+00299,2011-08-01,Emerging PV,Organic tandem cells,Tandem,UCLA,8.6,,0.103,,1,NREL
+00300,2011-08-01,Single-Junction GaAs,Thin-film crystal,GaAs - thin film - epitaxial liftoff,Alta Devices,28.3,0.8,0.9944,ap,1,NREL
+00301,2011-09-01,Emerging PV,Quantum dot cells,PbS-QD,U. Toronto,5.1,,,,,
+00303,2011-09-01,III-V Multijunction Cells,Three-junction or more (non-concentrator),"GaInP/GaAs/GaInAs,tandem, Monolithic",Sharp,36.9,1.5,0.891,ap,1,AIST
+00302,2011-09-01,Emerging PV,Dye-sensitized cells,Dye sensitized,Sharp,11,0.3,1.007,da,1,AIST
+00304,2011-10-01,Emerging PV,Organic cells,thin film,Mitsubishi Chemical,10,0.3,1.021,ap,1,AIST
+00305,2011-12-01,Emerging PV,Organic tandem cells,Tandem,Heliatek,9.8,,0.0802,,1,NREL
+00306,2012-01-01,Emerging PV,Organic tandem cells,OPV tandem,UCLA-Sumitomo,10.6,0.3,0.103,ap,1,NREL
+00307,2012-02-01,Crystalline Si Cells,Silicon heterostructures (HIT),HIT n-type,Panasonic,23.9,0.6,102.7,t,1,AIST
+00308,2012-02-01,III-V Multijunction Cells,Three-junction or more (non-concentrator),GaInP/GaAs/GaInAs,Sharp,37.5,1.3,1.046,ap,1,AIST
+00309,2012-02-01,Emerging PV,CZTSSe cells,CZTSS thin film solution growth,IBM,11.1,0.3,0.4496,ap,1,Newport
+00310,2012-03-07,Emerging PV,Quantum dot cells,Colloidal Quantum Dot,U. Toronto,7,0.2,0.0453,,1,Newport
+00311,2012-04-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs/GaInAs, inverted metamorphic",Sharp,43.5,2.6,0.167,da,306,FhG-ISE
+00312,2012-05-01,Single-Junction GaAs,Thin-film crystal,GaAs - thin film - epitaxial liftoff,Alta Devices,28.8,0.9,0.9927,ap,1,NREL
+00313,2012-06-01,Thin-Film Technologies,Amorphous Si:H (stabilized),a-Si thin film,Oerlikon Solar Lab/Neuchatel,10.1,0.3,1.036,ap,1,NREL
+00314,2012-07-01,Thin-Film Technologies,(not on chart),a-Si/nc-Si/nc-Si thin film,LG Electronics,13.4,0.4,1.006,ap,1,NREL
+00315,2012-08-01,Crystalline Si Cells,Thin-film crystal,Si thin-film crystal,Solexel,19.6,0,242.6,,1,NREL
+00318,2012-09-01,III-V Multijunction Cells,Three-junction or more (non-concentrator),GaInP/GaAs/GaInAs,Sharp,37.7,1.2,1.047,ap,1,AIST
+00316,2012-09-01,Crystalline Si Cells,Thin-film crystal,Si thin-film crystal,Solexel,19.9,0,242.6,,1,NREL
+00317,2012-09-01,Emerging PV,Dye-sensitized cells,Dye sensitized,Sharp,11.9,0.4,1.005,da,1,AIST
+00319,2012-09-01,Single-Junction GaAs,Single crystal,"InP, Crystalline cell",NREL,24.2,0.5,1.008,ap,1,NREL
+00320,2012-09-01,Thin-Film Technologies,CIGS,Flexible CIGS on polymide,EMPA,20.4,0.6,0.5203,ap,1,FhG-ISE
+00321,2012-10-01,Crystalline Si Cells,Thin-film crystal,43-µm thick thin film,Solexel,20.1,0.4,242.6,ap,1,NREL
+00322,2012-10-01,Emerging PV,Organic cells,thin film,Mitsubishi Chemical,11.1,0.3,0.159,ap,1,AIST
+00323,2012-10-01,Emerging PV,Organic cells,"thin film, 4.4mmX23.0mm",Mitsubishi Chemical,10.7,0.3,1.013,da,1,AIST
+00324,2012-10-01,III-V Multijunction Cells,Concentrator,GaInP/GaAs/GaInNAs,Solar Junction,44,3,0.3104,ap,942,NREL
+00325,2012-10-01,Thin-Film Technologies,CdTe,CdTe,GE Global Research,18.3,0.5,1.005,ap,1,NREL
+00326,2012-11-01,Thin-Film Technologies,CIGS,CIGSS (Cd-free),Showa Shell/Tokyo U. of Science,19.7,0.5,0.496,da,1,AIST
+00327,2012-12-01,Crystalline Si Cells,Silicon heterostructures (HIT),HIT n-type,Panasonic,24.7,0.5,101.8,t,1,AIST
+00328,2012-12-01,Crystalline Si Cells,Thin-film crystal,Si nanocrystalline 1.8 µm on glass,"EPFL, Neuchatel",10.7,0.2,1.044,da,1,FhG-ISE
+00329,2012-12-01,Thin-Film Technologies,CdTe,CdTe,First Solar,18.7,,0.48,,1,NREL
+00330,2013-01-01,Crystalline Si Cells,Single crystal (concentrator),Silicon 12 point focus cells module,Sandia/UNSW/ENTECH,20.5,0.8,1875,ap,79,
+00332,2013-01-01,Emerging PV,CZTSSe cells,"CZTS thin film, Cu2ZnSnS4",Toyota Central R&D Laboratories,8.5,0.2,0.2382,da,1,AIST
+00331,2013-01-01,III-V Multijunction Cells,Two-junction (non-concentrator),"GaAs with epitaxial lift off,  thin film",Alta Devices,30.8,,0.999,,1,NREL
+00333,2013-02-01,III-V Multijunction Cells,Three-junction or more (non-concentrator),GaInP/GaAs/GaInAs,Sharp,37.9,1.2,1.047,ap,1,AIST
+00334,2013-04-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs/GaInAs, inverted metamorphic",Sharp,44.4,2.6,0.1652,da,302,FhG-ISE
+00335,2013-05-01,Emerging PV,Perovskite cells,"thin film, CH3NH3PbI3, perovskite methylammonium triodideplumbate",EPFL,14.1,0.3,0.209,ap,1,Newport
+00336,2013-05-01,III-V Multijunction Cells,Concentrator,Bonded 4-junction,Soitec,43.6,,0.052,,319,FhG-ISE
+00338,2013-05-01,Single-Junction GaAs,Single crystal,"GaInP, high band gap",NREL,20.8,0.6,0.2491,ap,1,NREL
+00337,2013-05-01,III-V Multijunction Cells,Two-junction (non-concentrator),"GaInP/GaAs, monolithic, 2-terminal, thin film",NREL,31.1,,0.248,,1,NREL
+00339,2013-05-01,Thin-Film Technologies,CdTe,CdTe,First Solar,19.1,,0.486,,1,Newport
+00340,2013-06-01,Thin-Film Technologies,CdTe,CdTe,GE Global Research,19.6,0.4,1.0055,ap,1,Newport
+00341,2013-07-01,III-V Multijunction Cells,Three-junction or more (non-concentrator),"GaAs/InP, bonded, 2.17/1.68/1.40/1.06/0.73 eV",Spectrolab,38.8,1.2,1.021,ap,1,NREL
+00343,2013-07-01,Emerging PV,CZTSSe cells,CZTSS thin film solution growth,IBM,12,0.3,0.4348,ap,1,Newport
+00344,2013-08-01,Thin-Film Technologies,CIGS (concentrator),CIGS thin film,NREL,22.8,0.9,0.1,ap,15,NREL
+00342,2014-04-01,Emerging PV,CZTSSe cells,CZTSS thin film solution growth,IBM,12.6,0.3,0.4209,ap,1,Newport
+00346,2013-09-01,Thin-Film Technologies,Amorphous Si:H (stabilized),Si microcrystalline,AIST,10.8,0.3,1.045,da,1,AIST
+00347,2013-10-01,III-V Multijunction Cells,Concentrator,Bonded 4-junction,Soitec,44.7,,0.052,,297,FhG-ISE
+00345,2013-08-01,Thin-Film Technologies,CIGS (concentrator),thin film,NREL,22.8,0.9,0.1,ap,15.4,NREL
+00348,2013-10-01,Thin-Film Technologies,CIGS,CIGS on glass,ZSW Stuttgart,20.8,0.6,0.5005,ap,1,FhG-ISE
+00350,2013-11-01,Thin-Film Technologies,CIGS,CIGS on glass,NREL,19.8,0.6,0.9974,ap,1,NREL
+00349,2013-10-24,Emerging PV,Quantum dot cells,Colloidal Quantum Dot,MIT,8.55,0.18,0.0137,,1,Newport
+00352,2013-12-01,III-V Multijunction Cells,Concentrator,GaInP/GaAs,NREL,34.1,,0.0994,,467,NREL
+00351,2013-12-01,Emerging PV,Perovskite cells,"inorganic−organic hybrid thin film materials, based on CH3NH3(MA)Pb(I1−xBrx)3 perovskites",KRICT,17.9,0.8,0.0938,,1,Newport
+00354,2014-01-01,Thin-Film Technologies,Amorphous Si:H (stabilized),Si microcrystalline,AIST,11,0.3,1.045,da,1,AIST
+00353,2013-12-01,Thin-Film Technologies,CdTe,CdTe on glass,First Solar,20.4,0.5,0.4778,da,1,Newport
+00355,2014-02-01,Crystalline Si Cells,Silicon heterostructures (HIT),Si HIT rear-junction,Panasonic,25.6,0.5,143.7,da,1,AIST
+00357,2014-02-01,Thin-Film Technologies,CIGS,thin film,NREL,23.3,1.2,0.9902,ap,14.7,NREL
+00356,2014-02-01,Crystalline Si Cells,Single crystal (non-concentrator),Si rear junction,SunPower,25,0.7,120.94,t,1,FhG-ISE
+00359,2014-03-01,Thin-Film Technologies,CIGS,CIGS thin film,Solibro,20.5,0.6,0.9882,ap,1,NREL
+00360,2014-03-01,Thin-Film Technologies,CIGS,CIGSS Cd free  on glass,Showa Shell,20.9,0.7,0.5192,ap,1,FhG-ISE
+00358,2014-03-01,Thin-Film Technologies,CIGS (concentrator),CIGS thin film,NREL,23.3,1.2,0.09902,,15,NREL
+00361,2014-04-01,Emerging PV,Perovskite cells,thin film,KRICT,17.9,0.8,0.0937,ap,1,Newport
+00362,2014-04-01,III-V Multijunction Cells,Concentrator,Inverted metamorphic,NREL,43.8,,0.0998,,327,NREL
+00363,2014-04-01,Thin-Film Technologies,CIGS,CIGS on glass,Solibro,21,0.6,0.9927,ap,1,FhG-ISE
+00364,2014-04-23,Crystalline Si Cells,Thin-film crystal,Si thin-film crystal,Solexel,21.24,,239.7,,,NREL
+00365,2014-07-01,Thin-Film Technologies,Amorphous Si:H (stabilized),a-Si:H single-junction p-i-n solar cell,AIST,10.2,0.3,1.001,da,1,AIST
+00366,2014-07-01,Thin-Film Technologies,Amorphous Si:H (stabilized),Si microcrystalline,AIST,11.4,0.3,1.046,da,1,AIST
+00367,2014-08-01,Thin-Film Technologies,CdTe,CdTe on glass,First Solar,21,0.4,1.0623,ap,1,Newport
+00368,2014-09-01,Emerging PV,Organic cells,thin film,Toshiba,11,0.3,0.993,da,1,AIST
+00369,2014-09-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs/GaInAs/GaInAs, monolithic",NREL,45.7,2.3,0.097909,da,234,NREL
+00370,2014-09-01,Thin-Film Technologies,CIGS,CIGS on glass,ZSW Stuttgart,21.7,0.7,0.4972,da,1,FhG-ISE
+00371,2014-10-01,Thin-Film Technologies,(not on chart),a-Si/nc-Si thin film,AIST,12.7,0.4,1,da,1,AST
+00372,2014-10-01,III-V Multijunction Cells,Concentrator,"GaInP/GaAs; GaInAsP/GaInAs, bonded",Soitec/CEA/FhG-ISE,46,2.2,0.052,da,508,AIST
+00373,2014-10-01,Thin-Film Technologies,Amorphous Si:H (stabilized),Si microcrystalline,AIST,11.8,0.3,1.044,da,1,AIST
+00374,2014-11-01,Crystalline Si Cells,Multicrystalline,PERC Solar Cell on 156 mm × 156 mm P-Type Multicrystalline Silicon,Trina Solar,20.8,0.6,243.9,ap,1,FhG-ISE
+00375,2014-11-01,Emerging PV,Perovskite cells,thin film,KRICT,20.1,0.4,0.0955,ap,1,Newport
+00376,2014-12-01,Thin-Film Technologies,CdTe,CdTe on glass,First Solar,21.5,0.4,0.3455,da,1,Newport
+00377,2014-12-01,Emerging PV,CZTSSe cells,CZTS thin film,Toyota Central R&D Laboratories,9.1,0.2,0.2409,da,1,AIST
+00378,2014-12-04,Emerging PV,Quantum dot cells,Colloidal Quantum Dot,U. Toronto,9.24,0.2,0.0487,,1,Newport
+00379,2015-01-01,Thin-Film Technologies,(not on chart),a-Si/nc-Si thin film,AIST,13.6,0.4,1.043,da,1,AIST
+00380,2015-01-01,Thin-Film Technologies,Amorphous Si:H (stabilized),a-Si/nc-Si (thin-film cell),AIST,12.7,0.4,1,da,,
+00381,2015-02-01,Emerging PV,Perovskite cells,thin film,NIMS,15,0.6,1.017,ap,1,AIST
+00382,2015-03-01,Emerging PV,Quantum dot cells,molecular iodine PbS Colloidal quantum dot solar cell,U. Toronto,9.9,,0.049,,,
+00383,2015-05-01,Emerging PV,Organic cells,thin film,Hong Kong UST,11.5,0.3,0.0429,ap,1,Newport
+00384,2015-05-01,Single-Junction GaAs,Single crystal,GaAs,LG Electronics,27.4,0,0.999,,1,NREL
+00385,2015-06-01,Emerging PV,Perovskite cells,thin film,NIMS,15.6,0.6,1.02,da,1,AIST
+00386,2015-08-01,Crystalline Si Cells,Single crystal (non-concentrator),Si n-type top/rear contacts,Fraunhofer ISE,25.1,0.5,4.01,da,1,FhG-ISE
+00387,2015-08-01,III-V Multijunction Cells,Concentrator,Metamorphic GaInP/GaInAs,Fraunhofer ISE,34.2,,0.0504,,460,
+00388,2015-08-01,Thin-Film Technologies,CIGS,"CIGS on glass, CuInGaSe",Solar Frontier,22.3,0.4,0.51,da,1,FhG-ISE
+00389,2015-09-01,Crystalline Si Cells,Silicon heterostructures (HIT),Si n-type top/rear contacts,Kaneka,25.1,0.5,151.88,ap,1,FhG-ISE
+00390,2015-09-01,Crystalline Si Cells,Single crystal (non-concentrator),n-type top/rear contacts,Kaneka,25.1,0.5,151.88,ap,1,FhG-ISE
+00391,2015-10-01,Hybrid Tandems,III-V/Si,"GaInP/Si mechanical stack, 4 terminal",NREL/CSEM,29.8,1.5,1.006,da,1,NREL
+00392,2015-10-01,Crystalline Si Cells,Single crystal (non-concentrator),Si n-type rear junction,SunPower,25.2,0.5,153.49,t,1,FhG-ISE
+00393,2015-10-01,Emerging PV,Organic cells,Organic,Toshiba,11.2,0.3,0.992,da,1,AIST
+00394,2015-11-01,Crystalline Si Cells,Multicrystalline,"PERC Solar Cell , P-type",Trina Solar,21.25,0.4,242.74,t,1,FhG-ISE
+00395,2015-11-01,Thin-Film Technologies,CdTe,CdTe on glass,First Solar,22.1,0.5,0.4798,da,1,Newport
+00396,2015-11-01,Emerging PV,Quantum dot cells,methylammonium iodide (MAI) and the dispersion of hydrophobic PbS CQDs,U. Toronto,10.6,,,,,
+00397,2015-12-01,Emerging PV,Perovskite cells,MAPbX3 perovskites,KRICT/UNIST,20.1,0.4,,,1,Newport
+00398,2016-01-01,III-V Multijunction Cells,Two-junction (non-concentrator),"GaInP/GaAs, monolithic",Alta Devices,31.6,1.5,0.999,ap,1,NREL
+00399,2016-02-01,Thin-Film Technologies,CIGS,"Cd free, on glass",Solar Frontier,22,0.5,0.512,da,1,FhG-ISE
+00400,2016-03-01,Emerging PV,Perovskite cells,thin film,KRICT/UNIST,22.1,0.7,0.0946,ap,1,Newport
+00401,2016-03-01,Emerging PV,Perovskite cells,formamidinium lead iodide (FAPbI3) perovskites,KRICT/UNIST,19.7,0.6,0.9917,da,1,Newport
+00402,2016-03-01,Thin-Film Technologies,CIGS,"Cd free, on glass",Solar Frontier,22,0.5,0.512,da,1,FhG-ISE
+00403,2016-04-01,III-V Multijunction Cells,Concentrator,GaInP/GaInAs,Fraunhofer ISE,34.2,1.7,0.05361,da,460,FhG-ISE
+00404,2016-04-01,Emerging PV,CZTSSe cells,CZTS,UNSW,7.6,0.1,1.067,da,1,NREL
+00405,2016-04-01,Emerging PV,CZTSSe cells,CZTSSe,IMRA Europe,9.8,0.2,1.115,da,1,Newport
+00406,2016-04-01,Thin-Film Technologies,Amorphous Si:H (stabilized),,,14,,,,,
+00407,2016-05-01,Thin-Film Technologies,(not on chart),a-Si/nc-Si/nc-Si thin film,AIST,14,0.4,1.045,da,1,AIST
+00408,2016-05-01,Thin-Film Technologies,CIGS,"thin film, on glass",ZSW,22.6,0.5,0.4092,da,1,FhG-ISE
+00409,2016-05-01,Emerging PV,Quantum dot cells,solution-phase ligand-exchanged CQD inks,U. Toronto,11.3,,,,,
+00410,2016-06-01,Hybrid Tandems,III-V/Si,"GaInP/GaAs/Si, wafer bonded",Fraunhofer ISE,30.2,1.1,3.963,ap,1,FhG-ISE
+00411,2016-07-01,Crystalline Si Cells,Silicon heterostructures (HIT),rear junction,Kaneka,26.3,0.5,180.43,da,1,FhG-ISE
+00412,2016-08-01,Hybrid Tandems,III-V/Si,"GaInP/GaAs/Si, monolithic",Fraunhofer ISE,19.7,0.7,3.943,ap,1,FhG-ISE
+00413,2016-08-01,Hybrid Tandems,Perovskite/Si,"Perovskite/Si, monolithic",Stanford/ASU,23.6,0.6,0.99,ap,1,NREL
+00414,2016-08-01,Crystalline Si Cells,Single crystal (non-concentrator),n-type top/rear contacts,Fraunhofer ISE,25.3,0.3,4.014,da,1,FhG-ISE
+00415,2016-09-01,Hybrid Tandems,III-V/Si,"GaInP/Si, mechanical stack 4 terminal",NREL/CSEM,30.5,2,1.005,da,1,NREL
+00416,2016-09-01,Single-Junction GaAs,Single crystal,"GaInP, high band gap",LG Electronics,21.4,0.3,0.2504,ap,1,NREL
+00417,2016-09-01,Emerging PV,CZTSSe cells,CZTS thin film,UNSW,9.5,0.2,0.2379,da,1,NREL
+00418,2016-10-01,Single-Junction GaAs,Concentrator,GaAs,LG Electronics,29.3,0.7,0.09359,da,49.9,NREL
+00419,2016-11-01,Crystalline Si Cells,Silicon heterostructures (HIT),n-type rear IBC,Kaneka,26.6,0.5,179.74,da,1,FhG-ISE
+00420,2016-11-16,Emerging PV,Quantum dot cells,PbS Colloidal quantum dot,U. Toronto,12,,,,,
+00421,2016-12-01,Hybrid Tandems,III-V/Si,"GaAs/Si, mechanical stack, 4 terminal",NREL/CSEM/EPFL,32.8,0.5,1.003,da,1,NREL
+00422,2017-01-01,Thin-Film Technologies,CIGS,"thin-film polycrystalline cell, CuIn1-xGaxSe2",Solar Frontier,21.7,0.5,1.044,da,1,AIST
+00423,2017-02-01,Hybrid Tandems,III-V/Si,"GaInP/GaAs/Si, mechanical stack 4, terminal",NREL/CSEM/EPFL,35.9,0.5,1.002,da,1,NREL
+00424,2017-02-01,Crystalline Si Cells,Multicrystalline,"Si, n-type",Fraunhofer ISE,21.9,0.4,4.0003,t,1,FhG-ISE
+00425,2017-02-01,Emerging PV,Organic cells,thin film,Phillips 66,12.1,0.3,0.0407,ap,1,Newport
+00426,2017-02-01,Thin-Film Technologies,Amorphous Si:H (stabilized),Si microcrystalline,AIST,11.9,0.3,1.044,da,1,AIST
+00427,2017-03-01,Hybrid Tandems,III-V/Si,"GaInP/GaAs/Si, wafer bonded, 2 terminal",Fraunhofer ISE,31.3,1.1,3.981,ap,1,FhG-ISE
+00428,2017-03-01,Crystalline Si Cells,Silicon heterostructures (HIT),"Si, n-type rear IBC",Kaneka,26.7,0.5,79,da,1,AIST
+00429,2017-03-01,Crystalline Si Cells,Single crystal (non-concentrator),n-type top/rear contacts,Fraunhofer ISE,25.7,0.5,4.017,da,1,FhG-ISE
+00430,2017-03-01,III-V Multijunction Cells,Concentrator,GaInP/GaInAs,Fraunhofer ISE,35.1,1.1,0.05376,da,407,FhG-ISE
+00431,2017-03-01,Emerging PV,CZTSSe cells,"thin film, on glass",UNSW,11,0.2,0.2339,da,1,NREL
+00432,2017-03-01,Emerging PV,CZTSSe cells,"Cu2ZnSnS4, pure sulfide",UNSW,10.04,0.2,1.113,da,1,NREL
+00433,2017-04-01,Emerging PV,Quantum dot cells,lead halide perovskite quantum dot (QD) films,NREL,13.4,,0.058,,,
+00434,2017-07-01,Crystalline Si Cells,Single crystal (non-concentrator),"crystalline, n-type top/rear contacts",FhG-ISE,25.8,0.5,4.008,da,1,FhG-ISE
+00435,2017-07-01,Emerging PV,Perovskite cells,thin film,KRICT,22.7,0.8,0.0935,ap,1,Newport
+00436,2017-07-01,Emerging PV,Perovskite cells,formamidinium lead iodide (FAPbI3) perovskites,KRICT,20.9,0.7,0.991,da,1,Newport
+00437,2017-08-01,Hybrid Tandems,III-V/Si,"GaInP/GaAs/Si, wafer bonded, 2 terminal",Fraunhofer ISE,33.3,1.2,3.984,ap,1,FhG-ISE
+00439,2017-08-01,Crystalline Si Cells,Multicrystalline,n-type,FhG-ISE,22.3,0.4,3.923,ap,1,FhG-ISE
+00440,2017-09-01,Crystalline Si Cells,Multicrystalline,large p-type,Jinko solar,22,0.4,245.83,t,1,FhG-ISE
+00441,2017-09-01,III-V Multijunction Cells,Two-junction (non-concentrator),"GaInP/GaAs, monolithic, 2-terminal",LG Electronics,32.8,1.4,1,ap,1,NREL
+00442,2017-09-28,Single-Junction GaAs,Single crystal,GaInP/GaAs,LG Electronics,27.8,,0.997,,1,NREL
+00444,2017-10-01,III-V Multijunction Cells,Concentrator,"GaInAsP/GaInAs, 2-termimal tandem",NREL,35.5,1.2,0.10031,da,38,NREL
+00443,2017-10-01,III-V Multijunction Cells,Two-junction (non-concentrator),"GaInAsP/GaInAs, monolithic, tandem",NREL,32.6,1.4,0.248,ap,1,NREL
+00445,2017-11-01,Thin-Film Technologies,CIGS,thin film,Solar Frontier,22.9,0.5,1.041,da,1,AIST
+00446,2018-01-01,III-V Multijunction Cells,Three-junction or more (non-concentrator),"GaInP/GaAs/GaInAs, monolithic, 2-terminal",Microlink (ELO),37.8,1.4,0.998,ap,1,NREL
+00447,2018-02-01,Crystalline Si Cells,Single crystal (non-concentrator),"p-type rear, IBC",ISFH,26.1,0.3,3.9857,da,1,ISFH
+00448,2018-02-01,Hybrid Tandems,Perovskite/Si,"Pervoskite/Si, monolithic, 2-term",EPFL,25.2,0.7,1.419,da,1,FhG-ISE
+00449,2018-02-01,Emerging PV,Organic cells,"thin film, Bulk heterojunction",PPC/CAS,12.3,0.3,0.09,da,,Newport
+00450,2018-04-01,Hybrid Tandems,Perovskite/Si,"Perovskite/Si, monolithic, 2-term",Oxford PV/Oxford/HZB,25.2,0.8,1.088,da,1,FhG-ISE
+00451,2018-05-01,Hybrid Tandems,III-V/Si,"GaAsP/Si, monolithic, 2-term",OSU/SolAero/UNSW,20.1,1.3,3.94,ap,1,NREL
+00452,2018-05-18,Emerging PV,Perovskite cells,"thin film, Pb-halide","ISCAS, Beijing",23.3,,0.074,,1,Newport
+00453,2018-06-01,Hybrid Tandems,Perovskite/Si,"Pervoskite/Si, monolithic, 2-term",Oxford PV,27.3,0.8,1.09,da,1,FhG-ISE
+00454,2018-06-18,Emerging PV,Organic tandem cells,,UCLA,11.5,,0.06,,1,NREL
+00455,2018-06-18,Single-Junction GaAs,Thin-film crystal,GaAs - thin film - epitaxial liftoff,Alta Devices,28.9,,,,1,NREL
+00456,2018-09-01,Emerging PV,Perovskite cells,"thin film, Pb-halide","ISCAS, Beijing",23.7,0.8,0.0739,ap,1,Newport
+00457,2018-10-01,Hybrid Tandems,III-V/Si,"GaInP/GaAs/Si, monolithic, metamorphic, direct growth, 2-term",Fraunhofer ISE,22.3,0.8,0.994,ap,1,FhG-ISE
+00458,2018-10-01,Single-Junction GaAs,Concentrator,GaAs,NREL,30.5,1,0.10043,da,258,NREL
+00459,2018-10-01,Single-Junction GaAs,Thin-film crystal,GaAs - thin film - epitaxial liftoff,Alta Devices,29.1,0.6,0.998,ap,1,FhG-ISE
+00460,2018-10-01,Emerging PV,CZTSSe cells,"thin film, Cu2ZnSnS4-ySey","DGIST, Korea",12.6,0.3,0.4804,da,1,Newport
+00461,2018-10-01,Emerging PV,CZTSSe cells,Cu2ZnSnSxSe4-x,"DGIST, Korea",11.3,0.3,1.1761,da,1,Newport
+00462,2018-11-01,Emerging PV,Organic cells,thin film,Sth China U. - Central Sth U.,15.6,0.2,0.4113,da,1,NREL
+00463,2018-11-01,Thin-Film Technologies,CIGS,"CIGS, Cd-free",Solar Frontier,23.35,0.5,1.043,da,1,AIST
+00464,2018-11-17,Hybrid Tandems,Perovskite/CIGS,"Perovskite/CIGS, 2-term",UCLA,22.4,1.9,0.042,da,1,NREL
+00465,2018-11-18,Emerging PV,Quantum dot cells,mixed caesium and formamidinium lead triiodide perovskite system (Cs1−xFAxPbI3),U. Queensland,16.55,,0.058,,1,Newport
+00466,2018-12-01,Hybrid Tandems,Perovskite/Si,"Perovskite/Si, monolithic, 2-term",Oxford PV,28,0.7,1.03,da,1,NREL
+00467,2019-01-01,Emerging PV,Perovskite cells,Perovskite (thin film),KRICT/MIT,24.2,0.8,0.0955,ap,1,Newport
+00468,2019-01-01,Single-Junction GaAs,Single crystal,"GaInP, rear HJ, strained AlInP",NREL,22,0.3,0.2502,ap,1,NREL
+00469,2019-03-01,III-V Multijunction Cells,Three-junction or more (non-concentrator),AlGaInP/AlGaAs/GaAs/GaInAs (2.15/1.72/1.41/1.17/0.96/0.79 eV) 6j Inverted metamorphic,NREL,39.2,1.3,0.099,,1,NREL
+00470,2019-03-01,III-V Multijunction Cells,Concentrator,AlGaInP/AlGaAs/GaAs/GaInAs (2.15/1.72/1.41/1.17/0.96/0.79 eV) 6j Inverted metamorphic,NREL,47.1,2.6,0.099,da,143,NREL
+00471,2019-03-19,Emerging PV,Organic tandem cells,nonfullerene acceptors (NFAs) with series connection type,SCUT/eFlexPV,13.2,,0.041,,1,NREL
+00472,2019-05-01,Emerging PV,Organic cells,nection type,"SCUT, China",16.4,0.2,0.04137,da,1,NREL
+00473,2019-05-01,Emerging PV,Organic cells,Organic (thin film),"HKUST, Hong Kong",16.4,0.4,0.0394,da,1,Newport
+00474,2019-06-01,Hybrid Tandems,III-V/Si,"GaInP/GaAs/Si (monolithic), 2-term",Fraunhofer ISE,24.3,0.9,3.987,ap,1,FhG-ISE
+00475,2019-06-01,Hybrid Tandems,Perovskite/CIGS,"Perovskite/CIGS, 2-term",HZB,23.3,0.8,1.035,da,1,FhG-ISE
+00476,2019-06-01,Emerging PV,Organic cells,Organic (cell),Uni Potsdam,13.45,0.2,1.023,da,1,FhG-ISE
+00477,2019-06-01,Emerging PV,Perovskite cells,Perovskite (cell),ANU,21.6,0.6,1.0235,DA,1,CSIRO
+00478,2019-06-27,Emerging PV,Organic tandem cells,nonfullerene-acceptor-based organic solar cell,ICCAS,14.2,0.2,0.048,,1,NREL
+00479,2019-07-01,Emerging PV,Perovskite cells,Perovskite (thin film),KRICT/MIT (tied w/ Korea U),25.2,0.8,0.0937,ap,1,Newport
+00480,2019-08-01,Hybrid Tandems,III-V/Si,"GaInP/AlGaAs/Si (wafer bonded), 2-term",Fraunhofer ISE,34.1,1.2,3.987,ap,1,FhG-ISE
+00481,2019-08-01,Emerging PV,Dye-sensitized cells,Dye sensitized,EPFL,12.25,0.4,0.0963,ap,1,Newport
+00482,2019-09-01,Crystalline Si Cells,Single crystal (non-concentrator),n-type,Trina Solar,23.2,0.3,247.79,t,1,ISFH
+00483,2019-09-01,Crystalline Si Cells,Single crystal (non-concentrator),p-type PERC,Canadian Solar,22.8,0.3,246.7,t,1,ISFH
+00484,2019-09-01,Crystalline Si Cells,Single crystal (non-concentrator),n-type top/rear contacts,Hanergy,25.1,0.4,244.45,t,1,ISFH
+00485,2019-09-17,Crystalline Si Cells,Multicrystalline,p‐type PERC,Canadian Solar,22.8,,,,1,FhG-ISE
+00486,2019-10-01,Emerging PV,Organic cells,Organic (thin film),SJTU/Umass,17.35,0.2,0.032,da,1,NREL
+00487,2019-11-01,Crystalline Si Cells,Single crystal (non-concentrator),p-type top/rear contacts,FhG-ISE,26,0.5,4.015,da,1,FhG-ISE
+00488,2019-12-01,Crystalline Si Cells,Single crystal (non-concentrator),n-type,Canadian Solar,23.8,0.3,246.44,t,1,ISFH
+00489,2019-12-01,Emerging PV,Perovskite tandem cells,"Perovskite/perovskite, 2-term",Nanjing Univ,24.2,0.8,1.041,da,1,JET
+00490,2020-01-01,Hybrid Tandems,Perovskite/CIGS,"Perovskite/CIGS, 2-term",HZB,24.2,0.7,1.045,da,1,FhG-ISE
+00491,2020-01-01,Hybrid Tandems,Perovskite/Si,"Perovskite/Si, monolithic, 2-term",HZB,29.15,0.7,1.06,da,1,FhG-ISE
+00492,2020-01-01,III-V Multijunction Cells,Two-junction (non-concentrator),GaInP/GaAs,NREL,32.9,0.5,0.25,ap,1,NREL
+00494,2020-07-28,Emerging PV,Perovskite cells,Perovskite (cell),UNIST,25.5,0.8,0.095,ap,1,Newport
+00493,2020-05-01,Hybrid Tandems,III-V/Si,"GaAsP/Si, monolithic, 2-term",OSU/UNSW/SolAero,23.4,0.3,1.026,p,1,NREL
+00495,2020-08-24,Emerging PV,Organic cells,Organic (cell),City U HK/UW,17.5,0.5,0.04,ap,1,Newport
+00496,2020-09-01,Crystalline Si Cells,Multicrystalline,"DS Si wafer cell, n type",Trina Solar,23.2,0.3,247.79,t,1,FhG-ISE
+00497,2020-09-22,Emerging PV,Quantum dot cells,Perovskite based on the BHT Additive,UNIST,18.1,0.5,0.12,ap,1,Newport
+00498,2020-10-20,Emerging PV,Organic cells,Organic (cell),SJTU/BUAA,18.2,0.2,0.032,ap,1,NREL
+00499,2020-11-01,Crystalline Si Cells,Multicrystalline,"‘cast mono’ wafer, n-type",Jinko solar,24.4,0.3,267.5,t,1,FhG-ISE
+00500,2020-11-02,Emerging PV,Dye-sensitized cells,Dye sensitized,EPFL,13,,0.116,ap,1,FhG-ISE
+00501,2020-12-14,Hybrid Tandems,Perovskite/Si,2-terminal monolithic,Oxford PV,29.5,0.5,1.121,ap,1,NREL
+00502,2021-06-10,Emerging PV,CZTSSe cells,CZTSSe Thin-Film  (hydrazine pure-solution approach),NJUPT,13,0.8,0.107,ap,1,NREL
+00503,2021-09-23,III-V Multijunction Cells,Three-junction or more (non-concentrator),GaInP/mqw-GaAs/GaInAs,NREL,39.46,0.5,0.242,ap,1,NREL
+00504,2021-11-16,Hybrid Tandems,Perovskite/Si,"Perovskite/Si, monolithic",HZB,29.8,0.82,1.016,ap,1,FhG-ISE
+00505,2021-12-03,Emerging PV,Perovskite cells,Perovskite (cell),UNIST,25.7,3.2,0.096,ap,1,Newport
+00506,2022-01-11,Single-Junction GaAs,Concentrator,GaAs,NREL,30.8,6.2,0.099,ap,61,NREL
+00507,2022-06-17,Hybrid Tandems,Perovskite/Si,"Perovskite/Si, monolithic, 2-term",EPFL/CSEM,31.3,0.8,1.1677,ap,1,NREL
+00508,2022-05-01,III-V Multijunction Cells,Concentrator,GaInP/GaInAs; GaInAsP/GaInAs bonded,FhG-ISE,47.6,2.6,0.0452,da,665,FhG-ISE
+00509,2022-11-23,Hybrid Tandems,Perovskite/Si,"Perovskite/Si, monolithic, 2-term",HZB,32.5,1,1.014,da,1,JRC-ESTI
+00510,2022-10-01,Crystalline Si Cells,Silicon heterostructures (HIT),n-type HJT,LONGi,26.81,1.5,274.4,t,1,ISFH
+00511,2023-01-05,Thin-Film Technologies,CIGS,,Evolar/UU,23.6,,0.899,da,1,FhG-ISE
+00512,2023-03-21,Emerging PV,Organic cells,,SJTU,19.2,1.5,0.0326,da,1,NREL
+00513,2022-11-16,Emerging PV,Perovskite cells,,UNIST,25.8,3.1,0.0959,da,1,Newport
+00514,2023-03-14,Hybrid Tandems,Perovskite/Si,,KAUST,33.2,1.1,0.9977,da,1,JRC-ESTI
+00515,2023-02-01,Thin-Film Technologies,CdTe,,First Solar,22.3,0.8,0.4491,da,1,NREL
+00516,2023-03-01,Emerging PV,Perovskite cells,,ISCAS,26,1.9,0.0746,da,1,JET
+00517,2023-04-01,Emerging PV,CZTSSe cells,,IoP/CAS,14.9,2,0.2694,da,1,NPVM
+00518,2023-05-01,Hybrid Tandems,Perovskite/Si,,KAUST,33.7,3.3,1.0035,da,1,JRC-ESTI
+00519,2023-05-10,Emerging PV,Perovskite cells,,U. of Science and Technology of China,26.1,2.2,0.05127,da,1,NPVM
+00520,2023-08-31,Thin-Film Technologies,CdTe,,First Solar,22.4,1.3,0.4497,da,1,NREL
+00521,2023-07-21,Emerging PV,Perovskite cells,,Northwestern University and University of Toronto,26.1,3.2,0.0493,da,1,Newport
+00522,2023-09-26,Hybrid Tandems,Perovskite/Si,,Longi,33.9,0.9,1,da,1,NREL
+00523,2023-11-30,Crystalline Si Cells,Silicon heterostructures (HIT),HBC,LONGi,27.1,1.2,243.04,da,1,ISFH
+00524,2024-01-18,Thin-Film Technologies,CdTe,CdTe,First Solar,22.6,0.8,0.448,ap,1,NREL
+00525,2020-08-01,Emerging PV,Perovskite tandem cells,"Perovskite/perovskite, 2-term",Nanjing Univ,24.4,0.4,0.049,da,1,NREL
+00526,2021-02-01,Emerging PV,Perovskite tandem cells,"Perovskite/perovskite, 2-term",Nanjing Univ,26.4,0.8,0.0494,da,1,JET
+00527,2021-12-01,Emerging PV,Perovskite tandem cells,"Perovskite/perovskite, 2-term",Nanjing Univ,28,0.6,0.0495,da,1,JET
+00528,2022-12-01,Emerging PV,Perovskite tandem cells,"Perovskite/perovskite, 2-term",Nanjing Univ,28.2,0.5,1.038,da,1,JET
+00529,2022-12-01,Emerging PV,Perovskite tandem cells,"Perovskite/perovskite, 2-term",Nanjing Univ,29.1,0.5,0.0489,da,1,JET
+00530,2020-04-01,Hybrid Tandems,III-V/Si,,FhG-ISE,34.5,,,,,
+00531,2020-05-01,Hybrid Tandems,III-V/Si,,FhG-ISE,35.9,,,,,
+00532,2019-08-01,Hybrid Tandems,III-V/Si,,FhG-ISE,34.1,,,,,
+00533,2017-08-01,Hybrid Tandems,III-V/Si,,FhG-ISE,33.3,,,,,
+00534,2017-03-01,Hybrid Tandems,III-V/Si,,FhG-ISE,31.3,,,,,
+00535,2016-06-01,Hybrid Tandems,III-V/Si,,FhG-ISE,30.2,,,,,
+00536,2022-03-01,Hybrid Tandems,Perovskite/Organic,,NUS/SERIS,23.4,,,,,
+00537,2023-03-23,Emerging PV,Quantum dot cells,,UNIST,19.1,3.1,0.12,ap,1,Newport
+00538,2021-07-09,Hybrid Tandems,Perovskite/Organic,Perovskite/organic 2-terminal,Bergische Universität Wuppertal,23.1,6.9,0.0174,ap,1,FhG-ISE
+00539,2023-05-01,Hybrid Tandems,III-V/Si,GaInP/GaInAsP//Si (wafer bonded),FhG-ISE/AMOLF,36.1,1.3,3.987,,1,FhG-ISE
+00540,2024-04-24,Emerging PV,Perovskite cells,,University of Science and Technology of China,26.7,2.2,0.0519,ap,1,NPVM
+00541,2024-05-17,Thin-Film Technologies,CdTe,,First Solar,23.08,1.7,0.4507,da,1,NREL
+00542,2023-12-01,Crystalline Si Cells,Silicon heterostructures (HIT),HBC,LONGi,27.3,1.5,243.1,da,1,ISFH
+00543,2024-04-30,Hybrid Tandems,Perovskite/Si,,LONGi,34.6,1,1.004,da,1,JRC-ESTI
+00544,2024-06-24,Emerging PV,Perovskite tandem cells,Perovskite 2J 2T,Nanjing Univ / Renshine,30.1,,0.04934,da,1,JET
+00545,2024-04-24,Emerging PV,CZTSSe cells,,IoP/CAS,15.07,2.2,0.2697,da,1,NPVM
+00546,2024-12-04,Hybrid Tandems,Perovskite/CIGS,"Perovskite/CIGS, 2-term",HZB,24.6,4.4,1.1052,da,1,FhG-ISE
+00547,2025-01-21,Emerging PV,Perovskite cells,,Soochow University / UNSW,26.95,2.2,0.0583,da,1,NPVM
+548,2025-04-03,Hybrid Tandems,Perovskite/CIGS,"Perovskite/CIGS, 2-term",Seoul National University / KIST,26.3,4.5,0.222,da,1,FhG-ISE
+549,2024-05-06,Hybrid Tandems,Perovskite/Si,,LONGi,34.85,1,1.005,da,1,NREL
+550,2025-01-20,Crystalline Si Cells,Silicon heterostructures (HIT),HIBC,LONGi,27.8,1.6,133.63,da,1,ISFH
+551,2025-01-01,Emerging PV,CZTSSe cells,,IoP/CAS,15.8,1.8,0.225,da,1,NPVM
+552,2025-07-01,Emerging PV,Perovskite cells,,Soochow University / UNSW / Baima Lake,27.3,2.2,0.1065,da,1,NPVM
+553,2025-09-02,Emerging PV,Organic cells,,HyperPV,19.4,2.1,1.003,da,1,NPVM
+554,2025-07-01,Emerging PV,CZTSSe cells,,IoP/CAS,16.6,2.4,0.228,da,1,NPVM
+555,2025-10-27,Crystalline Si Cells,Single crystal (non-concentrator),TOPCon bifacial,Runergy,26.55,1.5,335.2,ta,1,ISFH
+556,2025-07-01,Hybrid Tandems,Perovskite/Si,2-terminal monolithic,LONGi,35,2.8,1.0028,da,1,JRC-ESTI
+557,2025-10-16,Crystalline Si Cells,Silicon heterostructures (HIT),Hybric IBC (HIBC),LONGi,27.9,1.7,158.66,da,1,ISFH
+558,2025-12-17,Crystalline Si Cells,Single crystal (non-concentrator),TOPCon bifacial,Trina Solar,26.68,1.5,350.2,da,1,ISFH
+559,2026-03-30,Crystalline Si Cells,Silicon heterostructures (HIT),HIBC,LONGi,28.1,1.7,139.7,da,1,ISFH
+560,2026-02-01,Emerging PV,Perovskite cells,,Hainan U,28,,0.051,da,1,NPVM
+561,2026-02-01,Hybrid Tandems,Perovskite/Si,,LONGi,35.2,3.1,0.9994,da,1,JRC-ESTI
+562,2026-03-31,Crystalline Si Cells,Silicon heterostructures (HIT),HBC,Trina Solar,28.1,1.5,174.72,da,1,ISFH
+563,2026-04-29,Hybrid Tandems,Perovskite/CIGS,"Perovskite/CIGS, 2-term",KIER,26.7,4.5,0.16,da,1,FhG-ISE

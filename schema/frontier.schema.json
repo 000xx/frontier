@@ -106,7 +106,7 @@
       }
     },
     "records": {
-      "description": "Every value that set a new best at the time, newest last.",
+      "description": "Results that set or matched the best at the time, as published by the source. Order does not matter.",
       "type": "array",
       "items": {
         "type": "object",

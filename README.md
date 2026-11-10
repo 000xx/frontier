@@ -9,8 +9,10 @@ data/
   domains.yaml          the 22 domains and their subfields
   chart-shapes.yaml     the chart shapes a frontier can use
   frontiers/<domain>/<frontier-id>.yaml   one file per frontier
+  datasets/<dataset-id>/                  copies of source datasets, with a NOTICE for each
 schema/frontier.schema.json              the format every frontier file must follow
 scripts/validate.py                      checks every file; run before committing
+scripts/import_*.py                      rebuild a frontier's records from its dataset
 ```
 
 ## What a frontier file holds
@@ -21,12 +23,16 @@ scripts/validate.py                      checks every file; run before committin
 | `chart` | The primary chart shape and any secondary ones |
 | `series` | Named lines on the chart, such as one per technology |
 | `sources` | Where the data comes from; one is marked `primary` |
-| `records` | Every value that set a new best, with date, holder, conditions, status and source |
+| `records` | Record results as published by the source, with date, holder, conditions, status and source |
 | `events` | Progress that doesn't move the number: papers, milestones, setbacks, retractions |
 | `reading` | The "start here" ladder: 5 minutes, 1 hour, deep |
 | `update` | How often to check, and when it was last checked |
 
 Every record carries a status: `claimed`, `peer_reviewed`, `confirmed` or `retracted`. Nothing reaches the site without a source.
+
+## Data credits
+
+Each dataset folder has a NOTICE.md with its source's terms and the credit line the site must show. Solar cell records: data courtesy of the National Laboratory of the Rockies (U.S. Department of Energy / NLR / Alliance for Energy Innovation).
 
 ## How updates work
 
