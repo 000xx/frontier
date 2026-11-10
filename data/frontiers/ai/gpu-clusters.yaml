@@ -1,26 +1,85 @@
-# placeholder until the source has been read; records come from scripts/fetchers/gpu_clusters.py.
+# Records are rebuilt from Epoch AI's GPU Clusters data by scripts/fetchers/gpu_clusters.py.
+# Edit the other fields by hand; never edit the records directly.
 id: gpu-clusters
-title: Largest AI supercomputer (GPU clusters)
+title: Largest tracked AI supercomputer (GPU clusters)
 domain: ai
 subfield: Cost and scale
-status: draft
-summary: placeholder until the source has been read.
+status: live
+summary: The largest AI compute cluster in Epoch AI's GPU Clusters data, measured in H100 equivalents by the
+  date each one became operational. Epoch's dataset covers only part of the world's clusters, so this line
+  shows the largest tracked cluster, not the largest that exists.
 metric:
-  name: placeholder
-  unit: placeholder
+  name: Largest tracked AI cluster by H100 equivalents
+  unit: H100-equivalents
   direction: higher
-  explainer: placeholder
+  scale: log
+  explainer: 'A GPU cluster is a set of graphics chips linked together to train and run AI models. Epoch AI
+    keeps a list of these clusters and supercomputers, drawn from model training reports, news articles, press
+    releases and web searches, and it estimates each cluster''s size in H100 equivalents. The H100 is a widely
+    used NVIDIA data-centre GPU, so the count compares different chips on one scale. Epoch says its dataset
+    covers an estimated 10 to 20 per cent of existing global aggregate GPU cluster performance as of March 2025,
+    so this page shows the largest tracked cluster, not the largest one that exists. Epoch also says planned
+    systems carry lower confidence, so this page uses only clusters the dataset marks as existing. Epoch says its sources include training reports, news articles and press releases, so the counts are estimates. The line rises from 4 H100 equivalents in 2010 to 275,796 in 2025, nearly five orders of magnitude, which is why it uses a log scale. A large cluster does not by itself show that a model trained on it
+    is better, since results also depend on the data, the algorithms and how long the run lasted.'
 chart:
   primary: record-chart
+  secondary:
+  - threshold-gauge
+series:
+- id: h100-equivalents
+  label: Largest tracked cluster (H100 equivalents)
 update:
   cadence: quarterly
   last_checked: '2026-11-09'
-  notes: 'placeholder'
+  notes: 'Records are rebuilt from Epoch''s gpu_clusters.csv by scripts/fetchers/gpu_clusters.py; do not edit
+    them by hand. The fetcher uses rows with Status "Existing" and Include in Standard Analysis "True" that have
+    a first operational date and an H100-equivalent count. A cluster is a record when its count beats every
+    cluster with an earlier first operational date. Status claimed is used because the counts and dates are
+    Epoch estimates from public sources, not independent measurements. The dataset page says it was updated on
+    13 March 2026; the file had 482 rows when read, while the page says over 500.'
 sources:
 - id: epoch-gpu-clusters
-  name: Epoch AI, GPU Clusters data
+  name: Epoch AI, GPU Clusters data (gpu_clusters.csv)
   url: https://epoch.ai/data/gpu-clusters
   kind: dataset
   primary: true
-events: []
+  notes: 'File https://epoch.ai/data/gpu_clusters.csv. Licence CC BY 4.0: the page says the data is free to use,
+    distribute and reproduce provided the source and authors are credited. Credit line: "Data: Epoch AI, GPU
+    Clusters (epoch.ai/data), CC BY 4.0." The page says the dataset covers an estimated 10 to 20 per cent of
+    existing global aggregate GPU cluster performance as of March 2025.'
+- id: xai-colossus-post
+  name: Elon Musk, post on X about Colossus 1 and Colossus 2 (as reported by TweakTown)
+  url: https://www.tweaktown.com/news/106571/elon-musk-230k-ai-gpus-train-grok-at-colossus-1-550k-gb200-gb300s-2-coming-soon/index.html
+  kind: news
+  notes: 'A company statement by the chief executive, not an independent measurement. The article shows no
+    publication date. Quoted only for the claim that 230k GPUs were operational at Colossus 1 and that 550k
+    GB200s and GB300s were starting to come online at Colossus 2; neither figure is used as a record here.'
+events:
+- date: '2026-03-13'
+  kind: dataset
+  title: Epoch's GPU Clusters dataset is updated, listing more than 500 clusters
+  why_it_matters: The page itself says the dataset covers only an estimated 10 to 20 per cent of global cluster performance, so the record line is a floor, not a ceiling.
+  url: https://epoch.ai/data/gpu-clusters
+- date: '2026-01-03'
+  kind: news
+  title: A secondary article reports xAI's Memphis expansion at about 555,000 GPUs, a figure not yet in Epoch's file
+  why_it_matters: If the expansion is operational, the tracked record line would be out of date, so the owner should check whether Epoch has added it.
+  url: https://introl.com/vi/blog/xai-colossus-2-gigawatt-expansion-555k-gpus-january-2026
 reading: []
+records:
+- {date: '2010-11-15', value: 4.0, series: h100-equivalents, holder: Anonymized Chinese System, conditions: Epoch certainty confirmed; H100-equivalents estimated by Epoch AI; date is the first operational date, status: claimed, source: epoch-gpu-clusters}
+- {date: '2012-03-15', value: 20.0, series: h100-equivalents, holder: Anonymized Chinese System, conditions: Epoch certainty confirmed; H100-equivalents estimated by Epoch AI; date is the first operational date, status: claimed, source: epoch-gpu-clusters}
+- {date: '2016-11-01', value: 29.0, series: h100-equivalents, holder: CSCS Piz Daint Phase 1, conditions: owner ETH Domain; primary chip NVIDIA Tesla P100 PCIe 16GB; Epoch certainty confirmed; H100-equivalents estimated by Epoch AI; date is the first operational date, status: claimed, source: epoch-gpu-clusters}
+- {date: '2017-05-17', value: 95.0, series: h100-equivalents, holder: Google TensorFlow Research Cloud, conditions: owner Google; primary chip Google TPU v2; Epoch certainty likely; H100-equivalents estimated by Epoch AI; date is the first operational date, status: claimed, source: epoch-gpu-clusters}
+- {date: '2017-10-01', value: 1390.0, series: h100-equivalents, holder: Meta 2017 V100 Cluster, conditions: owner Meta AI; primary chip NVIDIA Tesla V100 SXM2; Epoch certainty confirmed; H100-equivalents estimated by Epoch AI; date is the first operational date, status: claimed, source: epoch-gpu-clusters}
+- {date: '2020-11-30', value: 1413.0, series: h100-equivalents, holder: NVIDIA Selene Phase 2, conditions: owner Nvidia; primary chip NVIDIA A100; Epoch certainty confirmed; H100-equivalents estimated by Epoch AI; date is the first operational date, status: claimed, source: epoch-gpu-clusters}
+- {date: '2021-03-15', value: 3000.0, series: h100-equivalents, holder: Anonymized Chinese System, conditions: Epoch certainty likely; H100-equivalents estimated by Epoch AI; date is the first operational date, status: claimed, source: epoch-gpu-clusters}
+- {date: '2022-04-30', value: 7883.0, series: h100-equivalents, holder: Microsoft GPT-4 cluster, conditions: 'owner Microsoft,OpenAI; primary chip NVIDIA A100; Epoch certainty likely; H100-equivalents estimated by Epoch AI; date is the first operational date', status: claimed, source: epoch-gpu-clusters}
+- {date: '2023-08-28', value: 10000.0, series: h100-equivalents, holder: Tesla 10k H100 Cluster, conditions: owner Tesla; primary chip NVIDIA H100 SXM5 80GB; Epoch certainty confirmed; H100-equivalents estimated by Epoch AI; date is the first operational date, status: claimed, source: epoch-gpu-clusters}
+- {date: '2023-11-08', value: 10752.0, series: h100-equivalents, holder: NVIDIA CoreWeave Eos-DFW Phase 1, conditions: 'owner Nvidia,CoreWeave; primary chip NVIDIA H100 SXM5 80GB; Epoch certainty confirmed; H100-equivalents estimated by Epoch AI; date is the first operational date', status: claimed, source: epoch-gpu-clusters}
+- {date: '2023-11-15', value: 14400.0, series: h100-equivalents, holder: Microsoft Azure Eagle, conditions: owner Microsoft; primary chip NVIDIA H100 SXM5 80GB; Epoch certainty confirmed; H100-equivalents estimated by Epoch AI; date is the first operational date, status: claimed, source: epoch-gpu-clusters}
+- {date: '2024-03-12', value: 24576.0, series: h100-equivalents, holder: Meta GenAI 2024a, conditions: owner Meta AI; primary chip NVIDIA H100 SXM5 80GB; Epoch certainty confirmed; H100-equivalents estimated by Epoch AI; date is the first operational date, status: claimed, source: epoch-gpu-clusters}
+- {date: '2024-08-28', value: 42000.0, series: h100-equivalents, holder: CoreWeave H200s, conditions: owner CoreWeave; primary chip NVIDIA H200 SXM; Epoch certainty likely; H100-equivalents estimated by Epoch AI; date is the first operational date, status: claimed, source: epoch-gpu-clusters}
+- {date: '2024-09-02', value: 100000.0, series: h100-equivalents, holder: xAI Colossus Memphis Phase 1, conditions: owner xAI; primary chip NVIDIA H100 SXM5 80GB; Epoch certainty confirmed; H100-equivalents estimated by Epoch AI; date is the first operational date, status: claimed, source: epoch-gpu-clusters}
+- {date: '2025-02-18', value: 200000.0, series: h100-equivalents, holder: xAI Colossus Memphis Phase 2, conditions: owner xAI; primary chip NVIDIA H100 SXM5 80GB; Epoch certainty likely; H100-equivalents estimated by Epoch AI; date is the first operational date, status: claimed, source: epoch-gpu-clusters}
+- {date: '2025-07-22', value: 275796.0, series: h100-equivalents, holder: xAI Colossus Memphis Phase 3, conditions: owner xAI; primary chip NVIDIA H100 SXM5 80GB; Epoch certainty confirmed; H100-equivalents estimated by Epoch AI; date is the first operational date, status: claimed, source: epoch-gpu-clusters}
