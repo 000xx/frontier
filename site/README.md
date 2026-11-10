@@ -11,9 +11,12 @@ The script draws a page from the blocks a frontier file holds. A new frontier th
 | `records` | Record chart (linear or log, from `metric.scale`), a ranking of the series, and the full history table. `metric.limit` and `metric.target` are drawn as dashed lines. |
 | `records` with `metric.axes` | Also a two-axis chart: the main value against the first extra axis, with the target zone shaded. |
 | `observations` | Line chart, with a shaded band where `low` and `high` are given, and a table of figures. |
+| `observations` on a `coverage-meter` frontier, in percent | Also "How much of the whole": a bar for the whole filled to the latest figure, with the latest figure, the rest (100% minus the latest figure, labelled as worked out here), the first figure and any target. The chart's axis runs from 0 to 100% with the area under the line shaded. |
+| `observations` on a `race-to-zero` frontier with `direction: lower` | Also "Distance to zero" for the first series: the highest figure in the series, the latest figure and zero, with a bar that draws the latest against the highest to scale. The chart marks zero in blue and drops a dotted line to it from the latest figure. When the series falls a hundredfold or more the axis is a log scale, with zero on a line of its own under a break. |
 | `observations`, one per series | A points chart and a table of every entry (for example one point per rocket). |
 | `stages` and `candidates` | A table of how far each candidate has got. |
 | `items` | A searchable list, with filters for status and group. A `problem-list` frontier shows no tally. |
+| `about` | "What this is" and "Why it matters", at the top of the page. |
 | `events`, `reading`, `sources` | "What happened", "Start here" and "Sources". |
 | Dataset `NOTICE.md` | The credit line under each chart and a "Data credits and terms" section. |
 
@@ -29,10 +32,15 @@ Every page carries the same navigation, built from the data, so nothing needs up
 
 - The header has an "All frontiers" menu, grouped by domain.
 - The footer lists every frontier, plus the front page, overview, method and domains.
-- The front page has a tile per frontier, and each domain in the domain list links to its frontiers.
+- The front page has a tile per frontier, grouped under domain headings, with a search box and filters for domain and chart shape. Only the tiles are redrawn when these change (`tilesList()`), and the choice is kept when the reader comes back from a frontier page.
+- Each domain in the domain list links to its frontiers.
 - A frontier page also links to the others in its domain and to the previous and next frontier.
 
 The check fails if any page lacks a link to any frontier, or has an in-site link that leads nowhere.
+
+## Motion
+
+Every chart draws itself from left to right. A chart that is in view when the page opens draws once; charts further down draw as they are scrolled into view, with a marker showing the year reached. The chart markup is complete without scripting, and nothing moves for readers who have asked their device to reduce motion.
 
 ## Site settings
 
@@ -46,6 +54,8 @@ The check fails if any page lacks a link to any frontier, or has an in-site link
 
 ## Known gaps
 
-- Chart shapes named in `chart.primary` are labels only. The page is chosen by the blocks present, so a `coverage-meter` or `race-to-zero` frontier is drawn as a line chart for now.
+- Only two chart shapes change the page so far: `coverage-meter` and `race-to-zero` (as primary or secondary shape, passed through as `shapes`). Every other shape is a label only, and the page is chosen by the blocks present.
+- A `coverage-meter` frontier that is not in percent (a count with no sourced total, such as structures or asteroids found) is still a plain line chart, because the format has no field for the size of the whole.
+- On a `race-to-zero` frontier only the first series is drawn against zero. The format has no unit or direction per series, so a second series can measure something else (measles lists vaccine coverage in percent beside case counts) and is drawn as a plain line under the frontier's unit.
 - Credit lines are read from dataset `NOTICE.md` files only. A credit written in a source's notes is not shown under the chart.
 - No map view yet for country lists.

@@ -421,3 +421,6 @@ reading:
   kind: paper
   url: https://ntrs.nasa.gov/api/citations/20200001093/downloads/20200001093.pdf
   note: The source of this page's data, with the arithmetic for Saturn V, the Shuttle and Falcon.
+about:
+  what: "What it costs to put one kilogram into low Earth orbit on each launch vehicle, adjusted for inflation."
+  why: "Launch cost limits almost everything done in space, from communications and weather satellites to telescopes and crewed missions. When the price for each kilogram falls, projects that were unaffordable become practical."

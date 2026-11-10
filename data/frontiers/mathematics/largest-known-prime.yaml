@@ -352,3 +352,6 @@ events:
   title: Largest known prime, 2 to the power 136,279,841 minus one, announced
   why_it_matters: The number has 41 million digits, and the announcement followed several independent checks on different hardware, though GIMPS still calls its ranking provisional.
   url: https://www.mersenne.org/primes/press/M136279841.html
+about:
+  what: "The size of the largest number that has been proved to be prime, counted in decimal digits."
+  why: "Record primes have little direct practical use. The hunt is a long-running test of algorithms, hardware and volunteer computing, and software written for it is also used to check that computers calculate correctly. It is one of the oldest record hunts in mathematics."
