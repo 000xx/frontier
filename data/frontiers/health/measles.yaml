@@ -4,7 +4,7 @@ id: measles
 title: Measles
 domain: health
 subfield: Population health
-status: draft
+status: live
 summary: How many measles cases are reported each year, and how many children receive the first dose of the vaccine
   that prevents them.
 metric:
@@ -67,6 +67,17 @@ observations:
 - {date: '2018', series: coverage, value: 86.0, source: owid-measles-coverage}
 - {date: '2019', series: cases, value: 873373, source: owid-measles-cases}
 - {date: '2019', series: coverage, value: 86.0, source: owid-measles-coverage}
+- {date: '2020', series: cases, value: 159240, source: owid-measles-cases}
+- {date: '2021', series: cases, value: 123152, source: owid-measles-cases}
+- {date: '2022', series: cases, value: 206775, source: owid-measles-cases}
+- {date: '2023', series: cases, value: 669083, source: owid-measles-cases}
+- {date: '2024', series: cases, value: 675533, source: owid-measles-cases}
+- {date: '2020', series: coverage, value: 83.0, source: owid-measles-coverage}
+- {date: '2021', series: coverage, value: 81.0, source: owid-measles-coverage}
+- {date: '2022', series: coverage, value: 83.0, source: owid-measles-coverage}
+- {date: '2023', series: coverage, value: 83.0, source: owid-measles-coverage}
+- {date: '2024', series: coverage, value: 84.0, source: owid-measles-coverage}
+- {date: '2025', series: coverage, value: 84.0, source: owid-measles-coverage}
 sources:
 - id: owid-measles-cases
   name: Our World in Data, Reported cases of measles (World Health Organization Global Health Observatory)
@@ -81,10 +92,33 @@ sources:
   kind: dataset
   notes: World rows of the CSV export, read by the refresh. Same terms as owid-measles-cases. Coverage is the
     first-dose (MCV1) estimate in WHO and UNICEF's annual estimates.
+- id: unicef-who-coverage-2026
+  name: UNICEF and WHO, Global childhood immunization coverage inches forward (release of 21 July 2026)
+  url: https://www.unicef.org/india/press-releases/global-childhood-immunization-coverage-inches-forward-despite-conflict-and-hesitancy
+  kind: press
+  notes: Gives 84% first-dose (MCV1) coverage for 2025 and 13.5 million zero-dose children. Read 10 November 2026.
+- id: who-measles-2025
+  name: WHO, Measles deaths down 88% since 2000 but cases surge (28 November 2025)
+  url: https://www.who.int/news/item/28-11-2025-measles-deaths-down-88--since-2000--but-cases-surge
+  kind: press
+  notes: Gives WHO's modelled estimates for 2024 (about 11 million infections, about 95 000 deaths). These are model
+    estimates, not the reported-case series stored here. Read 10 November 2026.
 update:
   cadence: yearly
   last_checked: '2026-11-09'
   notes: 'Observations are the World values in OWID''s CSV exports, copied exactly by scripts/fetchers/measles.py.
-    Coverage estimates are revised each year by WHO and UNICEF, so the fetcher rewrites every year it reads. Not yet
-    sourced: WHO''s own measles report and any events. The terms are WHO''s data terms (public health use, credit WHO).'
+    Coverage estimates are revised each year by WHO and UNICEF, so the fetcher rewrites every year it reads. The
+    reported-case series is not WHO''s modelled estimate (about 11 million infections in 2024); the frontier stores the
+    reported counts only. The terms are WHO''s data terms (public health use, credit WHO).'
+events:
+- date: '2026-07-21'
+  kind: milestone
+  title: UNICEF and WHO report 84% first-dose measles coverage for 2025
+  why_it_matters: The first-dose share has risen by 13 points since 2000 in the series, but 13.5 million children still missed every vaccine in 2025.
+  url: https://www.unicef.org/india/press-releases/global-childhood-immunization-coverage-inches-forward-despite-conflict-and-hesitancy
+- date: '2025-11-28'
+  kind: setback
+  title: WHO says measles infections rose to about 11 million in 2024 even as deaths fell
+  why_it_matters: Modelled infections are well above the reported counts, so the reported series understates the disease.
+  url: https://www.who.int/news/item/28-11-2025-measles-deaths-down-88--since-2000--but-cases-surge
 reading: []
