@@ -23,7 +23,7 @@ FILES = {
     "epoch-runs": "gpqa_diamond.csv",
 }
 MODEL, SCORE, DATE, ORG, STDERR = "Model version", "mean_score", "Release date", "Organization", "stderr"
-MIN_ROWS = 50          # placeholder until the first run shows the row count
+MIN_ROWS = 250         # the file had 335 rows in November 2026
 REVISES_PAST = True    # Epoch re-runs models and fixes release dates; removals still go to review
 
 

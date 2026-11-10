@@ -4,7 +4,7 @@ id: gpqa-diamond
 title: AI on graduate-level science questions (GPQA Diamond)
 domain: ai
 subfield: Capability
-status: draft
+status: live
 summary: The best score any AI model has reached on GPQA Diamond, 198 hard multiple-choice questions in
   biology, chemistry and physics written by domain experts, as run by Epoch AI. It shows how quickly
   models went from chance-level guessing to near the benchmark's ceiling.
@@ -25,9 +25,11 @@ metric:
     expert checkers agreed on, making it the cleanest part of the set, and it became one of the standard
     tests that AI developers report. A score here shows whether a model can apply specialist scientific
     knowledge and several steps of reasoning, not just recall facts. Two things limit what the top of the
-    line means. Some questions are likely wrong or ambiguous: Epoch estimated in 2025 that roughly one in
-    twelve may be invalid, so no honest score is likely to reach 100%. And because the questions have been
-    public since 2023, later models may have seen them during training. This page uses only Epoch AI''s
+    line means. Some questions are likely wrong or ambiguous: in 2025 Epoch estimated, from a small
+    sample, that roughly one in twelve may be invalid. The best scores have since gone above what that
+    estimate would allow, so either it was too pessimistic or models now match the answer key on disputed
+    questions; and because the questions have been public since 2023, later models may have seen them
+    during training. This page uses only Epoch AI''s
     own runs, done in one consistent way, rather than figures that developers report.'
 chart:
   primary: record-chart
@@ -81,4 +83,25 @@ events:
 reading: []
 connections:
 - ai-capabilities-index
-records: []
+records:
+- {date: '2023-03-14', value: 35.73, series: epoch-runs, holder: gpt-4-0314, conditions: developer OpenAI; standard error 2.36 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2023-11-06', value: 42.36, series: epoch-runs, holder: gpt-4-1106-preview, conditions: developer OpenAI; standard error 2.41 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-02-29', value: 47.16, series: epoch-runs, holder: claude-3-opus-20240229, conditions: developer Anthropic; standard error 2.64 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-05-13', value: 48.9, series: epoch-runs, holder: gpt-4o-2024-05-13, conditions: developer OpenAI; standard error 2.63 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-06-20', value: 54.04, series: epoch-runs, holder: claude-3-5-sonnet-20240620, conditions: developer Anthropic; standard error 2.75 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-09-12', value: 62.37, series: epoch-runs, holder: o1-mini-2024-09-12_high, conditions: developer OpenAI; standard error 2.74 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2024-12-17', value: 76.77, series: epoch-runs, holder: o1-2024-12-17_high, conditions: developer OpenAI; standard error 3.01 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-01-31', value: 77.02, series: epoch-runs, holder: o3-mini-2025-01-31_high, conditions: developer OpenAI; standard error 2.59 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-02-24', value: 78.5, series: epoch-runs, holder: claude-3-7-sonnet-20250219_64K, conditions: developer Anthropic; standard error 2.65 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-03-25', value: 83.84, series: epoch-runs, holder: gemini-2.5-pro-exp-03-25, conditions: developer Google DeepMind; standard error 2.62 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-06-05', value: 84.85, series: epoch-runs, holder: gemini-2.5-pro-preview-06-05, conditions: developer Google DeepMind; standard error 2.55 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-06-17', value: 85.29, series: epoch-runs, holder: gemini-2.5-pro, conditions: developer Google DeepMind; standard error 2.12 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-07-09', value: 87.0, series: epoch-runs, holder: grok-4-0709, conditions: developer xAI; standard error 2.0 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-11-13', value: 87.63, series: epoch-runs, holder: gpt-5.1-2025-11-13_high, conditions: developer OpenAI; standard error 1.88 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2025-11-18', value: 92.61, series: epoch-runs, holder: gemini-3-pro-preview, conditions: developer Google DeepMind; standard error 1.65 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-02-19', value: 94.44, series: epoch-runs, holder: gemini-3.1-pro-preview_high, conditions: developer Google DeepMind; standard error 1.63 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-03-05', value: 94.6, series: epoch-runs, holder: gpt-5.4-pro-2026-03-05_xhigh, conditions: developer OpenAI; standard error 1.6 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-08-13', value: 94.82, series: epoch-runs, holder: gemini-3.7-flash_high, conditions: developer Google DeepMind; standard error 1.35 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-09-02', value: 95.39, series: epoch-runs, holder: gemini-3.8-flash_high, conditions: developer Google DeepMind; standard error 1.4 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-09-03', value: 95.77, series: epoch-runs, holder: gpt-6-astra_max, conditions: developer OpenAI; standard error 1.37 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-09-30', value: 96.4, series: epoch-runs, holder: gemini-4-argon_high, conditions: developer Google DeepMind; standard error 1.19 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
