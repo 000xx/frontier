@@ -22,11 +22,10 @@ def _cells(row_html):
     return [re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", c))).strip() for c in cells]
 
 
-def read_table(raw):
-    """Return {year: max_area_million_km2}. Raises SourceError if the table does not look right."""
-    text = raw.decode("utf-8", errors="replace")
-    years = {}
-    for row in re.findall(r"<tr[^>]*>(.*?)</tr>", text, flags=re.S | re.I):
+def _table_years(table_html):
+    """Return ({year: area}, problems) for one table's year rows."""
+    years, problems = {}, []
+    for row in re.findall(r"<tr[^>]*>(.*?)</tr>", table_html, flags=re.S | re.I):
         cells = _cells(row)
         if len(cells) < 3 or not re.fullmatch(r"\d{4}", cells[0]):
             continue
@@ -35,21 +34,26 @@ def read_table(raw):
             continue  # no data for this year
         area = float(cells[2])
         if not 0 < area < 40:
-            raise common.SourceError(f"area for {year} is outside a plausible range: {area}")
-        if year in years:
-            # The page can repeat a year's row (for example in a second table); the repeats must agree.
-            if years[year] != round(area, 1):
-                raise common.SourceError(f"year {year} appears twice with different areas")
+            problems.append(f"{year}: {area}")
+            continue
+        if year in years and years[year] != round(area, 1):
+            problems.append(f"{year} appears twice with different areas")
             continue
         years[year] = round(area, 1)
+    return years, problems
 
-    if not years:
-        raise common.SourceError("no year rows found in the NASA ozone table")
-    if min(years) != FIRST_YEAR:
-        raise common.SourceError(f"first year is {min(years)}, expected {FIRST_YEAR}")
-    if len(years) < MIN_YEARS:
-        raise common.SourceError(f"only {len(years)} years found; expected at least {MIN_YEARS}")
-    return years
+
+def read_table(raw):
+    """Return {year: max_area_million_km2} from the first table on the page that holds the annual series."""
+    text = raw.decode("utf-8", errors="replace")
+    for table_html in re.findall(r"<table[^>]*>(.*?)</table>", text, flags=re.S | re.I):
+        years, problems = _table_years(table_html)
+        if len(years) < MIN_YEARS or problems:
+            continue
+        if min(years) != FIRST_YEAR:
+            raise common.SourceError(f"first year is {min(years)}, expected {FIRST_YEAR}")
+        return years
+    raise common.SourceError("no table with the annual ozone hole series was found")
 
 
 def render_observations(years):
