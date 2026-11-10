@@ -1,0 +1,42 @@
+# Maternal mortality: World maternal mortality ratio from Our World in Data's export of the UN MMEIG estimates.
+# observations are rewritten by scripts/fetchers/maternal_mortality.py; do not edit them by hand.
+id: maternal-mortality
+title: Maternal mortality
+domain: development
+subfield: Human development
+status: draft
+summary: How many women die in pregnancy or childbirth for every 100 000 births, worldwide, and whether that rate
+  is falling fast enough.
+metric:
+  name: Maternal deaths per 100 000 live births, worldwide
+  unit: deaths per 100 000 live births
+  direction: lower
+  scale: linear
+  explainer: 'A maternal death is the death of a woman while pregnant or within 42 days of the end of pregnancy, from
+    any cause related to or made worse by the pregnancy. The ratio divides those deaths by live births, which
+    makes countries and years comparable. Most of these deaths are preventable with skilled care at birth and care
+    after it. The figures are modelled estimates because few countries record every death, so the UN agencies publish
+    a central figure and revise past years when new data arrive. Compare years from the same release.'
+chart:
+  primary: race-to-zero
+series:
+- id: world
+  label: World maternal mortality ratio
+observations: []
+sources:
+- id: owid-maternal-mortality
+  name: Our World in Data, Maternal mortality ratio (UN MMEIG 2023 and other sources, processed by Our World in Data)
+  url: https://ourworldindata.org/grapher/maternal-mortality
+  kind: dataset
+  primary: true
+  notes: World rows of the CSV export, read by the refresh. OWID's About text credits UN MMEIG (2023), WHO Mortality
+    Database (2026), UN World Population Prospects (2024) and Gapminder (2010), last updated 13 October 2026. OWID's
+    own work is CC BY. The UN MMEIG source is licensed CC BY-NC-SA 3.0 IGO, as OWID's page states; see update.notes.
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Observations are the World values in OWID''s CSV export, from 2000 on, copied exactly by
+    scripts/fetchers/maternal_mortality.py. Terms to check before the site is used commercially: the UN MMEIG licence
+    is CC BY-NC-SA 3.0 IGO (non-commercial, share-alike), as stated on OWID''s page. Not yet sourced: the UN MMEIG report
+    itself, the events feed, and a reading list.'
+reading: []
