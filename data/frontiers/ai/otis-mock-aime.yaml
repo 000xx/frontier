@@ -1,0 +1,60 @@
+# Records are rebuilt from Epoch AI's benchmark data by scripts/fetchers/otis_mock_aime.py.
+# Edit the other fields by hand; never edit the records directly.
+id: otis-mock-aime
+title: AI on olympiad-style maths problems (OTIS Mock AIME 2024-2025)
+domain: ai
+subfield: Capability
+status: draft
+summary: The best score any AI model has reached on OTIS Mock AIME 2024-2025, 45 olympiad-style maths problems
+  written by students of the OTIS training programme and used as practice exams for the American Invitational
+  Mathematics Examination, as run by Epoch AI.
+metric:
+  name: Best OTIS Mock AIME 2024-2025 score (Epoch AI runs)
+  unit: '% of problems solved'
+  direction: higher
+  scale: linear
+  limit:
+    value: 100
+    label: Every problem solved
+    source: epoch-benchmarks
+  explainer: 'The AIME is a 15-question maths contest for high-school students in the United States. Its
+    answers are whole numbers from 0 to 999, so a solver cannot guess a free-form answer by chance. OTIS
+    Mock AIME is a set of practice exams written by students of the Olympiad Training for Individual Study
+    programme, using the same format. Epoch AI put the 2024 and 2025 mock exams together into one benchmark
+    of 45 problems and runs models on it itself. Each answer is checked by a computer, so the score is
+    simply the share of problems a model gets right. Because the problems are written for people who are
+    training for competitions, they are harder than typical textbook questions but easier than research
+    mathematics. Read the score alongside the other maths benchmarks on this site: a high score here shows
+    strong competition-level problem solving, not the ability to do original research.'
+chart:
+  primary: record-chart
+  secondary:
+  - threshold-gauge
+series:
+- id: epoch-runs
+  label: Best model, Epoch AI runs
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Records are rebuilt from Epoch''s benchmark_data.zip (member otis_mock_aime_2024_2025.csv) by
+    scripts/fetchers/otis_mock_aime.py; do not edit them by hand. Values are Epoch''s mean_score times 100,
+    rounded to two decimals. A model is a record when its score beats every model with an earlier release
+    date. Dates are model release dates as Epoch lists them.'
+sources:
+- id: epoch-benchmarks
+  name: Epoch AI, Benchmarking hub data (benchmark_data.zip)
+  url: https://epoch.ai/benchmarks/use-this-data
+  kind: dataset
+  primary: true
+  notes: 'File https://epoch.ai/data/benchmark_data.zip (updated 2026-11-09 when read), member
+    otis_mock_aime_2024_2025.csv. Licence CC BY 4.0 for Epoch data: free to use, distribute and reproduce with
+    credit to the source and authors. Credit line: "Data: Epoch AI, Benchmarking hub (epoch.ai/benchmarks),
+    CC BY 4.0."'
+- id: otis-mock-aime-dataset
+  name: Epoch AI, OTIS Mock AIME 2024-2025 dataset on Hugging Face
+  url: https://huggingface.co/datasets/EpochAI/otis-mock-aime-24-25/blob/main/README.md
+  kind: dataset
+  notes: 'Describes the 45 problems from three exams and says they were written by OTIS students. Licence
+    listed as Apache-2.0 on that page; the problems themselves are not copied here.'
+events: []
+reading: []
