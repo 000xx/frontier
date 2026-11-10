@@ -90,6 +90,19 @@ sources:
   kind: dataset
   notes: World rows of the CSV export, read by the refresh. Same credit and terms as owid-tb-deaths. OWID gives
     5 February 2026 as the last update, with dates 2000 to 2024.
+- id: who-tb-factsheet
+  name: WHO fact sheet, Tuberculosis (page dated 24 March 2026)
+  url: https://www.who.int/news-room/fact-sheets/detail/tuberculosis
+  kind: other
+  notes: Gives 10.7 million people falling ill and 1.23 million deaths in 2024, the deaths figure including 150 000
+    among people with HIV. Read 10 November 2026. These headline figures differ from the OWID exports for 2024 (see
+    update.notes); the owner should decide which series the frontier reports.
+- id: cidrap-who-tb-2025
+  name: CIDRAP, WHO cites progress against TB globally but warns about reduced funding (November 2025)
+  url: https://www.cidrap.umn.edu/tuberculosis/who-cites-progress-against-tb-globally-warns-about-reduced-funding
+  kind: news
+  notes: Reports the WHO Global TB Report 2025 and its 29% fall in deaths since 2015. The article carries no date;
+    it says the report was released that day, and the linked WHO release is dated 12 November 2025. Read 10 November 2026.
 update:
   cadence: yearly
   last_checked: '2026-11-09'
@@ -97,4 +110,15 @@ update:
     scripts/fetchers/tuberculosis.py. WHO publishes its Global tuberculosis report each year, usually in the autumn,
     and revises earlier years, so the fetcher rewrites every year it reads. Not yet sourced: WHO''s own Global
     tuberculosis report, the event feed, and a reading list.'
+events:
+- date: '2025-11-12'
+  kind: milestone
+  title: WHO Global TB Report 2025 puts TB deaths 29% lower than in 2015
+  why_it_matters: The estimated death toll is 29% lower than in 2015, which shows the direction of travel.
+  url: https://www.cidrap.umn.edu/tuberculosis/who-cites-progress-against-tb-globally-warns-about-reduced-funding
+- date: '2025-11-12'
+  kind: setback
+  title: WHO warns that TB progress is imperilled by funding shortfalls
+  why_it_matters: The same report says continued funding gaps put the fall in deaths at risk.
+  url: https://www.cidrap.umn.edu/tuberculosis/who-cites-progress-against-tb-globally-warns-about-reduced-funding
 reading: []
