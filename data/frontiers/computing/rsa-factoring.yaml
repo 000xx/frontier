@@ -15,7 +15,7 @@ metric:
   explainer: 'RSA is a public-key scheme. A public key is a large number n that is the product of two secret primes,
     and the scheme is safe as long as nobody can split n back into its two primes. The records here are factorisations
     of such numbers, which mainly show how much computing a given size needs. Many records were set on numbers from
-    RSA Laboratories' public challenge, which ended in 2007; later numbers continue the same list. The number field sieve is the method behind every record here. The academic records
+    RSA Laboratories public challenge, which ended in 2007; later numbers continue the same list. The number field sieve is the method behind every record here. The academic records
     used about 900 to 2,700 core-years of compute, and the cost rises steeply with size. A record does not by
     itself break any key in use: it shows the effort needed for a number of a given length, which is what key-size
     choices depend on. Results are counted in bits, the binary length of the number.'
