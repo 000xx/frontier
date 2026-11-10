@@ -1,0 +1,60 @@
+# Solar capacity: observations are the world's cumulative installed solar PV capacity in gigawatts, one per year.
+# They are read by scripts/fetchers/solar_capacity.py from Our World in Data's copy of IRENA's renewable capacity
+# statistics (the grapher table installed-solar-pv-capacity, World rows). The IRENA 2026 capacity highlights PDF,
+# opened 2026-11-10, gives 2,392 GW at end-2025 and an increase of 511 GW in 2025, which the fetcher's data should match.
+id: solar-capacity
+title: Solar capacity
+domain: energy
+subfield: Solar
+status: draft
+summary: The total solar photovoltaic (PV) power capacity installed worldwide, year by year. Each year's figure is
+  the capacity still in place at the end of that year, so it grows as new panels are added.
+metric:
+  name: Cumulative installed solar PV capacity, world
+  unit: GW
+  direction: higher
+  scale: linear
+  explainer: 'Installed capacity is the maximum output that the panels could deliver under ideal sun, measured in
+    gigawatts. It is not the electricity generated: a gigawatt of panels produces far less than a gigawatt of
+    power over a year, because the sun is down at night and weaker in winter. Capacity is the stock of equipment
+    that has been built and is still connected, so it rises every year that more panels are installed and falls
+    only when old plants are retired. Comparing it year on year shows how fast the world is adding solar power.'
+chart:
+  primary: record-chart
+series:
+- id: solar-pv
+  label: Installed solar PV capacity
+update:
+  cadence: yearly
+  last_checked: '2026-11-10'
+  notes: 'IRENA publishes its renewable capacity statistics once a year, around March or April, and updates them in the
+    summer. To update, run the solar_capacity fetcher; it adds new years and reports any revised earlier year.
+    Still to do: confirm that the fetcher data matches the IRENA figures for 2024 and 2025, and check the IRENA terms.'
+sources:
+- id: owid-installed-solar-pv-capacity
+  name: Our World in Data, installed solar PV capacity (World), from IRENA Renewable Energy Statistics
+  url: https://ourworldindata.org/grapher/installed-solar-pv-capacity
+  kind: dataset
+  primary: true
+  notes: 'Page opened 2026-11-10. Our World in Data states that its own visualisations and code are CC BY 4.0 and that
+    third-party data is subject to the original provider''s terms. Its citation is "IRENA (2026) – processed by Our
+    World in Data. ''Total solar capacity'' [dataset]. IRENA, ''Renewable Energy Statistics'' [original data]."
+    The CSV is fetched by the fetcher from the grapher CSV URL.'
+- id: irena-capacity-highlights-2026
+  name: IRENA, Renewable capacity highlights 2026 (Renewable Power Capacity by Energy Source)
+  url: https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_capacity_highlights_2026.pdf
+  kind: report
+  notes: 'PDF opened 2026-11-10. Gives 2,392 GW of solar PV at end-2025 and a 511 GW (+27.2%) increase in 2025. IRENA''s
+    own terms for reuse were not checked; see the notes on the source in the pull request.'
+events:
+- date: '2025'
+  kind: milestone
+  title: Solar PV capacity rose by 511 GW in 2025, an increase of 27.2 percent
+  why_it_matters: The yearly addition was large enough to lift the world's installed solar fleet by more than a quarter in a single year.
+  url: https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_capacity_highlights_2026.pdf
+- date: '2025'
+  kind: milestone
+  title: World solar PV capacity reached 2,392 GW at the end of 2025
+  why_it_matters: IRENA describes solar as the largest share of global renewable power capacity, unchanged from the previous year.
+  url: https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/Mar/IRENA_DAT_RE_capacity_highlights_2026.pdf
+observations: []
