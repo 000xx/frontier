@@ -4,6 +4,8 @@
   A frontier page is assembled from the blocks its data file holds:
     records               -> record chart, ranking of series, history table (and a two-axis chart when metric.axes exist)
     observations          -> line chart with ranges and a table (or a points chart when each series is a single point)
+      + coverage-meter    -> percentages are also drawn as a filled share of the whole, with what is left
+      + race-to-zero      -> the first series is also drawn against zero: distance to go, and a log axis for big falls
     stages + candidates   -> stage table
     items                 -> filterable list
     events, reading, sources, credits -> the reference sections
@@ -21,6 +23,7 @@
   var HOME_ANCHORS = { home: 1, frontiers: 1, method: 1, domains: 1 };
   var chosen = {};     // frontier id -> selected series id
   var itemState = {};  // frontier id -> { q, status, group, shown }
+  var homeState = { q: '', domain: 'all', shape: 'all' };  // the front page's search and filters
 
   /* ---------- small helpers ---------- */
   function esc(s) {
@@ -154,6 +157,26 @@
     seriesIds(f, b).forEach(function (id) { f[b][id].forEach(function (r) { if (v === null || better(f, r[1], v)) { v = r[1]; best = id; } }); });
     return best;
   }
+  /* A frontier's chart shapes (primary first, then secondary) decide how its observations are framed. */
+  function hasShape(f, s) { return f.shape === s || (f.shapes || []).indexOf(s) >= 0; }
+  function allObs(f) { var out = []; seriesIds(f, 'observations').forEach(function (id) { f.observations[id].forEach(function (r) { out.push(r[1]); }); }); return out; }
+  /* Coverage meter: every figure is a percentage of a whole, so the whole (100%) can be drawn without a new number. */
+  function coverageMode(f) {
+    return hasObs(f) && !hasRecords(f) && hasShape(f, 'coverage-meter') && isPct(f) && !pointsMode(f) &&
+      allObs(f).every(function (v) { return v >= 0 && v <= 100; });
+  }
+  /* Race to zero: only the series the metric itself describes (the first one) is framed against zero.
+     Other series on the same page can measure something else, such as vaccine coverage. */
+  function zeroMode(f, sid) {
+    return hasObs(f) && !hasRecords(f) && hasShape(f, 'race-to-zero') && f.metric.direction === 'lower' && !pointsMode(f) &&
+      seriesIds(f, 'observations')[0] === sid && f.observations[sid].every(function (r) { return r[1] >= 0; });
+  }
+  /* A fall of a hundredfold or more only shows on a log scale; smaller falls stay linear, where zero is the baseline. */
+  function zeroScale(rows) {
+    var pos = rows.map(function (r) { return r[1]; }).filter(function (v) { return v > 0; });
+    return pos.length > 1 && Math.max.apply(null, pos) / Math.min.apply(null, pos) >= 100 ? 'log' : 'linear';
+  }
+  function peakRow(rows) { var p = rows[0]; rows.forEach(function (r) { if (r[1] > p[1]) p = r; }); return p; }
   function selectedId(f) {
     var b = block(f); if (!b) return null;
     var ids = seriesIds(f, b);
@@ -236,13 +259,25 @@
     (o.marks || []).forEach(function (m) { vs.push(m.v); });
     var tMax = Math.max.apply(null, ts), t0 = Math.floor(Math.min.apply(null, ts)), t1 = Math.ceil((anyStep ? Math.max(tMax, tN) : tMax) + 0.1);
     if (t1 - t0 < 2) t0 -= 1;
-    var ax = valueAxis(vs, f.metric.scale, H, suffix(f));
+    /* o.whole fixes the axis from nothing to the whole. o.zero marks zero as the line to reach; on a log scale,
+       which has no zero, zero gets a rail of its own under a break in the axis. */
+    var scale = o.scale || f.metric.scale, rail = o.zero && scale === 'log', Hp = rail ? H - 44 : H, raw, k5;
+    if (o.whole) {
+      raw = { Y: function (x) { return H - x / o.whole * H; }, ticks: [] };
+      for (k5 = 1; k5 <= 5; k5 += 1) raw.ticks.push({ v: o.whole * k5 / 5, label: fmt(o.whole * k5 / 5) + suffix(f) });
+    } else raw = valueAxis(vs, scale, Hp, suffix(f));
+    var ax = { ticks: raw.ticks, Y: function (v) { return rail && v <= 0 ? H : raw.Y(v); } };
     function X(t) { return (t - t0) / (t1 - t0) * W; }
     ax.ticks.forEach(function (k) {
       out += '<path d="M0 ' + ax.Y(k.v).toFixed(1) + ' H' + W + '" stroke="' + c.grid + '" stroke-width="1"/>' +
         '<text x="-12" y="' + (ax.Y(k.v) + 4.5).toFixed(1) + '" fill="' + c.text + '" font-size="13" text-anchor="end">' + esc(k.label) + '</text>';
     });
-    out += '<path d="M0 ' + H + ' H' + W + '" stroke="' + c.axis + '" stroke-width="1"/>';
+    out += '<path d="M0 ' + H + ' H' + W + '" stroke="' + (o.zero ? c.mark : c.axis) + '" stroke-width="' + (o.zero ? 2 : 1) + '"/>';
+    if (o.zero) {
+      out += '<text x="-12" y="' + (H + 4.5) + '" fill="' + c.mark + '" font-size="13" font-weight="500" text-anchor="end">0</text>' +
+        '<text x="0" y="' + (H - 9) + '" fill="' + c.mark + '" stroke="' + c.bg + '" stroke-width="4" paint-order="stroke" font-size="13">Zero</text>';
+      if (rail) out += '<path d="M-7 ' + (Hp + 20) + ' l14 -7 M-7 ' + (Hp + 28) + ' l14 -7" stroke="' + c.axis + '" stroke-width="1.5" fill="none"/>';
+    }
     timeTicks(t0, t1).forEach(function (y) {
       out += '<path d="M' + X(y).toFixed(1) + ' ' + H + ' V' + (H + 6) + '" stroke="' + c.axis + '" stroke-width="1"/>' +
         '<text x="' + X(y).toFixed(1) + '" y="' + (H + 26) + '" fill="' + c.text + '" font-size="13" text-anchor="middle">' + y + '</text>';
@@ -270,6 +305,7 @@
         var dn = l.band.slice().reverse().map(function (b) { return X(b[0]).toFixed(1) + ' ' + ax.Y(b[1]).toFixed(1); });
         out += '<path d="M' + up.concat(dn).join(' L') + ' Z" fill="' + c.band + '" stroke="none"/>';
       }
+      if (o.whole && l.pts.length > 1) out += '<path d="' + path(l) + ' V' + H + ' H' + X(l.pts[0][0]).toFixed(1) + ' Z" fill="' + c.band + '" stroke="none"/>';
       out += '<path d="' + path(l) + '" fill="none" stroke="' + c.line + '" stroke-width="2.5"/>';
       var dots = '';
       l.pts.forEach(function (p) { dots += '<circle cx="' + X(p[0]).toFixed(1) + '" cy="' + ax.Y(p[1]).toFixed(1) + '" r="3"/>'; });
@@ -279,7 +315,8 @@
       out += '<circle cx="' + X(d[0]).toFixed(1) + '" cy="' + ax.Y(d[1]).toFixed(1) + '" r="' + (d[2] ? 4 : 3.5) + '" fill="' + (d[2] ? c.line : c.bg) + '" stroke="' + c.line + '" stroke-width="1.5"><title>' + esc(d[3] || '') + '</title></circle>';
     });
     if (o.label) {
-      var lx = X(o.label.t), ly = ax.Y(o.label.v), end = lx > W * 0.35, below = ly < 34;
+      var lx = X(o.label.t), ly = ax.Y(o.label.v), end = lx > W * 0.35, below = ly < 34 || (o.label.below && ly + 34 < H); // a line falling to its last point leaves room underneath
+      if (o.zero && ly < H - 14) out += '<path d="M' + lx.toFixed(1) + ' ' + (ly + 8).toFixed(1) + ' V' + (H - 2) + '" stroke="#E4531A" stroke-width="1.5" stroke-dasharray="2 4" fill="none"/>';
       out += '<circle cx="' + lx.toFixed(1) + '" cy="' + ly.toFixed(1) + '" r="11" fill="#E4531A" fill-opacity="0.22"/>' +
         '<circle cx="' + lx.toFixed(1) + '" cy="' + ly.toFixed(1) + '" r="5.5" fill="' + c.hot + '"/>' +
         '<text x="' + (lx + (end ? -14 : 14)).toFixed(1) + '" y="' + (ly + (below ? 26 : -14)).toFixed(1) + '" fill="' + c.strong + '" stroke="' + c.bg + '" stroke-width="5" paint-order="stroke" font-size="14" font-weight="500" text-anchor="' + (end ? 'end' : 'start') + '">' + esc(o.label.text) + '</text>';
@@ -330,6 +367,13 @@
     }
     o.marks = [];
     ['limit', 'target'].forEach(function (k) { var m = f.metric[k]; if (m) o.marks.push({ v: m.value, label: (k === 'limit' ? 'Limit: ' : 'Target: ') + fmt(m.value) + suffix(f) }); });
+    if (coverageMode(f)) {
+      o.whole = 100;
+      if (!o.marks.some(function (m) { return m.v === 100; })) o.marks.push({ v: 100, label: 'The whole: 100%' });
+    } else if (zeroMode(f, sid)) {
+      var zr = f.observations[sid];
+      o.zero = true; o.scale = zeroScale(zr); o.label.below = zr.length > 1 && zr[zr.length - 2][1] > zr[zr.length - 1][1];
+    }
     return timeChart(f, o, dark);
   }
   /* The main value against a second measured quantity (metric.axes[0]), for target-zone charts. */
@@ -403,12 +447,39 @@
   }
   function tile(f) {
     var h = headline(f), draft = f.dataStatus === 'draft';
-    return '<a class="tile" href="#' + esc(f.id) + '"><span class="trow eyebrow"><span>' + esc(f.domain) + '</span><span>' + esc(shapeLabel(f)) + '</span></span>' +
+    return '<a class="tile" href="#' + esc(f.id) + '"><span class="trow eyebrow"><span>' + esc(f.subfield || f.domain) + '</span><span>' + esc(shapeLabel(f)) + '</span></span>' +
       (h ? '<span class="tnum">' + fmt(h.value) + (suffix(f) ? '<i>' + suffix(f) + '</i>' : '') + '</span>' + (unitText(f) ? '<span class="tunit">' + esc(unitText(f)) + '</span>' : '')
-        : '<span class="tnum words">' + (f.items.length ? fmt(f.items.length) + ' listed' : esc(shapeLabel(f))) + '</span>') +
+        : '<span class="tnum words">' + (f.items.length && f.shape !== 'problem-list' ? fmt(f.items.length) + ' listed' : esc(shapeLabel(f))) + '</span>') +
       '<span class="ttitle">' + esc(f.title) + '</span>' + spark(f) +
       '<span class="trow tfoot"><span>' + (h ? esc((h.who ? h.who + ' · ' : '') + fmtDate(h.date)) : 'Updated ' + esc(fmtDate(f.lastChecked))) + '</span>' +
       (draft ? '<span class="draft">Draft data</span>' : h && h.status ? statusHtml(h.status, '#0F1317') : '') + '</span></a>';
+  }
+  /* The front page's tiles, grouped by domain and narrowed by the search box and the two filters. */
+  function tileMatches(f) {
+    var q = homeState.q.trim().toLowerCase();
+    return (homeState.domain === 'all' || f.domain === homeState.domain) && (homeState.shape === 'all' || f.shape === homeState.shape) &&
+      (!q || [f.title, f.domain, f.subfield, shapeLabel(f), f.metric.name, f.summary].join(' ').toLowerCase().indexOf(q) >= 0);
+  }
+  function tilesList() {
+    var shown = 0, filtered = homeState.q.trim() || homeState.domain !== 'all' || homeState.shape !== 'all';
+    var groups = byDomain().map(function (g) {
+      var list = g.list.filter(tileMatches); shown += list.length;
+      return list.length ? '<section class="tgroup"><h3><span>' + esc(g.name) + '</span><span class="eyebrow">' + list.length + (list.length === 1 ? ' frontier' : ' frontiers') + '</span></h3>' +
+        '<div class="tiles">' + list.map(tile).join('') + '</div></section>' : '';
+    }).join('');
+    return '<p class="small" aria-live="polite">' + (filtered ? 'Showing ' + shown + ' of ' + D.frontiers.length + ' frontiers.' : 'Showing all ' + D.frontiers.length + ' frontiers, grouped by domain.') + '</p>' +
+      (shown ? groups : '<p class="empty">No frontier matches that search.</p>') +
+      (filtered ? '<button type="button" class="more" id="home-clear">Clear the search and filters</button>' : '');
+  }
+  function tilesFilters() {
+    var doms = byDomain(), shapes = [], n = {};
+    ordered().forEach(function (f) { if (!n[f.shape]) { n[f.shape] = 0; shapes.push(f.shape); } n[f.shape] += 1; });
+    shapes.sort(function (a, b) { return n[b] - n[a] || (a < b ? -1 : 1); });
+    return '<div class="filters" role="search"><div class="grow"><label for="home-q">Search the frontiers</label><input id="home-q" type="search" value="' + esc(homeState.q) + '" placeholder="Name, field or measure"></div>' +
+      '<div><label for="home-domain">Domain</label><select id="home-domain"><option value="all">All domains</option>' + doms.map(function (g) {
+        return '<option value="' + esc(g.name) + '"' + (homeState.domain === g.name ? ' selected' : '') + '>' + esc(g.name) + ' (' + g.list.length + ')</option>'; }).join('') + '</select></div>' +
+      '<div><label for="home-shape">Chart shape</label><select id="home-shape"><option value="all">All shapes</option>' + shapes.map(function (s) {
+        return '<option value="' + esc(s) + '"' + (homeState.shape === s ? ' selected' : '') + '>' + esc(shapeLabel({ shape: s })) + ' (' + n[s] + ')</option>'; }).join('') + '</select></div></div>';
   }
   function home() {
     var lead = D.frontiers.filter(function (x) { return x.id === D.site.lead && hasRecords(x); })[0] || D.frontiers.filter(hasRecords)[0];
@@ -445,7 +516,7 @@
 
       '<section class="band" id="frontiers"><div class="wrap"><div class="head"><h2>' + D.frontiers.length + ' frontiers so far</h2>' +
         '<p>Each one gets the chart that fits it. New ones appear here as their data is sourced and checked.</p></div>' +
-        '<div class="tiles">' + ordered().map(tile).join('') + '</div>' + queue + '</div></section>' +
+        tilesFilters() + '<div id="tiles-list">' + tilesList() + '</div>' + queue + '</div></section>' +
 
       '<section class="band" id="method"><div class="wrap"><div class="head"><h2>Every record carries a status</h2>' +
         '<p>A number is only as good as the checking behind it, so the mark travels with the number.</p></div>' +
@@ -508,11 +579,55 @@
       }).reverse().join('') + '</tbody></table></div></div>';
     return out;
   }
+  /* One bar drawn to scale: `frac` of the full width is filled, the newest end in orange. ticks: [{at, blue}] */
+  function scaleBar(frac, aria, ticks) {
+    var W = 880, w = Math.max(0, Math.min(1, frac)) * W, cap = Math.min(6, w);
+    var o = '<rect x="0" y="7" width="' + W + '" height="18" fill="#E3E5DF"/>' + FG +
+      '<rect x="0" y="7" width="' + w.toFixed(1) + '" height="18" fill="#0F1317"/>' +
+      '<rect x="' + (w - cap).toFixed(1) + '" y="7" width="' + cap.toFixed(1) + '" height="18" fill="#E4531A"/>' +
+      (ticks || []).map(function (t) { return '<rect x="' + (Math.max(0, Math.min(1, t.at)) * W - 1.5).toFixed(1) + '" y="0" width="3" height="32" fill="' + (t.blue ? '#1E34D8' : '#0F1317') + '"/>'; }).join('');
+    return '<svg class="scalebar" role="img" data-sweep data-w="' + W + '" aria-label="' + esc(aria) + '" viewBox="0 0 ' + W + ' 32" preserveAspectRatio="none">' + sweep(o, W, 32, false) + '</svg>';
+  }
+  function cell(cls, label, value) { return '<div class="' + cls + '"><dt>' + label + '</dt><dd>' + value + '</dd></div>'; }
+  /* Coverage meter: the latest figure as a filled share of the whole, with what is left. */
+  function coverageSection(f, sid) {
+    var rows = f.observations[sid], first = rows[0], last = rows[rows.length - 1], t = f.metric.target, ticks = [];
+    if (rows.length > 1) ticks.push({ at: first[1] / 100 });
+    if (t && t.value < 100) ticks.push({ at: t.value / 100, blue: true });
+    return '<div class="wrap block"><h2>How much of the whole</h2>' +
+      scaleBar(last[1] / 100, 'A bar standing for the whole, 100%. ' + val(f, last[1]) + ' of it is filled, as of ' + fmtDate(last[0]) + '.', ticks) +
+      '<dl class="split">' + cell('now', 'Latest figure · ' + esc(fmtDate(last[0])), val(f, last[1])) +
+        cell('', 'The rest of the whole', val(f, 100 - last[1])) +
+        (rows.length > 1 ? cell('', 'First figure here · ' + esc(fmtDate(first[0])), val(f, first[1])) : '') +
+        (t ? cell('goal', 'Target' + (t.by ? ' · by ' + esc(fmtDate(t.by)) : ''), val(f, t.value)) : '') + '</dl>' +
+      '<p class="small">The bar is the whole, 100%. The dark part is the latest figure' + (rows.length > 1 ? ', and the black tick is the first figure in this series' : '') +
+        (t && t.value < 100 ? '; the blue tick is the target' : '') + '. The rest is 100% minus the latest figure, worked out here and not a figure from the source.' +
+        (t ? ' Target: ' + esc(t.label) + '.' : '') + '</p></div>';
+  }
+  /* Race to zero: how far the latest figure still is from zero, next to the highest figure in the series. */
+  function zeroSection(f, sid) {
+    var rows = f.observations[sid], last = rows[rows.length - 1], peak = peakRow(rows), frac = peak[1] > 0 ? last[1] / peak[1] : 0;
+    return '<div class="wrap block"><h2>Distance to zero</h2>' +
+      (peak[1] > 0 ? scaleBar(frac, 'A bar as long as the highest figure in this series, ' + val(f, peak[1]) + ' in ' + fmtDate(peak[0]) + '. The filled part is the latest figure, ' + val(f, last[1]) + ' in ' + fmtDate(last[0]) + '.') : '') +
+      '<dl class="split">' + cell('', 'Highest in this series · ' + esc(fmtDate(peak[0])), val(f, peak[1])) +
+        cell('now', 'Latest figure · ' + esc(fmtDate(last[0])), val(f, last[1])) +
+        cell('goal', 'The line to reach', '0') + '</dl>' +
+      '<p class="small">' + (unitText(f) ? 'Figures are in ' + esc(unitText(f)) + '. ' : '') + 'The bar is as long as the highest figure in this series, and the dark part is the latest figure drawn to the same scale' +
+        (peak[1] > 0 && frac < 0.004 ? ', which is too small to see at this size' : '') + '.</p></div>';
+  }
   function obsSections(f, sid) {
-    var pm = pointsMode(f), meta = seriesMeta(f, sid), rows, head, body;
-    var out = '<div class="wrap block"><h2>' + esc(pm ? f.metric.name : seriesName(meta)) + '</h2><div class="card">' + obsChart(f, sid, false) + '</div>' +
-      '<p class="small">' + (pm ? 'Each point is one entry, placed at its date. Hover a point for its name.' : 'The shaded band, where shown, is the range the source gives around its central figure.') +
-      (f.metric.scale === 'log' ? ' The vertical axis is a log scale.' : '') + '</p></div>';
+    var pm = pointsMode(f), meta = seriesMeta(f, sid), rows, head, body, cov = coverageMode(f), zero = zeroMode(f, sid);
+    var log = (zero ? zeroScale(f.observations[sid]) : f.metric.scale) === 'log';
+    var note = pm ? 'Each point is one entry, placed at its date. Hover a point for its name.'
+      : cov ? 'The shaded area under the line is the share reached, on an axis that runs from nothing to the whole. The dashed blue line is the whole.'
+      : zero ? 'The blue line at the bottom is zero. The dotted orange line is the distance still to go from the latest figure.'
+      : 'The shaded band, where shown, is the range the source gives around its central figure.';
+    if (!pm && seriesIds(f, 'observations').length > 1) note += ' Thin lines are the other series, where they fit on the same axis.';
+    if (zero && log) note += ' The vertical axis is a log scale: each gridline is ten times the one below it. A log scale has no zero, so zero is drawn as a line of its own under the break in the axis.';
+    else if (log) note += ' The vertical axis is a log scale.';
+    var out = (cov ? coverageSection(f, sid) : zero ? zeroSection(f, sid) : '') +
+      '<div class="wrap block"><h2>' + esc(pm ? f.metric.name : seriesName(meta)) + (cov || zero ? ' over time' : '') + '</h2><div class="card">' + obsChart(f, sid, false) + '</div>' +
+      '<p class="small">' + note + '</p></div>';
     if (pm) {
       rows = []; seriesIds(f, 'observations').forEach(function (id) { rows.push({ m: seriesMeta(f, id), r: f.observations[id][0] }); });
       rows.sort(function (a, b) { return a.r[0] < b.r[0] ? 1 : -1; });
@@ -621,7 +736,8 @@
   }
 
   var Site = {
-    home: home, frontier: frontier, itemsList: itemsList, anchors: HOME_ANCHORS, seriesIds: seriesIds, block: block,
+    home: home, frontier: frontier, itemsList: itemsList, tilesList: tilesList,
+    filterHome: function (q, domain, shape) { homeState = { q: q || '', domain: domain || 'all', shape: shape || 'all' }; }, anchors: HOME_ANCHORS, seriesIds: seriesIds, block: block,
     select: function (fid, sid) { chosen[fid] = sid; }, data: function () { return D; }
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = Site;
@@ -680,18 +796,29 @@
     onScroll();
   }
   function rerender(keepScroll) { var f = find(current), y = window.scrollY; if (!f) return; render(f); window.scrollTo(0, keepScroll ? y : 0); }
+  function refreshTiles() { var el = document.getElementById('tiles-list'); if (el) el.innerHTML = tilesList(); }
   function refreshItems() { var f = find(current), el = document.getElementById('items-list'); if (f && el) el.innerHTML = itemsList(f); }
   app.addEventListener('change', function (e) {
-    var f = find(current), t = e.target; if (!f || !t) return;
+    var f = find(current), t = e.target; if (!t) return;
+    if (t.id === 'home-domain') { homeState.domain = t.value; refreshTiles(); }
+    if (t.id === 'home-shape') { homeState.shape = t.value; refreshTiles(); }
+    if (!f) return;
     if (t.id === 'series') { chosen[f.id] = t.value; rerender(true); var s = document.getElementById('series'); if (s) s.focus(); }
     if (t.id === 'item-status') { itemsState(f).status = t.value; itemsState(f).shown = 120; refreshItems(); }
     if (t.id === 'item-group') { itemsState(f).group = t.value; itemsState(f).shown = 120; refreshItems(); }
   });
   app.addEventListener('input', function (e) {
+    if (e.target && e.target.id === 'home-q') { homeState.q = e.target.value; refreshTiles(); return; }
     var f = find(current); if (f && e.target && e.target.id === 'item-q') { itemsState(f).q = e.target.value; itemsState(f).shown = 120; refreshItems(); }
   });
   app.addEventListener('click', function (e) {
-    var f = find(current), t = e.target; if (!f || !t || !t.closest) return;
+    var f = find(current), t = e.target; if (!t || !t.closest) return;
+    if (t.closest('#home-clear')) {
+      homeState = { q: '', domain: 'all', shape: 'all' };
+      ['home-q', 'home-domain', 'home-shape'].forEach(function (id) { var el = document.getElementById(id); if (el) el.value = id === 'home-q' ? '' : 'all'; });
+      refreshTiles(); var q = document.getElementById('home-q'); if (q) q.focus(); return;
+    }
+    if (!f) return;
     var b = t.closest('button.pick');
     if (b) { chosen[f.id] = b.getAttribute('data-series'); rerender(false); return; }
     if (t.closest('#more-items')) { itemsState(f).shown += 500; refreshItems(); }

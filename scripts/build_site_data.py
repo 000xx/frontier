@@ -90,6 +90,7 @@ def build():
             },
             "explainer": one_line(metric.get("explainer")),
             "shape": (d.get("chart") or {}).get("primary", ""),
+            "shapes": [(d.get("chart") or {}).get("primary", "")] + list((d.get("chart") or {}).get("secondary") or []),
             "series": d.get("series") or [],
             "records": by_series(d.get("records"), lambda r: [
                 str(r["date"]), r["value"], r.get("holder") or "", r.get("conditions") or "",

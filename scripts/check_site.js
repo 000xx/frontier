@@ -35,6 +35,9 @@ function check(name, make) {
 
 const data = Site.data();
 check('front page', () => Site.home());
+// The front page's search and filters redraw only the tiles, so check that part on its own too.
+check('front page tiles, filtered', () => { Site.filterHome('cost', null, null); const html = Site.tilesList(); Site.filterHome(); return Site.home().replace(/<div id="tiles-list">[\s\S]*?<\/div><\/section><\/div>/, html) + html; });
+check('front page tiles, no match', () => { Site.filterHome('no such frontier'); const html = Site.tilesList(); Site.filterHome(); if (html.indexOf('No frontier matches') < 0) throw new Error('no empty message'); return Site.home() + html; });
 for (const f of data.frontiers) {
   const block = Site.block(f);
   if (!block && !f.items.length && !f.candidates.length) {
