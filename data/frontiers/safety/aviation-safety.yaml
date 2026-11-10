@@ -1,0 +1,24 @@
+id: aviation-safety
+title: Aviation safety
+domain: safety
+subfield: Fewer deaths and failures
+status: draft
+summary: How often commercial airliners have fatal accidents, measured per million flights. It shows whether flying has
+  become safer as traffic has grown.
+metric:
+  name: Fatal airliner accidents per million commercial flights
+  unit: accidents per million flights
+  direction: lower
+  scale: linear
+  explainer: placeholder until the sourced text is written.
+chart:
+  primary: race-to-zero
+sources:
+- id: owid-aviation-safety
+  name: Our World in Data, fatal airliner accidents per million commercial flights (ASN and ICAO, via World Bank)
+  url: https://ourworldindata.org/grapher/fatal-airliner-accidents-per-million-flights
+  kind: dataset
+  primary: true
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
