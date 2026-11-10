@@ -59,13 +59,11 @@ The full list of planned frontiers and the build order are in the planning doc.
 
 ## The site
 
-The public site is in `site/`: one page (`index.html`), a stylesheet, a script that draws the pages and charts (`js/app.js`) and a photo. It reads everything from `site/js/data.js`, which is generated and not committed.
+The public site is in `site/` and is published with GitHub Pages. It reads everything from `site/js/data.js`, which is generated from the data files and not committed. See `site/README.md` for how a data file becomes a page.
 
-- Build the data file: `python scripts/build_site_data.py`, then open `site/index.html` in a browser.
-- Every file under `data/frontiers/` becomes a page. Nothing in `site/` needs to change when a frontier is added or updated.
-- `site/config.json` holds the choices that are not data: the site name, which series each frontier features on the front page, and the "next in the queue" list.
-- The `Publish site` workflow rebuilds the data file and publishes `site/` to GitHub Pages on every push to `main`. In the repository settings, Pages must have its source set to "GitHub Actions".
-- Only the record chart shape is drawn so far. A frontier whose primary shape is something else still gets a record chart until that shape is built.
+- Build and check locally: `python scripts/build_site_data.py`, then `node scripts/check_site.js`, then open `site/index.html` in a browser.
+- Every pull request runs both steps, so a data change that would break a page fails before it is merged.
+- Every push to `main` rebuilds and republishes the site.
 
 ## Automatic refresh
 
