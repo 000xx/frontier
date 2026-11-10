@@ -1,0 +1,124 @@
+# Measles: reported cases and first-dose vaccine coverage, World rows of Our World in Data's exports of WHO data.
+# observations are rewritten by scripts/fetchers/measles.py; do not edit them by hand.
+id: measles
+title: Measles
+domain: health
+subfield: Population health
+status: live
+summary: How many measles cases are reported each year, and how many children receive the first dose of the vaccine
+  that prevents them.
+metric:
+  name: Reported measles cases per year, worldwide
+  unit: cases per year
+  direction: lower
+  scale: linear
+  explainer: 'Measles is a highly contagious virus that spreads through the air. A vaccine prevents it, and two doses
+    give the strongest protection. The case count is of cases reported to WHO by countries, so it depends on how
+    well each country tests and reports. Coverage is the share of one-year-olds who have had the first dose, estimated
+    by WHO and UNICEF from country records and surveys. When coverage falls, cases can rise a few years later, so the
+    two series are shown together.'
+chart:
+  primary: race-to-zero
+  secondary:
+  - glide-path
+series:
+- id: cases
+  label: Reported measles cases
+- id: coverage
+  label: First-dose MCV1 coverage (%)
+observations:
+- {date: '2000', series: cases, value: 853479, source: owid-measles-cases}
+- {date: '2000', series: coverage, value: 71.0, source: owid-measles-coverage}
+- {date: '2001', series: cases, value: 849173, source: owid-measles-cases}
+- {date: '2001', series: coverage, value: 72.0, source: owid-measles-coverage}
+- {date: '2002', series: cases, value: 586471, source: owid-measles-cases}
+- {date: '2002', series: coverage, value: 72.0, source: owid-measles-coverage}
+- {date: '2003', series: cases, value: 679856, source: owid-measles-cases}
+- {date: '2003', series: coverage, value: 73.0, source: owid-measles-coverage}
+- {date: '2004', series: cases, value: 513406, source: owid-measles-cases}
+- {date: '2004', series: coverage, value: 75.0, source: owid-measles-coverage}
+- {date: '2005', series: cases, value: 585701, source: owid-measles-cases}
+- {date: '2005', series: coverage, value: 77.0, source: owid-measles-coverage}
+- {date: '2006', series: cases, value: 377576, source: owid-measles-cases}
+- {date: '2006', series: coverage, value: 79.0, source: owid-measles-coverage}
+- {date: '2007', series: cases, value: 285031, source: owid-measles-cases}
+- {date: '2007', series: coverage, value: 79.0, source: owid-measles-coverage}
+- {date: '2008', series: cases, value: 278751, source: owid-measles-cases}
+- {date: '2008', series: coverage, value: 81.0, source: owid-measles-coverage}
+- {date: '2009', series: cases, value: 278637, source: owid-measles-cases}
+- {date: '2009', series: coverage, value: 83.0, source: owid-measles-coverage}
+- {date: '2010', series: cases, value: 343806, source: owid-measles-cases}
+- {date: '2010', series: coverage, value: 84.0, source: owid-measles-coverage}
+- {date: '2011', series: cases, value: 359332, source: owid-measles-cases}
+- {date: '2011', series: coverage, value: 84.0, source: owid-measles-coverage}
+- {date: '2012', series: cases, value: 212376, source: owid-measles-cases}
+- {date: '2012', series: coverage, value: 84.0, source: owid-measles-coverage}
+- {date: '2013', series: cases, value: 275307, source: owid-measles-cases}
+- {date: '2013', series: coverage, value: 84.0, source: owid-measles-coverage}
+- {date: '2014', series: cases, value: 282078, source: owid-measles-cases}
+- {date: '2014', series: coverage, value: 84.0, source: owid-measles-coverage}
+- {date: '2015', series: cases, value: 214808, source: owid-measles-cases}
+- {date: '2015', series: coverage, value: 84.0, source: owid-measles-coverage}
+- {date: '2016', series: cases, value: 132490, source: owid-measles-cases}
+- {date: '2016', series: coverage, value: 85.0, source: owid-measles-coverage}
+- {date: '2017', series: cases, value: 173457, source: owid-measles-cases}
+- {date: '2017', series: coverage, value: 85.0, source: owid-measles-coverage}
+- {date: '2018', series: cases, value: 359295, source: owid-measles-cases}
+- {date: '2018', series: coverage, value: 86.0, source: owid-measles-coverage}
+- {date: '2019', series: cases, value: 873373, source: owid-measles-cases}
+- {date: '2019', series: coverage, value: 86.0, source: owid-measles-coverage}
+- {date: '2020', series: cases, value: 159240, source: owid-measles-cases}
+- {date: '2021', series: cases, value: 123152, source: owid-measles-cases}
+- {date: '2022', series: cases, value: 206775, source: owid-measles-cases}
+- {date: '2023', series: cases, value: 669083, source: owid-measles-cases}
+- {date: '2024', series: cases, value: 675533, source: owid-measles-cases}
+- {date: '2020', series: coverage, value: 83.0, source: owid-measles-coverage}
+- {date: '2021', series: coverage, value: 81.0, source: owid-measles-coverage}
+- {date: '2022', series: coverage, value: 83.0, source: owid-measles-coverage}
+- {date: '2023', series: coverage, value: 83.0, source: owid-measles-coverage}
+- {date: '2024', series: coverage, value: 84.0, source: owid-measles-coverage}
+- {date: '2025', series: coverage, value: 84.0, source: owid-measles-coverage}
+sources:
+- id: owid-measles-cases
+  name: Our World in Data, Reported cases of measles (World Health Organization Global Health Observatory)
+  url: https://ourworldindata.org/grapher/reported-cases-of-measles
+  kind: dataset
+  primary: true
+  notes: World rows of the CSV export, read by the refresh. OWID credits the World Health Organization Global Health
+    Observatory, dates 1974 to 2024, last updated 22 May 2026. OWID's own work is CC BY; the WHO data keeps WHO's terms.
+- id: owid-measles-coverage
+  name: Our World in Data, Share of children vaccinated against measles (WHO and UNICEF estimates)
+  url: https://ourworldindata.org/grapher/share-of-children-vaccinated-against-measles
+  kind: dataset
+  notes: World rows of the CSV export, read by the refresh. Same terms as owid-measles-cases. Coverage is the
+    first-dose (MCV1) estimate in WHO and UNICEF's annual estimates.
+- id: unicef-who-coverage-2026
+  name: UNICEF and WHO, Global childhood immunization coverage inches forward (release of 21 July 2026)
+  url: https://www.unicef.org/india/press-releases/global-childhood-immunization-coverage-inches-forward-despite-conflict-and-hesitancy
+  kind: press
+  notes: Gives 84% first-dose (MCV1) coverage for 2025 and 13.5 million zero-dose children. Read 10 November 2026.
+- id: who-measles-2025
+  name: WHO, Measles deaths down 88% since 2000 but cases surge (28 November 2025)
+  url: https://www.who.int/news/item/28-11-2025-measles-deaths-down-88--since-2000--but-cases-surge
+  kind: press
+  notes: Gives WHO's modelled estimates for 2024 (about 11 million infections, about 95 000 deaths). These are model
+    estimates, not the reported-case series stored here. Read 10 November 2026.
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Observations are the World values in OWID''s CSV exports, copied exactly by scripts/fetchers/measles.py.
+    Coverage estimates are revised each year by WHO and UNICEF, so the fetcher rewrites every year it reads. The
+    reported-case series is not WHO''s modelled estimate (about 11 million infections in 2024); the frontier stores the
+    reported counts only. The terms are WHO''s data terms (public health use, credit WHO).'
+events:
+- date: '2026-07-21'
+  kind: milestone
+  title: UNICEF and WHO report 84% first-dose measles coverage for 2025
+  why_it_matters: The first-dose share has risen by 13 points since 2000 in the series, but 13.5 million children still missed every vaccine in 2025.
+  url: https://www.unicef.org/india/press-releases/global-childhood-immunization-coverage-inches-forward-despite-conflict-and-hesitancy
+- date: '2025-11-28'
+  kind: setback
+  title: WHO says measles infections rose to about 11 million in 2024 even as deaths fell
+  why_it_matters: Modelled infections are well above the reported counts, so the reported series understates the disease.
+  url: https://www.who.int/news/item/28-11-2025-measles-deaths-down-88--since-2000--but-cases-surge
+reading: []
