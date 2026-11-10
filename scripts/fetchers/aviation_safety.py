@@ -14,7 +14,7 @@ from . import common
 
 FRONTIER = "data/frontiers/safety/aviation-safety.yaml"
 URL = "https://ourworldindata.org/grapher/fatal-airliner-accidents-per-million-flights.csv?country=OWID_WRL"
-COLUMN = "Fatal airliner accidents per million commercial flights"
+COLUMN = "Fatal accidents per million commercial flights"
 SOURCE_ID = "owid-aviation-safety"
 ID_COLUMNS = ("Entity", "Code", "Year")
 MIN_YEARS = 20
