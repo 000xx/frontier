@@ -1,0 +1,28 @@
+id: cereal-yields
+title: Cereal yields
+domain: food
+subfield: Crops
+status: draft
+summary: placeholder
+metric:
+  name: placeholder
+  unit: t/ha
+  direction: higher
+  scale: linear
+  explainer: placeholder
+chart:
+  primary: record-chart
+series:
+- id: world
+  label: World
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+sources:
+- id: owid-cereal-yields
+  name: placeholder
+  url: https://ourworldindata.org/grapher/cereal-yields
+  kind: dataset
+  primary: true
+events: []
+observations: []
