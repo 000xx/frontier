@@ -18,6 +18,7 @@ COLUMN = "Share of population in poverty ($3 a day)"
 SOURCE_ID = "owid-extreme-poverty"
 ID_COLUMNS = ("Entity", "Code", "Year")
 MIN_YEARS = 20
+FIRST_YEAR = 1950  # rows before this are not used
 
 
 def read_world(raw):
@@ -34,8 +35,10 @@ def read_world(raw):
         if row["Entity"] != "World" or row["Code"] != "OWID_WRL":
             continue
         year = row["Year"].strip()
-        if not re.fullmatch(r"\d{4}", year):
+        if not re.fullmatch(r"-?\d{1,4}", year):
             raise common.SourceError(f"World row has a bad year: {year!r}")
+        if int(year) < FIRST_YEAR:
+            continue  # the source's placeholder and early rows; the frontier starts at FIRST_YEAR
         text = row[COLUMN].strip()
         if text == "":
             continue
