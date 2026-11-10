@@ -1,0 +1,120 @@
+# Observations are the yearly World counts from Our World in Data's copy of the UN Office for Outer Space Affairs
+# (UNOOSA) Online Index of Objects Launched into Outer Space. They are written by scripts/fetchers/objects_in_orbit.py.
+id: objects-in-orbit
+title: Objects launched into space
+domain: space
+subfield: Getting to orbit
+status: draft
+summary: How many objects the world launched into space each year, counted from the UN register of launched
+  objects. The count shows how quickly the amount of hardware above us has grown, and which launches are
+  adding to it.
+metric:
+  name: Objects launched into space per year
+  unit: objects
+  direction: higher
+  scale: linear
+  explainer: 'Each year, states that launch objects into space register them with the United Nations. The UN
+    Online Index lists each registered object with its launch date, so counting the entries for a year gives
+    the number of objects launched that year. One launch can carry many objects: a single rideshare rocket can
+    release dozens of small satellites, and a constellation launch adds whole batches at once. The count is
+    therefore not the same as the number of rocket launches. It also counts every object, large or small, and
+    does not show how long each one stays in orbit. Objects launched in one year can be gone within days or
+    stay in orbit for centuries, so the yearly count is a measure of new activity, not of the stock of debris.'
+chart:
+  primary: record-chart
+series:
+- id: world
+  label: World
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Observations come from the Our World in Data grapher for the World (OWID_WRL), which republishes
+    UNOOSA data, 1957 to 2025 at the time of the 2026-11-09 check. The fetcher adds new years and reports
+    changes. OWID states the UNOOSA data under CC BY; UNOOSA is the original provider.'
+sources:
+- id: owid-objects-launched
+  name: 'Our World in Data, "Annual number of objects launched into space" (data from UNOOSA, 2026, with major processing by Our World in Data)'
+  url: https://ourworldindata.org/grapher/yearly-number-of-objects-launched-into-outer-space
+  kind: dataset
+  primary: true
+  notes: Licence stated on the OWID page as Creative Commons BY. The page notes that third-party data is subject to
+    the original providers' terms. The underlying dataset is the UNOOSA Online Index of Objects Launched into
+    Outer Space. The UNOOSA's own page was not opened in this run.
+observations:
+- {date: '1957', series: world, value: 2, source: owid-objects-launched}
+- {date: '1958', series: world, value: 8, source: owid-objects-launched}
+- {date: '1959', series: world, value: 14, source: owid-objects-launched}
+- {date: '1960', series: world, value: 20, source: owid-objects-launched}
+- {date: '1961', series: world, value: 38, source: owid-objects-launched}
+- {date: '1962', series: world, value: 77, source: owid-objects-launched}
+- {date: '1963', series: world, value: 71, source: owid-objects-launched}
+- {date: '1964', series: world, value: 107, source: owid-objects-launched}
+- {date: '1965', series: world, value: 161, source: owid-objects-launched}
+- {date: '1966', series: world, value: 145, source: owid-objects-launched}
+- {date: '1967', series: world, value: 159, source: owid-objects-launched}
+- {date: '1968', series: world, value: 140, source: owid-objects-launched}
+- {date: '1969', series: world, value: 138, source: owid-objects-launched}
+- {date: '1970', series: world, value: 130, source: owid-objects-launched}
+- {date: '1971', series: world, value: 156, source: owid-objects-launched}
+- {date: '1972', series: world, value: 134, source: owid-objects-launched}
+- {date: '1973', series: world, value: 138, source: owid-objects-launched}
+- {date: '1974', series: world, value: 128, source: owid-objects-launched}
+- {date: '1975', series: world, value: 158, source: owid-objects-launched}
+- {date: '1976', series: world, value: 158, source: owid-objects-launched}
+- {date: '1977', series: world, value: 137, source: owid-objects-launched}
+- {date: '1978', series: world, value: 165, source: owid-objects-launched}
+- {date: '1979', series: world, value: 124, source: owid-objects-launched}
+- {date: '1980', series: world, value: 130, source: owid-objects-launched}
+- {date: '1981', series: world, value: 158, source: owid-objects-launched}
+- {date: '1982', series: world, value: 145, source: owid-objects-launched}
+- {date: '1983', series: world, value: 154, source: owid-objects-launched}
+- {date: '1984', series: world, value: 163, source: owid-objects-launched}
+- {date: '1985', series: world, value: 165, source: owid-objects-launched}
+- {date: '1986', series: world, value: 134, source: owid-objects-launched}
+- {date: '1987', series: world, value: 135, source: owid-objects-launched}
+- {date: '1988', series: world, value: 145, source: owid-objects-launched}
+- {date: '1989', series: world, value: 139, source: owid-objects-launched}
+- {date: '1990', series: world, value: 170, source: owid-objects-launched}
+- {date: '1991', series: world, value: 137, source: owid-objects-launched}
+- {date: '1992', series: world, value: 130, source: owid-objects-launched}
+- {date: '1993', series: world, value: 108, source: owid-objects-launched}
+- {date: '1994', series: world, value: 123, source: owid-objects-launched}
+- {date: '1995', series: world, value: 105, source: owid-objects-launched}
+- {date: '1996', series: world, value: 100, source: owid-objects-launched}
+- {date: '1997', series: world, value: 152, source: owid-objects-launched}
+- {date: '1998', series: world, value: 157, source: owid-objects-launched}
+- {date: '1999', series: world, value: 129, source: owid-objects-launched}
+- {date: '2000', series: world, value: 121, source: owid-objects-launched}
+- {date: '2001', series: world, value: 86, source: owid-objects-launched}
+- {date: '2002', series: world, value: 96, source: owid-objects-launched}
+- {date: '2003', series: world, value: 88, source: owid-objects-launched}
+- {date: '2004', series: world, value: 74, source: owid-objects-launched}
+- {date: '2005', series: world, value: 72, source: owid-objects-launched}
+- {date: '2006', series: world, value: 95, source: owid-objects-launched}
+- {date: '2007', series: world, value: 111, source: owid-objects-launched}
+- {date: '2008', series: world, value: 109, source: owid-objects-launched}
+- {date: '2009', series: world, value: 125, source: owid-objects-launched}
+- {date: '2010', series: world, value: 121, source: owid-objects-launched}
+- {date: '2011', series: world, value: 129, source: owid-objects-launched}
+- {date: '2012', series: world, value: 134, source: owid-objects-launched}
+- {date: '2013', series: world, value: 210, source: owid-objects-launched}
+- {date: '2014', series: world, value: 241, source: owid-objects-launched}
+- {date: '2015', series: world, value: 222, source: owid-objects-launched}
+- {date: '2016', series: world, value: 221, source: owid-objects-launched}
+- {date: '2017', series: world, value: 456, source: owid-objects-launched}
+- {date: '2018', series: world, value: 452, source: owid-objects-launched}
+- {date: '2019', series: world, value: 586, source: owid-objects-launched}
+- {date: '2020', series: world, value: 1274, source: owid-objects-launched}
+- {date: '2021', series: world, value: 1814, source: owid-objects-launched}
+- {date: '2022', series: world, value: 2479, source: owid-objects-launched}
+- {date: '2023', series: world, value: 2903, source: owid-objects-launched}
+- {date: '2024', series: world, value: 2849, source: owid-objects-launched}
+- {date: '2025', series: world, value: 4510, source: owid-objects-launched}
+events:
+- date: '2025'
+  kind: milestone
+  title: Orbital launch attempts for 2025 total 330, of which 317 succeeded
+  why_it_matters: Rocket launches set a new yearly high, and each one can carry several registered objects,
+    so the object count rises with the launch count.
+  url: https://en.wikipedia.org/wiki/2025_in_spaceflight
+reading: []
