@@ -1,8 +1,9 @@
 # Polio: wild and vaccine-derived poliovirus cases, and the eradication milestones WHO has certified.
 # Two case series are kept apart on purpose: wild poliovirus type 1 (wpv1) and circulating vaccine-derived
 # poliovirus (cvdpv). They are different viruses with different causes and must never be merged.
-# Only the Afghanistan and Pakistan counts for WPV1 are in observations so far. The sources opened do not give a
-# global cVDPV total, so no cVDPV observations are recorded (see update.notes).
+# WPV1: 2001 to 2023 are World values from Our World in Data's export of WHO data; 2024 is WHO's printed total;
+# 2025 and 2026 are our sums of GPEI country counts (2026 is year to date).
+# cVDPV: 2016 to 2023 are our sums of the three serotype columns in OWID's export of WHO data; 2024 is WHO's printed total.
 id: polio
 title: Polio
 domain: health
@@ -33,17 +34,28 @@ series:
 update:
   cadence: weekly
   last_checked: '2026-11-09'
-  notes: 'WPV1 observations are the sum of the Afghanistan and Pakistan counts printed on the GPEI "Polio this week"
-    page, which gives country totals with an as-of date of 4 October 2026; the 2025 figure is a full-year total and
-    the 2026 figure is year to date. Not yet sourced: WPV1 counts for 2000 to 2024 (the 2013 to 2018 table opened from
-    GPEI could not be read reliably, because its values and year labels do not line up), a full cVDPV series, and
-    exact dates for the WPV2 certification (the source gives only 2015). The GPEI page lists cVDPV counts by country
-    only (DR Congo, Ethiopia and Somalia in the 2026 update); summing them would give a partial total, so none is
-    recorded. The WHO HQ report of 11 August 2026 lists a cVDPV1 indicator of 112 for 2026 and 111 for 2025, but its
-    table layout could not be read reliably enough to use. The eradication milestones in items are from WHO and CDC
-    pages opened on 9 November 2026. The WHO regional dates for Americas, Western Pacific and Europe come from a CDC
-    MMWR article; WHO''s South-East Asia page gives 27 March 2014 but its wording is inconsistent, so the date is
-    marked in the item note.'
+  notes: 'WPV1 observations: 2001 to 2023 are the World values in the CSV export of Our World in Data''s grapher
+    "Reported cases of paralytic polio from wild polioviruses", which processes WHO (2024) data. The 2024 value of 99
+    is the full-year total printed in WHO''s Polio IHR Emergency Committee statement of 28 July 2025. The 2013 to 2017
+    values match the global table in GPEI''s January 2019 PDF (416, 359, 74, 37, 22). The 2018 value of 33 comes from
+    OWID only, because the PDF header could not be read reliably for that year. The 2025 value (52) and the 2026 value
+    (58) are still our sums of the GPEI country counts on the "Polio this week" page, as of 4 October 2026; the 2025
+    figure is labelled full-year on that page. No source opened prints a global full-year 2025 total. cVDPV
+    observations: 2016 to 2023 are our sums of the VDPV1, VDPV2 and VDPV3 World columns in OWID''s export of WHO
+    data, which OWID describes as the total across all three strains. 2024 (319) is the full-year total printed in
+    the WHO statement of 28 July 2025. A Statista chart text gave 562 for 2024; it conflicts with the WHO figure and
+    is not used. No cVDPV full-year total for 2025 or 2026 is sourced: the WHO statement gives 2025 year to date only
+    (67, no date given). A PAHO bulletin row labelled cVDPV1 gives a footnote saying it includes all three serotypes,
+    and the WHO HQ report of 11 August 2026 lists cVDPV1 figures whose table layout could not be read reliably; neither
+    is used. Still not sourced: WPV1 counts before 2001, the exact WPV2 certification date (the source gives only
+    2015), and the Eastern Mediterranean status in 2026 beyond the GPEI counts. The South-East Asia certification
+    date, 27 March 2014, is confirmed by the WHO fact sheet on poliomyelitis; the regional South-East Asia page gives
+    the same date but its wording is inconsistent. The Americas, Western Pacific and Europe dates come from a CDC MMWR
+    article. Terms: WHO data may be used for public health purposes only, not to promote a commercial enterprise, and
+    must be credited to WHO (see who-data-terms). GPEI content may be reproduced for research or private study with WHO
+    credited and the article URL cited, and commercial use needs written permission (see gpei-terms). Our World in
+    Data''s own text is CC BY, but the underlying WHO data keeps WHO''s terms. No dataset was copied; only facts are
+    stored, with citations.'
 sources:
 - id: gpei-polio-this-week
   name: GPEI, Polio this week (country updates as of 4 October 2026)
@@ -75,9 +87,36 @@ sources:
   name: WHO South-East Asia, Polio-free certification
   url: https://www.who.int/southeastasia/activities/maintaining-polio-free-status/polio-free-certification-who-south-east-asia
   kind: other
-  notes: Gives 27 March 2014 for the South-East Asia Region certification, but one sentence says the region is only
-    expected to be certified after the March 2014 meeting. Also gives Americas 1994, Western Pacific 2000 and Europe
-    2002 by year.
+  notes: Gives 27 March 2014 for the South-East Asia Region certification, but its wording is inconsistent. One sentence
+    says the region is only expected to be certified after the March 2014 meeting, and the date sentence is garbled.
+    Also gives Americas 1994, Western Pacific 2000 and Europe 2002 by year. The WHO fact sheet (who-factsheet-polio)
+    states the date cleanly and is used for the item. Read 9 November 2026.
+- id: who-factsheet-polio
+  name: WHO fact sheet, Poliomyelitis (page dated 2 April 2025)
+  url: https://www.who.int/news-room/fact-sheets/detail/poliomyelitis
+  kind: other
+  notes: States that the WHO South-East Asia Region was certified polio-free on 27 March 2014. The page gives no yearly
+    case counts. Read 9 November 2026.
+- id: who-ihr-2025
+  name: WHO, Statement of the forty-second meeting of the Polio IHR Emergency Committee (28 July 2025)
+  url: https://www.who.int/news/item/28-07-2025-statement-of-the-forty-second-meeting-of-the-polio-ihr-emergency-committee
+  kind: press
+  notes: Gives full-year 2024 totals of 99 WPV1 cases (25 Afghanistan, 74 Pakistan) and 319 cVDPV cases (304 cVDPV2,
+    11 cVDPV1, 4 cVDPV3). Gives 2025 year-to-date totals of 13 WPV1 and 67 cVDPV, with no as-of date. Read 9 November 2026.
+- id: owid-wpv1
+  name: Our World in Data, Reported cases of paralytic polio from wild polioviruses (processed from WHO data)
+  url: https://ourworldindata.org/grapher/cases-of-paralytic-polio-from-wild-polioviruses
+  kind: dataset
+  notes: World values for 2001 to 2023 from the CSV export, read 9 November 2026. The About section credits World Health
+    Organization (2024), processed by Our World in Data, and gives 8 April 2024 as the last update. Our World in Data's
+    own work is CC BY; the underlying WHO data keeps WHO's terms. WHO's own GHO data could not be reached.
+- id: owid-cvdpv
+  name: Our World in Data, Reported cases of paralytic polio from vaccine-derived viruses, by strain (processed from WHO data)
+  url: https://ourworldindata.org/grapher/cases-of-paralytic-polio-from-vaccine-derived-viruses-by-strain
+  kind: dataset
+  notes: World values for VDPV1, VDPV2 and VDPV3, 2016 to 2023, from the CSV export, read 9 November 2026. The About
+    section for the total-across-strains chart (archived 12 August 2026) credits WHO (2024), processed by Our World in
+    Data. The totals stored in observations are our sums of the three columns. Licence and terms as for owid-wpv1.
 - id: cdc-mmwr-regions
   name: CDC MMWR, article on WHO regions certified polio-free (volume 52, number 47)
   url: https://www.cdc.gov/mmwr/preview/mmwrhtml/mm5247a6.htm
@@ -105,6 +144,110 @@ sources:
     altered beyond minimal restyling without WHO permission. Credit is required. These terms are written for datasets
     and do not clearly cover WHO news or web text.
 observations:
+- date: '2001'
+  series: wpv1
+  value: 483
+  source: owid-wpv1
+  note: World value from OWID's export of WHO data.
+- date: '2002'
+  series: wpv1
+  value: 1918
+  source: owid-wpv1
+- date: '2003'
+  series: wpv1
+  value: 784
+  source: owid-wpv1
+- date: '2004'
+  series: wpv1
+  value: 1255
+  source: owid-wpv1
+- date: '2005'
+  series: wpv1
+  value: 1979
+  source: owid-wpv1
+- date: '2006'
+  series: wpv1
+  value: 1997
+  source: owid-wpv1
+- date: '2007'
+  series: wpv1
+  value: 1315
+  source: owid-wpv1
+- date: '2008'
+  series: wpv1
+  value: 1651
+  source: owid-wpv1
+- date: '2009'
+  series: wpv1
+  value: 1604
+  source: owid-wpv1
+- date: '2010'
+  series: wpv1
+  value: 1352
+  source: owid-wpv1
+- date: '2011'
+  series: wpv1
+  value: 650
+  source: owid-wpv1
+- date: '2012'
+  series: wpv1
+  value: 223
+  source: owid-wpv1
+- date: '2013'
+  series: wpv1
+  value: 416
+  source: owid-wpv1
+  note: Matches the 2013 global value in GPEI's January 2019 table.
+- date: '2014'
+  series: wpv1
+  value: 359
+  source: owid-wpv1
+  note: Matches the 2014 global value in GPEI's January 2019 table.
+- date: '2015'
+  series: wpv1
+  value: 74
+  source: owid-wpv1
+  note: Matches the 2015 global value in GPEI's January 2019 table.
+- date: '2016'
+  series: wpv1
+  value: 37
+  source: owid-wpv1
+  note: Matches the 2016 global value in GPEI's January 2019 table.
+- date: '2017'
+  series: wpv1
+  value: 22
+  source: owid-wpv1
+  note: Matches the 2017 global value in GPEI's January 2019 table.
+- date: '2018'
+  series: wpv1
+  value: 33
+  source: owid-wpv1
+  note: From OWID only. The GPEI January 2019 table header could not be read reliably for this year.
+- date: '2019'
+  series: wpv1
+  value: 176
+  source: owid-wpv1
+- date: '2020'
+  series: wpv1
+  value: 140
+  source: owid-wpv1
+- date: '2021'
+  series: wpv1
+  value: 6
+  source: owid-wpv1
+- date: '2022'
+  series: wpv1
+  value: 30
+  source: owid-wpv1
+- date: '2023'
+  series: wpv1
+  value: 12
+  source: owid-wpv1
+- date: '2024'
+  series: wpv1
+  value: 99
+  source: who-ihr-2025
+  note: Full-year 2024 total as printed in WHO's statement of 28 July 2025.
 - date: '2025'
   series: wpv1
   value: 52
@@ -117,6 +260,51 @@ observations:
   source: gpei-polio-this-week
   note: Year to date, as of 4 October 2026, not a full-year total. Sum of Afghanistan 50 (most recent case 30
     September 2026) and Pakistan 8 (most recent case 18 September 2026). The sum is ours.
+- date: '2016'
+  series: cvdpv
+  value: 5
+  source: owid-cvdpv
+  note: Our sum of the World VDPV1 (3) and VDPV2 (2) values in OWID's export. No VDPV3 value for this year.
+- date: '2017'
+  series: cvdpv
+  value: 96
+  source: owid-cvdpv
+  note: Our sum of the World VDPV2 value (96) in OWID's export. No VDPV1 or VDPV3 value for this year.
+- date: '2018'
+  series: cvdpv
+  value: 105
+  source: owid-cvdpv
+  note: Our sum of the World VDPV1 (27), VDPV2 (71) and VDPV3 (7) values in OWID's export.
+- date: '2019'
+  series: cvdpv
+  value: 378
+  source: owid-cvdpv
+  note: Our sum of the World VDPV1 (12) and VDPV2 (366) values in OWID's export.
+- date: '2020'
+  series: cvdpv
+  value: 1113
+  source: owid-cvdpv
+  note: Our sum of the World VDPV1 (34) and VDPV2 (1079) values in OWID's export.
+- date: '2021'
+  series: cvdpv
+  value: 688
+  source: owid-cvdpv
+  note: Our sum of the World VDPV1 (17) and VDPV2 (671) values in OWID's export.
+- date: '2022'
+  series: cvdpv
+  value: 880
+  source: owid-cvdpv
+  note: Our sum of the World VDPV1 (192), VDPV2 (687) and VDPV3 (1) values in OWID's export.
+- date: '2023'
+  series: cvdpv
+  value: 524
+  source: owid-cvdpv
+  note: Our sum of the World VDPV1 (134) and VDPV2 (390) values in OWID's export.
+- date: '2024'
+  series: cvdpv
+  value: 319
+  source: who-ihr-2025
+  note: Full-year 2024 total as printed in WHO's statement of 28 July 2025 (304 cVDPV2, 11 cVDPV1, 4 cVDPV3).
 items:
 - id: wpv2
   label: 'Wild poliovirus type 2 (WPV2)'
@@ -165,10 +353,11 @@ items:
   status: done
   status_detail: certified as polio-free
   date_done: '2014-03-27'
-  url: https://www.who.int/southeastasia/activities/maintaining-polio-free-status/polio-free-certification-who-south-east-asia
-  source: who-searo-polio-free
-  note: Date from WHO's South-East Asia page. The same page's wording is inconsistent (one sentence says the
-    region is expected to be certified after the March 2014 meeting), so check this date against another source.
+  url: https://www.who.int/news-room/fact-sheets/detail/poliomyelitis
+  source: who-factsheet-polio
+  note: Date confirmed by WHO's fact sheet on poliomyelitis, which states it directly. The South-East Asia Region page
+    gives the same date but its wording is inconsistent (one sentence says the region is expected to be certified after
+    the March 2014 meeting), so it is not relied on for the date.
 - id: africa
   label: 'African'
   group: WHO regions
