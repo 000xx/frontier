@@ -24,7 +24,47 @@ series:
   label: Estimated deaths
 - id: cases
   label: Estimated cases
-observations: []
+observations:
+- {date: '2000', series: cases, value: 11564186, source: owid-tb-cases}
+- {date: '2000', series: deaths, value: 2942711, source: owid-tb-deaths}
+- {date: '2001', series: cases, value: 11690085, source: owid-tb-cases}
+- {date: '2001', series: deaths, value: 2839459, source: owid-tb-deaths}
+- {date: '2002', series: cases, value: 11818014, source: owid-tb-cases}
+- {date: '2002', series: deaths, value: 2727612, source: owid-tb-deaths}
+- {date: '2003', series: cases, value: 11960582, source: owid-tb-cases}
+- {date: '2003', series: deaths, value: 2643104, source: owid-tb-deaths}
+- {date: '2004', series: cases, value: 12007466, source: owid-tb-cases}
+- {date: '2004', series: deaths, value: 2528146, source: owid-tb-deaths}
+- {date: '2005', series: cases, value: 12051805, source: owid-tb-cases}
+- {date: '2005', series: deaths, value: 2520963, source: owid-tb-deaths}
+- {date: '2006', series: cases, value: 12029505, source: owid-tb-cases}
+- {date: '2006', series: deaths, value: 2470895, source: owid-tb-deaths}
+- {date: '2007', series: cases, value: 11953570, source: owid-tb-cases}
+- {date: '2007', series: deaths, value: 2384146, source: owid-tb-deaths}
+- {date: '2008', series: cases, value: 11870315, source: owid-tb-cases}
+- {date: '2008', series: deaths, value: 2330601, source: owid-tb-deaths}
+- {date: '2009', series: cases, value: 11813217, source: owid-tb-cases}
+- {date: '2009', series: deaths, value: 2260114, source: owid-tb-deaths}
+- {date: '2010', series: cases, value: 11668773, source: owid-tb-cases}
+- {date: '2010', series: deaths, value: 2108135, source: owid-tb-deaths}
+- {date: '2011', series: cases, value: 11609352, source: owid-tb-cases}
+- {date: '2011', series: deaths, value: 2064326, source: owid-tb-deaths}
+- {date: '2012', series: cases, value: 11462059, source: owid-tb-cases}
+- {date: '2012', series: deaths, value: 1967047, source: owid-tb-deaths}
+- {date: '2013', series: cases, value: 11274447, source: owid-tb-cases}
+- {date: '2013', series: deaths, value: 1880447, source: owid-tb-deaths}
+- {date: '2014', series: cases, value: 11161918, source: owid-tb-cases}
+- {date: '2014', series: deaths, value: 1808203, source: owid-tb-deaths}
+- {date: '2015', series: cases, value: 11015698, source: owid-tb-cases}
+- {date: '2015', series: deaths, value: 1731706, source: owid-tb-deaths}
+- {date: '2016', series: cases, value: 10759475, source: owid-tb-cases}
+- {date: '2016', series: deaths, value: 1649151, source: owid-tb-deaths}
+- {date: '2017', series: cases, value: 10610420, source: owid-tb-cases}
+- {date: '2017', series: deaths, value: 1566162, source: owid-tb-deaths}
+- {date: '2018', series: cases, value: 10452823, source: owid-tb-cases}
+- {date: '2018', series: deaths, value: 1478186, source: owid-tb-deaths}
+- {date: '2019', series: cases, value: 10307117, source: owid-tb-cases}
+- {date: '2019', series: deaths, value: 1397183, source: owid-tb-deaths}
 sources:
 - id: owid-tb-deaths
   name: Our World in Data, Tuberculosis deaths (WHO 2025, processed by Our World in Data)
