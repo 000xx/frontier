@@ -51,7 +51,7 @@ sources:
   url: https://www.ncbi.nlm.nih.gov/genbank/release/current/
   kind: dataset
   notes: Read on 2026-11-09. It gives the flat-file release as 273.0 dated August 15 2026, with 8236878868450 bases and
-    267383895 sequences for traditional records, matching the last row of the statistics table. It also gives 6409108932
+    267383895 sequences for traditional records, matching the statistics table at that time. The dry run of 2026-11-10 found a later release, 274 dated October 2026, with 9384961284424 bases and 269895537 sequences; it is added here from that run. It also gives 6409108932
     set-based sequences, which this frontier does not count.
 - id: ncbi-policies
   name: NCBI, Website and Data Usage Policies and Disclaimers
@@ -562,3 +562,5 @@ observations:
 - {date: '2026-06', series: sequences, value: 264214354, source: ncbi-genbank-statistics}
 - {date: '2026-08', series: bases, value: 8236878868450, source: ncbi-genbank-statistics}
 - {date: '2026-08', series: sequences, value: 267383895, source: ncbi-genbank-statistics}
+- {date: '2026-10', series: bases, value: 9384961284424, source: ncbi-genbank-statistics}
+- {date: '2026-10', series: sequences, value: 269895537, source: ncbi-genbank-statistics}
