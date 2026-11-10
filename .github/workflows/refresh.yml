@@ -1,0 +1,123 @@
+name: Refresh data
+
+# Pulls new data from each frontier's machine-readable source (scripts/fetchers/).
+# Changes go on a branch and a pull request. When nothing needs review, the pull
+# request is merged automatically and the site is rebuilt. Set the repository variable
+# AUTO_MERGE to "false" to stop automatic merging.
+
+on:
+  schedule:
+    - cron: "23 10 * * *"   # daily, 10:23 UTC
+  workflow_dispatch:
+    inputs:
+      only:
+        description: "Fetchers to run, comma-separated (blank = all)"
+        required: false
+        default: ""
+      dry_run:
+        description: "Report only; do not commit, open a pull request or merge"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: write
+
+concurrency:
+  group: refresh-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt -r requirements-refresh.txt
+
+      - name: Run fetchers
+        run: |
+          python scripts/refresh.py --only "${{ inputs.only }}" \
+            --report "$RUNNER_TEMP/report.md" --outcome "$RUNNER_TEMP/outcome.json"
+          cat "$RUNNER_TEMP/report.md" >> "$GITHUB_STEP_SUMMARY"
+          cat "$RUNNER_TEMP/outcome.json"
+
+      - name: Publish changes
+        if: ${{ !inputs.dry_run }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AUTO_MERGE: ${{ vars.AUTO_MERGE }}
+        run: |
+          set -euo pipefail
+          outcome="$RUNNER_TEMP/outcome.json"
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes to publish."
+          else
+            date=$(date -u +%F)
+            branch="refresh/${date}-${GITHUB_RUN_ID}"
+            review=$(jq '.review | length' "$outcome")
+            changed=$(jq -r '.data_changed | join(", ")' "$outcome")
+            title="Data refresh ${date}${changed:+: $changed}"
+            [ -z "$changed" ] && title="Data refresh ${date}: last-checked dates"
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git checkout -b "$branch"
+            git add -A data
+            git commit -q -F - <<EOF
+          $title
+
+          Automatic refresh by the "Refresh data" workflow (run $GITHUB_RUN_ID).
+          See the pull request or the run summary for the full report.
+          EOF
+            git push -q origin "$branch"
+
+            body="$RUNNER_TEMP/body.md"
+            cp "$RUNNER_TEMP/report.md" "$body"
+            printf '\n---\nOpened by the Refresh data workflow, run %s.\n' "$GITHUB_RUN_ID" >> "$body"
+
+            merged=false
+            if pr_url=$(gh pr create --base main --head "$branch" --title "$title" --body-file "$body" 2>"$RUNNER_TEMP/pr.err"); then
+              echo "Opened $pr_url"
+              if [ "$review" = "0" ] && [ "${AUTO_MERGE:-true}" != "false" ]; then
+                gh pr merge "$pr_url" --merge --delete-branch && merged=true
+              else
+                gh pr comment "$pr_url" --body "Not merged automatically: this refresh needs review (see the report above)."
+              fi
+            else
+              echo "Could not open a pull request: $(cat "$RUNNER_TEMP/pr.err")"
+              echo "Enable 'Allow GitHub Actions to create and approve pull requests' in the repository's Actions settings."
+              if [ "$review" = "0" ] && [ "${AUTO_MERGE:-true}" != "false" ]; then
+                git push -q origin "$branch:main" && merged=true
+                git push -q origin --delete "$branch" || true
+              else
+                gh issue create --title "Data refresh needs review: $date" \
+                  --body "Changes are on branch \`$branch\`: https://github.com/${GITHUB_REPOSITORY}/compare/main...${branch}
+
+          $(cat "$RUNNER_TEMP/report.md")"
+              fi
+            fi
+            if [ "$merged" = "true" ]; then
+              gh workflow run pages.yml --ref main || echo "Could not trigger the site rebuild."
+            fi
+          fi
+
+      - name: Report failures
+        if: ${{ !inputs.dry_run }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          failed=$(jq -r '.failed | join(", ")' "$RUNNER_TEMP/outcome.json")
+          [ -z "$failed" ] && exit 0
+          title="Data refresh failures"
+          existing=$(gh issue list --state open --search "\"$title\" in:title" --json number --jq '.[0].number // empty')
+          note="Run $GITHUB_RUN_ID on $(date -u +%F): failed fetchers: $failed. See https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "$note"
+          else
+            gh issue create --title "$title" --body "$note"
+          fi

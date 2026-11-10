@@ -1,0 +1,4 @@
+# Extra packages for scripts/refresh.py and the fetchers in scripts/fetchers/.
+openpyxl>=3.1
+xlrd>=2.0
+pandas>=2.2
