@@ -2,7 +2,7 @@ id: electricity-access
 title: Electricity access
 domain: development
 subfield: Human development
-status: draft
+status: live
 summary: The share of the world's people who have electricity in their homes. Light, phones, refrigeration and
   clinics all depend on it, so the figure shows who is left out of modern life.
 metric:
@@ -10,7 +10,12 @@ metric:
   unit: '%'
   direction: higher
   scale: linear
-  explainer: placeholder until the sourced text is written.
+  explainer: 'Access to electricity is counted at the level of the household and is estimated from national surveys,
+    utility records and modelling. The World Bank series used here reports the share of people who can use electricity
+    at home, which is a different question from how much they use. A household can count as connected while still
+    using very little. The series is useful for seeing who is left out of the modern grid and off-grid solar. The
+    remaining gap is concentrated in a few regions, so the world average can hide places where access has barely
+    moved. The goal is universal access by 2030.'
 chart:
   primary: coverage-meter
 sources:
@@ -19,6 +24,65 @@ sources:
   url: https://ourworldindata.org/grapher/share-of-the-population-with-access-to-electricity
   kind: dataset
   primary: true
+  notes: 'Chart page opened 2026-11-10. The source line names the World Bank with minor processing by Our World in Data,
+    and the page states that Our World in Data''s data is CC BY, with third-party data subject to the original
+    providers'' licence terms. The World rows were read by the fetcher (scripts/fetchers/electricity_access.py) from the
+    CSV it names. The World series starts in 1998 in this copy.'
+- id: esmap-tracking-sdg7-2025
+  name: Tracking SDG 7: The Energy Progress Report 2025
+  url: https://www.esmap.org/publications/tracking-sdg7-progress-report-2025
+  kind: report
+  notes: 'Publisher page opened 2026-11-10. The report is produced by the five SDG 7 custodian agencies (IEA, IRENA, UN
+    Statistics Division, World Bank and WHO), as the UN news page states. The licence is not stated on the page.'
+- id: un-news-tracking-sdg7-2025
+  name: UN news, Tracking SDG7 report finds energy access progress
+  url: https://www.un.org/en/node/231677
+  kind: news
+  notes: 'Opened 2026-11-10. Gives the briefing date as 25 June and the figure of 666.4 million people without access.'
 update:
   cadence: yearly
   last_checked: '2026-11-09'
+  notes: 'The World Bank publishes the access series once a year, alongside the Tracking SDG 7 report. The fetcher
+    reads the OWID CSV and changes only years it can match. Check whether earlier years are revised when the report
+    comes out, and whether the report gives a 2030 projection the frontier should carry as a target.'
+events:
+- date: '2025-06'
+  kind: milestone
+  title: Tracking SDG 7 2025 puts world electricity access near 92%, with 666 million people still without it
+  why_it_matters: Almost all of the remaining gap is in sub-Saharan Africa, so the world average improves while the
+    hardest cases move slowly.
+  url: https://www.esmap.org/publications/tracking-sdg7-progress-report-2025
+- date: '2025-06'
+  kind: news
+  title: UN news reports the Tracking SDG7 2025 findings and the shortfall in financing
+  why_it_matters: The report links the access gap to financing, so the frontier's pace depends on investment and not
+    only on connection counts.
+  url: https://www.un.org/en/node/231677
+observations:
+- {date: '1998', value: 73.20, source: owid-electricity-access}
+- {date: '1999', value: 74.51, source: owid-electricity-access}
+- {date: '2000', value: 78.22, source: owid-electricity-access}
+- {date: '2001', value: 78.72, source: owid-electricity-access}
+- {date: '2002', value: 79.10, source: owid-electricity-access}
+- {date: '2003', value: 79.97, source: owid-electricity-access}
+- {date: '2004', value: 79.96, source: owid-electricity-access}
+- {date: '2005', value: 80.70, source: owid-electricity-access}
+- {date: '2006', value: 81.36, source: owid-electricity-access}
+- {date: '2007', value: 81.97, source: owid-electricity-access}
+- {date: '2008', value: 82.67, source: owid-electricity-access}
+- {date: '2009', value: 82.87, source: owid-electricity-access}
+- {date: '2010', value: 83.45, source: owid-electricity-access}
+- {date: '2011', value: 84.51, source: owid-electricity-access}
+- {date: '2012', value: 84.94, source: owid-electricity-access}
+- {date: '2013', value: 85.71, source: owid-electricity-access}
+- {date: '2014', value: 86.20, source: owid-electricity-access}
+- {date: '2015', value: 86.93, source: owid-electricity-access}
+- {date: '2016', value: 88.11, source: owid-electricity-access}
+- {date: '2017', value: 88.94, source: owid-electricity-access}
+- {date: '2018', value: 89.80, source: owid-electricity-access}
+- {date: '2019', value: 90.11, source: owid-electricity-access}
+- {date: '2020', value: 90.40, source: owid-electricity-access}
+- {date: '2021', value: 91.34, source: owid-electricity-access}
+- {date: '2022', value: 91.28, source: owid-electricity-access}
+- {date: '2023', value: 91.60, source: owid-electricity-access}
+- {date: '2024', value: 91.93, source: owid-electricity-access}
