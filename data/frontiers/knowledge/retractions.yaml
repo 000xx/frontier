@@ -1,0 +1,28 @@
+id: retractions
+title: Retractions
+domain: knowledge
+subfield: How science is working
+status: draft
+summary: placeholder
+metric:
+  name: placeholder
+  unit: retractions per year
+  direction: lower
+  scale: linear
+  explainer: placeholder
+chart:
+  primary: record-chart
+series:
+- id: all
+  label: All
+update:
+  cadence: monthly
+  last_checked: '2026-11-09'
+sources:
+- id: rw
+  name: placeholder
+  url: https://gitlab.com/crossref/retraction-watch-data
+  kind: dataset
+  primary: true
+events: []
+observations: []
