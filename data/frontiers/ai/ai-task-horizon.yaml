@@ -43,22 +43,31 @@ series:
   label: Time Horizon 1.1, first estimates (29 Jan 2026, before the March 2026 fit correction)
   group: Time Horizon 1.1 task suite
 - id: th1-1-corrected
-  label: Time Horizon 1.1, after the 3 March 2026 fit correction
+  label: Time Horizon 1.1, after the 3 March 2026 fit correction (current; incomplete)
   group: Time Horizon 1.1 task suite
 update:
   cadence: quarterly
   last_checked: '2026-11-09'
-  notes: 'METR''s full table of current estimates is the YAML file behind https://metr.org/time-horizons/
-    (https://metr.org/assets/benchmark_results_1_1.yaml). It could not be read in this run: the fetch
-    tool returned it as binary and the shell cannot reach metr.org. So the post-correction Time Horizon
-    1.1 series holds only Claude Opus 4.6, the one value METR states in prose. Next run: download that
-    YAML (or have metr.org allowed for the shell), and fill th1-1-corrected with every model it lists,
-    with its CIs and METR''s release dates; the 1.0 values in it are also post-correction and belong
-    in a new series, not in th1-0-jan-2026. METR''s GitHub repository (METR/eval-analysis-public) holds
-    raw runs and release dates but not the computed horizons, and has no licence file. Since 8 September
-    2026 METR says the time-horizons page is no longer actively updated; check METR''s blog and notes
-    for a successor measure. Brackets in the 29 January 2026 post carry no unit; they are minutes, as
-    the same post''s Vivaria/Inspect table (in minutes) shows identical point values.'
+  notes: 'Status stays draft: the post-correction Time Horizon 1.1 series, which is the current one, still
+    holds only Claude Opus 4.6. On 2026-11-09 METR''s full table (https://metr.org/assets/benchmark_results_1_1.yaml)
+    could again not be read: the fetch tool returns it as binary, and the shell''s proxy refuses metr.org.
+    METR''s GitHub repository (METR/eval-analysis-public, last commit 52cb829 of 5 March 2026) does not
+    contain benchmark_results_1_1.yaml or any computed horizons, only raw runs (runs.jsonl), release dates
+    and analysis code. Re-running METR''s code on those runs would give our own estimate, not METR''s published
+    figure, so it was not done. Third-party aggregators and social-media reposts of METR figures were not
+    used. Next run: get the YAML itself (for example by allowing metr.org for the shell), fill th1-1-corrected
+    with every model it lists, with CIs; the TH1.0 values in it are also post-correction and belong in
+    a new series. Once that is done, set status to paused rather than live, because on 2026-09-08 METR
+    said the time-horizons page is no longer actively updated; also check METR''s blog and notes for a
+    successor measure. Pre-correction series are kept on purpose: they are what METR published at the time
+    and what was widely cited, they are labelled by method and date so they are never mixed with corrected
+    values, and the project rules say superseded values get a note rather than deletion. Developer names
+    were removed from holders on 2026-11-09 because none of the sources opened (METR''s posts, notes, paper
+    text and release-date file) attributes these models to a developer. Brackets in the 29 January 2026
+    post carry no unit; they are minutes, as the same post''s Vivaria/Inspect table (in minutes) shows identical
+    point values. Claude Mythos Preview (early) is kept as an event only: METR''s figure, as reported, is
+    a lower bound (at least 16 hours, 95% CI 8.5 to 55 hours) with no point estimate, which a record value
+    cannot express.'
 sources:
 - id: metr-time-horizons
   name: METR, "Task-Completion Time Horizons of Frontier AI Models" (live page and data)
@@ -69,7 +78,12 @@ sources:
     https://metr.org/assets/task_results_1_1.yaml. Page footer reads "© 2026 METR. All rights reserved."
     and no data licence is stated, so nothing is copied; records cite METR's published figures. Update
     log, read 2026-11-09, shows models added up to Claude Mythos Preview (early) on 2026-05-08, a fitting
-    correction on 2026-03-03, and on 2026-09-08 a note that the page is no longer actively updated.
+    correction on 2026-03-03, and on 2026-09-08 a note that the page is no longer actively updated. Caveats
+    METR gives on the page are that results above 16 hours are unreliable with the current suite; some models were
+    measured long after release and others not at all, so the page is not a full record of the most capable
+    models; human baseline times probably overstate how long experienced professionals take; and the tasks
+    are mostly software, ML and cybersecurity, so the number does not describe automation of whole jobs.
+    The per-model table is drawn by script from the YAML and is not in the page text.
 - id: metr-th11-post
   name: METR, "Time Horizon 1.1" (29 January 2026)
   url: https://metr.org/blog/2026-01-29-time-horizon-1-1/
@@ -92,7 +106,9 @@ sources:
   notes: Source of the model release dates used as record dates (data/external/release_dates.yaml, read
     2026-11-09 via raw.githubusercontent.com). The README says "See LICENSE file" but the repository
     has no licence file, so default copyright applies and no file is copied here. Computed horizons are
-    DVC outputs and are not committed.
+    DVC outputs and are not committed; rechecked 2026-11-09 at commit 52cb829 (5 March 2026), which still
+    has no benchmark_results_1_1.yaml. Its release-date file stops at models released up to 5 February 2026
+    (Claude Opus 4.6, GPT-5.3-Codex); GPT-5.4, Gemini 3.1 Pro and Claude Mythos Preview are not in it.
 - id: metr-modelling-note
   name: A. Barry (METR), "Impact of modelling assumptions on time horizon results" (research note, 20 March
     2026)
@@ -113,7 +129,7 @@ records:
 - date: '2019-02-14'
   value: 0.0333
   series: paper-neurips-2025
-  holder: GPT-2 (OpenAI)
+  holder: GPT-2
   conditions: 50% horizon on the paper's 170-task suite (HCAST, RE-Bench, SWAA), run on Vivaria; no
     confidence interval printed
   status: peer_reviewed
@@ -124,7 +140,7 @@ records:
 - date: '2023-11-06'
   value: 8.56
   series: paper-neurips-2025
-  holder: GPT-4 1106 (OpenAI)
+  holder: GPT-4 1106
   conditions: 50% horizon on the paper's 170-task suite, run on Vivaria; no confidence interval printed
   status: peer_reviewed
   source: metr-paper
@@ -133,7 +149,7 @@ records:
 - date: '2024-03-04'
   value: 6.42
   series: paper-neurips-2025
-  holder: Claude 3 Opus (Anthropic)
+  holder: Claude 3 Opus
   conditions: 50% horizon on the paper's 170-task suite, run on Vivaria; no confidence interval printed
   status: peer_reviewed
   source: metr-paper
@@ -142,7 +158,7 @@ records:
 - date: '2024-05-13'
   value: 9.17
   series: paper-neurips-2025
-  holder: GPT-4o (OpenAI)
+  holder: GPT-4o
   conditions: 50% horizon on the paper's 170-task suite, run on Vivaria; no confidence interval printed
   status: peer_reviewed
   source: metr-paper
@@ -151,7 +167,7 @@ records:
 - date: '2024-06-20'
   value: 18.22
   series: paper-neurips-2025
-  holder: Claude 3.5 Sonnet, June 2024 version (Anthropic)
+  holder: Claude 3.5 Sonnet, June 2024 version
   conditions: 50% horizon on the paper's 170-task suite, run on Vivaria; no confidence interval printed
   status: peer_reviewed
   source: metr-paper
@@ -160,7 +176,7 @@ records:
 - date: '2024-10-22'
   value: 28.98
   series: paper-neurips-2025
-  holder: Claude 3.5 Sonnet, October 2024 version (Anthropic)
+  holder: Claude 3.5 Sonnet, October 2024 version
   conditions: 50% horizon on the paper's 170-task suite, run on Vivaria; no confidence interval printed
   status: peer_reviewed
   source: metr-paper
@@ -169,7 +185,7 @@ records:
 - date: '2024-12-05'
   value: 39.21
   series: paper-neurips-2025
-  holder: o1 (OpenAI)
+  holder: o1
   conditions: 50% horizon on the paper's 170-task suite, run on Vivaria; no confidence interval printed
   status: peer_reviewed
   source: metr-paper
@@ -178,7 +194,7 @@ records:
 - date: '2025-04-16'
   value: 110
   series: paper-neurips-2025
-  holder: o3 (OpenAI)
+  holder: o3
   conditions: 50% horizon on the paper's 170-task suite; approximate value, no confidence interval printed
   status: peer_reviewed
   source: metr-paper
@@ -188,7 +204,7 @@ records:
 - date: '2023-03-14'
   value: 5.4
   series: th1-0-jan-2026
-  holder: GPT-4 0314 (OpenAI)
+  holder: GPT-4 0314
   conditions: TH1 task suite (170 tasks); confidence interval [2.5, 10.3] min
   status: claimed
   source: metr-th11-post
@@ -197,7 +213,7 @@ records:
 - date: '2023-11-06'
   value: 8.5
   series: th1-0-jan-2026
-  holder: GPT-4 1106 (OpenAI)
+  holder: GPT-4 1106
   conditions: TH1 task suite (170 tasks); confidence interval [4.0, 16.1] min
   status: claimed
   source: metr-th11-post
@@ -206,7 +222,7 @@ records:
 - date: '2025-02-24'
   value: 56
   series: th1-0-jan-2026
-  holder: Claude 3.7 Sonnet (Anthropic)
+  holder: Claude 3.7 Sonnet
   conditions: TH1 task suite (170 tasks); confidence interval [28, 94] min
   status: claimed
   source: metr-th11-post
@@ -215,7 +231,7 @@ records:
 - date: '2025-04-16'
   value: 94
   series: th1-0-jan-2026
-  holder: o3 (OpenAI)
+  holder: o3
   conditions: TH1 task suite (170 tasks); confidence interval [48, 165] min
   status: claimed
   source: metr-th11-post
@@ -225,7 +241,7 @@ records:
 - date: '2025-05-22'
   value: 86
   series: th1-0-jan-2026
-  holder: Claude Opus 4 (Anthropic)
+  holder: Claude Opus 4
   conditions: TH1 task suite (170 tasks); confidence interval [44, 144] min
   status: claimed
   source: metr-th11-post
@@ -234,7 +250,7 @@ records:
 - date: '2025-05-22'
   value: 75
   series: th1-0-jan-2026
-  holder: Claude Sonnet 4 (Anthropic)
+  holder: Claude Sonnet 4
   conditions: TH1 task suite (170 tasks); confidence interval [38, 132] min
   status: claimed
   source: metr-th11-post
@@ -243,7 +259,7 @@ records:
 - date: '2025-07-09'
   value: 109
   series: th1-0-jan-2026
-  holder: Grok 4 (xAI)
+  holder: Grok 4
   conditions: TH1 task suite (170 tasks); confidence interval [48, 235] min
   status: claimed
   source: metr-th11-post
@@ -252,7 +268,7 @@ records:
 - date: '2025-08-05'
   value: 114
   series: th1-0-jan-2026
-  holder: Claude Opus 4.1 (Anthropic)
+  holder: Claude Opus 4.1
   conditions: TH1 task suite (170 tasks); confidence interval [56, 215] min
   status: claimed
   source: metr-th11-post
@@ -261,7 +277,7 @@ records:
 - date: '2025-08-07'
   value: 138
   series: th1-0-jan-2026
-  holder: GPT-5 (OpenAI)
+  holder: GPT-5
   conditions: TH1 task suite (170 tasks); confidence interval [68, 281] min
   status: claimed
   source: metr-th11-post
@@ -270,7 +286,7 @@ records:
 - date: '2025-09-29'
   value: 122
   series: th1-0-jan-2026
-  holder: Claude Sonnet 4.5 (Anthropic)
+  holder: Claude Sonnet 4.5
   conditions: TH1 task suite (170 tasks); confidence interval [59, 252] min
   status: claimed
   source: metr-th11-post
@@ -279,7 +295,7 @@ records:
 - date: '2025-11-19'
   value: 173
   series: th1-0-jan-2026
-  holder: GPT-5.1-Codex-Max (OpenAI)
+  holder: GPT-5.1-Codex-Max
   conditions: TH1 task suite (170 tasks); confidence interval [81, 411] min
   status: claimed
   source: metr-th11-post
@@ -288,7 +304,7 @@ records:
 - date: '2025-11-24'
   value: 289
   series: th1-0-jan-2026
-  holder: Claude Opus 4.5 (Anthropic)
+  holder: Claude Opus 4.5
   conditions: TH1 task suite (170 tasks); confidence interval [110, 1268] min
   status: claimed
   source: metr-th11-post
@@ -298,7 +314,7 @@ records:
 - date: '2023-03-14'
   value: 3.5
   series: th1-1-jan-2026
-  holder: GPT-4 0314 (OpenAI)
+  holder: GPT-4 0314
   conditions: TH1.1 task suite (228 tasks), Inspect; confidence interval [1.6, 6.9] min
   status: claimed
   source: metr-th11-post
@@ -307,7 +323,7 @@ records:
 - date: '2023-11-06'
   value: 3.6
   series: th1-1-jan-2026
-  holder: GPT-4 1106 (OpenAI)
+  holder: GPT-4 1106
   conditions: TH1.1 task suite (228 tasks), Inspect; confidence interval [1.6, 7.5] min
   status: claimed
   source: metr-th11-post
@@ -316,7 +332,7 @@ records:
 - date: '2025-02-24'
   value: 60
   series: th1-1-jan-2026
-  holder: Claude 3.7 Sonnet (Anthropic)
+  holder: Claude 3.7 Sonnet
   conditions: TH1.1 task suite (228 tasks), Inspect; confidence interval [32, 106] min
   status: claimed
   source: metr-th11-post
@@ -325,7 +341,7 @@ records:
 - date: '2025-04-16'
   value: 121
   series: th1-1-jan-2026
-  holder: o3 (OpenAI)
+  holder: o3
   conditions: TH1.1 task suite (228 tasks), Inspect; confidence interval [74, 201] min
   status: claimed
   source: metr-th11-post
@@ -334,7 +350,7 @@ records:
 - date: '2025-05-22'
   value: 101
   series: th1-1-jan-2026
-  holder: Claude Opus 4 (Anthropic)
+  holder: Claude Opus 4
   conditions: TH1.1 task suite (228 tasks), Inspect; confidence interval [58, 170] min
   status: claimed
   source: metr-th11-post
@@ -343,7 +359,7 @@ records:
 - date: '2025-08-07'
   value: 214
   series: th1-1-jan-2026
-  holder: GPT-5 (OpenAI)
+  holder: GPT-5
   conditions: TH1.1 task suite (228 tasks), Inspect; confidence interval [117, 480] min
   status: claimed
   source: metr-th11-post
@@ -352,17 +368,17 @@ records:
 - date: '2025-11-24'
   value: 320
   series: th1-1-jan-2026
-  holder: Claude Opus 4.5 (Anthropic)
+  holder: Claude Opus 4.5
   conditions: TH1.1 task suite (228 tasks), Inspect; confidence interval [170, 729] min
   status: claimed
   source: metr-th11-post
   note: Claimed because it is METR's own measurement in a blog post, not a refereed paper. Superseded by
     the 3 March 2026 fit correction.
-# Time Horizon 1.1 after the 3 March 2026 correction. Incomplete: see update.notes.
+# Time Horizon 1.1 after the 3 March 2026 correction. Incomplete: METR's YAML could not be read (see update.notes).
 - date: '2026-02-05'
   value: 719
   series: th1-1-corrected
-  holder: Claude Opus 4.6 (Anthropic)
+  holder: Claude Opus 4.6
   conditions: TH1.1 task suite (about 230 tasks), maximum-likelihood fit after the 3 March 2026 correction;
     no confidence interval given in the note
   status: claimed
