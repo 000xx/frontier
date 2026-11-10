@@ -35,6 +35,9 @@ function check(name, make) {
 
 const data = Site.data();
 check('front page', () => Site.home());
+// The front page's search and filters redraw only the tiles, so check that part on its own too.
+check('front page tiles, filtered', () => { Site.filterHome('cost', null, null); const html = Site.tilesList(); Site.filterHome(); return Site.home().replace(/<div id="tiles-list">[\s\S]*?<\/div><\/section><\/div>/, html) + html; });
+check('front page tiles, no match', () => { Site.filterHome('no such frontier'); const html = Site.tilesList(); Site.filterHome(); if (html.indexOf('No frontier matches') < 0) throw new Error('no empty message'); return Site.home() + html; });
 for (const f of data.frontiers) {
   const block = Site.block(f);
   if (!block && !f.items.length && !f.candidates.length) {
@@ -44,7 +47,16 @@ for (const f of data.frontiers) {
   }
   check(f.id, () => Site.frontier(f));
   if (block) for (const sid of Site.seriesIds(f, block)) {
-    check(f.id + ' / ' + sid, () => { Site.select(f.id, sid); return Site.frontier(f); });
+    check(f.id + ' / ' + sid, () => {
+      Site.select(f.id, sid);
+      const html = Site.frontier(f);
+      // A shape view that applies to this series must be on the page, and must not appear where it does not apply.
+      if (block === 'records') {
+        if (Site.gaugeMode(f, sid) !== /<h2>Distance to the (line|limit)<\/h2>/.test(html)) throw new Error('threshold gauge shown or missing against the data');
+        if (Site.reignMode(f, sid) !== html.includes('<h2>Who has held the record</h2>')) throw new Error('record-holder ribbon shown or missing against the data');
+      }
+      return html;
+    });
   }
 }
 console.log('Checked ' + pages + ' page views across ' + data.frontiers.length + ' frontiers: ' + failures + ' failure(s).');

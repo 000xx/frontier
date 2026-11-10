@@ -82,6 +82,7 @@ def build():
             "subfield": d.get("subfield", ""),
             "dataStatus": d.get("status", ""),
             "summary": one_line(d.get("summary")),
+            "about": {"what": one_line((d.get("about") or {}).get("what")), "why": one_line((d.get("about") or {}).get("why"))},
             "metric": {
                 "name": metric.get("name", ""), "unit": metric.get("unit", ""),
                 "direction": metric.get("direction", "higher"), "scale": metric.get("scale", "linear"),
@@ -89,6 +90,7 @@ def build():
             },
             "explainer": one_line(metric.get("explainer")),
             "shape": (d.get("chart") or {}).get("primary", ""),
+            "shapes": [(d.get("chart") or {}).get("primary", "")] + list((d.get("chart") or {}).get("secondary") or []),
             "series": d.get("series") or [],
             "records": by_series(d.get("records"), lambda r: [
                 str(r["date"]), r["value"], r.get("holder") or "", r.get("conditions") or "",
