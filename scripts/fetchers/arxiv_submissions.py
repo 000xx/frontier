@@ -1,19 +1,17 @@
-"""Discovery stub: probes arXiv statistics endpoints."""
+"""Discovery stub: prints the table of the arXiv monthly submissions page."""
+import re
+
 from . import common
 
 FRONTIER = "data/frontiers/knowledge/arxiv-submissions.yaml"
-URLS = [
-    "https://arxiv.org/stats/monthly_submissions",
-    "http://export.arxiv.org/api/query?search_query=submittedDate:[202001010000+TO+202001312359]&max_results=0",
-]
+URL = "https://arxiv.org/stats/monthly_submissions"
 
 
 def fetch():
-    for url in URLS:
-        try:
-            raw = common.get(url).decode("utf-8", "replace")
-            print(f"DIAG {url} bytes={len(raw)}")
-            print("DIAG head: " + " ".join(raw[:1500].split()))
-        except common.SourceError as exc:
-            print(f"DIAG {url}: {exc}")
+    raw = common.get(URL).decode("utf-8", "replace")
+    tables = re.findall(r"<table.*?</table>", raw, flags=re.S | re.I)
+    print(f"DIAG tables: {len(tables)}")
+    for t in tables:
+        text = re.sub(r"<[^>]+>", " ", t)
+        print("DIAG table: " + " ".join(text.split())[:6000])
     raise common.SourceError("discovery run")
