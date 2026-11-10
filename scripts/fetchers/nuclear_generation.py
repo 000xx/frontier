@@ -13,6 +13,7 @@ URL = "https://ourworldindata.org/grapher/nuclear-energy-generation.csv?country=
 SOURCE_ID = "owid-nuclear-energy-generation"
 SERIES = "nuclear"
 ID_COLUMNS = ["Entity", "Code", "Year"]
+FIRST_YEAR = 1990  # the frontier covers 1990 onward; the source goes back to 1900
 MIN_WORLD_YEARS = 10
 
 
@@ -37,6 +38,8 @@ def read_world(raw):
         text = row[column].strip()
         if text == "":
             continue  # year not yet published
+        if int(year) < FIRST_YEAR:
+            continue
         if int(year) in world:
             raise common.SourceError(f"World {year} appears more than once")
         try:
