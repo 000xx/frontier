@@ -1,0 +1,287 @@
+# Records are transcribed by hand from the papers and pages listed under sources; each value was read in this run.
+# Two series: materials measured at ordinary (ambient) pressure, and materials squeezed in a diamond anvil cell.
+# Retracted claims are kept and marked retracted so the history of the field stays visible.
+id: superconductor-tc
+title: Highest-temperature superconductor
+domain: chemistry
+subfield: Record properties
+status: live
+summary: The highest temperature at which a material has been shown to carry electricity with zero resistance,
+  at ordinary pressure and under crushing pressure. The ambient-pressure record stood at copper oxides for over
+  30 years; hydrogen-rich compounds under pressure have reached near room temperature, alongside two high-profile
+  claims that were retracted.
+metric:
+  name: Highest superconducting transition temperature (Tc)
+  unit: kelvin
+  direction: higher
+  scale: linear
+  explainer: 'A superconductor carries electric current with no resistance at all, and pushes magnetic fields
+    out of itself, but only below a critical temperature, Tc. Every superconductor known today has to be cooled
+    to work, which is why a room-temperature superconductor would be so
+    valuable: power lines without losses, cheaper magnets and new electronics. Temperatures here are in kelvin,
+    where 0 K is absolute zero, 77 K is the boiling point of liquid nitrogen and room temperature is about 293 K.
+    There are two very different routes to a higher Tc. Copper-oxide ceramics (cuprates), found from 1986
+    onward, work at ordinary pressure and above the temperature of liquid nitrogen, which made them practical.
+    Hydrogen-rich compounds (hydrides) reach much higher Tc, but only while squeezed between two diamonds to
+    more than a million times atmospheric pressure, in tiny samples; they are records
+    of physics, not usable materials. The two routes are shown as separate series. Claims in this field need
+    care. A drop in resistance alone is weak evidence; the strongest papers also show the expected response to
+    a magnetic field, and confirmation by another lab matters most. Two claims of room-temperature
+    superconductivity published in Nature in 2020 and 2023 were later retracted and are shown as such.'
+chart:
+  primary: record-chart
+  secondary:
+  - claim-scoreboard
+series:
+- id: ambient-pressure
+  label: At ambient pressure
+- id: high-pressure
+  label: Under high pressure
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Coverage starts in 1986; earlier records (metals and alloys) are not yet added, and the bismuth cuprate
+    step of 1988 is missing because no dated source was read for it. Open points for the owner: (1) the 2026 value
+    of 151 K was measured at ambient pressure on a sample first squeezed and then released ("pressure quench").
+    The paper calls it the ambient-pressure record and it is placed in that series, but it is a metastable
+    state made by pressure, not a material made normally; decide whether it needs its own series. No
+    independent replication was found. (2) The 1993 mercury cuprate is given as about 133 K in the Nature
+    abstract and 134 K elsewhere in the Chu-Deng-Lv review; 133 K is used, matching the 2026 coverage of the
+    previous record. (3) The 1986 value is 35 K from the review; the original abstract says only that onsets
+    were in the 30 K range. (4) For lanthanum hydride, Somayazulu et al. (August 2018, 260 K resistance onset at
+    190 GPa) and Drozdov et al. (December 2018, 250 K at 170 GPa) are independent groups reporting the same
+    compound; both are kept as peer_reviewed. (5) The La-Sc-H result (onset 271-298 K at 195-266 GPa) is a
+    preprint, so claimed. Its group published a theory follow-up in Phys. Rev. B in September 2026, and an
+    attempt by another group to make the compound (arXiv:2605.29985) did not succeed. (6) The two Dias papers
+    gave their temperatures as 59 °F (2020) and 21 °C (2023); these are converted to 288 K and 294 K.'
+sources:
+- id: deng-2026-pqp
+  name: L. Deng, T. Habamahoro et al. (C.-W. Chu group), "Ambient-pressure 151-K superconductivity in
+    HgBa2Ca2Cu3O8+δ via pressure quench", PNAS (2026), DOI 10.1073/pnas.2536178123, arXiv:2603.12437
+  url: https://arxiv.org/abs/2603.12437
+  kind: paper
+  primary: true
+- id: quantum-insider-2026
+  name: The Quantum Insider, "University of Houston Physicists Break Superconductivity Temperature Record" (11
+    March 2026)
+  url: https://thequantuminsider.com/2026/03/11/university-of-houston-physicists-break-superconductivity-temperature-record/
+  kind: news
+  notes: Gives PNAS publication on 9 March 2026 and the previous ambient-pressure record as Hg-1223 at 133 K
+    from 1993.
+- id: chu-review-2015
+  name: C. W. Chu, L. Z. Deng, B. Lv, "Hole-Doped Cuprate High Temperature Superconductors", arXiv:1502.04686
+  url: https://arxiv.org/abs/1502.04686
+  kind: paper
+  notes: Review giving the cuprate record history, including Bednorz and Müller (Z. Phys. B 64, 189, 1986),
+    Wu et al. (Phys. Rev. Lett. 58, 908, 1987), Parkin et al. (Phys. Rev. Lett. 60, 2539, 1988), Schilling et
+    al. (Nature 363, 56, 1993) and Gao et al. (Phys. Rev. B 50, 4260, 1994).
+- id: bednorz-1986
+  name: J. G. Bednorz and K. A. Müller, "Possible high Tc superconductivity in the Ba-La-Cu-O system", Z. Phys. B
+    64, 189-193 (1986)
+  url: https://link.springer.com/article/10.1007/BF01303701
+  kind: paper
+- id: wu-1987
+  name: M. K. Wu et al., "Superconductivity at 93 K in a new mixed-phase Y-Ba-Cu-O compound system at ambient
+    pressure", Phys. Rev. Lett. 58, 908 (1987)
+  url: https://ui.adsabs.harvard.edu/abs/1987PhRvL..58..908W/
+  kind: paper
+- id: schilling-1993
+  name: A. Schilling, M. Cantoni, J. D. Guo, H. R. Ott, "Superconductivity above 130 K in the Hg-Ba-Ca-Cu-O
+    system", Nature 363, 56 (1993)
+  url: https://ui.adsabs.harvard.edu/abs/10.1038/363056a0/abstract
+  kind: paper
+- id: gao-1994
+  name: L. Gao et al., "Superconductivity up to 164 K in HgBa2Cam-1CumO2m+2+δ (m=1, 2, and 3) under
+    quasihydrostatic pressures", Phys. Rev. B 50, 4260 (1994)
+  url: https://link.aps.org/doi/10.1103/PhysRevB.50.4260
+  kind: paper
+- id: drozdov-2015
+  name: A. P. Drozdov, M. I. Eremets et al., "Conventional superconductivity at 203 kelvin at high pressures in
+    the sulfur hydride system", Nature 525, 73-76 (2015), arXiv:1506.08190
+  url: https://arxiv.org/abs/1506.08190
+  kind: paper
+- id: somayazulu-2019
+  name: M. Somayazulu et al., "Evidence for superconductivity above 260 K in lanthanum superhydride at megabar
+    pressures", Phys. Rev. Lett. 122, 027001 (2019), arXiv:1808.07695
+  url: https://arxiv.org/abs/1808.07695
+  kind: paper
+- id: drozdov-2019
+  name: A. P. Drozdov et al., "Superconductivity at 250 K in lanthanum hydride under high pressures",
+    arXiv:1812.01561 (published in Nature, 2019)
+  url: https://arxiv.org/abs/1812.01561
+  kind: paper
+- id: quanta-2020
+  name: Quanta Magazine, report on the carbonaceous sulfur hydride claim (14 October 2020, with retraction note)
+  url: https://quantamagazine.org/physicists-discover-first-room-temperature-superconductor-20201014
+  kind: news
+  notes: Gives 59 °F under diamond-anvil pressure and notes Nature's retraction on 26 September 2022, which the
+    authors dispute.
+- id: physorg-2022
+  name: Phys.org, report on the retraction of the 2020 room-temperature superconductivity paper (29 September 2022)
+  url: https://phys.org/news/2022-09-paper-team-superconductivity-room-temperature.html
+  kind: news
+- id: quanta-2023
+  name: Quanta Magazine, "Room-Temperature Superconductor Discovery Meets With Resistance" (8 March 2023)
+  url: https://quantamagazine.org/room-temperature-superconductor-discovery-meets-with-resistance-20230308
+  kind: news
+  notes: Gives 21 °C at around 1 GPa for N-doped lutetium hydride and notes the retraction on 7 November 2023.
+- id: nature-retraction-2023
+  name: 'Nature, "Retraction Note: Evidence of near-ambient superconductivity in a N-doped lutetium hydride",
+    Nature 624, 460 (2023)'
+  url: https://www.nature.com/articles/s41586-023-06774-2
+  kind: paper
+- id: song-2025-lasch
+  name: Y. Song, C. Ma, H. Wang et al. (Y. Ma group), "Room-Temperature Superconductivity at 298 K in Ternary
+    La-Sc-H System at High-pressure Conditions", arXiv:2510.01273
+  url: https://arxiv.org/abs/2510.01273
+  kind: paper
+  notes: Preprint, submitted 29 September 2025; no journal reference found.
+- id: physicsworld-2025-lasch
+  name: Physics World, "Ternary hydride shows signs of room-temperature superconductivity at high pressures" (7
+    November 2025)
+  url: https://physicsworld.com/a/ternary-hydride-shows-signs-of-room-temperature-superconductivity-at-high-pressures/
+  kind: news
+- id: aps-synopsis-2026
+  name: APS Physics synopsis, "How a Superconductor Broke the Record", Physics 19, s109 (1 September 2026), on Z.
+    Wang et al., Phys. Rev. B 114, 154501 (2026)
+  url: https://physics.aps.org/articles/v19/s109
+  kind: news
+- id: semenok-2026
+  name: D. V. Semenok et al., "Stability Analysis of Superconductivity in P6/mmm-LaSc2H24 and its Experimental
+    Reproducibility from La-Sc Alloys", arXiv:2605.29985
+  url: https://papers.cool/arxiv/2605.29985
+  kind: paper
+records:
+- date: '1986-04-17'
+  value: 35
+  series: ambient-pressure
+  holder: J. G. Bednorz and K. A. Müller, IBM Zürich
+  conditions: La-Ba-Cu-O cuprate; date is when the paper was received
+  status: peer_reviewed
+  source: chu-review-2015
+  url: https://link.springer.com/article/10.1007/BF01303701
+  note: The original abstract says the highest onsets were in the 30 K range; 35 K is the review's figure.
+- date: '1987-03'
+  value: 93
+  series: ambient-pressure
+  holder: M. K. Wu, C. W. Chu et al.
+  conditions: Y-Ba-Cu-O cuprate; transition between 80 and 93 K
+  status: peer_reviewed
+  source: wu-1987
+  note: Above the boiling point of liquid nitrogen (77 K).
+- date: '1988'
+  value: 125
+  series: ambient-pressure
+  holder: S. S. P. Parkin et al., IBM Almaden
+  conditions: Tl2Ba2Ca2Cu3O10 (Tl-2223) cuprate, pure-phase samples
+  status: peer_reviewed
+  source: chu-review-2015
+  note: Phys. Rev. Lett. 60, 2539 (1988), as cited by the review, which calls 125 K the ambient record until
+    April 1993.
+- date: '1993-05'
+  value: 133
+  series: ambient-pressure
+  holder: A. Schilling, M. Cantoni, J. D. Guo, H. R. Ott
+  conditions: HgBa2Ca2Cu3O8 (Hg-1223) cuprate
+  status: peer_reviewed
+  source: schilling-1993
+  note: Abstract gives a maximum of about 133 K; the Chu review also gives 134 K.
+- date: '2026-03-09'
+  value: 151
+  series: ambient-pressure
+  holder: L. Deng, C.-W. Chu et al., University of Houston
+  conditions: Hg-1223 measured at ambient pressure after a pressure-quench protocol
+  status: peer_reviewed
+  source: deng-2026-pqp
+  note: The pressure-quenched state is metastable; see update notes. No independent replication found.
+- date: '1994'
+  value: 164
+  series: high-pressure
+  holder: L. Gao, C. W. Chu et al.
+  conditions: Hg-1223 cuprate under quasihydrostatic pressure (up to 45 GPa in the study)
+  status: peer_reviewed
+  source: gao-1994
+- date: '2015-06-26'
+  value: 203
+  series: high-pressure
+  holder: A. P. Drozdov, M. I. Eremets et al.
+  conditions: Sulfur hydride under high pressure in a diamond anvil cell; date is arXiv submission
+  status: peer_reviewed
+  source: drozdov-2015
+- date: '2018-08-23'
+  value: 260
+  series: high-pressure
+  holder: M. Somayazulu, R. J. Hemley et al.
+  conditions: Lanthanum superhydride at 190 GPa; resistance drop beginning around 260 K
+  status: peer_reviewed
+  source: somayazulu-2019
+  note: Other samples showed drops beginning as high as 280 K. Date is arXiv submission.
+- date: '2018-12-04'
+  value: 250
+  series: high-pressure
+  holder: A. P. Drozdov, M. I. Eremets et al.
+  conditions: Lanthanum hydride at about 170 GPa
+  status: peer_reviewed
+  source: drozdov-2019
+  note: Not above the Somayazulu value, but an independent group reporting superconductivity in the same
+    compound.
+- date: '2020-10-14'
+  value: 288
+  series: high-pressure
+  holder: R. Dias et al.
+  conditions: Carbonaceous sulfur hydride in a diamond anvil cell; reported as 59 °F
+  status: retracted
+  source: quanta-2020
+  note: Nature retracted the paper on 26 September 2022, citing an undisclosed nonstandard background
+    subtraction; the authors disputed the retraction.
+- date: '2023-03-08'
+  value: 294
+  series: high-pressure
+  holder: R. Dias et al.
+  conditions: N-doped lutetium hydride at around 1 GPa; reported as 21 °C
+  status: retracted
+  source: quanta-2023
+  note: Retracted by Nature on 7 November 2023; the retraction note cites credible, unresolved concerns about the
+    resistance data.
+- date: '2025-09-29'
+  value: 298
+  series: high-pressure
+  holder: Y. Song, Y. Ma et al., Jilin University
+  conditions: La-Sc-H (LaSc2H24) at 195-266 GPa; onset 271-298 K
+  status: claimed
+  source: song-2025-lasch
+  note: Preprint. An outside expert quoted by Physics World called the zero resistance and field suppression
+    strong evidence but the X-ray structure work incomplete. A 2026 attempt by another group to make the
+    compound did not succeed.
+events:
+- date: '2015-06-26'
+  kind: paper
+  title: Sulfur hydride superconducts at 203 K under pressure
+  why_it_matters: It broke the cuprates' long hold on the record and showed that hydrogen-rich compounds could
+    reach far higher temperatures.
+  url: https://arxiv.org/abs/1506.08190
+- date: '2022-09-26'
+  kind: retraction
+  title: Nature retracts the 2020 room-temperature superconductor paper
+  why_it_matters: The first claim of superconductivity at room temperature fell over how its data were
+    processed, which made the field much more cautious about hydride claims.
+  url: https://phys.org/news/2022-09-paper-team-superconductivity-room-temperature.html
+- date: '2023-11-07'
+  kind: retraction
+  title: Nature retracts the lutetium hydride near-ambient superconductivity paper
+  why_it_matters: A second room-temperature claim from the same group, this time at only modest pressure, was
+    withdrawn after concerns about its resistance data.
+  url: https://www.nature.com/articles/s41586-023-06774-2
+- date: '2026-03-09'
+  kind: paper
+  title: Pressure-quenched mercury cuprate keeps 151 K superconductivity at ambient pressure
+  why_it_matters: It is the first rise in the ambient-pressure record since 1993, made by locking in a state
+    that normally exists only under pressure.
+  url: https://arxiv.org/abs/2603.12437
+- date: '2026-05-28'
+  kind: setback
+  title: Another group fails to make the La-Sc-H room-temperature superconductor
+  why_it_matters: The 298 K claim has not yet been reproduced elsewhere, which is what would move it from
+    claimed to confirmed.
+  url: https://papers.cool/arxiv/2605.29985
+reading: []
