@@ -1,8 +1,8 @@
 # Observations are annual means of CO2 measured at Mauna Loa Observatory, Hawaii, for 1959 to 2025.
 # They come from NOAA's Global Monitoring Laboratory annual-mean file (co2_annmean_mlo.txt), which is public domain.
 # The values were first seeded from a GitHub copy of that file (datasets/co2-ppm, opened 2026-11-10 via raw.githubusercontent.com);
-# the NOAA file itself could not be opened by WebFetch in this run (permission request not answered), so the
-# scheduled fetcher (scripts/fetchers/atmospheric_co2.py) is the check against NOAA and must dry-run clean before this goes live.
+# the NOAA file itself could not be opened by WebFetch in this run (permission request not answered); the fetcher
+# (scripts/fetchers/atmospheric_co2.py) read it in a dry run, which reported "No change" for all 67 years before this went live.
 # Values are given to two decimal places as NOAA publishes them.
 id: atmospheric-co2
 title: Atmospheric CO2 at Mauna Loa
