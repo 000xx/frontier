@@ -5,10 +5,14 @@
     records               -> record chart, ranking of series, history table (and a two-axis chart when metric.axes exist)
       + threshold-gauge   -> the current record is also drawn against the line it has to cross (metric.target or metric.limit)
       + reign-timeline    -> a ribbon of who has held the record, one block per holder, and a table of holders
+      + three or more records in the series -> the pace of records: one tick per record, the longest wait, the wait since the latest
+      + claim-scoreboard  -> one card per result with its status, holder, conditions and note
+      (a retracted result stays on the chart and in the tables, struck through, but never counts as a record)
     observations          -> line chart with ranges and a table (or a points chart when each series is a single point)
       + coverage-meter    -> percentages are also drawn as a filled share of the whole, with what is left
       + race-to-zero      -> the first series is also drawn against zero: distance to go, and a log axis for big falls
       + cost-curve        -> how many times cheaper the latest figure is than the first, and a ribbon of when each halving was reached
+      + precision-funnel  -> every measurement side by side on one value axis, with the range the source gives, grouped by method
     records or observations
       + scale-ladder      -> the powers of ten the series has passed, on a log bar from its first figure to the next power of ten
     stages + candidates   -> stage table, and a dated track per candidate where `history` has dates
@@ -152,8 +156,10 @@
   }
   function seriesName(m) { return m.group && m.group !== m.label ? m.group + ': ' + m.label : m.label; }
   /* Records: the entries that beat everything before them, in the direction that counts as progress. */
+  function withdrawn(r) { return r[4] === 'retracted'; }
   function progression(f, rows) {
-    var best = null, out = [];
+    var best = null, out = [], live = rows.filter(function (r) { return !withdrawn(r); });
+    if (live.length) rows = live; // a retracted result is not a record; a series with nothing else is left as it is
     rows.forEach(function (r) { if (best === null || better(f, r[1], best)) { out.push({ r: r, gain: best === null ? null : r[1] - best }); best = r[1]; } });
     return out;
   }
@@ -164,7 +170,10 @@
   }
   function bestSeries(f, b) {
     var best = null, v = null;
-    seriesIds(f, b).forEach(function (id) { f[b][id].forEach(function (r) { if (v === null || better(f, r[1], v)) { v = r[1]; best = id; } }); });
+    seriesIds(f, b).forEach(function (id) {
+      var rows = b === 'records' ? progression(f, f[b][id]).map(function (p) { return p.r; }) : f[b][id];
+      rows.forEach(function (r) { if (v === null || better(f, r[1], v)) { v = r[1]; best = id; } });
+    });
     return best;
   }
   /* A frontier's chart shapes (primary first, then secondary) decide how its observations are framed. */
@@ -212,6 +221,33 @@
   }
   function reignMode(f, sid) {
     return hasRecords(f) && hasShape(f, 'reign-timeline') && reigns(f, sid).length > 1 && f.records[sid].every(function (r) { return r[2]; });
+  }
+  /* The pace of records: drawn when the selected series has had at least three records, so there are two waits to compare. */
+  function paceMode(f, sid) { return hasRecords(f) && progression(f, f.records[sid]).length >= 3; }
+  /* The time from one date to a later one, as precisely as the two dates allow. */
+  function waitText(a, b) {
+    var x = parseDate(a), y = parseDate(b), n;
+    if (!x.m || !y.m) { n = y.y - x.y; return n < 1 ? 'Same year' : 'About ' + n + (n === 1 ? ' year' : ' years'); }
+    if (!x.d || !y.d) {
+      n = (y.y - x.y) * 12 + y.m - x.m;
+      return n < 1 ? 'Same month' : n < 24 ? 'About ' + n + (n === 1 ? ' month' : ' months') : 'About ' + (Math.round(n / 12 * 10) / 10) + ' years';
+    }
+    n = Math.round((Date.UTC(y.y, y.m - 1, y.d) - Date.UTC(x.y, x.m - 1, x.d)) / 864e5);
+    if (n < 61) return n < 1 ? 'Same day' : n + (n === 1 ? ' day' : ' days');
+    return n < 730 ? Math.round(n / 30.44) + ' months' : (Math.round(n / 365.25 * 10) / 10) + ' years';
+  }
+  /* Claim scoreboard on a records frontier: the claims are the records themselves, each with its status. */
+  function recClaimMode(f) { return hasRecords(f) && hasShape(f, 'claim-scoreboard'); }
+  /* Precision funnel: measurements of one quantity by several methods, compared by the range each source gives. */
+  function ranged(r) { return r[2] !== null && r[2] !== undefined && r[3] !== null && r[3] !== undefined; }
+  function funnelRows(f) {
+    var out = [];
+    seriesIds(f, 'observations').forEach(function (id) { f.observations[id].forEach(function (r) { out.push({ id: id, r: r }); }); });
+    return out;
+  }
+  function funnelMode(f) {
+    return hasObs(f) && !hasRecords(f) && hasShape(f, 'precision-funnel') && !pointsMode(f) &&
+      funnelRows(f).filter(function (x) { return ranged(x.r); }).length >= 2;
   }
   /* Item lists. A problem list is shown as a list only, with no counts and nothing drawn over time. */
   var ITEM_ORDER = ['done', 'partial', 'disputed', 'open'], MARK_AS = { done: 'confirmed', partial: 'peer_reviewed', disputed: 'retracted' };
@@ -424,7 +460,8 @@
       if (l.pts.length <= 80) out += '<g fill="' + c.bg + '" stroke="' + c.line + '" stroke-width="1.5">' + dots + '</g>';
     });
     (o.dots || []).forEach(function (d) {
-      out += '<circle cx="' + X(d[0]).toFixed(1) + '" cy="' + ax.Y(d[1]).toFixed(1) + '" r="' + (d[2] ? 4 : 3.5) + '" fill="' + (d[2] ? c.line : c.bg) + '" stroke="' + c.line + '" stroke-width="1.5"><title>' + esc(d[3] || '') + '</title></circle>';
+      out += '<circle cx="' + X(d[0]).toFixed(1) + '" cy="' + ax.Y(d[1]).toFixed(1) + '" r="' + (d[2] ? 4 : 3.5) + '" fill="' + (d[2] ? c.line : c.bg) + '" stroke="' + c.line + '" stroke-width="1.5"><title>' + esc(d[3] || '') + '</title></circle>' +
+        (d[4] ? '<path d="M' + (X(d[0]) - 6).toFixed(1) + ' ' + (ax.Y(d[1]) + 6).toFixed(1) + ' l12 -12" stroke="' + c.line + '" stroke-width="1.5"/>' : '');
     });
     if (o.label) {
       var lx = X(o.label.t), ly = ax.Y(o.label.v), end = lx > W * 0.35, below = ly < 34 || (o.label.below && ly + 34 < H); // a line falling to its last point leaves room underneath
@@ -449,8 +486,11 @@
       var m = f.metric[k];
       if (m && (!m.series || m.series === sid)) marks.push({ v: m.value, label: (k === 'limit' ? 'Limit: ' : 'Target: ') + fmt(m.value) + suffix(f) });
     });
+    var struck = f.records[sid].filter(withdrawn).map(function (r) {
+      return [parseDate(r[0]).t, r[1], false, 'Retracted: ' + val(f, r[1]) + (r[2] ? ' · ' + r[2] : '') + ' · ' + fmtDate(r[0]), true];
+    });
     return timeChart(f, {
-      lines: lines, marks: marks,
+      lines: lines, marks: marks, dots: sel.length < f.records[sid].length ? struck : [],
       label: { t: parseDate(top[0]).t, v: top[1], text: val(f, top[1]) + (top[2] ? ' · ' + top[2] : '') + ' · ' + fmtDate(top[0]) },
       aria: 'Record chart for ' + seriesName(seriesMeta(f, sid)) + ': ' + val(f, sel[0].r[1]) + ' in ' + parseDate(sel[0].r[0]).y + ' to ' + val(f, top[1]) + ' in ' + parseDate(top[0]).y + '.'
     }, dark);
@@ -710,11 +750,14 @@
   function recordsSections(f, sid) {
     var rows = f.records[sid], prog = progression(f, rows), top = prog[prog.length - 1], meta = seriesMeta(f, sid), ids = seriesIds(f, 'records');
     var out = '<div class="wrap block"><h2>' + esc(seriesName(meta)) + '</h2><div class="card">' + recordsChart(f, sid, false) + '</div>' +
-      '<p class="small">The dark line is the record for the selected series.' + (ids.length > 1 ? ' Thin lines are the other series.' : '') + (top.r[3] ? ' Current record: ' + esc(top.r[3]) + '.' : '') + '</p></div>';
+      '<p class="small">The dark line is the record for the selected series.' + (ids.length > 1 ? ' Thin lines are the other series.' : '') + (top.r[3] ? ' Current record: ' + esc(top.r[3]) + '.' : '') +
+      (rows.some(withdrawn) && prog.length < rows.length ? ' A struck ring is a result that was later retracted: it stays on the chart but does not count as a record.' : '') + '</p></div>';
     if (gaugeMode(f, sid)) out += gaugeSection(f, sid);
     if (ladderMode(f, sid)) out += ladderSection(f, sid);
     if (f.metric.axes.length) out += scatterChart(f, sid);
     if (reignMode(f, sid)) out += reignSection(f, sid);
+    if (paceMode(f, sid)) out += paceSection(f, sid);
+    if (recClaimMode(f)) out += recClaimSection(f);
     if (ids.length > 1) {
       var board = ids.map(function (id) { var p = progression(f, f.records[id]); return { m: seriesMeta(f, id), top: p[p.length - 1].r }; })
         .sort(function (a, b) { return better(f, a.top[1], b.top[1]) ? -1 : 1; });
@@ -736,7 +779,7 @@
       rows.map(function (r, i) {
         var p = isRec[i];
         return '<tr class="' + (p && p === top ? 'now' : '') + '"><td class="date">' + esc(fmtDate(r[0])) + '</td><td class="v' + (p ? '' : ' dim') + '">' + val(f, r[1]) + '</td>' +
-          '<td class="g">' + (p ? (p.gain === null ? 'First' : (p.gain > 0 ? '+' : '') + fmt(p.gain)) : 'Not a record') + '</td><td>' + esc(r[2]) + '</td><td class="cond">' + esc(r[3]) + '</td>' +
+          '<td class="g">' + (p ? (p.gain === null ? 'First' : (p.gain > 0 ? '+' : '') + fmt(p.gain)) : withdrawn(r) ? 'Withdrawn' : 'Not a record') + '</td><td>' + esc(r[2]) + '</td><td class="cond">' + esc(r[3]) + '</td>' +
           '<td>' + statusHtml(r[4], '#0F1317') + '</td><td>' + sourceLink(f, r[5]) + '</td></tr>';
       }).reverse().join('') + '</tbody></table></div></div>';
     return out;
@@ -813,6 +856,126 @@
         'The marks above the ribbon are the records themselves, the newest in orange; a holder who beats their own record keeps the same block. Every holder is named in the table below' +
         (seriesIds(f, 'records').length > 1 ? ', which covers the selected series only' : '') + '.</p>' +
       '<div class="tbl"><table class="reigns"><thead><tr><th scope="col">Holder</th><th scope="col">Took the record</th><th scope="col">Held it until</th><th scope="col">Records set</th><th scope="col">Best in that time</th></tr></thead><tbody>' + body + '</tbody></table></div></div>';
+  }
+  /* The pace of records: one tick per record on a time axis, with the longest wait between two records marked. */
+  function paceSection(f, sid) {
+    var rows = f.records[sid], prog = progression(f, rows), c = palette(false), W = 880, H = 62, tN = nowT(), out = '', fg = '';
+    var ds = prog.map(function (p) { return p.r[0]; }), ts = ds.map(function (d) { return parseDate(d).t; }), n = ds.length, last = ds[n - 1], k = 1, i;
+    var t0 = Math.floor(ts[0]), t1 = Math.ceil(Math.max(tN, ts[n - 1]) + 0.1);
+    if (t1 - t0 < 2) t0 -= 1;
+    function X(t) { return (t - t0) / (t1 - t0) * W; }
+    for (i = 2; i < n; i += 1) if (ts[i] - ts[i - 1] > ts[k] - ts[k - 1]) k = i;
+    out += '<path d="M0 ' + H + ' H' + W + '" stroke="' + c.axis + '" stroke-width="1"/>';
+    timeTicks(t0, t1).forEach(function (y) {
+      out += '<path d="M' + X(y).toFixed(1) + ' ' + H + ' V' + (H + 6) + '" stroke="' + c.axis + '" stroke-width="1"/>' +
+        '<text x="' + X(y).toFixed(1) + '" y="' + (H + 26) + '" fill="' + c.text + '" font-size="13" text-anchor="middle">' + y + '</text>';
+    });
+    var a = X(ts[k - 1]), b = X(ts[k]), mid = (a + b) / 2, anchor = mid < 170 ? 'start' : mid > W - 170 ? 'end' : 'middle';
+    fg += '<path d="M' + a.toFixed(1) + ' 12 V7 H' + b.toFixed(1) + ' V12" fill="none" stroke="' + c.text + '" stroke-width="1"/>' +
+      '<text x="' + (anchor === 'start' ? a : anchor === 'end' ? b : mid).toFixed(1) + '" y="-2" fill="' + c.text + '" font-size="13" text-anchor="' + anchor + '">Longest wait</text>';
+    prog.forEach(function (p, j) {
+      var on = j === n - 1;
+      fg += '<path d="M' + X(ts[j]).toFixed(1) + ' 16 V' + H + '" stroke="' + (on ? '#E4531A' : c.line) + '" stroke-width="' + (on ? 3 : 1.5) + '">' +
+        '<title>' + esc(val(f, p.r[1]) + (p.r[2] ? ' · ' + p.r[2] : '') + ' · ' + fmtDate(p.r[0])) + '</title></path>';
+    });
+    var gone = prog.length < rows.length ? rows.filter(withdrawn) : [];
+    gone.forEach(function (r) {
+      var x = X(parseDate(r[0]).t), y = H / 2 + 8;
+      fg += '<g><title>' + esc('Retracted: ' + val(f, r[1]) + (r[2] ? ' · ' + r[2] : '') + ' · ' + fmtDate(r[0])) + '</title>' +
+        '<circle cx="' + x.toFixed(1) + '" cy="' + y + '" r="4.5" fill="' + c.bg + '" stroke="' + c.line + '" stroke-width="1.5"/>' +
+        '<path d="M' + (x - 6).toFixed(1) + ' ' + (y + 6) + ' l12 -12" stroke="' + c.line + '" stroke-width="1.5"/></g>';
+    });
+    var checked = f.lastChecked && parseDate(f.lastChecked).t >= ts[n - 1] ? f.lastChecked : '';
+    var longer = checked && parseDate(checked).t - ts[n - 1] > ts[k] - ts[k - 1];
+    return '<div class="wrap block"><h2>The pace of records</h2>' +
+      '<dl class="split">' + cell('now', 'Latest record · ' + esc(fmtDate(last)), val(f, prog[n - 1].r[1])) +
+        cell('', 'Records in this series', fmt(n)) +
+        cell('words', 'Longest wait between two records · ' + esc(fmtDate(ds[k - 1])) + ' to ' + esc(fmtDate(ds[k])), esc(waitText(ds[k - 1], ds[k]))) +
+        (checked ? cell('words', 'Since the latest record · as of the last check, ' + esc(fmtDate(checked)), esc(waitText(last, checked))) : '') + '</dl>' +
+      '<div class="card">' + frame(out + FG + fg, W, H, 'One tick for each of the ' + n + ' records in this series, placed by date from ' + parseDate(ds[0]).y + ' to ' + parseDate(last).y +
+        '. The longest wait between two records ran from ' + fmtDate(ds[k - 1]) + ' to ' + fmtDate(ds[k]) + '. Latest record: ' + fmtDate(last) + '.',
+        creditLine(f), [t0, t1], '-10 -24 ' + (W + 20) + ' ' + (H + 58)) + '</div>' +
+      '<p class="small">Each tick is a date on which a new record was set in this series; the orange tick is the latest. The bracket spans the longest wait between two records in a row. ' +
+        (gone.length ? 'A struck ring is a result that was later retracted, which is not counted. ' : '') +
+        (longer ? 'The wait since the latest record is already longer than any wait between two records here. ' : '') +
+        'The count and the waits are worked out on the page from the dates in the data, and are not figures from a source. A date the data gives only to the month or year makes a wait approximate.' +
+        (f.dataStatus === 'draft' ? ' This is draft data: a record missing from it would make a wait look longer than it was.' : '') + '</p></div>';
+  }
+  /* Claim scoreboard on a records frontier: one card per result, newest first, with where the claim stands. */
+  var REC_STATUS = ['confirmed', 'peer_reviewed', 'claimed', 'retracted'];
+  function recClaimSection(f) {
+    var all = [], ids = seriesIds(f, 'records'), n = {}, order = REC_STATUS.slice();
+    ids.forEach(function (id) { f.records[id].forEach(function (r) { all.push({ m: seriesMeta(f, id), r: r }); }); });
+    all.sort(function (x, y) { return parseDate(y.r[0]).t - parseDate(x.r[0]).t; });
+    all.forEach(function (x) { var s = x.r[4] || 'not stated'; n[s] = (n[s] || 0) + 1; if (order.indexOf(s) < 0) order.push(s); });
+    order = order.filter(function (s) { return n[s]; });
+    var newest = all.length > 1 && all[0].r[0] === all[1].r[0] ? null : all[0];
+    var cards = all.map(function (x) {
+      var r = x.r, on = x === newest;
+      return '<li class="gcard' + (on ? ' new' : '') + (withdrawn(r) ? ' gone' : '') + '"><span class="gtop">' + mark(r[4], on ? '#E4531A' : '#0F1317', 14) +
+        '<span>' + esc(STATUS[r[4]] || r[4] || 'Status not stated') + ' · ' + esc(fmtDate(r[0])) + (ids.length > 1 ? ' · ' + esc(x.m.label) : '') + '</span></span>' +
+        '<strong>' + val(f, r[1]) + (unitText(f) ? ' ' + esc(unitText(f)) : '') + '</strong>' +
+        (r[2] ? '<span class="sub by">' + esc(r[2]) + '</span>' : '') + (r[3] ? '<span class="sub">' + esc(r[3]) + '</span>' : '') +
+        (r[7] ? '<span class="gnote">' + esc(r[7]) + '</span>' : '') + '<span class="sub">' + sourceLink(f, r[5]) + '</span></li>';
+    }).join('');
+    return '<div class="wrap block"><h2>Where each claim stands</h2>' +
+      '<dl class="split">' + order.map(function (s) { return cell('', esc(STATUS[s] || s), fmt(n[s])); }).join('') + cell('', 'Results listed', fmt(all.length)) + '</dl>' +
+      '<div class="ggs"><section class="gg"><ul class="gcards claims">' + cards + '</ul></section></div>' +
+      '<p class="small gkey">' + order.map(function (s) { return statusHtml(s, '#0F1317'); }).join('') + (newest ? '<span class="status">' + mark(newest.r[4], '#E4531A') + 'Most recent</span>' : '') + '</p>' +
+      '<p class="small">One card per result in the data, newest first' + (ids.length > 1 ? ', across all ' + ids.length + ' series' : '') + '. The mark shows where each claim stands: a ring is a claim by the people who made it, ' +
+        'a half-filled ring has passed peer review, a solid mark has been confirmed independently, and a struck ring was retracted. A retracted result stays on the page but does not count as a record. ' +
+        'The counts are counts of the results listed here, worked out on the page and not a figure from a source' + (f.dataStatus === 'draft' ? '; this is draft data, so the list may not be complete' : '') + '.</p></div>';
+  }
+  /* Precision funnel: every measurement on one value axis, a dot for the central value and a bar for the range the source gives. */
+  function funnelSection(f) {
+    var all = funnelRows(f), ids = seriesIds(f, 'observations'), c = palette(false), W = 880, vs = [], newest = all[0], tie = false, out = '', fg = '', y = 0, k;
+    all.forEach(function (x) { vs.push(x.r[1]); if (ranged(x.r)) vs.push(x.r[2], x.r[3]); if (x.r[0] > newest.r[0]) newest = x; });
+    all.forEach(function (x) { if (x !== newest && x.r[0] === newest.r[0]) tie = true; });
+    if (tie) newest = null;
+    var lo = Math.min.apply(null, vs), hi = Math.max.apply(null, vs), step = niceStep((hi - lo) || 1, 6);
+    var a = Math.floor(lo / step) * step, b = Math.ceil(hi / step) * step; if (a === b) b = a + step;
+    function X(v) { return (v - a) / (b - a) * W; }
+    var heads = '';
+    ids.forEach(function (id) {
+      var rows = f.observations[id];
+      y += 30;
+      heads += '<text x="0" y="' + y + '" fill="' + c.strong + '" stroke="' + c.bg + '" stroke-width="5" paint-order="stroke" font-family="Space Grotesk, Helvetica Neue, Arial, sans-serif" font-size="16" font-weight="600">' + esc(seriesMeta(f, id).label) + '</text>';
+      y += 6;
+      rows.forEach(function (r, i) {
+        var latest = i === rows.length - 1, on = !!newest && newest.r === r, col = on ? '#E4531A' : latest ? c.line : c.text, sw = latest ? 2.5 : 1.5, has = ranged(r);
+        y += 24;
+        var cy = y - 8, x = X(r[1]), x0 = has ? X(r[2]) : x, x1 = has ? X(r[3]) : x;
+        var text = fmt(r[1]) + (has ? '' : ' · no range in the data'), right = x1 + 12 + text.length * 7.9 <= W;
+        heads += '<text x="-12" y="' + (cy + 4.5) + '" fill="' + (latest ? c.strong : c.text) + '" font-size="13" text-anchor="end">' + esc(fmtDate(r[0])) + '</text>';
+        fg += '<g><title>' + esc(seriesMeta(f, id).label + ' · ' + fmtDate(r[0]) + ' · ' + fmt(r[1]) + (has ? ' (' + fmt(r[2]) + ' to ' + fmt(r[3]) + ')' : '')) + '</title>' +
+          (has ? '<path d="M' + x0.toFixed(1) + ' ' + cy + ' H' + x1.toFixed(1) + ' M' + x0.toFixed(1) + ' ' + (cy - 5) + ' v10 M' + x1.toFixed(1) + ' ' + (cy - 5) + ' v10" fill="none" stroke="' + col + '" stroke-width="' + sw + '"/>' +
+            '<circle cx="' + x.toFixed(1) + '" cy="' + cy + '" r="5" fill="' + col + '" stroke="' + c.bg + '" stroke-width="1.5"/>'
+            : '<circle cx="' + x.toFixed(1) + '" cy="' + cy + '" r="4.25" fill="' + c.bg + '" stroke="' + col + '" stroke-width="1.5"/>') +
+          '<text x="' + (right ? x1 + 12 : x0 - 12).toFixed(1) + '" y="' + (cy + 4.5) + '" fill="' + (on ? '#B03A08' : latest ? c.strong : c.text) + '" stroke="' + c.bg + '" stroke-width="4" paint-order="stroke" font-size="13"' +
+            (latest ? ' font-weight="500"' : '') + ' text-anchor="' + (right ? 'start' : 'end') + '">' + esc(text) + '</text></g>';
+      });
+      y += 10;
+    });
+    var H = y + 6, grid = '', nT = Math.round((b - a) / step);
+    for (k = 0; k <= nT; k += 1) {
+      var gx = X(a + k * step).toFixed(1);
+      grid += '<path d="M' + gx + ' 0 V' + (H + 6) + '" stroke="' + c.grid + '" stroke-width="1"/>' +
+        '<text x="' + gx + '" y="' + (H + 26) + '" fill="' + c.text + '" font-size="13" text-anchor="middle">' + esc(fmt(a + k * step) + suffix(f)) + '</text>';
+    }
+    out = grid + '<path d="M0 ' + H + ' H' + W + '" stroke="' + c.axis + '" stroke-width="1"/>' + heads + FG + fg;
+    var nr = newest && newest.r, without = all.filter(function (x) { return !ranged(x.r); }).length;
+    return '<div class="wrap block"><h2>The measurements side by side</h2>' +
+      '<dl class="split">' + (nr ? cell('now', 'Newest measurement · ' + esc(fmtDate(nr[0])) + ' · ' + esc(seriesMeta(f, newest.id).label), val(f, nr[1])) +
+          (ranged(nr) ? cell('words', 'The range its source gives', fmt(nr[2]) + ' to ' + fmt(nr[3])) : '') : '') +
+        cell('', 'Methods', fmt(ids.length)) + cell('', 'Measurements', fmt(all.length)) + '</dl>' +
+      '<div class="card">' + frame(out, W, H, all.length + ' measurements by ' + ids.length + ' methods on one axis from ' + fmt(a) + ' to ' + fmt(b) + (unitText(f) ? ' ' + unitText(f) : '') +
+        ', each drawn as its central value with the range its source gives.' + (nr ? ' Newest: ' + val(f, nr[1]) + ', ' + seriesMeta(f, newest.id).label + ', ' + fmtDate(nr[0]) + '.' : ''),
+        creditLine(f), null, '-112 -8 ' + (W + 132) + ' ' + (H + 44)) + '</div>' +
+      '<p class="small">Each row is one measurement, grouped by method with the oldest first. The dot is the central value and the bar is the range the data records for it, as its source gives it' +
+        (unitText(f) ? ', in ' + esc(unitText(f)) : '') + '. A shorter bar is a more precise measurement. Where the bars of two measurements do not overlap, the two differ by more than the ranges they state. ' +
+        'The heavier row in each group is that method’s latest' + (nr ? ', and the orange row is the newest of all' : '') + '.' +
+        (without ? ' ' + without + ' of the ' + all.length + ' measurements have no range in the data and are drawn as an open ring; their sources may still state one.' : '') +
+        ' The counts of methods and measurements are counts of the entries listed here, worked out on the page.</p></div>';
   }
   /* Coverage meter: the latest figure as a filled share of the whole, with what is left. */
   function coverageSection(f, sid) {
@@ -925,7 +1088,7 @@
     if (zero && log) note += ' The vertical axis is a log scale: each gridline is ten times the one below it. A log scale has no zero, so zero is drawn as a line of its own under the break in the axis.';
     else if (log && hasShape(f, 'cost-curve') && f.metric.direction === 'lower') note += ' The vertical axis is a log scale: each gridline is a tenth of the one above it. On this scale a cost that falls by the same percentage every year is a straight line, and the cheap recent years are not squashed flat against the bottom by the expensive early ones.';
     else if (log) note += ' The vertical axis is a log scale.';
-    var out = (cov ? coverageSection(f, sid) : zero ? zeroSection(f, sid) : cost ? costSection(f, sid) : '') +
+    var out = (cov ? coverageSection(f, sid) : zero ? zeroSection(f, sid) : cost ? costSection(f, sid) : funnelMode(f) ? funnelSection(f) : '') +
       '<div class="wrap block"><h2>' + esc(pm ? f.metric.name : seriesName(meta)) + (cov || zero ? ' over time' : '') + '</h2><div class="card">' + obsChart(f, sid, false) + '</div>' +
       '<p class="small">' + note + '</p></div>';
     if (ladderMode(f, sid)) out += ladderSection(f, sid);
@@ -1146,7 +1309,7 @@
   var Site = {
     home: home, frontier: frontier, itemsList: itemsList, tilesList: tilesList, tile: tile, creditLine: creditLine, esc: esc,
     filterHome: function (q, domain, shape) { homeState = { q: q || '', domain: domain || 'all', shape: shape || 'all' }; }, anchors: HOME_ANCHORS, seriesIds: seriesIds, block: block, gaugeMode: gaugeMode, reignMode: reignMode,
-    costMode: costMode, ladderMode: ladderMode, gridMode: gridMode, claimMode: claimMode, itemTimeMode: itemTimeMode, stageDatesMode: stageDatesMode,
+    costMode: costMode, ladderMode: ladderMode, paceMode: paceMode, recClaimMode: recClaimMode, funnelMode: funnelMode, headline: headline, gridMode: gridMode, claimMode: claimMode, itemTimeMode: itemTimeMode, stageDatesMode: stageDatesMode,
     select: function (fid, sid) { chosen[fid] = sid; }, data: function () { return D; }
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = Site;

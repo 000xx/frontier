@@ -121,7 +121,7 @@ def build():
             "series": d.get("series") or [],
             "records": by_series(d.get("records"), lambda r: [
                 str(r["date"]), r["value"], r.get("holder") or "", r.get("conditions") or "",
-                r.get("status") or "", r.get("source") or "", r.get("extra") or None]),
+                r.get("status") or "", r.get("source") or "", r.get("extra") or None, one_line(r.get("note"))]),
             "observations": by_series(d.get("observations"), lambda r: [
                 str(r["date"]), r["value"], r.get("low"), r.get("high"), r.get("source") or "", one_line(r.get("note"))]),
             "items": [[str(i["id"]), i["label"], i.get("group") or "", i["status"], i.get("status_detail") or "",

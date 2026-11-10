@@ -335,3 +335,6 @@ table.halvings td.g, table.ladder td.g { font-variant-numeric: tabular-nums; }
 table.halvings .snum { margin-right: 0; width: auto; min-width: 20px; padding: 0 5px; border-radius: 10px; }
 table.ladder { min-width: 520px; }
 table.ladder tr.next td { color: var(--mute); }
+
+/* Claim cards for records: a retracted result keeps its card, with the figure struck through */
+.gcard.gone strong { text-decoration: line-through; text-decoration-thickness: 2px; color: var(--mute); }

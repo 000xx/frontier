@@ -80,9 +80,19 @@ for (const f of data.frontiers) {
       // A shape view that applies to this series must be on the page, and must not appear where it does not apply.
       if (Site.costMode(f, sid) !== html.includes('<h2>How far the cost has fallen</h2>')) throw new Error('cost-curve view shown or missing against the data');
       if (Site.ladderMode(f, sid) !== html.includes('<h2>The ladder of powers of ten</h2>')) throw new Error('scale ladder shown or missing against the data');
+      if ((block === 'observations' && Site.funnelMode(f)) !== html.includes('<h2>The measurements side by side</h2>')) throw new Error('measurement comparison shown or missing against the data');
       if (block === 'records') {
         if (Site.gaugeMode(f, sid) !== /<h2>Distance to the (line|limit)<\/h2>/.test(html)) throw new Error('threshold gauge shown or missing against the data');
         if (Site.reignMode(f, sid) !== html.includes('<h2>Who has held the record</h2>')) throw new Error('record-holder ribbon shown or missing against the data');
+        if (Site.paceMode(f, sid) !== html.includes('<h2>The pace of records</h2>')) throw new Error('pace of records shown or missing against the data');
+        if (Site.recClaimMode(f) !== html.includes('<h2>Where each claim stands</h2>')) throw new Error('claim cards for records shown or missing against the data');
+        // A retracted result is never the record: it must be marked as withdrawn, and the headline must be a result that stands.
+        const rows = f.records[sid], gone = rows.filter((r) => r[4] === 'retracted');
+        if (gone.length && gone.length < rows.length) {
+          if (!html.includes('>Withdrawn<')) throw new Error('a retracted result is not marked as withdrawn');
+          const h = Site.headline(f, sid);
+          if (gone.some((r) => r[0] === h.date && r[1] === h.value)) throw new Error('the headline record is a retracted result');
+        }
       }
       checkCredits(f, html);
       return html;
