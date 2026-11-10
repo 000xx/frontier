@@ -7,7 +7,7 @@ id: genbank-size
 title: GenBank size
 domain: biology
 subfield: Reading life
-status: draft
+status: live
 summary: How much DNA and RNA sequence data the NIH's GenBank archive holds, counted in bases and in sequence records
   at each release. It is a simple measure of how much sequence biology has produced and shared in public.
 metric:
@@ -34,7 +34,7 @@ update:
   last_checked: '2026-11-09'
   notes: 'Observations come from the release table on the GenBank statistics page. The fetcher adds new releases and
     updates the last three when their figures change; older releases are kept, and changes to them are printed in the run
-    log only. Still to add: a reading list, and a source check of NCBI''s policy page (read on 2026-11-09, see sources).
+    log only. Still to add: a reading list.
     Open point for the owner: the table shows some releases with fewer bases or sequences than the release before (bases
     fall at releases 227 and 267, sequences at releases 227 and 235), so these are kept as published.'
 sources:
