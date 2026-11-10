@@ -124,6 +124,11 @@ def _rows(raw):
                 "provisional": "*" in (cells[cols["rank"]] if "rank" in cols else ""),
             })
         return out
+    print("DEBUG tables", len(parser.tables), "table tags", raw.lower().count("<table"), "tr", raw.lower().count("<tr"))
+    for t in parser.tables[:5]:
+        print("DEBUG table first rows", t[:2])
+    i = raw.find("Digits")
+    print("DEBUG context", repr(raw[max(0, i - 900):i + 300]) if i >= 0 else "no 'Digits' in page")
     raise common.SourceError("the GIMPS table was not found (no header with exponent, digits, date and discoverer)")
 
 
