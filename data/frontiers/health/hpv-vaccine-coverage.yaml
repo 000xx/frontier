@@ -1,0 +1,49 @@
+# HPV vaccine coverage: share of adolescent girls vaccinated, World, from OWID's copy of WHO/UNICEF (WUENIC) estimates.
+# Observations are written by scripts/fetchers/hpv_vaccine_coverage.py; edit the other fields by hand.
+id: hpv-vaccine-coverage
+title: HPV vaccine coverage
+domain: health
+subfield: Cancer
+status: draft
+summary: The share of adolescent girls worldwide who have been vaccinated against human papillomavirus, the
+  virus behind almost all cervical cancer, and how far that is from the level needed to eliminate the cancer.
+metric:
+  name: Share of adolescent girls vaccinated against HPV, worldwide
+  unit: '%'
+  direction: higher
+  scale: linear
+  explainer: 'Human papillomavirus is a common virus passed on by sexual contact, and some types cause almost all
+    cervical cancer. Vaccines given before a person is exposed to the virus prevent most of that infection. The
+    measure here is the share of girls of the target age who have been vaccinated, estimated each year by WHO and
+    UNICEF from country reports and surveys. Coverage estimates can be revised when new data arrive, so compare
+    years within one release. Vaccinating girls is only part of cervical cancer prevention: screening and
+    treatment of precancerous changes also matter, and the vaccine does not protect against every HPV type.'
+chart:
+  primary: coverage-meter
+series:
+- id: world
+  label: World
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Observations come from Our World in Data''s grapher for the WHO/UNICEF coverage estimates (2025 revision,
+    completed 15 July 2026, data from 1980 to 2025; the chart shows 2010 to 2025). The fetcher is
+    scripts/fetchers/hpv_vaccine_coverage.py. The WHO/UNICEF target for cervical cancer elimination is 90% of girls
+    fully vaccinated by age 15 by 2030; that is a different measure from this series, so it is not drawn as a target
+    until the series definition (first or full course) is confirmed. Not yet checked: the WHO/UNICEF licence terms
+    for copying the values (the OWID page says third-party data is subject to the provider''s terms).'
+sources:
+- id: owid-coverage-of-the-human-papillomavirus-vaccine
+  name: Our World in Data, Share of adolescent girls vaccinated against human papillomavirus (WHO and UNICEF, WUENIC)
+  url: https://ourworldindata.org/grapher/coverage-of-the-human-papillomavirus-vaccine
+  kind: dataset
+  primary: true
+  notes: 'Processed by Our World in Data from WHO & UNICEF WHO Immunization Data, "Vaccination coverage" (WUENIC
+    2025 revision). Citation: WHO & UNICEF (2026).'
+- id: uicc-global-strategy
+  name: UICC, Global strategy for the elimination of cervical cancer
+  url: https://www.uicc.org/what-we-do/driving-global-impact/targeted-commitments/global-strategy-elimination-cervical-cancer
+  kind: report
+  notes: Secondary summary of the WHO strategy. Gives the 2030 target of 90% of girls fully vaccinated by age 15. Used
+    for the target note only.
+observations: []
