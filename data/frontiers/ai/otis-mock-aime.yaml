@@ -4,7 +4,7 @@ id: otis-mock-aime
 title: AI on olympiad-style maths problems (OTIS Mock AIME 2024-2025)
 domain: ai
 subfield: Capability
-status: draft
+status: live
 summary: The best score any AI model has reached on OTIS Mock AIME 2024-2025, a set of 45 olympiad-style maths
   problems written by students of the OTIS training programme, as run by Epoch AI. It shows how close models
   have come to the ceiling on this set.
