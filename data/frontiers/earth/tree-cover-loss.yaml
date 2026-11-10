@@ -1,0 +1,60 @@
+# Observations are yearly world tree cover loss, in million hectares, for 2001 onward.
+# They come from Our World in Data's copy of Global Forest Watch's tree cover loss data (University of Maryland GLAD lab),
+# CC BY 4.0 on Our World in Data, with the third-party terms of Global Forest Watch also applying. The grapher CSV could not be
+# opened with WebFetch in this run (only its page), so the observations are to be written from the fetcher (scripts/fetchers/tree_cover_loss.py)
+# dry-run log, which reads the same CSV, and then checked by a second dry run.
+id: tree-cover-loss
+title: Global tree cover loss
+domain: earth
+subfield: Life on Earth
+status: draft
+summary: The area of tree cover lost each year across the world, from satellite records that start in 2001.
+  Forests store carbon and hold most land species, so losing them matters for climate and for nature.
+metric:
+  name: Tree cover loss, world
+  unit: million ha
+  direction: lower
+  scale: linear
+  explainer: 'Satellite images are used to detect where tree cover has been removed in each year. The totals cover loss from
+    all causes: clearing for farms and pasture, logging, fire and storms. Loss in one place can be regrowth elsewhere, so the net
+    change in forest area is smaller than the gross loss. Fires are a large and rising share of recent years. The measure
+    is best read as a trend, since single years swing with weather, fires and changes in how the satellite data are processed.
+    Progress means less tree cover lost each year.'
+chart:
+  primary: record-chart
+series:
+- id: world-tree-cover-loss
+  label: World tree cover loss
+update:
+  cadence: yearly
+  last_checked: '2026-11-09'
+  notes: 'Global Forest Watch publishes the annual tree cover loss update each year, usually in May. Update by running the
+    tree_cover_loss fetcher once the new year appears in the World rows. Earlier years can be revised when the satellite
+    data are reprocessed, so revised values are written and flagged.'
+sources:
+- id: owid-tree-cover-loss
+  name: Our World in Data, tree cover loss (World rows), from Global Forest Watch (2025)
+  url: https://ourworldindata.org/grapher/tree-cover-loss
+  kind: dataset
+  primary: true
+  notes: 'Page opened 2026-11-09. Data are CC BY 4.0 on Our World in Data; the page cites Global Forest Watch as the original
+    provider and says third-party licence terms apply. Credit line suggested: "Data: Global Forest Watch (2025), processed by
+    Our World in Data". The Global Forest Watch terms were not separately checked in this run and should be confirmed by the owner.'
+- id: wri-2024-forest-loss-release
+  name: WRI, Global forest loss shatters records in 2024, fueled by massive fires (press release, May 2025)
+  url: https://wri.org/news/release-global-forest-loss-shatters-records-2024-fueled-massive-fires
+  kind: press
+  notes: 'Opened 2026-11-10. The page header and the dateline give 20 and 21 May 2025; the event uses 21 May. Data come from
+    the University of Maryland GLAD lab via Global Forest Watch.'
+events:
+- date: '2025-05-21'
+  kind: milestone
+  title: Global tree cover loss rises about 5 percent in 2024, to about 30 million hectares
+  why_it_matters: The year's total loss was higher than in 2023, and fires drove much of the increase.
+  url: https://wri.org/news/release-global-forest-loss-shatters-records-2024-fueled-massive-fires
+- date: '2025-05-21'
+  kind: setback
+  title: Tropical primary forest loss in 2024 reaches 6.7 million hectares, nearly double 2023
+  why_it_matters: Primary forests hold the most carbon and biodiversity, so losing them is the most damaging kind of loss.
+  url: https://wri.org/news/release-global-forest-loss-shatters-records-2024-fueled-massive-fires
+observations:
