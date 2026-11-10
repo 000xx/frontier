@@ -31,13 +31,16 @@ def read_table(raw):
         if len(cells) < 3 or not re.fullmatch(r"\d{4}", cells[0]):
             continue
         year = int(cells[0])
-        if year in years:
-            raise common.SourceError(f"year {year} appears more than once")
         if not re.fullmatch(r"\d+(\.\d+)?", cells[2]):
             continue  # no data for this year
         area = float(cells[2])
         if not 0 < area < 40:
             raise common.SourceError(f"area for {year} is outside a plausible range: {area}")
+        if year in years:
+            # The page can repeat a year's row (for example in a second table); the repeats must agree.
+            if years[year] != round(area, 1):
+                raise common.SourceError(f"year {year} appears twice with different areas")
+            continue
         years[year] = round(area, 1)
 
     if not years:
