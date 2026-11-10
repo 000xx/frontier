@@ -1,0 +1,118 @@
+# Records are transcribed from Paul Zimmermann's integer factoring records page (factored by the 2003 to 2020 teams).
+# RSA-260 and RSA-896 are company and individual announcements from 2026, checked only by their authors; bit
+# lengths for RSA-240 to RSA-260 are taken from the Wikipedia RSA numbers table, which the factoring page does not give.
+id: rsa-factoring
+title: Largest RSA number factored
+domain: computing
+subfield: Networks and security
+status: live
+summary: The largest RSA modulus anyone has split into its two prime factors, measured in bits, from 576 bits in 2003 to 896 bits in 2026. RSA keys are safe only while factoring them stays out of reach, so each record shows how far the attack has come.
+metric:
+  name: Bits in the largest RSA number factored
+  unit: bits
+  direction: higher
+  scale: linear
+  explainer: 'RSA is a public-key scheme. A public key is a large number n that is the product of two secret primes,
+    and the scheme is safe as long as nobody can split n back into its two primes. The records here are factorisations
+    of such numbers, which mainly show how much computing a given size needs. Many records were set on numbers from
+    RSA Laboratories' public challenge, which ended in 2007; later numbers continue the same list. The number field sieve is the method behind every record here. The academic records
+    used about 900 to 2,700 core-years of compute, and the cost rises steeply with size. A record does not by
+    itself break any key in use: it shows the effort needed for a number of a given length, which is what key-size
+    choices depend on. Results are counted in bits, the binary length of the number.'
+chart:
+  primary: record-chart
+  secondary:
+  - reign-timeline
+sources:
+- id: zimmermann-factoring-records
+  name: Paul Zimmermann, Integer factoring records
+  url: https://members.loria.fr/PZimmermann/records/factor.html
+  kind: dataset
+  primary: true
+  notes: Lists RSA-576, RSA-200, RSA-768, RSA-240 and RSA-250 with dates and the names of the teams. The page has no copyright or reuse statement, so only facts are recorded here. It does not list RSA-260 or RSA-896. Opened 2026-11-09.
+- id: wikipedia-rsa-numbers
+  name: Wikipedia, RSA numbers
+  url: https://en.wikipedia.org/wiki/RSA_numbers
+  kind: other
+  notes: Secondary. Used for bit lengths (RSA-200, RSA-240, RSA-250, RSA-260, RSA-896) and to cross-check dates. It gives RSA-240 as 2019-11, where the Zimmermann page gives 2 December 2019. Page text is CC BY-SA; no sentences are copied. It states that the RSA Factoring Challenge ended in 2007. Opened 2026-11-09.
+- id: cognition-rsa-260
+  name: Cognition, Factoring RSA-260 (blog post)
+  url: https://cognition.com/blog/factoring-rsa-260
+  kind: report
+  notes: Company announcement by Cognition, describing work by an engineer and the company's AI agent. Claims the factors were produced on 3 September 2026. Verification is internal only (a test factorisation and a checker run); no independent party or peer review is named. Status is therefore claimed. Opened 2026-11-09.
+- id: postquantum-rsa-896
+  name: Post-quantum news article on the RSA-896 claim
+  url: https://postquantum.com/security-pqc/rsa-896-factored-claude-gpus/
+  kind: news
+  notes: Reports an announcement by Stephen A. Weis dated 19 September 2026. The article multiplied the two published primes and checked their size and primality. It states that the compute claims (about 30 GPU-years, 10 days, and Claude's role) rest on the announcer's own word and have no independent check. Status is therefore claimed. Its secondary coverage is said to contain errors. Opened 2026-11-09.
+update:
+  cadence: quarterly
+  last_checked: '2026-11-09'
+  notes: 'Records come from the Zimmermann page, cross-checked against Wikipedia. Open points for the owner: (1) RSA-260 and RSA-896 are company or individual claims with no independent check; the owner should decide whether to keep them as records or mark them as disputed; (2) RSA-896 is not an RSA Laboratories challenge number (the challenge ended in 2007), so the series mixes challenge numbers with later numbers; (3) RSA-240 is dated 2019-11 on Wikipedia and 2019-12-02 on the Zimmermann page, and the Zimmermann date is used; (4) the RSA-896 article says its secondary sources (Crypto Briefing, LavX News) contain errors, so the primary Weis announcement should be read before the record is confirmed; (5) older records (2003 to 2020) are marked claimed because the peer-review status of each was not checked in this run.'
+records:
+- date: '2003-12-03'
+  value: 576
+  holder: Franke, Kleinjung, Montgomery, te Riele, Bahr, Leclair, Leyland and Wackerbarth
+  conditions: RSA-576, 174 digits, general number field sieve
+  status: claimed
+  source: zimmermann-factoring-records
+  url: https://members.loria.fr/PZimmermann/records/factor.html
+- date: '2005-05-09'
+  value: 663
+  holder: Bahr, Boehm, Franke and Kleinjung
+  conditions: RSA-200, 200 digits (663 bits per Wikipedia); general number field sieve
+  status: claimed
+  source: zimmermann-factoring-records
+  url: https://members.loria.fr/PZimmermann/records/factor.html
+- date: '2009-12-12'
+  value: 768
+  holder: Kleinjung, Aoki, Franke, Lenstra, Thomé, Bos, Gaudry, Kruppa, Montgomery, Osvik, te Riele, Timofeev and Zimmermann
+  conditions: RSA-768, 232 digits; general number field sieve
+  status: claimed
+  source: zimmermann-factoring-records
+  url: https://members.loria.fr/PZimmermann/records/factor.html
+- date: '2019-12-02'
+  value: 795
+  holder: Boudot, Gaudry, Guillevic, Heninger, Thomé and Zimmermann
+  conditions: RSA-240, 240 digits (795 bits per Wikipedia); CADO-NFS, about 900 core-years
+  status: claimed
+  source: zimmermann-factoring-records
+  url: https://members.loria.fr/PZimmermann/records/factor.html
+- date: '2020-02-28'
+  value: 829
+  holder: Boudot, Gaudry, Guillevic, Heninger, Thomé and Zimmermann
+  conditions: RSA-250, 250 digits (829 bits per Wikipedia); CADO-NFS, about 2,700 core-years
+  status: claimed
+  source: zimmermann-factoring-records
+  url: https://members.loria.fr/PZimmermann/records/factor.html
+- date: '2026-09-03'
+  value: 862
+  holder: Cognition (Eric Lu, with the Devin AI agent)
+  conditions: RSA-260, 260 digits (862 bits per Wikipedia); modified CADO-NFS on about 4,900 GPU-days of spare capacity
+  status: claimed
+  source: cognition-rsa-260
+  url: https://cognition.com/blog/factoring-rsa-260
+- date: '2026-09-19'
+  value: 896
+  holder: Stephen A. Weis (with Claude)
+  conditions: RSA-896, 270 digits; GPU port of CADO-NFS, up to 2,048 GPUs, about 30 GPU-years over 10 days
+  status: claimed
+  source: postquantum-rsa-896
+  url: https://postquantum.com/security-pqc/rsa-896-factored-claude-gpus/
+events:
+- date: '2026-09-09'
+  kind: milestone
+  title: Cognition publishes its RSA-260 factorisation, run on spare GPU capacity
+  why_it_matters: The record came from company-owned spare compute rather than a university cluster, and the company's own tools were part of the work.
+  url: https://cognition.com/blog/factoring-rsa-260
+- date: '2026-09-19'
+  kind: news
+  title: Announcement of an RSA-896 factorisation that has not been independently checked
+  why_it_matters: The factors can be multiplied and tested by anyone, but the compute claims rest on the announcer alone, so the owner should treat the record as unconfirmed.
+  url: https://postquantum.com/security-pqc/rsa-896-factored-claude-gpus/
+- date: '2020-02-28'
+  kind: milestone
+  title: RSA-250 factored by a six-person academic team
+  why_it_matters: The record used the open-source CADO-NFS software, and it is the most recent academic entry on the Zimmermann page.
+  url: https://members.loria.fr/PZimmermann/records/factor.html
+reading: []
