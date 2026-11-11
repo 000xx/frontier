@@ -33,7 +33,7 @@ series:
   label: Best model, Epoch AI runs
 update:
   cadence: quarterly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-11'
   notes: 'Records are rebuilt from Epoch''s benchmark_data.zip (member simpleqa_verified.csv) by
     scripts/fetchers/simpleqa_verified.py; do not edit them by hand. Values are Epoch''s mean_score times 100,
     rounded to two decimals. A model is a record when its score beats every model with an earlier release
@@ -68,4 +68,5 @@ records:
 - {date: '2026-02-19', value: 73.5, series: epoch-runs, holder: gemini-3.1-pro-preview_high, conditions: developer Google DeepMind; standard error 1.4 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
 - {date: '2026-09-03', value: 75.6, series: epoch-runs, holder: gpt-6-astra_max, conditions: developer OpenAI; standard error 1.36 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
 - {date: '2026-09-30', value: 76.0, series: epoch-runs, holder: gemini-4-argon_high, conditions: developer Google DeepMind; standard error 1.35 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-10-28', value: 77.7, series: epoch-runs, holder: gemini-4-carbon_high, conditions: developer Google DeepMind; standard error 1.32 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
 - {date: '2026-11-09', value: 94.0, series: epoch-runs, holder: claude-fable-5-2_max, conditions: developer Anthropic; standard error 0.75 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}

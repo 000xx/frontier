@@ -40,7 +40,7 @@ series:
   label: Best model, Epoch AI runs
 update:
   cadence: monthly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-11'
   notes: 'Records are rebuilt from Epoch''s benchmark_data.zip (member gpqa_diamond.csv) by
     scripts/fetchers/gpqa_diamond.py; do not edit them by hand. Values are Epoch''s mean_score times 100,
     rounded to two decimals. A model is a record when its score beats every model with an earlier release
@@ -105,3 +105,4 @@ records:
 - {date: '2026-09-02', value: 95.39, series: epoch-runs, holder: gemini-3.8-flash_high, conditions: developer Google DeepMind; standard error 1.4 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
 - {date: '2026-09-03', value: 95.77, series: epoch-runs, holder: gpt-6-astra_max, conditions: developer OpenAI; standard error 1.37 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
 - {date: '2026-09-30', value: 96.4, series: epoch-runs, holder: gemini-4-argon_high, conditions: developer Google DeepMind; standard error 1.19 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
+- {date: '2026-10-28', value: 96.53, series: epoch-runs, holder: gemini-4-carbon_high, conditions: developer Google DeepMind; standard error 1.21 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
