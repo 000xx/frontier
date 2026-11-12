@@ -38,7 +38,7 @@ series:
   label: Best open-weights model
 update:
   cadence: weekly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-12'
   notes: 'Records are rebuilt automatically each day from Epoch''s file by scripts/fetchers/epoch_eci.py;
     do not edit them by hand. Status confirmed is used because the scores are computed by Epoch, an independent
     research organisation, not announced by the model developers; some of the underlying benchmark results
@@ -63,45 +63,45 @@ sources:
   notes: States that Epoch's data is free to use, distribute and reproduce with credit, under CC BY.
 records:
 - date: '2023-02-24'
-  value: 102.1
+  value: 101.68
   series: all-models
   holder: LLaMA-65B
-  conditions: Epoch interval 93.86 to 109.45; developer Meta AI; open weights
+  conditions: Epoch interval 93.01 to 109.06; developer Meta AI; open weights
   status: confirmed
   source: epoch-eci
 - date: '2023-03-14'
-  value: 121.87
+  value: 121.77
   series: all-models
   holder: GPT-4 (Mar 2023)
-  conditions: Epoch interval 118.06 to 125.35; developer OpenAI; closed weights
+  conditions: Epoch interval 117.74 to 125.26; developer OpenAI; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2024-01-25'
-  value: 124.85
+  value: 124.77
   series: all-models
   holder: GPT-4 Turbo (Nov 2023)
-  conditions: Epoch interval 121.5 to 127.84; developer OpenAI; closed weights
+  conditions: Epoch interval 121.4 to 127.69; developer OpenAI; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2024-02-29'
-  value: 125.57
+  value: 125.52
   series: all-models
   holder: Claude 3 Opus
-  conditions: Epoch interval 122.61 to 128.34; developer Anthropic; closed weights
+  conditions: Epoch interval 122.44 to 128.23; developer Anthropic; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2024-04-09'
-  value: 125.87
+  value: 125.82
   series: all-models
   holder: GPT-4 Turbo (Apr 2024)
-  conditions: Epoch interval 122.73 to 128.78; developer OpenAI; closed weights
+  conditions: Epoch interval 122.58 to 128.75; developer OpenAI; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2024-05-13'
-  value: 128.2
+  value: 128.16
   series: all-models
   holder: GPT-4o (May 2024)
-  conditions: Epoch interval 125.44 to 130.87; developer OpenAI; closed weights
+  conditions: Epoch interval 125.28 to 130.81; developer OpenAI; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2024-06-20'
@@ -112,38 +112,38 @@ records:
   status: confirmed
   source: epoch-eci
 - date: '2024-09-12'
-  value: 135.38
+  value: 135.3
   series: all-models
   holder: o1-mini
-  conditions: Epoch interval 133.16 to 137.48; developer OpenAI; closed weights
+  conditions: Epoch interval 133.04 to 137.43; developer OpenAI; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2024-12-17'
   value: 141.16
   series: all-models
   holder: o1
-  conditions: Epoch interval 139.51 to 142.77; developer OpenAI; closed weights
+  conditions: Epoch interval 139.47 to 142.84; developer OpenAI; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2025-03-31'
-  value: 143.91
+  value: 143.95
   series: all-models
   holder: Gemini 2.5 Pro (Mar 2025)
-  conditions: Epoch interval 141.99 to 145.92; developer Google DeepMind; closed weights
+  conditions: Epoch interval 142.0 to 145.95; developer Google DeepMind; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2025-04-16'
-  value: 147.01
+  value: 147.05
   series: all-models
   holder: o3
-  conditions: Epoch interval 145.54 to 148.54; developer OpenAI; closed weights
+  conditions: Epoch interval 145.54 to 148.62; developer OpenAI; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2025-06-10'
-  value: 147.45
+  value: 147.46
   series: all-models
   holder: o3-pro
-  conditions: Epoch interval 145.58 to 149.31; developer OpenAI; closed weights
+  conditions: Epoch interval 145.61 to 149.34; developer OpenAI; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2025-08-07'
@@ -154,241 +154,248 @@ records:
   status: confirmed
   source: epoch-eci
 - date: '2025-10-07'
-  value: 151.17
+  value: 151.23
   series: all-models
   holder: GPT-5 Pro
-  conditions: Epoch interval 149.26 to 153.17; developer OpenAI; closed weights
+  conditions: Epoch interval 149.31 to 153.29; developer OpenAI; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2025-11-18'
-  value: 152.89
+  value: 152.98
   series: all-models
   holder: Gemini 3 Pro
-  conditions: Epoch interval 151.34 to 154.57; developer Google DeepMind; closed weights
+  conditions: Epoch interval 151.37 to 154.69; developer Google DeepMind; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2025-12-11'
-  value: 157.21
+  value: 157.27
   series: all-models
   holder: GPT-5.2 Pro
-  conditions: Epoch interval 154.95 to 159.78; developer OpenAI; closed weights
+  conditions: Epoch interval 154.92 to 159.87; developer OpenAI; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2026-03-05'
-  value: 160.17
+  value: 160.24
   series: all-models
   holder: GPT-5.4 Pro
-  conditions: Epoch interval 157.72 to 162.87; developer OpenAI; closed weights
+  conditions: Epoch interval 157.75 to 163.04; developer OpenAI; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2026-04-23'
-  value: 162.75
+  value: 162.7
   series: all-models
   holder: GPT-5.5 Pro
-  conditions: Epoch interval 159.99 to 165.79; developer OpenAI; closed weights
+  conditions: Epoch interval 159.98 to 165.86; developer OpenAI; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2026-06-09'
-  value: 164.25
+  value: 164.13
   series: all-models
   holder: Claude Fable 5
-  conditions: Epoch interval 161.83 to 167.02; developer Anthropic; closed weights
+  conditions: Epoch interval 161.68 to 166.83; developer Anthropic; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2026-07-24'
-  value: 164.48
+  value: 164.68
   series: all-models
   holder: Claude Opus 5
-  conditions: Epoch interval 162.02 to 167.3; developer Anthropic; closed weights
+  conditions: Epoch interval 162.14 to 167.49; developer Anthropic; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2026-09-01'
-  value: 167.04
+  value: 166.99
   series: all-models
   holder: Claude Fable 5.1
-  conditions: Epoch interval 164.29 to 170.2; developer Anthropic; closed weights
+  conditions: Epoch interval 164.23 to 170.11; developer Anthropic; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2026-09-03'
-  value: 169.16
+  value: 169.0
   series: all-models
   holder: GPT-6 Astra
-  conditions: Epoch interval 166.19 to 172.51; developer OpenAI; closed weights
+  conditions: Epoch interval 166.08 to 172.26; developer OpenAI; closed weights
+  status: confirmed
+  source: epoch-eci
+- date: '2026-10-28'
+  value: 169.76
+  series: all-models
+  holder: Gemini 4 Carbon
+  conditions: Epoch interval 166.48 to 173.5; developer Google DeepMind; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2026-11-09'
-  value: 174.24
+  value: 173.44
   series: all-models
   holder: Claude Fable 5.2
-  conditions: Epoch interval 170.12 to 178.79; developer Anthropic; closed weights
+  conditions: Epoch interval 169.93 to 177.49; developer Anthropic; closed weights
   status: confirmed
   source: epoch-eci
 - date: '2023-02-24'
-  value: 102.1
+  value: 101.68
   series: open-weights
   holder: LLaMA-65B
-  conditions: Epoch interval 93.86 to 109.45; developer Meta AI; open weights
+  conditions: Epoch interval 93.01 to 109.06; developer Meta AI; open weights
   status: confirmed
   source: epoch-eci
 - date: '2023-07-18'
-  value: 106.05
+  value: 105.85
   series: open-weights
   holder: Llama 2-70B
-  conditions: Epoch interval 100.05 to 111.5; developer Meta AI; open weights
+  conditions: Epoch interval 99.77 to 111.11; developer Meta AI; open weights
   status: confirmed
   source: epoch-eci
 - date: '2023-07-20'
-  value: 109.84
+  value: 109.53
   series: open-weights
   holder: Stable Beluga 2
-  conditions: Epoch interval 102.28 to 116.62; developer Stability AI; open weights
+  conditions: Epoch interval 102.02 to 116.1; developer Stability AI; open weights
   status: confirmed
   source: epoch-eci
 - date: '2023-12-11'
-  value: 113.36
+  value: 113.22
   series: open-weights
   holder: Mixtral 8x7B
-  conditions: Epoch interval 108.48 to 117.84; developer Mistral AI; open weights
+  conditions: Epoch interval 108.14 to 117.66; developer Mistral AI; open weights
   status: confirmed
   source: epoch-eci
 - date: '2024-04-17'
-  value: 118.83
+  value: 118.69
   series: open-weights
   holder: Mixtral 8x22B
-  conditions: Epoch interval 114.52 to 122.61; developer Mistral AI; open weights
+  conditions: Epoch interval 114.33 to 122.62; developer Mistral AI; open weights
   status: confirmed
   source: epoch-eci
 - date: '2024-04-18'
-  value: 121.34
+  value: 121.22
   series: open-weights
   holder: Llama 3-70B
-  conditions: Epoch interval 117.5 to 124.79; developer Meta AI; open weights
+  conditions: Epoch interval 117.3 to 124.73; developer Meta AI; open weights
   status: confirmed
   source: epoch-eci
 - date: '2024-06-07'
-  value: 122.35
+  value: 122.3
   series: open-weights
   holder: Qwen2-72B
-  conditions: Epoch interval 118.67 to 125.65; developer Alibaba; open weights
+  conditions: Epoch interval 118.69 to 125.53; developer Alibaba; open weights
   status: confirmed
   source: epoch-eci
 - date: '2024-07-23'
-  value: 127.89
+  value: 127.8
   series: open-weights
   holder: Llama 3.1-405B
-  conditions: Epoch interval 125.01 to 130.59; developer Meta AI; open weights
+  conditions: Epoch interval 124.76 to 130.52; developer Meta AI; open weights
   status: confirmed
   source: epoch-eci
 - date: '2024-12-12'
-  value: 129.11
+  value: 129.04
   series: open-weights
   holder: Phi-4
-  conditions: Epoch interval 126.06 to 131.88; developer Microsoft Research; open weights
+  conditions: Epoch interval 125.79 to 131.94; developer Microsoft Research; open weights
   status: confirmed
   source: epoch-eci
 - date: '2024-12-26'
-  value: 131.74
+  value: 131.7
   series: open-weights
   holder: DeepSeek-V3
-  conditions: Epoch interval 129.23 to 134.11; developer DeepSeek; open weights
+  conditions: Epoch interval 128.94 to 134.15; developer DeepSeek; open weights
   status: confirmed
   source: epoch-eci
 - date: '2025-01-20'
-  value: 138.65
+  value: 138.59
   series: open-weights
   holder: DeepSeek-R1
-  conditions: Epoch interval 136.72 to 140.44; developer DeepSeek; open weights
+  conditions: Epoch interval 136.69 to 140.38; developer DeepSeek; open weights
   status: confirmed
   source: epoch-eci
 - date: '2025-05-28'
-  value: 140.77
+  value: 140.73
   series: open-weights
   holder: DeepSeek-R1 (May 2025)
-  conditions: Epoch interval 138.98 to 142.51; developer DeepSeek; open weights
+  conditions: Epoch interval 138.8 to 142.54; developer DeepSeek; open weights
   status: confirmed
   source: epoch-eci
 - date: '2025-07-12'
-  value: 141.32
+  value: 141.24
   series: open-weights
   holder: Kimi K2 (Jul 2025)
-  conditions: Epoch interval 138.4 to 144.02; developer Moonshot; open weights
+  conditions: Epoch interval 138.27 to 143.93; developer Moonshot; open weights
   status: confirmed
   source: epoch-eci
 - date: '2025-07-25'
-  value: 143.24
+  value: 143.21
   series: open-weights
   holder: Qwen3-235B-A22B-Thinking (Jul 2025)
-  conditions: Epoch interval 141.32 to 145.13; developer Alibaba; open weights
+  conditions: Epoch interval 141.32 to 145.09; developer Alibaba; open weights
   status: confirmed
   source: epoch-eci
 - date: '2025-09-29'
-  value: 144.41
+  value: 144.38
   series: open-weights
   holder: DeepSeek-V3.2-Exp
-  conditions: Epoch interval 142.11 to 146.67; developer DeepSeek; open weights
+  conditions: Epoch interval 142.14 to 146.76; developer DeepSeek; open weights
   status: confirmed
   source: epoch-eci
 - date: '2025-11-06'
-  value: 145.53
+  value: 145.43
   series: open-weights
   holder: Kimi K2 Thinking
-  conditions: Epoch interval 143.65 to 147.36; developer Moonshot; open weights
+  conditions: Epoch interval 143.58 to 147.25; developer Moonshot; open weights
   status: confirmed
   source: epoch-eci
 - date: '2025-12-01'
-  value: 146.24
+  value: 146.25
   series: open-weights
   holder: DeepSeek-V3.2
-  conditions: Epoch interval 144.8 to 147.74; developer DeepSeek; open weights
+  conditions: Epoch interval 144.72 to 147.79; developer DeepSeek; open weights
   status: confirmed
   source: epoch-eci
 - date: '2026-01-27'
-  value: 148.75
+  value: 148.76
   series: open-weights
   holder: Kimi K2.5
-  conditions: Epoch interval 147.26 to 150.29; developer Moonshot; open weights
+  conditions: Epoch interval 147.22 to 150.35; developer Moonshot; open weights
   status: confirmed
   source: epoch-eci
 - date: '2026-04-07'
-  value: 150.72
+  value: 150.73
   series: open-weights
   holder: GLM-5.1
-  conditions: Epoch interval 148.7 to 152.83; developer Z.ai (Zhipu AI); open weights
+  conditions: Epoch interval 148.59 to 152.88; developer Z.ai (Zhipu AI); open weights
   status: confirmed
   source: epoch-eci
 - date: '2026-04-20'
-  value: 151.54
+  value: 151.56
   series: open-weights
   holder: Kimi K2.6
-  conditions: Epoch interval 149.75 to 153.38; developer Moonshot; open weights
+  conditions: Epoch interval 149.79 to 153.46; developer Moonshot; open weights
   status: confirmed
   source: epoch-eci
 - date: '2026-06-16'
-  value: 153.01
+  value: 153.03
   series: open-weights
   holder: GLM-5.2
-  conditions: Epoch interval 151.25 to 154.93; developer Z.ai (Zhipu AI); open weights
+  conditions: Epoch interval 151.34 to 154.83; developer Z.ai (Zhipu AI); open weights
   status: confirmed
   source: epoch-eci
 - date: '2026-07-16'
-  value: 158.53
+  value: 158.58
   series: open-weights
   holder: Kimi K3
-  conditions: Epoch interval 156.54 to 160.71; developer Moonshot; open weights
+  conditions: Epoch interval 156.6 to 160.8; developer Moonshot; open weights
   status: confirmed
   source: epoch-eci
 - date: '2026-10-17'
-  value: 159.34
+  value: 159.41
   series: open-weights
   holder: DeepSeek V4.1 Flash 1017
-  conditions: Epoch interval 157.08 to 161.86; developer DeepSeek; open weights
+  conditions: Epoch interval 157.01 to 162.0; developer DeepSeek; open weights
   status: confirmed
   source: epoch-eci
 - date: '2026-10-23'
-  value: 162.02
+  value: 161.37
   series: open-weights
   holder: Kimi K3.1 Pro
-  conditions: Epoch interval 159.45 to 164.95; developer Moonshot; open weights
+  conditions: Epoch interval 158.99 to 164.0; developer Moonshot; open weights
   status: confirmed
   source: epoch-eci
 events: []
