@@ -34,7 +34,7 @@ series:
   label: Best model, Epoch AI runs
 update:
   cadence: quarterly
-  last_checked: '2026-11-11'
+  last_checked: '2026-11-13'
   notes: 'Records are rebuilt from Epoch''s benchmark_data.zip (member chess_puzzles.csv) by
     scripts/fetchers/chess_puzzles.py; do not edit them by hand. Values are Epoch''s mean_score times 100,
     rounded to two decimals. A model is a record when its score beats every model with an earlier release
@@ -71,5 +71,4 @@ records:
 - {date: '2026-04-23', value: 63.0, series: epoch-runs, holder: gpt-5.5_xhigh, conditions: developer OpenAI; standard error 4.85 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
 - {date: '2026-07-09', value: 68.0, series: epoch-runs, holder: gpt-5.6-sol_promax, conditions: developer OpenAI; standard error 4.69 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
 - {date: '2026-09-03', value: 76.0, series: epoch-runs, holder: gpt-6-astra_promax, conditions: developer OpenAI; standard error 4.29 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
-- {date: '2026-10-28', value: 78.0, series: epoch-runs, holder: gemini-4-carbon_high, conditions: developer Google DeepMind; standard error 4.16 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}
 - {date: '2026-11-09', value: 79.0, series: epoch-runs, holder: claude-fable-5-2_max, conditions: developer Anthropic; standard error 4.09 points; Epoch AI evaluation; date is the model's release date, status: confirmed, source: epoch-benchmarks}

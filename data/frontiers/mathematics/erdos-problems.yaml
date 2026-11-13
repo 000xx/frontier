@@ -25,7 +25,7 @@ chart:
   primary: problem-list
 update:
   cadence: weekly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-13'
   notes: Items come from scripts/import_erdos_problems.py. AI involvement comes from the AI-contributions
     wiki, which was frozen on 2026-06-30, so later AI contributions are not marked. Deliberately no solved
     count or count-over-time series, at the request implied by erdosproblems.com's 2026-10-06 change;

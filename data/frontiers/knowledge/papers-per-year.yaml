@@ -27,7 +27,7 @@ series:
   label: Works
 update:
   cadence: yearly
-  last_checked: '2026-11-11'
+  last_checked: '2026-11-13'
   notes: 'Observations come from one OpenAlex request per run, grouped by publication year. The fetcher adds new years and
     updates the last three full years when they change. Older years are kept as they are; a change to them is printed in
     the run log only. Still to add: events, a reading list and a licence check of OpenAlex''s terms.'
@@ -133,6 +133,6 @@ observations:
 - {date: '2020', series: works, value: 10966952, source: openalex-works}
 - {date: '2021', series: works, value: 10428731, source: openalex-works}
 - {date: '2022', series: works, value: 10110669, source: openalex-works}
-- {date: '2023', series: works, value: 10800361, source: openalex-works}
-- {date: '2024', series: works, value: 11050839, source: openalex-works}
-- {date: '2025', series: works, value: 14744717, source: openalex-works}
+- {date: '2023', series: works, value: 10819248, source: openalex-works}
+- {date: '2024', series: works, value: 11069982, source: openalex-works}
+- {date: '2025', series: works, value: 14763251, source: openalex-works}

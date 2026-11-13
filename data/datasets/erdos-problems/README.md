@@ -8,10 +8,10 @@ The community database of the problems on erdosproblems.com: 1221 problems, each
 | Repository | https://github.com/teorth/erdosproblems |
 | Original files | https://raw.githubusercontent.com/teorth/erdosproblems/main/data/problems.yaml and https://raw.githubusercontent.com/teorth/erdosproblems/main/data/statistics_history.csv |
 | Upstream state | `main` as of 2026-11-09; last history row is commit 026e2e5 (2026-11-09 22:07:53 UTC) |
-| Retrieved | 2026-11-09 |
-| Original problems.yaml SHA-256 | e336ce43a06a1dbbf01398565f85d9bf40085e52882fa643e3d4f092eaf74a49 |
-| problems.csv SHA-256 | d86b1170a60f4fb98f267066fa78b1f3349d95cf4f4a0c2164bb9351d0b719f0 |
-| statistics_history.csv SHA-256 | 8681cd4fe1bb7c1f0afd8c9f9f0e9eff136abf5a20dc2b1ba81558a3677b2ae4 |
+| Retrieved | 2026-11-13 |
+| Original problems.yaml SHA-256 | e880861cbfc37b1bc9bb857766b8a24fe3af3903c43c5677fb549263dc163018 |
+| problems.csv SHA-256 | be592cd9199b20a4f780c24b18c2c12ae77b4cadbbbfa292df1fa113c1624c6c |
+| statistics_history.csv SHA-256 | 19db52c36ed879a423e35765595f60f148289e681a0610c1eab4d8892b0a6192 |
 | Licence | Apache License 2.0 (copy in LICENSE) |
 
 The database is crowdsourced and unofficial. Its maintainers say erdosproblems.com is the more reliable source when the two differ.

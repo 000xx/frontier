@@ -34,7 +34,7 @@ series:
   label: Cumulative confirmed planets by discovery year
 update:
   cadence: monthly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-13'
   notes: 'Observations are dated totals from the archive news log (2024news, 2025news and the 2026 news page) and the
     counts page. The counts page carries no date, so its value is recorded on the retrieval date. The yearly series
     (planets by discovery year, and their running total) were read from the archive TAP service on 2026-11-09. Both the
@@ -178,6 +178,11 @@ observations:
   value: 6464
   source: exoplanet-archive-counts
   note: Total on the counts page, which carries no date. Recorded on the retrieval date.
+- date: '2026-11-13'
+  series: confirmed-planets
+  value: 6470
+  source: exoplanet-archive-tap
+  note: Sum of the pscomppars rows by discovery year from the TAP service, on the date it was read.
 - date: '1992'
   series: planets-discovered-per-year
   value: 2
@@ -312,7 +317,7 @@ observations:
   source: exoplanet-archive-tap
 - date: '2026'
   series: planets-discovered-per-year
-  value: 374
+  value: 380
   source: exoplanet-archive-tap
   note: Year to date on the retrieval date, 2026-11-09.
 - date: '1992'
@@ -449,6 +454,6 @@ observations:
   source: exoplanet-archive-tap
 - date: '2026'
   series: cumulative-planets-by-year
-  value: 6464
+  value: 6470
   source: exoplanet-archive-tap
   note: Sum of the current table up to this discovery year, retrieved 2026-11-09. Not a snapshot of the archive on that year.
