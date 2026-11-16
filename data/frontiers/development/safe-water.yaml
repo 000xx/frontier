@@ -28,7 +28,7 @@ series:
   label: World
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-16'
   notes: 'WHO and UNICEF update these estimates about every two years; the OWID page says its last update was on
     8 December 2025 and the next is expected in December 2027. To update, run the safe_water fetcher once a new edition
     is out. Open for the owner: the 2024 jump (about 1.7 points against roughly 0.5 a year before) is in the source as

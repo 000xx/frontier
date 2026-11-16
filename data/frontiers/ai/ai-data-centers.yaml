@@ -36,7 +36,7 @@ series:
   label: Largest tracked site
 update:
   cadence: monthly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-16'
   notes: 'Records are rebuilt from Epoch''s data_center_timelines.csv by scripts/fetchers/ai_data_centers.py;
     do not edit them by hand. A timeline row is a record when its facility power (Power (MW)) beats every
     row dated before it across all sites. Rows dated after the day of the run are Epoch''s projections and

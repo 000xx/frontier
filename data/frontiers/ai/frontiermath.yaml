@@ -41,7 +41,7 @@ series:
   label: Tiers 1-3, corrected version (v2, from June 2026)
 update:
   cadence: monthly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-16'
   notes: 'Records are rebuilt from Epoch''s benchmark_data.zip by scripts/fetchers/frontiermath.py; do
     not edit them by hand. Values are Epoch''s mean_score column times 100, rounded to two decimals; the
     file also has a "Best score (across scorers)" column, which is not used. A model is a record when its

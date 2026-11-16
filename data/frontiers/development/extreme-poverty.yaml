@@ -47,7 +47,7 @@ sources:
     official source for the SDG extreme-poverty goal, and records the 2026-10-07 update that added four new surveys.'
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-16'
   notes: 'The World Bank updates the Poverty and Inequality Platform a few times a year; the OWID chart is refreshed
     with each release. The fetcher reads the OWID CSV and changes only years it can match. Check the World Bank
     release notes and whether earlier years are revised when the line or the PPPs change: if the line changes, the
