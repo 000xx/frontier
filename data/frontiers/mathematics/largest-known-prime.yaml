@@ -29,7 +29,7 @@ chart:
   - reign-timeline
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-17'
   notes: 'Records come from the GIMPS table at mersenne.org/primes and were cross-checked against the
     PrimePages table at t5k.org/mersenne. The table is the ranking of Mersenne primes by exponent, so a
     record is the entry whose discovery date is later than every larger-digit prime found before it. Only the

@@ -26,7 +26,7 @@ series:
   label: World
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-17'
   notes: 'Observations come from the Our World in Data grapher cereal-yield (World row), which carries FAO''s
     cereal yield series. The refresh fetcher reads the same CSV and updates only changed or new years. Still to
     add: a reading list, and a check of the FAO item code against FAOSTAT.'

@@ -33,7 +33,7 @@ series:
   label: Circulating vaccine-derived poliovirus (cVDPV) cases
 update:
   cadence: weekly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-17'
   notes: 'WPV1 observations: 2001 to 2023 are the World values in the CSV export of Our World in Data''s grapher
     "Reported cases of paralytic polio from wild polioviruses", which processes WHO (2024) data. The 2024 value of 99
     is the full-year total printed in WHO''s Polio IHR Emergency Committee statement of 28 July 2025. The 2013 to 2017

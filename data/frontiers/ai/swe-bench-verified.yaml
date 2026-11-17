@@ -39,7 +39,7 @@ series:
   label: Best model, Epoch AI runs
 update:
   cadence: quarterly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-17'
   notes: 'Records are rebuilt from Epoch''s benchmark_data.zip (member swe_bench_verified.csv) by
     scripts/fetchers/swe_bench_verified.py; do not edit them by hand. Values are Epoch''s mean_score times
     100, rounded to two decimals. A model is a record when its score beats every model with an earlier
