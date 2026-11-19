@@ -25,7 +25,7 @@ series:
   label: World
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-19'
   notes: 'Observations come from Our World in Data''s grapher for the WHO/UNICEF coverage estimates (2025 revision,
     completed 15 July 2026, data from 1980 to 2025; the chart shows 2010 to 2025). The source column is "HPV Vaccination
     coverage by age 15, last dose, females". The fetcher is

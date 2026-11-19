@@ -27,7 +27,7 @@ series:
   label: World fossil CO2 and cement
 update:
   cadence: yearly
-  last_checked: '2026-11-11'
+  last_checked: '2026-11-19'
   notes: 'The Global Carbon Budget is published each November, and the Our World in Data copy follows it. Update by running
     the co2_emissions fetcher once the new year appears in the World rows. Fossil CO2 for the latest year is revised in
     later editions, so revised values are written and flagged for review.'

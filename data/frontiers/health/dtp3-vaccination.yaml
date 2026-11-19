@@ -29,7 +29,7 @@ series:
   label: World
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-19'
   notes: 'WHO and UNICEF publish the coverage estimates once a year, usually in July. To update, run the
     dtp3_vaccination fetcher, which adds new years and reports any revised earlier year. Licence: OWID states that
     WHO and UNICEF data keep the providers'' own terms; see the notes on the source. Reading list still to add.'
