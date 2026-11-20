@@ -27,7 +27,7 @@ series:
   label: World
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-20'
   notes: 'Observations come from the Our World in Data grapher for the World (OWID_WRL), which republishes
     UNOOSA data, 1957 to 2025 at the time of the 2026-11-09 check. The fetcher adds new years and reports
     changes. OWID states the UNOOSA data under CC BY; UNOOSA is the original provider.'
