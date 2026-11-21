@@ -27,7 +27,7 @@ series:
   label: World tree cover loss
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-21'
   notes: 'Global Forest Watch publishes the annual tree cover loss update each year, usually in May. Update by running the
     tree_cover_loss fetcher once the new year appears in the World rows. Earlier years can be revised when the satellite
     data are reprocessed, so revised values are written and flagged.'

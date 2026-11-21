@@ -27,7 +27,7 @@ series:
   label: Solar PV module price
 update:
   cadence: yearly
-  last_checked: '2026-11-10'
+  last_checked: '2026-11-21'
   notes: 'OWID restates earlier years when it re-adjusts for inflation, so the fetcher will report many changed values
     when that happens; those runs go to review and should be checked against the source before merging. To update, run
     the solar_module_price fetcher and read its change list. Open item: the terms of IRENA''s data were not checked, and

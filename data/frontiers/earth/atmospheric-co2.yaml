@@ -30,7 +30,7 @@ series:
   label: Mauna Loa annual mean
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-21'
   notes: 'NOAA updates the annual mean once a year, early in the year after. To update, run the atmospheric_co2 fetcher or
     open the NOAA file and add any new year. The fetcher refuses to drop existing years or change existing values.'
 sources:

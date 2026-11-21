@@ -28,7 +28,7 @@ series:
   label: All submissions
 update:
   cadence: monthly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-21'
   notes: 'Observations are yearly sums of the monthly CSV. The fetcher adds each calendar year once it has twelve months.
     Still to add: the reading list, and a check of arXiv''s terms of use (the copyright and terms pages were not opened).'
 sources:

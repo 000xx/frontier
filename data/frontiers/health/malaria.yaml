@@ -43,7 +43,7 @@ stages:
 - Rollout
 update:
   cadence: monthly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-21'
   notes: 'Observations are from the World malaria report 2025, read from the WHO Global Health Observatory (see
     data/datasets/who-malaria-estimates). The next report usually comes out in December; replace all years then,
     not just the newest. Certified countries come from WHO''s certification list (last updated by WHO on

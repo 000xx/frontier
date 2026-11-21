@@ -36,7 +36,7 @@ series:
   label: Tier 4, corrected version (v2)
 update:
   cadence: monthly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-21'
   notes: 'Records are rebuilt from Epoch''s benchmark_data.zip (member frontiermath_tier_4_v2.csv) by
     scripts/fetchers/frontiermath_tier_4.py; do not edit them by hand. Values are Epoch''s mean_score times 100,
     rounded to two decimals. A model is a record when its score beats every model with an earlier release
