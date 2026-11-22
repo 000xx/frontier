@@ -27,7 +27,7 @@ series:
   label: Installed solar PV capacity
 update:
   cadence: yearly
-  last_checked: '2026-11-10'
+  last_checked: '2026-11-22'
   notes: 'IRENA publishes its renewable capacity statistics once a year, around March or April, and updates them in the
     summer. To update, run the solar_capacity fetcher; it adds new years and reports any revised earlier year.
     Open item: the 2025 figure differs from the March 2026 IRENA PDF (2,392 GW); the IRENA July 2026 edition was not

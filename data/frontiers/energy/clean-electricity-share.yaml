@@ -37,7 +37,7 @@ series:
   label: Solar
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-22'
   notes: 'Ember publishes its Global Electricity Review once a year, and its yearly data download is updated monthly.
     To update, open Ember''s yearly data and the Our World in Data table for World, add the new year for each series
     (low-carbon as the sum of the non-fossil shares), and check whether earlier years have been revised. Still to add:

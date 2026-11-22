@@ -80,7 +80,7 @@ series:
   group: Inertial and higher-density magneto-inertial (Table III)
 update:
   cadence: quarterly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-22'
   notes: 'Records come from the Wurzel & Hsu data set (data/datasets/wurzel-hsu-lawson), frozen as published
     in Phys. Plasmas 32, 112106 (2025). To update: check the GitHub repository for a new published data
     set or paper, rebuild results.csv with scripts/build_wurzel_hsu_results.py, then run scripts/import_wurzel_hsu_lawson.py.
