@@ -30,7 +30,7 @@ series:
   label: Largest tracked cluster (H100 equivalents)
 update:
   cadence: quarterly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-23'
   notes: 'Records are rebuilt from Epoch''s gpu_clusters.csv by scripts/fetchers/gpu_clusters.py; do not edit
     them by hand. The fetcher uses rows with Status "Existing" and Include in Standard Analysis "True" that have
     a first operational date and an H100-equivalent count. A cluster is a record when its count beats every

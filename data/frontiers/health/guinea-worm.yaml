@@ -229,7 +229,7 @@ sources:
   notes: Gives 15 human cases for 2024. Read 10 November 2026.
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-23'
   notes: 'Observations are the World values in OWID''s CSV export (WHO data, 1980 to 2025), copied exactly by
     scripts/fetchers/guinea_worm.py. The Carter Center''s 2025 figure of 10 is provisional; the fetcher will
     update it when WHO revises it. Not yet sourced: the number of endemic countries in 2025 (the Carter Center

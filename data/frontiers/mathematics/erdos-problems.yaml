@@ -25,7 +25,7 @@ chart:
   primary: problem-list
 update:
   cadence: weekly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-23'
   notes: Items come from scripts/import_erdos_problems.py. AI involvement comes from the AI-contributions
     wiki, which was frozen on 2026-06-30, so later AI contributions are not marked. Deliberately no solved
     count or count-over-time series, at the request implied by erdosproblems.com's 2026-10-06 change;
@@ -130,7 +130,7 @@ items:
   label: Problem 3
   group: number theory
   status: open
-  status_detail: open
+  status_detail: open (Lean)
   url: https://www.erdosproblems.com/3
   source: erdos-database
 - id: '4'
@@ -211,8 +211,8 @@ items:
 - id: '14'
   label: Problem 14
   group: number theory
-  status: open
-  status_detail: open
+  status: done
+  status_detail: solved
   url: https://www.erdosproblems.com/14
   source: erdos-database
 - id: '15'
@@ -718,8 +718,8 @@ items:
 - id: '81'
   label: Problem 81
   group: graph theory
-  status: open
-  status_detail: open
+  status: done
+  status_detail: proved
   ai_involvement: primary
   url: https://www.erdosproblems.com/81
   source: erdos-database
@@ -833,15 +833,15 @@ items:
 - id: '96'
   label: Problem 96
   group: geometry
-  status: open
-  status_detail: open
+  status: done
+  status_detail: disproved
   url: https://www.erdosproblems.com/96
   source: erdos-database
 - id: '97'
   label: Problem 97
   group: geometry
-  status: open
-  status_detail: falsifiable
+  status: done
+  status_detail: disproved
   url: https://www.erdosproblems.com/97
   source: erdos-database
 - id: '98'
@@ -921,8 +921,8 @@ items:
 - id: '108'
   label: Problem 108
   group: graph theory
-  status: open
-  status_detail: open
+  status: done
+  status_detail: disproved
   url: https://www.erdosproblems.com/108
   source: erdos-database
 - id: '109'
@@ -1092,8 +1092,8 @@ items:
 - id: '131'
   label: Problem 131
   group: number theory
-  status: open
-  status_detail: open
+  status: done
+  status_detail: disproved
   url: https://www.erdosproblems.com/131
   source: erdos-database
 - id: '132'
@@ -1137,7 +1137,7 @@ items:
   label: Problem 137
   group: number theory
   status: open
-  status_detail: open
+  status_detail: verifiable
   url: https://www.erdosproblems.com/137
   source: erdos-database
 - id: '138'
@@ -1181,8 +1181,8 @@ items:
 - id: '143'
   label: Problem 143
   group: primitive sets
-  status: open
-  status_detail: open
+  status: done
+  status_detail: solved
   url: https://www.erdosproblems.com/143
   source: erdos-database
 - id: '144'
@@ -1224,7 +1224,7 @@ items:
   label: Problem 149
   group: graph theory
   status: open
-  status_detail: open
+  status_detail: falsifiable
   url: https://www.erdosproblems.com/149
   source: erdos-database
 - id: '150'
@@ -1240,7 +1240,7 @@ items:
   label: Problem 151
   group: graph theory
   status: open
-  status_detail: open
+  status_detail: falsifiable
   url: https://www.erdosproblems.com/151
   source: erdos-database
 - id: '152'
@@ -1485,7 +1485,7 @@ items:
   label: Problem 184
   group: graph theory
   status: open
-  status_detail: open
+  status_detail: open (Lean)
   url: https://www.erdosproblems.com/184
   source: erdos-database
 - id: '185'
@@ -1576,8 +1576,8 @@ items:
 - id: '196'
   label: Problem 196
   group: arithmetic progressions
-  status: open
-  status_detail: open
+  status: done
+  status_detail: disproved
   url: https://www.erdosproblems.com/196
   source: erdos-database
 - id: '197'
@@ -2315,8 +2315,8 @@ items:
 - id: '293'
   label: Problem 293
   group: number theory
-  status: open
-  status_detail: open
+  status: done
+  status_detail: solved
   url: https://www.erdosproblems.com/293
   source: erdos-database
   note: The database marks the statement as ambiguous.
@@ -2397,8 +2397,8 @@ items:
 - id: '304'
   label: Problem 304
   group: number theory
-  status: open
-  status_detail: open
+  status: done
+  status_detail: proved
   url: https://www.erdosproblems.com/304
   source: erdos-database
 - id: '305'
@@ -3786,7 +3786,7 @@ items:
   label: Problem 482
   group: number theory
   status: done
-  status_detail: solved
+  status_detail: solved (Lean)
   url: https://www.erdosproblems.com/482
   source: erdos-database
 - id: '483'
@@ -4652,7 +4652,7 @@ items:
   label: Problem 595
   group: graph theory
   status: open
-  status_detail: open
+  status_detail: not disprovable
   url: https://www.erdosproblems.com/595
   source: erdos-database
 - id: '596'
@@ -4695,7 +4695,7 @@ items:
   label: Problem 601
   group: graph theory
   status: open
-  status_detail: open
+  status_detail: not provable
   url: https://www.erdosproblems.com/601
   source: erdos-database
 - id: '602'
@@ -4864,8 +4864,8 @@ items:
 - id: '623'
   label: Problem 623
   group: set theory
-  status: open
-  status_detail: open
+  status: done
+  status_detail: independent
   url: https://www.erdosproblems.com/623
   source: erdos-database
   note: AI wiki lists only AI attempts rated incorrect or unverified.
@@ -4880,7 +4880,7 @@ items:
   label: Problem 625
   group: graph theory
   status: done
-  status_detail: solved
+  status_detail: solved (Lean)
   url: https://www.erdosproblems.com/625
   source: erdos-database
 - id: '626'
@@ -5282,7 +5282,7 @@ items:
   label: Problem 677
   group: number theory
   status: open
-  status_detail: open
+  status_detail: falsifiable
   url: https://www.erdosproblems.com/677
   source: erdos-database
 - id: '678'
@@ -5470,7 +5470,7 @@ items:
   label: Problem 701
   group: combinatorics
   status: open
-  status_detail: open
+  status_detail: falsifiable
   url: https://www.erdosproblems.com/701
   source: erdos-database
 - id: '702'
@@ -5758,7 +5758,7 @@ items:
   label: Problem 740
   group: graph theory
   status: open
-  status_detail: open
+  status_detail: not provable
   url: https://www.erdosproblems.com/740
   source: erdos-database
 - id: '741'
@@ -6590,7 +6590,7 @@ items:
   label: Problem 850 (Erdős-Woods conjecture)
   group: number theory
   status: open
-  status_detail: open
+  status_detail: verifiable
   url: https://www.erdosproblems.com/850
   source: erdos-database
 - id: '851'
@@ -6643,8 +6643,8 @@ items:
 - id: '857'
   label: Problem 857 (weak sunflower problem)
   group: combinatorics
-  status: open
-  status_detail: open
+  status: done
+  status_detail: proved
   url: https://www.erdosproblems.com/857
   source: erdos-database
 - id: '858'
@@ -7115,7 +7115,7 @@ items:
   label: Problem 918
   group: graph theory
   status: open
-  status_detail: open
+  status_detail: not disprovable
   url: https://www.erdosproblems.com/918
   source: erdos-database
 - id: '919'
@@ -9013,7 +9013,7 @@ items:
   label: Problem 1160
   group: group theory
   status: open
-  status_detail: open
+  status_detail: falsifiable
   url: https://www.erdosproblems.com/1160
   source: erdos-database
 - id: '1161'
@@ -9072,7 +9072,7 @@ items:
   label: Problem 1168
   group: set theory
   status: open
-  status_detail: open
+  status_detail: not disprovable
   url: https://www.erdosproblems.com/1168
   source: erdos-database
 - id: '1169'
@@ -9461,7 +9461,7 @@ items:
   label: Problem 1219
   group: ramsey theory
   status: done
-  status_detail: proved
+  status_detail: proved (Lean)
   url: https://www.erdosproblems.com/1219
   source: erdos-database
 - id: '1220'

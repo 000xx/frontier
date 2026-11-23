@@ -36,7 +36,7 @@ series:
   label: Largest notable model
 update:
   cadence: monthly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-23'
   notes: 'Records are rebuilt from Epoch''s notable models file by scripts/fetchers/training_compute.py;
     do not edit them by hand. A model is a record when its estimated training compute beats every notable
     model with an earlier publication date. Status follows Epoch''s confidence rating for each estimate:

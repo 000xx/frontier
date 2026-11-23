@@ -29,7 +29,7 @@ series:
   label: Nuclear electricity generation
 update:
   cadence: yearly
-  last_checked: '2026-11-10'
+  last_checked: '2026-11-23'
   notes: 'Ember and the Energy Institute publish their annual data in the first half of each year. To update, run the
     nuclear_generation fetcher. Open item: resolve the difference from the World Nuclear Association and the World Nuclear
     Industry Status Report figures before the frontier is set to live.'
