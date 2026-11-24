@@ -26,7 +26,7 @@ series:
   label: Installed wind capacity
 update:
   cadence: yearly
-  last_checked: '2026-11-10'
+  last_checked: '2026-11-24'
   notes: 'IRENA publishes its renewable capacity statistics once a year, around March or April, and updates them in the
     summer. To update, run the wind_capacity fetcher; it adds new years and reports any revised earlier year.
     Open item: the IRENA terms of reuse were not checked, and the IRENA July 2026 edition was not read.'

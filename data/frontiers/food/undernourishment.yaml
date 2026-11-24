@@ -24,7 +24,7 @@ series:
   label: World
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-24'
   notes: 'Observations are from the Our World in Data grapher prevalence-of-undernourishment (World row), which carries
     FAO''s SDG 2.1.1 series. The refresh fetcher reads the same CSV and updates changed or new years. Not yet added: the
     2025 estimate. The FAO 2026 report gives it as 7.8 per cent, but that figure was read from a press report, not from

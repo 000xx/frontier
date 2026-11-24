@@ -41,7 +41,7 @@ sources:
   notes: 'Opened 2026-11-10. Gives the briefing date as 25 June and the figure of 666.4 million people without access.'
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-24'
   notes: 'The World Bank publishes the access series once a year, alongside the Tracking SDG 7 report. The fetcher
     reads the OWID CSV and changes only years it can match. Check whether earlier years are revised when the report
     comes out, and whether the report gives a 2030 projection the frontier should carry as a target.'

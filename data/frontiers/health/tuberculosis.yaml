@@ -105,7 +105,7 @@ sources:
     it says the report was released that day, and the linked WHO release is dated 12 November 2025. Read 10 November 2026.
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-24'
   notes: 'Observations are the World values in OWID''s CSV exports of WHO estimates (2000 to 2024), copied exactly by
     scripts/fetchers/tuberculosis.py. WHO publishes its Global tuberculosis report each year, usually in the autumn,
     and revises earlier years, so the fetcher rewrites every year it reads. Not yet sourced: WHO''s own Global

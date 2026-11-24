@@ -26,7 +26,7 @@ series:
   label: World
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-24'
   notes: 'UNESCO publishes literacy estimates irregularly, and the OWID page was last updated on 12 May 2026. To update, run
     the literacy fetcher, which adds new years and reports any revised earlier year. Open for the owner: the UNESCO
     Institute for Statistics terms of use were not opened, so the licence for copying these values is unconfirmed. The

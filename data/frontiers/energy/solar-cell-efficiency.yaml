@@ -107,7 +107,7 @@ series:
   group: Hybrid Tandems
 update:
   cadence: monthly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-24'
   notes: 'Records come from the NLR data table (data/datasets/nlr-cell-efficiency), last modified by NLR
     on 2026-08-14. To update: check whether NLR has published a newer file, regenerate records.csv, then
     run scripts/import_nlr_cell_efficiency.py. Still to add: the theoretical single-junction limit with

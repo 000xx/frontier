@@ -33,7 +33,7 @@ series:
   label: Best tensor FP16/BF16 accelerator (datasheet)
 update:
   cadence: quarterly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-24'
   notes: 'Records are rebuilt from Epoch''s ml_hardware.csv by scripts/fetchers/ml_hardware.py; do not edit
     them by hand. Values are the column "Tensor-FP16/BF16 performance (FLOP/s)" divided by 10^12. A chip is a
     record when its figure beats every chip released on an earlier date. Status claimed is used because the
