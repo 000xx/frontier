@@ -27,7 +27,7 @@ series:
   label: Annual maximum hole area
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-25'
   notes: 'NASA Ozone Watch adds each year after the spring season ends. To update, add the new year from the annual table
     (the fetcher reports any change). Values in one year can be revised, so revised values are written and flagged.'
 sources:

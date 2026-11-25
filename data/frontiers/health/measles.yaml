@@ -105,7 +105,7 @@ sources:
     estimates, not the reported-case series stored here. Read 10 November 2026.
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-25'
   notes: 'Observations are the World values in OWID''s CSV exports, copied exactly by scripts/fetchers/measles.py.
     Coverage estimates are revised each year by WHO and UNICEF, so the fetcher rewrites every year it reads. The
     reported-case series is not WHO''s modelled estimate (about 11 million infections in 2024); the frontier stores the

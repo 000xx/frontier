@@ -29,7 +29,7 @@ series:
   label: Cost per megabase
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-25'
   notes: 'The NHGRI fact sheet says NHGRI plans to update these data regularly, but the page was last updated on 16 May 2023
     and the table it links is the May 2022 file. The DataHub copy ends at 2022-05. Check the NHGRI page for a newer table.
     If one exists, open the workbook itself (the fetch of the .xls returned binary data in this run), add rows after the last
