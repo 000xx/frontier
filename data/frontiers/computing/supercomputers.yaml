@@ -30,7 +30,7 @@ sources:
   notes: Says the site is copyright 1993-2026 TOP500.org and that TOP500 is a registered trademark. It gives no terms for reusing list data. The logo page (top500.org/resources/top500-logo-usage/) allows logo use only for referencing the list and its data. Opened 2026-11-09.
 update:
   cadence: quarterly
-  last_checked: 2026-11-09
+  last_checked: '2026-11-26'
   notes: The list changes twice a year, so a quarterly check catches each new edition within three months. The November 2008 page gives the Roadrunner score as 1,105 TFlop/s in its table and 1.059 PFlop/s in its article; the table value is used. The November 2018 table header says GFlop/s, but the article says 143.5 petaflops, so 143.5 PFlop/s is used.
 records:
 - date: '1993-06'

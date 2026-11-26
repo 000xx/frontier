@@ -31,7 +31,7 @@ series:
   label: Sequence records
 update:
   cadence: monthly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-26'
   notes: 'Observations come from the release table on the GenBank statistics page. The fetcher adds new releases and
     updates the last three when their figures change; older releases are kept, and changes to them are printed in the run
     log only. Still to add: a reading list.
