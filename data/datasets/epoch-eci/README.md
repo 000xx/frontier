@@ -8,8 +8,8 @@ Epoch AI's Epoch Capabilities Index (ECI) for 255 language models, one row per m
 | Source page | https://epoch.ai/eci |
 | Original file | https://epoch.ai/data/eci_scores.csv |
 | Method | https://epoch.ai/data/eci-documentation and https://github.com/epoch-research/eci-public |
-| Retrieved | 2026-11-09 |
-| eci_scores.csv SHA-256 | 4b248fda3bb68ab83caf8eb77ac8854bdfb76fe11fd76e6a7d6990a6a088c207 |
+| Retrieved | 2026-11-27 |
+| eci_scores.csv SHA-256 | 546857104147de425a2027b8e719f7ba4c8c20cb2667c25c419ddbb2fc176982 |
 
 ## How eci_scores.csv was made
 

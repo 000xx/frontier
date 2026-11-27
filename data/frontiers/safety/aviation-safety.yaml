@@ -33,7 +33,7 @@ sources:
     (scripts/fetchers/aviation_safety.py). The series has no value for 1972 in this copy.'
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-27'
   notes: 'The source publishes this series with its annual update. The fetcher reads the OWID CSV and changes only years
     it can match. Deaths per year, a count of fatal accidents and the passenger-departures denominator are not in this
     frontier yet: they need a source whose terms are confirmed before they are added.'

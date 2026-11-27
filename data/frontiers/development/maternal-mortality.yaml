@@ -62,7 +62,7 @@ sources:
     Read 10 November 2026.
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-27'
   notes: 'Observations are the World values in OWID''s CSV export, from 2000 on, copied exactly by
     scripts/fetchers/maternal_mortality.py. Terms to check before the site is used commercially: the UN MMEIG licence
     is CC BY-NC-SA 3.0 IGO (non-commercial, share-alike), as stated on OWID''s page. Not yet sourced: the UN MMEIG report

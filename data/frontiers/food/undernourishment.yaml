@@ -24,7 +24,7 @@ series:
   label: World
 update:
   cadence: yearly
-  last_checked: '2026-11-09'
+  last_checked: '2026-11-27'
   notes: 'Observations are from the Our World in Data grapher prevalence-of-undernourishment (World row), which carries
     FAO''s SDG 2.1.1 series. The refresh fetcher reads the same CSV and updates changed or new years. Not yet added: the
     2025 estimate. The FAO 2026 report gives it as 7.8 per cent, but that figure was read from a press report, not from
@@ -63,28 +63,29 @@ events:
     cent recorded for 2019.'
   url: https://cathnews.com/2026/07/24/un-report-estimates-645-million-people-faced-hunger-in-2025/
 observations:
-- {date: '2000', series: world, value: 12.7, source: owid-undernourishment}
-- {date: '2001', series: world, value: 12.8, source: owid-undernourishment}
-- {date: '2002', series: world, value: 13.0, source: owid-undernourishment}
-- {date: '2003', series: world, value: 12.7, source: owid-undernourishment}
-- {date: '2004', series: world, value: 12.6, source: owid-undernourishment}
-- {date: '2005', series: world, value: 12.0, source: owid-undernourishment}
+- {date: '2000', series: world, value: 12.8, source: owid-undernourishment}
+- {date: '2001', series: world, value: 13.0, source: owid-undernourishment}
+- {date: '2002', series: world, value: 13.2, source: owid-undernourishment}
+- {date: '2003', series: world, value: 12.9, source: owid-undernourishment}
+- {date: '2004', series: world, value: 12.7, source: owid-undernourishment}
+- {date: '2005', series: world, value: 12.1, source: owid-undernourishment}
 - {date: '2006', series: world, value: 11.0, source: owid-undernourishment}
 - {date: '2007', series: world, value: 10.0, source: owid-undernourishment}
 - {date: '2008', series: world, value: 9.3, source: owid-undernourishment}
-- {date: '2009', series: world, value: 9.1, source: owid-undernourishment}
+- {date: '2009', series: world, value: 9.0, source: owid-undernourishment}
 - {date: '2010', series: world, value: 8.7, source: owid-undernourishment}
 - {date: '2011', series: world, value: 8.2, source: owid-undernourishment}
-- {date: '2012', series: world, value: 8.1, source: owid-undernourishment}
-- {date: '2013', series: world, value: 7.9, source: owid-undernourishment}
-- {date: '2014', series: world, value: 7.5, source: owid-undernourishment}
-- {date: '2015', series: world, value: 7.7, source: owid-undernourishment}
+- {date: '2012', series: world, value: 8.2, source: owid-undernourishment}
+- {date: '2013', series: world, value: 7.7, source: owid-undernourishment}
+- {date: '2014', series: world, value: 7.4, source: owid-undernourishment}
+- {date: '2015', series: world, value: 8.0, source: owid-undernourishment}
 - {date: '2016', series: world, value: 7.6, source: owid-undernourishment}
-- {date: '2017', series: world, value: 7.1, source: owid-undernourishment}
-- {date: '2018', series: world, value: 7.3, source: owid-undernourishment}
+- {date: '2017', series: world, value: 7.2, source: owid-undernourishment}
+- {date: '2018', series: world, value: 7.4, source: owid-undernourishment}
 - {date: '2019', series: world, value: 7.5, source: owid-undernourishment}
-- {date: '2020', series: world, value: 8.5, source: owid-undernourishment}
-- {date: '2021', series: world, value: 8.8, source: owid-undernourishment}
-- {date: '2022', series: world, value: 8.7, source: owid-undernourishment}
+- {date: '2020', series: world, value: 8.4, source: owid-undernourishment}
+- {date: '2021', series: world, value: 8.6, source: owid-undernourishment}
+- {date: '2022', series: world, value: 8.6, source: owid-undernourishment}
 - {date: '2023', series: world, value: 8.5, source: owid-undernourishment}
-- {date: '2024', series: world, value: 8.2, source: owid-undernourishment}
+- {date: '2024', series: world, value: 8.1, source: owid-undernourishment}
+- {date: '2025', series: world, value: 7.8, source: owid-undernourishment}
